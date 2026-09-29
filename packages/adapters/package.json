@@ -1,0 +1,19 @@
+{
+  "name": "@repo/adapters",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Repository, cache, connector, and provider implementations for ScoutAlert.",
+  "exports": {},
+  "dependencies": {
+    "@repo/core": "workspace:*",
+    "bullmq": "6.3.9",
+    "ioredis": "6.0.0",
+    "kysely": "0.29.6",
+    "pg": "8.23.0"
+  },
+  "devDependencies": {
+    "@types/pg": "8.23.1",
+    "kysely-codegen": "0.20.0"
+  }
+}

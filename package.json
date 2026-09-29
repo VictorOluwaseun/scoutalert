@@ -5,11 +5,14 @@
     "build": "turbo run build",
     "dev": "turbo run dev",
     "dev:start": "pnpm exec turbo run dev --filter=./apps/web --filter=./apps/api",
-    "lint": "turbo run lint",
+    "lint": "pnpm run check:architecture && turbo run lint",
+    "check:architecture": "node scripts/check-architecture.mjs",
+    "test:architecture": "node --test scripts/architecture-rules.test.mjs",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "check-types": "turbo run check-types"
   },
   "devDependencies": {
+    "@babel/parser": "8.0.4",
     "prettier": "3.9.6",
     "turbo": "^2.11.4",
     "typescript": "7.0.2"
