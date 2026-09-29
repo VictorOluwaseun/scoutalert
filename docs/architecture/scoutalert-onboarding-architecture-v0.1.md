@@ -1,31 +1,35 @@
 # ScoutAlert — Onboarding Architecture
 
-**Version:** 0.1  
-**Date:** 28 September 2026  
-**Status:** Proposed technical design, not a description of deployed code  
-**Requirements baseline:** `scoutalert-onboarding-prd-v0.1.md`, version 0.1  
-**Boundary:** Goal entry through guest exploration or an authenticated, activated watchlist. Opportunity ingestion and recurring discovery are downstream dependencies, not redesigned here.
+**Version:** 0.2
+
+**Date:** 29 September 2026
+
+**Status:** Proposed technical design, not a description of deployed code
+
+**Requirements baseline:** Onboarding PRD, revision 0.2, within the [Platform PRD](../prd/scoutalert-platform-prd.md)
+
+**Boundary:** Goal entry through guest exploration or an authenticated, activated scout. Opportunity ingestion and recurring discovery are downstream dependencies, not redesigned here.
 
 ## 1. Executive decision
 
-Implement onboarding as a **state-driven modular monolith with bounded LLM interpretation**. Use Next.js for the experience and a thin browser-facing backend, NestJS for application use cases and authoritative decisions, PostgreSQL for durable account data, Redis for temporary processing state and budgets, and BullMQ for background work.
+Implement onboarding as **state-driven shared business modules with bounded LLM interpretation**. Use Next.js for the experience and thin same-origin server routes, NestJS as the API host, framework-independent core use cases for authoritative decisions, PostgreSQL for durable account data, Redis repositories for temporary processing state, and the platform execution adapter for background work. Temporal is the preferred durable execution target subject to the stack adoption checks.
 
-GPT-5.4 mini interprets user language into proposed structured facts. A deterministic policy selects the next question, validates eligibility-related semantics, controls review, and authorizes activation. RAG supplies evidence for preview opportunities; it is not a mandatory step in every clarification turn.
+An evaluated interpretation model proposes structured facts; GPT-5.4 mini remains an initial candidate. A deterministic policy selects the next question, validates eligibility-related semantics, controls review, and authorizes activation. RAG supplies evidence for preview opportunities; it is not a mandatory step in every clarification turn.
 
 The important output is a **confirmed, versioned search specification**, not a conversation transcript. Guest exploration and activated scouting remain different outcomes. Authentication and alert consent also remain different states. These boundaries implement PRD §§1–6.
 
 ### Architecture decisions
 
-| Decision | Choice | Reason |
-|---|---|---|
-| Service boundaries | Modules in one API, plus a worker process | Preserve transactional activation without unnecessary service-to-service coordination |
-| Conversation authority | Explicit draft and domain policies | Do not reconstruct approved requirements from a model conversation |
-| AI responsibility | Propose typed field updates and ambiguity hints | Keep identity, consent, and side effects outside model authority |
-| Guest persistence | Browser resume copy; temporary server working state | Preserve the PRD's guest-local resume behavior without trusting browser flags |
-| Durable owner data | PostgreSQL after authentication | Support ownership, account recovery, and cross-device drafts |
-| Side effects | Transactional outbox plus idempotent consumers | Avoid losing initial discovery after a successful save |
-| Real-time delivery | Request/response; bounded status polling | No WebSocket dependency for onboarding |
-| Orchestration framework | Plain application orchestrator initially | LangGraph is an optional implementation adapter, not the business-state owner |
+| Decision                | Choice                                              | Reason                                                                        |
+| ----------------------- | --------------------------------------------------- | ----------------------------------------------------------------------------- |
+| Service boundaries      | Shared core modules composed by API and workers     | Preserve transactional activation and reuse authoritative rules across hosts  |
+| Conversation authority  | Explicit draft and domain policies                  | Do not reconstruct approved requirements from a model conversation            |
+| AI responsibility       | Propose typed field updates and ambiguity hints     | Keep identity, consent, and side effects outside model authority              |
+| Guest persistence       | Browser resume copy; temporary server working state | Preserve the PRD's guest-local resume behavior without trusting browser flags |
+| Durable owner data      | PostgreSQL after authentication                     | Support ownership, account recovery, and cross-device drafts                  |
+| Side effects            | Transactional outbox plus idempotent consumers      | Avoid losing initial discovery after a successful save                        |
+| Real-time delivery      | Request/response; bounded status polling            | No WebSocket dependency for onboarding                                        |
+| Orchestration framework | Plain application orchestrator initially            | LangGraph is an optional implementation adapter, not the business-state owner |
 
 ## 2. System topology
 
@@ -36,8 +40,8 @@ flowchart TB
         LOCAL[Local resume draft - no credentials]
         UI <--> LOCAL
     end
-    BFF[Next.js BFF - same-origin routes]
-    UI --> BFF
+    SERVER[Next.js same-origin server routes]
+    UI --> SERVER
     subgraph API[NestJS modular API]
         ORCH[Onboarding application service]
         POLICY[Question and validation policies]
@@ -53,9 +57,9 @@ flowchart TB
         ORCH --> IDENTITY
         ORCH --> ACTIVATE
     end
-    BFF --> ORCH
-    BFF --> IDENTITY
-    MODEL --> LLM[GPT-5.4 mini]
+    SERVER --> ORCH
+    SERVER --> IDENTITY
+    MODEL --> LLM[Evaluated interpretation model]
     DRAFT --> TEMP[Temporary Redis working state]
     DRAFT --> PG[(PostgreSQL)]
     IDENTITY --> PG
@@ -63,71 +67,53 @@ flowchart TB
     ACTIVATE --> PG
     PREVIEW --> INDEX[Shared opportunity read index]
     PG --> RELAY[Outbox relay]
-    RELAY --> QUEUE[BullMQ / Redis]
-    QUEUE --> WORKERS[Initial discovery and notification workers]
+    RELAY --> EXEC[Durable execution adapter]
+    EXEC --> WORKERS[Initial discovery and notification activities]
     WORKERS --> PG
     WORKERS --> MAIL
 ```
 
 These are logical boundaries, not a requirement for separate deployments. Initially deploy `web`, `api`, and `worker` processes. The shared opportunity index can use the same PostgreSQL instance, with its own module-owned schema or tables. The API should use a read interface rather than modify ingestion tables.
 
-Use a private API origin behind the BFF for the web deployment. Expose only the intended routes through the public edge. Workers and database ports are not publicly reachable. Secrets stay in the server environment.
+Use a private API origin behind the Next.js server routes for the web deployment. Expose only the intended routes through the public edge. Workers and database ports are not publicly reachable. Secrets stay in the server environment.
 
-Next.js supports the BFF pattern through Route Handlers, but those handlers are public endpoints and still require authentication and authorization. NestJS supports Redis-backed BullMQ producers and consumers. [S1][S2]
+Next.js Route Handlers are public endpoints and still require authentication and authorization. Durable dispatch follows the platform execution boundary rather than selecting a second onboarding-specific engine. [S1]
 
 ## 3. Responsibilities and code organization
 
-| Module | Owns | Does not own |
-|---|---|---|
-| Onboarding UI | Focused questions, typed controls, local resume, review, loading and error states | Authoritative permissions, quota counters, consent records |
-| BFF | Same-origin HTTP, cookie transport, CSRF checks, safe response forwarding | Database transactions, model prompts, search rules |
-| Onboarding application service | Turn orchestration, revisions, review, repository selection | Provider-specific model APIs |
-| Interpretation adapter | Model request, output parsing, timeout and usage capture | Account creation, activation, arbitrary field mutation |
-| Policy engine | Supported categories, field semantics, next-question selection, activation readiness | Rewriting evidence to force a match |
-| Draft repository | Guest runtime storage, signed-in storage, optimistic writes | User-facing policy decisions |
-| Preview gateway | Bounded search and evidence-backed preview | Account-wide ingestion or permanent guest monitoring |
-| Identity module | Email challenges, sessions, ownership, draft claim | Opportunity-email opt-in |
-| Activation service | Atomic watchlist creation, confirmed preferences, consent, initial-work intent | Sending emails inside the transaction |
-| Workers | Outbox dispatch, initial scan handoff, delivery gates, retention cleanup | Reinterpreting already approved requirements silently |
+| Module                         | Owns                                                                                 | Does not own                                               |
+| ------------------------------ | ------------------------------------------------------------------------------------ | ---------------------------------------------------------- |
+| Onboarding UI                  | Focused questions, typed controls, local resume, review, loading and error states    | Authoritative permissions, quota counters, consent records |
+| Next.js server routes          | Same-origin HTTP, cookie transport, CSRF checks, safe response forwarding            | Database transactions, model prompts, search rules         |
+| Onboarding application service | Turn orchestration, revisions, review, repository selection                          | Provider-specific model APIs                               |
+| Interpretation adapter         | Model request, output parsing, timeout and usage capture                             | Account creation, activation, arbitrary field mutation     |
+| Policy engine                  | Supported categories, field semantics, next-question selection, activation readiness | Rewriting evidence to force a match                        |
+| Draft repository               | Guest runtime storage, signed-in storage, optimistic writes                          | User-facing policy decisions                               |
+| Preview gateway                | Bounded search and evidence-backed preview                                           | Account-wide ingestion or permanent guest monitoring       |
+| Identity module                | Email challenges, sessions, ownership, draft claim                                   | Opportunity-email opt-in                                   |
+| Activation service             | Atomic scout creation, confirmed preferences, consent, initial-work intent           | Sending emails inside the transaction                      |
+| Workers                        | Outbox dispatch, initial scan handoff, delivery gates, retention cleanup             | Reinterpreting already approved requirements silently      |
 
-Proposed layout:
+Feature locations follow the [canonical repository layout](../engineering/scoutalert-repository-layout.md):
 
 ```text
-apps/
-  web/
-    app/(public)/page.tsx
-    app/onboarding/
-    app/api/
-    features/onboarding/
-  api/
-    src/modules/
-      onboarding/
-        application/
-        domain/
-        infrastructure/
-        presentation/
-      identity/
-      profiles/
-      watchlists/
-      notifications/
-      opportunities/
-  worker/
-    src/processors/
-      outbox/
-      initial-discovery/
-      verification-delivery/
-      notification-delivery/
-      retention/
-packages/
-  contracts/             # HTTP schemas, response types, error codes
-  domain/                # Pure policies, field semantics, transition rules
-  database/              # Kysely database types and migrations
-  ai/                    # Provider adapters, prompt schemas, evaluations
-  config/                # Versioned categories, taxonomies, budgets
-  observability/         # Redaction and trace helpers
+apps/web/features/onboarding/          # Experience, controls, view models
+apps/web/app/api/onboarding/           # Thin browser-facing transport
+apps/api/src/modules/onboarding/      # Controllers, DTOs, presenters
+apps/api/src/composition/             # Client/repository/use-case bindings
+apps/worker/src/activities/           # Shared-use-case activity bindings
+packages/core/src/onboarding/         # Domain, application, public contract
+packages/core/src/identity/
+packages/core/src/profiles/
+packages/core/src/scouts/
+packages/adapters/src/onboarding/     # Draft repositories and interpretation adapter
+packages/adapters/src/identity/
+packages/adapters/src/notifications/
+packages/workflows/src/scouting/      # Durable execution when adopted
+packages/contracts/                  # HTTP schemas/types/errors
 ```
 
-Keep framework decorators and provider SDK types out of the pure policy package. The frontend may share validation and rendering contracts, but the backend remains authoritative. No nested conditional trees are needed: use ordered policy rules, guard clauses, and discriminated results.
+Keep framework decorators, datasource clients, and provider SDK types out of core. The web app shares transport validation/rendering contracts; core business rules remain authoritative. API and workers use the same use cases. Use ordered policy rules, guard clauses, and discriminated results with no nested `if` statements.
 
 ## 4. Core data contracts
 
@@ -151,16 +137,16 @@ A field has both a value state and provenance. Missing information is not just `
 
 ```ts
 type Answer<T> =
-  | { state: 'unasked' }
-  | { state: 'unknown' }
-  | { state: 'skipped' }
-  | { state: 'specified'; value: T };
+  | { state: "unasked" }
+  | { state: "unknown" }
+  | { state: "skipped" }
+  | { state: "specified"; value: T };
 
-type PreferenceAnswer<T> = Answer<T> | { state: 'no_preference' };
+type PreferenceAnswer<T> = Answer<T> | { state: "no_preference" };
 
 type FieldProvenance = {
-  origin: 'user_text' | 'user_control' | 'profile' | 'inference' | 'default';
-  confirmation: 'proposed' | 'user_confirmed';
+  origin: "user_text" | "user_control" | "profile" | "inference" | "default";
+  confirmation: "proposed" | "user_confirmed";
   sourceTurnId: string | null;
   sourceExcerpt: string | null;
   lastChangedSearchRevision: number;
@@ -194,14 +180,14 @@ An approved search hash is generated by the server from canonical validated data
 
 Avoid one oversized status enum mixing unrelated concerns.
 
-| Dimension | Proposed states |
-|---|---|
-| Search draft | `collecting`, `clarifying`, `review_ready`, `reviewed` |
-| Current processing | `idle`, `interpreting`, `failed`, `manual_fallback` |
-| Preview | `not_requested`, `pending`, `ready`, `empty`, `partial`, `failed`, `stale` |
-| Identity | `guest`, `verification_pending`, `authenticated` |
-| Activation | `not_started`, `submitting`, `active`, `failed` |
-| Initial scan | `not_scheduled`, `pending_dispatch`, `queued`, `running`, `succeeded`, `failed` |
+| Dimension          | Proposed states                                                                 |
+| ------------------ | ------------------------------------------------------------------------------- |
+| Search draft       | `collecting`, `clarifying`, `review_ready`, `reviewed`                          |
+| Current processing | `idle`, `interpreting`, `failed`, `manual_fallback`                             |
+| Preview            | `not_requested`, `pending`, `ready`, `empty`, `partial`, `failed`, `stale`      |
+| Identity           | `guest`, `verification_pending`, `authenticated`                                |
+| Activation         | `not_started`, `submitting`, `active`, `failed`                                 |
+| Initial scan       | `not_scheduled`, `pending_dispatch`, `queued`, `running`, `succeeded`, `failed` |
 
 The API returns allowed next actions derived from these states. The UI renders them; the model does not choose navigation or permissions.
 
@@ -217,7 +203,7 @@ flowchart LR
     PREFS --> AUTH[Authenticate when needed]
     AUTH --> CLAIM[Claim draft]
     CLAIM --> ACTIVATE[Explicit activation]
-    ACTIVATE --> ACTIVE[Active watchlist]
+    ACTIVATE --> ACTIVE[Active scout]
     ACTIVATE --> RETRY[Recoverable activation error]
     RETRY --> ACTIVATE
 ```
@@ -246,7 +232,7 @@ Create or find the account only through verified identity. Claim the guest draft
 
 Copy a validated draft snapshot into PostgreSQL with a globally unique `source_guest_draft_id`; repeated claims return the same claimed draft only to the same authenticated owner. Freeze the source revision while claiming, and reject late guest writes. A failed Redis cleanup after the database insert must not produce another durable draft. The database claim record is authoritative on retry; the retired guest handle cannot access the signed-in record.
 
-Clear the guest-local copy after confirmed handoff unless the user explicitly retains a local convenience copy. Signed-in unfinished drafts use the PRD's proposed 30-day expiry. Guest expiry never deletes an activated watchlist.
+Clear the guest-local copy after confirmed handoff unless the user explicitly retains a local convenience copy. Signed-in unfinished drafts use the PRD's proposed 30-day expiry. Guest expiry never deletes an activated scout.
 
 This design preserves the PRD distinction between browser-local guest resumption and temporary server processing. Privacy copy should explicitly disclose that submitted input is processed by the service and its model provider.
 
@@ -289,7 +275,7 @@ Use approved question templates and typed controls where possible. The model can
 
 ### Model configuration
 
-Use `gpt-5.4-mini` behind `InterpretationPort`, with a pinned model snapshot after evaluation. The current model documentation supports Structured Outputs; it also lists multiple reasoning-effort settings. Start by evaluating `none` against `low`, rather than using high effort for every field extraction. [S3]
+Evaluate `gpt-5.4-mini` behind `InterpretationPort`, then pin the selected model snapshot and task settings. The current documentation supports Structured Outputs and multiple reasoning settings. Compare `none` and `low` on onboarding fixtures; the broader stack selects production task profiles from measured quality/cost/latency. [S3]
 
 Use the Responses API with structured output and a shared schema. Treat refusal, incomplete output, unsupported values, and provider errors as distinct cases. Correct schema shape does not establish factual accuracy. [S4]
 
@@ -337,7 +323,7 @@ Use secure, HttpOnly, host-only cookies and rotate the authenticated session ide
 
 Authentication proves access to an inbox; it does not verify professional qualifications or immigration status.
 
-Record opportunity-email consent separately with purpose, subject, scope, disclosure version, server timestamp, grant/withdraw action, and request reference. Selecting dashboard-only is not unsubscribe consent to a different watchlist and must not mutate unrelated subscriptions. A future global unsubscribe has its own explicit scope.
+Record opportunity-email consent separately with purpose, subject, scope, disclosure version, server timestamp, grant/withdraw action, and request reference. Selecting dashboard-only is not unsubscribe consent to a different scout and must not mutate unrelated subscriptions. A future global unsubscribe has its own explicit scope.
 
 Verification emails are transactional authentication messages and do not require opportunity-alert opt-in. Opportunity digests require current opt-in. Never send the verification code or the email address to the interpretation model.
 
@@ -355,11 +341,11 @@ BEGIN
   Resolve existing activation / idempotency record
   Validate current revision and approved search
   Persist only approved reusable profile changes
-  Create the watchlist from the approved search snapshot
+  Create the scout from the approved search snapshot
   Persist notification preferences
   Persist explicit applicable alert-consent event
   Persist initial-scan record as pending_dispatch
-  Persist watchlist.activated outbox event
+  Persist scout.activated outbox event
   Store activation result and mark draft consumed
 COMMIT
 ```
@@ -370,57 +356,60 @@ Proposed uniqueness controls:
 
 ```text
 claimed_drafts:       UNIQUE(source_guest_draft_id)
-watchlists:           UNIQUE(source_onboarding_draft_id)
+scouts:           UNIQUE(source_onboarding_draft_id)
 activation_requests: UNIQUE(user_id, idempotency_key)
 activation_requests: UNIQUE(onboarding_draft_id)
-scout_runs:          UNIQUE(watchlist_id, run_key)
-notification_sends:  UNIQUE(watchlist_id, recipient_id, channel, digest_window)
+scout_runs:          UNIQUE(scout_id, run_key)
+notification_deliveries: UNIQUE(recipient_id, channel, logical_delivery_key)
+notification_items:      UNIQUE(delivery_id, opportunity_identity, alert_reason_key)
 ```
 
-The same key with a different request fingerprint returns a conflict. A new key on a consumed draft cannot create another watchlist. Ordinary later watchlist creation uses a new draft or an explicit duplication flow, not a replay of onboarding.
+The same key with a different request fingerprint returns a conflict. A new key on a consumed draft cannot create another scout. Ordinary later scout creation uses a new draft or an explicit duplication flow, not a replay of onboarding.
 
-For existing profiles, update only separately approved reusable fields with a profile-version check. A watchlist-only preference must not rewrite the shared profile. If profile facts changed on another device, surface the conflict; do not discard either version silently.
+Delivery keys identify actual recipient/channel messages across Scouts. A digest window is recipient-scoped; contributing Scout and recommendation versions are included-item references, not separate permissions to send another digest. Preserve meaningful variant identity and coordinate item-level deduplication with prompt alerts. The platform notification module owns these rules.
+
+For existing profiles, update only separately approved reusable fields with a profile-version check. A scout-only preference must not rewrite the shared profile. If profile facts changed on another device, surface the conflict; do not discard either version silently.
 
 ### Outbox relay
 
-A relay leases pending outbox rows, commits its claim, publishes jobs, and records dispatch. A crash after publish but before acknowledgement may lead to duplicate delivery. Use stable event/run identifiers plus database uniqueness and idempotent consumers.
+A relay leases pending outbox rows, commits its claim, submits work through the execution adapter, and records dispatch. A crash after submission but before acknowledgement may lead to duplicate dispatch. Use stable event/run identifiers plus database uniqueness and idempotent consumers. Reads, activation/idempotency records, consent, and outbox writes participate through explicitly transaction-bound repositories.
 
-BullMQ documents idempotent-job design for retries. Its custom job-ID deduplication does not persist once the old job has been removed, so queue IDs alone are not the permanent business safeguard. [S8a][S8b]
+The preferred workflow engine handles multi-step retry/timer progress; activities still protect their business effects. If BullMQ is retained for an explicit responsibility, its custom job-ID deduplication ends when the old job is removed, so queue IDs cannot be the permanent business safeguard. [S8a][S8b][S11]
 
-The initial-discovery worker accepts watchlist ID and version, loads the approved search, checks current active status, and records its run. It does not parse the onboarding chat again. A paused or superseded watchlist can prevent outdated work from executing.
+The initial-discovery worker accepts scout ID and version, loads the approved search, checks current active status, and records its run. It does not parse the onboarding chat again. A paused or superseded scout can prevent outdated work from executing.
 
-A reconciliation task finds durable runs that remain `pending_dispatch` or lose their queue representation and safely re-enqueues them. The user sees `pending_dispatch`, `queued`, `running`, `succeeded`, or `failed` accurately. Database commit means “watchlist saved,” not “a successful scan completed.”
+A reconciliation task finds durable runs that remain `pending_dispatch` or lack valid execution progress and safely resubmits their logical intent. The user sees `pending_dispatch`, `queued`, `running`, `succeeded`, or `failed` accurately. Database commit means “scout saved,” not “a successful scan completed.”
 
 ### Scheduling and email
 
-Discovery cadence is separate from notification cadence. Dashboard-only scouts still run discovery. Email subscribers get daily or weekly digests from eligible results.
+Discovery cadence is separate from notification cadence. Dashboard-only Scouts still run discovery. Users can receive eligible daily/weekly digests and optional prompt alerts, material-change alerts, or reminders under the platform policy. Advanced controls can be configured after initial onboarding without reducing platform capability.
 
 Store an IANA timezone and local time for email scheduling; derive the next UTC occurrence server-side. Specify daylight-saving behavior in tests: a proposed policy is first valid local instant after a skipped time and one send during repeated local time. This is a product scheduling decision, not a promise made by a generic cron expression.
 
-Before an opportunity email is submitted, check current account/email verification, consent, watchlist preferences, suppression state, and delivery ledger. Use provider idempotency where available. A queued digest becomes ineligible after opt-out. A message already accepted by a provider generally cannot be recalled; record that boundary honestly and reconcile ambiguous provider responses instead of blindly resending.
+Before an opportunity email is submitted, check current account/email verification, consent, scout preferences, suppression state, and delivery ledger. Use provider idempotency where available. A queued digest becomes ineligible after opt-out. A message already accepted by a provider generally cannot be recalled; record that boundary honestly and reconcile ambiguous provider responses instead of blindly resending.
 
 The architecture aims for effectively-once business effects through idempotency; it does not claim universal exactly-once delivery across PostgreSQL, Redis, and an external email provider.
 
 ## 11. Proposed API surface
 
-Paths below are browser-facing BFF routes; internal NestJS routes can use `/v1` with the same resource structure. These endpoints are proposals, not existing repository endpoints.
+Paths below are browser-facing Next.js server routes; internal NestJS routes can use `/v1` with the same resource structure. These endpoints are proposals, not existing repository endpoints.
 
-| Method and path | Purpose | Authority |
-|---|---|---|
-| `POST /api/onboarding/sessions` | Create temporary or signed-in draft; optionally restore validated local answers | Guest or authenticated session |
-| `GET /api/onboarding/sessions/:id` | Canonical current draft and allowed actions | Owning session |
-| `POST /api/onboarding/sessions/:id/turns` | Interpret free text using request ID and expected revision | Owning session, bounded AI quota |
-| `PATCH /api/onboarding/sessions/:id/answers` | Apply typed answers or reviewed corrections without mandatory LLM call | Owning session, current revision |
-| `POST /api/onboarding/sessions/:id/review` | Record review of current search hash/revision | Owning session |
-| `POST /api/onboarding/sessions/:id/previews` | Start a finite preview for current search | Owning session, bounded quota |
-| `GET /api/onboarding/sessions/:id/previews/:previewId` | Read preview status/results | Owning session; revision-bound |
-| `PATCH /api/onboarding/sessions/:id/notifications` | Edit proposed frequency, time, timezone, and alert choice | Owning session; does not itself send email |
-| `POST /api/auth/email-challenges` | Start account-access verification | Rate-limited browser flow |
-| `POST /api/auth/email-challenges/:id/verify` | Consume challenge and establish authenticated session | Bound challenge and browser |
-| `POST /api/onboarding/sessions/:id/claim` | Associate owned guest draft with authenticated user | Authenticated plus guest ownership proof |
-| `POST /api/onboarding/sessions/:id/activate` | Atomically create scout and initial-work intent | Authenticated, approved revision, idempotency |
-| `DELETE /api/onboarding/sessions/:id` | Discard unfinished draft and cancel applicable transient work | Owning session; not deletion of active watchlist |
-| `GET /api/watchlists/:id/initial-scan` | Read saved-watchlist and initial-run state | Authenticated owner |
+| Method and path                                        | Purpose                                                                         | Authority                                     |
+| ------------------------------------------------------ | ------------------------------------------------------------------------------- | --------------------------------------------- |
+| `POST /api/onboarding/sessions`                        | Create temporary or signed-in draft; optionally restore validated local answers | Guest or authenticated session                |
+| `GET /api/onboarding/sessions/:id`                     | Canonical current draft and allowed actions                                     | Owning session                                |
+| `POST /api/onboarding/sessions/:id/turns`              | Interpret free text using request ID and expected revision                      | Owning session, bounded AI quota              |
+| `PATCH /api/onboarding/sessions/:id/answers`           | Apply typed answers or reviewed corrections without mandatory LLM call          | Owning session, current revision              |
+| `POST /api/onboarding/sessions/:id/review`             | Record review of current search hash/revision                                   | Owning session                                |
+| `POST /api/onboarding/sessions/:id/previews`           | Start a finite preview for current search                                       | Owning session, bounded quota                 |
+| `GET /api/onboarding/sessions/:id/previews/:previewId` | Read preview status/results                                                     | Owning session; revision-bound                |
+| `PATCH /api/onboarding/sessions/:id/notifications`     | Edit proposed frequency, time, timezone, and alert choice                       | Owning session; does not itself send email    |
+| `POST /api/auth/email-challenges`                      | Start account-access verification                                               | Rate-limited browser flow                     |
+| `POST /api/auth/email-challenges/:id/verify`           | Consume challenge and establish authenticated session                           | Bound challenge and browser                   |
+| `POST /api/onboarding/sessions/:id/claim`              | Associate owned guest draft with authenticated user                             | Authenticated plus guest ownership proof      |
+| `POST /api/onboarding/sessions/:id/activate`           | Atomically create scout and initial-work intent                                 | Authenticated, approved revision, idempotency |
+| `DELETE /api/onboarding/sessions/:id`                  | Discard unfinished draft and cancel applicable transient work                   | Owning session; not deletion of active scout  |
+| `GET /api/scouts/:id/initial-scan`                     | Read saved-scout and initial-run state                                          | Authenticated owner                           |
 
 All mutation request bodies are strict schemas. Ownership comes from trusted authentication, not request body fields. Reject mass assignment to `ownerId`, server budgets, verified flags, or active state. Guest write operations require guest session proof and CSRF protections, not just knowledge of a UUID.
 
@@ -428,30 +417,31 @@ Useful error codes are `INVALID_INPUT`, `UNSUPPORTED_CATEGORY`, `STALE_DRAFT`, `
 
 ## 12. Storage model
 
-| Store / table | Main contents |
-|---|---|
-| Browser resume snapshot | User-entered goal, current answers, last displayed stage, schema version, expiry |
-| Temporary Redis draft | Server-issued ID, guest binding, revisions, structured state, short-lived processing results |
-| Redis limits | Guest/account/network/destination counters, request reservations, leases |
-| `users`, `auth_sessions` | Verified identity, hashed opaque sessions, expiry, revocation |
-| `email_verification_challenges` | Recipient binding, keyed code digest, generation, attempts, expiry, consumption |
-| `onboarding_drafts` | Authenticated owner, source guest ID, revisions, search JSONB, provenance, approved revision, expiry |
-| `profiles` | Confirmed reusable self-reported information and profile version |
-| `watchlists` | Approved search snapshot, version, active state, next discovery time |
-| `notification_preferences` | Watchlist scope, channel/frequency, local time, timezone, version |
-| `consent_events` | Purpose, scope, action, disclosure version, timestamp, request association |
-| `activation_requests` | Owner/key, request fingerprint, draft ID, stable activation response |
-| `outbox_events` | Event ID/type, aggregate/version, minimal payload, lease, publication state |
-| `scout_runs`, `notification_sends` | Durable execution and delivery deduplication/status |
-| AI telemetry | Model/prompt/schema versions, duration, usage, error class; no raw private text by default |
+| Store / table                                   | Main contents                                                                                        |
+| ----------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| Browser resume snapshot                         | User-entered goal, current answers, last displayed stage, schema version, expiry                     |
+| Temporary Redis draft                           | Server-issued ID, guest binding, revisions, structured state, short-lived processing results         |
+| Redis limits                                    | Guest/account/network/destination counters, request reservations, leases                             |
+| `users`, `auth_sessions`                        | Verified identity, hashed opaque sessions, expiry, revocation                                        |
+| `email_verification_challenges`                 | Recipient binding, keyed code digest, generation, attempts, expiry, consumption                      |
+| `onboarding_drafts`                             | Authenticated owner, source guest ID, revisions, search JSONB, provenance, approved revision, expiry |
+| `profiles`                                      | Confirmed reusable self-reported information and profile version                                     |
+| `scouts`                                        | Approved search snapshot, version, active state, next discovery time                                 |
+| `notification_preferences`                      | Scout scope, channel/frequency, local time, timezone, version                                        |
+| `consent_events`                                | Purpose, scope, action, disclosure version, timestamp, request association                           |
+| `activation_requests`                           | Owner/key, request fingerprint, draft ID, stable activation response                                 |
+| `outbox_events`                                 | Event ID/type, aggregate/version, minimal payload, lease, publication state                          |
+| `scout_runs`                                    | Durable logical execution identity, business run state, engine references                            |
+| `notification_deliveries`, `notification_items` | Recipient/channel delivery identity, included items/Scout references, submission/outcome state       |
+| AI telemetry                                    | Model/prompt/schema versions, duration, usage, error class; no raw private text by default           |
 
 Use indexes on owner/draft IDs, expiry, due schedules, pending outbox work, and stable run keys. The default design is ordinary relational data plus targeted JSONB, not full event sourcing. Retain enough provenance to explain an extraction without retaining every token indefinitely.
 
-Queue payloads should contain IDs and versions, not full private profiles. Keep queue infrastructure non-evicting and distinguish disposable caches operationally. In a small deployment a shared Redis instance can be deliberately configured; at higher load or different failure requirements, split cache/runtime and queue workloads. PostgreSQL remains the source of truth for activated scouts and consent.
+Execution payloads contain IDs and versions, not full private profiles. Redis guest/runtime/cache state is distinct from authoritative business records and engine history. If a retained queue uses Redis, separate its persistence/non-eviction requirements from disposable cache policy. PostgreSQL remains the source of truth for activated Scouts and consent.
 
 ## 13. Security and privacy controls
 
-Every private read and mutation is owner-scoped. The BFF never passes a browser-provided identity header through as trusted. Internal service authentication and user authorization are distinct.
+Every private read and mutation is owner-scoped. Next.js server routes never pass a browser-provided identity header through as trusted. Internal service authentication and user authorization are distinct.
 
 Use strict request bounds, appropriate encoding, a restrictive content security policy, safe text rendering, CSRF/origin checks, high-entropy session handles, session rotation, and rate limits. Do not enable arbitrary server-side URL fetching from the onboarding interpreter; the preview gateway uses approved indexed source IDs.
 
@@ -465,20 +455,20 @@ On discard or expiry, remove working content, not the minimum separate abuse-con
 
 ### Failure behavior
 
-| Failure | Expected behavior |
-|---|---|
-| Model timeout, refusal, malformed output | Preserve state; bounded retry where appropriate; manual fallback |
-| Stale model or preview response | Do not overwrite or present it as current; return latest revision |
-| Temporary guest runtime lost | Restore local answers through validation; no restored security privileges |
-| Browser storage blocked | Current session remains usable; persistence limitation shown |
-| Preview index unavailable or empty | Honest failure/coverage state; search review and activation stay available |
-| Email provider unavailable | Preserve reviewed draft; show verification delivery problem without claiming inbox delivery |
-| Concurrent verification attempts | At most one challenge consumption; attempts increment atomically |
-| Activation response lost | Retry returns persisted activation result |
-| Redis unavailable after activation commit | Saved watchlist remains; outbox/reconciliation dispatch later |
-| Relay or worker processes same event twice | Stable run key prevents duplicate business effects |
-| User withdraws consent during queue wait | Delivery gate suppresses opportunity email |
-| Returning user has newer profile data | Explicit merge/review; no silent profile overwrite |
+| Failure                                    | Expected behavior                                                                           |
+| ------------------------------------------ | ------------------------------------------------------------------------------------------- |
+| Model timeout, refusal, malformed output   | Preserve state; bounded retry where appropriate; manual fallback                            |
+| Stale model or preview response            | Do not overwrite or present it as current; return latest revision                           |
+| Temporary guest runtime lost               | Restore local answers through validation; no restored security privileges                   |
+| Browser storage blocked                    | Current session remains usable; persistence limitation shown                                |
+| Preview index unavailable or empty         | Honest failure/coverage state; search review and activation stay available                  |
+| Email provider unavailable                 | Preserve reviewed draft; show verification delivery problem without claiming inbox delivery |
+| Concurrent verification attempts           | At most one challenge consumption; attempts increment atomically                            |
+| Activation response lost                   | Retry returns persisted activation result                                                   |
+| Redis unavailable after activation commit  | Saved scout remains; outbox/reconciliation dispatch later                                   |
+| Relay or worker processes same event twice | Stable run key prevents duplicate business effects                                          |
+| User withdraws consent during queue wait   | Delivery gate suppresses opportunity email                                                  |
+| Returning user has newer profile data      | Explicit merge/review; no silent profile overwrite                                          |
 
 ### Test layers
 
@@ -488,11 +478,11 @@ On discard or expiry, remove working content, not the minimum separate abuse-con
 
 **Integration tests:** real PostgreSQL and Redis for optimistic revisions, guest claim crash windows, OTP expiry/consumption, transaction rollback, duplicate keys, outbox restart, lost queue jobs, and consent changes. Do not rely solely on mocks for concurrency tests.
 
-**End-to-end tests:** guest and authenticated routes; daily/weekly/dashboard-only; keyboard/mobile layouts; session expiry; multi-tab edits; back/reload; missing matches; unsupported category; repeated activation; signed-in new watchlist. Test daylight-saving schedule boundaries for zones that use them.
+**End-to-end tests:** guest and authenticated routes; daily/weekly/dashboard-only; keyboard/mobile layouts; session expiry; multi-tab edits; back/reload; missing matches; unsupported category; repeated activation; signed-in new scout. Test daylight-saving schedule boundaries for zones that use them.
 
 ### Metrics and traces
 
-Correlate requests through BFF, API, model adapter, preview, activation, and worker using opaque IDs. Include draft/search revision and deployed policy/model/schema version, not raw private text.
+Correlate requests through Next.js server routes, API, model adapter, preview, activation, and worker using opaque IDs. Include draft/search revision and deployed policy/model/schema version, not raw private text.
 
 Measure clarification interactions, completion/abandonment, actual model usage, interpretation latency, schema/semantic errors, preview usefulness, verification latency, activation success, outbox lag, initial-scan completion, and suppressed/duplicate delivery attempts. Review behavior by supported category and source coverage without unnecessary fine-grained anonymous location tracking.
 
@@ -504,10 +494,10 @@ The PRD's three-minute median active completion time, eight-second interpretatio
 2. **Bounded interpretation:** GPT-5.4 mini adapter, strict proposals, version checks, per-turn/session budgets, failure paths, and evaluation fixtures.
 3. **Preview integration:** Read-only shared opportunity index, evidence references, stale-result handling, empty/partial states, and guest quotas.
 4. **Identity and claim:** Passwordless adapter, session rotation, code abuse controls, secure guest-to-account handoff, signed-in draft resume.
-5. **Activation and reliability:** Transactional watchlist creation, explicit consent, outbox, idempotent initial scan, status endpoint, and delivery gate tests.
+5. **Activation and reliability:** Transactional scout creation, explicit consent, outbox, idempotent initial scan, status endpoint, and delivery gate tests.
 6. **Operational release:** Redaction, accessibility and concurrency testing, telemetry, retention cleanup, capacity testing, and rollout controls.
 
-The first vertical slice should demonstrate: **natural-language goal -> validated draft -> relevant question -> editable review -> guest preview**, before adding identity and recurring work. The release slice is complete only once activation, recovery, consent, and operational tests also pass.
+An onboarding feature slice demonstrates **natural-language goal → validated draft → relevant question → editable review → guest preview**. It is not the complete product milestone. Platform delivery additionally demonstrates a live source, evidence-backed matching/research, recurring execution, a durable recommendation, an eligible alert, feedback, and fault recovery as defined by the platform PRD.
 
 ## 16. Deferred complexity and approval points
 
@@ -521,11 +511,11 @@ Approve the proposed temporary guest-runtime TTL, concrete identity provider/lib
 
 ## References
 
-**Product requirements:** User-provided `scoutalert-onboarding-prd-v0.1.md`, 28 September 2026, especially §§5–8 and §10. This architecture proposes implementation choices; it does not modify that PRD.
+**Product requirements:** [Platform PRD](../prd/scoutalert-platform-prd.md) and the onboarding feature PRD, revision 0.2, especially §§5–8 and §10. Earlier generated proposals are design inputs, not a ceiling on product scope.
 
-Technical documentation consulted on 28 September 2026:
+Original technical references were consulted on 28 September 2026; model and platform-execution guidance was checked again on 29 September 2026:
 
-- [S1 — Next.js Backend for Frontend](https://nextjs.org/docs/app/guides/backend-for-frontend): public route handlers and BFF boundary.
+- [S1 — Next.js server route guidance](https://nextjs.org/docs/app/guides/backend-for-frontend): public route handlers and transport boundary.
 - [S2 — NestJS Queues](https://docs.nestjs.com/techniques/queues): Redis-backed BullMQ integration.
 - [S3 — OpenAI GPT-5.4 mini model](https://developers.openai.com/api/docs/models/gpt-5.4-mini): supported model features and snapshots.
 - [S4 — OpenAI Structured Outputs](https://developers.openai.com/api/docs/guides/structured-outputs): schema-constrained outputs and limitations.
@@ -536,3 +526,4 @@ Technical documentation consulted on 28 September 2026:
 - [S8b — BullMQ Job IDs](https://docs.bullmq.io/guide/jobs/job-ids): job-ID deduplication lifetime.
 - [S9 — OpenAI Data Controls](https://developers.openai.com/api/docs/guides/your-data): application-state and monitoring retention distinctions.
 - [S10 — LangGraph Overview](https://docs.langchain.com/oss/javascript/langgraph/overview): deterministic/agentic orchestration and persistence.
+- [S11 — Temporal Activities](https://docs.temporal.io/activities): activity execution and retry-safe effects; consulted 29 September 2026.

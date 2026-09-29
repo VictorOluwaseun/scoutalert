@@ -1,14 +1,20 @@
 # ScoutAlert — Platform User Stories
 
-**Version:** 0.1  
-**Date:** 29 September 2026  
-**Status:** Product backlog baseline  
-**Scope:** ScoutAlert application after and around onboarding  
-**Onboarding backlog:** [ScoutAlert Onboarding User Stories v0.1](scoutalert-onboarding-user-stories-v0.1.md)
+**Version:** 0.2
+
+**Date:** 29 September 2026
+
+**Status:** Product backlog baseline
+
+**Scope:** Complete opportunity scouting lifecycle and platform operations
+
+**Product baseline:** [Platform PRD](../prd/scoutalert-platform-prd.md), revision 0.2
+
+**Onboarding backlog:** [ScoutAlert Onboarding User Stories](scoutalert-onboarding-user-stories-v0.1.md), revision 0.2
 
 ## 1. Priority definitions
 
-- **P0** — Core capability required for the first complete jobs/contracts product.
+- **P0** — Core capability required for the first complete scouting loop across enabled work categories.
 - **P1** — Important production capability required for a strong broad release.
 - **P2** — Advanced or category-expansion capability that builds on the core platform.
 
@@ -16,10 +22,12 @@
 
 ### PROF-001 — Maintain my professional profile
 
-**User story**  
+**User story**
+
 As a user, I want to maintain my confirmed professional background so that ScoutAlert can evaluate opportunities against current information.
 
 **Acceptance criteria**
+
 - Users can edit relevant skills, experience, qualifications, languages, and availability.
 - Confirmed facts remain distinguishable from inferred/proposed information.
 - Profile changes create a new version.
@@ -29,10 +37,12 @@ As a user, I want to maintain my confirmed professional background so that Scout
 
 ### PROF-002 — Separate experience from career direction
 
-**User story**  
+**User story**
+
 As a user, I want ScoutAlert to distinguish what I already know from what I want to move into so that aspirations are not presented as established experience.
 
 **Acceptance criteria**
+
 - Demonstrated experience and desired skills/roles are stored separately.
 - Stretch-role matching can use aspirations without misrepresenting them as qualifications.
 - Explanations clearly identify transferable experience and missing evidence.
@@ -41,10 +51,12 @@ As a user, I want ScoutAlert to distinguish what I already know from what I want
 
 ### PROF-003 — Import a CV optionally
 
-**User story**  
+**User story**
+
 As a user, I want to optionally import a CV so that ScoutAlert can propose profile information without requiring me to enter everything manually.
 
 **Acceptance criteria**
+
 - CV upload is optional.
 - Extracted information requires review before becoming confirmed profile data.
 - Unsupported/incomplete extraction is surfaced.
@@ -52,40 +64,46 @@ As a user, I want to optionally import a CV so that ScoutAlert can propose profi
 
 **Priority:** P1
 
-### PROF-004 — Keep my reusable profile independent from watchlists
+### PROF-004 — Keep my reusable profile independent from scouts
 
-**User story**  
-As a user, I want shared profile facts separated from search-specific preferences so that one watchlist does not rewrite my professional identity.
+**User story**
+
+As a user, I want shared profile facts separated from search-specific preferences so that one scout does not rewrite my professional identity.
 
 **Acceptance criteria**
-- Watchlist preferences remain watchlist-scoped.
+
+- Scout preferences remain scout-scoped.
 - Shared profile changes require explicit confirmation.
-- Multiple watchlists can reuse the same profile version.
+- Multiple scouts can reuse the same profile version.
 - Conflicting concurrent edits are surfaced.
 
 **Priority:** P0
 
-## 3. Watchlists
+## 3. Scouts
 
-### WL-001 — Create multiple independent watchlists
+### WL-001 — Create multiple independent scouts
 
-**User story**  
+**User story**
+
 As a user, I want multiple searches for different goals so that full-time, contract, relocation, and other searches can have independent rules.
 
 **Acceptance criteria**
-- Each watchlist has its own search specification, constraints, preferences, schedule, and lifecycle.
-- Creating a new watchlist does not change existing watchlists.
-- Watchlists reference a confirmed profile version or relevant profile facts.
-- Each watchlist has a stable ID and version.
+
+- Each scout has its own search specification, constraints, preferences, schedule, and lifecycle.
+- Creating a new scout does not change existing scouts.
+- Scouts reference a confirmed profile version or relevant profile facts.
+- Each scout has a stable ID and version.
 
 **Priority:** P0
 
-### WL-002 — Edit a watchlist safely
+### WL-002 — Edit a scout safely
 
-**User story**  
-As a user, I want to update a watchlist so that my search evolves without losing control of its requirements.
+**User story**
+
+As a user, I want to update a scout so that my search evolves without losing control of its requirements.
 
 **Acceptance criteria**
+
 - Search-relevant edits create a new search revision.
 - Material changes invalidate incompatible cached recommendations.
 - Mandatory requirements are not silently relaxed.
@@ -93,25 +111,29 @@ As a user, I want to update a watchlist so that my search evolves without losing
 
 **Priority:** P0
 
-### WL-003 — Pause, resume, archive, and duplicate watchlists
+### WL-003 — Pause, resume, archive, and duplicate scouts
 
-**User story**  
-As a user, I want lifecycle controls for each watchlist so that I can manage active searches independently.
+**User story**
+
+As a user, I want lifecycle controls for each scout so that I can manage active searches independently.
 
 **Acceptance criteria**
-- Paused watchlists stop future discovery/publication work after current version checks.
+
+- Paused scouts stop future discovery/publication work after current version checks.
 - Resume schedules future work from the current approved revision.
 - Archive preserves history while disabling active scouting.
-- Duplicate creates a new watchlist with independent future revisions.
+- Duplicate creates a new scout with independent future revisions.
 
 **Priority:** P1
 
 ### WL-004 — Configure uncertainty handling
 
-**User story**  
-As a user, I want each watchlist to define how missing salary, location eligibility, or other important unknowns are handled so that recommendations reflect my tolerance for uncertainty.
+**User story**
+
+As a user, I want each scout to define how missing salary, location eligibility, or other important unknowns are handled so that recommendations reflect my tolerance for uncertainty.
 
 **Acceptance criteria**
+
 - Unknown-information policies are explicit and editable.
 - Unknown does not equal eligible or ineligible.
 - Main-feed versus needs-confirmation grouping follows the configured policy.
@@ -123,10 +145,12 @@ As a user, I want each watchlist to define how missing salary, location eligibil
 
 ### DISC-001 — Discover opportunities across supported global sources
 
-**User story**  
+**User story**
+
 As a user, I want ScoutAlert to continuously discover relevant opportunities from supported sources so that I do not need to monitor many sites manually.
 
 **Acceptance criteria**
+
 - The system ingests enabled approved sources according to their refresh policies.
 - Source failures do not appear as successful scans.
 - Source coverage is represented honestly.
@@ -136,10 +160,12 @@ As a user, I want ScoutAlert to continuously discover relevant opportunities fro
 
 ### DISC-002 — See the original opportunity source
 
-**User story**  
+**User story**
+
 As a user, I want access to the original posting so that I can verify details and apply through the appropriate channel.
 
 **Acceptance criteria**
+
 - Recommendations include the canonical/original application source when available and permitted.
 - Source identity is preserved through normalization/deduplication.
 - Unsafe or revoked links are not presented as trusted application links.
@@ -148,10 +174,12 @@ As a user, I want access to the original posting so that I can verify details an
 
 ### DISC-003 — Avoid duplicate opportunities
 
-**User story**  
+**User story**
+
 As a user, I want duplicate postings consolidated so that the same underlying opportunity does not dominate my feed.
 
 **Acceptance criteria**
+
 - Canonical opportunities can link multiple source postings.
 - Materially different variants remain distinct.
 - Duplicate merges are reversible/auditable.
@@ -161,10 +189,12 @@ As a user, I want duplicate postings consolidated so that the same underlying op
 
 ### DISC-004 — Understand opportunity freshness
 
-**User story**  
+**User story**
+
 As a user, I want to know when an opportunity was posted, discovered, and last checked so that I can judge whether it is current.
 
 **Acceptance criteria**
+
 - Source publication date and first-seen date remain separate.
 - Last successful status/content check is available where relevant.
 - Stale/unconfirmed status is distinguishable from open/closed.
@@ -174,10 +204,12 @@ As a user, I want to know when an opportunity was posted, discovered, and last c
 
 ### DISC-005 — See source coverage limitations
 
-**User story**  
+**User story**
+
 As a user, I want to understand relevant coverage gaps so that an empty result set is not mistaken for proof that no opportunities exist.
 
 **Acceptance criteria**
+
 - Scout/run status can distinguish no matches, incomplete coverage, source failure, and partial completion.
 - Coverage messaging is scoped to supported sources/categories.
 - Users can see when a source is temporarily unavailable when materially relevant.
@@ -186,10 +218,12 @@ As a user, I want to understand relevant coverage gaps so that an empty result s
 
 ### DISC-006 — Submit an opportunity I found
 
-**User story**  
+**User story**
+
 As a user, I want to submit an opportunity URL or text so that ScoutAlert can evaluate something I discovered elsewhere.
 
 **Acceptance criteria**
+
 - The system safely handles supported URLs or pasted text.
 - Submitted content follows the same extraction/evidence rules as discovered opportunities.
 - Unsupported/inaccessible sources are explained.
@@ -201,10 +235,12 @@ As a user, I want to submit an opportunity URL or text so that ScoutAlert can ev
 
 ### EVID-001 — Preserve evidence for important claims
 
-**User story**  
+**User story**
+
 As a user, I want ScoutAlert's important conclusions to point back to supporting source evidence so that I can understand why they were made.
 
 **Acceptance criteria**
+
 - Important eligibility, compensation, deadline, and requirement claims retain provenance.
 - Evidence references identify source version and relevant passage/field.
 - Model-generated wording cannot create a source reference that was not retrieved.
@@ -214,10 +250,12 @@ As a user, I want ScoutAlert's important conclusions to point back to supporting
 
 ### EVID-002 — Keep conflicting information visible
 
-**User story**  
+**User story**
+
 As a user, I want conflicting source information to remain visible until resolved so that ScoutAlert does not hide meaningful uncertainty.
 
 **Acceptance criteria**
+
 - Conflicting evidence is represented explicitly.
 - Source-specific and employer-wide policies retain their scope.
 - Research can resolve a conflict only with supported evidence/policy.
@@ -227,10 +265,12 @@ As a user, I want conflicting source information to remain visible until resolve
 
 ### EVID-003 — Track meaningful opportunity changes
 
-**User story**  
+**User story**
+
 As a user, I want ScoutAlert to recognize material changes to opportunities so that recommendations can be refreshed when eligibility, pay, deadline, or status changes.
 
 **Acceptance criteria**
+
 - Accepted source versions preserve meaningful changes.
 - Relevant changes invalidate dependent assessments.
 - Cosmetic changes do not necessarily cause duplicate recommendations.
@@ -242,10 +282,12 @@ As a user, I want ScoutAlert to recognize material changes to opportunities so t
 
 ### MATCH-001 — Match beyond exact keywords
 
-**User story**  
+**User story**
+
 As a user, I want ScoutAlert to recognize related experience and responsibilities even when terminology differs so that relevant opportunities are not missed.
 
 **Acceptance criteria**
+
 - Candidate retrieval uses structured filtering plus keyword and semantic retrieval.
 - Semantic similarity is not used as proof of eligibility.
 - Retrieval changes are evaluated against labeled ScoutAlert datasets.
@@ -255,10 +297,12 @@ As a user, I want ScoutAlert to recognize related experience and responsibilitie
 
 ### MATCH-002 — Enforce hard constraints before recommendation
 
-**User story**  
+**User story**
+
 As a user, I want my confirmed mandatory requirements to take precedence over general fit so that attractive but clearly unsuitable opportunities do not enter my main recommendations.
 
 **Acceptance criteria**
+
 - Confirmed hard conflicts cannot be offset by professional-fit scores.
 - Hard rules operate on validated facts/evidence.
 - Unknown information follows the configured uncertainty policy.
@@ -268,10 +312,12 @@ As a user, I want my confirmed mandatory requirements to take precedence over ge
 
 ### MATCH-003 — Evaluate professional fit from evidence
 
-**User story**  
+**User story**
+
 As a user, I want ScoutAlert to compare my confirmed experience with the actual responsibilities of an opportunity so that recommendations go beyond titles and keywords.
 
 **Acceptance criteria**
+
 - Fit evaluation receives relevant confirmed profile evidence and relevant opportunity evidence.
 - Missing experience is not invented.
 - Transferable experience can be identified separately from direct experience.
@@ -281,10 +327,12 @@ As a user, I want ScoutAlert to compare my confirmed experience with the actual 
 
 ### MATCH-004 — Evaluate geographic eligibility separately
 
-**User story**  
+**User story**
+
 As a user, I want ScoutAlert to evaluate stated applicant-location, work-authorization, and sponsorship requirements separately from professional fit so that a strong skills match does not hide a location conflict.
 
 **Acceptance criteria**
+
 - Employer HQ, job location, applicant location, residence, authorization, sponsorship, and relocation remain distinct concepts.
 - Remote does not imply worldwide.
 - Unknown country eligibility remains unconfirmed.
@@ -294,12 +342,14 @@ As a user, I want ScoutAlert to evaluate stated applicant-location, work-authori
 
 ### MATCH-005 — Evaluate compensation correctly
 
-**User story**  
+**User story**
+
 As a user, I want ScoutAlert to compare compensation using correct units and assumptions so that hourly, monthly, annual, or undisclosed pay is not misrepresented.
 
 **Acceptance criteria**
+
 - Currency, amount/range, period, and basis remain explicit.
-- Undisclosed compensation follows the watchlist policy.
+- Undisclosed compensation follows the scout policy.
 - Cross-currency comparison uses a versioned rate/assumption where enabled.
 - Unstated hours are not invented for annualization.
 
@@ -307,10 +357,12 @@ As a user, I want ScoutAlert to compare compensation using correct units and ass
 
 ### MATCH-006 — Keep recommendation dimensions separate
 
-**User story**  
+**User story**
+
 As a user, I want to see professional fit, eligibility, compensation, evidence quality, and uncertainty separately so that one combined score does not obscure important differences.
 
 **Acceptance criteria**
+
 - User-facing results do not present ranking as hiring probability.
 - Main decision dimensions are available independently.
 - Unresolved criteria are visible.
@@ -320,10 +372,12 @@ As a user, I want to see professional fit, eligibility, compensation, evidence q
 
 ### MATCH-007 — Prioritize a manageable shortlist
 
-**User story**  
+**User story**
+
 As a user, I want the strongest actionable opportunities prioritized so that I can focus attention without receiving weak filler.
 
 **Acceptance criteria**
+
 - Candidate retrieval and deeper evaluation are separated.
 - Result limits are maximums, not quotas.
 - The system may publish fewer recommendations.
@@ -333,10 +387,12 @@ As a user, I want the strongest actionable opportunities prioritized so that I c
 
 ### MATCH-008 — Explore stretch opportunities intentionally
 
-**User story**  
+**User story**
+
 As a user, I want optional stretch opportunities clearly separated from direct matches so that I can explore growth without confusing aspiration with current qualification.
 
 **Acceptance criteria**
+
 - Stretch recommendations are opt-in/configurable.
 - Missing skills or experience are visible.
 - They do not appear as direct-fit recommendations by default.
@@ -348,10 +404,12 @@ As a user, I want optional stretch opportunities clearly separated from direct m
 
 ### RSRCH-001 — Investigate consequential unknowns
 
-**User story**  
+**User story**
+
 As a user, I want ScoutAlert to investigate important unclear requirements when the opportunity is otherwise promising so that I get better evidence before deciding.
 
 **Acceptance criteria**
+
 - Research starts from an explicit unresolved question.
 - It uses only approved tools/sources.
 - It has bounded calls, time, tokens, and cost.
@@ -361,10 +419,12 @@ As a user, I want ScoutAlert to investigate important unclear requirements when 
 
 ### RSRCH-002 — Reuse valid public research
 
-**User story**  
+**User story**
+
 As a platform user, I want ScoutAlert to reuse still-valid public employer-policy research where appropriate so that the system is fast and efficient.
 
 **Acceptance criteria**
+
 - Reuse keys include subject, question scope, geography/engagement context, policy/version, source version, and validity window.
 - Private user data is not stored in shared research results.
 - New evidence can invalidate a cached unresolved result.
@@ -374,10 +434,12 @@ As a platform user, I want ScoutAlert to reuse still-valid public employer-polic
 
 ### RSRCH-003 — Stop research safely
 
-**User story**  
+**User story**
+
 As a user, I want ScoutAlert to stop when the question is resolved or when evidence cannot be established within the allowed budget so that uncertainty is not replaced by a guess.
 
 **Acceptance criteria**
+
 - Stop conditions are explicit.
 - Budget exhaustion produces an unresolved state rather than a fabricated answer.
 - A stronger model is not used solely because evidence is absent.
@@ -389,10 +451,12 @@ As a user, I want ScoutAlert to stop when the question is resolved or when evide
 
 ### REC-001 — View prioritized recommendations
 
-**User story**  
-As a user, I want a dashboard of current recommendations organized by watchlist and confidence state so that I can quickly see what deserves attention.
+**User story**
+
+As a user, I want a dashboard of current recommendations organized by scout and confidence state so that I can quickly see what deserves attention.
 
 **Acceptance criteria**
+
 - Recommendations are read from durable records.
 - Strong matches and needs-confirmation results can be separated.
 - Stale/withdrawn recommendations do not appear as current without warning.
@@ -402,10 +466,12 @@ As a user, I want a dashboard of current recommendations organized by watchlist 
 
 ### REC-002 — Understand why an opportunity was recommended
 
-**User story**  
+**User story**
+
 As a user, I want a concise explanation grounded in evidence so that I can decide whether to investigate or apply.
 
 **Acceptance criteria**
+
 - Explanation is derived from validated fit/eligibility outputs.
 - Important evidence links/references are available.
 - Gaps and unknowns are included.
@@ -415,10 +481,12 @@ As a user, I want a concise explanation grounded in evidence so that I can decid
 
 ### REC-003 — Inspect opportunity details
 
-**User story**  
+**User story**
+
 As a user, I want one detailed view containing role information, evidence, fit, eligibility, uncertainty, and source links so that I do not need to reconstruct the assessment myself.
 
 **Acceptance criteria**
+
 - Current canonical opportunity/variant is displayed.
 - Source/evidence freshness is represented.
 - Relevant requirements and gaps are available.
@@ -428,23 +496,27 @@ As a user, I want one detailed view containing role information, evidence, fit, 
 
 ### REC-004 — Save or dismiss an opportunity
 
-**User story**  
+**User story**
+
 As a user, I want to save or dismiss opportunities so that ScoutAlert reflects what I am considering.
 
 **Acceptance criteria**
+
 - Save and dismiss actions are user-owned and reversible.
 - Dismissal can include a reason.
 - Actions reference the recommendation/evaluation version.
-- A dismissal does not globally alter unrelated watchlists.
+- A dismissal does not globally alter unrelated scouts.
 
 **Priority:** P0
 
 ### REC-005 — See recommendation history and changes
 
-**User story**  
-As a user, I want to see when a recommendation changed because of new evidence or profile/watchlist changes so that I understand why ScoutAlert's assessment evolved.
+**User story**
+
+As a user, I want to see when a recommendation changed because of new evidence or profile/scout changes so that I understand why ScoutAlert's assessment evolved.
 
 **Acceptance criteria**
+
 - Current state is clearly distinguished from historical evaluations.
 - Material changes can be explained using version/evidence changes.
 - Withdrawn recommendations remain available in appropriate history views.
@@ -455,12 +527,14 @@ As a user, I want to see when a recommendation changed because of new evidence o
 
 ### FB-001 — Explain why a recommendation is unsuitable
 
-**User story**  
+**User story**
+
 As a user, I want to provide a reason when dismissing a result so that ScoutAlert can improve the relevant search.
 
 **Acceptance criteria**
+
 - Supported reasons include location, compensation, seniority, responsibilities, work type, and other meaningful categories.
-- Feedback is scoped to the relevant watchlist/recommendation.
+- Feedback is scoped to the relevant scout/recommendation.
 - Explicit feedback outranks inferred behavioral signals.
 - Users can undo/correct feedback.
 
@@ -468,10 +542,12 @@ As a user, I want to provide a reason when dismissing a result so that ScoutAler
 
 ### FB-002 — Learn preferences without changing hard facts
 
-**User story**  
+**User story**
+
 As a user, I want ScoutAlert to learn ranking preferences from my feedback without silently changing my confirmed profile or mandatory constraints.
 
 **Acceptance criteria**
+
 - Learned signals are reversible.
 - Hard constraints require explicit changes.
 - Shared profile facts require explicit confirmation.
@@ -481,10 +557,12 @@ As a user, I want ScoutAlert to learn ranking preferences from my feedback witho
 
 ### FB-003 — Preserve exploration
 
-**User story**  
+**User story**
+
 As a user, I want ScoutAlert to occasionally surface relevant opportunities outside a narrow learned pattern so that personalization does not trap me in a feedback loop.
 
 **Acceptance criteria**
+
 - Exploration is controlled and configurable by policy.
 - Exploratory results still satisfy hard constraints.
 - Stretch/exploration results are identifiable.
@@ -496,10 +574,12 @@ As a user, I want ScoutAlert to occasionally surface relevant opportunities outs
 
 ### APP-001 — Track my application status
 
-**User story**  
+**User story**
+
 As a user, I want to track where I am in each application so that ScoutAlert becomes a useful opportunity workspace.
 
 **Acceptance criteria**
+
 - Supported states include interested, applied, interviewing, offer, rejected, withdrawn, and other approved states.
 - Users can add private notes.
 - Application state is user-owned.
@@ -509,10 +589,12 @@ As a user, I want to track where I am in each application so that ScoutAlert bec
 
 ### APP-002 — Keep saved opportunities after listing changes
 
-**User story**  
+**User story**
+
 As a user, I want saved opportunities to preserve relevant history even when the source closes or changes so that my application record remains useful.
 
 **Acceptance criteria**
+
 - Saved/application records retain the canonical opportunity reference and historical snapshot/evaluation references.
 - Current closure/status is visible.
 - Historical user notes are not deleted by source closure.
@@ -521,10 +603,12 @@ As a user, I want saved opportunities to preserve relevant history even when the
 
 ### APP-003 — Prepare application assistance with approval
 
-**User story**  
+**User story**
+
 As a user, I want ScoutAlert to help prepare truthful application materials so that repetitive application work is easier.
 
 **Acceptance criteria**
+
 - Drafts use confirmed profile information and opportunity evidence.
 - Proposed changes are reviewable.
 - The system does not invent qualifications.
@@ -536,11 +620,13 @@ As a user, I want ScoutAlert to help prepare truthful application materials so t
 
 ### ALERT-001 — Receive scheduled opportunity digests
 
-**User story**  
+**User story**
+
 As a user, I want ScoutAlert to send scheduled digests containing current recommendations so that I do not need to check the dashboard constantly.
 
 **Acceptance criteria**
-- Digest schedule follows the watchlist/account notification settings.
+
+- Digest schedule follows the scout/account notification settings.
 - Only current, authorized recommendations are eligible.
 - Weak recommendations are not added merely to fill a quota.
 - Each item includes enough context to judge whether to open it.
@@ -549,10 +635,12 @@ As a user, I want ScoutAlert to send scheduled digests containing current recomm
 
 ### ALERT-002 — Receive important change alerts
 
-**User story**  
+**User story**
+
 As a user, I want optional alerts when a saved or highly relevant opportunity materially changes so that important updates do not wait for the next digest.
 
 **Acceptance criteria**
+
 - Material-change policy is explicit/versioned.
 - Duplicate alerts are suppressed.
 - The user can enable/disable supported change-alert types.
@@ -562,10 +650,12 @@ As a user, I want optional alerts when a saved or highly relevant opportunity ma
 
 ### ALERT-003 — Receive deadline reminders
 
-**User story**  
+**User story**
+
 As a user, I want optional reminders for saved opportunities with known deadlines so that I do not miss an application I intend to complete.
 
 **Acceptance criteria**
+
 - Only supported, sufficiently precise deadlines trigger reminders.
 - Ambiguous date/time zones are handled according to an explicit policy.
 - Closed/withdrawn opportunities do not generate new reminders.
@@ -575,12 +665,14 @@ As a user, I want optional reminders for saved opportunities with known deadline
 
 ### ALERT-004 — Avoid duplicate notifications
 
-**User story**  
-As a user, I want the same underlying opportunity consolidated across watchlists and alert types so that ScoutAlert does not repeatedly notify me about the same thing.
+**User story**
+
+As a user, I want the same underlying opportunity consolidated across scouts and alert types so that ScoutAlert does not repeatedly notify me about the same thing.
 
 **Acceptance criteria**
+
 - Recipient-level digest grouping deduplicates canonical opportunities.
-- Watchlist-specific context can still be preserved in the dashboard.
+- Scout-specific context can still be preserved in the dashboard.
 - Exceptional alerts and scheduled digests coordinate item-level deduplication.
 - Material changes can allow intentional re-alerting.
 
@@ -588,14 +680,16 @@ As a user, I want the same underlying opportunity consolidated across watchlists
 
 ### ALERT-005 — Control alerts at the right scope
 
-**User story**  
-As a user, I want to pause or unsubscribe from one watchlist or all opportunity alerts so that notification control matches my intent.
+**User story**
+
+As a user, I want to pause or unsubscribe from one scout or all opportunity alerts so that notification control matches my intent.
 
 **Acceptance criteria**
-- Watchlist-level and broader scopes are explicit.
+
+- Scout-level and broader scopes are explicit.
 - Account verification does not imply alert consent.
 - Opt-out is rechecked before provider submission.
-- Unrelated watchlists are not changed accidentally.
+- Unrelated scouts are not changed accidentally.
 
 **Priority:** P0
 
@@ -603,10 +697,12 @@ As a user, I want to pause or unsubscribe from one watchlist or all opportunity 
 
 ### REL-001 — Know whether my scout is running
 
-**User story**  
+**User story**
+
 As a user, I want to see recent run status and next scheduled activity so that I know whether ScoutAlert is functioning.
 
 **Acceptance criteria**
+
 - Run states distinguish pending, queued, running, succeeded, partial, and failed where applicable.
 - The last successful scan is visible.
 - Next scheduled run/action is visible when known.
@@ -616,10 +712,12 @@ As a user, I want to see recent run status and next scheduled activity so that I
 
 ### REL-002 — Distinguish no matches from failures
 
-**User story**  
+**User story**
+
 As a user, I want ScoutAlert to distinguish an empty valid result from incomplete/failed discovery so that silence is meaningful.
 
 **Acceptance criteria**
+
 - No-match, partial, source-unavailable, and failed states remain distinct.
 - The dashboard can communicate materially relevant coverage limitations.
 - Optional no-result notifications do not mask failures.
@@ -628,10 +726,12 @@ As a user, I want ScoutAlert to distinguish an empty valid result from incomplet
 
 ### REL-003 — Inspect alert history
 
-**User story**  
+**User story**
+
 As a user, I want to see recent alert outcomes so that I can understand why an expected email did or did not arrive.
 
 **Acceptance criteria**
+
 - History distinguishes prepared, suppressed, submitted, failed, and provider-reported outcomes.
 - Internal technical details and sensitive data are not exposed.
 - Consent changes are reflected accurately.
@@ -642,10 +742,12 @@ As a user, I want to see recent alert outcomes so that I can understand why an e
 
 ### PRIV-001 — Keep my profile private
 
-**User story**  
+**User story**
+
 As a user, I want my profile and documents kept private from employers and other users unless I explicitly authorize sharing.
 
 **Acceptance criteria**
+
 - Signup or matching never automatically shares profile data externally.
 - Private data access is actor-scoped.
 - Shared research and caches do not contain private profile content.
@@ -655,10 +757,12 @@ As a user, I want my profile and documents kept private from employers and other
 
 ### PRIV-002 — Export and delete my account data
 
-**User story**  
+**User story**
+
 As a user, I want supported export and deletion controls so that I retain control over my participation.
 
 **Acceptance criteria**
+
 - Export covers supported user-owned records.
 - Deletion revokes access and cancels future user-specific work.
 - Private indexes/caches/checkpoints follow the retention/deletion policy.
@@ -668,10 +772,12 @@ As a user, I want supported export and deletion controls so that I retain contro
 
 ### PRIV-003 — Protect account access
 
-**User story**  
+**User story**
+
 As a user, I want secure authentication and session controls so that other people cannot access my searches and recommendations.
 
 **Acceptance criteria**
+
 - Authentication and authorization are enforced server-side.
 - Sessions can be revoked/expired.
 - Sensitive operations are protected from common browser/session attacks.
@@ -683,11 +789,14 @@ As a user, I want secure authentication and session controls so that other peopl
 
 ### OPS-001 — Manage approved opportunity sources
 
-**User story**  
+**User story**
+
 As a platform operator, I want to configure source access, refresh policy, attribution, permissions, and health so that discovery remains reliable and compliant with source constraints.
 
 **Acceptance criteria**
+
 - Each source has explicit configuration/versioning.
+- Release coverage names enabled source integrations, category/geography coverage, and refresh expectations.
 - Access/reuse scope is enforceable.
 - Refresh/cursor behavior is observable.
 - Disabled/revoked sources stop future ingestion/use according to policy.
@@ -696,10 +805,12 @@ As a platform operator, I want to configure source access, refresh policy, attri
 
 ### OPS-002 — Monitor source health and freshness
 
-**User story**  
+**User story**
+
 As a platform operator, I want visibility into source failures, lag, incomplete responses, and freshness so that discovery degradation is detected quickly.
 
 **Acceptance criteria**
+
 - Source runs expose success/failure/completeness.
 - Lag and stale-source metrics are available.
 - Incomplete source responses do not silently close opportunities.
@@ -709,10 +820,12 @@ As a platform operator, I want visibility into source failures, lag, incomplete 
 
 ### OPS-003 — Inspect recommendation provenance
 
-**User story**  
+**User story**
+
 As an authorized quality operator, I want to trace a recommendation through retrieval, rules, model evaluation, research, and evidence so that quality problems can be diagnosed.
 
 **Acceptance criteria**
+
 - Relevant correlation IDs and versions are retained.
 - Supporting evidence and decisions are inspectable under access controls.
 - Private content is minimized/redacted in general observability.
@@ -722,10 +835,12 @@ As an authorized quality operator, I want to trace a recommendation through retr
 
 ### OPS-004 — Recover failed background work safely
 
-**User story**  
+**User story**
+
 As a platform operator, I want failed or lost work to be retried/reconciled without duplicate business effects so that temporary infrastructure failures do not corrupt the product.
 
 **Acceptance criteria**
+
 - Durable outbox/run records exist.
 - Workers are idempotent.
 - Reconciliation identifies stuck/missing dispatches.
@@ -736,10 +851,12 @@ As a platform operator, I want failed or lost work to be retried/reconciled with
 
 ### OPS-005 — Control AI and research budgets
 
-**User story**  
+**User story**
+
 As a platform operator, I want bounded model, research, and tool usage so that ScoutAlert remains predictable under load.
 
 **Acceptance criteria**
+
 - Budgets can exist per task/workflow/user/plan/platform period as applicable.
 - Usage is reserved/reconciled.
 - Retries cannot bypass budget/deadline ceilings.
@@ -750,10 +867,12 @@ As a platform operator, I want bounded model, research, and tool usage so that S
 
 ### OPS-006 — Evaluate AI and retrieval changes before release
 
-**User story**  
+**User story**
+
 As a product/engineering operator, I want prompt, model, embedding, retrieval, reranking, and policy changes evaluated against ScoutAlert datasets so that changes do not silently degrade recommendation quality.
 
 **Acceptance criteria**
+
 - Versioned evaluation datasets exist.
 - Critical eligibility/constraint regressions block release.
 - Retrieval quality and model quality are measured separately.
@@ -764,10 +883,12 @@ As a product/engineering operator, I want prompt, model, embedding, retrieval, r
 
 ### OPS-007 — Manage recommendation corrections
 
-**User story**  
+**User story**
+
 As an authorized quality operator, I want to correct verified extraction/evidence problems so that affected users receive updated assessments.
 
 **Acceptance criteria**
+
 - Corrections create new source/evidence versions rather than silently rewriting history.
 - Dependent current evaluations can be invalidated/reprocessed.
 - Historical provenance remains available.
@@ -777,10 +898,12 @@ As an authorized quality operator, I want to correct verified extraction/evidenc
 
 ### OPS-008 — Monitor delivery quality
 
-**User story**  
+**User story**
+
 As a platform operator, I want visibility into email suppressions, bounces, complaints, ambiguous sends, and failures so that notification reliability can be maintained.
 
 **Acceptance criteria**
+
 - Provider callbacks are verified/deduplicated.
 - Delivery ledger states are reconciled.
 - Suppression state is enforced before future sends.
@@ -788,14 +911,224 @@ As a platform operator, I want visibility into email suppressions, bounces, comp
 
 **Priority:** P1
 
-## 15. Future opportunity categories
+## 15. Service opportunities and engagements
+
+### SVC-001 — Scout demand for services I can provide
+
+**User story**
+
+As a service professional, I want a Scout for suitable client projects, gigs, and service requests so that ScoutAlert can find relevant demand for my capabilities.
+
+**Acceptance criteria**
+
+- Enabled service categories have explicit source coverage and category schemas.
+- Skills, portfolio evidence, deliverables, client requirements, availability, engagement duration, and budget/rate basis remain distinct.
+- Employment-specific assumptions are not applied to service opportunities.
+- The services definition follows the platform PRD's working scope and open decisions.
+
+**Priority:** P1
+
+### SVC-002 — Evaluate project compatibility
+
+**User story**
+
+As a service professional, I want ScoutAlert to compare a project with my capabilities and practical requirements so that relevant work is distinguished from unsuitable requests.
+
+**Acceptance criteria**
+
+- Scope, required deliverables, budget/rate, timeline, working arrangement, and client restrictions are assessed separately.
+- Unknown project terms remain visible and can trigger bounded research.
+- Financial comparisons preserve currency, unit, milestones, and stated assumptions.
+- Evidence supports important client/project claims.
+
+**Priority:** P1
+
+### SVC-003 — Manage service leads and engagement progress
+
+**User story**
+
+As a service professional, I want saved client opportunities, private notes, and lead stages so that I can manage work I intend to pursue.
+
+**Acceptance criteria**
+
+- Engagement stages are distinct from employment application stages.
+- Historical source/evaluation references survive listing changes according to retention policy.
+- Saving or changing a stage does not imply contacting a client or accepting a contract.
+- Feedback references the opportunity/evaluation shown to the user.
+
+**Priority:** P1
+
+### SVC-004 — Prepare a truthful client proposal
+
+**User story**
+
+As a service professional, I want reviewable proposal assistance grounded in my confirmed capabilities so that I can respond efficiently to a suitable project.
+
+**Acceptance criteria**
+
+- Drafts use confirmed profile/portfolio evidence and project terms.
+- Missing capabilities or unclear terms are not invented.
+- Sharing, submission, or commitment requires a separate explicit action permission.
+- Draft and action history remain user-owned.
+
+**Priority:** P2
+
+## 16. Timely alerts and notification controls
+
+### ALERT-006 — Receive prompt alerts for highly relevant new opportunities
+
+**User story**
+
+As a user, I want an optional prompt email when ScoutAlert discovers a highly relevant actionable opportunity so that I can act before the next digest.
+
+**Acceptance criteria**
+
+- Prompt alerts follow explicit relevance, novelty, urgency, freshness, consent, and volume policies.
+- Discovery and notification latency are measured separately.
+- They coordinate item-level deduplication with later digests and other Scouts.
+- Current revisions and opportunity status are revalidated before submission.
+- Provider delays/failures are visible as delivery outcomes rather than fabricated success.
+
+**Priority:** P0
+
+### ALERT-007 — Set quiet hours and manageable alert volume
+
+**User story**
+
+As a user, I want timing and volume controls across my Scouts so that useful alerts do not become noise.
+
+**Acceptance criteria**
+
+- Account-level and Scout-level policy precedence is explicit.
+- Quiet hours, timezone, and applicable urgency exceptions are reviewable.
+- Recipient-level grouping avoids multiple valid digests for the same logical window.
+- Re-alerting requires a supported material-change/reason identity.
+- Schedule edits do not create another send for a previously accepted logical window.
+
+**Priority:** P1
+
+## 17. Integrations and commercial capabilities
+
+### INT-001 — Manage my authorized integrations
+
+**User story**
+
+As a user, I want to connect and revoke supported integrations so that ScoutAlert can use them within permissions I understand.
+
+**Acceptance criteria**
+
+- Connection permissions, health, expiry, and revocation states are explicit.
+- Revocation prevents future authorized actions and invalidates dependent access where required.
+- Credentials remain outside core, browser bundles, logs, and general analytics.
+- Scouting access does not automatically authorize outbound applications or messages.
+
+**Priority:** P1
+
+### COM-001 — Understand plan capabilities and usage
+
+**User story**
+
+As a user, I want clear plan limits and usage information so that I understand the Scouts, research, alerts, and assistance available to me.
+
+**Acceptance criteria**
+
+- Entitlements are enforced by application policies and are versioned.
+- Limits distinguish discovery/research/notification capabilities where applicable.
+- Budget exhaustion produces a truthful state without altering mandatory search requirements.
+- Retry and parallel execution cannot bypass usage reservations.
+
+**Priority:** P1
+
+### COM-002 — Manage billing reliably
+
+**User story**
+
+As a subscribing user, I want supported billing and subscription changes to be reflected accurately so that my access matches the current product policy.
+
+**Acceptance criteria**
+
+- Provider events are verified, idempotent, and reconciled.
+- Billing state and usable entitlements are related through explicit application policy.
+- Failures and pending changes do not appear as successful transactions.
+- Commercial plans and provider behavior are specified before enabling billing.
+
+**Priority:** P1
+
+## 18. Intelligence evolution and operating quality
+
+### AI-001 — Compare intelligence changes before rollout
+
+**User story**
+
+As an intelligence operator, I want provider and ScoutAlert-owned models compared on versioned fixtures so that better quality and efficiency can be demonstrated before rollout.
+
+**Acceptance criteria**
+
+- Extraction, retrieval, ranking, eligibility, research, latency, and cost are evaluated separately.
+- False exclusions and cohort quality are measured alongside average usefulness.
+- Candidate versions can run in shadow evaluation without changing current user recommendations.
+- Embedding changes have explicit re-embedding/index rollout and rollback procedures.
+- Stable interfaces do not imply equivalent model behavior.
+
+**Priority:** P1
+
+**Dependency:** Evaluation foundations are P0 under OPS-006.
+
+### AI-002 — Curate data for ScoutAlert-owned intelligence
+
+**User story**
+
+As an intelligence operator, I want permitted feedback, outcome, evidence, and evaluation data curated with lineage so that ScoutAlert can develop its own ranking and intelligence capabilities.
+
+**Acceptance criteria**
+
+- Dataset lineage, access, permitted use, quality, and retention are documented.
+- Impressions/rank positions and experiment versions accompany behavioral labels.
+- Clicks and applications are not treated as unbiased ground truth.
+- User-confirmed facts and private data remain subject to their access/use policy.
+
+**Priority:** P2
+
+### OPS-009 — Isolate workloads and control backpressure
+
+**User story**
+
+As a platform operator, I want independent concurrency and capacity controls so that a slow source, research provider, or noisy workload does not delay unrelated useful results.
+
+**Acceptance criteria**
+
+- Discovery, indexing, matching, research, and delivery expose separate backlog/lag and concurrency controls.
+- Provider/source limits and fair scheduling are enforced.
+- Superseded work cannot publish after a Scout/profile/evidence change.
+- Cache loss and worker failure preserve durable business identity.
+
+**Priority:** P1
+
+### OPS-010 — Establish and verify operating targets
+
+**User story**
+
+As a platform operator, I want workload-specific freshness, quality, latency, cost, and recovery targets so that robustness and efficiency can be measured.
+
+**Acceptance criteria**
+
+- Targets identify workload, source/category coverage, percentile/window, owner, and response policy.
+- Source freshness, recommendation latency, prompt-alert submission, and digest adherence are measured separately.
+- Capacity, process recovery, reconciliation, and restore checks precede broad release.
+- Search/event/analytics infrastructure changes have measured adoption and migration criteria.
+
+**Priority:** P0
+
+## 19. Future opportunity categories
 
 ### CAT-001 — Search scholarships and fellowships
 
-**User story**  
+**User story**
+
 As a user, I want category-specific searches for scholarships and fellowships so that ScoutAlert can support education and development opportunities.
 
 **Acceptance criteria**
+
 - The category has its own requirement/evidence schema.
 - Study level, subject, geography, funding, deadlines, and eligibility are handled appropriately.
 - Employment-specific assumptions are not reused blindly.
@@ -805,29 +1138,33 @@ As a user, I want category-specific searches for scholarships and fellowships so
 
 ### CAT-002 — Search grants and founder opportunities
 
-**User story**  
+**User story**
+
 As a founder, I want ScoutAlert to find grants, accelerators, procurement opportunities, and relevant programs so that I can monitor business opportunities with the same evidence-aware experience.
 
 **Acceptance criteria**
+
 - Company stage, incorporation, sector, geography, funding/terms, and participation requirements are category-specific.
 - Opportunity requirements remain evidence-backed.
-- Separate watchlists and notification policies are supported.
+- Separate scouts and notification policies are supported.
 
 **Priority:** P2
 
-## 16. Platform release definition
+## 20. Platform release definition
 
-The initial jobs/contracts platform is complete when a user can:
+The first complete scouting-loop milestone across enabled categories is complete when a user can:
 
 1. maintain a confirmed profile;
-2. create multiple independent watchlists;
+2. create multiple independent scouts;
 3. receive continuously refreshed source-backed opportunities;
 4. get hybrid-retrieval and evidence-grounded matching;
 5. see hard constraints, fit, compensation, and uncertainty separately;
 6. benefit from bounded research when important evidence is unclear;
 7. inspect/save/dismiss recommendations;
-8. receive reliable consent-aware alerts;
+8. receive reliable consent-aware prompt alerts and/or configured digests;
 9. track scout health and distinguish failures from no matches;
 10. control their data and notification scope.
 
 Platform operations must support source health, provenance, idempotent recovery, AI/research budgets, quality evaluation, and delivery observability.
+
+Production breadth includes service-opportunity policies and engagement management, monitoring, application assistance, integrations, commercial operations, support, and advanced intelligence according to the platform PRD milestones. These capabilities remain in scope when sequenced after the first complete loop.
