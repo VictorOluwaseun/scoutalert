@@ -1,3 +1,39 @@
+# Project working agreements
+
+## Git branches
+
+- Do not create, switch to, rename, or delete a Git branch unless the user explicitly requests that exact branch operation.
+- Never invent a branch name. If the user requests a new branch without naming it, ask for the name.
+- Never add a `codex/` prefix to a branch name.
+
+## Architecture and repository pattern
+
+- Follow Clean Architecture and the Repository pattern. Keep domain rules, application use cases, presentation code, and infrastructure responsibilities separate.
+- Services must not directly import, instantiate, or access a database, Redis, or any other data source. Encapsulate data access in repository implementations.
+- Services depend on repository contracts defined in the domain or application layer. Those layers must not import concrete repositories or data-source clients such as `pg`, Kysely, or Redis clients.
+- Bind repository contracts to their implementations through dependency injection in the composition root. Client construction and infrastructure wiring belong there; data-access operations belong in repositories.
+- Keep query details, persistence mapping, and cache access inside repositories. Keep business decisions and use-case orchestration in the domain and application layers.
+
+## Control flow
+
+- Do not nest `if` statements.
+- Use guard clauses, early returns, named predicates, and focused helper methods to keep conditional logic flat and readable.
+
+## Code organization
+
+- Do not use `backend` or `bff`, including compound names and casing variants, in project-defined directory names, file names, package names, or code identifiers.
+- Prefer names describing the product feature or concrete responsibility, such as scouts, opportunities, matching, repositories, and server-side request handling.
+- No spaghetti code: give each class and method a clear responsibility, keep dependencies explicit, and split unrelated concerns into cohesive units.
+- No code mess: use descriptive names, avoid duplicated logic and unnecessary abstractions, and remove unused imports, dead code, temporary debugging statements, and commented-out implementations from completed changes.
+- Follow established project conventions and leave touched code organized and reviewable.
+
+## Documentation
+
+- Document every class with a useful JSDoc/TSDoc comment explaining its responsibility and architectural role.
+- Document every method with a useful JSDoc/TSDoc comment explaining its purpose and contract. Include constructors and private methods.
+- Give additional detail where needed: consequential parameters, return values, side effects, errors, invariants, transaction boundaries, retry behavior, idempotency, and cache invalidation.
+- Explain intent and non-obvious behavior rather than restating the method name or implementation. Keep documentation accurate when behavior changes.
+
 <!-- BEGIN:turborepo-agent-rules -->
 
 # This is NOT the Turborepo you know
