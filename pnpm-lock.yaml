@@ -214,7 +214,11 @@ importers:
         specifier: 0.20.0
         version: 0.20.0(kysely@0.29.6)(pg@8.23.0)(typescript@7.0.2)
 
-  packages/core: {}
+  packages/core:
+    devDependencies:
+      typescript:
+        specifier: 7.0.2
+        version: 7.0.2
 
   packages/eslint-config:
     devDependencies:

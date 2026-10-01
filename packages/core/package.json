@@ -4,5 +4,33 @@
   "private": true,
   "type": "module",
   "description": "Framework-independent domain rules, application use cases, and inward contracts for ScoutAlert.",
-  "exports": {}
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "check-types": "tsc --noEmit -p tsconfig.json"
+  },
+  "exports": {
+    "./scouts": {
+      "types": "./dist/scouts/public.d.ts",
+      "default": "./dist/scouts/public.js"
+    },
+    "./notifications": {
+      "types": "./dist/notifications/public.d.ts",
+      "default": "./dist/notifications/public.js"
+    },
+    "./onboarding": {
+      "types": "./dist/onboarding/public.d.ts",
+      "default": "./dist/onboarding/public.js"
+    },
+    "./identity": {
+      "types": "./dist/identity/public.d.ts",
+      "default": "./dist/identity/public.js"
+    },
+    "./scouting": {
+      "types": "./dist/scouting/public.d.ts",
+      "default": "./dist/scouting/public.js"
+    }
+  },
+  "devDependencies": {
+    "typescript": "7.0.2"
+  }
 }
