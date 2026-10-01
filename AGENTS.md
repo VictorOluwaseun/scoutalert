@@ -14,6 +14,15 @@
 - Bind repository contracts to their implementations through dependency injection in the composition root. Client construction and infrastructure wiring belong there; data-access operations belong in repositories.
 - Keep query details, persistence mapping, and cache access inside repositories. Keep business decisions and use-case orchestration in the domain and application layers.
 
+## Use the stack effectively
+
+- Use the supported capabilities of the chosen stack before building custom substitutes or generic wrappers that hide useful features. Check the installed version and its documentation before using version-sensitive APIs.
+- Use NestJS modules, providers, dependency injection, validation, guards, and lifecycle features for API composition and transport concerns. Keep domain decisions and use-case orchestration in the framework-independent core.
+- Use Next.js server rendering, route handlers, and client components deliberately. Keep server-only work on the server and avoid duplicating business rules in web routes.
+- Use PostgreSQL constraints, indexes, transactions, locking, and query planning where they improve correctness or performance. Use Kysely for typed queries and explicit transaction participation, and `pg` for PostgreSQL connections and pooling; keep both behind repository implementations and composition wiring.
+- Use Redis for appropriate caching and bounded coordination, with explicit expiry and invalidation. PostgreSQL remains authoritative for durable business state.
+- Apply the same principle to other adopted tools: use their strengths at the right architectural boundary, and support performance choices with measurements rather than assumptions.
+
 ## Control flow
 
 - Do not nest `if` statements.

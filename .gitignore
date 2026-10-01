@@ -2,6 +2,7 @@
 
 # Dependencies
 node_modules
+.pnpm-store/
 .pnp
 .pnp.js
 
@@ -35,5 +36,6 @@ yarn-debug.log*
 yarn-error.log*
 
 # Misc
+.idea/
 .DS_Store
 *.pem
