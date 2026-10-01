@@ -1,0 +1,66 @@
+{
+  "scoredAt": "2026-10-01T07:16:03.513Z",
+  "measuredAt": "2026-10-01T07:03:48.222Z",
+  "corpusHash": "30f4222a1505fe7b1a659233b28f5beec059fecbe8233526e980d9139132676f",
+  "labelHash": "60b3abef0c6c213813ad995d7b709a66259904639cafb54a09a7ca4452a07dd0",
+  "completeMeasurements": true,
+  "metrics": {
+    "reviewedCases": 0,
+    "measuredReviewedCases": 0,
+    "unmeasuredReviewedCases": 0,
+    "pendingCases": 6,
+    "precision": null,
+    "assessmentRecall": null,
+    "retrievalRecall": null,
+    "pipelineRecall": null,
+    "falseInclusions": 0,
+    "falseExclusions": 0,
+    "retrievalMisses": 0,
+    "falsePrompts": 0
+  },
+  "cohorts": {
+    "design-remote-nigeria": {
+      "reviewedCases": 0,
+      "measuredReviewedCases": 0,
+      "unmeasuredReviewedCases": 0,
+      "pendingCases": 2,
+      "precision": null,
+      "assessmentRecall": null,
+      "retrievalRecall": null,
+      "pipelineRecall": null,
+      "falseInclusions": 0,
+      "falseExclusions": 0,
+      "retrievalMisses": 0,
+      "falsePrompts": 0
+    },
+    "engineering-remote-us": {
+      "reviewedCases": 0,
+      "measuredReviewedCases": 0,
+      "unmeasuredReviewedCases": 0,
+      "pendingCases": 2,
+      "precision": null,
+      "assessmentRecall": null,
+      "retrievalRecall": null,
+      "pipelineRecall": null,
+      "falseInclusions": 0,
+      "falseExclusions": 0,
+      "retrievalMisses": 0,
+      "falsePrompts": 0
+    },
+    "sales-remote-uk": {
+      "reviewedCases": 0,
+      "measuredReviewedCases": 0,
+      "unmeasuredReviewedCases": 0,
+      "pendingCases": 2,
+      "precision": null,
+      "assessmentRecall": null,
+      "retrievalRecall": null,
+      "pipelineRecall": null,
+      "falseInclusions": 0,
+      "falseExclusions": 0,
+      "retrievalMisses": 0,
+      "falsePrompts": 0
+    }
+  },
+  "limitation": "Results describe only this reviewed corpus, not population accuracy or production readiness."
+}

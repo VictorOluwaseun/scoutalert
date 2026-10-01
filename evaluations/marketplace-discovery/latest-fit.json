@@ -1,0 +1,177 @@
+{
+  "checkedAt": "2026-10-01T07:50:22.880Z",
+  "postingId": "freelancer:40743998",
+  "sourceUrl": "https://www.freelancer.com/projects/motion-graphics/Product-Promotion-Video-Creation-40743998",
+  "fingerprint": "d8be3165ef6c96187d05f650dbc52f042e738a4f1318300bea7bba010c3ddf4c",
+  "configuration": "openai:gpt-5.4-mini-2026-03-17:gpt-5.4-mini-2026-03-17:evidence-prompts-v6:reasoning-low:schema-v3:pay-normalizer-v1:supported-criteria-v2",
+  "modelRequests": 2,
+  "conservativeReserveUsd": 0.15,
+  "estimatedUsd": 0.007086,
+  "usage": [
+    {
+      "model": "gpt-5.4-mini-2026-03-17",
+      "inputTokens": 1205,
+      "cachedInputTokens": 0,
+      "outputTokens": 382,
+      "durationMs": 4080,
+      "responseId": "resp_055ec55016197fba016abe10b7970887d292c30fe790d192b9",
+      "cost": {
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "estimatedMicrousd": 2623
+      }
+    },
+    {
+      "model": "gpt-5.4-mini-2026-03-17",
+      "inputTokens": 1678,
+      "cachedInputTokens": 0,
+      "outputTokens": 712,
+      "durationMs": 4715,
+      "responseId": "resp_05ad9aaff6da3d3e016abe10bab05c87d2bed5805a86bb202c",
+      "cost": {
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "estimatedMicrousd": 4463
+      }
+    }
+  ],
+  "assessment": {
+    "policy": "personal-fit-v1",
+    "reasons": [
+      "The posting is for a product-promotion advertising video creation project, which matches the target of product promotion ad video creation.",
+      "This is explicitly a buyer-posted client project / service request, which matches the brief category of services.",
+      "The listing budget is 250–750 USD per project, which matches the brief’s USD project-based pay format; the posting also clearly states it is a listed budget rather than guaranteed earnings."
+    ],
+    "uncertainties": [
+      "The posting is a fixed client project, but it does not explicitly state the work arrangement in a way that can be matched against the brief’s remote setting.",
+      "The posting says applicant location eligibility is not confirmed, so location fit cannot be determined.",
+      "Add your experience before we can assess these requirements.",
+      "No work authorization or sponsorship requirement is stated for the posting, so authorization cannot be assessed."
+    ],
+    "rank": 26,
+    "detail": {
+      "criteria": [
+        {
+          "criterion": "role",
+          "status": "meets",
+          "explanation": "The posting is for a product-promotion advertising video creation project, which matches the target of product promotion ad video creation.",
+          "quotes": [
+            "Product Promotion Ad Video Creation",
+            "I need a creative content-focused freelancer who can take my product and turn it into an engaging advertising video aimed squarely at driving sales. The assignment covers everything from shaping the core concept and script through to final edit and ready-to-publish output.  ",
+            "Please guide me on the most effective length, style, and format for the chosen channels, then handle voice-over, motion graphics, music, and any light visual effects required to make the piece persuasive and polished. I will provide the product details, brand guidelines, and any existing assets; you transform them into a compelling promo that feels fresh and on-brand.  ",
+            "I’m keen to see portfolios featuring previous product-promotion spots or similar commercial work, especially those that drove measurable engagement. Let me know your proposed timeline, the tools you prefer—Premiere Pro, After Effects, Final Cut, DaVinci Resolve, or similar—and any further information you need to get started."
+          ],
+          "briefQuotes": [
+            "Find client projects and service requests",
+            "Product Promotion Ad Video Creation",
+            "Synthetic public-project evaluation"
+          ]
+        },
+        {
+          "criterion": "category",
+          "status": "meets",
+          "explanation": "This is explicitly a buyer-posted client project / service request, which matches the brief category of services.",
+          "quotes": [
+            "Source category: buyer-posted client project / service request (fixed)."
+          ],
+          "briefQuotes": [
+            "Find client projects and service requests",
+            "services"
+          ]
+        },
+        {
+          "criterion": "arrangement",
+          "status": "unknown",
+          "explanation": "The posting is a fixed client project, but it does not explicitly state the work arrangement in a way that can be matched against the brief’s remote setting.",
+          "quotes": [
+            "Source category: buyer-posted client project / service request (fixed).",
+            "Listed budget: 250–750 USD per project. This is the buyer's listed budget, not guaranteed earnings."
+          ],
+          "briefQuotes": [
+            "remote",
+            "project"
+          ]
+        },
+        {
+          "criterion": "location",
+          "status": "unknown",
+          "explanation": "The posting says applicant location eligibility is not confirmed, so location fit cannot be determined.",
+          "quotes": [
+            "Applicant location eligibility not confirmed"
+          ],
+          "briefQuotes": [
+            "Lagos",
+            "Worldwide"
+          ]
+        },
+        {
+          "criterion": "experience",
+          "status": "unknown",
+          "explanation": "Add your experience before we can assess these requirements.",
+          "quotes": [
+            "Requested skills: Animation, Final Cut Pro, Motion Graphics, Videography, Video Production, Video Editing, Adobe Premiere Pro, Voice Over",
+            "• Fully edited advertising video in web-ready formats (HD MP4 as a minimum)  ",
+            "• Source project files for future tweaks  ",
+            "I’m keen to see portfolios featuring previous product-promotion spots or similar commercial work, especially those that drove measurable engagement. Let me know your proposed timeline, the tools you prefer—Premiere Pro, After Effects, Final Cut, DaVinci Resolve, or similar—and any further information you need to get started."
+          ],
+          "briefQuotes": [
+            "Product Promotion Ad Video Creation",
+            "review"
+          ]
+        },
+        {
+          "criterion": "authorization",
+          "status": "unknown",
+          "explanation": "No work authorization or sponsorship requirement is stated for the posting, so authorization cannot be assessed.",
+          "quotes": [],
+          "briefQuotes": [
+            "remote",
+            "Lagos",
+            "Worldwide"
+          ]
+        },
+        {
+          "criterion": "compensation",
+          "status": "meets",
+          "explanation": "The listing budget is 250–750 USD per project, which matches the brief’s USD project-based pay format; the posting also clearly states it is a listed budget rather than guaranteed earnings.",
+          "quotes": [
+            "Source category: buyer-posted client project / service request (fixed).",
+            "Listed budget: 250–750 USD per project. This is the buyer's listed budget, not guaranteed earnings."
+          ],
+          "briefQuotes": [
+            "USD",
+            "project",
+            "include"
+          ]
+        }
+      ],
+      "assessedBy": "ai",
+      "verificationPolicy": "supported-criteria-v2",
+      "research": [
+        {
+          "criterion": "arrangement",
+          "question": "The posting is a fixed client project, but it does not explicitly state the work arrangement in a way that can be matched against the brief’s remote setting.",
+          "status": "unresolved"
+        },
+        {
+          "criterion": "location",
+          "question": "The posting says applicant location eligibility is not confirmed, so location fit cannot be determined.",
+          "status": "unresolved"
+        },
+        {
+          "criterion": "experience",
+          "question": "Add your experience before we can assess these requirements.",
+          "status": "unresolved"
+        },
+        {
+          "criterion": "authorization",
+          "question": "No work authorization or sponsorship requirement is stated for the posting, so authorization cannot be assessed.",
+          "status": "unresolved"
+        }
+      ]
+    }
+  },
+  "scope": "One public project and a synthetic exact-title brief; validates structured extraction/category handling and explicit unknowns, not independent relevance or ranking quality."
+}

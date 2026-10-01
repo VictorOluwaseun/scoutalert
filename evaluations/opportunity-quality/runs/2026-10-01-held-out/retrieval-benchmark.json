@@ -1,0 +1,123 @@
+{
+  "measuredAt": "2026-10-01T08:21:41.118Z",
+  "corpusHash": "5b8e4e17e160023baa855edd708520c4263af8965412c10d37dcee29c949be82",
+  "scope": "Local PostgreSQL retrieval microbenchmark; duplicated frozen public text, synthetic identities, warm shared instance. Not population recall, end-to-end alert latency or production capacity evidence.",
+  "runs": [
+    {
+      "postingCount": 1000,
+      "queries": 40,
+      "concurrency": 4,
+      "ingestionMs": 732.4125,
+      "queryElapsedMs": 187.862208,
+      "p50Ms": 14.844500000000153,
+      "p95Ms": 27.38108299999999,
+      "maximumCandidates": 200,
+      "unavailableQueries": 0,
+      "candidateCap": 200,
+      "byCategory": {
+        "employment": {
+          "queries": 24,
+          "p95Ms": 27.38108299999999,
+          "maximumCandidates": 200
+        },
+        "contracts": {
+          "queries": 6,
+          "p95Ms": 27.901875000000018,
+          "maximumCandidates": 125
+        },
+        "services": {
+          "queries": 10,
+          "p95Ms": 6.088874999999916,
+          "maximumCandidates": 125
+        }
+      }
+    },
+    {
+      "postingCount": 1000,
+      "queries": 80,
+      "concurrency": 8,
+      "ingestionMs": 732.4125,
+      "queryElapsedMs": 356.39658299999996,
+      "p50Ms": 26.358083999999963,
+      "p95Ms": 39.28670800000009,
+      "maximumCandidates": 200,
+      "unavailableQueries": 0,
+      "candidateCap": 200,
+      "byCategory": {
+        "employment": {
+          "queries": 47,
+          "p95Ms": 39.28670800000009,
+          "maximumCandidates": 200
+        },
+        "contracts": {
+          "queries": 11,
+          "p95Ms": 50.391624999999976,
+          "maximumCandidates": 125
+        },
+        "services": {
+          "queries": 22,
+          "p95Ms": 32.10395799999992,
+          "maximumCandidates": 125
+        }
+      }
+    },
+    {
+      "postingCount": 10000,
+      "queries": 40,
+      "concurrency": 4,
+      "ingestionMs": 6619.117542,
+      "queryElapsedMs": 413.80629099999896,
+      "p50Ms": 30.43629200000032,
+      "p95Ms": 62.79558299999917,
+      "maximumCandidates": 200,
+      "unavailableQueries": 0,
+      "candidateCap": 200,
+      "byCategory": {
+        "employment": {
+          "queries": 24,
+          "p95Ms": 68.3812080000007,
+          "maximumCandidates": 200
+        },
+        "contracts": {
+          "queries": 6,
+          "p95Ms": 33.090416999999434,
+          "maximumCandidates": 200
+        },
+        "services": {
+          "queries": 10,
+          "p95Ms": 21.3974589999998,
+          "maximumCandidates": 200
+        }
+      }
+    },
+    {
+      "postingCount": 10000,
+      "queries": 80,
+      "concurrency": 8,
+      "ingestionMs": 6619.117542,
+      "queryElapsedMs": 590.9522919999999,
+      "p50Ms": 43.447541999999885,
+      "p95Ms": 70.47058300000026,
+      "maximumCandidates": 200,
+      "unavailableQueries": 0,
+      "candidateCap": 200,
+      "byCategory": {
+        "employment": {
+          "queries": 47,
+          "p95Ms": 78.32837499999914,
+          "maximumCandidates": 200
+        },
+        "contracts": {
+          "queries": 11,
+          "p95Ms": 68.99837500000103,
+          "maximumCandidates": 200
+        },
+        "services": {
+          "queries": 22,
+          "p95Ms": 65.90116699999999,
+          "maximumCandidates": 200
+        }
+      }
+    }
+  ]
+}

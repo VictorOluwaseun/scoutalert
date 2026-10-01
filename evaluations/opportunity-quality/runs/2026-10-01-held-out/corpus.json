@@ -1,0 +1,835 @@
+{
+  "schema": 2,
+  "capturedAt": "2026-10-01T08:19:28.053Z",
+  "provenance": "Frozen public source postings; synthetic briefs and prior feedback; independent human labels pending",
+  "author": "Codex",
+  "sampling": "Deterministic stratified convenience sample, not a random population sample",
+  "coverage": [
+    {
+      "source": "figma",
+      "available": 164,
+      "kind": "job",
+      "scope": "complete",
+      "selected": 3
+    },
+    {
+      "source": "remotecom",
+      "available": 27,
+      "kind": "job",
+      "scope": "complete",
+      "selected": 1
+    },
+    {
+      "source": "freelancer",
+      "available": 374,
+      "kind": "client_request",
+      "scope": "window",
+      "selected": 4
+    }
+  ],
+  "postings": [
+    {
+      "id": "figma:5711468004",
+      "source": "figma",
+      "externalId": "5711468004",
+      "familyId": "figma:5007704004",
+      "company": "Figma",
+      "title": "Product Designer, Design, Dev, & AI Tools",
+      "location": "San Francisco, CA • New York, NY • United States",
+      "url": "https://boards.greenhouse.io/figma/jobs/5711468004?gh_jid=5711468004",
+      "text": "Figma is growing our team of passionate creatives and builders on a mission to make design accessible to all. Figma’s platform helps teams bring ideas to life—whether you're brainstorming, creating a prototype, translating designs into code, or iterating with AI. From idea to product, Figma empowers teams to streamline workflows, move faster, and work together in real time from anywhere in the world. If you're excited to shape the future of design and collaboration, join us!\n\nWe’re looking for technically-minded product designers who are excited to shape how teams build together. At Figma, design isn’t just how something looks—it’s how it works, how it feels, and how it scales. Our designers are systems thinkers, prototypers, storytellers, and craftspeople who care deeply about quality and collaboration. In this role, you’ll turn ambiguity into clarity, push the product forward with engineers, PMs, and researchers, and help us invent new ways for people to design and build products together.\n\nWith an eye for simplicity and craft, curiosity for complex systems, and an appetite for technical challenges, you can help define the future of how software is made. \n\nThis opportunity applies to openings of varying seniority levels across our team–including Figma Editor, AI, Interactivity, Design Systems, and Dev Tools. We’ll discuss more specifics about open roles during the interview process. \n\nThis is a full time role that can be held from one of our US hubs or remotely in the United States.\n\nWHAT YOU'LL DO AT FIGMA:\n\n * Contribute to overall strategy and decision-making about product direction\n * Help deliver and refine clear storytelling around product needs and opportunities\n * Work cross-functionally with product management, engineering, design, and research peers\n * Create and iterate on flows, prototypes, and high-fidelity visuals, as well as provide thoughtful feedback for others doing the same so you can all do your best work\n * Design and ship high-quality features and product improvements in Figma’s core product surfaces\n * Contribute to our design org’s culture by participating in design critiques, mentoring peers, and sharing best practices across teams\n\nWE’D LOVE TO HEAR FROM YOU IF YOU HAVE:\n\n * 3+ years of experience designing UX and UI for a software product of similar scale and complexity\n * Great attention to detail and a strong eye for visual craft, such as composition, typography, and layout\n * Fluency in interaction design and prototyping, to express and refine nuanced design decisions\n * A track record of independently driving design processes from discovery through launch—balancing user needs, technical constraints, and business goals\n * The ability to guide decision-making with structured thinking, clearly articulated rationale, and user-centered research.\n * A knack for figuring out ambiguous problems in complex systems, and shaping them into simple solutions with clear goals\n * Experience researching, prototyping, or building products with AI and other emerging tools to uncover new patterns for creativity and collaboration\n\nWHILE IT’S NOT REQUIRED, IT’S AN ADDED PLUS IF YOU ALSO HAVE:\n\n * Familiarity with web technologies like HTML/CSS, prototyping tools such as Origami, or advanced Figma features like Auto Layout, Variables, and Components\n * A design/development hybrid background, or experience building websites or apps\n * A history of working on canvas-based interfaces or tools that support creative workflows\n * Prior work involving design systems, like creating, maintaining, or contributing to a design system\n\nAt Figma, one of our values is Grow as you go. We believe in hiring smart, curious people who are excited to learn and develop their skills. If you’re excited about this role but your past experience doesn’t align perfectly with the points outlined in the job description, we encourage you to apply anyways. You may be just the right candidate for this or other roles.\n\nPay Transparency Disclosure\n\nJob level and actual compensation will be decided based on factors including, but not limited to, individual qualifications objectively assessed during the interview process (including skills and prior relevant experience, potential impact, and scope of role), market demands, and specific work location. \n\nFigma offers equity to employees, as well as a competitive package of additional benefits, including health, dental, and vision coverage; retirement benefits with company contributions; parental leave and reproductive or family planning support; mental health and wellness benefits; and paid time off. Figma provides paid sick leave, holidays, and other leave benefits in compliance with applicable federal, state, and local laws, including the requirements of the Washington Minimum Wage Act and related regulations. Exempt employees are eligible for employer‑provided paid flexible PTO in addition to flexible paid sick leave. PTO is subject to manager approval. Additional benefits may include company recharge days, cell phone and home internet reimbursements, and a number of lifestyle spending accounts. Figma also offers sales incentive compensation for most sales roles and an annual bonus plan for eligible non-sales roles. All compensation and benefits are subject to applicable plan terms and may be modified by Figma at any time, consistent with applicable law.\n\nAnnual Base Salary Range:\n$169,000—$303,000 USD\n\nAt Figma we celebrate and support our differences. We know employing a team rich in diverse thoughts, experiences, and opinions allows our employees, our product and our community to flourish. Figma is an equal opportunity workplace - we are dedicated to equal employment opportunities regardless of race, color, ancestry, religion, sex, national origin, sexual orientation, age, citizenship, marital status, disability, gender identity/expression, veteran status, or any other characteristic protected by law. We also consider qualified applicants regardless of criminal histories, consistent with legal requirements.\n\nWe will work to ensure individuals with disabilities are provided reasonable accommodation to apply for a role, participate in the interview process, perform essential job functions, and receive other benefits and privileges of employment. If you require accommodation, please reach out to accommodations-ext@figma.com. These modifications enable an individual with a disability to have an equal opportunity not only to get a job, but successfully perform their job tasks to the same extent as people without disabilities. \n\nExamples of accommodations include but are not limited to: \n\n * Holding interviews in an accessible location\n * Enabling closed captioning on video conferencing\n * Ensuring all written communication be compatible with screen readers\n * Changing the mode or format of interviews \n\nTo ensure the integrity of our hiring process and facilitate a more personal connection, we require all candidates keep their cameras on during video interviews. Additionally, if hired you will be required to attend in person onboarding.\n\nBy applying for this job, the candidate acknowledges and agrees that any personal data contained in their application or supporting materials will be processed in accordance with Figma's Candidate Privacy Notice.",
+      "sourceUpdatedAt": "2026-07-22T05:37:08-04:00",
+      "fingerprint": "349051f4dd4378d4c307a9849044ea09c21654a8d8eb662c3b69e554487568c4",
+      "version": 1
+    },
+    {
+      "id": "figma:5551532004",
+      "source": "figma",
+      "externalId": "5551532004",
+      "familyId": "figma:4936093004",
+      "company": "Figma",
+      "title": "Software Engineer - Machine Learning",
+      "location": "San Francisco, CA • New York, NY • United States",
+      "url": "https://boards.greenhouse.io/figma/jobs/5551532004?gh_jid=5551532004",
+      "text": "Figma is growing our team of passionate creatives and builders on a mission to make design accessible to all. Figma’s platform helps teams bring ideas to life—whether you're brainstorming, creating a prototype, translating designs into code, or iterating with AI. From idea to product, Figma empowers teams to streamline workflows, move faster, and work together in real time from anywhere in the world. If you're excited to shape the future of design and collaboration, join us!\n\nFigma is seeking a versatile and experienced Machine Learning / AI Engineer to join our growing AI team, working at the intersection of applied machine learning, infrastructure, and product innovation. Whether you’re building intelligent search systems, crafting scalable data pipelines, or enhancing AI-powered creativity tools, your work will drive user productivity, shape new product experiences, and advance the state of AI at Figma.\n\nYou’ll collaborate closely with engineers, researchers, designers, and product managers across multiple teams to deliver high-quality ML-driven features and infrastructure. This is a high-impact, cross-functional role where you’ll shape both foundational systems and user-facing capabilities.\n\nThis is a full time role that can be held from one of our US hubs or remotely in the United States.\n\n\nWHAT YOU’LL DO AT FIGMA:\n\n * Design, build, and productionize ML models for Search, Discovery, Ranking, Retrieval-Augmented Generation (RAG), and generative AI features.\n * Build and maintain scalable data pipelines to collect high-quality training and evaluation datasets, including annotation systems and human-in-the-loop workflows.\n * Collaborate with AI researchers to iterate on datasets, evaluation metrics, and model architectures to improve quality and relevance.\n * Work with product engineers to define and deliver impactful AI features across Figma’s platform.\n * Partner with infrastructure engineers to develop and optimize systems for training, inference, monitoring, and deployment.\n * Explore new ideas at the edge of what’s technically possible and help shape the long-term AI vision at Figma.\n\n\nWE’D LOVE TO HEAR FROM YOU IF YOU HAVE:\n\n * 5+ years of industry experience in software engineering, with 3+ years focused on applied machine learning or AI.\n * Strong experience with end-to-end ML model development, including training, evaluation, deployment, and monitoring.\n * Proficiency in Python and familiarity with ML libraries like PyTorch, TensorFlow, Scikit-learn, Spark MLlib, or XGBoost.\n * Experience designing and building scalable data and annotation pipelines, as well as evaluation systems for AI model quality.\n * Experience mentoring or leading others and contributing to a culture of technical excellence and innovation.\n\n\nWHILE NOT REQUIRED, IT’S AN ADDED PLUS IF YOU ALSO HAVE:\n\n * Familiarity with search relevance, ranking, NLP, or RAG systems.\n * Experience with AI infrastructure and MLOps, including observability, CI/CD, and automation for ML workflows.\n * Experience working on creative or design-focused ML applications.\n * Knowledge of additional languages such as C++ or Go is a plus, but not required.\n * A product mindset with the ability to tie technical work to user outcomes and business impact.\n * Strong collaboration and communication skills, especially when working across functions (engineering, product, research).\n\nAt Figma, one of our values is Grow as you go. We believe in hiring smart, curious people who are excited to learn and develop their skills. If you’re excited about this role but your past experience doesn’t align perfectly with the points outlined in the job description, we encourage you to apply anyways. You may be just the right candidate for this or other roles.\n\nPay Transparency Disclosure\n\nJob level and actual compensation will be decided based on factors including, but not limited to, individual qualifications objectively assessed during the interview process (including skills and prior relevant experience, potential impact, and scope of role), market demands, and specific work location. \n\nFigma offers equity to employees, as well as a competitive package of additional benefits, including health, dental, and vision coverage; retirement benefits with company contributions; parental leave and reproductive or family planning support; mental health and wellness benefits; and paid time off. Figma provides paid sick leave, holidays, and other leave benefits in compliance with applicable federal, state, and local laws, including the requirements of the Washington Minimum Wage Act and related regulations. Exempt employees are eligible for employer‑provided paid flexible PTO in addition to flexible paid sick leave. PTO is subject to manager approval. Additional benefits may include company recharge days, cell phone and home internet reimbursements, and a number of lifestyle spending accounts. Figma also offers sales incentive compensation for most sales roles and an annual bonus plan for eligible non-sales roles. All compensation and benefits are subject to applicable plan terms and may be modified by Figma at any time, consistent with applicable law.\n\nAnnual Base Salary Range:\n$153,000—$376,000 USD\n\nAt Figma we celebrate and support our differences. We know employing a team rich in diverse thoughts, experiences, and opinions allows our employees, our product and our community to flourish. Figma is an equal opportunity workplace - we are dedicated to equal employment opportunities regardless of race, color, ancestry, religion, sex, national origin, sexual orientation, age, citizenship, marital status, disability, gender identity/expression, veteran status, or any other characteristic protected by law. We also consider qualified applicants regardless of criminal histories, consistent with legal requirements.\n\nWe will work to ensure individuals with disabilities are provided reasonable accommodation to apply for a role, participate in the interview process, perform essential job functions, and receive other benefits and privileges of employment. If you require accommodation, please reach out to accommodations-ext@figma.com. These modifications enable an individual with a disability to have an equal opportunity not only to get a job, but successfully perform their job tasks to the same extent as people without disabilities. \n\nExamples of accommodations include but are not limited to: \n\n * Holding interviews in an accessible location\n * Enabling closed captioning on video conferencing\n * Ensuring all written communication be compatible with screen readers\n * Changing the mode or format of interviews \n\nTo ensure the integrity of our hiring process and facilitate a more personal connection, we require all candidates keep their cameras on during video interviews. Additionally, if hired you will be required to attend in person onboarding.\n\nBy applying for this job, the candidate acknowledges and agrees that any personal data contained in their application or supporting materials will be processed in accordance with Figma's Candidate Privacy Notice.",
+      "sourceUpdatedAt": "2026-08-11T20:09:33-04:00",
+      "fingerprint": "4aa78ce98bc308ae7a275fdad750c74ec363166082e6511a44f8da05810d6af4",
+      "version": 1
+    },
+    {
+      "id": "remotecom:7519082003",
+      "source": "remotecom",
+      "externalId": "7519082003",
+      "familyId": "remotecom:5674836003",
+      "company": "Remote",
+      "title": "Managing Counsel, Product (Payroll experience required)",
+      "location": "Remote-UK&I",
+      "url": "https://job-boards.greenhouse.io/remotecom/jobs/7519082003",
+      "text": "ABOUT REMOTE\n\nRemote is solving modern organizations’ biggest challenge – navigating global employment compliantly with ease. We make it possible for businesses of all sizes to recruit, pay, and manage international teams. With our core values at heart and future focused work culture, our team works tirelessly on ambitious problems, asynchronously, around the world. You can find Remoters working from 6 different continents (Antarctica left to go!) and all of our positions are fully remote.\n\nWith Innovation as one of the core values, we have built Automation and AI capabilities into the requirements for every role.\n\nWe encourage every member of the Remote team to bring their talents, experiences and culture to the table to help us build the best-in-class HR platform.\n \nIf you are energetic, curious, motivated and ambitious, be part of our world. Apply now and define the future of work!\n\n\nWHAT THIS JOB CAN OFFER YOU\n\nThis is an exciting time to join Remote and make a personal difference in the global HR-tech space as a Managing Counsel, Product (This is an Individual Contributor role). We are looking for a talented and eager lawyer, who is interested in helping with our team’s mission, namely: to deliver pragmatic and innovative legal solutions for Remote’s products and stakeholders, while protecting Remote from unacceptable risk.\n\nRemote’s well established Legal team is a bunch of friendly, talented highly motivated lawyers from a whole host of different countries, with some awesome experiences.\n\nAs Remote grows and adds new products, the volume and complexity of issues scale across 90+ jurisdictions. You will be a legal partner to Payroll, Product, Engineering, Privacy, and Security, with emphasis on payroll and AI/ML features, translating complex rules into clear, shippable requirements and striking the right balance between compliance and commerciality.\n\n\nWHAT YOU BRING\n\n * Qualified Lawyer: Seasoned lawyer with extensive experience on Product counseling (jurisdiction agnostic; multiple bars a plus)\n * Product Counsel Experience in technology, with proven expertise in HR tech (Payroll/PEO/EOR) and track record advising at scale across multiple jurisdictions.\n * Deep expertise in AI frameworks (EU AI Act, UK approach, U.S. state/federal developments, Canada AIDA) and their interplay with data protection (GDPR/CCPA), employment law, and payroll compliance across jurisdictions\n * In-house Experience: Bonus - In-house legal experience preferred\n * Startup Experience: Bonus - Experience in fast-paced start-up\n * Tech Passion: Passionate about tech and HR tech products\n * Skills: Excellent analytical and organizational skills\n * Language: Writes and speaks fluent English\n * Tools: Tech-savvy with Claude, Slack, Notion, Google Drive, or equivalent\n\n\nKEY RESPONSIBILITIES\n\n\nLEGAL EXPERTISE\n\n * Collaborate with the team on payroll and AI product counseling end-to-end, including payroll launch readiness assessment, AI impact assessments, model cards, and risk controls with Privacy/Security.\n * Collaborate with Commercial Legal on product T&Cs and AI-specific clauses as required for payroll features (training/usage of data & metadata, output/IP ownership, acceptable use, transparency.\n * Proactively monitor new AI and tech regulations and translate those into concrete, actionable steps for product, design and engineering teams.\n * Manage external counsel on complex, multi-jurisdictional issues; drive clear, practical outcomes.\n * Deliver targeted enablement (Trainings or office hours).\n * Partner with Privacy & Security on DPIAs/TIAs, incident response, and vendor/LLM diligence.\n * Complex Matters: Figures out solutions rather than just escalating problems.\n\n\nBONUS POINTS\n\n * Experience working with AI/ML legal and compliance issues, particularly in HR tech or payroll contexts\n * Shipped at least one AI feature in production and built the accompanying legal/governance framework\n * Deep payroll compliance knowledge across multiple jurisdictions\n * Experience working remotely\n\n\nPRACTICALS\n\n * You'll report to: Managing Counsel, Product and Commercial; Legal Team\n * Team: Legal (Product Legal)\n * Location: Anywhere in the World\n * Start date: As soon as possible\n\n\n \n\n\nAPPLICATION PROCESS\n\n 1. Interview with recruiter\n 2. Interview with future manager\n 3. Written Exercise\n 4. Interview with Senior Director and team member\n 5. Bar Raiser Interview\n 6. Prior employment verification check \n\nRemote's Total Rewards philosophy is to ensure fair, unbiased compensation and fair equity pay along with competitive benefits in all locations in which we operate. We do not agree to or encourage cheap-labor practices and therefore we ensure to pay above in-location rates. We hope to inspire other companies to support global talent-hiring and bring local wealth to developing countries.\n\nAt first glance our salary bands seem quite wide - here is some context. At Remote we have international operations and a globally distributed workforce.  We use geo ranges to consider geographic pay differentials as part of our global compensation strategy to remain competitive in various markets while we hiring globally.\n\nOur salary ranges are determined by role, level and location, and our job titles may span more than one career level. The actual base pay for the successful candidate in this role is dependent upon many factors such as location, transferable or job-related skills, work experience, relevant training, business needs, and market demands. The base salary range may be subject to change.\n\nAt Remote, we foster internal mobility as a key element of our culture of employee growth and development, supported by a compensation philosophy that guarantees pay equity and fairness. Therefore, all compensation changes associated with an internal move will be reviewed by the Total Rewards & People Enablement team on a case by case basis.\n\nThe annual salary range for this full-time position is\n$66,300—$186,400 USD\n\n\nBENEFITS\n\nOur full benefits & perks are explained in our handbook at remote.com/r/benefits. As a global company, each country works differently, but some benefits/perks are for all Remoters:\n * work from anywhere\n * flexible paid time off\n * flexible working hours (we are async)\n * 16 weeks paid parental leave\n * budget towards co-working spaces, learning and wellness (including gym memberships)\n * mental health support services\n * stock options\n * home office budget & IT equipment\n\n\nHOW YOU’LL PLAN YOUR DAY (AND LIFE)\n\nWe work async at Remote which means you can plan your schedule around your life (and not around meetings). Read more at remote.com/async.\n\nYou will be empowered to take ownership and be proactive. When in doubt you will default to action instead of waiting. Your life-work balance is important and you will be encouraged to put yourself and your family first, and fit work around your needs.\n\nIf that sounds like something you want, apply now!\n\n\nHOW TO APPLY\n\n 1. Please fill out the form below and upload your CV with a PDF format.\n 2. We kindly ask you to submit your application and CV in English, as this is the standardised language we use here at Remote.\n 3. If you don’t have an up to date CV but you are still interested in talking to us, please feel free to add a copy of your LinkedIn profile instead.\n\nNot only do we encourage folks from all ethnic groups, genders, sexuality, age, abilities, disability status and any other under-represented group to apply, but we prioritize a sense of belonging. We have 4 ERGs (Women, Disability, Queer, Minorities in Tech) who meet regularly with the People team. During your interviews and beyond, we ask & encourage anybody who needs an accommodation to request one from their recruiter.\n\n\nWe will ask you to voluntarily tell us your pronouns at interview stage, and you will have the option to answer our anonymous demographic questionnaire when you apply below. As an equal employment opportunity employer it’s important to us that our workforce reflects people of all backgrounds, identities, and experiences and this data will help us to stay accountable. We thank you for providing this data, if you chose to.\n\nAt Remote, we embrace AI as a valuable tool while prioritizing human creativity and authenticity. We look forward to meeting candidates who balance innovation with genuine expertise and experience. To learn more about Remote's AI guidelines check see here. \n\nPlease note we accept applications on an ongoing basis.",
+      "sourceUpdatedAt": "2026-08-19T11:09:22-04:00",
+      "fingerprint": "6727dd36988c95a3cfbc13d5457ee39f8aff133f00737c4815dc45656078937f",
+      "version": 1
+    },
+    {
+      "id": "figma:5415515004",
+      "source": "figma",
+      "externalId": "5415515004",
+      "familyId": "figma:4863039004",
+      "company": "Figma",
+      "title": "Account Executive, Mid-Market (London, United Kingdom)",
+      "location": "London, England",
+      "url": "https://boards.greenhouse.io/figma/jobs/5415515004?gh_jid=5415515004",
+      "text": "Figma is growing our team of passionate creatives and builders on a mission to make design accessible to all. Figma’s platform helps teams bring ideas to life—whether you're brainstorming, creating a prototype, translating designs into code, or iterating with AI. From idea to product, Figma empowers teams to streamline workflows, move faster, and work together in real time from anywhere in the world. If you're excited to shape the future of design and collaboration, join us!\n\nWe are looking for an Account Executive, Mid-Market who will play a critical role in driving sales and maximizing revenue with our customers. You will be responsible for targeting, building and nurturing positive relationships with key decision-makers, understanding complex business needs, and delivering innovative solutions across our product suite. This is an opportunity to accelerate your career, learn from leading sellers in the industry and build an incredible network of cross functional partners at Figma.\n\nThis is a full time role in our London office within a hybrid environment.\n\nWhat you'll do at Figma:\n\n * Create and manage a pipeline of Mid-Market accounts from inbound and outbound activity to consistently meet or surpass sales targets\n * Apply effective discovery and value-selling techniques to build and strengthen relationships with key decision-makers in both new and existing customers (500-5000 FTEs)\n * Align with executives on business challenges and gain sponsorship for enterprise wide deployments for a suite of products, identifying where Figma’s roadmap and innovations fit in the long term\n * Conduct thorough analysis to create account plans that outline company priorities and initiatives, multi-threading at senior level to build on expansion opportunities\n * Manage a book of business by tiering accounts and initiating techniques to save contractions\n * Co-create with cross-functional partners to expertly position Figma, drive deals forward and ensure customer success\n * Leverage opportunities to advance executive level relationships through in-person meetings and networking opportunities\n\nWe'd love to hear from you if you have:\n\n * Experience closing sales, over multiple years, for a software or SaaS business with a book of customers (<5000 FTEs), selling to executives\n * Consistent performance meeting pipeline generation targets for net new business\n * Demonstrated experience successfully managing complex sales cycles (3-9 months)\n * A sales methodology and process that creates value for customers\n\nWhile it’s not required, it’s an added plus if you also have:\n\n * Experience selling solutions to technical audiences at executive level (i.e. Engineering, Product, Design teams)\n * Demonstrated ability to succeed in a changing environment\n * Certified in deal qualification and prospect discovery\n\nAt Figma, one of our values is Grow as you go. We believe in hiring smart, curious people who are excited to learn and develop their skills. If you’re excited about this role but your past experience doesn’t align perfectly with the points outlined in the job description, we encourage you to apply anyways. You may be just the right candidate for this or other roles.\n\nAt Figma we celebrate and support our differences. We know employing a team rich in diverse thoughts, experiences, and opinions allows our employees, our product and our community to flourish. Figma is an equal opportunity workplace - we are dedicated to equal employment opportunities regardless of race, color, ancestry, religion, sex, national origin, sexual orientation, age, citizenship, marital status, disability, gender identity/expression, veteran status, or any other characteristic protected by law. We also consider qualified applicants regardless of criminal histories, consistent with legal requirements.\n\nWe will work to ensure individuals with disabilities are provided reasonable accommodation to apply for a role, participate in the interview process, perform essential job functions, and receive other benefits and privileges of employment. If you require accommodation, please reach out to accommodations-ext@figma.com. These modifications enable an individual with a disability to have an equal opportunity not only to get a job, but successfully perform their job tasks to the same extent as people without disabilities. \n\nExamples of accommodations include but are not limited to: \n\n * Holding interviews in an accessible location\n * Enabling closed captioning on video conferencing\n * Ensuring all written communication be compatible with screen readers\n * Changing the mode or format of interviews \n\nTo ensure the integrity of our hiring process and facilitate a more personal connection, we require all candidates keep their cameras on during video interviews. Additionally, if hired you will be required to attend in person onboarding.\n\nBy applying for this job, the candidate acknowledges and agrees that any personal data contained in their application or supporting materials will be processed in accordance with Figma's Candidate Privacy Notice.",
+      "sourceUpdatedAt": "2026-07-22T05:37:08-04:00",
+      "fingerprint": "e77cec1014ffc9872cbace4b8138ef79019b594aede1142736d6e54bf3fc61ca",
+      "version": 1
+    },
+    {
+      "kind": "client_request",
+      "company": "Freelancer client (identity not verified)",
+      "title": "Modern Portfolio Website Build",
+      "location": "Applicant location eligibility not confirmed",
+      "url": "https://www.freelancer.com/projects/web-design/Modern-Portfolio-Website-Build-40742146",
+      "text": "Source category: buyer-posted client project / service request (hourly).\nListed budget: 750–1250 INR per hour. This is the buyer's listed budget, not guaranteed earnings.\nRequested skills: Website Design, Graphic Design, CSS, HTML5, HTML, Web Development, CSS3, Web Design\n\nI’m ready to launch a sleek, modern, and clean online portfolio and need a developer who can design and code a polished “Home” page that instantly communicates my professional brand. This first page must be fully responsive, fast-loading, and built with standards-compliant HTML5, CSS3, and lightweight JavaScript (or a familiar framework if you can keep performance high).\n\nThe look should lean toward generous white space, crisp typography, subtle animations, and a clear call-to-action that drives visitors to contact me or explore future sections. While my immediate focus is the Home page, I’d like the underlying structure and styling to be easily extendable so I can add About Me and Projects pages later without a full redesign.\n\nKey deliverables:\n• Pixel-perfect Home page design implemented in code  \n• Mobile-first responsiveness across major breakpoints  \n• Simple content management approach (pure code, lightweight CMS, or component-based framework—your recommendation)  \n• Deployment instructions so I can push the site live with minimal fuss\n\nClean, maintainable code and an eye for detail are paramount. If you have a portfolio that shows similar modern, minimalist sites, please share it; I’ll shortlist quickly and we can move straight to timelines.",
+      "id": "freelancer:40742146",
+      "source": "freelancer",
+      "externalId": "40742146",
+      "familyId": "freelancer:40742146",
+      "sourceUpdatedAt": "2026-09-30T09:29:08.000Z",
+      "version": 1,
+      "fingerprint": "c1ca701e0f1cc3476023506614fc45670beecb08a61308726661d7a664993ee6"
+    },
+    {
+      "kind": "client_request",
+      "company": "Freelancer client (identity not verified)",
+      "title": "Modern Logo Embroidery Digitization redwork embroidery",
+      "location": "Applicant location eligibility not confirmed",
+      "url": "https://www.freelancer.com/projects/embroidery/Modern-Logo-Embroidery-Digitization",
+      "text": "Source category: buyer-posted client project / service request (hourly).\nListed budget: 2–3 EUR per hour. This is the buyer's listed budget, not guaranteed earnings.\nRequested skills: Graphic Design, Logo Design, Photoshop, Illustrator, Pattern Making, 3D Modelling, 3D Design, Embroidery, Textile Design, Vector Design\n\nI have a logo that must be converted into a crisp, modern embroidery file. Please take my supplied artwork and professionally digitize it so it runs cleanly on standard machines without thread breaks or excess trims. \n\nDeliverables:\n• Ready-to-stitch DST and PES files  \n• A quick color sequence / thread chart so I know how to load the machine  \n\nThe final stitch-out should keep the sharp, contemporary feel of the original design, with a balanced stitch count and proper underlay to prevent puckering. Let me know your turnaround time and any file specs you need from me to get started.",
+      "id": "freelancer:40742477",
+      "source": "freelancer",
+      "externalId": "40742477",
+      "familyId": "freelancer:40742477",
+      "sourceUpdatedAt": "2026-09-30T12:58:10.000Z",
+      "version": 1,
+      "fingerprint": "a3755de0bcc69f671db6ea1bfd933d9e211a106e95e77fb3b8ed56afb36af304"
+    },
+    {
+      "kind": "client_request",
+      "company": "Freelancer client (identity not verified)",
+      "title": "Convert PDF Form Data to Excel",
+      "location": "Applicant location eligibility not confirmed",
+      "url": "https://www.freelancer.com/projects/data-analysis/Convert-PDF-Form-Data-Excel",
+      "text": "Source category: buyer-posted client project / service request (hourly).\nListed budget: 750–1250 INR per hour. This is the buyer's listed budget, not guaranteed earnings.\nRequested skills: Data Processing, Data Entry, Excel, PDF, Data Cleansing, Data Analysis, Data Management, Data Annotation\n\nI have a small batch of PDF forms—fewer than ten—that contain a mix of text and numerical fields. I need every field captured with absolute accuracy in an Excel workbook so the information can be filtered and analyzed later.\n\nPlease mirror the structure of each form: every unique field should map to its own column, and each completed form should appear on a separate row. Consistency in spelling, punctuation, and number formatting is essential because the file will feed directly into a reporting tool.\n\nDeliverables  \n• One Excel (.xlsx) file containing all transcribed data  \n• A quick note summarizing any unreadable entries or anomalies you run into  \n\nI’ll supply the PDFs right away and I’m happy to answer layout questions before you begin.",
+      "id": "freelancer:40737319",
+      "source": "freelancer",
+      "externalId": "40737319",
+      "familyId": "freelancer:40737319",
+      "sourceUpdatedAt": "2026-09-30T10:34:21.000Z",
+      "version": 1,
+      "fingerprint": "39867058af7126b28301b2063e1c962ea15f171437d16540a8953e13cc766710"
+    },
+    {
+      "kind": "client_request",
+      "company": "Freelancer client (identity not verified)",
+      "title": "Advanced Nazra Quran Tutor Needed",
+      "location": "Applicant location eligibility not confirmed",
+      "url": "https://www.freelancer.com/projects/time-management/Advanced-Nazra-Quran-Tutor-Needed",
+      "text": "Source category: buyer-posted client project / service request (fixed).\nListed budget: 12500–37500 INR per project. This is the buyer's listed budget, not guaranteed earnings.\nRequested skills: Time Management, Zoom\n\nThe goal is to polish an already-advanced reader’s Nazra skills through live, one-on-one sessions. Each class should concentrate on accurate pronunciation, correct application of Tajweed rules and steady retention of previously memorised portions. I will join from home, so everything must run smoothly over Zoom with a reliable connection and clear audio.\n\nHere is what I expect during our collaboration:  \n• A brief diagnostic recitation in the first lesson to pinpoint slips in makharij or fluency.  \n• A structured reading plan that balances new passages with daily Hifz revision so progress never compromises retention.  \n• Gentle, child-friendly guidance when correcting mistakes; patience is essential.  \n• Consistent timing—if we agree on three 30-minute slots each week, those slots should start and end on time.  \n• Periodic feedback reports so I can monitor improvement and adjust goals if necessary.\n\nIdeal background  \nYou have solid command of Tajweed, prior experience teaching children online, and you are comfortable conducting the lesson in Urdu or Hindi. Familiarity with additional tools such as screen annotation or digital mushaf apps is a plus, but the core delivery must remain on Zoom.\n\nNext steps  \nWhen you reply, please include:  \n1. Years of teaching experience and any certificates.  \n2. Your weekly availability in Pakistan/India time.  \n3. Hourly or per-session rate.  \n4. Confirmation that Zoom suits you (mention any backup platform you could switch to if needed).\n\nI look forward to building consistent, engaging classes together.",
+      "id": "freelancer:40740014",
+      "source": "freelancer",
+      "externalId": "40740014",
+      "familyId": "freelancer:40740014",
+      "sourceUpdatedAt": "2026-10-01T02:07:11.000Z",
+      "version": 1,
+      "fingerprint": "fc8020329da6ee2870977fef8a18adad3b46f550cfd662fb48f5844821df1795"
+    }
+  ],
+  "documents": {
+    "figma": [
+      {
+        "url": "https://www.figma.com/careers/",
+        "text": "Skip to main content\n\n\n\n\n\nCAREERS AT FIGMA\n\nFigma is a design platform for teams who build products together. Our vision is to make design accessible to all because we know that nothing great is made alone.\n\nWe’re a team of makers who celebrate our differences and share a passion for our community. We’re hiring across our global hubs and remotely in the US and Canada.\n\nCome join us!\n\nSee open positions\n\n\nOUR VALUES AND CULTURE\n\nOur values and culture are the underpinning for all that we do at Figma—we believe that a great product is inextricably linked to a great internal community.\n\n\nBUILD COMMUNITY\n\nWe’re multiplayer people who love the weird, wonderful magic that happens when people connect. We build bridges—with both our Figmates and our users.\n\n\nRUN WITH IT\n\nBuilding Figma is about taking initiative, being bold and charting a new course, not running a playbook. Figmates are building the future of design by tackling big, scary, exciting challenges like Figma’s future depends on it. Because it does.\n\n\nLOVE YOUR CRAFT\n\nWe build for builders and try to make complex things feel simple. We ask why until we get to the core and continually focus on solving the right problem, not just shipping work.\n\n\nGROW AS YOU GO\n\nWith humility and curiosity, we give and get the direct feedback we all need to become great. Everyone’s a work in progress, and we’re here to help each other grow.\n\n\nPLAY\n\nPlaying is learning. We embrace spontaneous, unstructured exploration—because that’s where we find our best ideas.\n\n\nLIFE AT FIGMA\n\nConnection and kindness are core to our culture (after all, we’re a group of people building a collaboration tool). We focus on lifting each other up instead of competing amongst ourselves, and we build relationships through numerous company traditions.\n\n\nFIGMATE COMMUNITY GROUPS\n\nOur Figmate Communities are an essential part of our value of \"Build Community.\" These groups are comprised of Figmates interested in developing community, social awareness, and education regarding groups with shared characteristics or life experiences, and are open to all Figmates regardless of whether or not they are part of that group or share those characteristics or life experiences themselves.\n\n\nMAKER WEEK\n\nA time set aside once a year to pursue wild, silly, and imaginative ideas. The whole company takes part, and people can work on anything Figma-related that piques their curiosity.\n\n\nEARLY CAREER\n\nOur internship and early career programs let you work on meaningful Figma projects, get mentorship at every step, and grow as you go.\n\nLearn more\n\n\n\nBENEFITS\n\n * Competitive salary & equity\n * Health, Dental, & Vision\n * Retirement with company contribution\n * Parental leave & fertility support\n * Mental health and wellness benefits\n * Generous PTO\n * Company recharge days\n * Learning & development stipend\n * Work from home stipend\n * Cell phone reimbursement\n\n\nLOCATIONS\n\n * San Francisco\n * New York City\n * Seattle\n * London\n * Paris\n * Berlin\n * Tokyo\n * Singapore\n * Bengaluru\n * Sydney\n * São Paulo\n * Tel Aviv\n\n\nJOB OPENINGS\n\n\nBUSINESS DEVELOPMENT\n\n * Distribution Partner Manager\n * Manager, Distribution Partnerships\n * Manager, Tech & Ecosystem Partnerships\n * Product Partner Manager\n * Strategic Partner Manager\n\n\nBUSINESS OPERATIONS\n\n * Business Operations\n * Director, Business Operations\n * Director, Business Systems\n * Director, Technical Revenue Accounting\n * Federal Compliance Manager\n * GTM Systems Architect\n * IT Engineer, Internal AI Infrastructure\n * Manager, Order Management\n * Manager, Security Operations\n * Senior Accountant\n * Senior Analyst, Revenue Transformation\n * Senior Technical Revenue Analyst\n * Strategic Finance\n * Strategic Finance, AI Innovation\n * Strategic Program Manager, Information Security\n * Technical Program Manager\n\n\nCUSTOMER OPERATIONS AND SUPPORT\n\n * Enterprise Support Specialist, Korean Speaking (London, United Kingdom)\n * Manager, Technical Support (London, United Kingdom)\n * Support Engineer, AI Infrastructure & Tooling\n * Technical Quality Specialist\n * Voice of the Customer Program Manager\n\n\nDESIGN\n\n * Brand Designer, Product Launches\n * Director, Product Design - AI & Context\n * Director, Research - AI Evals\n * Executive Assistant, Design\n * Manager, Design - Systems & Infrastructure\n * Product Designer, AI Models\n * Product Designer, CMS\n * Product Designer, Design, Dev, & AI Tools\n * Product Designer, Design Systems\n * Product Designer, Growth & Monetization\n * Product Designer, Roundtripping (London, United Kingdom)\n * Researcher, Figma Agentic Experiences\n * Researcher - Rapid Research\n\n\nEARLY CAREER\n\n * Brand Design Intern (Summer 2027)\n * Data Engineer Intern (2027)\n * Data Science Intern (2027)\n * Data Scientist, Core Data - PhD (2026)\n * Early Career, Product Designer (2027)\n * PhD Intern, Data Science (2027)\n * Product Design Intern (2027)\n * Software Engineer Intern (London, United Kingdom) (Summer 2027)\n * Software Engineer Intern (Summer 2027)\n * Software Engineer Intern (Winter 2027)\n\n\nENGINEERING\n\n * AI Applied Scientist\n * Data Platform Engineer\n * Data Scientist\n * Data Scientist, Finance\n * Director, Data Science\n * Forward Deployed Engineer\n * Manager, Software Engineering - AI Observability\n * Manager, Software Engineering - Billing\n * Manager, Software Engineering - Data Platform\n * Manager, Software Engineering - DevEx AI Tools\n * Manager, Software Engineering - Growth Platform\n * Manager, Software Engineering - Interaction Design\n * Security Engineer\n * Security Scientist\n * Software Engineer - AI Platforms\n * Software Engineer - AI Product\n * Software Engineer - AI Product (London, United Kingdom)\n * Software Engineer - Application Platform\n * Software Engineer - C++\n * Software Engineer - Data Infrastructure\n * Software Engineer - Developer Experience\n * Software Engineer - Distributed Systems\n * Software Engineer - Full Stack\n * Software Engineer - Growth & Monetization\n * Software Engineer - Machine Learning\n * Software Engineer - Machine Learning (London, United Kingdom)\n * Software Engineer - Mobile Web\n * Technical Program Manager - Infrastructure\n\n\nLEGAL\n\n * Senior Product Counsel\n\n\nMARKETING\n\n * Content Strategist, Product\n * Corporate Communications Manager\n * Designer Advocate\n * Designer Advocate (Berlin, Germany)\n * Designer Advocate, Partnerships\n * Executive Assistant, Growth Marketing\n * Field Marketing Manager, Third Party & Partner Events\n * Marketing Engineer\n * Video Strategist\n\n\nPEOPLE\n\n * Director, People Partners - Product, Design & Engineering\n * Executive Assistant, Chief People Officer\n * Executive Assistant, People\n * HRIS Analyst\n * Immigration Program Manager\n * Manager, HRIS\n * Office Manager (Bengaluru, India)\n * Office Manager (São Paulo, Brazil)\n\n\nPRODUCT\n\n * Manager, Product Management - Figma Platform Experience\n * Manager, Product Management - Roundtripping\n * Manager, Product Management - Roundtripping (London, United Kingdom)\n * Product Manager, Acquisition\n * Product Manager, AI Growth\n * Product Manager, Developer Platform\n\n\nSALES\n\n * Account Executive, Enterprise\n * Account Executive, Enterprise (Bengaluru, India)\n * Account Executive, Enterprise (Berlin, Germany)\n * Account Executive, Enterprise (London, United Kingdom)\n * Account Executive, Enterprise, Mandarin Speaking (Singapore)\n * Account Executive, Enterprise (Paris, France)\n * Account Executive, Enterprise (Sydney or Melbourne, Australia)\n * Account Executive, Enterprise (Tokyo, Japan)\n * Account Executive, Federal - Civilian\n * Account Executive, Mid-Market\n * Account Executive, Mid-Market (London, United Kingdom)\n * Account Executive, Mid-Market, Mandarin Speaking (Singapore)\n * Account Executive, Mid-Market (Paris, France)\n * Account Executive, Mid-Market (Sydney, Australia)\n * Account Executive, SMB\n * Account Executive, SMB (Berlin, Germany)\n * Account Executive, SMB (London, United Kingdom)\n * Account Executive, SMB (Tokyo, Japan)\n * Account Executive, Strategic\n * Account Executive, Strategic (London, United Kingdom)\n * Account Executive, Strategic (Paris, France)\n * Account Executive, Strategic (São Paulo, Brazil)\n * Account Executive, Strategic (Sydney or Melbourne, Australia)\n * Account Executive, Strategic (Tokyo, Japan)\n * Customer Enablement Manager (Berlin, Germany)\n * Customer Enablement Manager (Paris, France)\n * Customer Enablement Manager (São Paulo, Brazil)\n * Director, SMB Sales (London, United Kingdom)\n * Director, Solutions Consulting\n * Director, Strategic Sales (Berlin, Germany)\n * Executive Assistant, Sales (São Paulo, Brazil)\n * Inside Sales Representative (Berlin, Germany)\n * Inside Sales Representative (Paris, France)\n * Manager, Customer Enablement (Tokyo, Japan)\n * Manager, Enterprise Sales\n * Manager, Inside Sales (London, United Kingdom)\n * Manager, Inside Sales (Singapore)\n * Manager, Mid-Market Sales (Berlin, Germany)\n * Manager, Mid-Market Sales (London, United Kingdom)\n * Manager, SMB Sales\n * Manager, Solutions Consulting (Tokyo, Japan)\n * Manager, Strategic Sales\n * Program Manager, Scale Onboarding (London, United Kingdom)\n * Senior Account Executive, SMB\n * Senior Account Executive, UK Government (London, United Kingdom)\n * Senior Customer Enablement Manager (London, United Kingdom)\n * Senior Field Enablement Manager (Tokyo, Japan)\n * Senior Manager, Enterprise Sales (London, United Kingdom)\n * Solutions Consultant\n * Solutions Consultant (Berlin, Germany)\n * Solutions Consultant (London, United Kingdom)\n * Solutions Consultant, Payload\n * Solutions Consultant (Sydney, Australia)\n * Technical Account Manager\n * Technical Account Manager, Mandarin Speaking (Singapore)\n * Technical Account Manager (Tokyo, Japan)\n\n\nTALENT\n\n * Business Recruiter (São Paulo, Brazil)\n * Executive Recruiter\n * Manager, Recruiting - Sales\n * Manager, Talent Products\n * Recruiter (Singapore)\n\n\nWEAVY - FIGMA WEAVE\n\n * Director, Marketing - Figma Weave (New York, United States)\n * Events Manager - Figma Weave (New York, United States)\n * Software Engineer - Figma Weave (Tel Aviv, Israel)\n\nAt Figma we celebrate and support our differences. We know employing a team rich in diverse thoughts, experiences, and opinions allows our employees, our product and our community to flourish. Figma is an equal opportunity workplace. We are dedicated to equal employment opportunities regardless of race, color, ancestry, religion, sex, national origin, sexual orientation, age, citizenship, marital status, disability, gender identity/expression, or veteran status.\n\n\nFROM THE BLOG\n\n\n * VERSION CONTROL: HOW A UX WRITER WEIGHS ONE WORD AGAINST ANOTHER\n   \n   In UX design, a single misplaced verb can lead users astray, frustrating their expectations and creating confusion. That’s why UX Writer Henry Freedland chose his words very carefully when he was brought in to help polish a new prototyping feature.\n   \n   Read article\n\n\n * WHY ARE WE SO AFRAID OF CODE AS A COMMODITY?\n   \n   Instead of asking how AI will automate our jobs, we should be focusing on what we, as engineers, uniquely do well. What problems can AI currently solve, and where is the whitespace to go beyond that?\n   \n   Read article\n\n\n * BREAKING IN: A GUIDE TO LANDING YOUR FIRST PRODUCT DESIGN ROLE\n   \n   Curious about early career opportunities at Figma? Here are some tips on how to get your first product design job, along with insights on what we look for.\n   \n   Read article\n\nSee all articles\n\n\nABOUT FIGMA\n\nFigma is the design platform for teams who build products together. Born on the Web, Figma helps teams brainstorm, design and build better products — from start to finish. Whether it’s consolidating tools, simplifying workflows, or collaborating across teams and time zones, Figma makes the design process faster, more efficient, and fun while keeping everyone on the same page.",
+        "checkedAt": "2026-10-01T08:19:25.158Z",
+        "fingerprint": "442aef8a386ddb575562e41aa77e4ae2d4850d1b18f4bd83e01ad29b8c805c27"
+      }
+    ],
+    "remotecom": [
+      {
+        "url": "https://remote.com/careers",
+        "text": "CAREERS FOR ANYONE FROM ANYWHERE\n\nCome work with Remote if you are an ambitious, motivated, high-performing contributor who wants to demonstrate impact from anywhere in the world.\n\nView open positions\n\n\nOUR VALUES ARE THE FOUNDATION ON HOW WE RUN OUR BUSINESS\n\nRemote's values are core to how we lead, how we act, how we accelerate our teams, and how we provide impact to each other, our customers, and the world.\n\n\nCARE\n\n\nINNOVATION\n\n\nTRANSPARENCY\n\n\nINTENSITY\n\n\nEXCELLENCE\n\n\nREIMAGINE THE FUTURE OF HR\n\nRemote is continuing its acceleration around the world. We are focused on adding more top talent to our team to continue to grow our Global HR Platform that helps companies (big and small, local and international) scale. Our team works hard on ambitious problems, asynchronously, around the world. With our future-focused work culture and our great perks, now is the time to join the Remote rocketship!\n\nView open positions\n\n\nBE AN OWNER\n\nRemote is one of the world’s largest remote-first, fully asynchronous global companies. All Remoters work from their chosen locations on the planet and enjoy flexible working hours along with world-class compensation, equity options, and more.\n\nLearn more\n\n\n\nBENEFITS AND PERKS\n\nAt Remote, we invest in our people. Our country-specific benefits and company perks help employees feel valued, respected, and cared for:\n\n\nFLEXIBLE PAID TIME OFF\n\n\nCOMPANY STOCK OPTIONS\n\n\nPAID PARENTAL LEAVE\n\n\nHOME OFFICE SETUP\n\n\nMENTAL HEALTH SUPPORT\n\n\nFLEXIBLE WORKING HOURS\n\n\nOTHER COUNTRY-SPECIFIC BENEFITS\n\n\nLEARNING BUDGET\n\n\nCO-WORKING ALLOWANCE\n\n\nBRANDED SWAG\n\n\nBELONG EVERYWHERE\n\nRemoters span the globe. We have built a truly global team committed to fostering inclusion and belonging. We encourage every member of the Remote team to bring their talents, experiences, and culture to the table. The Remote team at a glance:\n\n\nNATIONALITIES\n\nMore than 90 nationalities represented\n\n\nLANGUAGES\n\nMore than 50 languages spoken\n\n\nCONTINENTS\n\n6 (only Antarctica left to go!)\n\n\nLIFE AT REMOTE\n\nRemote & Async Work\n\n\nTHE POWERFUL ENVIRONMENTAL BENEFITS OF REMOTE WORK\n\nLearn more\n\nRemote & Async Work\n\n\n10 INCLUSIVE WORKPLACE PRACTICES FOR YOUR REMOTE TEAM\n\nLearn more\n\nGlobal HR\n\n\nHOW TO BUILD A STRONG CULTURE WITH A REMOTE TEAM\n\nLearn more\n\n\nDEPARTMENTS\n\nWhile every Remote department has the same mission—to help our customers employ anyone, anywhere, compliantly—learn more about each team’s focus.\n\n\nSALES AND SALES ENABLEMENT\n\nSales helps employers to sign up to global employment.\n\nSales is the team responding to incoming queries, and seeking out companies that could benefit from a global talent pool. To enable them to embody our value of Transparency, we have a fair price guarantee. They help customers understand why solving global employment is important.\n\nSales Enablement makes sure resources, product updates, and training is available to the sales team.\n\nSales Enablement makes sure that content is created, available, and easy to action for the sales team. They handle queries, questions, and help connect sales representatives to operational teams when customers-to-be have questions.\n\n\nLEGAL\n\nSupporting internal teams to make global employment legally safe.\n\nThe team supports all departments across all queries, but especially contractual and employment law. They train everybody, and support them when they have questions.\n\n\nINTERNATIONAL OPERATIONS\n\nDoing the hard work that makes global employment logistically possible.\n\nThe team is responsible for achieving our mission at its core, to employ anyone, anywhere, compliantly. They're responsible for opening and managing our entities, making sure we have a legal presence in all our countries of operation.\n\n\nPEOPLE\n\nThe People team delivers innovative people strategies that enhance the employee experience and drive business performance. We build and enable our high-performance organization so that Remote is a diverse and inspiring place to work.\n\nWe're future-focused innovators at Remote, committed to driving operational excellence and a high-performance culture. By strategically leveraging AI and data-driven insights, we transform the employee experience and empower our leaders to foster accountability, ownership, and inclusive growth.\n\nOur experimental approach to building products for the future ensures every Remoter is enabled, self-sufficient, and poised for a long, impactful career at Remote.\n\n\nPRODUCT\n\nExpanding the Remote product and improving the experience of those employed globally.\n\nThe team listens to Remote's problems and customer needs, and makes as much of it as self-service as possible through the Remote product. They extract insight from product requests, bug reports, and constantly iterate to improve the product we offer.\n\n\nREMOTE FINANCIAL SERVICES\n\nMaking sure Remote is a 100% compliant and trustworthy financial institution.\n\nRemote is a financial services company. Such a company needs to have their financial transactions reviewed and assessed, to make sure all is legal. That is what the Remote Financial Services team is here for.\n\n\nOPERATIONS\n\nProviding the services that keep global employment smooth.\n\nThe amazing team that helps customers through the entire employment journey of their employees, end to end. Includes Customer Experience, Payroll, Benefits, Onboarding, Mobility, and Employee Lifecycle.\n\n\nDESIGN\n\nMaking global employment more accessible with an easy to use Remote product.\n\nThe team that ultimately makes beautiful documents, images, and interfaces to help customers use our product with ease! Includes Product Design, User Experience, and Brand Design.\n\n\nENGINEERING\n\nBuilding the Remote product to make global employment as easy as possible.\n\nWant to know more? The Engineering career path and rulebook are both public. You can also read up on the Remote Flow which is used to make sure the workload progresses smoothly.\n\n\nFINANCE\n\nFuelling the company so that it can offer global employment to as many businesses as possible.\n\nThe team is a core function of our ability to do business and fund growth plans. Includes Accounting, Tax, Treasury, FP&A, and Systems Operations.\n\n\nFINTECH\n\nKeeping our payments services ahead of the curve.\n\nThe team that helps expand our service operations with automated payments, and wider options for payments.\n\nIncludes Payments Operations and Accounts Receivable.\n\n\nMARKETING\n\nSpreading the message of how easy it is to employ globally with Remote.\n\nThe team that (maybe) is the reason you have heard of us!\n\nIncludes performance marketing, product marketing, field marketing, PR and social media, content, and growth marketing.\n\nThis team is responsible for our blog, and fun research like the best destinations for remote work.\n\n\nARE YOU READY TO JOIN REMOTE AND SHAPE THE FUTURE OF WORK?\n\nWe want you to succeed in your application! Click the button below to view our interview guide or reach out with questions to\n\n[email protected]\n\nRemote may contact candidates through official recruitment channels, including @remote.com email addresses, LinkedIn, application systems, scheduling tools, and other approved hiring platforms. We may also work with approved recruitment partners. Neither Remote nor our partners will ever ask candidates to pay fees, buy equipment, use paid services, or transfer money at any stage of our hiring process.\n\nRemote interviews are conducted through official, scheduled channels and we will not move a hiring process onto WhatsApp or other unofficial messaging channels.\n\nInterview GuideView all",
+        "checkedAt": "2026-10-01T08:19:26.256Z",
+        "fingerprint": "80e6fdf4f69fa8bb2381e78e93cf80635f00a80422ea6c26fd622bf7303c7fcd"
+      },
+      {
+        "url": "https://remote.com/openings",
+        "text": "JOIN OUR TEAM\n\nRemote is a true global company. We do not have an office anywhere in the world. What we offer is the flexibility to work when and where you want, which means you can plan your schedule around your life (and not around meetings).\n\nMost of our jobs are globally remote! Job boards often require us to select a location though, so the location you see under the job titles are for advertising purposes only. To check if a role has location or timezone restrictions, please check the Practicals section at the bottom of each advert.\n\nSee openings\n\n\n\n\nEOR OPERATIONS\n\n * Payroll Vendor Relationship Manager\n * EOR Compliance & Audit Lead\n * Payroll Specialist Lead - India\n * Senior Lifecycle Specialist, Employee Relations & Transitions - EMEA\n * Manager, Mobility - EMEA\n\n\nCONTRACTS MANAGEMENT\n\n * Lifecycle Specialist, Contract Management - LATAM\n\n\nOCCUPATIONAL HEALTH & SAFETY\n\n * Lifecycle Senior Specialist (OHS): Contract Management\n * Senior Lifecycle Specialist, Workers Compensation - EMEA\n\n\nTIME & ATTENDANCE\n\n * Lifecycle Specialist, Time and Attendance - EMEA\n * Lifecycle Specialist, Time and Attendance - AMER\n\n\nMOBILITY\n\n * Mobility Specialist - EMEA\n * Mobility Specialist - AMER\n * Mobility Specialist - APAC\n\n\nPAYROLL OPERATIONS\n\n * Payroll Specialist Lead - Netherlands\n * Payroll Specialist Lead - Portugal\n * Payroll Specialist Lead - France\n * Payroll Specialist Lead - Canada\n * Manager, Payroll Operations - Eastern Europe\n * Payroll Data Administrator - Benelux (12 Month FTC)\n * Manager, Payroll Operations - Sub Saharan\n\n\nFINANCE\n\n\nTAX\n\n * International Tax Manager, Personal Income Tax\n * Tax Analyst - VAT\n\n\nLEGAL\n\n\nEMPLOYMENT PRODUCT & COMMERCIAL\n\n * Managing Counsel, Product (Payroll experience required)\n\n\nPAYROLL\n\n * Manager, Payroll Operations - Colombia and Brazil\n\n\nIMPLEMENTATION\n\n * Global Payroll Implementation Country Lead - Germany\n * Global Payroll Implementation Specialist - GPIS\n\n\nSALES\n\n * Sales Development Representative - ANZ\n * Senior Account Executive - AMER MM+\n\n\nTECH PARTNERSHIP\n\n * Strategic Alliances Principal - UK&I\n\n\nENGINEERING\n\n * Senior Forward Deployed Engineer\n * Senior Backend Engineer\n\nBEST EOR FOR STARTUPS IN 2026: COMPARE THE TOP 9 PROVIDERS\n\nEOR & PEO\n\nSEPTEMBER PRODUCT UPDATES\n\nMonthly Updates\n\nREMOTE NAMED #1 IN G2’S MOMENTUM GRID® REPORT FOR GLOBAL PAYROLL\n\nCompany News",
+        "checkedAt": "2026-10-01T08:19:26.241Z",
+        "fingerprint": "c3383bcc26bacc9a15fd02fc9ace533e633477f35cd0d93610d29b2902b2d667"
+      }
+    ]
+  },
+  "briefs": [
+    {
+      "id": "design-ng",
+      "cohort": "employment-design-nigeria",
+      "feedbackHistory": [
+        {
+          "title": "Senior Product Designer",
+          "kind": "job",
+          "postingId": "synthetic-history:Senior Product Designer",
+          "provenance": "synthetic-prior-feedback"
+        }
+      ],
+      "search": {
+        "goal": "Find work matching my confirmed requirements",
+        "category": "employment",
+        "name": "Evaluation brief",
+        "arrangement": "remote",
+        "arrangementRequired": true,
+        "minimumPay": "",
+        "currency": "USD",
+        "payPeriod": "year",
+        "unknownEligibility": "review",
+        "undisclosedPay": "include",
+        "sponsorshipNeed": "not_needed",
+        "authorizationConfirmed": true,
+        "target": "Product Designer",
+        "residence": "Lagos, Nigeria",
+        "workLocations": "Nigeria",
+        "authorizationLocations": "Nigeria",
+        "background": "Five years designing web and mobile products, using Figma, prototyping and conducting user research. Individual contributor, no management experience."
+      }
+    },
+    {
+      "id": "design-us",
+      "cohort": "employment-design-us",
+      "feedbackHistory": [
+        {
+          "title": "Senior Product Designer",
+          "kind": "job",
+          "postingId": "synthetic-history:Senior Product Designer",
+          "provenance": "synthetic-prior-feedback"
+        }
+      ],
+      "search": {
+        "goal": "Find work matching my confirmed requirements",
+        "category": "employment",
+        "name": "Evaluation brief",
+        "arrangement": "remote",
+        "arrangementRequired": true,
+        "minimumPay": "",
+        "currency": "USD",
+        "payPeriod": "year",
+        "unknownEligibility": "review",
+        "undisclosedPay": "include",
+        "sponsorshipNeed": "not_needed",
+        "authorizationConfirmed": true,
+        "target": "Product Designer",
+        "residence": "New York, United States",
+        "workLocations": "United States",
+        "authorizationLocations": "United States",
+        "background": "Five years designing web and mobile products, using Figma, prototyping and conducting user research. Individual contributor, no management experience."
+      }
+    },
+    {
+      "id": "engineering-us",
+      "cohort": "employment-engineering-us",
+      "feedbackHistory": [
+        {
+          "title": "Software Engineer distributed systems",
+          "kind": "job",
+          "postingId": "synthetic-history:Software Engineer distributed systems",
+          "provenance": "synthetic-prior-feedback"
+        }
+      ],
+      "search": {
+        "goal": "Find work matching my confirmed requirements",
+        "category": "employment",
+        "name": "Evaluation brief",
+        "arrangement": "remote",
+        "arrangementRequired": true,
+        "minimumPay": "120000",
+        "currency": "USD",
+        "payPeriod": "year",
+        "unknownEligibility": "review",
+        "undisclosedPay": "include",
+        "sponsorshipNeed": "not_needed",
+        "authorizationConfirmed": true,
+        "target": "Software Engineer",
+        "residence": "New York, United States",
+        "workLocations": "United States",
+        "authorizationLocations": "United States",
+        "background": "Seven years building TypeScript and Python services, PostgreSQL databases and distributed systems. Mentored engineers, no team management or machine learning production experience."
+      }
+    },
+    {
+      "id": "sales-uk",
+      "cohort": "employment-sales-uk-sponsorship",
+      "feedbackHistory": [],
+      "search": {
+        "goal": "Find work matching my confirmed requirements",
+        "category": "employment",
+        "name": "Evaluation brief",
+        "arrangement": "remote",
+        "arrangementRequired": true,
+        "minimumPay": "",
+        "currency": "USD",
+        "payPeriod": "year",
+        "unknownEligibility": "exclude",
+        "undisclosedPay": "include",
+        "sponsorshipNeed": "needed",
+        "authorizationConfirmed": true,
+        "target": "Account Executive",
+        "residence": "London, United Kingdom",
+        "workLocations": "United Kingdom",
+        "authorizationLocations": "Nigeria",
+        "background": "Six years in B2B SaaS sales to mid-market customers, owning prospecting, demos, negotiation and closing. Fluent English only. I need employer visa sponsorship."
+      }
+    },
+    {
+      "id": "contract-us",
+      "cohort": "contract-development-us",
+      "feedbackHistory": [
+        {
+          "title": "Website developer TypeScript",
+          "kind": "job",
+          "postingId": "synthetic-history:Website developer TypeScript",
+          "provenance": "synthetic-prior-feedback"
+        }
+      ],
+      "search": {
+        "goal": "Find work matching my confirmed requirements",
+        "category": "contracts",
+        "name": "Evaluation brief",
+        "arrangement": "remote",
+        "arrangementRequired": true,
+        "minimumPay": "50",
+        "currency": "USD",
+        "payPeriod": "hour",
+        "unknownEligibility": "review",
+        "undisclosedPay": "exclude",
+        "sponsorshipNeed": "not_needed",
+        "authorizationConfirmed": true,
+        "target": "Web Developer",
+        "residence": "Austin, United States",
+        "workLocations": "United States",
+        "authorizationLocations": "United States",
+        "background": "Three years building React and TypeScript websites. Seeking independent contract roles, not permanent employment."
+      }
+    },
+    {
+      "id": "website-ng",
+      "cohort": "services-web-nigeria",
+      "feedbackHistory": [
+        {
+          "title": "WordPress website development",
+          "kind": "client_request",
+          "postingId": "synthetic-history:WordPress website development",
+          "provenance": "synthetic-prior-feedback"
+        }
+      ],
+      "search": {
+        "goal": "Find work matching my confirmed requirements",
+        "category": "services",
+        "name": "Evaluation brief",
+        "arrangement": "remote",
+        "arrangementRequired": false,
+        "minimumPay": "",
+        "currency": "USD",
+        "payPeriod": "project",
+        "unknownEligibility": "review",
+        "undisclosedPay": "include",
+        "sponsorshipNeed": "not_needed",
+        "authorizationConfirmed": true,
+        "target": "Website development",
+        "residence": "Lagos, Nigeria",
+        "workLocations": "Worldwide",
+        "authorizationLocations": "Nigeria",
+        "background": "Five years building WordPress and Shopify websites, responsive themes and payment integrations. Seeking remote client website projects."
+      }
+    },
+    {
+      "id": "brand-global",
+      "cohort": "services-brand-international",
+      "feedbackHistory": [
+        {
+          "title": "Brand identity logo design",
+          "kind": "client_request",
+          "postingId": "synthetic-history:Brand identity logo design",
+          "provenance": "synthetic-prior-feedback"
+        }
+      ],
+      "search": {
+        "goal": "Find work matching my confirmed requirements",
+        "category": "services",
+        "name": "Evaluation brief",
+        "arrangement": "remote",
+        "arrangementRequired": false,
+        "minimumPay": "300",
+        "currency": "USD",
+        "payPeriod": "project",
+        "unknownEligibility": "review",
+        "undisclosedPay": "include",
+        "sponsorshipNeed": "not_needed",
+        "authorizationConfirmed": true,
+        "target": "Brand design",
+        "residence": "Lagos, Nigeria",
+        "workLocations": "Worldwide",
+        "authorizationLocations": "Nigeria",
+        "background": "Four years in brand identity, logo design, typography and brand guidelines using Illustrator and Figma. No software development, video editing or 3D experience."
+      }
+    }
+  ],
+  "cases": [
+    {
+      "id": "design-ng:figma:5711468004",
+      "briefId": "design-ng",
+      "postingId": "figma:5711468004",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "id": "design-ng:figma:5551532004",
+      "briefId": "design-ng",
+      "postingId": "figma:5551532004",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "id": "design-ng:remotecom:7519082003",
+      "briefId": "design-ng",
+      "postingId": "remotecom:7519082003",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "id": "design-ng:figma:5415515004",
+      "briefId": "design-ng",
+      "postingId": "figma:5415515004",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "id": "design-ng:freelancer:40742146",
+      "briefId": "design-ng",
+      "postingId": "freelancer:40742146",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "id": "design-ng:freelancer:40742477",
+      "briefId": "design-ng",
+      "postingId": "freelancer:40742477",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "id": "design-ng:freelancer:40737319",
+      "briefId": "design-ng",
+      "postingId": "freelancer:40737319",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "id": "design-ng:freelancer:40740014",
+      "briefId": "design-ng",
+      "postingId": "freelancer:40740014",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "id": "design-us:figma:5711468004",
+      "briefId": "design-us",
+      "postingId": "figma:5711468004",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "id": "design-us:figma:5551532004",
+      "briefId": "design-us",
+      "postingId": "figma:5551532004",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "id": "design-us:remotecom:7519082003",
+      "briefId": "design-us",
+      "postingId": "remotecom:7519082003",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "id": "design-us:figma:5415515004",
+      "briefId": "design-us",
+      "postingId": "figma:5415515004",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "id": "design-us:freelancer:40742146",
+      "briefId": "design-us",
+      "postingId": "freelancer:40742146",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "id": "design-us:freelancer:40742477",
+      "briefId": "design-us",
+      "postingId": "freelancer:40742477",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "id": "design-us:freelancer:40737319",
+      "briefId": "design-us",
+      "postingId": "freelancer:40737319",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "id": "design-us:freelancer:40740014",
+      "briefId": "design-us",
+      "postingId": "freelancer:40740014",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "id": "engineering-us:figma:5711468004",
+      "briefId": "engineering-us",
+      "postingId": "figma:5711468004",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "id": "engineering-us:figma:5551532004",
+      "briefId": "engineering-us",
+      "postingId": "figma:5551532004",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "id": "engineering-us:remotecom:7519082003",
+      "briefId": "engineering-us",
+      "postingId": "remotecom:7519082003",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "id": "engineering-us:figma:5415515004",
+      "briefId": "engineering-us",
+      "postingId": "figma:5415515004",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "id": "engineering-us:freelancer:40742146",
+      "briefId": "engineering-us",
+      "postingId": "freelancer:40742146",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "id": "engineering-us:freelancer:40742477",
+      "briefId": "engineering-us",
+      "postingId": "freelancer:40742477",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "id": "engineering-us:freelancer:40737319",
+      "briefId": "engineering-us",
+      "postingId": "freelancer:40737319",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "id": "engineering-us:freelancer:40740014",
+      "briefId": "engineering-us",
+      "postingId": "freelancer:40740014",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "id": "sales-uk:figma:5711468004",
+      "briefId": "sales-uk",
+      "postingId": "figma:5711468004",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "id": "sales-uk:figma:5551532004",
+      "briefId": "sales-uk",
+      "postingId": "figma:5551532004",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "id": "sales-uk:remotecom:7519082003",
+      "briefId": "sales-uk",
+      "postingId": "remotecom:7519082003",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "id": "sales-uk:figma:5415515004",
+      "briefId": "sales-uk",
+      "postingId": "figma:5415515004",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "id": "sales-uk:freelancer:40742146",
+      "briefId": "sales-uk",
+      "postingId": "freelancer:40742146",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "id": "sales-uk:freelancer:40742477",
+      "briefId": "sales-uk",
+      "postingId": "freelancer:40742477",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "id": "sales-uk:freelancer:40737319",
+      "briefId": "sales-uk",
+      "postingId": "freelancer:40737319",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "id": "sales-uk:freelancer:40740014",
+      "briefId": "sales-uk",
+      "postingId": "freelancer:40740014",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "id": "contract-us:figma:5711468004",
+      "briefId": "contract-us",
+      "postingId": "figma:5711468004",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "id": "contract-us:figma:5551532004",
+      "briefId": "contract-us",
+      "postingId": "figma:5551532004",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "id": "contract-us:remotecom:7519082003",
+      "briefId": "contract-us",
+      "postingId": "remotecom:7519082003",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "id": "contract-us:figma:5415515004",
+      "briefId": "contract-us",
+      "postingId": "figma:5415515004",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "id": "contract-us:freelancer:40742146",
+      "briefId": "contract-us",
+      "postingId": "freelancer:40742146",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "id": "contract-us:freelancer:40742477",
+      "briefId": "contract-us",
+      "postingId": "freelancer:40742477",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "id": "contract-us:freelancer:40737319",
+      "briefId": "contract-us",
+      "postingId": "freelancer:40737319",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "id": "contract-us:freelancer:40740014",
+      "briefId": "contract-us",
+      "postingId": "freelancer:40740014",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "id": "website-ng:figma:5711468004",
+      "briefId": "website-ng",
+      "postingId": "figma:5711468004",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "id": "website-ng:figma:5551532004",
+      "briefId": "website-ng",
+      "postingId": "figma:5551532004",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "id": "website-ng:remotecom:7519082003",
+      "briefId": "website-ng",
+      "postingId": "remotecom:7519082003",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "id": "website-ng:figma:5415515004",
+      "briefId": "website-ng",
+      "postingId": "figma:5415515004",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "id": "website-ng:freelancer:40742146",
+      "briefId": "website-ng",
+      "postingId": "freelancer:40742146",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "id": "website-ng:freelancer:40742477",
+      "briefId": "website-ng",
+      "postingId": "freelancer:40742477",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "id": "website-ng:freelancer:40737319",
+      "briefId": "website-ng",
+      "postingId": "freelancer:40737319",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "id": "website-ng:freelancer:40740014",
+      "briefId": "website-ng",
+      "postingId": "freelancer:40740014",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "id": "brand-global:figma:5711468004",
+      "briefId": "brand-global",
+      "postingId": "figma:5711468004",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "id": "brand-global:figma:5551532004",
+      "briefId": "brand-global",
+      "postingId": "figma:5551532004",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "id": "brand-global:remotecom:7519082003",
+      "briefId": "brand-global",
+      "postingId": "remotecom:7519082003",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "id": "brand-global:figma:5415515004",
+      "briefId": "brand-global",
+      "postingId": "figma:5415515004",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "id": "brand-global:freelancer:40742146",
+      "briefId": "brand-global",
+      "postingId": "freelancer:40742146",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "id": "brand-global:freelancer:40742477",
+      "briefId": "brand-global",
+      "postingId": "freelancer:40742477",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "id": "brand-global:freelancer:40737319",
+      "briefId": "brand-global",
+      "postingId": "freelancer:40737319",
+      "review": {
+        "status": "pending"
+      }
+    },
+    {
+      "id": "brand-global:freelancer:40740014",
+      "briefId": "brand-global",
+      "postingId": "freelancer:40740014",
+      "review": {
+        "status": "pending"
+      }
+    }
+  ],
+  "contentHash": "5b8e4e17e160023baa855edd708520c4263af8965412c10d37dcee29c949be82"
+}

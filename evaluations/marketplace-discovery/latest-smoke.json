@@ -1,0 +1,35 @@
+{
+  "checkedAt": "2026-10-01T11:17:10.681Z",
+  "source": "freelancer",
+  "scope": "window",
+  "fetchedCount": 378,
+  "selected": {
+    "id": "freelancer:40744297",
+    "title": "Hindi/Hinglish Comedy Scriptwriter Needed",
+    "url": "https://www.freelancer.com/projects/comedy-writing/Hindi-Hinglish-Comedy-Scriptwriter"
+  },
+  "availability": {
+    "status": "available",
+    "fingerprint": "497bb40d824d4d34f05632b7ba7647a4585bf0e4f175f9fa2f723d54881f984a",
+    "checkedAt": "2026-10-01T11:17:10.128Z",
+    "sourceUrl": "https://www.freelancer.com/api/projects/0.1/projects/40744297/?full_description=true&job_details=true"
+  },
+  "matchedCount": 1,
+  "feedbackRankChange": 1,
+  "checks": [
+    "public collection",
+    "leased persistence",
+    "category retrieval",
+    "provisional matching",
+    "owner isolation",
+    "feedback ranking",
+    "individual availability",
+    "idempotent delivery reservation",
+    "hidden suppression",
+    "durable refresh intents"
+  ],
+  "emailsSent": 0,
+  "modelRequests": 0,
+  "scopeNote": "Integration smoke check with a synthetic brief targeting one captured title; not relevance, worldwide eligibility or production-scale validation.",
+  "durationMs": 3051
+}

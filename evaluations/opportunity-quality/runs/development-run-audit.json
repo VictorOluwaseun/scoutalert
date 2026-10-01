@@ -1,0 +1,23 @@
+{
+  "recordedAt": "2026-10-01T08:26:27.433Z",
+  "runs": [
+    {
+      "id": "2026-10-01-expanded",
+      "status": "excluded_from_quality_scoring",
+      "reason": "Description-keyword selection produced incidental strata and one synthetic brief failed the newly added production preflight validation.",
+      "completedComparisons": 48,
+      "providerCalls": 60,
+      "estimatedUsd": 0.276867,
+      "reservedUsd": 4.5
+    },
+    {
+      "id": "2026-10-01-title-strata",
+      "status": "interrupted",
+      "reason": "Stopped after identifying invalid synthetic authorization declarations, before the first durable comparison save. Subsequent runners validate all briefs and persist every attempt reservation before calling a model.",
+      "estimatedUsd": null,
+      "configuredMaxReservedUsd": 4.5
+    }
+  ],
+  "currentCorpus": "2026-10-01-held-out/corpus.json",
+  "note": "Discarded development packets are not benchmark evidence. No real account data was used and no emails were sent."
+}

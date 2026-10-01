@@ -1,0 +1,1118 @@
+{
+  "schema": 1,
+  "corpusHash": "30f4222a1505fe7b1a659233b28f5beec059fecbe8233526e980d9139132676f",
+  "measuredAt": "2026-10-01T07:03:48.222Z",
+  "model": "gpt-5.4-mini-2026-03-17",
+  "configuration": "openai:gpt-5.4-mini-2026-03-17:gpt-5.4-mini-2026-03-17:evidence-prompts-v5:reasoning-low:schema-v3:pay-normalizer-v1:supported-criteria-v2",
+  "researchConfiguration": "employer-research-v1:gpt-5.4-mini-2026-03-17:captured-corpus-v1",
+  "scope": "Frozen real employer postings and synthetic briefs; corpus-level retrieval, not production recall or load",
+  "complete": true,
+  "elapsedMs": 57290,
+  "requests": 10,
+  "reservedUsd": 0.75,
+  "estimatedUsd": 0.058166,
+  "unmeasuredAttempts": 0,
+  "usage": [
+    {
+      "model": "gpt-5.4-mini-2026-03-17",
+      "inputTokens": 2297,
+      "cachedInputTokens": 0,
+      "outputTokens": 397,
+      "durationMs": 4662,
+      "responseId": "resp_07f8f8b1d4ed50f5016abe059c7e3887d2ab51354906e857be",
+      "kind": "extraction",
+      "cost": {
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "estimatedMicrousd": 3510
+      }
+    },
+    {
+      "model": "gpt-5.4-mini-2026-03-17",
+      "inputTokens": 6052,
+      "cachedInputTokens": 0,
+      "outputTokens": 319,
+      "durationMs": 3629,
+      "responseId": "resp_068f560b0f7c0dba016abe05a02fcc87d28b946c0c3577ca8b",
+      "kind": "research",
+      "cost": {
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "estimatedMicrousd": 5975
+      }
+    },
+    {
+      "model": "gpt-5.4-mini-2026-03-17",
+      "inputTokens": 9040,
+      "cachedInputTokens": 0,
+      "outputTokens": 783,
+      "durationMs": 6378,
+      "responseId": "resp_064d8a0ab873fa90016abe05a3f3d487d2803df1ac33a6c173",
+      "kind": "fit",
+      "cost": {
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "estimatedMicrousd": 10304
+      }
+    },
+    {
+      "model": "gpt-5.4-mini-2026-03-17",
+      "inputTokens": 2231,
+      "cachedInputTokens": 0,
+      "outputTokens": 429,
+      "durationMs": 4432,
+      "responseId": "resp_0bc8dbdfcd1a6ea3016abe05aa3a4c87d2983d1e8a566de57d",
+      "kind": "extraction",
+      "cost": {
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "estimatedMicrousd": 3604
+      }
+    },
+    {
+      "model": "gpt-5.4-mini-2026-03-17",
+      "inputTokens": 6254,
+      "cachedInputTokens": 0,
+      "outputTokens": 599,
+      "durationMs": 8878,
+      "responseId": "resp_01d3ff3d2c34c2d9016abe05ae9f8887d2953e0a240fdd95e2",
+      "kind": "research",
+      "cost": {
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "estimatedMicrousd": 7386
+      }
+    },
+    {
+      "model": "gpt-5.4-mini-2026-03-17",
+      "inputTokens": 9178,
+      "cachedInputTokens": 0,
+      "outputTokens": 693,
+      "durationMs": 5816,
+      "responseId": "resp_079503914d93c512016abe05b77ec087d29331aa9d8497ed95",
+      "kind": "fit",
+      "cost": {
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "estimatedMicrousd": 10002
+      }
+    },
+    {
+      "model": "gpt-5.4-mini-2026-03-17",
+      "inputTokens": 9048,
+      "cachedInputTokens": 8448,
+      "outputTokens": 705,
+      "durationMs": 7396,
+      "responseId": "resp_0b4b0a316883779b016abe05bd4b9c87d2bfac5d36070cfb8d",
+      "kind": "fit",
+      "cost": {
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "estimatedMicrousd": 4257
+      }
+    },
+    {
+      "model": "gpt-5.4-mini-2026-03-17",
+      "inputTokens": 9186,
+      "cachedInputTokens": 8448,
+      "outputTokens": 808,
+      "durationMs": 5293,
+      "responseId": "resp_0b12fa7b5ce7bb68016abe05c4b0a887d2b424dd8f27c3ed34",
+      "kind": "fit",
+      "cost": {
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "estimatedMicrousd": 4824
+      }
+    },
+    {
+      "model": "gpt-5.4-mini-2026-03-17",
+      "inputTokens": 9052,
+      "cachedInputTokens": 8448,
+      "outputTokens": 693,
+      "durationMs": 5675,
+      "responseId": "resp_0fad279548b0f6f9016abe05ca048087d282cdd09a4f06ce95",
+      "kind": "fit",
+      "cost": {
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "estimatedMicrousd": 4206
+      }
+    },
+    {
+      "model": "gpt-5.4-mini-2026-03-17",
+      "inputTokens": 9190,
+      "cachedInputTokens": 8448,
+      "outputTokens": 646,
+      "durationMs": 4871,
+      "responseId": "resp_0dc24c333490417d016abe05cfa9f487d291a9d5754cc77d8e",
+      "kind": "fit",
+      "cost": {
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "estimatedMicrousd": 4098
+      }
+    }
+  ],
+  "metrics": {
+    "reviewedCases": 0,
+    "measuredReviewedCases": 0,
+    "pendingCases": 6,
+    "precision": null,
+    "assessmentRecall": null,
+    "retrievalRecall": null,
+    "pipelineRecall": null,
+    "falseInclusions": 0,
+    "falseExclusions": 0,
+    "retrievalMisses": 0,
+    "falsePrompts": 0
+  },
+  "cohorts": {
+    "design-remote-nigeria": {
+      "reviewedCases": 0,
+      "measuredReviewedCases": 0,
+      "pendingCases": 2,
+      "precision": null,
+      "assessmentRecall": null,
+      "retrievalRecall": null,
+      "pipelineRecall": null,
+      "falseInclusions": 0,
+      "falseExclusions": 0,
+      "retrievalMisses": 0,
+      "falsePrompts": 0
+    },
+    "engineering-remote-us": {
+      "reviewedCases": 0,
+      "measuredReviewedCases": 0,
+      "pendingCases": 2,
+      "precision": null,
+      "assessmentRecall": null,
+      "retrievalRecall": null,
+      "pipelineRecall": null,
+      "falseInclusions": 0,
+      "falseExclusions": 0,
+      "retrievalMisses": 0,
+      "falsePrompts": 0
+    },
+    "sales-remote-uk": {
+      "reviewedCases": 0,
+      "measuredReviewedCases": 0,
+      "pendingCases": 2,
+      "precision": null,
+      "assessmentRecall": null,
+      "retrievalRecall": null,
+      "pipelineRecall": null,
+      "falseInclusions": 0,
+      "falseExclusions": 0,
+      "retrievalMisses": 0,
+      "falsePrompts": 0
+    }
+  },
+  "providerP50Ms": 5293,
+  "providerP95Ms": 8878,
+  "releaseEvidenceReady": false,
+  "reviewRequirement": "Independent human labels and representative source/user coverage are required before interpreting these measurements as a release benchmark.",
+  "results": [
+    {
+      "id": "design-ng:figma:5711468004",
+      "accepted": false,
+      "retrieved": true,
+      "retrievalMs": 2.9021250000000123,
+      "prompt": false,
+      "promptAssumption": "Posting availability held fresh for this isolated decision test; no email sent",
+      "assessment": null,
+      "analysis": {
+        "facts": {
+          "role": {
+            "status": "stated",
+            "value": "Product Designer, Design, Dev, & AI Tools",
+            "quotes": [
+              "Product Designer, Design, Dev, & AI Tools"
+            ]
+          },
+          "arrangement": {
+            "status": "stated",
+            "value": "Full-time; can be held from one of Figma's US hubs or remotely in the United States",
+            "quotes": [
+              "This is a full time role that can be held from one of our US hubs or remotely in the United States."
+            ]
+          },
+          "category": {
+            "status": "stated",
+            "value": "Employment, full-time",
+            "quotes": [
+              "This is a full time role that can be held from one of our US hubs or remotely in the United States."
+            ]
+          },
+          "location": {
+            "status": "stated",
+            "value": "US hubs or remote in the United States; listing also names San Francisco, CA and New York, NY",
+            "quotes": [
+              "San Francisco, CA • New York, NY • United States",
+              "This is a full time role that can be held from one of our US hubs or remotely in the United States."
+            ]
+          },
+          "requirements": {
+            "status": "stated",
+            "value": "3+ years of experience designing UX and UI for a software product of similar scale and complexity, plus strong visual craft, interaction design/prototyping, independent design process ownership, structured thinking, user-centered research, and experience with AI or emerging tools",
+            "quotes": [
+              " * 3+ years of experience designing UX and UI for a software product of similar scale and complexity",
+              " * Great attention to detail and a strong eye for visual craft, such as composition, typography, and layout",
+              " * Fluency in interaction design and prototyping, to express and refine nuanced design decisions",
+              " * A track record of independently driving design processes from discovery through launch—balancing user needs, technical constraints, and business goals"
+            ]
+          },
+          "authorization": {
+            "status": "unknown",
+            "value": "",
+            "quotes": []
+          },
+          "sponsorship": {
+            "status": "unknown",
+            "value": "",
+            "quotes": []
+          },
+          "compensation": {
+            "status": "stated",
+            "value": "Annual base salary range: $169,000 to $303,000 USD",
+            "quotes": [
+              "Annual Base Salary Range:",
+              "$169,000—$303,000 USD"
+            ]
+          }
+        },
+        "pay": {
+          "minimum": null,
+          "maximum": null,
+          "currency": null,
+          "period": null
+        },
+        "research": {
+          "checkedAt": "2026-10-01T07:02:55.760Z",
+          "expiresAt": "2026-10-01T13:02:06.920Z",
+          "documents": [
+            {
+              "url": "https://www.figma.com/careers/",
+              "text": "Skip to main content\n\n\n\n\n\nCAREERS AT FIGMA\n\nFigma is a design platform for teams who build products together. Our vision is to make design accessible to all because we know that nothing great is made alone.\n\nWe’re a team of makers who celebrate our differences and share a passion for our community. We’re hiring across our global hubs and remotely in the US and Canada.\n\nCome join us!\n\nSee open positions\n\n\nOUR VALUES AND CULTURE\n\nOur values and culture are the underpinning for all that we do at Figma—we believe that a great product is inextricably linked to a great internal community.\n\n\nBUILD COMMUNITY\n\nWe’re multiplayer people who love the weird, wonderful magic that happens when people connect. We build bridges—with both our Figmates and our users.\n\n\nRUN WITH IT\n\nBuilding Figma is about taking initiative, being bold and charting a new course, not running a playbook. Figmates are building the future of design by tackling big, scary, exciting challenges like Figma’s future depends on it. Because it does.\n\n\nLOVE YOUR CRAFT\n\nWe build for builders and try to make complex things feel simple. We ask why until we get to the core and continually focus on solving the right problem, not just shipping work.\n\n\nGROW AS YOU GO\n\nWith humility and curiosity, we give and get the direct feedback we all need to become great. Everyone’s a work in progress, and we’re here to help each other grow.\n\n\nPLAY\n\nPlaying is learning. We embrace spontaneous, unstructured exploration—because that’s where we find our best ideas.\n\n\nLIFE AT FIGMA\n\nConnection and kindness are core to our culture (after all, we’re a group of people building a collaboration tool). We focus on lifting each other up instead of competing amongst ourselves, and we build relationships through numerous company traditions.\n\n\nFIGMATE COMMUNITY GROUPS\n\nOur Figmate Communities are an essential part of our value of \"Build Community.\" These groups are comprised of Figmates interested in developing community, social awareness, and education regarding groups with shared characteristics or life experiences, and are open to all Figmates regardless of whether or not they are part of that group or share those characteristics or life experiences themselves.\n\n\nMAKER WEEK\n\nA time set aside once a year to pursue wild, silly, and imaginative ideas. The whole company takes part, and people can work on anything Figma-related that piques their curiosity.\n\n\nEARLY CAREER\n\nOur internship and early career programs let you work on meaningful Figma projects, get mentorship at every step, and grow as you go.\n\nLearn more\n\n\n\nBENEFITS\n\n * Competitive salary & equity\n * Health, Dental, & Vision\n * Retirement with company contribution\n * Parental leave & fertility support\n * Mental health and wellness benefits\n * Generous PTO\n * Company recharge days\n * Learning & development stipend\n * Work from home stipend\n * Cell phone reimbursement\n\n\nLOCATIONS\n\n * San Francisco\n * New York City\n * Seattle\n * London\n * Paris\n * Berlin\n * Tokyo\n * Singapore\n * Bengaluru\n * Sydney\n * São Paulo\n * Tel Aviv\n\n\nJOB OPENINGS\n\n\nBUSINESS DEVELOPMENT\n\n * Distribution Partner Manager\n * Manager, Distribution Partnerships\n * Manager, Tech & Ecosystem Partnerships\n * Product Partner Manager\n * Strategic Partner Manager\n\n\nBUSINESS OPERATIONS\n\n * Business Operations\n * Director, Business Operations\n * Director, Business Systems\n * Director, Technical Revenue Accounting\n * Federal Compliance Manager\n * GTM Systems Architect\n * IT Engineer, Internal AI Infrastructure\n * Manager, Order Management\n * Manager, Security Operations\n * Senior Accountant\n * Senior Analyst, Revenue Transformation\n * Senior Technical Revenue Analyst\n * Strategic Finance\n * Strategic Finance, AI Innovation\n * Strategic Program Manager, Information Security\n * Technical Program Manager\n\n\nCUSTOMER OPERATIONS AND SUPPORT\n\n * Enterprise Support Specialist, Korean Speaking (London, United Kingdom)\n * Manager, Technical Support (London, United Kingdom)\n * Support Engineer, AI Infrastructure & Tooling\n * Technical Quality Specialist\n * Voice of the Customer Program Manager\n\n\nDESIGN\n\n * Brand Designer, Product Launches\n * Director, Product Design - AI & Context\n * Director, Research - AI Evals\n * Executive Assistant, Design\n * Manager, Design - Systems & Infrastructure\n * Product Designer, AI Models\n * Product Designer, CMS\n * Product Designer, Design, Dev, & AI Tools\n * Product Designer, Design Systems\n * Product Designer, Growth & Monetization\n * Product Designer, Roundtripping (London, United Kingdom)\n * Researcher, Figma Agentic Experiences\n * Researcher - Rapid Research\n\n\nEARLY CAREER\n\n * Brand Design Intern (Summer 2027)\n * Data Engineer Intern (2027)\n * Data Science Intern (2027)\n * Data Scientist, Core Data - PhD (2026)\n * Early Career, Product Designer (2027)\n * PhD Intern, Data Science (2027)\n * Product Design Intern (2027)\n * Software Engineer Intern (London, United Kingdom) (Summer 2027)\n * Software Engineer Intern (Summer 2027)\n * Software Engineer Intern (Winter 2027)\n\n\nENGINEERING\n\n * AI Applied Scientist\n * Data Platform Engineer\n * Data Scientist\n * Data Scientist, Finance\n * Director, Data Science\n * Forward Deployed Engineer\n * Manager, Software Engineering - AI Observability\n * Manager, Software Engineering - Billing\n * Manager, Software Engineering - Data Platform\n * Manager, Software Engineering - DevEx AI Tools\n * Manager, Software Engineering - Growth Platform\n * Manager, Software Engineering - Interaction Design\n * Security Engineer\n * Security Scientist\n * Software Engineer - AI Platforms\n * Software Engineer - AI Product\n * Software Engineer - AI Product (London, United Kingdom)\n * Software Engineer - Application Platform\n * Software Engineer - C++\n * Software Engineer - Data Infrastructure\n * Software Engineer - Developer Experience\n * Software Engineer - Distributed Systems\n * Software Engineer - Full Stack\n * Software Engineer - Growth & Monetization\n * Software Engineer - Machine Learning\n * Software Engineer - Machine Learning (London, United Kingdom)\n * Software Engineer - Mobile Web\n * Technical Program Manager - Infrastructure\n\n\nLEGAL\n\n * Senior Product Counsel\n\n\nMARKETING\n\n * Content Strategist, Product\n * Corporate Communications Manager\n * Designer Advocate\n * Designer Advocate (Berlin, Germany)\n * Designer Advocate, Partnerships\n * Executive Assistant, Growth Marketing\n * Field Marketing Manager, Third Party & Partner Events\n * Marketing Engineer\n * Video Strategist\n\n\nPEOPLE\n\n * Director, People Partners - Product, Design & Engineering\n * Executive Assistant, Chief People Officer\n * Executive Assistant, People\n * HRIS Analyst\n * Immigration Program Manager\n * Manager, HRIS\n * Office Manager (Bengaluru, India)\n * Office Manager (São Paulo, Brazil)\n\n\nPRODUCT\n\n * Manager, Product Management - Figma Platform Experience\n * Manager, Product Management - Roundtripping\n * Manager, Product Management - Roundtripping (London, United Kingdom)\n * Product Manager, Acquisition\n * Product Manager, AI Growth\n * Product Manager, Developer Platform\n\n\nSALES\n\n * Account Executive, Enterprise\n * Account Executive, Enterprise (Bengaluru, India)\n * Account Executive, Enterprise (Berlin, Germany)\n * Account Executive, Enterprise (London, United Kingdom)\n * Account Executive, Enterprise, Mandarin Speaking (Singapore)\n * Account Executive, Enterprise (Paris, France)\n * Account Executive, Enterprise (Sydney or Melbourne, Australia)\n * Account Executive, Enterprise (Tokyo, Japan)\n * Account Executive, Federal - Civilian\n * Account Executive, Mid-Market\n * Account Executive, Mid-Market (London, United Kingdom)\n * Account Executive, Mid-Market, Mandarin Speaking (Singapore)\n * Account Executive, Mid-Market (Paris, France)\n * Account Executive, Mid-Market (Sydney, Australia)\n * Account Executive, SMB\n * Account Executive, SMB (Berlin, Germany)\n * Account Executive, SMB (London, United Kingdom)\n * Account Executive, SMB (Tokyo, Japan)\n * Account Executive, Strategic\n * Account Executive, Strategic (London, United Kingdom)\n * Account Executive, Strategic (Paris, France)\n * Account Executive, Strategic (São Paulo, Brazil)\n * Account Executive, Strategic (Sydney or Melbourne, Australia)\n * Account Executive, Strategic (Tokyo, Japan)\n * Customer Enablement Manager (Berlin, Germany)\n * Customer Enablement Manager (Paris, France)\n * Customer Enablement Manager (São Paulo, Brazil)\n * Director, SMB Sales (London, United Kingdom)\n * Director, Solutions Consulting\n * Director, Strategic Sales (Berlin, Germany)\n * Executive Assistant, Sales (São Paulo, Brazil)\n * Inside Sales Representative (Berlin, Germany)\n * Inside Sales Representative (Paris, France)\n * Manager, Customer Enablement (Tokyo, Japan)\n * Manager, Enterprise Sales\n * Manager, Inside Sales (London, United Kingdom)\n * Manager, Inside Sales (Singapore)\n * Manager, Mid-Market Sales (Berlin, Germany)\n * Manager, Mid-Market Sales (London, United Kingdom)\n * Manager, SMB Sales\n * Manager, Solutions Consulting (Tokyo, Japan)\n * Manager, Strategic Sales\n * Program Manager, Scale Onboarding (London, United Kingdom)\n * Senior Account Executive, SMB\n * Senior Account Executive, UK Government (London, United Kingdom)\n * Senior Customer Enablement Manager (London, United Kingdom)\n * Senior Field Enablement Manager (Tokyo, Japan)\n * Senior Manager, Enterprise Sales (London, United Kingdom)\n * Solutions Consultant\n * Solutions Consultant (Berlin, Germany)\n * Solutions Consultant (London, United Kingdom)\n * Solutions Consultant, Payload\n * Solutions Consultant (Sydney, Australia)\n * Technical Account Manager\n * Technical Account Manager, Mandarin Speaking (Singapore)\n * Technical Account Manager (Tokyo, Japan)\n\n\nTALENT\n\n * Business Recruiter (São Paulo, Brazil)\n * Executive Recruiter\n * Manager, Recruiting - Sales\n * Manager, Talent Products\n * Recruiter (Singapore)\n\n\nWEAVY - FIGMA WEAVE\n\n * Director, Marketing - Figma Weave (New York, United States)\n * Events Manager - Figma Weave (New York, United States)\n * Software Engineer - Figma Weave (Tel Aviv, Israel)\n\nAt Figma we celebrate and support our differences. We know employing a team rich in diverse thoughts, experiences, and opinions allows our employees, our product and our community to flourish. Figma is an equal opportunity workplace. We are dedicated to equal employment opportunities regardless of race, color, ancestry, religion, sex, national origin, sexual orientation, age, citizenship, marital status, disability, gender identity/expression, or veteran status.\n\n\nFROM THE BLOG\n\n\n * VERSION CONTROL: HOW A UX WRITER WEIGHS ONE WORD AGAINST ANOTHER\n   \n   In UX design, a single misplaced verb can lead users astray, frustrating their expectations and creating confusion. That’s why UX Writer Henry Freedland chose his words very carefully when he was brought in to help polish a new prototyping feature.\n   \n   Read article\n\n\n * WHY ARE WE SO AFRAID OF CODE AS A COMMODITY?\n   \n   Instead of asking how AI will automate our jobs, we should be focusing on what we, as engineers, uniquely do well. What problems can AI currently solve, and where is the whitespace to go beyond that?\n   \n   Read article\n\n\n * BREAKING IN: A GUIDE TO LANDING YOUR FIRST PRODUCT DESIGN ROLE\n   \n   Curious about early career opportunities at Figma? Here are some tips on how to get your first product design job, along with insights on what we look for.\n   \n   Read article\n\nSee all articles\n\n\nABOUT FIGMA\n\nFigma is the design platform for teams who build products together. Born on the Web, Figma helps teams brainstorm, design and build better products — from start to finish. Whether it’s consolidating tools, simplifying workflows, or collaborating across teams and time zones, Figma makes the design process faster, more efficient, and fun while keeping everyone on the same page.",
+              "checkedAt": "2026-10-01T07:02:06.920Z",
+              "fingerprint": "442aef8a386ddb575562e41aa77e4ae2d4850d1b18f4bd83e01ad29b8c805c27"
+            }
+          ],
+          "findings": [
+            {
+              "fact": "location",
+              "status": "resolved",
+              "applicability": "this_role",
+              "explanation": "The posting explicitly states the role can be held from one of Figma’s US hubs or remotely in the United States, and the careers page lists US hubs including San Francisco and New York City.",
+              "value": "US hubs or remotely in the United States",
+              "quotes": [
+                " * Product Designer, Design, Dev, & AI Tools",
+                "We’re a team of makers who celebrate our differences and share a passion for our community. We’re hiring across our global hubs and remotely in the US and Canada.",
+                "LOCATIONS",
+                " * San Francisco"
+              ],
+              "sourceUrl": "https://www.figma.com/careers/"
+            },
+            {
+              "fact": "authorization",
+              "status": "unresolved",
+              "applicability": "this_role",
+              "explanation": "The supplied employer documents do not state any work authorization requirement for this specific role, so it is not possible to determine whether the applicant must already have U.S. work authorization.",
+              "value": "",
+              "quotes": [],
+              "sourceUrl": null
+            },
+            {
+              "fact": "sponsorship",
+              "status": "unresolved",
+              "applicability": "this_role",
+              "explanation": "The supplied employer documents do not mention visa sponsorship for this specific role. There is no direct evidence that sponsorship is offered or not offered.",
+              "value": "",
+              "quotes": [],
+              "sourceUrl": null
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "design-ng:figma:5551532004",
+      "accepted": false,
+      "retrieved": true,
+      "retrievalMs": 2.9021250000000123,
+      "prompt": false,
+      "promptAssumption": "Posting availability held fresh for this isolated decision test; no email sent",
+      "assessment": null,
+      "analysis": {
+        "facts": {
+          "role": {
+            "status": "stated",
+            "value": "Software Engineer - Machine Learning / Machine Learning / AI Engineer",
+            "quotes": [
+              "Software Engineer - Machine Learning",
+              "Figma is seeking a versatile and experienced Machine Learning / AI Engineer to join our growing AI team, working at the intersection of applied machine learning, infrastructure, and product innovation. Whether you’re building intelligent search systems, crafting scalable data pipelines, or enhancing AI-powered creativity tools, your work will drive user productivity, shape new product experiences, and advance the state of AI at Figma."
+            ]
+          },
+          "arrangement": {
+            "status": "stated",
+            "value": "Full-time; can be held from one of the US hubs or remotely in the United States",
+            "quotes": [
+              "This is a full time role that can be held from one of our US hubs or remotely in the United States.",
+              "San Francisco, CA • New York, NY • United States"
+            ]
+          },
+          "category": {
+            "status": "stated",
+            "value": "Employment role (full-time employee job posting)",
+            "quotes": [
+              "This is a full time role that can be held from one of our US hubs or remotely in the United States.",
+              "Figma offers equity to employees, as well as a competitive package of additional benefits, including health, dental, and vision coverage; retirement benefits with company contributions; parental leave and reproductive or family planning support; mental health and wellness benefits; and paid time off. Figma provides paid sick leave, holidays, and other leave benefits in compliance with applicable federal, state, and local laws, including the requirements of the Washington Minimum Wage Act and related regulations. Exempt employees are eligible for employer‑provided paid flexible PTO in addition to flexible paid sick leave. PTO is subject to manager approval. Additional benefits may include company recharge days, cell phone and home internet reimbursements, and a number of lifestyle spending accounts. Figma also offers sales incentive compensation for most sales roles and an annual bonus plan for eligible non-sales roles. All compensation and benefits are subject to applicable plan terms "
+            ]
+          },
+          "location": {
+            "status": "stated",
+            "value": "San Francisco, CA; New York, NY; or remotely in the United States",
+            "quotes": [
+              "San Francisco, CA • New York, NY • United States",
+              "This is a full time role that can be held from one of our US hubs or remotely in the United States."
+            ]
+          },
+          "requirements": {
+            "status": "stated",
+            "value": "5+ years of software engineering experience, 3+ years focused on applied machine learning or AI, plus Python and ML/data pipeline experience",
+            "quotes": [
+              " * 5+ years of industry experience in software engineering, with 3+ years focused on applied machine learning or AI.",
+              " * Strong experience with end-to-end ML model development, including training, evaluation, deployment, and monitoring.",
+              " * Proficiency in Python and familiarity with ML libraries like PyTorch, TensorFlow, Scikit-learn, Spark MLlib, or XGBoost.",
+              " * Experience designing and building scalable data and annotation pipelines, as well as evaluation systems for AI model quality."
+            ]
+          },
+          "authorization": {
+            "status": "unknown",
+            "value": "",
+            "quotes": []
+          },
+          "sponsorship": {
+            "status": "unknown",
+            "value": "",
+            "quotes": []
+          },
+          "compensation": {
+            "status": "stated",
+            "value": "Annual base salary range: $153,000 to $376,000 USD",
+            "quotes": [
+              "Annual Base Salary Range:",
+              "$153,000—$376,000 USD"
+            ]
+          }
+        },
+        "pay": {
+          "minimum": null,
+          "maximum": null,
+          "currency": null,
+          "period": null
+        },
+        "research": {
+          "checkedAt": "2026-10-01T07:03:10.202Z",
+          "expiresAt": "2026-10-01T13:02:06.920Z",
+          "documents": [
+            {
+              "url": "https://www.figma.com/careers/",
+              "text": "Skip to main content\n\n\n\n\n\nCAREERS AT FIGMA\n\nFigma is a design platform for teams who build products together. Our vision is to make design accessible to all because we know that nothing great is made alone.\n\nWe’re a team of makers who celebrate our differences and share a passion for our community. We’re hiring across our global hubs and remotely in the US and Canada.\n\nCome join us!\n\nSee open positions\n\n\nOUR VALUES AND CULTURE\n\nOur values and culture are the underpinning for all that we do at Figma—we believe that a great product is inextricably linked to a great internal community.\n\n\nBUILD COMMUNITY\n\nWe’re multiplayer people who love the weird, wonderful magic that happens when people connect. We build bridges—with both our Figmates and our users.\n\n\nRUN WITH IT\n\nBuilding Figma is about taking initiative, being bold and charting a new course, not running a playbook. Figmates are building the future of design by tackling big, scary, exciting challenges like Figma’s future depends on it. Because it does.\n\n\nLOVE YOUR CRAFT\n\nWe build for builders and try to make complex things feel simple. We ask why until we get to the core and continually focus on solving the right problem, not just shipping work.\n\n\nGROW AS YOU GO\n\nWith humility and curiosity, we give and get the direct feedback we all need to become great. Everyone’s a work in progress, and we’re here to help each other grow.\n\n\nPLAY\n\nPlaying is learning. We embrace spontaneous, unstructured exploration—because that’s where we find our best ideas.\n\n\nLIFE AT FIGMA\n\nConnection and kindness are core to our culture (after all, we’re a group of people building a collaboration tool). We focus on lifting each other up instead of competing amongst ourselves, and we build relationships through numerous company traditions.\n\n\nFIGMATE COMMUNITY GROUPS\n\nOur Figmate Communities are an essential part of our value of \"Build Community.\" These groups are comprised of Figmates interested in developing community, social awareness, and education regarding groups with shared characteristics or life experiences, and are open to all Figmates regardless of whether or not they are part of that group or share those characteristics or life experiences themselves.\n\n\nMAKER WEEK\n\nA time set aside once a year to pursue wild, silly, and imaginative ideas. The whole company takes part, and people can work on anything Figma-related that piques their curiosity.\n\n\nEARLY CAREER\n\nOur internship and early career programs let you work on meaningful Figma projects, get mentorship at every step, and grow as you go.\n\nLearn more\n\n\n\nBENEFITS\n\n * Competitive salary & equity\n * Health, Dental, & Vision\n * Retirement with company contribution\n * Parental leave & fertility support\n * Mental health and wellness benefits\n * Generous PTO\n * Company recharge days\n * Learning & development stipend\n * Work from home stipend\n * Cell phone reimbursement\n\n\nLOCATIONS\n\n * San Francisco\n * New York City\n * Seattle\n * London\n * Paris\n * Berlin\n * Tokyo\n * Singapore\n * Bengaluru\n * Sydney\n * São Paulo\n * Tel Aviv\n\n\nJOB OPENINGS\n\n\nBUSINESS DEVELOPMENT\n\n * Distribution Partner Manager\n * Manager, Distribution Partnerships\n * Manager, Tech & Ecosystem Partnerships\n * Product Partner Manager\n * Strategic Partner Manager\n\n\nBUSINESS OPERATIONS\n\n * Business Operations\n * Director, Business Operations\n * Director, Business Systems\n * Director, Technical Revenue Accounting\n * Federal Compliance Manager\n * GTM Systems Architect\n * IT Engineer, Internal AI Infrastructure\n * Manager, Order Management\n * Manager, Security Operations\n * Senior Accountant\n * Senior Analyst, Revenue Transformation\n * Senior Technical Revenue Analyst\n * Strategic Finance\n * Strategic Finance, AI Innovation\n * Strategic Program Manager, Information Security\n * Technical Program Manager\n\n\nCUSTOMER OPERATIONS AND SUPPORT\n\n * Enterprise Support Specialist, Korean Speaking (London, United Kingdom)\n * Manager, Technical Support (London, United Kingdom)\n * Support Engineer, AI Infrastructure & Tooling\n * Technical Quality Specialist\n * Voice of the Customer Program Manager\n\n\nDESIGN\n\n * Brand Designer, Product Launches\n * Director, Product Design - AI & Context\n * Director, Research - AI Evals\n * Executive Assistant, Design\n * Manager, Design - Systems & Infrastructure\n * Product Designer, AI Models\n * Product Designer, CMS\n * Product Designer, Design, Dev, & AI Tools\n * Product Designer, Design Systems\n * Product Designer, Growth & Monetization\n * Product Designer, Roundtripping (London, United Kingdom)\n * Researcher, Figma Agentic Experiences\n * Researcher - Rapid Research\n\n\nEARLY CAREER\n\n * Brand Design Intern (Summer 2027)\n * Data Engineer Intern (2027)\n * Data Science Intern (2027)\n * Data Scientist, Core Data - PhD (2026)\n * Early Career, Product Designer (2027)\n * PhD Intern, Data Science (2027)\n * Product Design Intern (2027)\n * Software Engineer Intern (London, United Kingdom) (Summer 2027)\n * Software Engineer Intern (Summer 2027)\n * Software Engineer Intern (Winter 2027)\n\n\nENGINEERING\n\n * AI Applied Scientist\n * Data Platform Engineer\n * Data Scientist\n * Data Scientist, Finance\n * Director, Data Science\n * Forward Deployed Engineer\n * Manager, Software Engineering - AI Observability\n * Manager, Software Engineering - Billing\n * Manager, Software Engineering - Data Platform\n * Manager, Software Engineering - DevEx AI Tools\n * Manager, Software Engineering - Growth Platform\n * Manager, Software Engineering - Interaction Design\n * Security Engineer\n * Security Scientist\n * Software Engineer - AI Platforms\n * Software Engineer - AI Product\n * Software Engineer - AI Product (London, United Kingdom)\n * Software Engineer - Application Platform\n * Software Engineer - C++\n * Software Engineer - Data Infrastructure\n * Software Engineer - Developer Experience\n * Software Engineer - Distributed Systems\n * Software Engineer - Full Stack\n * Software Engineer - Growth & Monetization\n * Software Engineer - Machine Learning\n * Software Engineer - Machine Learning (London, United Kingdom)\n * Software Engineer - Mobile Web\n * Technical Program Manager - Infrastructure\n\n\nLEGAL\n\n * Senior Product Counsel\n\n\nMARKETING\n\n * Content Strategist, Product\n * Corporate Communications Manager\n * Designer Advocate\n * Designer Advocate (Berlin, Germany)\n * Designer Advocate, Partnerships\n * Executive Assistant, Growth Marketing\n * Field Marketing Manager, Third Party & Partner Events\n * Marketing Engineer\n * Video Strategist\n\n\nPEOPLE\n\n * Director, People Partners - Product, Design & Engineering\n * Executive Assistant, Chief People Officer\n * Executive Assistant, People\n * HRIS Analyst\n * Immigration Program Manager\n * Manager, HRIS\n * Office Manager (Bengaluru, India)\n * Office Manager (São Paulo, Brazil)\n\n\nPRODUCT\n\n * Manager, Product Management - Figma Platform Experience\n * Manager, Product Management - Roundtripping\n * Manager, Product Management - Roundtripping (London, United Kingdom)\n * Product Manager, Acquisition\n * Product Manager, AI Growth\n * Product Manager, Developer Platform\n\n\nSALES\n\n * Account Executive, Enterprise\n * Account Executive, Enterprise (Bengaluru, India)\n * Account Executive, Enterprise (Berlin, Germany)\n * Account Executive, Enterprise (London, United Kingdom)\n * Account Executive, Enterprise, Mandarin Speaking (Singapore)\n * Account Executive, Enterprise (Paris, France)\n * Account Executive, Enterprise (Sydney or Melbourne, Australia)\n * Account Executive, Enterprise (Tokyo, Japan)\n * Account Executive, Federal - Civilian\n * Account Executive, Mid-Market\n * Account Executive, Mid-Market (London, United Kingdom)\n * Account Executive, Mid-Market, Mandarin Speaking (Singapore)\n * Account Executive, Mid-Market (Paris, France)\n * Account Executive, Mid-Market (Sydney, Australia)\n * Account Executive, SMB\n * Account Executive, SMB (Berlin, Germany)\n * Account Executive, SMB (London, United Kingdom)\n * Account Executive, SMB (Tokyo, Japan)\n * Account Executive, Strategic\n * Account Executive, Strategic (London, United Kingdom)\n * Account Executive, Strategic (Paris, France)\n * Account Executive, Strategic (São Paulo, Brazil)\n * Account Executive, Strategic (Sydney or Melbourne, Australia)\n * Account Executive, Strategic (Tokyo, Japan)\n * Customer Enablement Manager (Berlin, Germany)\n * Customer Enablement Manager (Paris, France)\n * Customer Enablement Manager (São Paulo, Brazil)\n * Director, SMB Sales (London, United Kingdom)\n * Director, Solutions Consulting\n * Director, Strategic Sales (Berlin, Germany)\n * Executive Assistant, Sales (São Paulo, Brazil)\n * Inside Sales Representative (Berlin, Germany)\n * Inside Sales Representative (Paris, France)\n * Manager, Customer Enablement (Tokyo, Japan)\n * Manager, Enterprise Sales\n * Manager, Inside Sales (London, United Kingdom)\n * Manager, Inside Sales (Singapore)\n * Manager, Mid-Market Sales (Berlin, Germany)\n * Manager, Mid-Market Sales (London, United Kingdom)\n * Manager, SMB Sales\n * Manager, Solutions Consulting (Tokyo, Japan)\n * Manager, Strategic Sales\n * Program Manager, Scale Onboarding (London, United Kingdom)\n * Senior Account Executive, SMB\n * Senior Account Executive, UK Government (London, United Kingdom)\n * Senior Customer Enablement Manager (London, United Kingdom)\n * Senior Field Enablement Manager (Tokyo, Japan)\n * Senior Manager, Enterprise Sales (London, United Kingdom)\n * Solutions Consultant\n * Solutions Consultant (Berlin, Germany)\n * Solutions Consultant (London, United Kingdom)\n * Solutions Consultant, Payload\n * Solutions Consultant (Sydney, Australia)\n * Technical Account Manager\n * Technical Account Manager, Mandarin Speaking (Singapore)\n * Technical Account Manager (Tokyo, Japan)\n\n\nTALENT\n\n * Business Recruiter (São Paulo, Brazil)\n * Executive Recruiter\n * Manager, Recruiting - Sales\n * Manager, Talent Products\n * Recruiter (Singapore)\n\n\nWEAVY - FIGMA WEAVE\n\n * Director, Marketing - Figma Weave (New York, United States)\n * Events Manager - Figma Weave (New York, United States)\n * Software Engineer - Figma Weave (Tel Aviv, Israel)\n\nAt Figma we celebrate and support our differences. We know employing a team rich in diverse thoughts, experiences, and opinions allows our employees, our product and our community to flourish. Figma is an equal opportunity workplace. We are dedicated to equal employment opportunities regardless of race, color, ancestry, religion, sex, national origin, sexual orientation, age, citizenship, marital status, disability, gender identity/expression, or veteran status.\n\n\nFROM THE BLOG\n\n\n * VERSION CONTROL: HOW A UX WRITER WEIGHS ONE WORD AGAINST ANOTHER\n   \n   In UX design, a single misplaced verb can lead users astray, frustrating their expectations and creating confusion. That’s why UX Writer Henry Freedland chose his words very carefully when he was brought in to help polish a new prototyping feature.\n   \n   Read article\n\n\n * WHY ARE WE SO AFRAID OF CODE AS A COMMODITY?\n   \n   Instead of asking how AI will automate our jobs, we should be focusing on what we, as engineers, uniquely do well. What problems can AI currently solve, and where is the whitespace to go beyond that?\n   \n   Read article\n\n\n * BREAKING IN: A GUIDE TO LANDING YOUR FIRST PRODUCT DESIGN ROLE\n   \n   Curious about early career opportunities at Figma? Here are some tips on how to get your first product design job, along with insights on what we look for.\n   \n   Read article\n\nSee all articles\n\n\nABOUT FIGMA\n\nFigma is the design platform for teams who build products together. Born on the Web, Figma helps teams brainstorm, design and build better products — from start to finish. Whether it’s consolidating tools, simplifying workflows, or collaborating across teams and time zones, Figma makes the design process faster, more efficient, and fun while keeping everyone on the same page.",
+              "checkedAt": "2026-10-01T07:02:06.920Z",
+              "fingerprint": "442aef8a386ddb575562e41aa77e4ae2d4850d1b18f4bd83e01ad29b8c805c27"
+            }
+          ],
+          "findings": [
+            {
+              "fact": "location",
+              "status": "unresolved",
+              "applicability": "unclear",
+              "explanation": "The employer page lists the role name, but it does not tie this specific Software Engineer - Machine Learning opening to a precise location or remote eligibility for this exact job. The general careers page says Figma is hiring across global hubs and remotely in the US and Canada, but that is not specific enough to establish this role's location. ",
+              "value": "",
+              "quotes": [],
+              "sourceUrl": null
+            },
+            {
+              "fact": "authorization",
+              "status": "unresolved",
+              "applicability": "unclear",
+              "explanation": "The supplied employer documents do not state whether applicants for this role must already have U.S. work authorization or whether Figma will assess work authorization for this specific job.",
+              "value": "",
+              "quotes": [],
+              "sourceUrl": null
+            },
+            {
+              "fact": "sponsorship",
+              "status": "unresolved",
+              "applicability": "unclear",
+              "explanation": "The supplied employer documents do not mention visa sponsorship for this specific role. General hiring or location statements do not prove sponsorship for this job.",
+              "value": "",
+              "quotes": [],
+              "sourceUrl": null
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "engineering-us:figma:5711468004",
+      "accepted": false,
+      "retrieved": true,
+      "retrievalMs": 0.8584579999999846,
+      "prompt": false,
+      "promptAssumption": "Posting availability held fresh for this isolated decision test; no email sent",
+      "assessment": null,
+      "analysis": {
+        "facts": {
+          "role": {
+            "status": "stated",
+            "value": "Product Designer, Design, Dev, & AI Tools",
+            "quotes": [
+              "Product Designer, Design, Dev, & AI Tools"
+            ]
+          },
+          "arrangement": {
+            "status": "stated",
+            "value": "Full-time; can be held from one of Figma's US hubs or remotely in the United States",
+            "quotes": [
+              "This is a full time role that can be held from one of our US hubs or remotely in the United States."
+            ]
+          },
+          "category": {
+            "status": "stated",
+            "value": "Employment, full-time",
+            "quotes": [
+              "This is a full time role that can be held from one of our US hubs or remotely in the United States."
+            ]
+          },
+          "location": {
+            "status": "stated",
+            "value": "US hubs or remote in the United States; listing also names San Francisco, CA and New York, NY",
+            "quotes": [
+              "San Francisco, CA • New York, NY • United States",
+              "This is a full time role that can be held from one of our US hubs or remotely in the United States."
+            ]
+          },
+          "requirements": {
+            "status": "stated",
+            "value": "3+ years of experience designing UX and UI for a software product of similar scale and complexity, plus strong visual craft, interaction design/prototyping, independent design process ownership, structured thinking, user-centered research, and experience with AI or emerging tools",
+            "quotes": [
+              " * 3+ years of experience designing UX and UI for a software product of similar scale and complexity",
+              " * Great attention to detail and a strong eye for visual craft, such as composition, typography, and layout",
+              " * Fluency in interaction design and prototyping, to express and refine nuanced design decisions",
+              " * A track record of independently driving design processes from discovery through launch—balancing user needs, technical constraints, and business goals"
+            ]
+          },
+          "authorization": {
+            "status": "unknown",
+            "value": "",
+            "quotes": []
+          },
+          "sponsorship": {
+            "status": "unknown",
+            "value": "",
+            "quotes": []
+          },
+          "compensation": {
+            "status": "stated",
+            "value": "Annual base salary range: $169,000 to $303,000 USD",
+            "quotes": [
+              "Annual Base Salary Range:",
+              "$169,000—$303,000 USD"
+            ]
+          }
+        },
+        "pay": {
+          "minimum": null,
+          "maximum": null,
+          "currency": null,
+          "period": null
+        },
+        "research": {
+          "checkedAt": "2026-10-01T07:02:55.760Z",
+          "expiresAt": "2026-10-01T13:02:06.920Z",
+          "documents": [
+            {
+              "url": "https://www.figma.com/careers/",
+              "text": "Skip to main content\n\n\n\n\n\nCAREERS AT FIGMA\n\nFigma is a design platform for teams who build products together. Our vision is to make design accessible to all because we know that nothing great is made alone.\n\nWe’re a team of makers who celebrate our differences and share a passion for our community. We’re hiring across our global hubs and remotely in the US and Canada.\n\nCome join us!\n\nSee open positions\n\n\nOUR VALUES AND CULTURE\n\nOur values and culture are the underpinning for all that we do at Figma—we believe that a great product is inextricably linked to a great internal community.\n\n\nBUILD COMMUNITY\n\nWe’re multiplayer people who love the weird, wonderful magic that happens when people connect. We build bridges—with both our Figmates and our users.\n\n\nRUN WITH IT\n\nBuilding Figma is about taking initiative, being bold and charting a new course, not running a playbook. Figmates are building the future of design by tackling big, scary, exciting challenges like Figma’s future depends on it. Because it does.\n\n\nLOVE YOUR CRAFT\n\nWe build for builders and try to make complex things feel simple. We ask why until we get to the core and continually focus on solving the right problem, not just shipping work.\n\n\nGROW AS YOU GO\n\nWith humility and curiosity, we give and get the direct feedback we all need to become great. Everyone’s a work in progress, and we’re here to help each other grow.\n\n\nPLAY\n\nPlaying is learning. We embrace spontaneous, unstructured exploration—because that’s where we find our best ideas.\n\n\nLIFE AT FIGMA\n\nConnection and kindness are core to our culture (after all, we’re a group of people building a collaboration tool). We focus on lifting each other up instead of competing amongst ourselves, and we build relationships through numerous company traditions.\n\n\nFIGMATE COMMUNITY GROUPS\n\nOur Figmate Communities are an essential part of our value of \"Build Community.\" These groups are comprised of Figmates interested in developing community, social awareness, and education regarding groups with shared characteristics or life experiences, and are open to all Figmates regardless of whether or not they are part of that group or share those characteristics or life experiences themselves.\n\n\nMAKER WEEK\n\nA time set aside once a year to pursue wild, silly, and imaginative ideas. The whole company takes part, and people can work on anything Figma-related that piques their curiosity.\n\n\nEARLY CAREER\n\nOur internship and early career programs let you work on meaningful Figma projects, get mentorship at every step, and grow as you go.\n\nLearn more\n\n\n\nBENEFITS\n\n * Competitive salary & equity\n * Health, Dental, & Vision\n * Retirement with company contribution\n * Parental leave & fertility support\n * Mental health and wellness benefits\n * Generous PTO\n * Company recharge days\n * Learning & development stipend\n * Work from home stipend\n * Cell phone reimbursement\n\n\nLOCATIONS\n\n * San Francisco\n * New York City\n * Seattle\n * London\n * Paris\n * Berlin\n * Tokyo\n * Singapore\n * Bengaluru\n * Sydney\n * São Paulo\n * Tel Aviv\n\n\nJOB OPENINGS\n\n\nBUSINESS DEVELOPMENT\n\n * Distribution Partner Manager\n * Manager, Distribution Partnerships\n * Manager, Tech & Ecosystem Partnerships\n * Product Partner Manager\n * Strategic Partner Manager\n\n\nBUSINESS OPERATIONS\n\n * Business Operations\n * Director, Business Operations\n * Director, Business Systems\n * Director, Technical Revenue Accounting\n * Federal Compliance Manager\n * GTM Systems Architect\n * IT Engineer, Internal AI Infrastructure\n * Manager, Order Management\n * Manager, Security Operations\n * Senior Accountant\n * Senior Analyst, Revenue Transformation\n * Senior Technical Revenue Analyst\n * Strategic Finance\n * Strategic Finance, AI Innovation\n * Strategic Program Manager, Information Security\n * Technical Program Manager\n\n\nCUSTOMER OPERATIONS AND SUPPORT\n\n * Enterprise Support Specialist, Korean Speaking (London, United Kingdom)\n * Manager, Technical Support (London, United Kingdom)\n * Support Engineer, AI Infrastructure & Tooling\n * Technical Quality Specialist\n * Voice of the Customer Program Manager\n\n\nDESIGN\n\n * Brand Designer, Product Launches\n * Director, Product Design - AI & Context\n * Director, Research - AI Evals\n * Executive Assistant, Design\n * Manager, Design - Systems & Infrastructure\n * Product Designer, AI Models\n * Product Designer, CMS\n * Product Designer, Design, Dev, & AI Tools\n * Product Designer, Design Systems\n * Product Designer, Growth & Monetization\n * Product Designer, Roundtripping (London, United Kingdom)\n * Researcher, Figma Agentic Experiences\n * Researcher - Rapid Research\n\n\nEARLY CAREER\n\n * Brand Design Intern (Summer 2027)\n * Data Engineer Intern (2027)\n * Data Science Intern (2027)\n * Data Scientist, Core Data - PhD (2026)\n * Early Career, Product Designer (2027)\n * PhD Intern, Data Science (2027)\n * Product Design Intern (2027)\n * Software Engineer Intern (London, United Kingdom) (Summer 2027)\n * Software Engineer Intern (Summer 2027)\n * Software Engineer Intern (Winter 2027)\n\n\nENGINEERING\n\n * AI Applied Scientist\n * Data Platform Engineer\n * Data Scientist\n * Data Scientist, Finance\n * Director, Data Science\n * Forward Deployed Engineer\n * Manager, Software Engineering - AI Observability\n * Manager, Software Engineering - Billing\n * Manager, Software Engineering - Data Platform\n * Manager, Software Engineering - DevEx AI Tools\n * Manager, Software Engineering - Growth Platform\n * Manager, Software Engineering - Interaction Design\n * Security Engineer\n * Security Scientist\n * Software Engineer - AI Platforms\n * Software Engineer - AI Product\n * Software Engineer - AI Product (London, United Kingdom)\n * Software Engineer - Application Platform\n * Software Engineer - C++\n * Software Engineer - Data Infrastructure\n * Software Engineer - Developer Experience\n * Software Engineer - Distributed Systems\n * Software Engineer - Full Stack\n * Software Engineer - Growth & Monetization\n * Software Engineer - Machine Learning\n * Software Engineer - Machine Learning (London, United Kingdom)\n * Software Engineer - Mobile Web\n * Technical Program Manager - Infrastructure\n\n\nLEGAL\n\n * Senior Product Counsel\n\n\nMARKETING\n\n * Content Strategist, Product\n * Corporate Communications Manager\n * Designer Advocate\n * Designer Advocate (Berlin, Germany)\n * Designer Advocate, Partnerships\n * Executive Assistant, Growth Marketing\n * Field Marketing Manager, Third Party & Partner Events\n * Marketing Engineer\n * Video Strategist\n\n\nPEOPLE\n\n * Director, People Partners - Product, Design & Engineering\n * Executive Assistant, Chief People Officer\n * Executive Assistant, People\n * HRIS Analyst\n * Immigration Program Manager\n * Manager, HRIS\n * Office Manager (Bengaluru, India)\n * Office Manager (São Paulo, Brazil)\n\n\nPRODUCT\n\n * Manager, Product Management - Figma Platform Experience\n * Manager, Product Management - Roundtripping\n * Manager, Product Management - Roundtripping (London, United Kingdom)\n * Product Manager, Acquisition\n * Product Manager, AI Growth\n * Product Manager, Developer Platform\n\n\nSALES\n\n * Account Executive, Enterprise\n * Account Executive, Enterprise (Bengaluru, India)\n * Account Executive, Enterprise (Berlin, Germany)\n * Account Executive, Enterprise (London, United Kingdom)\n * Account Executive, Enterprise, Mandarin Speaking (Singapore)\n * Account Executive, Enterprise (Paris, France)\n * Account Executive, Enterprise (Sydney or Melbourne, Australia)\n * Account Executive, Enterprise (Tokyo, Japan)\n * Account Executive, Federal - Civilian\n * Account Executive, Mid-Market\n * Account Executive, Mid-Market (London, United Kingdom)\n * Account Executive, Mid-Market, Mandarin Speaking (Singapore)\n * Account Executive, Mid-Market (Paris, France)\n * Account Executive, Mid-Market (Sydney, Australia)\n * Account Executive, SMB\n * Account Executive, SMB (Berlin, Germany)\n * Account Executive, SMB (London, United Kingdom)\n * Account Executive, SMB (Tokyo, Japan)\n * Account Executive, Strategic\n * Account Executive, Strategic (London, United Kingdom)\n * Account Executive, Strategic (Paris, France)\n * Account Executive, Strategic (São Paulo, Brazil)\n * Account Executive, Strategic (Sydney or Melbourne, Australia)\n * Account Executive, Strategic (Tokyo, Japan)\n * Customer Enablement Manager (Berlin, Germany)\n * Customer Enablement Manager (Paris, France)\n * Customer Enablement Manager (São Paulo, Brazil)\n * Director, SMB Sales (London, United Kingdom)\n * Director, Solutions Consulting\n * Director, Strategic Sales (Berlin, Germany)\n * Executive Assistant, Sales (São Paulo, Brazil)\n * Inside Sales Representative (Berlin, Germany)\n * Inside Sales Representative (Paris, France)\n * Manager, Customer Enablement (Tokyo, Japan)\n * Manager, Enterprise Sales\n * Manager, Inside Sales (London, United Kingdom)\n * Manager, Inside Sales (Singapore)\n * Manager, Mid-Market Sales (Berlin, Germany)\n * Manager, Mid-Market Sales (London, United Kingdom)\n * Manager, SMB Sales\n * Manager, Solutions Consulting (Tokyo, Japan)\n * Manager, Strategic Sales\n * Program Manager, Scale Onboarding (London, United Kingdom)\n * Senior Account Executive, SMB\n * Senior Account Executive, UK Government (London, United Kingdom)\n * Senior Customer Enablement Manager (London, United Kingdom)\n * Senior Field Enablement Manager (Tokyo, Japan)\n * Senior Manager, Enterprise Sales (London, United Kingdom)\n * Solutions Consultant\n * Solutions Consultant (Berlin, Germany)\n * Solutions Consultant (London, United Kingdom)\n * Solutions Consultant, Payload\n * Solutions Consultant (Sydney, Australia)\n * Technical Account Manager\n * Technical Account Manager, Mandarin Speaking (Singapore)\n * Technical Account Manager (Tokyo, Japan)\n\n\nTALENT\n\n * Business Recruiter (São Paulo, Brazil)\n * Executive Recruiter\n * Manager, Recruiting - Sales\n * Manager, Talent Products\n * Recruiter (Singapore)\n\n\nWEAVY - FIGMA WEAVE\n\n * Director, Marketing - Figma Weave (New York, United States)\n * Events Manager - Figma Weave (New York, United States)\n * Software Engineer - Figma Weave (Tel Aviv, Israel)\n\nAt Figma we celebrate and support our differences. We know employing a team rich in diverse thoughts, experiences, and opinions allows our employees, our product and our community to flourish. Figma is an equal opportunity workplace. We are dedicated to equal employment opportunities regardless of race, color, ancestry, religion, sex, national origin, sexual orientation, age, citizenship, marital status, disability, gender identity/expression, or veteran status.\n\n\nFROM THE BLOG\n\n\n * VERSION CONTROL: HOW A UX WRITER WEIGHS ONE WORD AGAINST ANOTHER\n   \n   In UX design, a single misplaced verb can lead users astray, frustrating their expectations and creating confusion. That’s why UX Writer Henry Freedland chose his words very carefully when he was brought in to help polish a new prototyping feature.\n   \n   Read article\n\n\n * WHY ARE WE SO AFRAID OF CODE AS A COMMODITY?\n   \n   Instead of asking how AI will automate our jobs, we should be focusing on what we, as engineers, uniquely do well. What problems can AI currently solve, and where is the whitespace to go beyond that?\n   \n   Read article\n\n\n * BREAKING IN: A GUIDE TO LANDING YOUR FIRST PRODUCT DESIGN ROLE\n   \n   Curious about early career opportunities at Figma? Here are some tips on how to get your first product design job, along with insights on what we look for.\n   \n   Read article\n\nSee all articles\n\n\nABOUT FIGMA\n\nFigma is the design platform for teams who build products together. Born on the Web, Figma helps teams brainstorm, design and build better products — from start to finish. Whether it’s consolidating tools, simplifying workflows, or collaborating across teams and time zones, Figma makes the design process faster, more efficient, and fun while keeping everyone on the same page.",
+              "checkedAt": "2026-10-01T07:02:06.920Z",
+              "fingerprint": "442aef8a386ddb575562e41aa77e4ae2d4850d1b18f4bd83e01ad29b8c805c27"
+            }
+          ],
+          "findings": [
+            {
+              "fact": "location",
+              "status": "resolved",
+              "applicability": "this_role",
+              "explanation": "The posting explicitly states the role can be held from one of Figma’s US hubs or remotely in the United States, and the careers page lists US hubs including San Francisco and New York City.",
+              "value": "US hubs or remotely in the United States",
+              "quotes": [
+                " * Product Designer, Design, Dev, & AI Tools",
+                "We’re a team of makers who celebrate our differences and share a passion for our community. We’re hiring across our global hubs and remotely in the US and Canada.",
+                "LOCATIONS",
+                " * San Francisco"
+              ],
+              "sourceUrl": "https://www.figma.com/careers/"
+            },
+            {
+              "fact": "authorization",
+              "status": "unresolved",
+              "applicability": "this_role",
+              "explanation": "The supplied employer documents do not state any work authorization requirement for this specific role, so it is not possible to determine whether the applicant must already have U.S. work authorization.",
+              "value": "",
+              "quotes": [],
+              "sourceUrl": null
+            },
+            {
+              "fact": "sponsorship",
+              "status": "unresolved",
+              "applicability": "this_role",
+              "explanation": "The supplied employer documents do not mention visa sponsorship for this specific role. There is no direct evidence that sponsorship is offered or not offered.",
+              "value": "",
+              "quotes": [],
+              "sourceUrl": null
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "engineering-us:figma:5551532004",
+      "accepted": true,
+      "retrieved": true,
+      "retrievalMs": 0.8584579999999846,
+      "prompt": false,
+      "promptAssumption": "Posting availability held fresh for this isolated decision test; no email sent",
+      "assessment": {
+        "policy": "personal-fit-v1",
+        "reasons": [
+          "The posting’s primary role is a Software Engineer machine learning role, which matches the brief’s target of Software Engineer.",
+          "This is an employment job posting for a full-time role, matching the brief’s employment category.",
+          "The role can be held remotely in the United States, which matches the brief’s remote arrangement requirement.",
+          "The posting is for San Francisco, New York, or remote within the United States, which fits the brief’s United States location requirement and New York residence.",
+          "The posting discloses an annual base salary range in USD, which matches the brief’s USD/year compensation scope."
+        ],
+        "uncertainties": [
+          "The posting requires 5+ years of software engineering and 3+ years focused on applied machine learning or AI. The brief confirms seven years of software and Python-related experience, but it does not confirm the applied ML/AI background needed to fully compare.",
+          "The posting does not state U.S. work authorization or sponsorship requirements for this exact role, so authorization cannot be confirmed from the supplied text."
+        ],
+        "rank": 30,
+        "detail": {
+          "criteria": [
+            {
+              "criterion": "role",
+              "status": "meets",
+              "explanation": "The posting’s primary role is a Software Engineer machine learning role, which matches the brief’s target of Software Engineer.",
+              "quotes": [
+                "Software Engineer - Machine Learning",
+                "Figma is seeking a versatile and experienced Machine Learning / AI Engineer to join our growing AI team, working at the intersection of applied machine learning, infrastructure, and product innovation. Whether you’re building intelligent search systems, crafting scalable data pipelines, or enhancing AI-powered creativity tools, your work will drive user productivity, shape new product experiences, and advance the state of AI at Figma."
+              ],
+              "briefQuotes": [
+                "Software Engineer"
+              ]
+            },
+            {
+              "criterion": "category",
+              "status": "meets",
+              "explanation": "This is an employment job posting for a full-time role, matching the brief’s employment category.",
+              "quotes": [
+                "This is a full time role that can be held from one of our US hubs or remotely in the United States.",
+                "Figma offers equity to employees, as well as a competitive package of additional benefits, including health, dental, and vision coverage; retirement benefits with company contributions; parental leave and reproductive or family planning support; mental health and wellness benefits; and paid time off. Figma provides paid sick leave, holidays, and other leave benefits in compliance with applicable federal, state, and local laws, including the requirements of the Washington Minimum Wage Act and related regulations. Exempt employees are eligible for employer‑provided paid flexible PTO in addition to flexible paid sick leave. PTO is subject to manager approval. Additional benefits may include company recharge days, cell phone and home internet reimbursements, and a number of lifestyle spending accounts. Figma also offers sales incentive compensation for most sales roles and an annual bonus plan for eligible non-sales roles. All compensation and benefits are subject to applicable plan terms "
+              ],
+              "briefQuotes": [
+                "employment",
+                "Evaluation brief"
+              ]
+            },
+            {
+              "criterion": "arrangement",
+              "status": "meets",
+              "explanation": "The role can be held remotely in the United States, which matches the brief’s remote arrangement requirement.",
+              "quotes": [
+                "This is a full time role that can be held from one of our US hubs or remotely in the United States.",
+                "San Francisco, CA • New York, NY • United States"
+              ],
+              "briefQuotes": [
+                "remote",
+                "Find employment that matches my stated experience and location"
+              ]
+            },
+            {
+              "criterion": "location",
+              "status": "meets",
+              "explanation": "The posting is for San Francisco, New York, or remote within the United States, which fits the brief’s United States location requirement and New York residence.",
+              "quotes": [
+                "San Francisco, CA • New York, NY • United States",
+                "This is a full time role that can be held from one of our US hubs or remotely in the United States."
+              ],
+              "briefQuotes": [
+                "New York, United States",
+                "United States",
+                "United States"
+              ]
+            },
+            {
+              "criterion": "experience",
+              "status": "unknown",
+              "explanation": "The posting requires 5+ years of software engineering and 3+ years focused on applied machine learning or AI. The brief confirms seven years of software and Python-related experience, but it does not confirm the applied ML/AI background needed to fully compare.",
+              "quotes": [
+                " * 5+ years of industry experience in software engineering, with 3+ years focused on applied machine learning or AI.",
+                " * Strong experience with end-to-end ML model development, including training, evaluation, deployment, and monitoring.",
+                " * Experience designing and building scalable data and annotation pipelines, as well as evaluation systems for AI model quality."
+              ],
+              "briefQuotes": [
+                "Seven years building TypeScript and Python services, PostgreSQL databases and distributed systems. I have mentored engineers but have not managed a team."
+              ]
+            },
+            {
+              "criterion": "authorization",
+              "status": "unknown",
+              "explanation": "The posting does not state U.S. work authorization or sponsorship requirements for this exact role, so authorization cannot be confirmed from the supplied text.",
+              "quotes": [
+                "This is a full time role that can be held from one of our US hubs or remotely in the United States.",
+                "San Francisco, CA • New York, NY • United States"
+              ],
+              "briefQuotes": [
+                "not_needed",
+                "United States",
+                "United States"
+              ]
+            },
+            {
+              "criterion": "compensation",
+              "status": "meets",
+              "explanation": "The posting discloses an annual base salary range in USD, which matches the brief’s USD/year compensation scope.",
+              "quotes": [
+                "Annual Base Salary Range:",
+                "$153,000—$376,000 USD"
+              ],
+              "briefQuotes": [
+                "USD",
+                "year",
+                "include"
+              ]
+            }
+          ],
+          "assessedBy": "ai",
+          "verificationPolicy": "supported-criteria-v2",
+          "employerResearch": {
+            "checkedAt": "2026-10-01T07:03:10.202Z",
+            "expiresAt": "2026-10-01T13:02:06.920Z",
+            "documents": [
+              {
+                "url": "https://www.figma.com/careers/",
+                "checkedAt": "2026-10-01T07:02:06.920Z",
+                "fingerprint": "442aef8a386ddb575562e41aa77e4ae2d4850d1b18f4bd83e01ad29b8c805c27"
+              }
+            ],
+            "findings": [
+              {
+                "fact": "location",
+                "status": "unresolved",
+                "applicability": "unclear",
+                "explanation": "The employer page lists the role name, but it does not tie this specific Software Engineer - Machine Learning opening to a precise location or remote eligibility for this exact job. The general careers page says Figma is hiring across global hubs and remotely in the US and Canada, but that is not specific enough to establish this role's location. ",
+                "value": "",
+                "quotes": [],
+                "sourceUrl": null
+              },
+              {
+                "fact": "authorization",
+                "status": "unresolved",
+                "applicability": "unclear",
+                "explanation": "The supplied employer documents do not state whether applicants for this role must already have U.S. work authorization or whether Figma will assess work authorization for this specific job.",
+                "value": "",
+                "quotes": [],
+                "sourceUrl": null
+              },
+              {
+                "fact": "sponsorship",
+                "status": "unresolved",
+                "applicability": "unclear",
+                "explanation": "The supplied employer documents do not mention visa sponsorship for this specific role. General hiring or location statements do not prove sponsorship for this job.",
+                "value": "",
+                "quotes": [],
+                "sourceUrl": null
+              }
+            ]
+          },
+          "research": [
+            {
+              "criterion": "experience",
+              "question": "The posting requires 5+ years of software engineering and 3+ years focused on applied machine learning or AI. The brief confirms seven years of software and Python-related experience, but it does not confirm the applied ML/AI background needed to fully compare.",
+              "status": "unresolved"
+            },
+            {
+              "criterion": "authorization",
+              "question": "The posting does not state U.S. work authorization or sponsorship requirements for this exact role, so authorization cannot be confirmed from the supplied text.",
+              "status": "unresolved"
+            }
+          ]
+        }
+      },
+      "analysis": {
+        "facts": {
+          "role": {
+            "status": "stated",
+            "value": "Software Engineer - Machine Learning / Machine Learning / AI Engineer",
+            "quotes": [
+              "Software Engineer - Machine Learning",
+              "Figma is seeking a versatile and experienced Machine Learning / AI Engineer to join our growing AI team, working at the intersection of applied machine learning, infrastructure, and product innovation. Whether you’re building intelligent search systems, crafting scalable data pipelines, or enhancing AI-powered creativity tools, your work will drive user productivity, shape new product experiences, and advance the state of AI at Figma."
+            ]
+          },
+          "arrangement": {
+            "status": "stated",
+            "value": "Full-time; can be held from one of the US hubs or remotely in the United States",
+            "quotes": [
+              "This is a full time role that can be held from one of our US hubs or remotely in the United States.",
+              "San Francisco, CA • New York, NY • United States"
+            ]
+          },
+          "category": {
+            "status": "stated",
+            "value": "Employment role (full-time employee job posting)",
+            "quotes": [
+              "This is a full time role that can be held from one of our US hubs or remotely in the United States.",
+              "Figma offers equity to employees, as well as a competitive package of additional benefits, including health, dental, and vision coverage; retirement benefits with company contributions; parental leave and reproductive or family planning support; mental health and wellness benefits; and paid time off. Figma provides paid sick leave, holidays, and other leave benefits in compliance with applicable federal, state, and local laws, including the requirements of the Washington Minimum Wage Act and related regulations. Exempt employees are eligible for employer‑provided paid flexible PTO in addition to flexible paid sick leave. PTO is subject to manager approval. Additional benefits may include company recharge days, cell phone and home internet reimbursements, and a number of lifestyle spending accounts. Figma also offers sales incentive compensation for most sales roles and an annual bonus plan for eligible non-sales roles. All compensation and benefits are subject to applicable plan terms "
+            ]
+          },
+          "location": {
+            "status": "stated",
+            "value": "San Francisco, CA; New York, NY; or remotely in the United States",
+            "quotes": [
+              "San Francisco, CA • New York, NY • United States",
+              "This is a full time role that can be held from one of our US hubs or remotely in the United States."
+            ]
+          },
+          "requirements": {
+            "status": "stated",
+            "value": "5+ years of software engineering experience, 3+ years focused on applied machine learning or AI, plus Python and ML/data pipeline experience",
+            "quotes": [
+              " * 5+ years of industry experience in software engineering, with 3+ years focused on applied machine learning or AI.",
+              " * Strong experience with end-to-end ML model development, including training, evaluation, deployment, and monitoring.",
+              " * Proficiency in Python and familiarity with ML libraries like PyTorch, TensorFlow, Scikit-learn, Spark MLlib, or XGBoost.",
+              " * Experience designing and building scalable data and annotation pipelines, as well as evaluation systems for AI model quality."
+            ]
+          },
+          "authorization": {
+            "status": "unknown",
+            "value": "",
+            "quotes": []
+          },
+          "sponsorship": {
+            "status": "unknown",
+            "value": "",
+            "quotes": []
+          },
+          "compensation": {
+            "status": "stated",
+            "value": "Annual base salary range: $153,000 to $376,000 USD",
+            "quotes": [
+              "Annual Base Salary Range:",
+              "$153,000—$376,000 USD"
+            ]
+          }
+        },
+        "pay": {
+          "minimum": null,
+          "maximum": null,
+          "currency": null,
+          "period": null
+        },
+        "research": {
+          "checkedAt": "2026-10-01T07:03:10.202Z",
+          "expiresAt": "2026-10-01T13:02:06.920Z",
+          "documents": [
+            {
+              "url": "https://www.figma.com/careers/",
+              "text": "Skip to main content\n\n\n\n\n\nCAREERS AT FIGMA\n\nFigma is a design platform for teams who build products together. Our vision is to make design accessible to all because we know that nothing great is made alone.\n\nWe’re a team of makers who celebrate our differences and share a passion for our community. We’re hiring across our global hubs and remotely in the US and Canada.\n\nCome join us!\n\nSee open positions\n\n\nOUR VALUES AND CULTURE\n\nOur values and culture are the underpinning for all that we do at Figma—we believe that a great product is inextricably linked to a great internal community.\n\n\nBUILD COMMUNITY\n\nWe’re multiplayer people who love the weird, wonderful magic that happens when people connect. We build bridges—with both our Figmates and our users.\n\n\nRUN WITH IT\n\nBuilding Figma is about taking initiative, being bold and charting a new course, not running a playbook. Figmates are building the future of design by tackling big, scary, exciting challenges like Figma’s future depends on it. Because it does.\n\n\nLOVE YOUR CRAFT\n\nWe build for builders and try to make complex things feel simple. We ask why until we get to the core and continually focus on solving the right problem, not just shipping work.\n\n\nGROW AS YOU GO\n\nWith humility and curiosity, we give and get the direct feedback we all need to become great. Everyone’s a work in progress, and we’re here to help each other grow.\n\n\nPLAY\n\nPlaying is learning. We embrace spontaneous, unstructured exploration—because that’s where we find our best ideas.\n\n\nLIFE AT FIGMA\n\nConnection and kindness are core to our culture (after all, we’re a group of people building a collaboration tool). We focus on lifting each other up instead of competing amongst ourselves, and we build relationships through numerous company traditions.\n\n\nFIGMATE COMMUNITY GROUPS\n\nOur Figmate Communities are an essential part of our value of \"Build Community.\" These groups are comprised of Figmates interested in developing community, social awareness, and education regarding groups with shared characteristics or life experiences, and are open to all Figmates regardless of whether or not they are part of that group or share those characteristics or life experiences themselves.\n\n\nMAKER WEEK\n\nA time set aside once a year to pursue wild, silly, and imaginative ideas. The whole company takes part, and people can work on anything Figma-related that piques their curiosity.\n\n\nEARLY CAREER\n\nOur internship and early career programs let you work on meaningful Figma projects, get mentorship at every step, and grow as you go.\n\nLearn more\n\n\n\nBENEFITS\n\n * Competitive salary & equity\n * Health, Dental, & Vision\n * Retirement with company contribution\n * Parental leave & fertility support\n * Mental health and wellness benefits\n * Generous PTO\n * Company recharge days\n * Learning & development stipend\n * Work from home stipend\n * Cell phone reimbursement\n\n\nLOCATIONS\n\n * San Francisco\n * New York City\n * Seattle\n * London\n * Paris\n * Berlin\n * Tokyo\n * Singapore\n * Bengaluru\n * Sydney\n * São Paulo\n * Tel Aviv\n\n\nJOB OPENINGS\n\n\nBUSINESS DEVELOPMENT\n\n * Distribution Partner Manager\n * Manager, Distribution Partnerships\n * Manager, Tech & Ecosystem Partnerships\n * Product Partner Manager\n * Strategic Partner Manager\n\n\nBUSINESS OPERATIONS\n\n * Business Operations\n * Director, Business Operations\n * Director, Business Systems\n * Director, Technical Revenue Accounting\n * Federal Compliance Manager\n * GTM Systems Architect\n * IT Engineer, Internal AI Infrastructure\n * Manager, Order Management\n * Manager, Security Operations\n * Senior Accountant\n * Senior Analyst, Revenue Transformation\n * Senior Technical Revenue Analyst\n * Strategic Finance\n * Strategic Finance, AI Innovation\n * Strategic Program Manager, Information Security\n * Technical Program Manager\n\n\nCUSTOMER OPERATIONS AND SUPPORT\n\n * Enterprise Support Specialist, Korean Speaking (London, United Kingdom)\n * Manager, Technical Support (London, United Kingdom)\n * Support Engineer, AI Infrastructure & Tooling\n * Technical Quality Specialist\n * Voice of the Customer Program Manager\n\n\nDESIGN\n\n * Brand Designer, Product Launches\n * Director, Product Design - AI & Context\n * Director, Research - AI Evals\n * Executive Assistant, Design\n * Manager, Design - Systems & Infrastructure\n * Product Designer, AI Models\n * Product Designer, CMS\n * Product Designer, Design, Dev, & AI Tools\n * Product Designer, Design Systems\n * Product Designer, Growth & Monetization\n * Product Designer, Roundtripping (London, United Kingdom)\n * Researcher, Figma Agentic Experiences\n * Researcher - Rapid Research\n\n\nEARLY CAREER\n\n * Brand Design Intern (Summer 2027)\n * Data Engineer Intern (2027)\n * Data Science Intern (2027)\n * Data Scientist, Core Data - PhD (2026)\n * Early Career, Product Designer (2027)\n * PhD Intern, Data Science (2027)\n * Product Design Intern (2027)\n * Software Engineer Intern (London, United Kingdom) (Summer 2027)\n * Software Engineer Intern (Summer 2027)\n * Software Engineer Intern (Winter 2027)\n\n\nENGINEERING\n\n * AI Applied Scientist\n * Data Platform Engineer\n * Data Scientist\n * Data Scientist, Finance\n * Director, Data Science\n * Forward Deployed Engineer\n * Manager, Software Engineering - AI Observability\n * Manager, Software Engineering - Billing\n * Manager, Software Engineering - Data Platform\n * Manager, Software Engineering - DevEx AI Tools\n * Manager, Software Engineering - Growth Platform\n * Manager, Software Engineering - Interaction Design\n * Security Engineer\n * Security Scientist\n * Software Engineer - AI Platforms\n * Software Engineer - AI Product\n * Software Engineer - AI Product (London, United Kingdom)\n * Software Engineer - Application Platform\n * Software Engineer - C++\n * Software Engineer - Data Infrastructure\n * Software Engineer - Developer Experience\n * Software Engineer - Distributed Systems\n * Software Engineer - Full Stack\n * Software Engineer - Growth & Monetization\n * Software Engineer - Machine Learning\n * Software Engineer - Machine Learning (London, United Kingdom)\n * Software Engineer - Mobile Web\n * Technical Program Manager - Infrastructure\n\n\nLEGAL\n\n * Senior Product Counsel\n\n\nMARKETING\n\n * Content Strategist, Product\n * Corporate Communications Manager\n * Designer Advocate\n * Designer Advocate (Berlin, Germany)\n * Designer Advocate, Partnerships\n * Executive Assistant, Growth Marketing\n * Field Marketing Manager, Third Party & Partner Events\n * Marketing Engineer\n * Video Strategist\n\n\nPEOPLE\n\n * Director, People Partners - Product, Design & Engineering\n * Executive Assistant, Chief People Officer\n * Executive Assistant, People\n * HRIS Analyst\n * Immigration Program Manager\n * Manager, HRIS\n * Office Manager (Bengaluru, India)\n * Office Manager (São Paulo, Brazil)\n\n\nPRODUCT\n\n * Manager, Product Management - Figma Platform Experience\n * Manager, Product Management - Roundtripping\n * Manager, Product Management - Roundtripping (London, United Kingdom)\n * Product Manager, Acquisition\n * Product Manager, AI Growth\n * Product Manager, Developer Platform\n\n\nSALES\n\n * Account Executive, Enterprise\n * Account Executive, Enterprise (Bengaluru, India)\n * Account Executive, Enterprise (Berlin, Germany)\n * Account Executive, Enterprise (London, United Kingdom)\n * Account Executive, Enterprise, Mandarin Speaking (Singapore)\n * Account Executive, Enterprise (Paris, France)\n * Account Executive, Enterprise (Sydney or Melbourne, Australia)\n * Account Executive, Enterprise (Tokyo, Japan)\n * Account Executive, Federal - Civilian\n * Account Executive, Mid-Market\n * Account Executive, Mid-Market (London, United Kingdom)\n * Account Executive, Mid-Market, Mandarin Speaking (Singapore)\n * Account Executive, Mid-Market (Paris, France)\n * Account Executive, Mid-Market (Sydney, Australia)\n * Account Executive, SMB\n * Account Executive, SMB (Berlin, Germany)\n * Account Executive, SMB (London, United Kingdom)\n * Account Executive, SMB (Tokyo, Japan)\n * Account Executive, Strategic\n * Account Executive, Strategic (London, United Kingdom)\n * Account Executive, Strategic (Paris, France)\n * Account Executive, Strategic (São Paulo, Brazil)\n * Account Executive, Strategic (Sydney or Melbourne, Australia)\n * Account Executive, Strategic (Tokyo, Japan)\n * Customer Enablement Manager (Berlin, Germany)\n * Customer Enablement Manager (Paris, France)\n * Customer Enablement Manager (São Paulo, Brazil)\n * Director, SMB Sales (London, United Kingdom)\n * Director, Solutions Consulting\n * Director, Strategic Sales (Berlin, Germany)\n * Executive Assistant, Sales (São Paulo, Brazil)\n * Inside Sales Representative (Berlin, Germany)\n * Inside Sales Representative (Paris, France)\n * Manager, Customer Enablement (Tokyo, Japan)\n * Manager, Enterprise Sales\n * Manager, Inside Sales (London, United Kingdom)\n * Manager, Inside Sales (Singapore)\n * Manager, Mid-Market Sales (Berlin, Germany)\n * Manager, Mid-Market Sales (London, United Kingdom)\n * Manager, SMB Sales\n * Manager, Solutions Consulting (Tokyo, Japan)\n * Manager, Strategic Sales\n * Program Manager, Scale Onboarding (London, United Kingdom)\n * Senior Account Executive, SMB\n * Senior Account Executive, UK Government (London, United Kingdom)\n * Senior Customer Enablement Manager (London, United Kingdom)\n * Senior Field Enablement Manager (Tokyo, Japan)\n * Senior Manager, Enterprise Sales (London, United Kingdom)\n * Solutions Consultant\n * Solutions Consultant (Berlin, Germany)\n * Solutions Consultant (London, United Kingdom)\n * Solutions Consultant, Payload\n * Solutions Consultant (Sydney, Australia)\n * Technical Account Manager\n * Technical Account Manager, Mandarin Speaking (Singapore)\n * Technical Account Manager (Tokyo, Japan)\n\n\nTALENT\n\n * Business Recruiter (São Paulo, Brazil)\n * Executive Recruiter\n * Manager, Recruiting - Sales\n * Manager, Talent Products\n * Recruiter (Singapore)\n\n\nWEAVY - FIGMA WEAVE\n\n * Director, Marketing - Figma Weave (New York, United States)\n * Events Manager - Figma Weave (New York, United States)\n * Software Engineer - Figma Weave (Tel Aviv, Israel)\n\nAt Figma we celebrate and support our differences. We know employing a team rich in diverse thoughts, experiences, and opinions allows our employees, our product and our community to flourish. Figma is an equal opportunity workplace. We are dedicated to equal employment opportunities regardless of race, color, ancestry, religion, sex, national origin, sexual orientation, age, citizenship, marital status, disability, gender identity/expression, or veteran status.\n\n\nFROM THE BLOG\n\n\n * VERSION CONTROL: HOW A UX WRITER WEIGHS ONE WORD AGAINST ANOTHER\n   \n   In UX design, a single misplaced verb can lead users astray, frustrating their expectations and creating confusion. That’s why UX Writer Henry Freedland chose his words very carefully when he was brought in to help polish a new prototyping feature.\n   \n   Read article\n\n\n * WHY ARE WE SO AFRAID OF CODE AS A COMMODITY?\n   \n   Instead of asking how AI will automate our jobs, we should be focusing on what we, as engineers, uniquely do well. What problems can AI currently solve, and where is the whitespace to go beyond that?\n   \n   Read article\n\n\n * BREAKING IN: A GUIDE TO LANDING YOUR FIRST PRODUCT DESIGN ROLE\n   \n   Curious about early career opportunities at Figma? Here are some tips on how to get your first product design job, along with insights on what we look for.\n   \n   Read article\n\nSee all articles\n\n\nABOUT FIGMA\n\nFigma is the design platform for teams who build products together. Born on the Web, Figma helps teams brainstorm, design and build better products — from start to finish. Whether it’s consolidating tools, simplifying workflows, or collaborating across teams and time zones, Figma makes the design process faster, more efficient, and fun while keeping everyone on the same page.",
+              "checkedAt": "2026-10-01T07:02:06.920Z",
+              "fingerprint": "442aef8a386ddb575562e41aa77e4ae2d4850d1b18f4bd83e01ad29b8c805c27"
+            }
+          ],
+          "findings": [
+            {
+              "fact": "location",
+              "status": "unresolved",
+              "applicability": "unclear",
+              "explanation": "The employer page lists the role name, but it does not tie this specific Software Engineer - Machine Learning opening to a precise location or remote eligibility for this exact job. The general careers page says Figma is hiring across global hubs and remotely in the US and Canada, but that is not specific enough to establish this role's location. ",
+              "value": "",
+              "quotes": [],
+              "sourceUrl": null
+            },
+            {
+              "fact": "authorization",
+              "status": "unresolved",
+              "applicability": "unclear",
+              "explanation": "The supplied employer documents do not state whether applicants for this role must already have U.S. work authorization or whether Figma will assess work authorization for this specific job.",
+              "value": "",
+              "quotes": [],
+              "sourceUrl": null
+            },
+            {
+              "fact": "sponsorship",
+              "status": "unresolved",
+              "applicability": "unclear",
+              "explanation": "The supplied employer documents do not mention visa sponsorship for this specific role. General hiring or location statements do not prove sponsorship for this job.",
+              "value": "",
+              "quotes": [],
+              "sourceUrl": null
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "sales-uk:figma:5711468004",
+      "accepted": false,
+      "retrieved": false,
+      "retrievalMs": 0.7404579999999896,
+      "prompt": false,
+      "promptAssumption": "Posting availability held fresh for this isolated decision test; no email sent",
+      "assessment": null,
+      "analysis": {
+        "facts": {
+          "role": {
+            "status": "stated",
+            "value": "Product Designer, Design, Dev, & AI Tools",
+            "quotes": [
+              "Product Designer, Design, Dev, & AI Tools"
+            ]
+          },
+          "arrangement": {
+            "status": "stated",
+            "value": "Full-time; can be held from one of Figma's US hubs or remotely in the United States",
+            "quotes": [
+              "This is a full time role that can be held from one of our US hubs or remotely in the United States."
+            ]
+          },
+          "category": {
+            "status": "stated",
+            "value": "Employment, full-time",
+            "quotes": [
+              "This is a full time role that can be held from one of our US hubs or remotely in the United States."
+            ]
+          },
+          "location": {
+            "status": "stated",
+            "value": "US hubs or remote in the United States; listing also names San Francisco, CA and New York, NY",
+            "quotes": [
+              "San Francisco, CA • New York, NY • United States",
+              "This is a full time role that can be held from one of our US hubs or remotely in the United States."
+            ]
+          },
+          "requirements": {
+            "status": "stated",
+            "value": "3+ years of experience designing UX and UI for a software product of similar scale and complexity, plus strong visual craft, interaction design/prototyping, independent design process ownership, structured thinking, user-centered research, and experience with AI or emerging tools",
+            "quotes": [
+              " * 3+ years of experience designing UX and UI for a software product of similar scale and complexity",
+              " * Great attention to detail and a strong eye for visual craft, such as composition, typography, and layout",
+              " * Fluency in interaction design and prototyping, to express and refine nuanced design decisions",
+              " * A track record of independently driving design processes from discovery through launch—balancing user needs, technical constraints, and business goals"
+            ]
+          },
+          "authorization": {
+            "status": "unknown",
+            "value": "",
+            "quotes": []
+          },
+          "sponsorship": {
+            "status": "unknown",
+            "value": "",
+            "quotes": []
+          },
+          "compensation": {
+            "status": "stated",
+            "value": "Annual base salary range: $169,000 to $303,000 USD",
+            "quotes": [
+              "Annual Base Salary Range:",
+              "$169,000—$303,000 USD"
+            ]
+          }
+        },
+        "pay": {
+          "minimum": null,
+          "maximum": null,
+          "currency": null,
+          "period": null
+        },
+        "research": {
+          "checkedAt": "2026-10-01T07:02:55.760Z",
+          "expiresAt": "2026-10-01T13:02:06.920Z",
+          "documents": [
+            {
+              "url": "https://www.figma.com/careers/",
+              "text": "Skip to main content\n\n\n\n\n\nCAREERS AT FIGMA\n\nFigma is a design platform for teams who build products together. Our vision is to make design accessible to all because we know that nothing great is made alone.\n\nWe’re a team of makers who celebrate our differences and share a passion for our community. We’re hiring across our global hubs and remotely in the US and Canada.\n\nCome join us!\n\nSee open positions\n\n\nOUR VALUES AND CULTURE\n\nOur values and culture are the underpinning for all that we do at Figma—we believe that a great product is inextricably linked to a great internal community.\n\n\nBUILD COMMUNITY\n\nWe’re multiplayer people who love the weird, wonderful magic that happens when people connect. We build bridges—with both our Figmates and our users.\n\n\nRUN WITH IT\n\nBuilding Figma is about taking initiative, being bold and charting a new course, not running a playbook. Figmates are building the future of design by tackling big, scary, exciting challenges like Figma’s future depends on it. Because it does.\n\n\nLOVE YOUR CRAFT\n\nWe build for builders and try to make complex things feel simple. We ask why until we get to the core and continually focus on solving the right problem, not just shipping work.\n\n\nGROW AS YOU GO\n\nWith humility and curiosity, we give and get the direct feedback we all need to become great. Everyone’s a work in progress, and we’re here to help each other grow.\n\n\nPLAY\n\nPlaying is learning. We embrace spontaneous, unstructured exploration—because that’s where we find our best ideas.\n\n\nLIFE AT FIGMA\n\nConnection and kindness are core to our culture (after all, we’re a group of people building a collaboration tool). We focus on lifting each other up instead of competing amongst ourselves, and we build relationships through numerous company traditions.\n\n\nFIGMATE COMMUNITY GROUPS\n\nOur Figmate Communities are an essential part of our value of \"Build Community.\" These groups are comprised of Figmates interested in developing community, social awareness, and education regarding groups with shared characteristics or life experiences, and are open to all Figmates regardless of whether or not they are part of that group or share those characteristics or life experiences themselves.\n\n\nMAKER WEEK\n\nA time set aside once a year to pursue wild, silly, and imaginative ideas. The whole company takes part, and people can work on anything Figma-related that piques their curiosity.\n\n\nEARLY CAREER\n\nOur internship and early career programs let you work on meaningful Figma projects, get mentorship at every step, and grow as you go.\n\nLearn more\n\n\n\nBENEFITS\n\n * Competitive salary & equity\n * Health, Dental, & Vision\n * Retirement with company contribution\n * Parental leave & fertility support\n * Mental health and wellness benefits\n * Generous PTO\n * Company recharge days\n * Learning & development stipend\n * Work from home stipend\n * Cell phone reimbursement\n\n\nLOCATIONS\n\n * San Francisco\n * New York City\n * Seattle\n * London\n * Paris\n * Berlin\n * Tokyo\n * Singapore\n * Bengaluru\n * Sydney\n * São Paulo\n * Tel Aviv\n\n\nJOB OPENINGS\n\n\nBUSINESS DEVELOPMENT\n\n * Distribution Partner Manager\n * Manager, Distribution Partnerships\n * Manager, Tech & Ecosystem Partnerships\n * Product Partner Manager\n * Strategic Partner Manager\n\n\nBUSINESS OPERATIONS\n\n * Business Operations\n * Director, Business Operations\n * Director, Business Systems\n * Director, Technical Revenue Accounting\n * Federal Compliance Manager\n * GTM Systems Architect\n * IT Engineer, Internal AI Infrastructure\n * Manager, Order Management\n * Manager, Security Operations\n * Senior Accountant\n * Senior Analyst, Revenue Transformation\n * Senior Technical Revenue Analyst\n * Strategic Finance\n * Strategic Finance, AI Innovation\n * Strategic Program Manager, Information Security\n * Technical Program Manager\n\n\nCUSTOMER OPERATIONS AND SUPPORT\n\n * Enterprise Support Specialist, Korean Speaking (London, United Kingdom)\n * Manager, Technical Support (London, United Kingdom)\n * Support Engineer, AI Infrastructure & Tooling\n * Technical Quality Specialist\n * Voice of the Customer Program Manager\n\n\nDESIGN\n\n * Brand Designer, Product Launches\n * Director, Product Design - AI & Context\n * Director, Research - AI Evals\n * Executive Assistant, Design\n * Manager, Design - Systems & Infrastructure\n * Product Designer, AI Models\n * Product Designer, CMS\n * Product Designer, Design, Dev, & AI Tools\n * Product Designer, Design Systems\n * Product Designer, Growth & Monetization\n * Product Designer, Roundtripping (London, United Kingdom)\n * Researcher, Figma Agentic Experiences\n * Researcher - Rapid Research\n\n\nEARLY CAREER\n\n * Brand Design Intern (Summer 2027)\n * Data Engineer Intern (2027)\n * Data Science Intern (2027)\n * Data Scientist, Core Data - PhD (2026)\n * Early Career, Product Designer (2027)\n * PhD Intern, Data Science (2027)\n * Product Design Intern (2027)\n * Software Engineer Intern (London, United Kingdom) (Summer 2027)\n * Software Engineer Intern (Summer 2027)\n * Software Engineer Intern (Winter 2027)\n\n\nENGINEERING\n\n * AI Applied Scientist\n * Data Platform Engineer\n * Data Scientist\n * Data Scientist, Finance\n * Director, Data Science\n * Forward Deployed Engineer\n * Manager, Software Engineering - AI Observability\n * Manager, Software Engineering - Billing\n * Manager, Software Engineering - Data Platform\n * Manager, Software Engineering - DevEx AI Tools\n * Manager, Software Engineering - Growth Platform\n * Manager, Software Engineering - Interaction Design\n * Security Engineer\n * Security Scientist\n * Software Engineer - AI Platforms\n * Software Engineer - AI Product\n * Software Engineer - AI Product (London, United Kingdom)\n * Software Engineer - Application Platform\n * Software Engineer - C++\n * Software Engineer - Data Infrastructure\n * Software Engineer - Developer Experience\n * Software Engineer - Distributed Systems\n * Software Engineer - Full Stack\n * Software Engineer - Growth & Monetization\n * Software Engineer - Machine Learning\n * Software Engineer - Machine Learning (London, United Kingdom)\n * Software Engineer - Mobile Web\n * Technical Program Manager - Infrastructure\n\n\nLEGAL\n\n * Senior Product Counsel\n\n\nMARKETING\n\n * Content Strategist, Product\n * Corporate Communications Manager\n * Designer Advocate\n * Designer Advocate (Berlin, Germany)\n * Designer Advocate, Partnerships\n * Executive Assistant, Growth Marketing\n * Field Marketing Manager, Third Party & Partner Events\n * Marketing Engineer\n * Video Strategist\n\n\nPEOPLE\n\n * Director, People Partners - Product, Design & Engineering\n * Executive Assistant, Chief People Officer\n * Executive Assistant, People\n * HRIS Analyst\n * Immigration Program Manager\n * Manager, HRIS\n * Office Manager (Bengaluru, India)\n * Office Manager (São Paulo, Brazil)\n\n\nPRODUCT\n\n * Manager, Product Management - Figma Platform Experience\n * Manager, Product Management - Roundtripping\n * Manager, Product Management - Roundtripping (London, United Kingdom)\n * Product Manager, Acquisition\n * Product Manager, AI Growth\n * Product Manager, Developer Platform\n\n\nSALES\n\n * Account Executive, Enterprise\n * Account Executive, Enterprise (Bengaluru, India)\n * Account Executive, Enterprise (Berlin, Germany)\n * Account Executive, Enterprise (London, United Kingdom)\n * Account Executive, Enterprise, Mandarin Speaking (Singapore)\n * Account Executive, Enterprise (Paris, France)\n * Account Executive, Enterprise (Sydney or Melbourne, Australia)\n * Account Executive, Enterprise (Tokyo, Japan)\n * Account Executive, Federal - Civilian\n * Account Executive, Mid-Market\n * Account Executive, Mid-Market (London, United Kingdom)\n * Account Executive, Mid-Market, Mandarin Speaking (Singapore)\n * Account Executive, Mid-Market (Paris, France)\n * Account Executive, Mid-Market (Sydney, Australia)\n * Account Executive, SMB\n * Account Executive, SMB (Berlin, Germany)\n * Account Executive, SMB (London, United Kingdom)\n * Account Executive, SMB (Tokyo, Japan)\n * Account Executive, Strategic\n * Account Executive, Strategic (London, United Kingdom)\n * Account Executive, Strategic (Paris, France)\n * Account Executive, Strategic (São Paulo, Brazil)\n * Account Executive, Strategic (Sydney or Melbourne, Australia)\n * Account Executive, Strategic (Tokyo, Japan)\n * Customer Enablement Manager (Berlin, Germany)\n * Customer Enablement Manager (Paris, France)\n * Customer Enablement Manager (São Paulo, Brazil)\n * Director, SMB Sales (London, United Kingdom)\n * Director, Solutions Consulting\n * Director, Strategic Sales (Berlin, Germany)\n * Executive Assistant, Sales (São Paulo, Brazil)\n * Inside Sales Representative (Berlin, Germany)\n * Inside Sales Representative (Paris, France)\n * Manager, Customer Enablement (Tokyo, Japan)\n * Manager, Enterprise Sales\n * Manager, Inside Sales (London, United Kingdom)\n * Manager, Inside Sales (Singapore)\n * Manager, Mid-Market Sales (Berlin, Germany)\n * Manager, Mid-Market Sales (London, United Kingdom)\n * Manager, SMB Sales\n * Manager, Solutions Consulting (Tokyo, Japan)\n * Manager, Strategic Sales\n * Program Manager, Scale Onboarding (London, United Kingdom)\n * Senior Account Executive, SMB\n * Senior Account Executive, UK Government (London, United Kingdom)\n * Senior Customer Enablement Manager (London, United Kingdom)\n * Senior Field Enablement Manager (Tokyo, Japan)\n * Senior Manager, Enterprise Sales (London, United Kingdom)\n * Solutions Consultant\n * Solutions Consultant (Berlin, Germany)\n * Solutions Consultant (London, United Kingdom)\n * Solutions Consultant, Payload\n * Solutions Consultant (Sydney, Australia)\n * Technical Account Manager\n * Technical Account Manager, Mandarin Speaking (Singapore)\n * Technical Account Manager (Tokyo, Japan)\n\n\nTALENT\n\n * Business Recruiter (São Paulo, Brazil)\n * Executive Recruiter\n * Manager, Recruiting - Sales\n * Manager, Talent Products\n * Recruiter (Singapore)\n\n\nWEAVY - FIGMA WEAVE\n\n * Director, Marketing - Figma Weave (New York, United States)\n * Events Manager - Figma Weave (New York, United States)\n * Software Engineer - Figma Weave (Tel Aviv, Israel)\n\nAt Figma we celebrate and support our differences. We know employing a team rich in diverse thoughts, experiences, and opinions allows our employees, our product and our community to flourish. Figma is an equal opportunity workplace. We are dedicated to equal employment opportunities regardless of race, color, ancestry, religion, sex, national origin, sexual orientation, age, citizenship, marital status, disability, gender identity/expression, or veteran status.\n\n\nFROM THE BLOG\n\n\n * VERSION CONTROL: HOW A UX WRITER WEIGHS ONE WORD AGAINST ANOTHER\n   \n   In UX design, a single misplaced verb can lead users astray, frustrating their expectations and creating confusion. That’s why UX Writer Henry Freedland chose his words very carefully when he was brought in to help polish a new prototyping feature.\n   \n   Read article\n\n\n * WHY ARE WE SO AFRAID OF CODE AS A COMMODITY?\n   \n   Instead of asking how AI will automate our jobs, we should be focusing on what we, as engineers, uniquely do well. What problems can AI currently solve, and where is the whitespace to go beyond that?\n   \n   Read article\n\n\n * BREAKING IN: A GUIDE TO LANDING YOUR FIRST PRODUCT DESIGN ROLE\n   \n   Curious about early career opportunities at Figma? Here are some tips on how to get your first product design job, along with insights on what we look for.\n   \n   Read article\n\nSee all articles\n\n\nABOUT FIGMA\n\nFigma is the design platform for teams who build products together. Born on the Web, Figma helps teams brainstorm, design and build better products — from start to finish. Whether it’s consolidating tools, simplifying workflows, or collaborating across teams and time zones, Figma makes the design process faster, more efficient, and fun while keeping everyone on the same page.",
+              "checkedAt": "2026-10-01T07:02:06.920Z",
+              "fingerprint": "442aef8a386ddb575562e41aa77e4ae2d4850d1b18f4bd83e01ad29b8c805c27"
+            }
+          ],
+          "findings": [
+            {
+              "fact": "location",
+              "status": "resolved",
+              "applicability": "this_role",
+              "explanation": "The posting explicitly states the role can be held from one of Figma’s US hubs or remotely in the United States, and the careers page lists US hubs including San Francisco and New York City.",
+              "value": "US hubs or remotely in the United States",
+              "quotes": [
+                " * Product Designer, Design, Dev, & AI Tools",
+                "We’re a team of makers who celebrate our differences and share a passion for our community. We’re hiring across our global hubs and remotely in the US and Canada.",
+                "LOCATIONS",
+                " * San Francisco"
+              ],
+              "sourceUrl": "https://www.figma.com/careers/"
+            },
+            {
+              "fact": "authorization",
+              "status": "unresolved",
+              "applicability": "this_role",
+              "explanation": "The supplied employer documents do not state any work authorization requirement for this specific role, so it is not possible to determine whether the applicant must already have U.S. work authorization.",
+              "value": "",
+              "quotes": [],
+              "sourceUrl": null
+            },
+            {
+              "fact": "sponsorship",
+              "status": "unresolved",
+              "applicability": "this_role",
+              "explanation": "The supplied employer documents do not mention visa sponsorship for this specific role. There is no direct evidence that sponsorship is offered or not offered.",
+              "value": "",
+              "quotes": [],
+              "sourceUrl": null
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "sales-uk:figma:5551532004",
+      "accepted": false,
+      "retrieved": false,
+      "retrievalMs": 0.7404579999999896,
+      "prompt": false,
+      "promptAssumption": "Posting availability held fresh for this isolated decision test; no email sent",
+      "assessment": null,
+      "analysis": {
+        "facts": {
+          "role": {
+            "status": "stated",
+            "value": "Software Engineer - Machine Learning / Machine Learning / AI Engineer",
+            "quotes": [
+              "Software Engineer - Machine Learning",
+              "Figma is seeking a versatile and experienced Machine Learning / AI Engineer to join our growing AI team, working at the intersection of applied machine learning, infrastructure, and product innovation. Whether you’re building intelligent search systems, crafting scalable data pipelines, or enhancing AI-powered creativity tools, your work will drive user productivity, shape new product experiences, and advance the state of AI at Figma."
+            ]
+          },
+          "arrangement": {
+            "status": "stated",
+            "value": "Full-time; can be held from one of the US hubs or remotely in the United States",
+            "quotes": [
+              "This is a full time role that can be held from one of our US hubs or remotely in the United States.",
+              "San Francisco, CA • New York, NY • United States"
+            ]
+          },
+          "category": {
+            "status": "stated",
+            "value": "Employment role (full-time employee job posting)",
+            "quotes": [
+              "This is a full time role that can be held from one of our US hubs or remotely in the United States.",
+              "Figma offers equity to employees, as well as a competitive package of additional benefits, including health, dental, and vision coverage; retirement benefits with company contributions; parental leave and reproductive or family planning support; mental health and wellness benefits; and paid time off. Figma provides paid sick leave, holidays, and other leave benefits in compliance with applicable federal, state, and local laws, including the requirements of the Washington Minimum Wage Act and related regulations. Exempt employees are eligible for employer‑provided paid flexible PTO in addition to flexible paid sick leave. PTO is subject to manager approval. Additional benefits may include company recharge days, cell phone and home internet reimbursements, and a number of lifestyle spending accounts. Figma also offers sales incentive compensation for most sales roles and an annual bonus plan for eligible non-sales roles. All compensation and benefits are subject to applicable plan terms "
+            ]
+          },
+          "location": {
+            "status": "stated",
+            "value": "San Francisco, CA; New York, NY; or remotely in the United States",
+            "quotes": [
+              "San Francisco, CA • New York, NY • United States",
+              "This is a full time role that can be held from one of our US hubs or remotely in the United States."
+            ]
+          },
+          "requirements": {
+            "status": "stated",
+            "value": "5+ years of software engineering experience, 3+ years focused on applied machine learning or AI, plus Python and ML/data pipeline experience",
+            "quotes": [
+              " * 5+ years of industry experience in software engineering, with 3+ years focused on applied machine learning or AI.",
+              " * Strong experience with end-to-end ML model development, including training, evaluation, deployment, and monitoring.",
+              " * Proficiency in Python and familiarity with ML libraries like PyTorch, TensorFlow, Scikit-learn, Spark MLlib, or XGBoost.",
+              " * Experience designing and building scalable data and annotation pipelines, as well as evaluation systems for AI model quality."
+            ]
+          },
+          "authorization": {
+            "status": "unknown",
+            "value": "",
+            "quotes": []
+          },
+          "sponsorship": {
+            "status": "unknown",
+            "value": "",
+            "quotes": []
+          },
+          "compensation": {
+            "status": "stated",
+            "value": "Annual base salary range: $153,000 to $376,000 USD",
+            "quotes": [
+              "Annual Base Salary Range:",
+              "$153,000—$376,000 USD"
+            ]
+          }
+        },
+        "pay": {
+          "minimum": null,
+          "maximum": null,
+          "currency": null,
+          "period": null
+        },
+        "research": {
+          "checkedAt": "2026-10-01T07:03:10.202Z",
+          "expiresAt": "2026-10-01T13:02:06.920Z",
+          "documents": [
+            {
+              "url": "https://www.figma.com/careers/",
+              "text": "Skip to main content\n\n\n\n\n\nCAREERS AT FIGMA\n\nFigma is a design platform for teams who build products together. Our vision is to make design accessible to all because we know that nothing great is made alone.\n\nWe’re a team of makers who celebrate our differences and share a passion for our community. We’re hiring across our global hubs and remotely in the US and Canada.\n\nCome join us!\n\nSee open positions\n\n\nOUR VALUES AND CULTURE\n\nOur values and culture are the underpinning for all that we do at Figma—we believe that a great product is inextricably linked to a great internal community.\n\n\nBUILD COMMUNITY\n\nWe’re multiplayer people who love the weird, wonderful magic that happens when people connect. We build bridges—with both our Figmates and our users.\n\n\nRUN WITH IT\n\nBuilding Figma is about taking initiative, being bold and charting a new course, not running a playbook. Figmates are building the future of design by tackling big, scary, exciting challenges like Figma’s future depends on it. Because it does.\n\n\nLOVE YOUR CRAFT\n\nWe build for builders and try to make complex things feel simple. We ask why until we get to the core and continually focus on solving the right problem, not just shipping work.\n\n\nGROW AS YOU GO\n\nWith humility and curiosity, we give and get the direct feedback we all need to become great. Everyone’s a work in progress, and we’re here to help each other grow.\n\n\nPLAY\n\nPlaying is learning. We embrace spontaneous, unstructured exploration—because that’s where we find our best ideas.\n\n\nLIFE AT FIGMA\n\nConnection and kindness are core to our culture (after all, we’re a group of people building a collaboration tool). We focus on lifting each other up instead of competing amongst ourselves, and we build relationships through numerous company traditions.\n\n\nFIGMATE COMMUNITY GROUPS\n\nOur Figmate Communities are an essential part of our value of \"Build Community.\" These groups are comprised of Figmates interested in developing community, social awareness, and education regarding groups with shared characteristics or life experiences, and are open to all Figmates regardless of whether or not they are part of that group or share those characteristics or life experiences themselves.\n\n\nMAKER WEEK\n\nA time set aside once a year to pursue wild, silly, and imaginative ideas. The whole company takes part, and people can work on anything Figma-related that piques their curiosity.\n\n\nEARLY CAREER\n\nOur internship and early career programs let you work on meaningful Figma projects, get mentorship at every step, and grow as you go.\n\nLearn more\n\n\n\nBENEFITS\n\n * Competitive salary & equity\n * Health, Dental, & Vision\n * Retirement with company contribution\n * Parental leave & fertility support\n * Mental health and wellness benefits\n * Generous PTO\n * Company recharge days\n * Learning & development stipend\n * Work from home stipend\n * Cell phone reimbursement\n\n\nLOCATIONS\n\n * San Francisco\n * New York City\n * Seattle\n * London\n * Paris\n * Berlin\n * Tokyo\n * Singapore\n * Bengaluru\n * Sydney\n * São Paulo\n * Tel Aviv\n\n\nJOB OPENINGS\n\n\nBUSINESS DEVELOPMENT\n\n * Distribution Partner Manager\n * Manager, Distribution Partnerships\n * Manager, Tech & Ecosystem Partnerships\n * Product Partner Manager\n * Strategic Partner Manager\n\n\nBUSINESS OPERATIONS\n\n * Business Operations\n * Director, Business Operations\n * Director, Business Systems\n * Director, Technical Revenue Accounting\n * Federal Compliance Manager\n * GTM Systems Architect\n * IT Engineer, Internal AI Infrastructure\n * Manager, Order Management\n * Manager, Security Operations\n * Senior Accountant\n * Senior Analyst, Revenue Transformation\n * Senior Technical Revenue Analyst\n * Strategic Finance\n * Strategic Finance, AI Innovation\n * Strategic Program Manager, Information Security\n * Technical Program Manager\n\n\nCUSTOMER OPERATIONS AND SUPPORT\n\n * Enterprise Support Specialist, Korean Speaking (London, United Kingdom)\n * Manager, Technical Support (London, United Kingdom)\n * Support Engineer, AI Infrastructure & Tooling\n * Technical Quality Specialist\n * Voice of the Customer Program Manager\n\n\nDESIGN\n\n * Brand Designer, Product Launches\n * Director, Product Design - AI & Context\n * Director, Research - AI Evals\n * Executive Assistant, Design\n * Manager, Design - Systems & Infrastructure\n * Product Designer, AI Models\n * Product Designer, CMS\n * Product Designer, Design, Dev, & AI Tools\n * Product Designer, Design Systems\n * Product Designer, Growth & Monetization\n * Product Designer, Roundtripping (London, United Kingdom)\n * Researcher, Figma Agentic Experiences\n * Researcher - Rapid Research\n\n\nEARLY CAREER\n\n * Brand Design Intern (Summer 2027)\n * Data Engineer Intern (2027)\n * Data Science Intern (2027)\n * Data Scientist, Core Data - PhD (2026)\n * Early Career, Product Designer (2027)\n * PhD Intern, Data Science (2027)\n * Product Design Intern (2027)\n * Software Engineer Intern (London, United Kingdom) (Summer 2027)\n * Software Engineer Intern (Summer 2027)\n * Software Engineer Intern (Winter 2027)\n\n\nENGINEERING\n\n * AI Applied Scientist\n * Data Platform Engineer\n * Data Scientist\n * Data Scientist, Finance\n * Director, Data Science\n * Forward Deployed Engineer\n * Manager, Software Engineering - AI Observability\n * Manager, Software Engineering - Billing\n * Manager, Software Engineering - Data Platform\n * Manager, Software Engineering - DevEx AI Tools\n * Manager, Software Engineering - Growth Platform\n * Manager, Software Engineering - Interaction Design\n * Security Engineer\n * Security Scientist\n * Software Engineer - AI Platforms\n * Software Engineer - AI Product\n * Software Engineer - AI Product (London, United Kingdom)\n * Software Engineer - Application Platform\n * Software Engineer - C++\n * Software Engineer - Data Infrastructure\n * Software Engineer - Developer Experience\n * Software Engineer - Distributed Systems\n * Software Engineer - Full Stack\n * Software Engineer - Growth & Monetization\n * Software Engineer - Machine Learning\n * Software Engineer - Machine Learning (London, United Kingdom)\n * Software Engineer - Mobile Web\n * Technical Program Manager - Infrastructure\n\n\nLEGAL\n\n * Senior Product Counsel\n\n\nMARKETING\n\n * Content Strategist, Product\n * Corporate Communications Manager\n * Designer Advocate\n * Designer Advocate (Berlin, Germany)\n * Designer Advocate, Partnerships\n * Executive Assistant, Growth Marketing\n * Field Marketing Manager, Third Party & Partner Events\n * Marketing Engineer\n * Video Strategist\n\n\nPEOPLE\n\n * Director, People Partners - Product, Design & Engineering\n * Executive Assistant, Chief People Officer\n * Executive Assistant, People\n * HRIS Analyst\n * Immigration Program Manager\n * Manager, HRIS\n * Office Manager (Bengaluru, India)\n * Office Manager (São Paulo, Brazil)\n\n\nPRODUCT\n\n * Manager, Product Management - Figma Platform Experience\n * Manager, Product Management - Roundtripping\n * Manager, Product Management - Roundtripping (London, United Kingdom)\n * Product Manager, Acquisition\n * Product Manager, AI Growth\n * Product Manager, Developer Platform\n\n\nSALES\n\n * Account Executive, Enterprise\n * Account Executive, Enterprise (Bengaluru, India)\n * Account Executive, Enterprise (Berlin, Germany)\n * Account Executive, Enterprise (London, United Kingdom)\n * Account Executive, Enterprise, Mandarin Speaking (Singapore)\n * Account Executive, Enterprise (Paris, France)\n * Account Executive, Enterprise (Sydney or Melbourne, Australia)\n * Account Executive, Enterprise (Tokyo, Japan)\n * Account Executive, Federal - Civilian\n * Account Executive, Mid-Market\n * Account Executive, Mid-Market (London, United Kingdom)\n * Account Executive, Mid-Market, Mandarin Speaking (Singapore)\n * Account Executive, Mid-Market (Paris, France)\n * Account Executive, Mid-Market (Sydney, Australia)\n * Account Executive, SMB\n * Account Executive, SMB (Berlin, Germany)\n * Account Executive, SMB (London, United Kingdom)\n * Account Executive, SMB (Tokyo, Japan)\n * Account Executive, Strategic\n * Account Executive, Strategic (London, United Kingdom)\n * Account Executive, Strategic (Paris, France)\n * Account Executive, Strategic (São Paulo, Brazil)\n * Account Executive, Strategic (Sydney or Melbourne, Australia)\n * Account Executive, Strategic (Tokyo, Japan)\n * Customer Enablement Manager (Berlin, Germany)\n * Customer Enablement Manager (Paris, France)\n * Customer Enablement Manager (São Paulo, Brazil)\n * Director, SMB Sales (London, United Kingdom)\n * Director, Solutions Consulting\n * Director, Strategic Sales (Berlin, Germany)\n * Executive Assistant, Sales (São Paulo, Brazil)\n * Inside Sales Representative (Berlin, Germany)\n * Inside Sales Representative (Paris, France)\n * Manager, Customer Enablement (Tokyo, Japan)\n * Manager, Enterprise Sales\n * Manager, Inside Sales (London, United Kingdom)\n * Manager, Inside Sales (Singapore)\n * Manager, Mid-Market Sales (Berlin, Germany)\n * Manager, Mid-Market Sales (London, United Kingdom)\n * Manager, SMB Sales\n * Manager, Solutions Consulting (Tokyo, Japan)\n * Manager, Strategic Sales\n * Program Manager, Scale Onboarding (London, United Kingdom)\n * Senior Account Executive, SMB\n * Senior Account Executive, UK Government (London, United Kingdom)\n * Senior Customer Enablement Manager (London, United Kingdom)\n * Senior Field Enablement Manager (Tokyo, Japan)\n * Senior Manager, Enterprise Sales (London, United Kingdom)\n * Solutions Consultant\n * Solutions Consultant (Berlin, Germany)\n * Solutions Consultant (London, United Kingdom)\n * Solutions Consultant, Payload\n * Solutions Consultant (Sydney, Australia)\n * Technical Account Manager\n * Technical Account Manager, Mandarin Speaking (Singapore)\n * Technical Account Manager (Tokyo, Japan)\n\n\nTALENT\n\n * Business Recruiter (São Paulo, Brazil)\n * Executive Recruiter\n * Manager, Recruiting - Sales\n * Manager, Talent Products\n * Recruiter (Singapore)\n\n\nWEAVY - FIGMA WEAVE\n\n * Director, Marketing - Figma Weave (New York, United States)\n * Events Manager - Figma Weave (New York, United States)\n * Software Engineer - Figma Weave (Tel Aviv, Israel)\n\nAt Figma we celebrate and support our differences. We know employing a team rich in diverse thoughts, experiences, and opinions allows our employees, our product and our community to flourish. Figma is an equal opportunity workplace. We are dedicated to equal employment opportunities regardless of race, color, ancestry, religion, sex, national origin, sexual orientation, age, citizenship, marital status, disability, gender identity/expression, or veteran status.\n\n\nFROM THE BLOG\n\n\n * VERSION CONTROL: HOW A UX WRITER WEIGHS ONE WORD AGAINST ANOTHER\n   \n   In UX design, a single misplaced verb can lead users astray, frustrating their expectations and creating confusion. That’s why UX Writer Henry Freedland chose his words very carefully when he was brought in to help polish a new prototyping feature.\n   \n   Read article\n\n\n * WHY ARE WE SO AFRAID OF CODE AS A COMMODITY?\n   \n   Instead of asking how AI will automate our jobs, we should be focusing on what we, as engineers, uniquely do well. What problems can AI currently solve, and where is the whitespace to go beyond that?\n   \n   Read article\n\n\n * BREAKING IN: A GUIDE TO LANDING YOUR FIRST PRODUCT DESIGN ROLE\n   \n   Curious about early career opportunities at Figma? Here are some tips on how to get your first product design job, along with insights on what we look for.\n   \n   Read article\n\nSee all articles\n\n\nABOUT FIGMA\n\nFigma is the design platform for teams who build products together. Born on the Web, Figma helps teams brainstorm, design and build better products — from start to finish. Whether it’s consolidating tools, simplifying workflows, or collaborating across teams and time zones, Figma makes the design process faster, more efficient, and fun while keeping everyone on the same page.",
+              "checkedAt": "2026-10-01T07:02:06.920Z",
+              "fingerprint": "442aef8a386ddb575562e41aa77e4ae2d4850d1b18f4bd83e01ad29b8c805c27"
+            }
+          ],
+          "findings": [
+            {
+              "fact": "location",
+              "status": "unresolved",
+              "applicability": "unclear",
+              "explanation": "The employer page lists the role name, but it does not tie this specific Software Engineer - Machine Learning opening to a precise location or remote eligibility for this exact job. The general careers page says Figma is hiring across global hubs and remotely in the US and Canada, but that is not specific enough to establish this role's location. ",
+              "value": "",
+              "quotes": [],
+              "sourceUrl": null
+            },
+            {
+              "fact": "authorization",
+              "status": "unresolved",
+              "applicability": "unclear",
+              "explanation": "The supplied employer documents do not state whether applicants for this role must already have U.S. work authorization or whether Figma will assess work authorization for this specific job.",
+              "value": "",
+              "quotes": [],
+              "sourceUrl": null
+            },
+            {
+              "fact": "sponsorship",
+              "status": "unresolved",
+              "applicability": "unclear",
+              "explanation": "The supplied employer documents do not mention visa sponsorship for this specific role. General hiring or location statements do not prove sponsorship for this job.",
+              "value": "",
+              "quotes": [],
+              "sourceUrl": null
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

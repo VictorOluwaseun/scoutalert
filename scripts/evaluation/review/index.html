@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Evidence review · ScoutAlert</title>
+    <link rel="stylesheet" href="/review.css" />
+    <script src="/review.js" defer></script>
+  </head>
+  <body>
+    <header class="masthead">
+      <a href="/" class="brand"
+        ><span aria-hidden="true" class="mark">↗</span>ScoutAlert
+        <span class="tool-name">Evidence review</span></a
+      ><button id="export" class="button secondary" type="button">
+        Export completed reviews
+      </button>
+    </header>
+    <main>
+      <div class="introduction">
+        <div>
+          <h1>Would this be worth their time?</h1>
+          <p>
+            Read the scout’s brief and the original evidence. Decide whether
+            this opportunity belongs in their results.
+          </p>
+        </div>
+        <p class="privacy-note">
+          Model decisions are hidden.<br />Your reviews stay in this browser
+          until you export them.
+        </p>
+      </div>
+      <nav class="case-navigation" aria-label="Review cases">
+        <div>
+          <label for="case">Opportunity and scout</label
+          ><select id="case"></select>
+        </div>
+        <div class="case-controls">
+          <span id="progress" role="status"></span
+          ><button id="previous" class="button secondary" type="button">
+            Previous</button
+          ><button id="next" class="button secondary" type="button">
+            Next
+          </button>
+        </div>
+      </nav>
+      <div class="workspace">
+        <section class="evidence" aria-label="Source evidence">
+          <div class="source-heading">
+            <span id="kind" class="tag"></span>
+            <p id="capture"></p>
+          </div>
+          <h2 id="title"></h2>
+          <p id="source"></p>
+          <a id="source-link" target="_blank" rel="noopener noreferrer"
+            >Open original posting</a
+          >
+          <details open>
+            <summary>Frozen posting</summary>
+            <p class="reading-note">
+              Judge this captured text. The live page may have changed since
+              capture.
+            </p>
+            <div id="posting" class="source-text"></div>
+          </details>
+          <h3>Additional employer evidence</h3>
+          <div id="documents"></div>
+        </section>
+        <aside class="decision">
+          <section class="brief">
+            <h2>The scout’s brief</h2>
+            <dl id="brief"></dl>
+            <details>
+              <summary>Prior feedback used for ranking</summary>
+              <p id="history"></p>
+            </details>
+          </section>
+          <form id="review-form" novalidate>
+            <h2>Your judgment</h2>
+            <p>
+              Show a result only if it fits the confirmed requirements and the
+              scout’s choices about missing information.
+            </p>
+            <fieldset>
+              <legend>Should this appear in their results?</legend>
+              <label class="choice"
+                ><input type="radio" name="recommended" value="yes" /> Yes,
+                worth reviewing</label
+              ><label class="choice"
+                ><input type="radio" name="recommended" value="no" /> No,
+                exclude it</label
+              >
+            </fieldset>
+            <fieldset>
+              <legend>Does it qualify for a prompt alert?</legend>
+              <p class="hint">
+                All seven criteria must be supported: category, role,
+                arrangement, location, experience, compensation and
+                authorization. Missing or conflicting evidence means no alert.
+                For this test, assume the posting is still open.
+              </p>
+              <label class="choice"
+                ><input type="radio" name="prompt" value="yes" /> Yes, all
+                criteria are supported</label
+              ><label class="choice"
+                ><input type="radio" name="prompt" value="no" /> No, something
+                is missing or conflicts</label
+              >
+            </fieldset>
+            <label for="rationale">What evidence supports your decision?</label
+            ><textarea
+              id="rationale"
+              rows="4"
+              placeholder="Name the requirement and quote or describe the relevant passage."
+            ></textarea>
+            <label for="reviewer">Reviewer name</label
+            ><input id="reviewer" autocomplete="name" placeholder="Your name" />
+            <label class="attestation"
+              ><input id="attestation" type="checkbox" /> I am a human reviewer.
+              I made this judgment independently, without looking at the model’s
+              decision.</label
+            >
+            <p id="error" class="error" role="alert"></p>
+            <p id="saved" class="saved" role="status"></p>
+            <button class="button primary" type="submit">
+              Save review and continue</button
+            ><button id="clear" class="text-button" type="button">
+              Clear this review
+            </button>
+          </form>
+        </aside>
+      </div>
+      <footer>
+        <p id="scope"></p>
+        <p>
+          Unknown means unknown. A company slogan, office location or customer
+          service does not establish eligibility for this opportunity.
+        </p>
+      </footer>
+    </main>
+  </body>
+</html>

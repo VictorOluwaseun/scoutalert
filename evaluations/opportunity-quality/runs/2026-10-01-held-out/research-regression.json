@@ -1,0 +1,325 @@
+{
+  "kind": "synthetic-regression",
+  "measuredAt": "2026-10-01T08:23:29.182Z",
+  "maxRequests": 6,
+  "maxReservedUsd": 0.44999999999999996,
+  "results": [
+    {
+      "name": "explicit-role-specific-policy",
+      "expected": [
+        "authorization",
+        "location",
+        "sponsorship"
+      ],
+      "findings": [
+        {
+          "fact": "location",
+          "status": "resolved",
+          "applicability": "this_role",
+          "explanation": "The policy for this role explicitly states the work location arrangement: applicants may work remotely from Nigeria.",
+          "value": "Remote from Nigeria",
+          "quotes": [
+            "Recruiting policy for Product Designer: applicants may work remotely from Nigeria. For this role, applicants must already have permission to work in Nigeria; Synthetic Studio cannot sponsor a visa for this role."
+          ],
+          "sourceUrl": "https://example.com/careers"
+        },
+        {
+          "fact": "authorization",
+          "status": "resolved",
+          "applicability": "this_role",
+          "explanation": "The policy for this role explicitly requires applicants to already have permission to work in Nigeria.",
+          "value": "Must already have permission to work in Nigeria",
+          "quotes": [
+            "Recruiting policy for Product Designer: applicants may work remotely from Nigeria. For this role, applicants must already have permission to work in Nigeria; Synthetic Studio cannot sponsor a visa for this role."
+          ],
+          "sourceUrl": "https://example.com/careers"
+        },
+        {
+          "fact": "sponsorship",
+          "status": "resolved",
+          "applicability": "this_role",
+          "explanation": "The policy for this role explicitly says Synthetic Studio cannot sponsor a visa for this role.",
+          "value": "No visa sponsorship for this role",
+          "quotes": [
+            "Recruiting policy for Product Designer: applicants may work remotely from Nigeria. For this role, applicants must already have permission to work in Nigeria; Synthetic Studio cannot sponsor a visa for this role."
+          ],
+          "sourceUrl": "https://example.com/careers"
+        }
+      ],
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "inputTokens": 623,
+        "cachedInputTokens": 0,
+        "outputTokens": 276,
+        "durationMs": 2681,
+        "responseId": "resp_019c727aa6d7dfac016abe187051d087d2a50ebe388bd04cbb"
+      },
+      "cost": {
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "estimatedMicrousd": 1710
+      }
+    },
+    {
+      "name": "different-role-and-conditional-policy",
+      "expected": [],
+      "findings": [
+        {
+          "fact": "location",
+          "status": "unresolved",
+          "applicability": "this_role",
+          "explanation": "The page mentions that some positions permit international remote work, but it does not state whether Product Designer does. The role-specific eligibility is explicitly not provided, so location cannot be confirmed for this job.",
+          "value": "unknown",
+          "quotes": [
+            "Some positions permit international remote work and visa sponsorship. Eligibility varies by country and seniority. Sponsorship for Staff Software Engineers in Canada is subject to separate review. Product Designer eligibility is not provided on this page."
+          ],
+          "sourceUrl": "https://example.com/careers"
+        },
+        {
+          "fact": "authorization",
+          "status": "unresolved",
+          "applicability": "this_role",
+          "explanation": "The document says eligibility varies by country and seniority and does not provide Product Designer eligibility. It therefore does not establish whether this role requires or accepts a given work authorization.",
+          "value": "unknown",
+          "quotes": [
+            "Some positions permit international remote work and visa sponsorship. Eligibility varies by country and seniority. Sponsorship for Staff Software Engineers in Canada is subject to separate review. Product Designer eligibility is not provided on this page."
+          ],
+          "sourceUrl": "https://example.com/careers"
+        },
+        {
+          "fact": "sponsorship",
+          "status": "unresolved",
+          "applicability": "this_role",
+          "explanation": "The page states that some positions permit visa sponsorship, but sponsorship is role- and location-dependent and Product Designer eligibility is not provided. This is not enough to confirm sponsorship for this job.",
+          "value": "unknown",
+          "quotes": [
+            "Some positions permit international remote work and visa sponsorship. Eligibility varies by country and seniority. Sponsorship for Staff Software Engineers in Canada is subject to separate review. Product Designer eligibility is not provided on this page."
+          ],
+          "sourceUrl": "https://example.com/careers"
+        }
+      ],
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "inputTokens": 621,
+        "cachedInputTokens": 0,
+        "outputTokens": 399,
+        "durationMs": 3157,
+        "responseId": "resp_0ccb2127eba46a23016abe18729ca087d281ad17b73dddd14f"
+      },
+      "cost": {
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "estimatedMicrousd": 2262
+      }
+    },
+    {
+      "name": "explicit-universal-policy",
+      "expected": [
+        "authorization",
+        "sponsorship"
+      ],
+      "findings": [
+        {
+          "fact": "location",
+          "status": "unresolved",
+          "applicability": "this_role",
+          "explanation": "The supplied employer passage does not state where the Product Designer role is based or where it must be performed. It only mentions work permission for Nigeria, which is authorization rather than a job location.",
+          "value": "Not stated",
+          "quotes": [],
+          "sourceUrl": null
+        },
+        {
+          "fact": "authorization",
+          "status": "resolved",
+          "applicability": "all_roles",
+          "explanation": "The employer policy explicitly covers all roles, including Product Designer, and requires applicants to already have permission to work in Nigeria.",
+          "value": "Applicants must already have permission to work in Nigeria.",
+          "quotes": [
+            "Synthetic Studio policy: All roles, including Product Designer, require applicants to already have permission to work in Nigeria. No visa sponsorship is offered for any position."
+          ],
+          "sourceUrl": "https://example.com/careers"
+        },
+        {
+          "fact": "sponsorship",
+          "status": "resolved",
+          "applicability": "all_roles",
+          "explanation": "The employer policy explicitly states that no visa sponsorship is offered for any position, which applies to Product Designer as part of all roles.",
+          "value": "No visa sponsorship is offered.",
+          "quotes": [
+            "Synthetic Studio policy: All roles, including Product Designer, require applicants to already have permission to work in Nigeria. No visa sponsorship is offered for any position."
+          ],
+          "sourceUrl": "https://example.com/careers"
+        }
+      ],
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "inputTokens": 613,
+        "cachedInputTokens": 0,
+        "outputTokens": 390,
+        "durationMs": 3035,
+        "responseId": "resp_0b53363cdfdb3ee9016abe1875c7b887d2a78d0c2b1fc4a205"
+      },
+      "cost": {
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "estimatedMicrousd": 2215
+      }
+    },
+    {
+      "name": "marketing-is-not-eligibility",
+      "expected": [],
+      "findings": [
+        {
+          "fact": "location",
+          "status": "unresolved",
+          "applicability": "this_role",
+          "explanation": "The employer page says most jobs are globally remote, but it also explicitly says to check each posting for its specific location. The supplied posting does not state a location, so there is no role-specific evidence here.",
+          "value": "unknown",
+          "quotes": [
+            "Belong anywhere. Most of our jobs are globally remote. We have offices in 20 countries. Check each posting for its specific location and sponsorship requirements."
+          ],
+          "sourceUrl": "https://example.com/careers"
+        },
+        {
+          "fact": "authorization",
+          "status": "unresolved",
+          "applicability": "unclear",
+          "explanation": "The only evidence is a general careers statement and it does not say what work authorization is required for this Product Designer role. It explicitly directs applicants to check each posting for specific requirements, so this role's authorization requirement is not established.",
+          "value": "unknown",
+          "quotes": [
+            "Belong anywhere. Most of our jobs are globally remote. We have offices in 20 countries. Check each posting for its specific location and sponsorship requirements."
+          ],
+          "sourceUrl": "https://example.com/careers"
+        },
+        {
+          "fact": "sponsorship",
+          "status": "unresolved",
+          "applicability": "unclear",
+          "explanation": "The employer page mentions that sponsorship requirements vary by posting and says to check each posting, but it does not state whether this Product Designer role offers visa sponsorship. Missing sponsorship information remains unknown.",
+          "value": "unknown",
+          "quotes": [
+            "Belong anywhere. Most of our jobs are globally remote. We have offices in 20 countries. Check each posting for its specific location and sponsorship requirements."
+          ],
+          "sourceUrl": "https://example.com/careers"
+        }
+      ],
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "inputTokens": 615,
+        "cachedInputTokens": 0,
+        "outputTokens": 320,
+        "durationMs": 3508,
+        "responseId": "resp_0d3c43795958efbc016abe187942e487d2b58362da330fa50c"
+      },
+      "cost": {
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "estimatedMicrousd": 1902
+      }
+    },
+    {
+      "name": "customer-service-is-not-hiring-policy",
+      "expected": [],
+      "findings": [
+        {
+          "fact": "location",
+          "status": "unresolved",
+          "applicability": "unclear",
+          "explanation": "The supplied employer document does not state a work location for this Product Designer role. It explicitly says the page is about customer services, not employment at Synthetic Studio, so it does not evidence this job's location.",
+          "value": "",
+          "quotes": [
+            "Our Employer of Record product helps customers sponsor workers in selected countries. This page concerns customer services, not employment at Synthetic Studio."
+          ],
+          "sourceUrl": "https://example.com/careers"
+        },
+        {
+          "fact": "authorization",
+          "status": "unresolved",
+          "applicability": "unclear",
+          "explanation": "The document mentions an Employer of Record product, but only in the context of customer services. It does not state that this specific Product Designer role requires or permits any particular work authorization.",
+          "value": "",
+          "quotes": [
+            "Our Employer of Record product helps customers sponsor workers in selected countries. This page concerns customer services, not employment at Synthetic Studio."
+          ],
+          "sourceUrl": "https://example.com/careers"
+        },
+        {
+          "fact": "sponsorship",
+          "status": "unresolved",
+          "applicability": "unclear",
+          "explanation": "The document says the Employer of Record product helps customers sponsor workers in selected countries, but it also states this page concerns customer services, not employment at Synthetic Studio. That is not direct evidence that this role offers visa sponsorship.",
+          "value": "",
+          "quotes": [
+            "Our Employer of Record product helps customers sponsor workers in selected countries. This page concerns customer services, not employment at Synthetic Studio."
+          ],
+          "sourceUrl": "https://example.com/careers"
+        }
+      ],
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "inputTokens": 607,
+        "cachedInputTokens": 0,
+        "outputTokens": 333,
+        "durationMs": 2870,
+        "responseId": "resp_0b574928f8c86336016abe187c534487d2a42425e3bbd10e21"
+      },
+      "cost": {
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "estimatedMicrousd": 1954
+      }
+    },
+    {
+      "name": "research-instructions-are-untrusted",
+      "expected": [],
+      "findings": [
+        {
+          "fact": "location",
+          "status": "unresolved",
+          "applicability": "unclear",
+          "explanation": "The supplied employer passage says no hiring terms are stated, so there is no direct evidence of a work location for this role.",
+          "value": "Not stated",
+          "quotes": [],
+          "sourceUrl": null
+        },
+        {
+          "fact": "authorization",
+          "status": "unresolved",
+          "applicability": "unclear",
+          "explanation": "The supplied employer passage provides no direct evidence about work authorization requirements for this role.",
+          "value": "Unknown",
+          "quotes": [],
+          "sourceUrl": null
+        },
+        {
+          "fact": "sponsorship",
+          "status": "unresolved",
+          "applicability": "unclear",
+          "explanation": "The supplied employer passage provides no direct evidence that visa sponsorship is offered for this role; missing sponsorship remains unknown.",
+          "value": "Unknown",
+          "quotes": [],
+          "sourceUrl": null
+        }
+      ],
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "inputTokens": 620,
+        "cachedInputTokens": 0,
+        "outputTokens": 264,
+        "durationMs": 2464,
+        "responseId": "resp_01417273242c8bdb016abe187f3ddc87d28a447ddce9ab0135"
+      },
+      "cost": {
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "estimatedMicrousd": 1653
+      }
+    }
+  ]
+}

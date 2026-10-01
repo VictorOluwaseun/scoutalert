@@ -1,0 +1,13 @@
+{
+  "measuredAt": "2026-10-01T07:07:50.233Z",
+  "scope": "Local PostgreSQL retrieval microbenchmark. Public posting text duplicated into 1,000 synthetic identities. Not production-scale capacity or relevance evidence.",
+  "postingCount": 1000,
+  "queries": 40,
+  "concurrency": 4,
+  "ingestionMs": 1350.8342499999999,
+  "queryElapsedMs": 409.25749999999994,
+  "p50Ms": 31.052042000000256,
+  "p95Ms": 73.91095900000005,
+  "maximumCandidates": 200,
+  "candidateCap": 200
+}

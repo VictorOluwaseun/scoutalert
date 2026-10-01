@@ -1,0 +1,51 @@
+{
+  "measuredAt": "2026-10-01T08:34:26.136Z",
+  "kind": "implementation-authored-regression",
+  "corpusHash": "5b8e4e17e160023baa855edd708520c4263af8965412c10d37dcee29c949be82",
+  "postingId": "freelancer:40742146",
+  "configuration": "openai:gpt-5.4-mini-2026-03-17:gpt-5.4-mini-2026-03-17:evidence-prompts-v7:reasoning-low:schema-v3:pay-normalizer-v1:supported-criteria-v3",
+  "providerCalls": 2,
+  "maxReservedUsd": 0.15,
+  "estimatedUsd": 0.007411,
+  "usage": [
+    {
+      "model": "gpt-5.4-mini-2026-03-17",
+      "inputTokens": 1293,
+      "cachedInputTokens": 0,
+      "outputTokens": 348,
+      "durationMs": 3000,
+      "responseId": "resp_0a43e9c965a220f1016abe1b0b147887d284d0bc8529f320e9"
+    },
+    {
+      "model": "gpt-5.4-mini-2026-03-17",
+      "inputTokens": 1682,
+      "cachedInputTokens": 0,
+      "outputTokens": 803,
+      "durationMs": 4932,
+      "responseId": "resp_0212cc44ed831a9a016abe1b0db58c87d2ba92931644a45e6b"
+    }
+  ],
+  "passed": true,
+  "arrangementFact": {
+    "status": "unknown",
+    "value": "",
+    "quotes": []
+  },
+  "arrangementCriterion": {
+    "criterion": "arrangement",
+    "status": "unknown",
+    "explanation": "The posting is hourly, but it does not state whether the work is remote, hybrid, or onsite. Payment type is not the same as work arrangement.",
+    "quotes": [
+      "Source category: buyer-posted client project / service request (hourly).",
+      "Listed budget: 750–1250 INR per hour. This is the buyer's listed budget, not guaranteed earnings."
+    ],
+    "briefQuotes": [
+      "remote",
+      "50",
+      "USD",
+      "hour"
+    ]
+  },
+  "accepted": false,
+  "scope": "Captured public hourly project and synthetic remote-mandatory brief. Tests that engagement type is not work-location evidence; not independent human relevance labeling."
+}
