@@ -4,16 +4,54 @@
   "private": true,
   "type": "module",
   "description": "Repository, cache, connector, and provider implementations for ScoutAlert.",
-  "exports": {},
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "check-types": "tsc --noEmit -p tsconfig.json"
+  },
+  "exports": {
+    "./notifications": {
+      "types": "./dist/notifications/public.d.ts",
+      "default": "./dist/notifications/public.js"
+    },
+    "./database": {
+      "types": "./dist/database/public.d.ts",
+      "default": "./dist/database/public.js"
+    },
+    "./identity": {
+      "types": "./dist/identity/public.d.ts",
+      "default": "./dist/identity/public.js"
+    },
+    "./onboarding": {
+      "types": "./dist/onboarding/public.d.ts",
+      "default": "./dist/onboarding/public.js"
+    },
+    "./scouting": {
+      "types": "./dist/scouting/public.d.ts",
+      "default": "./dist/scouting/public.js"
+    },
+    "./scouts": {
+      "types": "./dist/scouts/public.d.ts",
+      "default": "./dist/scouts/public.js"
+    }
+  },
   "dependencies": {
     "@repo/core": "workspace:*",
     "bullmq": "6.3.9",
+    "he": "1.2.0",
+    "html-to-text": "10.0.1",
     "ioredis": "6.0.0",
     "kysely": "0.29.6",
-    "pg": "8.23.0"
+    "nodemailer": "10.0.12",
+    "openai": "7.25.0",
+    "pg": "8.23.0",
+    "zod": "4.4.3"
   },
   "devDependencies": {
+    "@types/he": "^1.2.3",
+    "@types/html-to-text": "^9.0.4",
+    "@types/node": "26.4.1",
     "@types/pg": "8.23.1",
-    "kysely-codegen": "0.20.0"
+    "kysely-codegen": "0.20.0",
+    "typescript": "7.0.2"
   }
 }
