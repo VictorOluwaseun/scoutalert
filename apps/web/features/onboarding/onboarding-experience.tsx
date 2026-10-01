@@ -82,7 +82,10 @@ export function OnboardingExperience() {
   const currentIndex = stageIndex[stage];
 
   useEffect(() => {
-    if (!routeReady) return;
+    if (!routeReady) {
+      return;
+    }
+
     document
       .querySelector<HTMLElement>("main h1")
       ?.focus({ preventScroll: true });
@@ -95,28 +98,38 @@ export function OnboardingExperience() {
         "Add a role, skill, or kind of project for your scout to focus on.",
       );
       document.getElementById("target")?.focus();
+
       return;
     }
+
     navigate("preferences");
   }
 
   /** Requests the API's deterministic search check before showing the editable review. */
   async function confirmPreferences() {
-    if (reviewPending.current) return;
+    if (reviewPending.current) {
+      return;
+    }
+
     reviewPending.current = true;
     setReviewBusy(true);
     const submitted = JSON.stringify(draft);
 
     try {
       const result = await reviewSearch(draft);
+
       if (submitted !== JSON.stringify(latestDraft.current)) {
         setError("Your answers changed while we checked them. Review again.");
+
         return;
       }
+
       if (!result.ready) {
         setError(result.message);
+
         return;
       }
+
       markSearchReviewed();
       navigate("review");
     } finally {
@@ -129,9 +142,14 @@ export function OnboardingExperience() {
   function confirmReview() {
     if (!draft.target.trim()) {
       navigate("focus");
+
       return;
     }
-    if (!draft.name.trim()) update({ name: `${draft.target.trim()} scout` });
+
+    if (!draft.name.trim()) {
+      update({ name: `${draft.target.trim()} scout` });
+    }
+
     navigate("alerts");
   }
 
@@ -141,17 +159,23 @@ export function OnboardingExperience() {
       setError(
         "Choose to receive opportunity alerts, or select dashboard only.",
       );
+
       return;
     }
+
     if (draft.frequency === "dashboard") {
       navigate("email");
+
       return;
     }
+
     if (!/^(?:[01]\d|2[0-3]):[0-5]\d$/.test(draft.deliveryTime)) {
       setError("Choose a delivery time.");
       document.getElementById("delivery-time")?.focus();
+
       return;
     }
+
     if (
       draft.promptAlerts &&
       (![draft.quietStart, draft.quietEnd].every((value) =>
@@ -161,8 +185,10 @@ export function OnboardingExperience() {
     ) {
       setError("Choose different start and end times for quiet hours.");
       document.getElementById("quiet-start")?.focus();
+
       return;
     }
+
     try {
       new Intl.DateTimeFormat("en", { timeZone: draft.timezone }).format();
     } catch {
@@ -170,8 +196,10 @@ export function OnboardingExperience() {
         "Choose a valid timezone, such as Africa/Lagos or Europe/London.",
       );
       document.getElementById("timezone")?.focus();
+
       return;
     }
+
     navigate("email");
   }
 
@@ -180,10 +208,16 @@ export function OnboardingExperience() {
     if (draft.frequency !== "dashboard" && !draft.alertConsent) {
       navigate("alerts");
       setError("Confirm opportunity alerts again, or choose dashboard only.");
+
       return;
     }
+
     const receipt = await accountSetup.activate(draft);
-    if (!receipt) return;
+
+    if (!receipt) {
+      return;
+    }
+
     setGuest(false);
     navigate("ready", receipt.id);
   }
@@ -191,25 +225,36 @@ export function OnboardingExperience() {
   /** Shows inline email feedback before requesting a code; an existing session saves directly. */
   async function requestVerification() {
     setError("");
+
     if (accountSetup.account) {
       await saveConfirmedScout();
+
       return;
     }
+
     if (!email.trim()) {
       setError("Enter your email address.");
       document.getElementById("email")?.focus();
+
       return;
     }
+
     if (
       email.trim().length > 254 ||
       !/^[^\s@,;<>]+@[^\s@,;<>]+\.[^\s@,;<>]+$/.test(email.trim())
     ) {
       setError("Enter a valid email address, like you@example.com.");
       document.getElementById("email")?.focus();
+
       return;
     }
+
     const sent = await accountSetup.sendCode(email);
-    if (!sent) return;
+
+    if (!sent) {
+      return;
+    }
+
     setCode("");
     navigate("verify");
   }
@@ -217,6 +262,7 @@ export function OnboardingExperience() {
   /** Checks code completeness inline before inbox verification; scout saving remains independently retryable. */
   async function verifyAndSave() {
     setError("");
+
     if (!/^\d{6}$/.test(code)) {
       setError(
         code
@@ -224,9 +270,14 @@ export function OnboardingExperience() {
           : "Enter the six-digit code from your email.",
       );
       document.getElementById("verification-code")?.focus();
+
       return;
     }
-    if (!(await accountSetup.verify(code))) return;
+
+    if (!(await accountSetup.verify(code))) {
+      return;
+    }
+
     setCode("");
     await saveConfirmedScout();
   }
@@ -234,8 +285,14 @@ export function OnboardingExperience() {
   /** Supersedes the previous code only when the server accepts a new request. */
   async function resendCode() {
     const address = accountSetup.challenge?.email;
-    if (!address) return;
-    if (await accountSetup.sendCode(address)) setCode("");
+
+    if (!address) {
+      return;
+    }
+
+    if (await accountSetup.sendCode(address)) {
+      setCode("");
+    }
   }
 
   /** Discards the browser brief and transient contact state after an explicit local confirmation. */

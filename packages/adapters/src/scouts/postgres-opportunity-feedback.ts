@@ -15,6 +15,7 @@ export class PostgresOpportunityFeedbackRepository extends OpportunityFeedbackRe
   constructor(private readonly db: Kysely<ScoutAlertDatabase>) {
     super();
   }
+
   /** Fences stale tabs, makes retries idempotent and preserves the assessed evidence for future quality evaluation. */
   async record(
     ownerId: string,
@@ -35,9 +36,15 @@ export class PostgresOpportunityFeedbackRepository extends OpportunityFeedbackRe
         .where("owner_id", "=", ownerId)
         .where("request_key", "=", input.key)
         .executeTakeFirst();
-      if (receipt && receipt.fingerprint !== fingerprint)
+
+      if (receipt && receipt.fingerprint !== fingerprint) {
         throw new FeedbackError("request_conflict");
-      if (receipt) return receipt.receipt;
+      }
+
+      if (receipt) {
+        return receipt.receipt;
+      }
+
       const current = await tx
         .selectFrom("opportunity_feedback")
         .selectAll()
@@ -57,9 +64,15 @@ export class PostgresOpportunityFeedbackRepository extends OpportunityFeedbackRe
         WHERE r.owner_id=${ownerId}::uuid AND p.id=${postingId} ORDER BY r.rank DESC,s.id LIMIT 1
       `.execute(tx);
       const snapshot = recommendations.rows[0]?.snapshot ?? current?.snapshot;
-      if (!snapshot) throw new FeedbackError("opportunity_not_found");
-      if ((current?.version ?? 0) !== input.version)
+
+      if (!snapshot) {
+        throw new FeedbackError("opportunity_not_found");
+      }
+
+      if ((current?.version ?? 0) !== input.version) {
         throw new FeedbackError("feedback_changed");
+      }
+
       const feedback = { value: input.value, version: input.version + 1 };
       await tx
         .insertInto("opportunity_feedback")
@@ -99,7 +112,8 @@ export class PostgresOpportunityFeedbackRepository extends OpportunityFeedbackRe
         .orderBy("id")
         .limit(500)
         .execute();
-      if (scouts.length)
+
+      if (scouts.length) {
         await tx
           .insertInto("outbox_events")
           .values(
@@ -119,6 +133,8 @@ export class PostgresOpportunityFeedbackRepository extends OpportunityFeedbackRe
             conflict.column("deduplication_key").doNothing(),
           )
           .execute();
+      }
+
       return feedback;
     });
   }

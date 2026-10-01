@@ -11,20 +11,29 @@ export function normalizeCompensation(
     currency: null,
     period: null,
   };
-  if (fact.status !== "stated") return { ...analysis, pay: unknown };
+
+  if (fact.status !== "stated") {
+    return { ...analysis, pay: unknown };
+  }
+
   const ranges = new Map<string, PostingAnalysis["pay"]>();
+
   for (const quote of fact.quotes) {
     const pattern =
       /\b(?:base\s+(?:salary|pay)|salary|pay\s+rate)\s*(?:is\s*|:\s*)?(USD|EUR|GBP|NGN)\s*([0-9][0-9,]*(?:\.[0-9]+)?)\s*(?:to|[-–—])\s*(?:\1\s*)?([0-9][0-9,]*(?:\.[0-9]+)?)\s*(?:per\s+|\/)(year|month|hour|project)\b/gi;
+
     for (const match of quote.matchAll(pattern)) {
       const minimum = Number(match[2]!.replaceAll(",", ""));
       const maximum = Number(match[3]!.replaceAll(",", ""));
+
       if (
         !Number.isFinite(minimum) ||
         !Number.isFinite(maximum) ||
         minimum > maximum
-      )
+      ) {
         continue;
+      }
+
       const pay = {
         minimum,
         maximum,
@@ -34,6 +43,10 @@ export function normalizeCompensation(
       ranges.set(JSON.stringify(pay), pay);
     }
   }
-  if (ranges.size !== 1) return { ...analysis, pay: unknown };
+
+  if (ranges.size !== 1) {
+    return { ...analysis, pay: unknown };
+  }
+
   return { ...analysis, pay: [...ranges.values()][0]! };
 }

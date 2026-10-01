@@ -44,9 +44,14 @@ export class PostgresOpportunityDeliveryRepository extends OpportunityDeliveryRe
       await sql`UPDATE delivery_scan_cursor SET after_owner=${page.rows.at(-1)?.owner_id ?? null}::uuid WHERE id=1`.execute(
         tx,
       );
+
       return page.rows.map((row) => row.owner_id);
     });
-    if (!ownerIds.length) return [];
+
+    if (!ownerIds.length) {
+      return [];
+    }
+
     const result = await sql<DigestCandidate>`
       SELECT r.owner_id AS "ownerId",r.scout_id AS "scoutId",r.scout_version AS "scoutVersion",n.version AS "preferenceVersion",r.posting_version AS "postingVersion",n.preferences AS alerts,s.search,
         jsonb_build_object('id',p.id,'kind',p.kind,'title',p.title,'company',p.company,'location',p.location,'url',p.url,'checkedAt',p.checked_at,'scouts',jsonb_build_array(s.name),'reasons',r.assessment->'reasons','uncertainties',r.assessment->'uncertainties','detail',r.assessment->'detail','availability',a.evidence) AS opportunity
@@ -64,6 +69,7 @@ export class PostgresOpportunityDeliveryRepository extends OpportunityDeliveryRe
       WHERE r.owner_id=ANY(${ownerIds}::uuid[]) AND NOT EXISTS(SELECT 1 FROM opportunity_delivery_items i WHERE i.owner_id=r.owner_id AND i.posting_id=p.id)
       ORDER BY r.owner_id,r.rank DESC,r.created_at
     `.execute(this.db);
+
     return result.rows;
   }
 
@@ -80,7 +86,11 @@ export class PostgresOpportunityDeliveryRepository extends OpportunityDeliveryRe
         tx,
       );
       const recipient = user.rows[0]?.email;
-      if (!recipient) return null;
+
+      if (!recipient) {
+        return null;
+      }
+
       await sql`SELECT id FROM opportunity_sources ORDER BY id FOR SHARE`.execute(
         tx,
       );
@@ -97,7 +107,11 @@ export class PostgresOpportunityDeliveryRepository extends OpportunityDeliveryRe
             tx,
           )
         : null;
-      if (recent?.rows.length) return null;
+
+      if (recent?.rows.length) {
+        return null;
+      }
+
       await sql`SELECT a.posting_id FROM posting_availability a WHERE a.posting_id=ANY(${candidates.map((candidate) => candidate.opportunity.id)}::text[]) ORDER BY a.posting_id,a.posting_version FOR SHARE`.execute(
         tx,
       );
@@ -139,6 +153,7 @@ export class PostgresOpportunityDeliveryRepository extends OpportunityDeliveryRe
         ORDER BY r.rank DESC,p.id,s.id
       `.execute(tx);
       const grouped = new Map<string, OpportunityView>();
+
       for (const row of rows.rows) {
         const opportunity: OpportunityView = {
           id: row.id,
@@ -156,28 +171,51 @@ export class PostgresOpportunityDeliveryRepository extends OpportunityDeliveryRe
           ? promptWindow(row.alerts, now) === window &&
             isPromptMatch(opportunity, row.search, now)
           : digestWindow(row.alerts, now) === window;
-        if (!eligible || hasOutdatedAssessment(opportunity)) continue;
-        if (hasUnavailablePosting(opportunity, now)) continue;
+
+        if (!eligible || hasOutdatedAssessment(opportunity)) {
+          continue;
+        }
+
+        if (hasUnavailablePosting(opportunity, now)) {
+          continue;
+        }
+
         const entry = grouped.get(row.id);
+
         if (entry) {
           entry.scouts.push(row.scout);
           continue;
         }
-        if (grouped.size >= (prompt ? 1 : 20)) continue;
+
+        if (grouped.size >= (prompt ? 1 : 20)) {
+          continue;
+        }
+
         grouped.set(row.id, opportunity);
       }
+
       const opportunities = [...grouped.values()];
-      if (!opportunities.length) return null;
+
+      if (!opportunities.length) {
+        return null;
+      }
+
       const id = randomUUID();
       const claim =
         await sql`INSERT INTO opportunity_deliveries (id,owner_id,window_key,recipient,contents,status) VALUES (${id}::uuid,${ownerId}::uuid,${window},${recipient},${JSON.stringify({ opportunities, contributions: captured })}::jsonb,'submitting') ON CONFLICT (owner_id,window_key) DO NOTHING RETURNING id`.execute(
           tx,
         );
-      if (!claim.rows.length) return null;
-      for (const opportunity of opportunities)
+
+      if (!claim.rows.length) {
+        return null;
+      }
+
+      for (const opportunity of opportunities) {
         await sql`INSERT INTO opportunity_delivery_items (owner_id,posting_id,delivery_id) VALUES (${ownerId}::uuid,${opportunity.id},${id}::uuid)`.execute(
           tx,
         );
+      }
+
       return { id, recipient, opportunities };
     });
   }
@@ -193,7 +231,11 @@ export class PostgresOpportunityDeliveryRepository extends OpportunityDeliveryRe
         await sql`UPDATE opportunity_deliveries SET status=${status},provider_message_id=${messageId ?? null},finished_at=now() WHERE id=${id}::uuid AND status IN ('submitting','unknown') RETURNING id`.execute(
           tx,
         );
-      if (status !== "rejected" || !outcome.rows.length) return;
+
+      if (status !== "rejected" || !outcome.rows.length) {
+        return;
+      }
+
       await sql`DELETE FROM opportunity_delivery_items WHERE delivery_id=${id}::uuid`.execute(
         tx,
       );

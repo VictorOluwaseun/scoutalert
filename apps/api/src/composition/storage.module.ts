@@ -28,10 +28,12 @@ class StorageLifecycle implements OnModuleInit, OnApplicationShutdown {
     @Inject(POSTGRES_CLIENT) private readonly postgres: PostgresClient,
     @Inject(REDIS_CLIENT) private readonly redis: RedisClient,
   ) {}
+
   /** Connects Redis before accepting identity requests, so abuse protection cannot be skipped. */
   async onModuleInit(): Promise<void> {
     await this.redis.connect();
   }
+
   /** Closes the pool and Redis connection when Nest stops accepting requests. */
   async onApplicationShutdown(): Promise<void> {
     this.redis.disconnect();

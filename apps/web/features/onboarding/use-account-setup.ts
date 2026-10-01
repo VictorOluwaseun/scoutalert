@@ -29,9 +29,11 @@ function clearActivationRequest() {
 /** Preserves only a non-authoritative retry identity; it contains no account or verification data. */
 function activationKey(draft: ScoutDraft): string {
   const fingerprint = JSON.stringify(activationPayload(draft, ""));
+
   try {
     const previous = sessionStorage.getItem("scoutalert.activation-request");
     const record: unknown = previous ? JSON.parse(previous) : null;
+
     if (
       record &&
       typeof record === "object" &&
@@ -39,13 +41,16 @@ function activationKey(draft: ScoutDraft): string {
       record.fingerprint === fingerprint &&
       "key" in record &&
       typeof record.key === "string"
-    )
+    ) {
       return record.key;
+    }
+
     const key = crypto.randomUUID();
     sessionStorage.setItem(
       "scoutalert.activation-request",
       JSON.stringify({ key, fingerprint }),
     );
+
     return key;
   } catch {
     return crypto.randomUUID();
@@ -69,46 +74,65 @@ export function useAccountSetup() {
   const fallbackKey = useRef<{ fingerprint: string; key: string } | null>(null);
 
   useEffect(() => {
-    if (freshStart.current) clearActivationRequest();
+    if (freshStart.current) {
+      clearActivationRequest();
+    }
+
     let cancelled = false;
     void loadAccountContext()
       .then(async (context) => {
         const saved =
           context.account && savedId ? await loadSavedScout(savedId) : null;
-        if (cancelled) return;
+
+        if (cancelled) {
+          return;
+        }
+
         csrf.current = context.csrfToken;
         setAccount(context.account);
         setChallenge(context.challenge);
         setReceipt(saved);
       })
       .catch((error: unknown) => {
-        if (!cancelled)
+        if (!cancelled) {
           setError(
             error instanceof Error
               ? error.message
               : "We couldn’t restore your account. Try again.",
           );
+        }
       })
       .finally(() => {
-        if (!cancelled) setLoaded(true);
+        if (!cancelled) {
+          setLoaded(true);
+        }
       });
+
     return () => {
       cancelled = true;
     };
   }, [savedId]);
 
   useEffect(() => {
-    if (!challenge) return;
+    if (!challenge) {
+      return;
+    }
+
     const timer = window.setInterval(() => setNow(Date.now()), 1000);
+
     return () => window.clearInterval(timer);
   }, [challenge]);
 
   /** Serializes contact/save actions and refreshes the CSRF context after an availability failure. */
   async function perform<T>(action: () => Promise<T>): Promise<T | null> {
-    if (pending.current) return null;
+    if (pending.current) {
+      return null;
+    }
+
     pending.current = true;
     setBusy(true);
     setError("");
+
     try {
       if (!csrf.current) {
         const context = await loadAccountContext();
@@ -116,14 +140,18 @@ export function useAccountSetup() {
         setAccount(context.account);
         setChallenge(context.challenge);
       }
+
       return await action();
     } catch (error) {
       if (
         error instanceof AccountRequestError &&
         error.code === "unauthenticated"
-      )
+      ) {
         setAccount(null);
+      }
+
       setError(error instanceof Error ? error.message : "Please try again.");
+
       return null;
     } finally {
       pending.current = false;
@@ -138,10 +166,14 @@ export function useAccountSetup() {
       ? null
       : await loadAccountContext().catch(() => null);
     const nextChallenge = result ?? recovered?.challenge;
-    if (!nextChallenge || nextChallenge.email !== email.trim().toLowerCase())
+
+    if (!nextChallenge || nextChallenge.email !== email.trim().toLowerCase()) {
       return false;
+    }
+
     setChallenge(nextChallenge);
     setNow(Date.now());
+
     return true;
   }
 
@@ -149,14 +181,21 @@ export function useAccountSetup() {
   async function verify(code: string): Promise<boolean> {
     if (!challenge) {
       setError("Request a code for this browser first.");
+
       return false;
     }
+
     const result = await perform(() =>
       verifyEmailCode(challenge, code, csrf.current),
     );
-    if (!result) return false;
+
+    if (!result) {
+      return false;
+    }
+
     setAccount(result);
     setChallenge(null);
+
     return true;
   }
 
@@ -169,7 +208,11 @@ export function useAccountSetup() {
         : activationKey(draft);
     fallbackKey.current = { fingerprint, key };
     const result = await perform(() => activateScout(draft, key, csrf.current));
-    if (result) setReceipt(result);
+
+    if (result) {
+      setReceipt(result);
+    }
+
     return result;
   }
 
@@ -177,12 +220,18 @@ export function useAccountSetup() {
   async function signOut(): Promise<boolean> {
     const result = await perform(async () => {
       await logoutAccount(csrf.current);
+
       return true;
     });
-    if (!result) return false;
+
+    if (!result) {
+      return false;
+    }
+
     setAccount(null);
     setReceipt(null);
     fallbackKey.current = null;
+
     return true;
   }
 
@@ -190,6 +239,7 @@ export function useAccountSetup() {
   function startAnotherScout(): void {
     setReceipt(null);
     fallbackKey.current = null;
+
     try {
       sessionStorage.removeItem("scoutalert.activation-request");
     } catch {

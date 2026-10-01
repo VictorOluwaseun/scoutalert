@@ -42,14 +42,18 @@ const result: IntelligenceResult & { kind: "extraction" } = {
 class FixtureProvider extends IntelligenceProvider {
   readonly configuration = "fixture-v1";
   calls = 0;
+
   /** Supplies known evidence for transaction and replay checks. */
   async extract(): Promise<IntelligenceResult & { kind: "extraction" }> {
     this.calls++;
+
     return result;
   }
+
   /** Supplies known private criteria for owner isolation checks. */
   async assess(): Promise<IntelligenceResult & { kind: "fit" }> {
     this.calls++;
+
     return { kind: "fit", fit, usage };
   }
 }
@@ -126,8 +130,11 @@ describe.skipIf(process.env.SCOUTING_INTEGRATION !== "1")(
     });
     afterAll(async () => {
       await db?.destroy();
-      if (admin && /^intelligence_[a-f0-9]{32}$/.test(schema))
+
+      if (admin && /^intelligence_[a-f0-9]{32}$/.test(schema)) {
         await sql`DROP SCHEMA ${sql.id(schema)} CASCADE`.execute(admin);
+      }
+
       await admin?.destroy();
     });
     it("fences duplicate shared attempts and reuses public extraction", async () => {
@@ -141,8 +148,11 @@ describe.skipIf(process.env.SCOUTING_INTEGRATION !== "1")(
         "waiting",
       ]);
       const acquired = claims.find((item) => item.status === "claimed")!;
-      if (acquired.status !== "claimed")
+
+      if (acquired.status !== "claimed") {
         throw new Error("missing fixture lease");
+      }
+
       await repository.complete(acquired.token, result);
       expect((await repository.claim(task)).status).toBe("ready");
     });
@@ -206,13 +216,20 @@ describe.skipIf(process.env.SCOUTING_INTEGRATION !== "1")(
       const repository = new PostgresIntelligenceRepository(db, 50);
       const changed = { ...task, configuration: "fencing" };
       const first = await repository.claim(changed);
-      if (first.status !== "claimed") throw new Error("missing fixture lease");
+
+      if (first.status !== "claimed") {
+        throw new Error("missing fixture lease");
+      }
+
       await sql`UPDATE intelligence_tasks SET lease_until=now()-interval '1 second' WHERE lease_token=${first.token}::uuid`.execute(
         db,
       );
       const second = await repository.claim(changed);
-      if (second.status !== "claimed")
+
+      if (second.status !== "claimed") {
         throw new Error("missing replacement lease");
+      }
+
       await repository.complete(first.token, result);
       expect((await repository.claim(changed)).status).toBe("waiting");
       await sql`UPDATE opportunity_postings SET version=version+1 WHERE id=${posting.id}`.execute(
@@ -229,7 +246,11 @@ describe.skipIf(process.env.SCOUTING_INTEGRATION !== "1")(
       const repository = new PostgresIntelligenceRepository(db, 50);
       const failedTask = { ...task, configuration: "failure" };
       const claim = await repository.claim(failedTask);
-      if (claim.status !== "claimed") throw new Error("missing fixture lease");
+
+      if (claim.status !== "claimed") {
+        throw new Error("missing fixture lease");
+      }
+
       await repository.fail(claim.token, "provider_unavailable");
       expect((await repository.claim(failedTask)).status).toBe("unavailable");
       const limited = new PostgresIntelligenceRepository(db, 1);

@@ -31,6 +31,7 @@ const common = {
   sponsorshipNeed: "not_needed",
   authorizationConfirmed: true,
 };
+
 /** Keeps history fictional and disjoint from all measured postings; no real user's feedback is exported. */
 function history(title, kind) {
   return [
@@ -42,6 +43,7 @@ function history(title, kind) {
     },
   ];
 }
+
 const briefs = [
   {
     id: "design-ng",
@@ -163,6 +165,7 @@ await withEvaluationDatabase(async (db) => {
   const documents = {};
   const pools = {};
   const coverage = [];
+
   for (const source of Object.keys(boards)) {
     const snapshot = await connector.read(source, new Date());
     pools[source] = snapshot.postings.sort((a, b) => a.id.localeCompare(b.id));
@@ -176,6 +179,7 @@ await withEvaluationDatabase(async (db) => {
       ? await evidence.read(snapshot.postings[0])
       : [];
   }
+
   const projects = await new FreelancerSourceConnector().read(
     "freelancer",
     new Date(),
@@ -190,6 +194,7 @@ await withEvaluationDatabase(async (db) => {
     scope: "window",
   });
   const postings = [];
+
   /** Selects distinct source records deterministically, reporting missing strata rather than inventing examples. */
   function select(pool, pattern, includeText = false) {
     const posting = pool.find(
@@ -198,30 +203,42 @@ await withEvaluationDatabase(async (db) => {
           includeText ? `${item.title}\n${item.text}` : item.title,
         ) && !postings.some((found) => found.id === item.id),
     );
-    if (posting) postings.push(posting);
+
+    if (posting) {
+      postings.push(posting);
+    }
   }
+
   for (const source of Object.keys(boards)) {
     select(pools[source], /product designer/i);
     select(
       pools[source],
       source === "figma" ? /software engineer/i : /account executive|engineer/i,
     );
+
     if (
       source === "remotecom" &&
       !postings.some((posting) => posting.source === source)
-    )
+    ) {
       select(pools[source], /./);
+    }
   }
+
   const jobs = Object.values(pools).flat();
+
   for (const pattern of [
     /account executive/i,
     /brand designer/i,
     /engineer/i,
     /./,
   ]) {
-    if (postings.length >= 4) break;
+    if (postings.length >= 4) {
+      break;
+    }
+
     select(jobs, pattern);
   }
+
   // Distinct buyer requests include both fixed and hourly terms whenever the bounded live window contains them.
   select(publicProjects, /(?:website|wordpress|shopify)/i);
   select(publicProjects, /(?:logo|brand identity|branding)/i);

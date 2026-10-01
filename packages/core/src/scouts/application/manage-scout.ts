@@ -96,16 +96,29 @@ export class ManageScout {
   ): Promise<ManagedScout> {
     this.validate(input);
     const fingerprint = this.records.fingerprint(scoutId, input);
+
     return this.records.transaction(async (records) => {
       await records.lockOwner(ownerId);
       const receipt = await records.receipt(ownerId, input.key);
-      if (receipt && receipt.fingerprint !== fingerprint)
+
+      if (receipt && receipt.fingerprint !== fingerprint) {
         throw new ScoutManagementError("request_conflict");
-      if (receipt) return receipt.scout;
+      }
+
+      if (receipt) {
+        return receipt.scout;
+      }
+
       const current = await records.find(ownerId, scoutId);
-      if (!current) throw new ScoutManagementError("scout_not_found");
-      if (current.version !== input.version)
+
+      if (!current) {
+        throw new ScoutManagementError("scout_not_found");
+      }
+
+      if (current.version !== input.version) {
         throw new ScoutManagementError("scout_changed");
+      }
+
       const search = input.action === "update" ? input.search : current.search;
       const scout: ManagedScout = {
         ...current,
@@ -123,21 +136,33 @@ export class ManageScout {
       };
       const at = this.now();
       await records.save(ownerId, scout, at);
-      if (input.action === "update")
+
+      if (input.action === "update") {
         await records.recordConsent(ownerId, scout, at);
-      if (scout.status === "active")
+      }
+
+      if (scout.status === "active") {
         await records.requestDiscovery(ownerId, scout, at);
+      }
+
       await records.saveReceipt(ownerId, input.key, fingerprint, scout, at);
+
       return scout;
     });
   }
 
   /** Reuses authoritative onboarding rules for a fully confirmed replacement brief and preferences. */
   private validate(input: ScoutChange): void {
-    if (input.action !== "update") return;
+    if (input.action !== "update") {
+      return;
+    }
+
     const review = this.review.execute(input.search);
-    if (!review.ready)
+
+    if (!review.ready) {
       throw new ScoutManagementError("search_needs_changes", review.issues);
+    }
+
     validateScoutAlerts(input.alerts);
   }
 }

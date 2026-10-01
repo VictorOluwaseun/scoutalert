@@ -134,6 +134,7 @@ function strings(value: unknown): value is string[] {
 /** Validates source URLs and every displayed field; HTML from a provider is never rendered. */
 function parseOpportunity(value: unknown): Opportunity | null {
   const item = record(value);
+
   if (
     !item ||
     !["id", "title", "company", "location", "url", "checkedAt"].every(
@@ -148,13 +149,21 @@ function parseOpportunity(value: unknown): Opportunity | null {
     !validDetail(item.detail) ||
     !validAvailability(item.availability) ||
     (item.assessmentScout != null && typeof item.assessmentScout !== "string")
-  )
+  ) {
     return null;
+  }
+
   try {
     const url = new URL(String(item.url));
-    if (url.protocol !== "https:" || url.username || url.password || url.port)
+
+    if (url.protocol !== "https:" || url.username || url.password || url.port) {
       return null;
-    if (!Number.isFinite(Date.parse(String(item.checkedAt)))) return null;
+    }
+
+    if (!Number.isFinite(Date.parse(String(item.checkedAt)))) {
+      return null;
+    }
+
     return item as unknown as Opportunity;
   } catch {
     return null;
@@ -163,8 +172,12 @@ function parseOpportunity(value: unknown): Opportunity | null {
 
 /** Accepts only dated public ATS observations; source links cannot redirect presentation to an arbitrary host. */
 function validAvailability(value: unknown): boolean {
-  if (value == null) return true;
+  if (value == null) {
+    return true;
+  }
+
   const item = record(value);
+
   if (
     !item ||
     !["available", "closed", "changed", "unresolved"].includes(
@@ -173,10 +186,13 @@ function validAvailability(value: unknown): boolean {
     typeof item.checkedAt !== "string" ||
     !Number.isFinite(Date.parse(item.checkedAt)) ||
     typeof item.sourceUrl !== "string"
-  )
+  ) {
     return false;
+  }
+
   try {
     const url = new URL(item.sourceUrl);
+
     return (
       [
         "https://boards-api.greenhouse.io",
@@ -193,8 +209,12 @@ function validAvailability(value: unknown): boolean {
 
 /** Checks assessment details before displaying provider-derived text; optional during rollout. */
 function validDetail(value: unknown): boolean {
-  if (value == null) return true;
+  if (value == null) {
+    return true;
+  }
+
   const detail = record(value);
+
   if (
     !detail ||
     detail.assessedBy !== "ai" ||
@@ -203,8 +223,10 @@ function validDetail(value: unknown): boolean {
     detail.criteria.length !== 7 ||
     !Array.isArray(detail.research) ||
     detail.research.length > 7
-  )
+  ) {
     return false;
+  }
+
   const names = [
     "role",
     "category",
@@ -216,6 +238,7 @@ function validDetail(value: unknown): boolean {
   ];
   const criteria = detail.criteria.every((input) => {
     const item = record(input);
+
     return (
       item &&
       names.includes(String(item.criterion)) &&
@@ -226,10 +249,12 @@ function validDetail(value: unknown): boolean {
       strings(item.briefQuotes)
     );
   });
+
   return (
     criteria &&
     detail.research.every((input) => {
       const item = record(input);
+
       return (
         item &&
         names.includes(String(item.criterion)) &&
@@ -245,6 +270,7 @@ function validDetail(value: unknown): boolean {
 function parseDiscovery(value: unknown): ScoutDashboard["discovery"] | null {
   const summary = record(value);
   const email = record(summary?.email);
+
   if (
     !summary ||
     !email ||
@@ -252,13 +278,16 @@ function parseDiscovery(value: unknown): ScoutDashboard["discovery"] | null {
     summary.sources.length > 10 ||
     !Array.isArray(summary.runs) ||
     summary.runs.length > 20
-  )
+  ) {
     return null;
+  }
+
   const date = (input: unknown) =>
     input === null ||
     (typeof input === "string" && Number.isFinite(Date.parse(input)));
   const validSource = summary.sources.every((input) => {
     const source = record(input);
+
     return (
       source &&
       typeof source.id === "string" &&
@@ -270,6 +299,7 @@ function parseDiscovery(value: unknown): ScoutDashboard["discovery"] | null {
   });
   const validRun = summary.runs.every((input) => {
     const run = record(input);
+
     return (
       run &&
       typeof run.scoutId === "string" &&
@@ -285,6 +315,7 @@ function parseDiscovery(value: unknown): ScoutDashboard["discovery"] | null {
       Number(run.matchCount) >= 0
     );
   });
+
   if (
     !validSource ||
     !validRun ||
@@ -293,8 +324,10 @@ function parseDiscovery(value: unknown): ScoutDashboard["discovery"] | null {
     !Number.isSafeInteger(email.rejectedCount) ||
     Number(email.uncertainCount) < 0 ||
     Number(email.rejectedCount) < 0
-  )
+  ) {
     return null;
+  }
+
   return summary as unknown as ScoutDashboard["discovery"];
 }
 
@@ -310,7 +343,11 @@ export function parseSavedScout(value: unknown): SavedScout | null {
   const scout = record(value);
   const search = record(scout?.search);
   const alerts = record(scout?.alerts);
-  if (!scout || !search || !alerts) return null;
+
+  if (!scout || !search || !alerts) {
+    return null;
+  }
+
   const textFields = [
     "goal",
     "target",
@@ -359,6 +396,7 @@ export function parseSavedScout(value: unknown): SavedScout | null {
     typeof alerts.consent === "boolean" &&
     typeof alerts.promptAlerts === "boolean" &&
     alerts.consentVersion === "opportunity-alerts-v1";
+
   if (
     !validSearch ||
     !validAlerts ||
@@ -374,8 +412,10 @@ export function parseSavedScout(value: unknown): SavedScout | null {
     ].includes(String(scout.discovery)) ||
     typeof scout.activatedAt !== "string" ||
     !Number.isFinite(Date.parse(scout.activatedAt))
-  )
+  ) {
     return null;
+  }
+
   return scout as unknown as SavedScout;
 }
 
@@ -383,6 +423,7 @@ export function parseSavedScout(value: unknown): SavedScout | null {
 export function parseScoutDashboard(value: unknown): ScoutDashboard | null {
   const page = record(value);
   const account = record(page?.account);
+
   if (
     !page ||
     !account ||
@@ -390,29 +431,50 @@ export function parseScoutDashboard(value: unknown): ScoutDashboard | null {
     typeof account.email !== "string" ||
     !Array.isArray(page.items) ||
     page.items.length > 20
-  )
+  ) {
     return null;
+  }
+
   if (
     page.nextCursor !== null &&
     (typeof page.nextCursor !== "string" ||
       page.nextCursor.length > 256 ||
       !/^[A-Za-z0-9_-]+$/.test(page.nextCursor))
-  )
+  ) {
     return null;
+  }
+
   const items = page.items.map(parseManagedScout);
-  if (items.some((item) => item === null)) return null;
-  if (!Array.isArray(page.opportunities) || page.opportunities.length > 20)
+
+  if (items.some((item) => item === null)) {
     return null;
+  }
+
+  if (!Array.isArray(page.opportunities) || page.opportunities.length > 20) {
+    return null;
+  }
+
   const opportunities = page.opportunities.map(parseOpportunity);
+
   if (
     !Array.isArray(page.hiddenOpportunities) ||
     page.hiddenOpportunities.length > 20
-  )
+  ) {
     return null;
+  }
+
   const hiddenOpportunities = page.hiddenOpportunities.map(parseOpportunity);
-  if (hiddenOpportunities.some((item) => item === null)) return null;
+
+  if (hiddenOpportunities.some((item) => item === null)) {
+    return null;
+  }
+
   const discovery = parseDiscovery(page.discovery);
-  if (!discovery || opportunities.some((item) => item === null)) return null;
+
+  if (!discovery || opportunities.some((item) => item === null)) {
+    return null;
+  }
+
   return {
     account: account as unknown as VerifiedAccount,
     items: items as ManagedScout[],
@@ -427,6 +489,7 @@ export function parseScoutDashboard(value: unknown): ScoutDashboard | null {
 export function parseManagedScout(value: unknown): ManagedScout | null {
   const scout = parseSavedScout(value);
   const version = record(value)?.version;
+
   return scout && Number.isSafeInteger(version) && Number(version) > 0
     ? (value as ManagedScout)
     : null;
@@ -434,8 +497,12 @@ export function parseManagedScout(value: unknown): ManagedScout | null {
 
 /** Accepts only explicit private choices and nonnegative feedback revisions. */
 function validFeedback(value: unknown): boolean {
-  if (value === undefined) return true;
+  if (value === undefined) {
+    return true;
+  }
+
   const item = record(value);
+
   return Boolean(
     item &&
     ["relevant", "hidden", "none"].includes(String(item.value)) &&
@@ -446,8 +513,12 @@ function validFeedback(value: unknown): boolean {
 
 /** Only bounded dated employer evidence is rendered; source links must match the captured approved documents. */
 function validEmployerResearch(value: unknown): boolean {
-  if (value === undefined) return true;
+  if (value === undefined) {
+    return true;
+  }
+
   const item = record(value);
+
   if (
     !item ||
     ![item.checkedAt, item.expiresAt].every(
@@ -457,14 +528,17 @@ function validEmployerResearch(value: unknown): boolean {
     item.documents.length > 2 ||
     !Array.isArray(item.findings) ||
     item.findings.length !== 3
-  )
+  ) {
     return false;
+  }
+
   const allowed = [
     "https://www.figma.com/careers/",
     "https://remote.com/careers",
     "https://remote.com/openings",
   ];
   const documents = item.documents.map(record);
+
   if (
     !documents.every(
       (doc) =>
@@ -474,10 +548,13 @@ function validEmployerResearch(value: unknown): boolean {
         Number.isFinite(Date.parse(doc.checkedAt)) &&
         typeof doc.fingerprint === "string",
     )
-  )
+  ) {
     return false;
+  }
+
   return item.findings.every((input) => {
     const finding = record(input);
+
     return (
       !!finding &&
       ["location", "authorization", "sponsorship"].includes(

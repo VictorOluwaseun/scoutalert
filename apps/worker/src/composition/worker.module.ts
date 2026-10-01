@@ -117,6 +117,7 @@ export const WORKER_RESOURCES = Symbol("WORKER_RESOURCES");
             name: config.EMAIL_FROM_NAME,
           }),
         );
+
         return {
           config,
           db,

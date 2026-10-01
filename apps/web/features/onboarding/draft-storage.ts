@@ -34,16 +34,24 @@ function sanitizeDraft(draft: ScoutDraft): ScoutDraft {
   const brief = Object.fromEntries(
     fields.map((field) => [field, draft[field] ?? createDraft()[field]]),
   ) as unknown as ScoutDraft;
+
   return { ...brief, alertConsent: false };
 }
 
 /** Restores editable progress only when the brief has enough information for that screen. */
 function restoreStage(draft: ScoutDraft, storedStage: unknown): Stage {
-  if (!draft.goal.trim()) return "goal";
+  if (!draft.goal.trim()) {
+    return "goal";
+  }
+
   const stage = restorableStages.includes(storedStage as Stage)
     ? (storedStage as Stage)
     : "review";
-  if (stage !== "goal" && !draft.target.trim()) return "focus";
+
+  if (stage !== "goal" && !draft.target.trim()) {
+    return "focus";
+  }
+
   return stage;
 }
 
@@ -58,7 +66,10 @@ function parseSnapshot(raw: string): unknown {
 
 /** Validates browser data before restoring it; account/contact information is never in this schema. */
 function isDraft(value: unknown): value is ScoutDraft {
-  if (!value || typeof value !== "object") return false;
+  if (!value || typeof value !== "object") {
+    return false;
+  }
+
   const record = value as Record<string, unknown>;
   const validTypes = Object.entries(createDraft()).every(
     ([field, fallback]) =>
@@ -83,6 +94,7 @@ function isDraft(value: unknown): value is ScoutDraft {
   const withinLimits = Object.values(record).every(
     (item) => typeof item !== "string" || item.length <= 4000,
   );
+
   return validTypes && validEnums && validAuthorization && withinLimits;
 }
 
@@ -94,18 +106,28 @@ export async function loadDraft(freshStart = false): Promise<{
 }> {
   const fresh = createDraft();
   fresh.timezone = Intl.DateTimeFormat().resolvedOptions().timeZone ?? "";
+
   try {
     if (freshStart) {
       localStorage.removeItem(key);
+
       return { draft: fresh, stage: "goal", available: true };
     }
+
     const raw = localStorage.getItem(key);
-    if (!raw) return { draft: fresh, stage: "goal", available: true };
+
+    if (!raw) {
+      return { draft: fresh, stage: "goal", available: true };
+    }
+
     const stored = parseSnapshot(raw);
+
     if (!stored || typeof stored !== "object") {
       localStorage.removeItem(key);
+
       return { draft: fresh, stage: "goal", available: true };
     }
+
     const snapshot = stored as {
       draft: unknown;
       stage: unknown;
@@ -115,10 +137,13 @@ export async function loadDraft(freshStart = false): Promise<{
       typeof snapshot.savedAt === "number" &&
       snapshot.savedAt <= Date.now() &&
       Date.now() - snapshot.savedAt < lifetime;
+
     if (!isDraft(snapshot.draft) || !validTime) {
       localStorage.removeItem(key);
+
       return { draft: fresh, stage: "goal", available: true };
     }
+
     return {
       draft: sanitizeDraft(snapshot.draft),
       stage: restoreStage(snapshot.draft, snapshot.stage),
@@ -137,8 +162,10 @@ export async function saveDraft(
   try {
     if (!draft.goal.trim()) {
       localStorage.removeItem(key);
+
       return true;
     }
+
     const safeStage = restorableStages.includes(stage) ? stage : "review";
     localStorage.setItem(
       key,
@@ -148,6 +175,7 @@ export async function saveDraft(
         savedAt: Date.now(),
       }),
     );
+
     return true;
   } catch {
     return false;

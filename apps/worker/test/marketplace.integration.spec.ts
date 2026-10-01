@@ -118,8 +118,10 @@ describe.skipIf(process.env.SCOUTING_INTEGRATION !== "1")(
           consentVersion: "opportunity-alerts-v1",
         },
       });
+
       return { ownerId, scoutId: scout.id, version: 1, runId: randomUUID() };
     }
+
     /** Refreshes one bounded source window through its real fencing transaction. */
     async function publish(postings = [project]) {
       await sql`UPDATE opportunity_sources SET checked_at=NULL WHERE id='market'`.execute(

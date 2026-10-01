@@ -14,6 +14,7 @@ export class PostgresIdentityRepository extends IdentityRepository {
   constructor(private readonly db: Kysely<ScoutAlertDatabase>) {
     super();
   }
+
   /** Joins the current browser generation and excludes expired proof records. */
   async currentChallenge(
     browserHash: string,
@@ -30,6 +31,7 @@ export class PostgresIdentityRepository extends IdentityRepository {
       .where("verification_flows.browser_hash", "=", browserHash)
       .where("expires_at", ">", at)
       .executeTakeFirst();
+
     return row
       ? {
           id: row.id,
@@ -44,6 +46,7 @@ export class PostgresIdentityRepository extends IdentityRepository {
         }
       : null;
   }
+
   /** Records submission independently of proof usage; never retries an uncertain email. */
   async recordDelivery(
     id: string,
@@ -55,6 +58,7 @@ export class PostgresIdentityRepository extends IdentityRepository {
       .where("id", "=", id)
       .execute();
   }
+
   /** Reads only live sessions by keyed token digest. */
   async findSession(tokenHash: string, at: Date) {
     const row = await this.db
@@ -65,10 +69,12 @@ export class PostgresIdentityRepository extends IdentityRepository {
       .where("expires_at", ">", at)
       .where("revoked_at", "is", null)
       .executeTakeFirst();
+
     return row
       ? { account: { id: row.id, email: row.email }, expiresAt: row.expires_at }
       : null;
   }
+
   /** Revokes only the supplied token, preserving all other browser sessions. */
   async revokeSession(tokenHash: string, at: Date): Promise<void> {
     await this.db
@@ -86,6 +92,7 @@ export class PostgresIdentityUnitOfWork extends IdentityUnitOfWork {
   constructor(private readonly db: Kysely<ScoutAlertDatabase>) {
     super();
   }
+
   /** Commits returned decisions and rolls back exceptions, including process/connection failures. */
   run<T>(operation: (records: IdentityTransaction) => Promise<T>): Promise<T> {
     return this.db

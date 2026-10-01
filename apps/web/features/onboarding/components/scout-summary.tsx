@@ -58,6 +58,7 @@ export function DigestPreview({ draft }: { draft: ScoutDraft }) {
   const examples = opportunities.filter(
     (item) => item.category === draft.category,
   );
+
   return (
     <aside className="scout-digest-preview">
       <div className="scout-digest-label">

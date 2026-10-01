@@ -100,8 +100,10 @@ describe.skipIf(process.env.SCOUTING_INTEGRATION !== "1")(
         .insertInto("users")
         .values({ id, email: `${id}@scoutalert.test`, verified_at: new Date() })
         .execute();
+
       return id;
     }
+
     /** Starts an independent recipient scan so random UUID ordering from a preceding test cannot skip this fixture. */
     async function deliveryCandidates(ownerId: string) {
       await db
@@ -109,6 +111,7 @@ describe.skipIf(process.env.SCOUTING_INTEGRATION !== "1")(
         .set({ after_owner: null })
         .where("id", "=", 1)
         .execute();
+
       return (await delivery.candidates()).filter(
         (item) => item.ownerId === ownerId,
       );
@@ -128,8 +131,10 @@ describe.skipIf(process.env.SCOUTING_INTEGRATION !== "1")(
         alerts,
         confirmed: true,
       });
+
       return (await records.find(ownerId, scout.id))!;
     }
+
     /** Publishes a real versioned recommendation under the same constraints used by a worker. */
     async function recommend(ownerId: string, scout: ManagedScout) {
       const context = (await runs.begin({
@@ -141,6 +146,7 @@ describe.skipIf(process.env.SCOUTING_INTEGRATION !== "1")(
       await runs.complete(context, [
         { posting, assessment: assessPosting(search, posting)! },
       ]);
+
       return context;
     }
 
@@ -230,13 +236,16 @@ describe.skipIf(process.env.SCOUTING_INTEGRATION !== "1")(
         results.filter((item) => item.status === "rejected")[0],
       ).toMatchObject({ reason: { code: "scout_changed" } });
       const winning = results.findIndex((item) => item.status === "fulfilled");
-      if (winning === 0)
+
+      if (winning === 0) {
         await expect(
           manage.execute(id, scout.id, {
             ...change,
             search: { ...search, name: "Different payload" },
           }),
         ).rejects.toMatchObject({ code: "request_conflict" });
+      }
+
       expect((await records.find(id, scout.id))?.version).toBe(2);
     });
 
@@ -255,6 +264,7 @@ describe.skipIf(process.env.SCOUTING_INTEGRATION !== "1")(
       await sql`ALTER TABLE scout_change_requests ADD CONSTRAINT test_late_failure CHECK (false) NOT VALID`.execute(
         db,
       );
+
       try {
         await expect(
           manage.execute(id, scout.id, {
@@ -270,6 +280,7 @@ describe.skipIf(process.env.SCOUTING_INTEGRATION !== "1")(
           db,
         );
       }
+
       expect(await records.find(id, scout.id)).toEqual(scout);
       expect(
         await db

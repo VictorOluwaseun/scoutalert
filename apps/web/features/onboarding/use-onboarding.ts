@@ -55,7 +55,11 @@ export function useOnboarding(contact: {
         restored.draft.goal.trim() && restored.draft.target.trim()
           ? await reviewSearch(restored.draft)
           : null;
-      if (cancelled) return;
+
+      if (cancelled) {
+        return;
+      }
+
       searchReviewed.current = review?.ready === true;
       setDraft(restored.draft);
       setStorageAvailable(restored.available);
@@ -77,29 +81,40 @@ export function useOnboarding(contact: {
         safeStage,
         searchParams.get("scout") ?? undefined,
       );
+
       if (safeRoute !== window.location.pathname + window.location.search) {
         pendingResume.current = safeStage;
         router.replace(safeRoute, { scroll: false });
       }
     });
+
     return () => {
       cancelled = true;
     };
   }, [router]);
 
   useEffect(() => {
-    if (!loaded || !contact.loaded) return;
-    if (requestedStage === null) {
-      router.replace(routeForStage("goal"), { scroll: false });
+    if (!loaded || !contact.loaded) {
       return;
     }
+
+    if (requestedStage === null) {
+      router.replace(routeForStage("goal"), { scroll: false });
+
+      return;
+    }
+
     const safeStage = accessibleStage(
       draft,
       stage,
       searchReviewed.current,
       contact,
     );
-    if (safeStage === stage) return;
+
+    if (safeStage === stage) {
+      return;
+    }
+
     router.replace(routeForStage(safeStage), { scroll: false });
   }, [
     draft,
@@ -113,18 +128,29 @@ export function useOnboarding(contact: {
   ]);
 
   useEffect(() => {
-    if (!loaded) return;
-    if (pendingResume.current !== null && pendingResume.current !== stage)
+    if (!loaded) {
       return;
+    }
+
+    if (pendingResume.current !== null && pendingResume.current !== stage) {
+      return;
+    }
+
     pendingResume.current = null;
+
     if (
       accessibleStage(draft, stage, searchReviewed.current, contact) !== stage
-    )
+    ) {
       return;
+    }
+
     let cancelled = false;
     void saveDraft(draft, stage).then((available) => {
-      if (!cancelled) setStorageAvailable(available);
+      if (!cancelled) {
+        setStorageAvailable(available);
+      }
     });
+
     return () => {
       cancelled = true;
     };
@@ -139,6 +165,7 @@ export function useOnboarding(contact: {
     ) {
       searchReviewed.current = false;
     }
+
     setDraft((previous) => ({ ...previous, ...patch }));
     setError("");
   }
@@ -155,8 +182,10 @@ export function useOnboarding(contact: {
   function goBack(fallback: Stage) {
     if (hasPushedStep.current) {
       router.back();
+
       return;
     }
+
     router.replace(routeForStage(fallback), { scroll: false });
   }
 
@@ -169,12 +198,16 @@ export function useOnboarding(contact: {
   function start() {
     if (!draft.goal.trim()) {
       setError("Tell your scout a little about what you're looking for.");
+
       return;
     }
+
     if (draft.goal.length > 4000) {
       setError("Keep your brief to 4,000 characters or fewer.");
+
       return;
     }
+
     update(exampleDetails(draft.goal));
     navigate("focus");
   }

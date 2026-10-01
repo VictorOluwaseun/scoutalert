@@ -15,8 +15,11 @@ export class ApplicationErrorFilter implements ExceptionFilter {
   /** Maps expected failures; unexpected errors expose only a neutral availability code. */
   catch(error: unknown, host: ArgumentsHost): void {
     const response = host.switchToHttp().getResponse<Response>();
-    if (error instanceof IdentityError && error.retryAfter !== undefined)
+
+    if (error instanceof IdentityError && error.retryAfter !== undefined) {
       response.setHeader('Retry-After', error.retryAfter);
+    }
+
     if (error instanceof IdentityError) {
       const status =
         error.code === 'rate_limited'
@@ -29,14 +32,18 @@ export class ApplicationErrorFilter implements ExceptionFilter {
       response
         .status(status)
         .json({ code: error.code, retryAfter: error.retryAfter });
+
       return;
     }
+
     if (error instanceof ActivationError) {
       response
         .status(error.code === 'activation_conflict' ? 409 : 422)
         .json({ code: error.code, message: error.detail });
+
       return;
     }
+
     if (
       error instanceof ScoutManagementError ||
       error instanceof FeedbackError
@@ -51,12 +58,16 @@ export class ApplicationErrorFilter implements ExceptionFilter {
           missing ? 404 : error.code === 'search_needs_changes' ? 422 : 409,
         )
         .json({ code: error.code, issues });
+
       return;
     }
+
     if (error instanceof HttpException) {
       response.status(error.getStatus()).json(error.getResponse());
+
       return;
     }
+
     console.error(
       'ScoutAlert request failed with an unexpected application error.',
     );

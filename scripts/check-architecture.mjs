@@ -30,8 +30,10 @@ for (const workspace of workspaces) {
       ],
     },
   );
+
   for (const file of sources.sort()) {
     sourceCount += 1;
+
     try {
       violations.push(
         ...checkSource(

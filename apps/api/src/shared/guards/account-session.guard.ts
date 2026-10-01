@@ -14,6 +14,7 @@ export type AccountRequest = Request & { account: Account };
 export class AccountSessionGuard implements CanActivate {
   /** Receives shared identity use cases, never a datasource or concrete repository. */
   constructor(@Inject(AccountAccess) private readonly access: AccountAccess) {}
+
   /** Stores only the verified owner in request context; browser-provided owner IDs are ignored. */
   async canActivate(context: ExecutionContext): Promise<boolean> {
     const request = context.switchToHttp().getRequest<AccountRequest>();
@@ -21,6 +22,7 @@ export class AccountSessionGuard implements CanActivate {
       request.get('x-scout-session') ?? null,
     );
     request.account = session.account;
+
     return true;
   }
 }

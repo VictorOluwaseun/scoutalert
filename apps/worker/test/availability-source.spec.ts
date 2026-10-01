@@ -21,6 +21,7 @@ async function posting() {
     "fetch",
     vi.fn(async () => Response.json({ jobs: [job], meta: { total: 1 } })),
   );
+
   return (
     await new GreenhouseSourceConnector({ example: "Example" }).read(
       "example",
@@ -69,6 +70,7 @@ describe("bounded public availability research", () => {
   });
   it("does not treat provider failure, wrong identity or oversized content as a closed or verified posting", async () => {
     const captured = await posting();
+
     for (const response of [
       new Response(null, { status: 429 }),
       Response.json({ ...job, id: 2 }),
@@ -81,6 +83,7 @@ describe("bounded public availability research", () => {
       );
       expect((await source.check(captured)).status).toBe("unresolved");
     }
+
     vi.stubGlobal(
       "fetch",
       vi.fn(async () => {
@@ -93,14 +96,17 @@ describe("bounded public availability research", () => {
     const captured = await posting();
     const fetch = vi.fn(async () => Response.json(job));
     vi.stubGlobal("fetch", fetch);
+
     for (const unsafe of [
       { source: "__proto__" },
       { source: "private" },
       { externalId: "../1" },
-    ])
+    ]) {
       expect((await source.check({ ...captured, ...unsafe })).status).toBe(
         "unresolved",
       );
+    }
+
     expect(fetch).not.toHaveBeenCalled();
     await source.check({ ...captured, url: "http://127.0.0.1/secrets" });
     expect(fetch).toHaveBeenCalledWith(

@@ -66,7 +66,11 @@ export class ScoutControlsController {
   async find(@Param('id') id: string, @Req() request: AccountRequest) {
     this.validateId(id);
     const scout = await this.scouts.find(request.account.id, id);
-    if (!scout) throw new NotFoundException({ code: 'scout_not_found' });
+
+    if (!scout) {
+      throw new NotFoundException({ code: 'scout_not_found' });
+    }
+
     return {
       scout,
       account: { id: request.account.id, email: request.account.email },
@@ -84,8 +88,11 @@ export class ScoutControlsController {
   ) {
     this.validateId(id);
     const parsed = changeSchema.safeParse(body);
-    if (!parsed.success)
+
+    if (!parsed.success) {
       throw new BadRequestException({ code: 'invalid_request' });
+    }
+
     return this.manage.execute(request.account.id, id, parsed.data);
   }
 
@@ -95,15 +102,20 @@ export class ScoutControlsController {
   @Header('Cache-Control', 'no-store, private')
   recordFeedback(@Body() body: unknown, @Req() request: AccountRequest) {
     const parsed = feedbackSchema.safeParse(body);
-    if (!parsed.success)
+
+    if (!parsed.success) {
       throw new BadRequestException({ code: 'invalid_request' });
+    }
+
     const { postingId, ...input } = parsed.data;
+
     return this.feedback.execute(request.account.id, postingId, input);
   }
 
   /** Rejects invalid target syntax before repository calls. */
   private validateId(id: string): void {
-    if (!z.uuid().safeParse(id).success)
+    if (!z.uuid().safeParse(id).success) {
       throw new BadRequestException({ code: 'invalid_request' });
+    }
   }
 }

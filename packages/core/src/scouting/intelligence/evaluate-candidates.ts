@@ -39,6 +39,7 @@ export class EvaluateCandidates extends CandidateEvaluator {
     const cached = new Map(plan.results.map((item) => [item.postingId, item]));
     const selected = new Set(plan.selected);
     const matches: { posting: Posting; assessment: Assessment }[] = [];
+
     for (const posting of postings) {
       const previous = cached.get(posting.id);
       const result =
@@ -61,15 +62,23 @@ export class EvaluateCandidates extends CandidateEvaluator {
           : selected.has(posting.id)
             ? await this.assess(context, posting)
             : { status: "unavailable" as const };
-      if (result.status === "waiting" || result.status === "progress")
+
+      if (result.status === "waiting" || result.status === "progress") {
         return result.status;
+      }
+
       const assessment =
         result.status === "ready"
           ? result.assessment
           : assessPosting(context.search, posting);
-      if (!assessment) continue;
+
+      if (!assessment) {
+        continue;
+      }
+
       matches.push({ posting, assessment });
     }
+
     return matches;
   }
 
@@ -90,14 +99,24 @@ export class EvaluateCandidates extends CandidateEvaluator {
   > {
     const common = { posting, configuration: this.configuration };
     const extracted = await this.resolve({ ...common, kind: "extraction" });
-    if (typeof extracted === "string") return { status: extracted };
+
+    if (typeof extracted === "string") {
+      return { status: extracted };
+    }
+
     if (
       extracted.kind !== "extraction" ||
       !validAnalysis(posting, extracted.analysis)
-    )
+    ) {
       return { status: "unavailable" };
+    }
+
     const researched = await this.research(common, extracted.analysis);
-    if (typeof researched === "string") return { status: researched };
+
+    if (typeof researched === "string") {
+      return { status: researched };
+    }
+
     const analysis = researched;
     const evaluated = await this.resolve({
       ...common,
@@ -105,12 +124,18 @@ export class EvaluateCandidates extends CandidateEvaluator {
       context,
       analysis,
     });
-    if (typeof evaluated === "string") return { status: evaluated };
+
+    if (typeof evaluated === "string") {
+      return { status: evaluated };
+    }
+
     if (
       evaluated.kind !== "fit" ||
       !validFit(posting, context.search, evaluated.fit, analysis)
-    )
+    ) {
       return { status: "unavailable" };
+    }
+
     return {
       status: "ready",
       assessment: assessPersonalFit(context.search, analysis, evaluated.fit),
@@ -126,20 +151,28 @@ export class EvaluateCandidates extends CandidateEvaluator {
       common.posting.kind === "client_request" ||
       !this.researcher ||
       !needsEmployerResearch(analysis)
-    )
+    ) {
       return analysis;
+    }
+
     const result = await this.resolve({
       ...common,
       kind: "research",
       analysis,
       evidenceEpoch: String(Math.floor(Date.now() / (15 * 60_000))),
     });
-    if (typeof result === "string") return result;
+
+    if (typeof result === "string") {
+      return result;
+    }
+
     if (
       result.kind !== "research" ||
       !validAnalysis(common.posting, result.analysis)
-    )
+    ) {
       return "unavailable" as const;
+    }
+
     return result.analysis;
   }
 
@@ -148,8 +181,15 @@ export class EvaluateCandidates extends CandidateEvaluator {
     task: IntelligenceTask,
   ): Promise<IntelligenceResult | "waiting" | "progress" | "unavailable"> {
     const claim = await this.records.claim(task);
-    if (claim.status === "ready") return claim.result;
-    if (claim.status !== "claimed") return claim.status;
+
+    if (claim.status === "ready") {
+      return claim.result;
+    }
+
+    if (claim.status !== "claimed") {
+      return claim.status;
+    }
+
     try {
       const result = await this.execute(task);
       const valid =
@@ -161,28 +201,39 @@ export class EvaluateCandidates extends CandidateEvaluator {
               result.fit,
               task.analysis,
             );
+
       if (!valid) {
         await this.records.fail(claim.token, "invalid_evidence");
+
         return "progress";
       }
+
       await this.records.complete(claim.token, result);
+
       return "progress";
     } catch {
       await this.records.fail(claim.token, "provider_unavailable");
+
       return "progress";
     }
   }
 
   /** One admitted provider step per attempt; public research never receives a private brief. */
   private async execute(task: IntelligenceTask): Promise<IntelligenceResult> {
-    if (task.kind === "extraction") return this.provider.extract(task.posting);
-    if (task.kind === "research")
+    if (task.kind === "extraction") {
+      return this.provider.extract(task.posting);
+    }
+
+    if (task.kind === "research") {
       return this.researcher!.investigate(task.posting, task.analysis!);
+    }
+
     const result = await this.provider.assess(
       task.posting,
       task.context!.search,
       task.analysis!,
     );
+
     return { ...result, analysis: task.analysis };
   }
 }

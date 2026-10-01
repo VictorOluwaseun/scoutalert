@@ -8,12 +8,19 @@ export function RefreshDashboard({ searching }: { searching: boolean }) {
   const router = useRouter();
   const [pending, transition] = useTransition();
   useEffect(() => {
-    if (!searching) return;
+    if (!searching) {
+      return;
+    }
+
     const timer = window.setInterval(() => {
-      if (!document.hidden) router.refresh();
+      if (!document.hidden) {
+        router.refresh();
+      }
     }, 15_000);
+
     return () => window.clearInterval(timer);
   }, [searching, router]);
+
   return (
     <Button
       variant="secondary"

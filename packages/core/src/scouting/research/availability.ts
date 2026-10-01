@@ -37,13 +37,19 @@ export class ResearchAvailability {
   /** Four checks per activity bound network work; unavailable evidence stays unresolved and cannot authorize an alert. */
   async execute(): Promise<number> {
     let completed = 0;
+
     for (let index = 0; index < 4; index++) {
       const claim = await this.records.claim();
-      if (!claim) return completed;
+
+      if (!claim) {
+        return completed;
+      }
+
       const evidence = await this.source.check(claim.posting);
       await this.records.complete(claim.token, evidence);
       completed++;
     }
+
     return completed;
   }
 }

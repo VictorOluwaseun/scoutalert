@@ -98,6 +98,7 @@ describe("prompt alert quality and local quiet hours", () => {
       result.availability!.checkedAt = checkedAt;
       expect(isPromptMatch(result, confirmed, now)).toBe(false);
     }
+
     expect(
       isPromptMatch({ ...opportunity(), availability: null }, search, now),
     ).toBe(false);
@@ -119,10 +120,13 @@ describe("prompt alert quality and local quiet hours", () => {
     expect(promptWindow({ ...alerts, consent: false }, now)).toBeNull();
     expect(promptWindow({ ...alerts, promptAlerts: false }, now)).toBeNull();
     expect(promptWindow({ ...alerts, frequency: "dashboard" }, now)).toBeNull();
-    for (const time of ["00:00", "07:59", "20:00", "23:59"])
+
+    for (const time of ["00:00", "07:59", "20:00", "23:59"]) {
       expect(
         promptWindow(alerts, new Date(`2026-10-01T${time}:00Z`)),
       ).toBeNull();
+    }
+
     expect(
       promptWindow(alerts, new Date("2026-10-01T08:00:00Z")),
     ).not.toBeNull();

@@ -2,18 +2,24 @@ import type { AnalysisUsage } from "@repo/core/scouting";
 
 /** Versioned standard-tier USD estimate; unknown models remain explicitly unpriced. This is not an invoice. */
 export function estimateIntelligenceCost(usage: AnalysisUsage) {
-  if (usage.model === "no-provider-call")
+  if (usage.model === "no-provider-call") {
     return {
       currency: "USD" as const,
       pricingVersion: "no-provider-call",
       source: "none",
       estimatedMicrousd: 0,
     };
-  if (!/^gpt-5\.4-mini(?:-2026-03-17)?$/.test(usage.model)) return null;
+  }
+
+  if (!/^gpt-5\.4-mini(?:-2026-03-17)?$/.test(usage.model)) {
+    return null;
+  }
+
   const cached = Math.min(
     usage.inputTokens,
     Math.max(0, usage.cachedInputTokens ?? 0),
   );
+
   return {
     currency: "USD" as const,
     pricingVersion: "openai-standard-2026-10-01",

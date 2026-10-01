@@ -31,7 +31,11 @@ export async function reviewSearch(draft: ScoutDraft): Promise<ReviewOutcome> {
       body: JSON.stringify({ search }),
     });
     const result: unknown = await response.json();
-    if (response.ok && isReviewReady(result)) return { ready: true };
+
+    if (response.ok && isReviewReady(result)) {
+      return { ready: true };
+    }
+
     if (response.status === 422) {
       return { ready: false, message: firstIssueMessage(result) };
     }
@@ -63,10 +67,18 @@ function firstIssueMessage(value: unknown): string {
   if (typeof value !== "object" || value === null || !("issues" in value)) {
     return "Check your search details and try again.";
   }
+
   const issues = value.issues;
-  if (!Array.isArray(issues)) return "Check your search details and try again.";
-  const message: unknown = issues[0]?.message;
-  if (typeof message !== "string")
+
+  if (!Array.isArray(issues)) {
     return "Check your search details and try again.";
+  }
+
+  const message: unknown = issues[0]?.message;
+
+  if (typeof message !== "string") {
+    return "Check your search details and try again.";
+  }
+
   return message;
 }

@@ -49,7 +49,10 @@ export abstract class OpportunityDeliveryRepository {
 
 /** Computes a local digest window, allowing recovery later the same day; repeated DST hours share one identity. */
 export function digestWindow(alerts: ScoutAlerts, now: Date): string | null {
-  if (!alerts.consent || alerts.frequency === "dashboard") return null;
+  if (!alerts.consent || alerts.frequency === "dashboard") {
+    return null;
+  }
+
   const fields = new Intl.DateTimeFormat("en-CA", {
     timeZone: alerts.timezone,
     year: "numeric",
@@ -63,12 +66,18 @@ export function digestWindow(alerts: ScoutAlerts, now: Date): string | null {
   const parts = Object.fromEntries(
     fields.map((part) => [part.type, part.value]),
   );
-  if (`${parts.hour}:${parts.minute}` < alerts.deliveryTime) return null;
+
+  if (`${parts.hour}:${parts.minute}` < alerts.deliveryTime) {
+    return null;
+  }
+
   if (
     alerts.frequency === "weekly" &&
     parts.weekday?.toLowerCase() !== alerts.weekday.toLowerCase()
-  )
+  ) {
     return null;
+  }
+
   return `digest:${alerts.timezone}:${parts.year}-${parts.month}-${parts.day}:${alerts.deliveryTime}`;
 }
 
@@ -80,6 +89,7 @@ export class DeliverOpportunityDigests {
     private readonly email: EmailProvider,
     private readonly now: () => Date = () => new Date(),
   ) {}
+
   /** Uses native timezone rules, bounded reads and durable recipient identities; SMTP ambiguity is a terminal hold. */
   async execute(now: Date): Promise<number> {
     const startedAt = this.now().getTime();
@@ -88,14 +98,19 @@ export class DeliverOpportunityDigests {
       string,
       { owner: string; window: string; candidates: DigestCandidate[] }
     >();
+
     for (const candidate of await this.records.candidates()) {
-      if (hasOutdatedAssessment(candidate.opportunity)) continue;
+      if (hasOutdatedAssessment(candidate.opportunity)) {
+        continue;
+      }
+
       const prompt = isPromptMatch(candidate.opportunity, candidate.search, now)
         ? promptWindow(candidate.alerts, now)
         : null;
       const windows = [prompt, digestWindow(candidate.alerts, now)].filter(
         (value): value is string => value !== null,
       );
+
       for (const window of windows) {
         const key = `${candidate.ownerId}:${window}`;
         const group = groups.get(key) ?? {
@@ -107,26 +122,36 @@ export class DeliverOpportunityDigests {
         groups.set(key, group);
       }
     }
+
     let accepted = 0;
     const ordered = [...groups.values()].sort(
       (a, b) =>
         Number(b.window.startsWith("prompt:")) -
         Number(a.window.startsWith("prompt:")),
     );
+
     for (const group of ordered) {
-      if (this.now().getTime() - startedAt > 120_000) return accepted;
+      if (this.now().getTime() - startedAt > 120_000) {
+        return accepted;
+      }
+
       const delivery = await this.records.prepare(
         group.owner,
         group.window,
         group.candidates,
       );
-      if (!delivery) continue;
+
+      if (!delivery) {
+        continue;
+      }
+
       const entries = delivery.opportunities
         .map(
           (opportunity) =>
             `${opportunity.title} — ${opportunity.company}\n${opportunity.location}\nScouts: ${opportunity.scouts.join(", ")}\n${opportunity.reasons.join("\n")}\nNeeds review:\n${opportunity.uncertainties.map((value) => `- ${value}`).join("\n")}\n${opportunity.url}${employerEvidenceSummary(opportunity)}`,
         )
         .join("\n\n");
+
       try {
         const submission = await this.email.send({
           id: delivery.id,
@@ -151,6 +176,7 @@ export class DeliverOpportunityDigests {
         );
       }
     }
+
     return accepted;
   }
 }
@@ -158,6 +184,10 @@ export class DeliverOpportunityDigests {
 /** Includes dated public research links without exposing private briefs or claiming immigration verification. */
 function employerEvidenceSummary(opportunity: OpportunityView): string {
   const research = opportunity.detail?.employerResearch;
-  if (!research) return "";
+
+  if (!research) {
+    return "";
+  }
+
   return `\nEmployer evidence checked: ${research.checkedAt}\n${research.findings.map((item) => `${item.fact}: ${item.explanation}${item.sourceUrl ? ` (${item.sourceUrl})` : ""}`).join("\n")}\nAuthorization comparisons use your declared details.`;
 }

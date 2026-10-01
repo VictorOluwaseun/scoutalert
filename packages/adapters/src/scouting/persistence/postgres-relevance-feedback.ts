@@ -20,6 +20,7 @@ export class PostgresRelevanceFeedbackRepository extends RelevanceFeedbackReposi
       WHERE f.owner_id=${ownerId}::uuid AND f.value='relevant' AND f.updated_at>now()-interval '90 days'
       ORDER BY f.updated_at DESC,f.posting_id LIMIT 100
     `.execute(this.db);
+
     return result.rows;
   }
 }

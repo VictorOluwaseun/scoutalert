@@ -8,15 +8,20 @@ export function promptWindow(alerts: ScoutAlerts, now: Date): string | null {
     !alerts.consent ||
     !alerts.promptAlerts ||
     alerts.frequency === "dashboard"
-  )
+  ) {
     return null;
+  }
+
   const start = alerts.quietHours?.start ?? "20:00";
   const end = alerts.quietHours?.end ?? "08:00";
+
   if (
     ![start, end].every((value) => /^(?:[01]\d|2[0-3]):[0-5]\d$/.test(value)) ||
     start === end
-  )
+  ) {
     return null;
+  }
+
   const parts = new Intl.DateTimeFormat("en-CA", {
     timeZone: alerts.timezone,
     year: "numeric",
@@ -32,7 +37,11 @@ export function promptWindow(alerts: ScoutAlerts, now: Date): string | null {
   const time = `${local.hour}:${local.minute}`;
   const quiet =
     start < end ? time >= start && time < end : time >= start || time < end;
-  if (quiet) return null;
+
+  if (quiet) {
+    return null;
+  }
+
   return `prompt:${alerts.timezone}:${local.year}-${local.month}-${local.day}`;
 }
 
@@ -45,6 +54,7 @@ export function hasUnavailablePosting(
   const age = evidence
     ? now.getTime() - Date.parse(evidence.checkedAt)
     : Number.NaN;
+
   if (
     opportunity.kind === "client_request" &&
     (!evidence ||
@@ -53,12 +63,24 @@ export function hasUnavailablePosting(
       !Number.isFinite(age) ||
       age < 0 ||
       age >= 15 * 60_000)
-  )
+  ) {
     return true;
-  if (!evidence) return false;
-  if (["closed", "changed"].includes(evidence.status)) return true;
-  if (!evidence.validUntil) return false;
+  }
+
+  if (!evidence) {
+    return false;
+  }
+
+  if (["closed", "changed"].includes(evidence.status)) {
+    return true;
+  }
+
+  if (!evidence.validUntil) {
+    return false;
+  }
+
   const deadline = Date.parse(evidence.validUntil);
+
   return !Number.isFinite(deadline) || deadline <= now.getTime();
 }
 
@@ -79,10 +101,13 @@ export function isPromptMatch(
   if (
     hasUnavailablePosting(opportunity, now) ||
     hasOutdatedAssessment(opportunity)
-  )
+  ) {
     return false;
+  }
+
   const detail = opportunity.detail;
   const evidence = opportunity.availability;
+
   if (
     !detail ||
     detail.assessedBy !== "ai" ||
@@ -93,29 +118,47 @@ export function isPromptMatch(
     !evidence ||
     evidence.status !== "available" ||
     !evidence.fingerprint
-  )
+  ) {
     return false;
+  }
+
   const age = now.getTime() - Date.parse(evidence.checkedAt);
-  if (!Number.isFinite(age) || age < 0 || age >= 15 * 60_000) return false;
+
+  if (!Number.isFinite(age) || age < 0 || age >= 15 * 60_000) {
+    return false;
+  }
+
   if (
     detail.criteria.length !== criterionNames.length ||
     new Set(detail.criteria.map((item) => item.criterion)).size !==
       criterionNames.length
-  )
+  ) {
     return false;
-  if (!search.background.trim()) return false;
+  }
+
+  if (!search.background.trim()) {
+    return false;
+  }
+
   const researchExpiry = detail.employerResearch?.expiresAt;
+
   if (
     researchExpiry &&
     (!Number.isFinite(Date.parse(researchExpiry)) ||
       Date.parse(researchExpiry) <= now.getTime())
-  )
+  ) {
     return false;
+  }
+
   return criterionNames.every((name) => {
     const item = detail.criteria.find(
       (criterion) => criterion.criterion === name,
     );
-    if (!item || item.status === "conflicts") return false;
+
+    if (!item || item.status === "conflicts") {
+      return false;
+    }
+
     return (
       item.status === "meets" &&
       item.quotes.length > 0 &&

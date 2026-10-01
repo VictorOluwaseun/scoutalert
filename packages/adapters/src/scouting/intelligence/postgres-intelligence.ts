@@ -17,8 +17,14 @@ import type { ScoutAlertDatabase } from "../../database/types/database.js";
 
 /** Canonical JSON avoids cache misses when PostgreSQL JSONB returns object keys in a different order. */
 function canonical(value: unknown): unknown {
-  if (Array.isArray(value)) return value.map(canonical);
-  if (value === null || typeof value !== "object") return value;
+  if (Array.isArray(value)) {
+    return value.map(canonical);
+  }
+
+  if (value === null || typeof value !== "object") {
+    return value;
+  }
+
   return Object.fromEntries(
     Object.entries(value)
       .sort(([a], [b]) => a.localeCompare(b))
@@ -40,6 +46,7 @@ export class PostgresIntelligenceRepository extends IntelligenceRepository {
   /** Includes immutable source/brief contents and provider policy in identity; no private material is copied to public extraction rows. */
   private identity(task: IntelligenceTask): string {
     const request = task.context?.request;
+
     return createHash("sha256")
       .update(
         JSON.stringify(
@@ -79,10 +86,21 @@ export class PostgresIntelligenceRepository extends IntelligenceRepository {
       .where("fingerprint", "=", task.posting.fingerprint)
       .where("open", "=", true)
       .executeTakeFirst();
-    if (!posting) return false;
-    if (task.kind !== "fit") return true;
+
+    if (!posting) {
+      return false;
+    }
+
+    if (task.kind !== "fit") {
+      return true;
+    }
+
     const context = task.context;
-    if (!context || !task.analysis) return false;
+
+    if (!context || !task.analysis) {
+      return false;
+    }
+
     const scout = await tx
       .selectFrom("scouts")
       .select("id")
@@ -98,6 +116,7 @@ export class PostgresIntelligenceRepository extends IntelligenceRepository {
         >`${JSON.stringify(context.search)}::jsonb`,
       )
       .executeTakeFirst();
+
     return !!scout;
   }
 
@@ -119,7 +138,11 @@ export class PostgresIntelligenceRepository extends IntelligenceRepository {
           >`${JSON.stringify(context.search)}::jsonb`,
         )
         .executeTakeFirst();
-      if (!scout) return { selected: [], results: [] };
+
+      if (!scout) {
+        return { selected: [], results: [] };
+      }
+
       const captured = postings.map((posting) => ({
         id: posting.id,
         version: posting.version,
@@ -149,6 +172,7 @@ export class PostgresIntelligenceRepository extends IntelligenceRepository {
       }>`SELECT selected FROM intelligence_run_batches WHERE run_id=${context.request.runId}::uuid AND configuration=${configuration}`.execute(
         tx,
       );
+
       return { selected: batch.rows[0]?.selected ?? [], results: found.rows };
     });
   }
@@ -158,12 +182,16 @@ export class PostgresIntelligenceRepository extends IntelligenceRepository {
     tx: Transaction<ScoutAlertDatabase>,
     task: IntelligenceTask,
   ): Promise<IntelligenceResult | null> {
-    if (task.kind !== "research") return null;
+    if (task.kind !== "research") {
+      return null;
+    }
+
     const found = await sql<{
       result: IntelligenceResult;
     }>`SELECT result FROM intelligence_tasks WHERE kind='research' AND posting_id=${task.posting.id} AND posting_version=${task.posting.version} AND configuration=${task.configuration} AND status='ready' AND (result->'analysis'->'research'->>'expiresAt')::timestamptz>now() ORDER BY updated_at DESC LIMIT 1`.execute(
       tx,
     );
+
     return found.rows[0]?.result ?? null;
   }
 
@@ -172,23 +200,38 @@ export class PostgresIntelligenceRepository extends IntelligenceRepository {
     tx: Transaction<ScoutAlertDatabase>,
     task: IntelligenceTask,
   ): Promise<string | null> {
-    if (task.kind !== "fit") return null;
+    if (task.kind !== "fit") {
+      return null;
+    }
+
     const found = await sql<{
       id: string;
     }>`SELECT id FROM intelligence_tasks WHERE kind IN ('extraction','research') AND posting_id=${task.posting.id} AND posting_version=${task.posting.version} AND configuration=${task.configuration} AND status='ready' AND result->'analysis'=${JSON.stringify(task.analysis)}::jsonb ORDER BY updated_at DESC LIMIT 1`.execute(
       tx,
     );
+
     return found.rows[0]?.id ?? null;
   }
 
   /** Reserves attempts behind the global daily row lock; crashes spend one allowance and expired leases can retry once. */
   async claim(task: IntelligenceTask): Promise<TaskClaim> {
     return this.db.transaction().execute(async (tx) => {
-      if (!(await this.current(tx, task))) return { status: "unavailable" };
+      if (!(await this.current(tx, task))) {
+        return { status: "unavailable" };
+      }
+
       const reusable = await this.reusableResearch(tx, task);
-      if (reusable) return { status: "ready", result: reusable };
+
+      if (reusable) {
+        return { status: "ready", result: reusable };
+      }
+
       const analysisId = await this.analysisId(tx, task);
-      if (task.kind === "fit" && !analysisId) return { status: "unavailable" };
+
+      if (task.kind === "fit" && !analysisId) {
+        return { status: "unavailable" };
+      }
+
       const id = this.identity(task);
       const request = task.kind === "fit" ? task.context!.request : undefined;
       await sql`INSERT INTO intelligence_tasks(id,kind,configuration,posting_id,posting_version,owner_id,scout_id,scout_version,analysis_task_id)
@@ -207,21 +250,32 @@ export class PostgresIntelligenceRepository extends IntelligenceRepository {
           : undefined;
       const expired =
         expires !== undefined && Date.parse(expires) <= Date.now();
-      if (row.status === "ready" && row.result && !expired)
+
+      if (row.status === "ready" && row.result && !expired) {
         return { status: "ready", result: row.result };
-      if (expired) return { status: "unavailable" };
+      }
+
+      if (expired) {
+        return { status: "unavailable" };
+      }
+
       const now = Date.now();
+
       if (
         row.status === "running" &&
         row.lease_until &&
         new Date(row.lease_until).getTime() > now
-      )
+      ) {
         return { status: "waiting" };
+      }
+
       if (
         row.attempts >= 2 ||
         (row.retry_at && new Date(row.retry_at).getTime() > now)
-      )
+      ) {
         return { status: "unavailable" };
+      }
+
       await sql`INSERT INTO intelligence_daily_budget(day,requests) VALUES((now() AT TIME ZONE 'UTC')::date,0) ON CONFLICT(day) DO NOTHING`.execute(
         tx,
       );
@@ -231,20 +285,27 @@ export class PostgresIntelligenceRepository extends IntelligenceRepository {
       }>`SELECT requests,reserved_microusd::text AS reserved FROM intelligence_daily_budget WHERE day=(now() AT TIME ZONE 'UTC')::date FOR UPDATE`.execute(
         tx,
       );
+
       if (
         (budget.rows[0]?.requests ?? this.dailyRequests) >=
           this.dailyRequests ||
         Number(budget.rows[0]?.reserved ?? this.dailyMicrousd) +
           intelligenceAttemptReserveMicrousd >
           this.dailyMicrousd
-      )
+      ) {
         return { status: "unavailable" };
+      }
+
       const active = await sql<{
         count: number;
       }>`SELECT count(*)::int AS count FROM intelligence_tasks WHERE status='running' AND lease_until>now()`.execute(
         tx,
       );
-      if ((active.rows[0]?.count ?? 2) >= 2) return { status: "waiting" };
+
+      if ((active.rows[0]?.count ?? 2) >= 2) {
+        return { status: "waiting" };
+      }
+
       const token = randomUUID();
       await sql`UPDATE intelligence_daily_budget SET requests=requests+1,reserved_microusd=reserved_microusd+${intelligenceAttemptReserveMicrousd} WHERE day=(now() AT TIME ZONE 'UTC')::date`.execute(
         tx,
@@ -259,6 +320,7 @@ export class PostgresIntelligenceRepository extends IntelligenceRepository {
         .insertInto("intelligence_attempts")
         .values({ id: token, task_id: id })
         .execute();
+
       return { status: "claimed", token };
     });
   }

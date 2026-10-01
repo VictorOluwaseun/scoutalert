@@ -14,12 +14,22 @@ export function RotatingHeadline() {
   const [paused, setPaused] = useState(false);
 
   useEffect(() => {
-    if (paused) return;
+    if (paused) {
+      return;
+    }
 
     const interval = window.setInterval(() => {
-      if (document.hidden) return;
-      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-      if (document.activeElement?.closest(".scout-goal-form")) return;
+      if (document.hidden) {
+        return;
+      }
+
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        return;
+      }
+
+      if (document.activeElement?.closest(".scout-goal-form")) {
+        return;
+      }
 
       setActiveIndex((index) => (index + 1) % messages.length);
     }, 6500);

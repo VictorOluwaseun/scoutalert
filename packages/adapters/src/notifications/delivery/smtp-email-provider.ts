@@ -29,6 +29,7 @@ export class SmtpEmailProvider extends EmailProvider {
         "Email message IDs must contain 1–128 letters, digits, underscores, or hyphens.",
       );
     }
+
     if (!/^[^\s@<>,;]+@[^\s@<>,;]+$/.test(message.recipient)) {
       throw new TypeError(
         "Email messages require one plain recipient address.",
@@ -53,6 +54,7 @@ export class SmtpEmailProvider extends EmailProvider {
     if (result.rejected.length > 0) {
       throw new EmailSubmissionError("rejected");
     }
+
     if (result.accepted.length !== 1) {
       throw new EmailSubmissionError("unknown");
     }

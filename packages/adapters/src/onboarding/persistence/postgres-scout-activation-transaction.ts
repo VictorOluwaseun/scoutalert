@@ -10,6 +10,7 @@ import type { ScoutAlertDatabase } from "../../database/types/database.js";
 export class PostgresScoutActivationTransaction implements ScoutActivationTransaction {
   /** Receives a transaction client; no method escapes to the shared pool. */
   constructor(private readonly db: Kysely<ScoutAlertDatabase>) {}
+
   /** Locks the verified owner, serializing concurrent activation retries without duplicate scouts. */
   async lockOwner(ownerId: string): Promise<void> {
     await this.db
@@ -19,6 +20,7 @@ export class PostgresScoutActivationTransaction implements ScoutActivationTransa
       .forUpdate()
       .executeTakeFirstOrThrow();
   }
+
   /** Reads a request only within the supplied owner's scope. */
   async findRequest(ownerId: string, key: string) {
     return (
@@ -30,6 +32,7 @@ export class PostgresScoutActivationTransaction implements ScoutActivationTransa
         .executeTakeFirst()) ?? null
     );
   }
+
   /** Claims a snapshot whose revision and approved revision must agree by database constraint. */
   async claimDraft(
     id: string,
@@ -51,6 +54,7 @@ export class PostgresScoutActivationTransaction implements ScoutActivationTransa
       })
       .execute();
   }
+
   /** Creates a versioned scout and explicit preferences with relational ownership constraints. */
   async createScout(
     ownerId: string,
@@ -82,6 +86,7 @@ export class PostgresScoutActivationTransaction implements ScoutActivationTransa
       })
       .execute();
   }
+
   /** Persists the separate opportunity-alert consent decision, including dashboard-only refusal. */
   async recordConsent(
     id: string,
@@ -101,6 +106,7 @@ export class PostgresScoutActivationTransaction implements ScoutActivationTransa
       })
       .execute();
   }
+
   /** Saves a minimal durable dispatch intent with a unique logical discovery identity. */
   async requestDiscovery(
     id: string,
@@ -122,6 +128,7 @@ export class PostgresScoutActivationTransaction implements ScoutActivationTransa
       })
       .execute();
   }
+
   /** Commits the owner-scoped immutable retry receipt alongside all activation side effects. */
   async saveRequest(
     ownerId: string,

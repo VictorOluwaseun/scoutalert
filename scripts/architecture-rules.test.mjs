@@ -52,6 +52,7 @@ test("workflows allow deterministic SDK/local contracts and reject clients, repo
     ),
     [],
   );
+
   for (const specifier of [
     "pg",
     "@nestjs/common",
@@ -59,12 +60,14 @@ test("workflows allow deterministic SDK/local contracts and reject clients, repo
     "@repo/adapters/scouts",
     "@repo/core/scouts",
     "node:fs",
-  ])
+  ]) {
     assert.equal(
       violations(workflows, `import type { Client } from "${specifier}";`)
         .length,
       1,
     );
+  }
+
   assert.equal(
     checkManifest({
       ...workflows,
@@ -112,6 +115,7 @@ test("core rejects datasource SDKs across runtime, optional, peer, and developme
       section,
     );
   }
+
   assert.deepEqual(checkManifest(core), []);
 });
 
@@ -128,8 +132,10 @@ test("core catches value imports, type imports, re-exports, loaders, and TypeScr
     'import Client = require("pg");',
     'import "\\u0070g";',
   ];
-  for (const source of sources)
+
+  for (const source of sources) {
     assert.equal(violations(core, source).length, 1, source);
+  }
 });
 
 test("computed module loading is rejected while constant templates are checked", () => {
@@ -252,6 +258,7 @@ test("consumers must use declared feature exports and dependencies", () => {
     violations(api, 'import type { Scout } from "@repo/core/scouts";'),
     [],
   );
+
   for (const specifier of [
     "@repo/core",
     "@repo/core/src/scouts/public",
@@ -264,6 +271,7 @@ test("consumers must use declared feature exports and dependencies", () => {
       specifier,
     );
   }
+
   assert.equal(
     checkSource(
       "apps/api/src/example.ts",
@@ -285,6 +293,7 @@ test("wildcard and root exports fail while dependency foundations may expose no 
     checkManifest({ ...core, manifest: { name: "@repo/core" } }).length,
     1,
   );
+
   for (const entry of [".", "./*", "./scouts/private"]) {
     assert.equal(
       checkManifest({

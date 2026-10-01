@@ -27,6 +27,7 @@ export function AlertsStep({ draft, update, next, error }: StepProps) {
       description: "Check in whenever you like",
     },
   ];
+
   return (
     <section>
       <h1 className="scout-display" tabIndex={-1}>

@@ -30,34 +30,49 @@ export function checkManifest(workspace) {
 
   for (const [dependency, version] of runtimeDependencies) {
     const message = checkRuntimeDependency(manifest.name, dependency, version);
-    if (message) violations.push(`${directory}/package.json: ${message}`);
+
+    if (message) {
+      violations.push(`${directory}/package.json: ${message}`);
+    }
   }
 
   const toolingDependencies =
     manifest.name === coreName
       ? Object.keys(manifest.devDependencies ?? {})
       : [];
+
   for (const dependency of toolingDependencies) {
-    if (coreTooling.has(dependency)) continue;
+    if (coreTooling.has(dependency)) {
+      continue;
+    }
+
     violations.push(
       `${directory}/package.json: Core development dependency ${dependency} is not approved tooling.`,
     );
   }
 
-  if (!protectedPackages.has(manifest.name)) return violations;
+  if (!protectedPackages.has(manifest.name)) {
+    return violations;
+  }
+
   if (!manifest.exports || typeof manifest.exports !== "object") {
     violations.push(
       `${directory}/package.json: Declare explicit feature exports; use {} before features exist.`,
     );
+
     return violations;
   }
 
   for (const entry of Object.keys(manifest.exports)) {
-    if (/^\.\/[a-z][a-z0-9-]*$/.test(entry)) continue;
+    if (/^\.\/[a-z][a-z0-9-]*$/.test(entry)) {
+      continue;
+    }
+
     violations.push(
       `${directory}/package.json: Export ${entry} must be a single named feature, without a root barrel or wildcard.`,
     );
   }
+
   return violations;
 }
 
@@ -65,21 +80,30 @@ export function checkManifest(workspace) {
 function checkRuntimeDependency(consumer, dependency, version) {
   const workspaceReference =
     dependency.startsWith("@repo/") || /^(workspace|file|link):/.test(version);
-  if (consumer === workflowsName && dependency !== "@temporalio/workflow")
+
+  if (consumer === workflowsName && dependency !== "@temporalio/workflow") {
     return `Workflow definitions cannot depend on ${dependency}; keep activities and clients in the worker.`;
-  if (consumer === coreName)
+  }
+
+  if (consumer === coreName) {
     return `Core cannot declare runtime dependency ${dependency}; pure additions require explicit architectural review.`;
+  }
+
   if (
     consumer === adaptersName &&
     workspaceReference &&
     dependency !== coreName
-  )
+  ) {
     return `Adapters cannot depend on workspace ${dependency}; implementations point inward to core.`;
+  }
+
   if (
     ["web", "docs", "@repo/ui"].includes(consumer) &&
     protectedPackages.has(dependency)
-  )
+  ) {
     return `${consumer} cannot depend on ${dependency}; use transport contracts and the API.`;
+  }
+
   return null;
 }
 
@@ -92,16 +116,25 @@ export function checkSource(file, source, workspace, workspaces, root) {
     plugins: ["typescript", "jsx", "decorators-legacy"],
   });
   const violations = [];
+
   for (const node of walk(ast)) {
     const reference = moduleReference(node);
-    if (reference === undefined) continue;
+
+    if (reference === undefined) {
+      continue;
+    }
+
     const specifier = literalModuleName(reference);
     const message =
       specifier === null
         ? "Use a literal module path so dependency boundaries can be checked."
         : checkImport(file, specifier, workspace, workspaces, root);
-    if (message) violations.push(`${file}:${node.loc.start.line}: ${message}`);
+
+    if (message) {
+      violations.push(`${file}:${node.loc.start.line}: ${message}`);
+    }
   }
+
   return violations;
 }
 
@@ -120,49 +153,69 @@ function checkImport(file, specifier, workspace, workspaces, root) {
           specifier.startsWith(`${item.manifest.name}/`),
       );
 
-  if (local && protectedPackages.has(consumer) && target !== workspace)
+  if (local && protectedPackages.has(consumer) && target !== workspace) {
     return `${consumer} cannot import outside its workspace via ${specifier}.`;
+  }
+
   if (
     local &&
     target !== workspace &&
     protectedPackages.has(target?.manifest.name)
-  )
+  ) {
     return `Import ${target.manifest.name} through a declared feature export, not ${specifier}.`;
-  if (local) return null;
+  }
 
-  if (consumer === workflowsName && specifier !== "@temporalio/workflow")
+  if (local) {
+    return null;
+  }
+
+  if (consumer === workflowsName && specifier !== "@temporalio/workflow") {
     return `Workflow definitions cannot import ${specifier}; use serializable local contracts.`;
+  }
 
   if (
     consumer === coreName &&
     target?.manifest.name !== coreName &&
     !isCoreToolImport(file, specifier, workspace)
-  )
+  ) {
     return `Core cannot import ${specifier}; depend on inward contracts and pure local modules.`;
+  }
+
   if (
     consumer === adaptersName &&
     target &&
     ![coreName, adaptersName].includes(target.manifest.name)
-  )
+  ) {
     return `Adapters cannot import workspace ${target.manifest.name}; compose applications outside adapters.`;
+  }
+
   if (
     ["web", "docs", "@repo/ui"].includes(consumer) &&
     protectedPackages.has(target?.manifest.name)
-  )
+  ) {
     return `${consumer} cannot import ${specifier}; use transport contracts and the API.`;
-  if (!protectedPackages.has(target?.manifest.name)) return null;
+  }
+
+  if (!protectedPackages.has(target?.manifest.name)) {
+    return null;
+  }
 
   const entry = `.${specifier.slice(target.manifest.name.length)}`;
+
   if (
     !/^\.\/[a-z][a-z0-9-]*$/.test(entry) ||
     !Object.hasOwn(target.manifest.exports ?? {}, entry)
-  )
+  ) {
     return `${specifier} is not a declared public feature export.`;
+  }
+
   if (
     target !== workspace &&
     !Object.hasOwn(workspace.manifest.dependencies ?? {}, target.manifest.name)
-  )
+  ) {
     return `Declare ${target.manifest.name} as a workspace dependency before importing its features.`;
+  }
+
   return null;
 }
 
@@ -173,15 +226,22 @@ function isCoreToolImport(file, specifier, workspace) {
       file,
     );
   const configFile = /\/(?:eslint|vitest)\.config\.[cm]?[jt]s$/.test(file);
+
   if (
     testFile &&
     ["node:test", "node:assert", "node:assert/strict"].includes(specifier)
-  )
+  ) {
     return true;
-  if (!testFile && !configFile) return false;
+  }
+
+  if (!testFile && !configFile) {
+    return false;
+  }
+
   const dependency = specifier.startsWith("@")
     ? specifier.split("/").slice(0, 2).join("/")
     : specifier.split("/")[0];
+
   return (
     coreTooling.has(dependency) &&
     Object.hasOwn(workspace.manifest.devDependencies ?? {}, dependency)
@@ -191,6 +251,7 @@ function isCoreToolImport(file, specifier, workspace) {
 /** Tests containment without accepting sibling paths with a shared name prefix. */
 function isWithin(directory, file) {
   const path = relative(directory, file);
+
   return (
     path === "" ||
     (!path.startsWith("../") && path !== ".." && !path.startsWith("/"))
@@ -206,38 +267,64 @@ function moduleReference(node) {
       "ExportAllDeclaration",
       "ImportExpression",
     ].includes(node.type)
-  )
+  ) {
     return node.source ?? undefined;
-  if (node.type === "TSImportType") return node.source;
-  if (node.type === "TSExternalModuleReference") return node.expression;
-  if (node.type !== "CallExpression") return undefined;
-  if (node.callee.type === "Identifier" && node.callee.name === "require")
+  }
+
+  if (node.type === "TSImportType") {
+    return node.source;
+  }
+
+  if (node.type === "TSExternalModuleReference") {
+    return node.expression;
+  }
+
+  if (node.type !== "CallExpression") {
+    return undefined;
+  }
+
+  if (node.callee.type === "Identifier" && node.callee.name === "require") {
     return node.arguments[0];
+  }
+
   if (
     node.callee.type === "MemberExpression" &&
     node.callee.object.type === "Identifier" &&
     node.callee.object.name === "require" &&
     node.callee.property.name === "resolve"
-  )
+  ) {
     return node.arguments[0];
+  }
+
   return undefined;
 }
 
 /** Accepts constant strings/templates and refuses computed loading paths. */
 function literalModuleName(node) {
-  if (node.type === "StringLiteral") return node.value;
-  if (node.type === "TemplateLiteral" && node.expressions.length === 0)
+  if (node.type === "StringLiteral") {
+    return node.value;
+  }
+
+  if (node.type === "TemplateLiteral" && node.expressions.length === 0) {
     return node.quasis[0].value.cooked;
+  }
+
   return null;
 }
 
 /** Traverses syntax nodes while skipping location, comment, and parser metadata. */
 function* walk(node) {
-  if (!node || typeof node !== "object" || typeof node.type !== "string")
+  if (!node || typeof node !== "object" || typeof node.type !== "string") {
     return;
+  }
+
   yield node;
+
   for (const value of Object.values(node)) {
     const children = Array.isArray(value) ? value : [value];
-    for (const child of children) yield* walk(child);
+
+    for (const child of children) {
+      yield* walk(child);
+    }
   }
 }

@@ -13,10 +13,14 @@ export function SignOutButton() {
 
   /** Obtains a fresh CSRF token and navigates only after the durable session has been revoked. */
   async function signOut() {
-    if (pending.current) return;
+    if (pending.current) {
+      return;
+    }
+
     pending.current = true;
     setBusy(true);
     setError("");
+
     try {
       const context = await loadAccountContext();
       await logoutAccount(context.csrfToken);

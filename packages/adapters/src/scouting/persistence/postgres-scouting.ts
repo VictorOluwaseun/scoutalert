@@ -28,7 +28,11 @@ export class PostgresScoutingRepository extends ScoutingRepository {
         tx,
       );
       const scout = found.rows[0];
-      if (!scout || scout.version !== request.version) return null;
+
+      if (!scout || scout.version !== request.version) {
+        return null;
+      }
+
       const existing = await sql<{
         status: string;
         superseded: boolean;
@@ -36,13 +40,18 @@ export class PostgresScoutingRepository extends ScoutingRepository {
         tx,
       );
       const run = existing.rows[0];
-      if (run && (run.status !== "searching" || run.superseded)) return null;
+
+      if (run && (run.status !== "searching" || run.superseded)) {
+        return null;
+      }
+
       await sql`INSERT INTO discovery_runs (id,scout_id,owner_id,scout_version,status) VALUES (${request.runId}::uuid,${request.scoutId}::uuid,${request.ownerId}::uuid,${request.version},'searching') ON CONFLICT (id) DO NOTHING`.execute(
         tx,
       );
       await sql`UPDATE scouts SET discovery_status='searching' WHERE id=${request.scoutId}::uuid`.execute(
         tx,
       );
+
       return { request, search: scout.search };
     });
   }
@@ -53,7 +62,11 @@ export class PostgresScoutingRepository extends ScoutingRepository {
       await sql`SELECT id FROM opportunity_sources WHERE kind=${context.search.category === "services" ? "client_request" : "job"} AND checked_at>now()-interval '30 minutes' LIMIT 1`.execute(
         this.db,
       );
-    if (!ready.rows.length) return null;
+
+    if (!ready.rows.length) {
+      return null;
+    }
+
     const query = roleTerms(context.search.target).join(" ");
     const found = await sql<Posting>`
       SELECT p.id,p.kind,p.source_id AS source,p.external_id AS "externalId",p.family_id AS "familyId",p.company,p.title,p.location,p.url,p.content AS text,p.source_updated_at::text AS "sourceUpdatedAt",p.fingerprint,p.version
@@ -61,6 +74,7 @@ export class PostgresScoutingRepository extends ScoutingRepository {
       WHERE NOT EXISTS(SELECT 1 FROM opportunity_feedback f WHERE f.owner_id=${context.request.ownerId}::uuid AND f.posting_id=p.id AND f.value='hidden') AND p.kind=${context.search.category === "services" ? "client_request" : "job"} AND p.open AND p.checked_at>now()-interval '30 minutes' AND s.checked_at>now()-interval '30 minutes' AND p.search_document @@ plainto_tsquery('english',${query})
       ORDER BY ts_rank_cd(p.search_document,plainto_tsquery('english',${query})) DESC,p.id LIMIT 200
     `.execute(this.db);
+
     return found.rows;
   }
 
@@ -80,12 +94,20 @@ export class PostgresScoutingRepository extends ScoutingRepository {
         await sql`SELECT id FROM scouts WHERE id=${request.scoutId}::uuid AND owner_id=${request.ownerId}::uuid AND version=${request.version} AND status='active' FOR UPDATE`.execute(
           tx,
         );
-      if (!scout.rows.length) return;
+
+      if (!scout.rows.length) {
+        return;
+      }
+
       const run =
         await sql`SELECT id FROM discovery_runs r WHERE id=${request.runId}::uuid AND scout_id=${request.scoutId}::uuid AND owner_id=${request.ownerId}::uuid AND scout_version=${request.version} AND status='searching' AND NOT EXISTS(SELECT 1 FROM discovery_runs newer WHERE newer.scout_id=r.scout_id AND newer.started_at>r.started_at)`.execute(
           tx,
         );
-      if (!run.rows.length) return;
+
+      if (!run.rows.length) {
+        return;
+      }
+
       const records = matches.map(({ posting, assessment }) => ({
         postingId: posting.id,
         version: posting.version,
@@ -97,8 +119,11 @@ export class PostgresScoutingRepository extends ScoutingRepository {
         JOIN opportunity_postings p ON p.id=m."postingId" AND p.version=m.version AND p.open AND p.checked_at>now()-interval '30 minutes'
         JOIN opportunity_sources s ON s.id=p.source_id AND s.checked_at>now()-interval '30 minutes'
       `.execute(tx);
-      if (valid.rows[0]?.count !== matches.length)
+
+      if (valid.rows[0]?.count !== matches.length) {
         throw new Error("evidence_changed");
+      }
+
       await sql`DELETE FROM scout_recommendations WHERE scout_id=${request.scoutId}::uuid`.execute(
         tx,
       );
@@ -126,7 +151,11 @@ export class PostgresScoutingRepository extends ScoutingRepository {
         await sql`UPDATE discovery_runs r SET status='failed',finished_at=now() WHERE id=${request.runId}::uuid AND scout_id=${request.scoutId}::uuid AND owner_id=${request.ownerId}::uuid AND scout_version=${request.version} AND status='searching' AND NOT EXISTS(SELECT 1 FROM discovery_runs newer WHERE newer.scout_id=r.scout_id AND newer.started_at>r.started_at) RETURNING id`.execute(
           tx,
         );
-      if (!result.rows.length) return;
+
+      if (!result.rows.length) {
+        return;
+      }
+
       await sql`UPDATE scouts SET discovery_status='failed' WHERE id=${request.scoutId}::uuid AND version=${request.version}`.execute(
         tx,
       );
@@ -167,10 +196,13 @@ export class PostgresScoutingRepository extends ScoutingRepository {
         SELECT i.id::uuid,i."ownerId"::uuid,i."scoutId"::uuid,i.version,'scout.refresh_requested',i.key,jsonb_build_object('scoutId',i."scoutId",'ownerId',i."ownerId",'version',i.version),${now}
         FROM jsonb_to_recordset(${JSON.stringify(intents)}::jsonb) AS i(id text,"ownerId" text,"scoutId" text,version integer,key text)
         ON CONFLICT (deduplication_key) DO NOTHING`.execute(tx);
-      if (scouts.rows.length)
+
+      if (scouts.rows.length) {
         await sql`UPDATE scouts SET discovery_requested_at=${now} WHERE id=ANY(${scouts.rows.map((scout) => scout.id)}::uuid[])`.execute(
           tx,
         );
+      }
+
       return scouts.rows.length;
     });
   }

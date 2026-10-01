@@ -11,12 +11,15 @@ async function call(path, body, options = {}) {
   const headers = {
     cookie: [...cookies].map(([key, value]) => `${key}=${value}`).join("; "),
   };
-  if (body !== undefined)
+
+  if (body !== undefined) {
     Object.assign(headers, {
       "content-type": "application/json",
       origin,
       "x-scout-csrf": csrf,
     });
+  }
+
   Object.assign(headers, options.headers);
   const response = await fetch(new URL(path, origin), {
     method: body === undefined ? "GET" : "POST",
@@ -24,16 +27,19 @@ async function call(path, body, options = {}) {
     body: body === undefined ? undefined : JSON.stringify(body),
     signal: AbortSignal.timeout(20_000),
   });
+
   for (const line of response.headers.getSetCookie()) {
     const [cookie] = line.split(";");
     const split = cookie.indexOf("=");
     cookies.set(cookie.slice(0, split), cookie.slice(split + 1));
   }
+
   assert.match(
     response.headers.get("content-type") ?? "",
     /application\/json/,
     `${path} returned HTTP ${response.status} without JSON`,
   );
+
   return {
     status: response.status,
     body: await response.json(),
@@ -55,6 +61,7 @@ async function readCode(id) {
   const message = await captured.json();
   const code = message.Text.match(/code is (\d{6})/u)?.[1];
   assert.match(code, /^\d{6}$/);
+
   return code;
 }
 
@@ -272,6 +279,7 @@ try {
   await checkConnection();
 } finally {
   // A failed assertion must also revoke this script's own synthetic session.
-  if (cookies.get("scout-session") || cookies.get("__Host-scout-session"))
+  if (cookies.get("scout-session") || cookies.get("__Host-scout-session")) {
     await call("/api/identity/logout", {}).catch(() => null);
+  }
 }

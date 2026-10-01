@@ -16,6 +16,7 @@ export function OpportunityFeedbackControls({
   const mutation = useScoutMutation();
   const feedback = opportunity.feedback ?? { value: "none", version: 0 };
   const hidden = feedback.value === "hidden";
+
   /** Uses the displayed feedback revision and refreshes the private feed after persistence. */
   async function choose(value: "relevant" | "hidden" | "none"): Promise<void> {
     const result = await mutation.submit("/api/scouts/feedback", {
@@ -23,8 +24,12 @@ export function OpportunityFeedbackControls({
       version: feedback.version,
       value,
     });
-    if (result) router.refresh();
+
+    if (result) {
+      router.refresh();
+    }
   }
+
   return (
     <div className="workspace-feedback">
       <p>

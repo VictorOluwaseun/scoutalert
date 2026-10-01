@@ -219,6 +219,7 @@ function ScoutRow({
   run?: ScoutDashboard["discovery"]["runs"][number];
 }) {
   const { search, alerts } = scout;
+
   return (
     <article className="workspace-scout">
       <div className="workspace-scout-top">
@@ -375,6 +376,7 @@ export function Dashboard({
       source.checkedAt &&
       Date.now() - Date.parse(source.checkedAt) < 30 * 60_000,
   );
+
   return (
     <DashboardShell account={page.account}>
       {updated && (

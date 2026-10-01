@@ -126,9 +126,11 @@ const report = await withEvaluationDatabase(async (db) => {
   assert.equal(after.rank, before.rank + 1);
   const research = new PostgresAvailabilityRepository(db);
   let checked = false;
+
   for (let index = 0; index < matches.length; index++) {
     const claim = await research.claim();
     assert.ok(claim);
+
     if (claim.posting.id !== selected.id) {
       await research.complete(claim.token, {
         status: "unresolved",
@@ -138,10 +140,12 @@ const report = await withEvaluationDatabase(async (db) => {
       });
       continue;
     }
+
     await research.complete(claim.token, availability);
     checked = true;
     break;
   }
+
   assert.ok(checked);
   const delivery = new PostgresOpportunityDeliveryRepository(db);
   const candidates = await delivery.candidates();
@@ -162,6 +166,7 @@ const report = await withEvaluationDatabase(async (db) => {
       db,
     );
   assert.equal(intents.rows.length, 2);
+
   return {
     checkedAt: new Date().toISOString(),
     source: snapshot.source,

@@ -19,6 +19,7 @@ export async function withEvaluationDatabase(action) {
   const admin = createPostgresClient(url.toString());
   let db;
   let cleanupPromise;
+
   /** Serializes cleanup across normal completion and interruption, touching only this generated test schema. */
   function cleanup() {
     cleanupPromise ??= (async () => {
@@ -26,19 +27,24 @@ export async function withEvaluationDatabase(action) {
       await sql`DROP SCHEMA IF EXISTS ${sql.id(schema)} CASCADE`.execute(admin);
       await admin.destroy();
     })();
+
     return cleanupPromise;
   }
+
   /** Allows interrupted paid checks to release their disposable database resources before exiting. */
   function interrupt() {
     void cleanup().finally(() => process.exit(130));
   }
+
   process.once("SIGINT", interrupt);
   process.once("SIGTERM", interrupt);
+
   try {
     await sql`CREATE SCHEMA ${sql.id(schema)}`.execute(admin);
     url.searchParams.set("options", `-c search_path=${schema}`);
     db = createPostgresClient(url.toString());
     await migrateDatabase(db, schema);
+
     return await action(db);
   } finally {
     await cleanup();

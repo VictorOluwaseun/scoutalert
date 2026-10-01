@@ -18,8 +18,14 @@ export function commandFingerprint(value: unknown): string {
 
 /** Sorts object keys while retaining array order and scalar values. */
 function canonical(value: unknown): unknown {
-  if (Array.isArray(value)) return value.map(canonical);
-  if (value === null || typeof value !== "object") return value;
+  if (Array.isArray(value)) {
+    return value.map(canonical);
+  }
+
+  if (value === null || typeof value !== "object") {
+    return value;
+  }
+
   return Object.fromEntries(
     Object.entries(value)
       .sort(([a], [b]) => a.localeCompare(b))
@@ -33,10 +39,12 @@ export class PostgresScoutManagementRepository extends ScoutManagementRepository
   constructor(private readonly db: Kysely<ScoutAlertDatabase>) {
     super();
   }
+
   /** Returns a revision-bearing snapshot only for the verified owner. */
   find(ownerId: string, scoutId: string): Promise<ManagedScout | null> {
     return new PostgresActivatedScoutRepository(this.db).find(ownerId, scoutId);
   }
+
   /** Uses transaction-bound records exclusively, rolling back state and intents together. */
   transaction<T>(
     work: (records: ScoutManagementRecords) => Promise<T>,
@@ -45,6 +53,7 @@ export class PostgresScoutManagementRepository extends ScoutManagementRepository
       .transaction()
       .execute((tx) => work(new PostgresScoutManagementRecords(tx)));
   }
+
   /** Includes target, action, expected revision and complete confirmed inputs in retry identity. */
   fingerprint(scoutId: string, input: ScoutChange): string {
     return commandFingerprint({ scoutId, input });
@@ -55,6 +64,7 @@ export class PostgresScoutManagementRepository extends ScoutManagementRepository
 class PostgresScoutManagementRecords implements ScoutManagementRecords {
   /** Receives the native transaction client; never escapes to a shared pool. */
   constructor(private readonly db: Kysely<ScoutAlertDatabase>) {}
+
   /** Serializes with alert reservation and feedback for the same recipient. */
   async lockOwner(ownerId: string): Promise<void> {
     await this.db
@@ -64,6 +74,7 @@ class PostgresScoutManagementRecords implements ScoutManagementRecords {
       .forUpdate()
       .executeTakeFirstOrThrow();
   }
+
   /** Reads the immutable command receipt scoped to its authenticated owner. */
   async receipt(ownerId: string, key: string) {
     const found = await this.db
@@ -72,10 +83,12 @@ class PostgresScoutManagementRecords implements ScoutManagementRecords {
       .where("owner_id", "=", ownerId)
       .where("request_key", "=", key)
       .executeTakeFirst();
+
     return found
       ? { fingerprint: found.fingerprint, scout: found.receipt }
       : null;
   }
+
   /** Locks current input revisions before the use case compares the reviewed version. */
   async find(ownerId: string, scoutId: string): Promise<ManagedScout | null> {
     await this.db
@@ -92,8 +105,10 @@ class PostgresScoutManagementRecords implements ScoutManagementRecords {
       .where("scout_id", "=", scoutId)
       .forUpdate()
       .execute();
+
     return new PostgresActivatedScoutRepository(this.db).find(ownerId, scoutId);
   }
+
   /** Invalidates old recommendation/worker revisions while preserving immutable onboarding approval history. */
   async save(ownerId: string, scout: ManagedScout, at: Date): Promise<void> {
     await this.db
@@ -132,6 +147,7 @@ class PostgresScoutManagementRecords implements ScoutManagementRecords {
       .where("scout_id", "=", scout.id)
       .execute();
   }
+
   /** Records only an explicitly edited alert choice; monotonic timestamps disambiguate rapid consent changes. */
   async recordConsent(
     ownerId: string,
@@ -151,6 +167,7 @@ class PostgresScoutManagementRecords implements ScoutManagementRecords {
       })
       .execute();
   }
+
   /** Creates one event per new active revision; worker admission rejects every superseded revision. */
   async requestDiscovery(
     ownerId: string,
@@ -172,6 +189,7 @@ class PostgresScoutManagementRecords implements ScoutManagementRecords {
       })
       .execute();
   }
+
   /** Persists the successful response in the same transaction as every side effect. */
   async saveReceipt(
     ownerId: string,

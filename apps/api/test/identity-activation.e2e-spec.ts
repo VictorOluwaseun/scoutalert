@@ -65,6 +65,7 @@ async function capturedCode(id: string): Promise<string> {
   const body = (await message.json()) as { Text: string };
   const code = body.Text.match(/code is (\d{6})/u)?.[1];
   expect(code).toMatch(/^\d{6}$/);
+
   return code!;
 }
 
@@ -74,6 +75,7 @@ class FailingOutboxUnitOfWork extends ScoutActivationUnitOfWork {
   constructor(private readonly actual: ScoutActivationUnitOfWork) {
     super();
   }
+
   /** Delegates every operation to real transaction repositories and fails only the outbox write. */
   run<T>(
     operation: (records: ScoutActivationTransaction) => Promise<T>,
@@ -130,6 +132,7 @@ describe.skipIf(!enabled)(
         .set(context)
         .send({ id: sent.body.id, code })
         .expect(200);
+
       return {
         context,
         email,
@@ -385,6 +388,7 @@ describe.skipIf(!enabled)(
         () => at,
       );
       const ids: string[] = [];
+
       for (let index = 0; index < 24; index++) {
         const scout = await activate.execute(
           signed.account.id,
@@ -393,6 +397,7 @@ describe.skipIf(!enabled)(
         );
         ids.push(scout.id);
       }
+
       const first = await request(app.getHttpServer())
         .get('/v1/scouts')
         .set(signed.authorized)
@@ -615,6 +620,7 @@ describe.skipIf(!enabled)(
         .set(signed.authorized)
         .expect(200);
       expect(receipt.body.alerts.quietHours).toEqual(quietHours);
+
       for (const invalid of [
         { start: '25:00', end: '08:00' },
         { start: '08:00', end: '08:00' },

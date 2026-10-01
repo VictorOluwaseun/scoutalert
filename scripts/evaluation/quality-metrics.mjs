@@ -43,6 +43,7 @@ export function qualityMetrics(cases, results) {
   const promptTp = count((item) => item.prompt && item.expected.prompt);
   const falsePrompts = count((item) => item.prompt && !item.expected.prompt);
   const missedPrompts = count((item) => !item.prompt && item.expected.prompt);
+
   return {
     reviewedCases: reviewed.length,
     measuredReviewedCases: measured.length,
@@ -99,6 +100,7 @@ export function rankingAtK(ids, relevant, k) {
     0,
   );
   const first = ids.findIndex((id) => relevant.has(id));
+
   return {
     precisionAtK: found / k,
     recallAtK: relevant.size ? found / relevant.size : null,
@@ -114,6 +116,7 @@ export function rankingMetrics(corpus, results, k = 3) {
     results.filter(isMeasured).map((item) => [item.id, item]),
   );
   const briefs = [];
+
   for (const brief of corpus.briefs) {
     const pairs = corpus.cases.filter((item) => item.briefId === brief.id);
     const complete =
@@ -121,7 +124,11 @@ export function rankingMetrics(corpus, results, k = 3) {
       pairs.every(
         (item) => isHumanReview(item.review) && measured.get(item.id)?.ranking,
       );
-    if (!complete) continue;
+
+    if (!complete) {
+      continue;
+    }
+
     const relevant = new Set(
       pairs.filter((item) => item.review.recommended).map((item) => item.id),
     );
@@ -159,9 +166,11 @@ export function rankingMetrics(corpus, results, k = 3) {
       },
     });
   }
+
   const comparable = briefs.filter(
     (item) => item.historyExamples && item.ndcgDelta !== null,
   );
+
   return {
     k,
     fullyReviewedBriefs: briefs.length,
@@ -178,6 +187,7 @@ export function rankingMetrics(corpus, results, k = 3) {
 /** Reports empirical latency without inventing values for unmeasured stages. */
 export function percentile(values, fraction) {
   const ordered = [...values].sort((a, b) => a - b);
+
   return ordered.length
     ? ordered[Math.max(0, Math.ceil(ordered.length * fraction) - 1)]
     : null;

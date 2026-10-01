@@ -47,6 +47,7 @@ test(
         { stdio: ["ignore", "pipe", "pipe"] },
       );
       const closed = once(child, "close");
+
       try {
         const [output] = await once(child.stdout, "data");
         const schema = output.toString().trim();
@@ -70,7 +71,10 @@ test(
           0,
         );
       } finally {
-        if (child.exitCode === null) child.kill("SIGTERM");
+        if (child.exitCode === null) {
+          child.kill("SIGTERM");
+        }
+
         await closed;
       }
     });

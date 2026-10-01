@@ -43,22 +43,32 @@ const names = {
 function node(tag, text, className) {
   const result = document.createElement(tag);
   result.textContent = text;
-  if (className) result.className = className;
+
+  if (className) {
+    result.className = className;
+  }
+
   return result;
 }
 
 /** Restricts visible source links to HTTPS; rendering remains safe even with hostile posting contents. */
 function link(url, text) {
   const anchor = node("a", text);
+
   try {
     const parsed = new URL(url);
-    if (parsed.protocol !== "https:") return node("span", text);
+
+    if (parsed.protocol !== "https:") {
+      return node("span", text);
+    }
+
     anchor.href = parsed.href;
     anchor.target = "_blank";
     anchor.rel = "noopener noreferrer";
   } catch {
     return node("span", text);
   }
+
   return anchor;
 }
 
@@ -83,6 +93,7 @@ function render() {
   element("source-link").replaceWith(sourceLink);
   element("posting").textContent = posting.text;
   element("documents").replaceChildren();
+
   for (const document of corpus.documents[posting.source] ?? []) {
     const details = node("details", "");
     details.append(
@@ -100,7 +111,8 @@ function render() {
     );
     element("documents").append(details);
   }
-  if (!(corpus.documents[posting.source] ?? []).length)
+
+  if (!(corpus.documents[posting.source] ?? []).length) {
     element("documents").append(
       node(
         "p",
@@ -108,7 +120,10 @@ function render() {
         "reading-note",
       ),
     );
+  }
+
   element("brief").replaceChildren();
+
   for (const [key, title] of fields) {
     const value = brief.search[key];
     const display =
@@ -119,6 +134,7 @@ function render() {
         : (names[value] ?? (value || "Not stated"));
     element("brief").append(node("dt", title), node("dd", display));
   }
+
   element("history").textContent = brief.feedbackHistory?.length
     ? `Synthetic earlier relevant choices: ${brief.feedbackHistory.map((item) => item.title).join("; ")}. These are separate from the opportunities being reviewed and do not change the confirmed requirements.`
     : "No prior feedback for this brief.";
@@ -130,7 +146,11 @@ function render() {
   element("saved").textContent = draft
     ? "Your review is saved in this browser. You can revise it before export."
     : "";
-  if (!draft) return;
+
+  if (!draft) {
+    return;
+  }
+
   document.querySelector(
     `input[name=recommended][value=${draft.recommended ? "yes" : "no"}]`,
   ).checked = true;
@@ -163,21 +183,28 @@ function save(event) {
     reviewer.length < 2 ||
     rationale.length < 12 ||
     !element("attestation").checked;
+
   if (invalid) {
     element("error").textContent =
       "Choose both decisions, explain the evidence, enter your name and confirm your independent review.";
+
     return;
   }
+
   if (data.get("prompt") === "yes" && data.get("recommended") !== "yes") {
     element("error").textContent =
       "An excluded opportunity cannot qualify for a prompt alert.";
+
     return;
   }
+
   if (/^(codex|chatgpt|openai|assistant|ai)$/i.test(reviewer)) {
     element("error").textContent =
       "An independent human reviewer must make this judgment.";
+
     return;
   }
+
   drafts[corpus.cases[index].id] = {
     status: "approved",
     reviewerType: "human",
@@ -202,8 +229,10 @@ function exportReviews() {
     element("error").textContent =
       "Complete and save a review before exporting.";
     element("error").scrollIntoView({ block: "center" });
+
     return;
   }
+
   const packet = {
     schema: 1,
     corpusHash: corpus.contentHash,
@@ -225,14 +254,20 @@ function exportReviews() {
 /** Loads a read-only packet containing public evidence and synthetic briefs; no application session or model API is used. */
 async function start() {
   const response = await fetch("/review-data.json");
-  if (!response.ok) throw new Error("Review packet unavailable");
+
+  if (!response.ok) {
+    throw new Error("Review packet unavailable");
+  }
+
   corpus = await response.json();
   storageKey = `scoutalert-independent-review:${corpus.contentHash}`;
+
   try {
     drafts = JSON.parse(localStorage.getItem(storageKey) ?? "{}");
   } catch {
     drafts = {};
   }
+
   const ids = new Set(corpus.cases.map((entry) => entry.id));
   drafts = Object.fromEntries(
     Object.entries(drafts).filter(
@@ -272,6 +307,7 @@ async function start() {
   });
   render();
 }
+
 start().catch(() => {
   element("error").textContent =
     "The review packet could not be loaded. Restart the local review server and reload this page.";

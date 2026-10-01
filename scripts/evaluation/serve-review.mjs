@@ -62,13 +62,17 @@ const assets = new Map([
     ["application/json; charset=utf-8", JSON.stringify(packet)],
   ],
 ]);
+
 /** Serves only the immutable review packet and bundled assets on loopback; no filesystem browsing or mutation routes exist. */
 function respond(request, response) {
   const asset = assets.get(request.url);
+
   if (request.method !== "GET" || !asset) {
     response.writeHead(404).end();
+
     return;
   }
+
   response.writeHead(200, {
     "content-type": asset[0],
     "cache-control": "no-store",
@@ -79,6 +83,7 @@ function respond(request, response) {
   });
   response.end(asset[1]);
 }
+
 createServer(respond).listen(port, "127.0.0.1", () =>
   console.log(
     `Independent review ready: http://127.0.0.1:${port} (${corpus.cases.length} pairs; model judgments excluded)`,

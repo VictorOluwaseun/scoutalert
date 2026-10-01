@@ -18,8 +18,12 @@ export default async function DashboardPage({
   const result = Array.isArray(query.after)
     ? { status: "invalid_cursor" as const }
     : await readScoutDashboard(after);
-  if (result.status === "signed_out") redirect("/sign-in");
-  if (result.status === "ready")
+
+  if (result.status === "signed_out") {
+    redirect("/sign-in");
+  }
+
+  if (result.status === "ready") {
     return (
       <Dashboard
         page={result.page}
@@ -27,7 +31,10 @@ export default async function DashboardPage({
         updated={query.updated === "1"}
       />
     );
+  }
+
   const invalid = result.status === "invalid_cursor";
+
   return (
     <DashboardShell>
       <div className="workspace-unavailable">

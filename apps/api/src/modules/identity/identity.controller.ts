@@ -34,6 +34,7 @@ export class IdentityController {
     @Inject(VerifyEmailCode) private readonly verifyCode: VerifyEmailCode,
     @Inject(AccountAccess) private readonly access: AccountAccess,
   ) {}
+
   /** Returns browser-scoped proof recovery and current authorized account, never session secrets. */
   @Get('context')
   context(@Req() request: Request) {
@@ -42,43 +43,54 @@ export class IdentityController {
       request.get('x-scout-session') ?? null,
     );
   }
+
   /** Uses the same neutral receipt for a new or existing email owner. */
   @Post('code')
   @HttpCode(200)
   request(@Body() body: unknown, @Req() request: Request) {
     const input = emailSchema.safeParse(body);
-    if (!input.success)
+
+    if (!input.success) {
       throw new BadRequestException({ code: 'invalid_request' });
+    }
+
     return this.requestCode.execute({
       email: input.data.email,
       browser: request.get('x-scout-browser')!,
       network: request.get('x-scout-network') ?? 'unattributed',
     });
   }
+
   /** Returns the session secret only over the private host boundary; Next.js places it in an HttpOnly cookie. */
   @Post('verify')
   @HttpCode(200)
   async verify(@Body() body: unknown, @Req() request: Request) {
     const input = codeSchema.safeParse(body);
-    if (!input.success)
+
+    if (!input.success) {
       throw new BadRequestException({ code: 'invalid_request' });
+    }
+
     const result = await this.verifyCode.execute({
       ...input.data,
       browser: request.get('x-scout-browser')!,
       network: request.get('x-scout-network') ?? 'unattributed',
       previousSession: request.get('x-scout-session') ?? null,
     });
+
     return {
       account: result.account,
       token: result.token,
       expiresAt: result.expiresAt.toISOString(),
     };
   }
+
   /** Revokes the durable session before the web host expires the browser cookie. */
   @Post('logout')
   @HttpCode(200)
   async logout(@Req() request: Request) {
     await this.access.logout(request.get('x-scout-session') ?? null);
+
     return { status: 'signed_out' };
   }
 }

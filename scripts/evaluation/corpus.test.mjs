@@ -44,8 +44,10 @@ function fixture() {
       },
     ],
   };
+
   return { ...corpus, contentHash: corpusHash(corpus) };
 }
+
 /** Exercises the attestation contract without claiming that these unit fixtures are independent judgments. */
 function packet(corpus) {
   return {
@@ -69,6 +71,7 @@ function packet(corpus) {
     ],
   };
 }
+
 test("review imports preserve evidence and reject conflicting, forged-scope and incomplete packets", () => {
   const corpus = fixture();
   const reviews = packet(corpus);

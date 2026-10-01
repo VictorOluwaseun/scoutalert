@@ -42,13 +42,21 @@ const notifications = proxyActivities<
 export async function scoutWorkflow(input: ScoutRunInput): Promise<void> {
   try {
     const maximum = patched("scout-employer-research-v1") ? 32 : 20;
+
     for (let attempt = 0; attempt < maximum; attempt++) {
       const result = await discovery.scout(input);
-      if (result === "done") return;
-      if (patched("scout-intelligence-progress-v1") && result === "progress")
+
+      if (result === "done") {
+        return;
+      }
+
+      if (patched("scout-intelligence-progress-v1") && result === "progress") {
         continue;
+      }
+
       await sleep("30 seconds");
     }
+
     await discovery.failRun(input);
   } catch (error) {
     await CancellationScope.nonCancellable(() => discovery.failRun(input));

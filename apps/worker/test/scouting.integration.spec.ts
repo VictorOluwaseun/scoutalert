@@ -79,6 +79,7 @@ const posting: Posting = {
 /** Simulates a provider whose acceptance acknowledgement is lost, to exercise the no-blind-resend rule. */
 class AmbiguousEmail extends EmailProvider {
   calls = 0;
+
   /** Records an external attempt then reports ambiguity, never certainty of rejection. */
   async send(): Promise<never> {
     this.calls++;
@@ -118,8 +119,11 @@ describe.skipIf(!enabled)(
     });
     afterAll(async () => {
       await db?.destroy();
-      if (admin && /^scouting_[a-f0-9]{32}$/.test(schema))
+
+      if (admin && /^scouting_[a-f0-9]{32}$/.test(schema)) {
         await sql`DROP SCHEMA ${sql.id(schema)} CASCADE`.execute(admin);
+      }
+
       await admin?.destroy();
     });
 
@@ -135,7 +139,8 @@ describe.skipIf(!enabled)(
         })
         .execute();
       const scouts = [];
-      for (let index = 0; index < count; index++)
+
+      for (let index = 0; index < count; index++) {
         scouts.push(
           await activation.execute(ownerId, "synthetic-browser", {
             key: randomUUID(),
@@ -144,6 +149,8 @@ describe.skipIf(!enabled)(
             confirmed: true,
           }),
         );
+      }
+
       return { ownerId, scouts };
     }
 
@@ -169,6 +176,7 @@ describe.skipIf(!enabled)(
     ): Promise<ScoutRunRequest> {
       const request = { ownerId, scoutId, version, runId: randomUUID() };
       expect(await matching.execute(request)).toBe("done");
+
       return request;
     }
 
@@ -329,7 +337,11 @@ describe.skipIf(!enabled)(
     it("groups overlapping scouts, submits once to Mailpit, and records provider acceptance", async () => {
       await snapshot();
       const { ownerId, scouts } = await fixture(2);
-      for (const scout of scouts) await run(ownerId, scout.id);
+
+      for (const scout of scouts) {
+        await run(ownerId, scout.id);
+      }
+
       const ledger = new PostgresOpportunityDeliveryRepository(db);
       const smtp = createSmtpClient({
         host: "127.0.0.1",
@@ -343,6 +355,7 @@ describe.skipIf(!enabled)(
           name: "ScoutAlert",
         }),
       );
+
       try {
         await delivery.execute(new Date());
         await delivery.execute(new Date());

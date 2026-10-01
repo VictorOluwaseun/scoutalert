@@ -26,6 +26,7 @@ export class RedisIdentityRateLimits extends IdentityRateLimits {
   ) {
     super();
   }
+
   /** Reserves all buckets atomically; Redis failure fails closed instead of bypassing protection. */
   async reserve(
     limits: readonly { key: string; maximum: number; windowSeconds: number }[],
@@ -40,6 +41,7 @@ export class RedisIdentityRateLimits extends IdentityRateLimits {
     const retry = Number(
       await this.client.eval(reserveScript, keys.length, ...keys, ...args),
     );
+
     return retry > 0 ? retry : null;
   }
 }

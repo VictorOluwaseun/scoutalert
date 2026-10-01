@@ -20,6 +20,7 @@ export class OnboardingController {
   @HttpCode(200)
   review(@Body() body: unknown): { status: 'review_ready' } {
     const request = searchReviewRequestSchema.safeParse(body);
+
     if (!request.success) {
       throw new BadRequestException({
         code: 'invalid_request',
@@ -28,6 +29,7 @@ export class OnboardingController {
     }
 
     const result = this.reviewSearchDraft.execute(request.data.search);
+
     if (!result.ready) {
       throw new UnprocessableEntityException({
         code: 'search_needs_changes',

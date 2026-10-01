@@ -19,7 +19,9 @@ export function EditScout({ scout }: { scout: ManagedScout }) {
   const mutation = useScoutMutation();
   const errorRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
-    if (mutation.error) errorRef.current?.focus();
+    if (mutation.error) {
+      errorRef.current?.focus();
+    }
   }, [mutation.error]);
 
   /** Applies only explicit field changes, retaining unedited confirmed information. */
@@ -29,10 +31,12 @@ export function EditScout({ scout }: { scout: ManagedScout }) {
   ): void {
     setSearch((current) => ({ ...current, [field]: value }));
   }
+
   /** Gives invalid fields their matching server message without relying on browser validation popups. */
   function issue(field: string): string | undefined {
     return mutation.error?.issues.find((item) => item.field === field)?.message;
   }
+
   /** Confirms the complete brief and alerts; server rules and transactional version checks remain authoritative. */
   async function save(event: FormEvent<HTMLFormElement>): Promise<void> {
     event.preventDefault();
@@ -42,10 +46,15 @@ export function EditScout({ scout }: { scout: ManagedScout }) {
       search,
       alerts,
     });
-    if (!result) return;
+
+    if (!result) {
+      return;
+    }
+
     router.push("/dashboard?updated=1#scouts");
     router.refresh();
   }
+
   return (
     <div className="workspace-editor">
       <Link className="workspace-back" href="/dashboard#scouts">

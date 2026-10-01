@@ -64,16 +64,26 @@ function isOpen(project: ProjectSelection): boolean {
 /** Normalizes buyer demand with source-stated budget units; never mistakes buyer residence for applicant eligibility. */
 export function normalizeFreelancerProject(value: unknown): Posting {
   const project = projectSchema.parse(value);
-  if (!isOpen(project)) throw new Error("project_not_open");
+
+  if (!isOpen(project)) {
+    throw new Error("project_not_open");
+  }
+
   if (
     project.budget.minimum !== null &&
     project.budget.maximum !== null &&
     project.budget.minimum > project.budget.maximum
-  )
+  ) {
     throw new Error("invalid_project_budget");
+  }
+
   const timestamp =
     project.time_updated ?? project.time_submitted ?? project.submitdate;
-  if (!timestamp) throw new Error("missing_project_date");
+
+  if (!timestamp) {
+    throw new Error("missing_project_date");
+  }
+
   const period = project.type === "hourly" ? "per hour" : "per project";
   const budget = `Listed budget: ${project.budget.minimum ?? "unstated minimum"}–${project.budget.maximum ?? "unstated maximum"} ${project.currency.code} ${period}. This is the buyer's listed budget, not guaranteed earnings.`;
   const normalized = {
@@ -85,6 +95,7 @@ export function normalizeFreelancerProject(value: unknown): Posting {
     text: `Source category: buyer-posted client project / service request (${project.type}).\n${budget}\nRequested skills: ${project.jobs.map((job) => job.name).join(", ")}\n\n${project.description}`,
   };
   const externalId = String(project.id);
+
   return {
     ...normalized,
     id: `${source}:${externalId}`,
@@ -113,13 +124,16 @@ async function readProjectApi(
     },
   });
   const body = await readSourceResponse(response, 8_000_000);
+
   if (
     body.status !== "success" ||
     !body.result ||
     typeof body.result !== "object" ||
     Array.isArray(body.result)
-  )
+  ) {
     throw new Error("invalid_project_response");
+  }
+
   return body.result as Record<string, unknown>;
 }
 
@@ -127,24 +141,33 @@ async function readProjectApi(
 export class FreelancerSourceConnector extends SourceConnector {
   /** Fetches up to 200 entries per payment type, never claiming complete marketplace coverage. */
   async read(id: string, now: Date): Promise<SourceSnapshot> {
-    if (id !== source) throw new Error("unsupported_source");
+    if (id !== source) {
+      throw new Error("unsupported_source");
+    }
+
     const signal = AbortSignal.timeout(40_000);
     const projects = new Map<string, Posting>();
+
     for (const offset of [0, 100]) {
       const pages = await Promise.all(
         ["fixed", "hourly"].map((type) => this.page(type, offset, signal)),
       );
-      for (const page of pages)
+
+      for (const page of pages) {
         for (const posting of page) {
           const previous = projects.get(posting.id);
+
           if (
             !previous ||
             Date.parse(posting.sourceUpdatedAt) >
               Date.parse(previous.sourceUpdatedAt)
-          )
+          ) {
             projects.set(posting.id, posting);
+          }
         }
+      }
     }
+
     return {
       source,
       kind: "client_request",
@@ -170,22 +193,28 @@ export class FreelancerSourceConnector extends SourceConnector {
       sort_field: "time_updated",
     }).toString();
     const result = await readProjectApi(url, signal);
+
     if (
       !Array.isArray(result.projects) ||
       result.projects.length > 100 ||
       !Number.isSafeInteger(result.total_count) ||
       Number(result.total_count) < 0
-    )
+    ) {
       throw new Error("invalid_project_page");
+    }
+
     const parsed = result.projects.map((item) => ({
       selection: selectionSchema.parse(item),
       raw: item,
     }));
+
     if (
       parsed.some((item) => item.selection.type !== type) ||
       new Set(parsed.map((item) => item.selection.id)).size !== parsed.length
-    )
+    ) {
       throw new Error("invalid_project_page");
+    }
+
     return parsed
       .filter((item) => isOpen(item.selection))
       .map((item) => normalizeFreelancerProject(item.raw));
@@ -215,22 +244,35 @@ export class FreelancerAvailabilitySource extends AvailabilitySource {
       checkedAt: new Date().toISOString(),
       sourceUrl: url.toString(),
     });
-    if (!approved) return result("unresolved");
+
+    if (!approved) {
+      return result("unresolved");
+    }
+
     try {
       const raw = await readProjectApi(url, AbortSignal.timeout(12_000));
       const project = selectionSchema.parse(raw);
-      if (String(project.id) !== posting.externalId)
+
+      if (String(project.id) !== posting.externalId) {
         return result("unresolved");
+      }
+
       if (
         project.deleted ||
         ["closed", "complete", "cancelled"].includes(project.status) ||
         ["closed", "complete", "awarded"].includes(
           project.frontend_project_status,
         )
-      )
+      ) {
         return result("closed");
-      if (!isOpen(project)) return result("unresolved");
+      }
+
+      if (!isOpen(project)) {
+        return result("unresolved");
+      }
+
       const current = normalizeFreelancerProject(raw);
+
       return result(
         current.fingerprint === posting.fingerprint ? "available" : "changed",
         current.fingerprint,

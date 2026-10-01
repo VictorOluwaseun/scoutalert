@@ -38,44 +38,63 @@ export function SignIn() {
     let cancelled = false;
     void loadAccountContext()
       .then((context) => {
-        if (cancelled) return;
+        if (cancelled) {
+          return;
+        }
+
         csrf.current = context.csrfToken;
+
         if (context.account) {
           router.replace("/dashboard");
           router.refresh();
+
           return;
         }
+
         setChallenge(context.challenge);
         setEmail(context.challenge?.email ?? "");
       })
       .catch((failure: unknown) => {
-        if (!cancelled)
+        if (!cancelled) {
           setError(
             failure instanceof Error ? failure.message : "Please try again.",
           );
+        }
       })
       .finally(() => {
-        if (!cancelled) setLoaded(true);
+        if (!cancelled) {
+          setLoaded(true);
+        }
       });
+
     return () => {
       cancelled = true;
     };
   }, [router]);
 
   useEffect(() => {
-    if (!challenge) return;
+    if (!challenge) {
+      return;
+    }
+
     const timer = window.setInterval(() => setNow(Date.now()), 1000);
+
     return () => window.clearInterval(timer);
   }, [challenge]);
 
   /** Validates the active field inline and serializes proof actions; lost send responses recover their challenge. */
   async function submit(event?: FormEvent<HTMLFormElement>) {
     event?.preventDefault();
-    if (pending.current) return;
+
+    if (pending.current) {
+      return;
+    }
+
     const valid = challenge
       ? /^\d{6}$/.test(code)
       : /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim()) &&
         email.trim().length <= 254;
+
     if (!valid) {
       setInvalid(true);
       setError(
@@ -84,28 +103,42 @@ export function SignIn() {
           : "Enter a valid email address.",
       );
       input.current?.focus();
+
       return;
     }
+
     await perform(challenge ? "verify" : "send");
   }
 
   /** Uses the same CSRF, cooldown and HttpOnly-session contract as onboarding; no proof is persisted in browser storage. */
   async function perform(action: "send" | "verify") {
-    if (pending.current) return;
+    if (pending.current) {
+      return;
+    }
+
     pending.current = true;
     setBusy(true);
     setError("");
     setInvalid(false);
+
     try {
-      if (!csrf.current) csrf.current = (await loadAccountContext()).csrfToken;
+      if (!csrf.current) {
+        csrf.current = (await loadAccountContext()).csrfToken;
+      }
+
       if (action === "send") {
         const next = await requestEmailCode(email.trim(), csrf.current);
         setChallenge(next);
         setCode("");
         setNow(Date.now());
+
         return;
       }
-      if (!challenge) return;
+
+      if (!challenge) {
+        return;
+      }
+
       await verifyEmailCode(challenge, code, csrf.current);
       setCode("");
       router.replace("/dashboard");
@@ -118,7 +151,10 @@ export function SignIn() {
         failure instanceof AccountRequestError &&
           ["invalid_email", "invalid_code"].includes(failure.code),
       );
-      if (action === "send") await recoverChallenge();
+
+      if (action === "send") {
+        await recoverChallenge();
+      }
     } finally {
       pending.current = false;
       setBusy(false);
@@ -128,7 +164,11 @@ export function SignIn() {
   /** Restores only a pending generation for the submitted inbox after an ambiguous email response. */
   async function recoverChallenge() {
     const recovered = await loadAccountContext().catch(() => null);
-    if (recovered?.challenge?.email !== email.trim().toLowerCase()) return;
+
+    if (recovered?.challenge?.email !== email.trim().toLowerCase()) {
+      return;
+    }
+
     setChallenge(recovered.challenge);
     setCode("");
   }
@@ -190,8 +230,12 @@ export function SignIn() {
             aria-invalid={invalid}
             aria-describedby={error ? "sign-in-error" : undefined}
             onChange={(event) => {
-              if (challenge) setCode(event.target.value.replace(/\D/g, ""));
-              else setEmail(event.target.value);
+              if (challenge) {
+                setCode(event.target.value.replace(/\D/g, ""));
+              } else {
+                setEmail(event.target.value);
+              }
+
               setInvalid(false);
               setError("");
             }}

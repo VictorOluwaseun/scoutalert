@@ -31,18 +31,27 @@ const querySchema = z.strictObject({
 
 /** Decodes only bounded, canonical keyset markers; cursors never grant account access. */
 function decodeCursor(value: string | undefined): ScoutCursor | null {
-  if (!value) return null;
+  if (!value) {
+    return null;
+  }
+
   try {
     const decoded: unknown = JSON.parse(
       Buffer.from(value, 'base64url').toString('utf8'),
     );
     const parsed = cursorSchema.safeParse(decoded);
-    if (!parsed.success) throw new Error('invalid_cursor');
+
+    if (!parsed.success) {
+      throw new Error('invalid_cursor');
+    }
+
     if (
       new Date(parsed.data.activatedAt).toISOString() !==
       parsed.data.activatedAt
-    )
+    ) {
       throw new Error('invalid_cursor');
+    }
+
     return parsed.data;
   } catch {
     throw new BadRequestException({ code: 'invalid_cursor' });
@@ -64,12 +73,16 @@ export class ScoutsController {
   @Header('Cache-Control', 'no-store, private')
   async list(@Query() query: unknown, @Req() request: AccountRequest) {
     const parsed = querySchema.safeParse(query);
-    if (!parsed.success)
+
+    if (!parsed.success) {
       throw new BadRequestException({ code: 'invalid_cursor' });
+    }
+
     const page = await this.listScouts.execute(
       request.account.id,
       decodeCursor(parsed.data.after),
     );
+
     return {
       ...(await this.feed.execute(
         request.account.id,

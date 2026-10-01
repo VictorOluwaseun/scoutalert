@@ -12,14 +12,19 @@ export function ScoutControls({ scout }: { scout: ManagedScout }) {
   const router = useRouter();
   const mutation = useScoutMutation();
   const paused = scout.status === "paused";
+
   /** Changes status against the displayed revision; the server fences work already in flight. */
   async function toggle(): Promise<void> {
     const result = await mutation.submit(`/api/scouts/${scout.id}/change`, {
       version: scout.version,
       action: paused ? "resume" : "pause",
     });
-    if (result) router.refresh();
+
+    if (result) {
+      router.refresh();
+    }
   }
+
   return (
     <div className="workspace-controls">
       <div className="workspace-control-buttons">

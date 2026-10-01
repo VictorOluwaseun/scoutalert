@@ -16,22 +16,33 @@ export function useScoutMutation() {
 
   /** Reuses a key for the same reviewed payload; concurrency failures never silently overwrite server state. */
   async function submit(path: string, body: object): Promise<unknown | null> {
-    if (running.current) return null;
+    if (running.current) {
+      return null;
+    }
+
     running.current = true;
     setBusy(true);
     setError(null);
     const payload = JSON.stringify({ path, body });
-    if (attempt.current?.payload !== payload)
+
+    if (attempt.current?.payload !== payload) {
       attempt.current = { payload, key: crypto.randomUUID() };
+    }
+
     try {
       const context = await loadAccountContext();
-      if (!context.account) throw new AccountRequestError("unauthenticated");
+
+      if (!context.account) {
+        throw new AccountRequestError("unauthenticated");
+      }
+
       const result = await sendAccountRequest(
         path,
         { ...body, key: attempt.current.key },
         context.csrfToken,
       );
       attempt.current = null;
+
       return result;
     } catch (failure) {
       setError(
@@ -39,11 +50,13 @@ export function useScoutMutation() {
           ? failure
           : new AccountRequestError("service_unavailable"),
       );
+
       return null;
     } finally {
       running.current = false;
       setBusy(false);
     }
   }
+
   return { submit, busy, error };
 }

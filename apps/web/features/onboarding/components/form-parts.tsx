@@ -100,7 +100,10 @@ export function FormError({
   children: ReactNode;
   id?: string;
 }) {
-  if (!children) return null;
+  if (!children) {
+    return null;
+  }
+
   return (
     <p id={id} className="scout-error" role="alert">
       <Icon name="help" size={17} />

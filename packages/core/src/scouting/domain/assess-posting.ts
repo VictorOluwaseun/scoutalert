@@ -38,6 +38,7 @@ export function roleTerms(target: string): string[] {
 function hasRolePhrase(wanted: string[], title: string): boolean {
   const primary = title.split(/\s[-–—|]\s/u)[0] ?? title;
   const terms = roleTerms(primary);
+
   return terms.some((_, index) =>
     wanted.every((term, offset) => terms[index + offset] === term),
   );
@@ -49,26 +50,42 @@ export function assessPosting(
   posting: Posting,
 ): Assessment | null {
   const clientRequest = posting.kind === "client_request";
-  if ((search.category === "services") !== clientRequest) return null;
+
+  if ((search.category === "services") !== clientRequest) {
+    return null;
+  }
+
   const wanted = roleTerms(search.target);
+
   if (
     !wanted.length ||
     !(clientRequest
       ? wanted.every((term) => roleTerms(posting.title).includes(term))
       : hasRolePhrase(wanted, posting.title))
-  )
+  ) {
     return null;
+  }
+
   const contract = /\b(contract|contractor|freelance|freelancer)\b/i.test(
     posting.title,
   );
-  if (search.category === "contracts" && !contract) return null;
-  if (search.category === "employment" && contract) return null;
+
+  if (search.category === "contracts" && !contract) {
+    return null;
+  }
+
+  if (search.category === "employment" && contract) {
+    return null;
+  }
+
   // Greenhouse board responses do not establish work authorization or an explicit pay period.
   if (
     search.unknownEligibility === "exclude" ||
     search.undisclosedPay === "exclude"
-  )
+  ) {
     return null;
+  }
+
   const place = `${posting.title} ${posting.location}`;
   const arrangement = /\bhybrid\b/i.test(place)
     ? "hybrid"
@@ -77,8 +94,11 @@ export function assessPosting(
       : /\bon[- ]?site\b/i.test(place)
         ? "onsite"
         : "unknown";
-  if (search.arrangementRequired && arrangement !== search.arrangement)
+
+  if (search.arrangementRequired && arrangement !== search.arrangement) {
     return null;
+  }
+
   const uncertainties = [
     "Applicant location and work authorization need confirmation.",
     clientRequest
@@ -86,17 +106,25 @@ export function assessPosting(
       : "Pay amount, currency, and period have not been verified.",
     "Experience and detailed requirements still need review.",
   ];
-  if (arrangement === "unknown")
+
+  if (arrangement === "unknown") {
     uncertainties.push(
       "Work arrangement is not clear in the posting title or location.",
     );
-  if (search.workLocations)
+  }
+
+  if (search.workLocations) {
     uncertainties.push(
       `Check whether this role accepts applicants in ${search.workLocations}.`,
     );
+  }
+
   const reasons = [`The posting title matches your target: ${search.target}.`];
-  if (arrangement !== "unknown")
+
+  if (arrangement !== "unknown") {
     reasons.push(`The source title or location describes ${arrangement} work.`);
+  }
+
   return {
     policy: "evidence-v1",
     reasons,

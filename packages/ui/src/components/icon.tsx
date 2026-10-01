@@ -56,6 +56,7 @@ export function Icon({
   ...props
 }: LucideProps & { name: IconName }) {
   const Component = icons[name];
+
   return (
     <Component size={size} strokeWidth={1.7} aria-hidden="true" {...props} />
   );

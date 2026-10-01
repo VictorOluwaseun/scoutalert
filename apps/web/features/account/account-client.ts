@@ -77,7 +77,11 @@ export async function sendAccountRequest(
       signal: AbortSignal.timeout(20_000),
     });
     const value: unknown = await response.json();
-    if (response.ok) return value;
+
+    if (response.ok) {
+      return value;
+    }
+
     const error = object(value);
     throw new AccountRequestError(
       typeof error?.code === "string" ? error.code : "service_unavailable",
@@ -93,7 +97,10 @@ export async function sendAccountRequest(
         : [],
     );
   } catch (error) {
-    if (error instanceof AccountRequestError) throw error;
+    if (error instanceof AccountRequestError) {
+      throw error;
+    }
+
     throw new AccountRequestError("service_unavailable");
   }
 }
@@ -108,12 +115,14 @@ function object(value: unknown): Record<string, unknown> | null {
 /** Validates public account markers before rendering an authenticated account state. */
 function isAccount(value: unknown): value is VerifiedAccount {
   const account = object(value);
+
   return typeof account?.id === "string" && typeof account.email === "string";
 }
 
 /** Validates generation timing; no challenge cookie, digest or code is returned to JavaScript. */
 function isChallenge(value: unknown): value is CodeChallenge {
   const challenge = object(value);
+
   return (
     typeof challenge?.id === "string" &&
     typeof challenge.email === "string" &&
@@ -127,12 +136,15 @@ function isChallenge(value: unknown): value is CodeChallenge {
 /** Restores account/contact state only from the authoritative identity endpoint. */
 export async function loadAccountContext(): Promise<AccountContext> {
   const context = object(await sendAccountRequest("/api/identity/context"));
+
   if (
     typeof context?.csrfToken !== "string" ||
     (context.account !== null && !isAccount(context.account)) ||
     (context.challenge !== null && !isChallenge(context.challenge))
-  )
+  ) {
     throw new AccountRequestError("service_unavailable");
+  }
+
   return {
     account: context.account as VerifiedAccount | null,
     challenge: context.challenge as CodeChallenge | null,
@@ -150,8 +162,11 @@ export async function requestEmailCode(
     { email },
     csrf,
   );
-  if (!isChallenge(result))
+
+  if (!isChallenge(result)) {
     throw new AccountRequestError("service_unavailable");
+  }
+
   return result;
 }
 
@@ -168,8 +183,11 @@ export async function verifyEmailCode(
       csrf,
     ),
   );
-  if (!isAccount(result?.account))
+
+  if (!isAccount(result?.account)) {
     throw new AccountRequestError("service_unavailable");
+  }
+
   return result.account;
 }
 

@@ -28,7 +28,11 @@ export class PostgresIdentityTransaction implements IdentityTransaction {
       .where("browser_hash", "=", browserHash)
       .forUpdate()
       .executeTakeFirstOrThrow();
-    if (!flow.current_id) return null;
+
+    if (!flow.current_id) {
+      return null;
+    }
+
     return this.lockChallenge(flow.current_id, browserHash);
   }
 
@@ -44,7 +48,11 @@ export class PostgresIdentityTransaction implements IdentityTransaction {
       .where("browser_hash", "=", browserHash)
       .forUpdate()
       .executeTakeFirst();
-    if (!row) return null;
+
+    if (!row) {
+      return null;
+    }
+
     return {
       id: row.id,
       browserHash: row.browser_hash,
@@ -124,7 +132,11 @@ export class PostgresIdentityTransaction implements IdentityTransaction {
         revoked_at: null,
       })
       .execute();
-    if (!previousTokenHash) return;
+
+    if (!previousTokenHash) {
+      return;
+    }
+
     await this.db
       .updateTable("auth_sessions")
       .set({ revoked_at: new Date() })
@@ -145,6 +157,7 @@ export class PostgresIdentityTransaction implements IdentityTransaction {
       .where("expires_at", ">", at)
       .where("revoked_at", "is", null)
       .executeTakeFirst();
+
     return row
       ? { account: { id: row.id, email: row.email }, expiresAt: row.expires_at }
       : null;

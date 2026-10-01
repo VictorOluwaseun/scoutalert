@@ -32,8 +32,10 @@ export async function migrateDatabase(
     },
   });
   const result = await migrator.migrateToLatest();
-  if (result.error)
+
+  if (result.error) {
     throw new Error("ScoutAlert database migration failed.", {
       cause: result.error,
     });
+  }
 }

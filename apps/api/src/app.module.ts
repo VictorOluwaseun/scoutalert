@@ -17,12 +17,17 @@ export const { ObserveModule, ObserveInstrument } = createObserveModule();
 
 /** Registers Observe only when both credentials are available outside tests. */
 function createObserveImports(): DynamicModule[] {
-  if (process.env.NODE_ENV === 'test') return [];
+  if (process.env.NODE_ENV === 'test') {
+    return [];
+  }
 
   const appKey = process.env.OBSERVE_APP_KEY?.trim();
   const appSecret = process.env.OBSERVE_APP_SECRET?.trim();
 
-  if (!appKey && !appSecret) return [];
+  if (!appKey && !appSecret) {
+    return [];
+  }
+
   if (!appKey || !appSecret) {
     throw new Error(
       'OBSERVE_APP_KEY and OBSERVE_APP_SECRET must be set together',

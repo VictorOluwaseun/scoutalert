@@ -20,6 +20,7 @@ export function createPostgresClient(
   pool.on("error", () => {
     console.error("ScoutAlert PostgreSQL idle connection failed.");
   });
+
   return new Kysely<ScoutAlertDatabase>({
     dialect: new PostgresDialect({ pool }),
   });

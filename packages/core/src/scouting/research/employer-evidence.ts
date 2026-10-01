@@ -69,20 +69,25 @@ export function validResearch(
 ): boolean {
   const checked = Date.parse(research.checkedAt);
   const expires = Date.parse(research.expiresAt);
+
   if (
     !Number.isFinite(checked) ||
     !Number.isFinite(expires) ||
     checked > now.getTime() ||
     expires <= now.getTime() ||
     expires - checked > 6 * 60 * 60_000
-  )
+  ) {
     return false;
+  }
+
   if (
     research.documents.length > 2 ||
     research.findings.length !== 3 ||
     new Set(research.findings.map((item) => item.fact)).size !== 3
-  )
+  ) {
     return false;
+  }
+
   const documentsValid = research.documents.every(
     (doc) =>
       doc.url.startsWith("https://") &&
@@ -92,13 +97,21 @@ export function validResearch(
       Date.parse(doc.checkedAt) <= checked &&
       checked - Date.parse(doc.checkedAt) < 6 * 60 * 60_000,
   );
-  if (!documentsValid) return false;
+
+  if (!documentsValid) {
+    return false;
+  }
+
   return research.findings.every((finding) => {
     const document = research.documents.find(
       (doc) => doc.url === finding.sourceUrl,
     );
-    if (!researchFacts.includes(finding.fact)) return false;
-    if (finding.status === "unresolved")
+
+    if (!researchFacts.includes(finding.fact)) {
+      return false;
+    }
+
+    if (finding.status === "unresolved") {
       return (
         finding.quotes.length === 0 ||
         (!!document &&
@@ -106,6 +119,8 @@ export function validResearch(
             (quote) => quote.length >= 3 && document.text.includes(quote),
           ))
       );
+    }
+
     return (
       finding.applicability !== "unclear" &&
       !!document &&
@@ -122,21 +137,28 @@ export function applyEmployerResearch(
   analysis: PostingAnalysis,
   research: EmployerResearch,
 ): PostingAnalysis {
-  if (!validResearch(research)) throw new Error("invalid_employer_evidence");
+  if (!validResearch(research)) {
+    throw new Error("invalid_employer_evidence");
+  }
+
   const facts = { ...analysis.facts };
+
   for (const finding of research.findings) {
     if (
       facts[finding.fact].status !== "unknown" ||
       finding.status === "unresolved" ||
       finding.applicability === "unclear"
-    )
+    ) {
       continue;
+    }
+
     facts[finding.fact] = {
       status: finding.status === "conflicting" ? "conflicting" : "stated",
       value: finding.value,
       quotes: finding.quotes,
     };
   }
+
   return { ...analysis, facts, research };
 }
 

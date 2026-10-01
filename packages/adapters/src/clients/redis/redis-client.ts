@@ -12,5 +12,6 @@ export function createRedisClient(url: string): Redis {
   client.on("error", () => {
     console.error("ScoutAlert Redis connection failed.");
   });
+
   return client;
 }

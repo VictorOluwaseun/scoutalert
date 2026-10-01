@@ -38,8 +38,11 @@ describe.skipIf(process.env.SCOUTING_INTEGRATION !== "1")(
     });
     afterAll(async () => {
       await db?.destroy();
-      if (admin && /^employer_[a-f0-9]{32}$/.test(schema))
+
+      if (admin && /^employer_[a-f0-9]{32}$/.test(schema)) {
         await sql`DROP SCHEMA ${sql.id(schema)} CASCADE`.execute(admin);
+      }
+
       await admin?.destroy();
     });
     it("shares one refresh, rejects user URLs, and refreshes expired documents", async () => {
@@ -105,7 +108,11 @@ describe.skipIf(process.env.SCOUTING_INTEGRATION !== "1")(
       };
       const claim = await repo.claim(task);
       expect(claim.status).toBe("claimed");
-      if (claim.status !== "claimed") throw new Error("fixture claim missing");
+
+      if (claim.status !== "claimed") {
+        throw new Error("fixture claim missing");
+      }
+
       await repo.complete(claim.token, {
         kind: "research",
         analysis,

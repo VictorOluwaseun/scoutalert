@@ -12,9 +12,13 @@ export class PostgresOpportunityCatalogRepository extends OpportunityCatalogRepo
   constructor(private readonly db: Kysely<ScoutAlertDatabase>) {
     super();
   }
+
   /** Owner, scout version, posting version, open status and evidence freshness are all enforced in SQL. */
   async list(ownerId: string, hidden = false): Promise<OpportunityView[]> {
-    if (hidden) return this.hidden(ownerId);
+    if (hidden) {
+      return this.hidden(ownerId);
+    }
+
     const result = await sql<OpportunityView>`
       SELECT p.id,p.kind,p.title,p.company,p.location,p.url,p.checked_at::text AS "checkedAt",
         array_agg(DISTINCT scout.name) AS scouts,
@@ -31,6 +35,7 @@ export class PostgresOpportunityCatalogRepository extends OpportunityCatalogRepo
       WHERE r.owner_id=${ownerId}::uuid AND coalesce(f.value,'none')<>'hidden'
       GROUP BY p.id,f.value,f.version ORDER BY max(r.rank) DESC,max(r.created_at) DESC,p.id LIMIT 20
     `.execute(this.db);
+
     return result.rows;
   }
 
@@ -45,6 +50,7 @@ export class PostgresOpportunityCatalogRepository extends OpportunityCatalogRepo
       .orderBy("posting_id")
       .limit(20)
       .execute();
+
     return rows.map((row) => ({
       ...row.snapshot,
       feedback: { value: row.value, version: row.version },
@@ -73,6 +79,7 @@ export class PostgresOpportunityCatalogRepository extends OpportunityCatalogRepo
         this.db,
       ),
     ]);
+
     return {
       sources: sources.rows,
       runs: runs.rows,

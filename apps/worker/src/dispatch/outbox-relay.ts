@@ -11,6 +11,7 @@ export class DiscoveryOutboxRelay {
     private readonly intents: DiscoveryIntentRepository,
     private readonly temporal: Client,
   ) {}
+
   /** Admits one leased batch; duplicate completed/running workflows are safe to acknowledge without restarting. */
   async dispatch(): Promise<void> {
     for (const intent of await this.intents.claim()) {
@@ -25,9 +26,11 @@ export class DiscoveryOutboxRelay {
           }),
         );
       } catch (error) {
-        if (!(error instanceof WorkflowExecutionAlreadyStartedError))
+        if (!(error instanceof WorkflowExecutionAlreadyStartedError)) {
           throw error;
+        }
       }
+
       await this.intents.acknowledge(intent.id, intent.lease);
     }
   }

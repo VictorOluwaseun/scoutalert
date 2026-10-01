@@ -24,7 +24,10 @@ assert.ok(
 const now = new Date(baseline.measuredAt);
 const results = baseline.results.map((result) => {
   // The only changed acceptance rule downgrades unsupported arrangement meets; it cannot revive rejected pairs.
-  if (!result.assessment) return result;
+  if (!result.assessment) {
+    return result;
+  }
+
   const pair = corpus.cases.find((entry) => entry.id === result.id);
   const brief = corpus.briefs.find((entry) => entry.id === pair.briefId);
   const posting = corpus.postings.find((entry) => entry.id === pair.postingId);
@@ -43,6 +46,7 @@ const results = baseline.results.map((result) => {
       fingerprint: posting.fingerprint,
     },
   };
+
   return {
     ...result,
     accepted: !!assessment,

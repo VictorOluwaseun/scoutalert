@@ -15,9 +15,16 @@ export default async function EditScoutPage({
 }) {
   const { id } = await params;
   const result = await readManagedScout(id);
-  if (result.status === "signed_out") redirect("/sign-in");
-  if (result.status === "missing") notFound();
-  if (result.status === "ready")
+
+  if (result.status === "signed_out") {
+    redirect("/sign-in");
+  }
+
+  if (result.status === "missing") {
+    notFound();
+  }
+
+  if (result.status === "ready") {
     return (
       <DashboardShell account={result.account}>
         <EditScout
@@ -26,6 +33,8 @@ export default async function EditScoutPage({
         />
       </DashboardShell>
     );
+  }
+
   return (
     <DashboardShell>
       <div className="workspace-unavailable">

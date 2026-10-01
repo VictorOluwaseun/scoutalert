@@ -36,6 +36,7 @@ const schema = z.object({
 /** Investigates public eligibility gaps against approved employer evidence; never receives personal data. */
 export class OpenAIEmployerResearchProvider extends EmployerResearchProvider {
   readonly configuration: string;
+
   /** Source catalog revision and model snapshot participate in durable cache identity. */
   constructor(
     private readonly client: OpenAI,
@@ -74,7 +75,8 @@ export class OpenAIEmployerResearchProvider extends EmployerResearchProvider {
         sourceUrl: null,
       })),
     };
-    if (!documents.length)
+
+    if (!documents.length) {
       return {
         kind: "research",
         analysis: applyEmployerResearch(analysis, research),
@@ -86,6 +88,8 @@ export class OpenAIEmployerResearchProvider extends EmployerResearchProvider {
           responseId: "",
         },
       };
+    }
+
     const passages = Object.fromEntries(
       documents.flatMap((doc, index) =>
         Object.entries(evidencePassages(doc.text, `d${index}p`)),
@@ -105,8 +109,11 @@ export class OpenAIEmployerResearchProvider extends EmployerResearchProvider {
       })),
       passages,
     });
-    if (Buffer.byteLength(input, "utf8") > 60_000)
+
+    if (Buffer.byteLength(input, "utf8") > 60_000) {
       throw new Error("research_input_too_large");
+    }
+
     const response = await this.client.responses.parse(
       {
         model: this.model,
@@ -121,8 +128,11 @@ export class OpenAIEmployerResearchProvider extends EmployerResearchProvider {
       },
       { timeout: 25_000, maxRetries: 0 },
     );
-    if (response.status !== "completed" || !response.output_parsed)
+
+    if (response.status !== "completed" || !response.output_parsed) {
       throw new Error("research_unavailable");
+    }
+
     research.findings = response.output_parsed.findings.map(
       ({ sourceIndex, ...finding }) => ({
         ...finding,
@@ -131,7 +141,11 @@ export class OpenAIEmployerResearchProvider extends EmployerResearchProvider {
         quotes: resolveEvidence(finding.quotes, passages),
       }),
     );
-    if (!validResearch(research)) throw new Error("invalid_research_evidence");
+
+    if (!validResearch(research)) {
+      throw new Error("invalid_research_evidence");
+    }
+
     return {
       kind: "research",
       analysis: applyEmployerResearch(analysis, research),

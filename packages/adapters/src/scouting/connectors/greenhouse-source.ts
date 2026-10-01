@@ -19,15 +19,19 @@ const plainText = compile({
 
 /** Validates untrusted objects before any complete snapshot can be published. */
 function record(value: unknown): Record<string, unknown> {
-  if (!value || typeof value !== "object" || Array.isArray(value))
+  if (!value || typeof value !== "object" || Array.isArray(value)) {
     throw new Error("invalid_source_snapshot");
+  }
+
   return value as Record<string, unknown>;
 }
 
 /** Rejects missing or oversized source fields; truncation must not masquerade as complete evidence. */
 function text(value: unknown, maximum: number): string {
-  if (typeof value !== "string" || value.length > maximum)
+  if (typeof value !== "string" || value.length > maximum) {
     throw new Error("invalid_source_snapshot");
+  }
+
   return value;
 }
 
@@ -41,12 +45,15 @@ export class GreenhouseSourceConnector extends SourceConnector {
   /** Bounds response bytes, wait time, posting count and fields; prospect-only posts are excluded. */
   async read(source: string, now: Date): Promise<SourceSnapshot> {
     const company = this.boards[source];
+
     if (
       !Object.hasOwn(this.boards, source) ||
       !company ||
       !/^[a-z0-9_-]{1,80}$/.test(source)
-    )
+    ) {
       throw new Error("unsupported_source");
+    }
+
     const response = await fetch(
       `https://boards-api.greenhouse.io/v1/boards/${source}/jobs?content=true`,
       {
@@ -60,22 +67,32 @@ export class GreenhouseSourceConnector extends SourceConnector {
     );
     const body = await readSourceResponse(response, 8_000_000);
     const meta = record(body.meta);
+
     if (
       !Array.isArray(body.jobs) ||
       body.jobs.length > 5_000 ||
       meta.total !== body.jobs.length
-    )
+    ) {
       throw new Error("incomplete_source_snapshot");
+    }
+
     const postings = body.jobs.flatMap((raw: unknown) => {
       const job = record(raw);
-      if (job.internal_job_id === null) return [];
+
+      if (job.internal_job_id === null) {
+        return [];
+      }
+
       return [normalizeGreenhousePosting(source, company, job)];
     });
+
     if (
       new Set(postings.map((posting) => posting.externalId)).size !==
       postings.length
-    )
+    ) {
       throw new Error("duplicate_source_id");
+    }
+
     return { source, checkedAt: now.toISOString(), postings };
   }
 }
@@ -89,20 +106,28 @@ export function normalizeGreenhousePosting(
   if (
     !Number.isSafeInteger(job.id) ||
     !Number.isSafeInteger(job.internal_job_id)
-  )
+  ) {
     throw new Error("invalid_source_id");
+  }
+
   const sourceUpdatedAt = text(job.updated_at, 80);
-  if (!Number.isFinite(Date.parse(sourceUpdatedAt)))
+
+  if (!Number.isFinite(Date.parse(sourceUpdatedAt))) {
     throw new Error("invalid_source_date");
+  }
+
   const url = text(job.absolute_url, 2_000);
   const parsed = new URL(url);
+
   if (
     parsed.protocol !== "https:" ||
     parsed.username ||
     parsed.password ||
     parsed.port
-  )
+  ) {
     throw new Error("invalid_source_url");
+  }
+
   const title = he.decode(text(job.title, 1_000));
   const location = he.decode(text(record(job.location).name, 2_000));
   const content = text(job.content, 250_000);
@@ -121,6 +146,7 @@ export function normalizeGreenhousePosting(
       }),
     )
     .digest("hex");
+
   return {
     id: `${source}:${externalId}`,
     source,

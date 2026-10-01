@@ -19,6 +19,7 @@ async function findCapturedMessage(
   expect(response.ok).toBe(true);
   const body = (await response.json()) as { messages: CapturedMessage[] };
   expect(body.messages).toHaveLength(1);
+
   return body.messages[0]!;
 }
 

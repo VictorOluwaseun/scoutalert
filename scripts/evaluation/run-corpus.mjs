@@ -78,8 +78,10 @@ await writeFile(reportUrl, "{}\n", { flag: "wx" });
 
 /** Reserves worst-case standard-tier cost before each attempt, including failed calls; there are no automatic retries. */
 async function paid(action) {
-  if (requests >= maxRequests || (requests + 1) * 0.075 > maxUsd)
+  if (requests >= maxRequests || (requests + 1) * 0.075 > maxUsd) {
     throw new Error("evaluation_budget_exhausted");
+  }
+
   requests++;
   await save();
   const result = await action();
@@ -89,6 +91,7 @@ async function paid(action) {
     cost: estimateIntelligenceCost(result.usage),
   });
   await save();
+
   return result;
 }
 
@@ -152,25 +155,35 @@ async function save() {
   };
   await writeFile(`${reportUrl}.tmp`, JSON.stringify(report, null, 2) + "\n");
   await rename(`${reportUrl}.tmp`, reportUrl);
+
   return report;
 }
 
 /** Shares public extraction/research once per posting; marketplace requests never receive employer-policy research. */
 async function analyze(posting, analyses) {
   const cached = analyses.get(posting.id);
-  if (cached) return cached;
+
+  if (cached) {
+    return cached;
+  }
+
   let analysis = (await paid(() => provider.extract(posting))).analysis;
   assert.ok(validAnalysis(posting, analysis), "Invalid extraction evidence");
-  if (posting.kind !== "client_request" && needsEmployerResearch(analysis))
+
+  if (posting.kind !== "client_request" && needsEmployerResearch(analysis)) {
     analysis = (await paid(() => researcher.investigate(posting, analysis)))
       .analysis;
+  }
+
   assert.ok(validAnalysis(posting, analysis), "Invalid researched evidence");
   analyses.set(posting.id, analysis);
+
   return analysis;
 }
 
 await withEvaluationDatabase(async (db) => {
   const sources = new PostgresSourceRepository(db);
+
   for (const source of new Set(
     corpus.postings.map((posting) => posting.source),
   )) {
@@ -190,8 +203,10 @@ await withEvaluationDatabase(async (db) => {
       lease,
     );
   }
+
   const retrieved = new Map();
   const records = new PostgresScoutingRepository(db);
+
   for (const brief of corpus.briefs) {
     const began = performance.now();
     const candidates = await records.candidates({
@@ -213,7 +228,9 @@ await withEvaluationDatabase(async (db) => {
       durationMs: performance.now() - began,
     });
   }
+
   const analyses = new Map();
+
   for (const entry of corpus.cases) {
     const posting = corpus.postings.find((item) => item.id === entry.postingId);
     const brief = corpus.briefs.find((item) => item.id === entry.briefId);
@@ -221,6 +238,7 @@ await withEvaluationDatabase(async (db) => {
       posting && brief,
       "Every evaluation pair must reference a captured posting and explicit brief",
     );
+
     try {
       const analysis = await analyze(posting, analyses);
       const fit = await paid(() =>
@@ -273,8 +291,12 @@ await withEvaluationDatabase(async (db) => {
             : "assessment_failed",
       });
       await save();
-      if (error instanceof Error && /budget/.test(error.message)) break;
+
+      if (error instanceof Error && /budget/.test(error.message)) {
+        break;
+      }
     }
+
     await save();
     console.log(
       `${entry.id}: assessed (${results.length}/${corpus.cases.length})`,
@@ -291,4 +313,7 @@ console.log(
     releaseEvidenceReady: false,
   }),
 );
-if (!report.complete) process.exitCode = 1;
+
+if (!report.complete) {
+  process.exitCode = 1;
+}

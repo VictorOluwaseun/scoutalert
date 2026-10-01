@@ -15,6 +15,7 @@ import { analysis, fit, posting, search } from "./fixtures/intelligence.js";
 function evidence(): EmployerResearch {
   const checkedAt = new Date().toISOString();
   const url = "https://www.figma.com/careers/";
+
   return {
     checkedAt,
     expiresAt: new Date(Date.now() + 60_000).toISOString(),

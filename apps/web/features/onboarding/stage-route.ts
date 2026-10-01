@@ -14,14 +14,19 @@ const stages: readonly Stage[] = [
 
 /** Resolves only known onboarding steps from an untrusted URL parameter. */
 export function stageFromRoute(value: string | null): Stage | null {
-  if (value === null) return "goal";
+  if (value === null) {
+    return "goal";
+  }
+
   return stages.includes(value as Stage) ? (value as Stage) : null;
 }
 
 /** Builds a same-origin URL for a known onboarding step. */
 export function routeForStage(stage: Stage, scoutId?: string): string {
-  if (stage === "ready" && scoutId)
+  if (stage === "ready" && scoutId) {
     return `/onboarding?step=ready&scout=${encodeURIComponent(scoutId)}`;
+  }
+
   return stage === "goal" ? "/onboarding" : `/onboarding?step=${stage}`;
 }
 
@@ -35,12 +40,33 @@ export function accessibleStage(
     saved: false,
   },
 ): Stage {
-  if (stage === "ready" && contact.saved) return "ready";
-  if (!draft.goal.trim()) return "goal";
-  if (stage === "goal" || stage === "focus") return stage;
-  if (!draft.target.trim()) return "focus";
-  if (stage === "verify" && reviewed && !contact.challenge) return "email";
-  if (stage === "ready" && reviewed) return "email";
-  if (stage === "preferences" || reviewed) return stage;
+  if (stage === "ready" && contact.saved) {
+    return "ready";
+  }
+
+  if (!draft.goal.trim()) {
+    return "goal";
+  }
+
+  if (stage === "goal" || stage === "focus") {
+    return stage;
+  }
+
+  if (!draft.target.trim()) {
+    return "focus";
+  }
+
+  if (stage === "verify" && reviewed && !contact.challenge) {
+    return "email";
+  }
+
+  if (stage === "ready" && reviewed) {
+    return "email";
+  }
+
+  if (stage === "preferences" || reviewed) {
+    return stage;
+  }
+
   return "preferences";
 }

@@ -31,7 +31,11 @@ export class GreenhouseAvailabilitySource extends AvailabilitySource {
       sourceUrl,
       fingerprint,
     });
-    if (!approved) return result("unresolved");
+
+    if (!approved) {
+      return result("unresolved");
+    }
+
     try {
       const response = await fetch(sourceUrl, {
         redirect: "error",
@@ -41,24 +45,37 @@ export class GreenhouseAvailabilitySource extends AvailabilitySource {
           "user-agent": "ScoutAlert/0.1 (posting availability check)",
         },
       });
-      if (response.status === 404) return result("closed");
+
+      if (response.status === 404) {
+        return result("closed");
+      }
+
       const job = await readSourceResponse(response, 1_000_000);
       const current = normalizeGreenhousePosting(
         posting.source,
         this.boards[posting.source]!,
         job,
       );
-      if (current.id !== posting.id) return result("unresolved");
+
+      if (current.id !== posting.id) {
+        return result("unresolved");
+      }
+
       const deadline = job.application_deadline;
+
       if (
         deadline != null &&
         (typeof deadline !== "string" ||
           !/^\d{4}-\d{2}-\d{2}T.*(?:Z|[+-]\d{2}:\d{2})$/.test(deadline) ||
           !Number.isFinite(Date.parse(deadline)))
-      )
+      ) {
         return result("unresolved");
-      if (typeof deadline === "string" && Date.parse(deadline) <= Date.now())
+      }
+
+      if (typeof deadline === "string" && Date.parse(deadline) <= Date.now()) {
         return result("closed");
+      }
+
       return {
         ...result(
           current.fingerprint === posting.fingerprint ? "available" : "changed",

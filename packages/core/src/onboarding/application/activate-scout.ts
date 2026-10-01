@@ -27,19 +27,29 @@ export class ActivateScout {
     input: ScoutActivation,
   ): Promise<ActivatedScout> {
     const reviewed = this.review.execute(input.search);
-    if (!reviewed.ready)
+
+    if (!reviewed.ready) {
       throw new ActivationError(
         "search_needs_changes",
         reviewed.issues[0]?.message,
       );
+    }
+
     validateScoutAlerts(input.alerts);
     const fingerprint = this.identity.fingerprint(input);
+
     return this.transactions.run(async (records) => {
       await records.lockOwner(ownerId);
       const existing = await records.findRequest(ownerId, input.key);
-      if (existing && existing.fingerprint !== fingerprint)
+
+      if (existing && existing.fingerprint !== fingerprint) {
         throw new ActivationError("activation_conflict");
-      if (existing) return existing.receipt;
+      }
+
+      if (existing) {
+        return existing.receipt;
+      }
+
       const at = this.now();
       const draftId = this.identity.id();
       const scout: ActivatedScout = {
@@ -62,6 +72,7 @@ export class ActivateScout {
       await records.recordConsent(this.identity.id(), ownerId, scout);
       await records.requestDiscovery(this.identity.id(), ownerId, scout);
       await records.saveRequest(ownerId, input.key, fingerprint, scout);
+
       return scout;
     });
   }

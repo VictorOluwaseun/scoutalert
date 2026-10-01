@@ -39,6 +39,7 @@ function feed(url: URL) {
     url.searchParams.get("offset") === "100"
       ? []
       : [{ ...project, type, id: type === "fixed" ? 123 : 456 }];
+
   return Response.json({
     status: "success",
     result: { projects, total_count: 1 },
@@ -119,6 +120,7 @@ describe("public client projects and service requests", () => {
   it("checks identity, content changes, closure and unavailable responses independently", async () => {
     const normalized = normalizeFreelancerProject(project);
     const source = new FreelancerAvailabilitySource();
+
     for (const [value, expected] of [
       [project, "available"],
       [{ ...project, title: "Changed title" }, "changed"],
@@ -131,6 +133,7 @@ describe("public client projects and service requests", () => {
       );
       expect((await source.check(normalized)).status).toBe(expected);
     }
+
     vi.stubGlobal(
       "fetch",
       vi.fn(async () => new Response("rate limited", { status: 429 })),

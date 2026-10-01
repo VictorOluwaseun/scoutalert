@@ -13,9 +13,12 @@ export const IDENTITY_CONFIGURATION = Symbol('IDENTITY_CONFIGURATION');
 /** Validates without leaking Zod input values or connection credentials in startup errors. */
 export function readIdentityConfiguration(): IdentityConfiguration {
   const result = identityConfigurationSchema.safeParse(process.env);
-  if (!result.success)
+
+  if (!result.success) {
     throw new Error(
       'Configure DATABASE_URL, REDIS_URL, IDENTITY_SECRET and WEB_API_SECRET before starting identity.',
     );
+  }
+
   return result.data;
 }

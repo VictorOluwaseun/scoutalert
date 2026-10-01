@@ -35,6 +35,7 @@ export class ListScouts {
     const records = await this.scouts.list(ownerId, after, 21);
     const items = records.slice(0, 20);
     const last = items.at(-1);
+
     return {
       items,
       next:

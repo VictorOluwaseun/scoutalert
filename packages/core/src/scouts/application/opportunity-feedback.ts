@@ -30,6 +30,7 @@ export abstract class OpportunityFeedbackRepository {
 export class RecordOpportunityFeedback {
   /** Receives an inward repository; ranking learning remains a separate evaluated policy. */
   constructor(private readonly records: OpportunityFeedbackRepository) {}
+
   /** Applies the person's choice across their scout contributions to this exact source posting. */
   execute(
     ownerId: string,

@@ -23,6 +23,7 @@ assert.ok(
     ),
 );
 const runs = [];
+
 for (const count of sizes) {
   await withEvaluationDatabase(async (db) => {
     const postings = Array.from({ length: count }, (_, index) => {
@@ -31,6 +32,7 @@ for (const count of sizes) {
         posting.kind === "client_request"
           ? "benchmark-projects"
           : "benchmark-jobs";
+
       return {
         ...posting,
         source,
@@ -42,6 +44,7 @@ for (const count of sizes) {
     });
     const source = new PostgresSourceRepository(db);
     const start = performance.now();
+
     for (const id of new Set(postings.map((posting) => posting.source))) {
       const entries = postings.filter((posting) => posting.source === id);
       const lease = await source.claim(id, new Date());
@@ -56,12 +59,15 @@ for (const count of sizes) {
         lease,
       );
     }
+
     const ingestionMs = performance.now() - start;
     await sql`ANALYZE opportunity_postings`.execute(db);
     const repository = new PostgresScoutingRepository(db);
+
     for (const concurrency of [4, 8]) {
       const samples = [];
       const began = performance.now();
+
       for (let batch = 0; batch < 10; batch++) {
         const results = await Promise.all(
           Array.from({ length: concurrency }, async (_, index) => {
@@ -79,6 +85,7 @@ for (const count of sizes) {
                 runId: randomUUID(),
               },
             });
+
             return {
               cohort: brief.cohort,
               category: brief.search.category,
@@ -89,6 +96,7 @@ for (const count of sizes) {
         );
         samples.push(...results);
       }
+
       runs.push({
         postingCount: count,
         queries: samples.length,
@@ -115,6 +123,7 @@ for (const count of sizes) {
               const group = samples.filter(
                 (sample) => sample.category === category,
               );
+
               return [
                 category,
                 {
@@ -135,6 +144,7 @@ for (const count of sizes) {
     }
   });
 }
+
 const report = {
   measuredAt: new Date().toISOString(),
   corpusHash: corpus.contentHash,

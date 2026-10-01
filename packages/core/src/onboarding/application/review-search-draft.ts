@@ -23,18 +23,20 @@ export class ReviewSearchDraft {
       300,
       false,
     );
+
     if (
       draft.authorizationConfirmed &&
       (!draft.authorizationLocations?.trim() ||
         !draft.sponsorshipNeed ||
         draft.sponsorshipNeed === "unknown")
-    )
+    ) {
       issues.push({
         field: "authorizationLocations",
         code: "required",
         message:
           "Add the countries and your sponsorship needs before confirming these details.",
       });
+    }
 
     if (
       draft.arrangementRequired &&
@@ -48,6 +50,7 @@ export class ReviewSearchDraft {
     }
 
     const minimumPay = draft.minimumPay.trim();
+
     if (minimumPay && !this.isPositiveAmount(minimumPay)) {
       issues.push({
         field: "minimumPay",
@@ -56,7 +59,10 @@ export class ReviewSearchDraft {
       });
     }
 
-    if (issues.length > 0) return { ready: false, issues };
+    if (issues.length > 0) {
+      return { ready: false, issues };
+    }
+
     return { ready: true };
   }
 
@@ -74,10 +80,14 @@ export class ReviewSearchDraft {
         code: "required",
         message: `Add your ${field === "goal" ? "goal" : "target work"} before reviewing your scout.`,
       });
+
       return;
     }
 
-    if (value.length <= maxLength) return;
+    if (value.length <= maxLength) {
+      return;
+    }
+
     issues.push({
       field,
       code: "too_long",
@@ -87,7 +97,10 @@ export class ReviewSearchDraft {
 
   /** Accepts decimal currency input without converting or inventing compensation units. */
   private isPositiveAmount(value: string): boolean {
-    if (!/^\d+(?:\.\d+)?$/.test(value)) return false;
+    if (!/^\d+(?:\.\d+)?$/.test(value)) {
+      return false;
+    }
+
     return Number.isFinite(Number(value)) && Number(value) > 0;
   }
 }

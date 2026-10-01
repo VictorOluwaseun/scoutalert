@@ -25,6 +25,7 @@ describe.skipIf(!enabled)(
       const connection = await Connection.connect({
         address: "127.0.0.1:7233",
       });
+
       try {
         await connection.workflowService.registerNamespace({
           namespace,
@@ -33,6 +34,7 @@ describe.skipIf(!enabled)(
       } finally {
         await connection.close();
       }
+
       env = await TestWorkflowEnvironment.createFromExistingServer({
         address: "127.0.0.1:7233",
         namespace,
@@ -59,7 +61,11 @@ describe.skipIf(!enabled)(
         activities: {
           scout: async () => {
             attempts++;
-            if (attempts === 1) throw new Error("simulated_activity_outage");
+
+            if (attempts === 1) {
+              throw new Error("simulated_activity_outage");
+            }
+
             return "done";
           },
           failRun: async () => undefined,
@@ -80,14 +86,18 @@ describe.skipIf(!enabled)(
       await workflow.runUntil(async () => {
         for (let poll = 0; poll < 20; poll++) {
           const history = await handle.fetchHistory();
+
           if (
             (history.events ?? []).some(
               (event) => event.activityTaskScheduledEventAttributes,
             )
-          )
+          ) {
             return;
+          }
+
           await new Promise((resolve) => setTimeout(resolve, 100));
         }
+
         throw new Error("activity_not_scheduled");
       });
       const restarted = await Worker.create({
@@ -171,6 +181,7 @@ describe.skipIf(!enabled)(
         activities: {
           scout: async () => {
             attempts++;
+
             return "waiting";
           },
           failRun: async () => {
@@ -191,8 +202,10 @@ describe.skipIf(!enabled)(
         ],
       });
       const work = (async () => {
-        for (let poll = 0; poll < 30 && !attempts; poll++)
+        for (let poll = 0; poll < 30 && !attempts; poll++) {
           await new Promise((resolve) => setTimeout(resolve, 100));
+        }
+
         expect(attempts).toBe(1);
         await handle.cancel();
         await expect(handle.result()).rejects.toThrow();

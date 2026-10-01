@@ -45,6 +45,7 @@ class SyntheticDocuments extends EmployerEvidenceRepository {
     super();
     this.text = text;
   }
+
   /** Captures test evidence with original text and a reproducible fingerprint. */
   async read() {
     return [
@@ -90,6 +91,7 @@ const cases = [
   },
 ];
 const results = [];
+
 for (const entry of cases) {
   const provider = new OpenAIEmployerResearchProvider(
     createIntelligenceClient(process.env.OPENAI_API_KEY),

@@ -6,6 +6,7 @@ import { readIdentityConfiguration } from '../config/identity.configuration.js';
 async function migrate(): Promise<void> {
   loadLocalEnvironment();
   const db = createPostgresClient(readIdentityConfiguration().DATABASE_URL);
+
   try {
     await migrateDatabase(db);
     console.info('ScoutAlert migrations completed.');
@@ -13,4 +14,5 @@ async function migrate(): Promise<void> {
     await db.destroy();
   }
 }
+
 await migrate();

@@ -80,8 +80,11 @@ describe.skipIf(!enabled)(
     });
     afterAll(async () => {
       await db?.destroy();
-      if (admin && /^research_[a-f0-9]{32}$/.test(schema))
+
+      if (admin && /^research_[a-f0-9]{32}$/.test(schema)) {
         await sql`DROP SCHEMA ${sql.id(schema)} CASCADE`.execute(admin);
+      }
+
       await admin?.destroy();
     });
 
@@ -98,7 +101,8 @@ describe.skipIf(!enabled)(
         .execute();
       const source = new PostgresSourceRepository(db);
       const lease = await source.claim(posting.source, new Date());
-      if (lease)
+
+      if (lease) {
         await source.publish(
           {
             source: posting.source,
@@ -107,6 +111,8 @@ describe.skipIf(!enabled)(
           },
           lease,
         );
+      }
+
       const activation = new ActivateScout(
         new ReviewSearchDraft(),
         new PostgresScoutActivationUnitOfWork(db),
@@ -115,6 +121,7 @@ describe.skipIf(!enabled)(
       );
       const records = new PostgresScoutingRepository(db);
       const scouts = [];
+
       for (let index = 0; index < count; index++) {
         const scout = await activation.execute(ownerId, "synthetic-browser", {
           key: randomUUID(),
@@ -136,6 +143,7 @@ describe.skipIf(!enabled)(
         ]);
         scouts.push(scout);
       }
+
       return { ownerId, scouts };
     }
 
@@ -151,6 +159,7 @@ describe.skipIf(!enabled)(
         checkedAt: now.toISOString(),
         sourceUrl: "https://boards-api.greenhouse.io/v1/boards/example/jobs/1",
       });
+
       return claim!;
     }
 
@@ -302,6 +311,7 @@ describe.skipIf(!enabled)(
         }),
         () => now,
       );
+
       try {
         expect(await delivery.execute(now)).toBe(1);
         await sql`UPDATE delivery_scan_cursor SET after_owner=NULL`.execute(db);

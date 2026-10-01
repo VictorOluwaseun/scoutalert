@@ -26,6 +26,7 @@
 ## Control flow
 
 - Do not nest `if` statements.
+- Always use curly braces for `if`/`else` and loop bodies, even when the body contains only one statement.
 - Use guard clauses, early returns, named predicates, and focused helper methods to keep conditional logic flat and readable.
 
 ## Code organization
@@ -35,6 +36,7 @@
 - No spaghetti code: give each class and method a clear responsibility, keep dependencies explicit, and split unrelated concerns into cohesive units.
 - No code mess: use descriptive names, avoid duplicated logic and unnecessary abstractions, and remove unused imports, dead code, temporary debugging statements, and commented-out implementations from completed changes.
 - Follow established project conventions and leave touched code organized and reviewable.
+- Separate methods and logical blocks with blank lines. Keep closely related statements together instead of spacing out every individual line.
 
 ## Documentation
 

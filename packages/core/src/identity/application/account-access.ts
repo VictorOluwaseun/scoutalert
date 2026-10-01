@@ -11,16 +11,25 @@ export class AccountAccess {
     private readonly credentials: IdentityCredentials,
     private readonly now: () => Date,
   ) {}
+
   /** Requires live verified identity for every durable owner operation. */
   async require(token: string | null): Promise<AccountSession> {
-    if (!token) throw new IdentityError("unauthenticated");
+    if (!token) {
+      throw new IdentityError("unauthenticated");
+    }
+
     const session = await this.records.findSession(
       this.credentials.digest(token),
       this.now(),
     );
-    if (!session) throw new IdentityError("unauthenticated");
+
+    if (!session) {
+      throw new IdentityError("unauthenticated");
+    }
+
     return session;
   }
+
   /** Restores only current server-authorized contact/session state for the initiating browser. */
   async context(browser: string, token: string | null) {
     const session = token
@@ -33,15 +42,20 @@ export class AccountAccess {
       this.credentials.digest(`browser:${browser}`),
       this.now(),
     );
+
     return {
       account: session?.account ?? null,
       challenge:
         challenge && !challenge.consumedAt ? presentChallenge(challenge) : null,
     };
   }
+
   /** Revokes the current token idempotently; cookie removal remains a transport responsibility. */
   async logout(token: string | null): Promise<void> {
-    if (!token) return;
+    if (!token) {
+      return;
+    }
+
     await this.records.revokeSession(
       this.credentials.digest(token),
       this.now(),

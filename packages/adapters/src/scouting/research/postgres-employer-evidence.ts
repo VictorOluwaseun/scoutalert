@@ -38,6 +38,7 @@ export class PostgresEmployerEvidenceRepository extends EmployerEvidenceReposito
     const results = await Promise.all(
       urls.slice(0, 2).map((url) => this.document(posting.source, url)),
     );
+
     return results.filter((doc): doc is EmployerDocument => doc !== null);
   }
 
@@ -47,13 +48,16 @@ export class PostgresEmployerEvidenceRepository extends EmployerEvidenceReposito
     url: string,
   ): Promise<EmployerDocument | null> {
     const parsed = new URL(url);
+
     if (
       parsed.protocol !== "https:" ||
       parsed.username ||
       parsed.password ||
       parsed.port
-    )
+    ) {
       throw new Error("invalid_employer_source_configuration");
+    }
+
     const token = randomUUID();
     await sql`INSERT INTO employer_evidence_documents(url,source_id) VALUES(${url},${source}) ON CONFLICT DO NOTHING`.execute(
       this.db,
@@ -64,17 +68,26 @@ export class PostgresEmployerEvidenceRepository extends EmployerEvidenceReposito
     }>`SELECT document,next_check_at>now() AS fresh FROM employer_evidence_documents WHERE url=${url} AND source_id=${source}`.execute(
       this.db,
     );
-    if (cached.rows[0]?.fresh) return cached.rows[0].document;
+
+    if (cached.rows[0]?.fresh) {
+      return cached.rows[0].document;
+    }
+
     const claim =
       await sql`UPDATE employer_evidence_documents SET lease_token=${token}::uuid,lease_until=now()+interval '12 seconds' WHERE url=${url} AND source_id=${source} AND next_check_at<=now() AND (lease_until IS NULL OR lease_until<=now()) RETURNING url`.execute(
         this.db,
       );
-    if (!claim.rows.length) return null;
+
+    if (!claim.rows.length) {
+      return null;
+    }
+
     const document = await this.fetchDocument(url);
     const saved =
       await sql`UPDATE employer_evidence_documents SET document=${JSON.stringify(document)}::jsonb,checked_at=now(),next_check_at=now()+${document ? "6 hours" : "15 minutes"}::interval,lease_until=NULL WHERE url=${url} AND lease_token=${token}::uuid AND lease_until>now() RETURNING url`.execute(
         this.db,
       );
+
     return saved.rows.length ? document : null;
   }
 
@@ -89,29 +102,46 @@ export class PostgresEmployerEvidenceRepository extends EmployerEvidenceReposito
           "user-agent": "ScoutAlert/0.1 (employer policy research)",
         },
       });
+
       if (
         !response.ok ||
         !response.body ||
         !response.headers.get("content-type")?.includes("text/html")
-      )
+      ) {
         return null;
+      }
+
       const reader = response.body.getReader();
       const chunks: Uint8Array[] = [];
       let size = 0;
+
       try {
         for (;;) {
           const { done, value } = await reader.read();
-          if (done) break;
+
+          if (done) {
+            break;
+          }
+
           size += value.byteLength;
-          if (size > 2_000_000) throw new Error("employer_source_too_large");
+
+          if (size > 2_000_000) {
+            throw new Error("employer_source_too_large");
+          }
+
           chunks.push(value);
         }
       } finally {
         await reader.cancel();
         reader.releaseLock();
       }
+
       const text = plainText(Buffer.concat(chunks).toString("utf8")).trim();
-      if (!text || text.length > 16_000) return null;
+
+      if (!text || text.length > 16_000) {
+        return null;
+      }
+
       return {
         url,
         text,

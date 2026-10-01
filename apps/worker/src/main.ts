@@ -31,6 +31,7 @@ async function ensureSchedules(resources: WorkerResources): Promise<void> {
       interval: "1 minute",
     },
   ];
+
   for (const definition of definitions) {
     try {
       const handle = await resources.temporal.schedule.create({
@@ -47,7 +48,9 @@ async function ensureSchedules(resources: WorkerResources): Promise<void> {
       });
       await handle.trigger();
     } catch (error) {
-      if (!(error instanceof ScheduleAlreadyRunning)) throw error;
+      if (!(error instanceof ScheduleAlreadyRunning)) {
+        throw error;
+      }
     }
   }
 }
@@ -108,10 +111,12 @@ async function start(): Promise<void> {
     ),
   );
   let stopping = false;
+
   const stop = () => {
     stopping = true;
     workers.forEach((worker) => worker.shutdown());
   };
+
   process.once("SIGINT", stop);
   process.once("SIGTERM", stop);
   const polling = (async () => {
@@ -123,9 +128,11 @@ async function start(): Promise<void> {
           "Discovery dispatch unavailable; committed requests will retry.",
         );
       }
+
       await new Promise((resolve) => setTimeout(resolve, 2_000));
     }
   })();
+
   try {
     await ensureSchedules(resources);
     await Promise.all(workers.map((worker) => worker.run()));
@@ -139,4 +146,5 @@ async function start(): Promise<void> {
     await app.close();
   }
 }
+
 await start();

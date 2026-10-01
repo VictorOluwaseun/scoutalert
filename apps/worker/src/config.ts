@@ -2,10 +2,12 @@ import { z } from "zod";
 
 /** Validates execution settings before constructing clients; this host currently supports local Mailpit only. */
 export function readWorkerConfiguration(environment = process.env) {
-  if (environment.NODE_ENV === "production")
+  if (environment.NODE_ENV === "production") {
     throw new Error(
       "Configure a production email provider before deploying this worker.",
     );
+  }
+
   const result = z
     .object({
       OPENAI_API_KEY: z.string().min(1).optional(),
@@ -36,25 +38,34 @@ export function readWorkerConfiguration(environment = process.env) {
       EMAIL_FROM_NAME: z.string().default("ScoutAlert"),
     })
     .safeParse(environment);
-  if (!result.success)
+
+  if (!result.success) {
     throw new Error(
       "Configure valid worker storage, Temporal and Mailpit settings before startup.",
     );
-  if (result.data.SCOUT_AI_ENABLED === "true" && !result.data.OPENAI_API_KEY)
+  }
+
+  if (result.data.SCOUT_AI_ENABLED === "true" && !result.data.OPENAI_API_KEY) {
     throw new Error(
       "Configure OPENAI_API_KEY before enabling scout assessment.",
     );
+  }
+
   const priced = ["gpt-5.4-mini", "gpt-5.4-mini-2026-03-17"];
+
   if (
     result.data.SCOUT_AI_ENABLED === "true" &&
     (!priced.includes(result.data.SCOUT_AI_EXTRACTION_MODEL) ||
       !priced.includes(result.data.SCOUT_AI_FIT_MODEL))
-  )
+  ) {
     throw new Error(
       "Configure a reviewed pricing policy before using another assessment model.",
     );
+  }
+
   return result.data;
 }
+
 export type WorkerConfiguration = ReturnType<typeof readWorkerConfiguration>;
 
 /** Explicit initial coverage; extending coverage requires a validated connector/source decision. */

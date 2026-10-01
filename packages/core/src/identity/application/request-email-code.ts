@@ -52,18 +52,25 @@ export class RequestEmailCode {
     network: string;
   }): Promise<CodeReceipt> {
     const address = input.email.trim().toLowerCase();
+
     if (
       address.length > 254 ||
       !/^[^\s@,;<>]+@[^\s@,;<>]+\.[^\s@,;<>]+$/.test(address)
-    )
+    ) {
       throw new IdentityError("invalid_email");
+    }
+
     const browserHash = this.credentials.digest(`browser:${input.browser}`);
     const at = this.now();
     const current = await this.records.currentChallenge(browserHash, at);
     const cooldown = current
       ? Math.ceil((current.createdAt.getTime() + 60_000 - at.getTime()) / 1000)
       : 0;
-    if (cooldown > 0) throw new IdentityError("rate_limited", cooldown);
+
+    if (cooldown > 0) {
+      throw new IdentityError("rate_limited", cooldown);
+    }
+
     const retryAfter = await this.limits.reserve([
       {
         key: this.credentials.digest(`send:email:${address}`),
@@ -81,8 +88,11 @@ export class RequestEmailCode {
         windowSeconds: 3600,
       },
     ]);
-    if (retryAfter !== null)
+
+    if (retryAfter !== null) {
       throw new IdentityError("rate_limited", retryAfter);
+    }
+
     const code = this.credentials.code();
     const id = this.credentials.id();
     const result = await this.transactions.run(async (records) => {
@@ -92,7 +102,11 @@ export class RequestEmailCode {
             (previous.createdAt.getTime() + 60_000 - at.getTime()) / 1000,
           )
         : 0;
-      if (cooldown > 0) return { retryAfter: cooldown };
+
+      if (cooldown > 0) {
+        return { retryAfter: cooldown };
+      }
+
       const challenge: VerificationChallenge = {
         id,
         browserHash,
@@ -105,10 +119,14 @@ export class RequestEmailCode {
         consumedAt: null,
       };
       await records.replaceChallenge(challenge);
+
       return { challenge };
     });
-    if ("retryAfter" in result)
+
+    if ("retryAfter" in result) {
       throw new IdentityError("rate_limited", result.retryAfter);
+    }
+
     try {
       await this.email.send({
         id,
@@ -124,7 +142,9 @@ export class RequestEmailCode {
       await this.records.recordDelivery(id, delivery);
       throw new IdentityError("email_unavailable");
     }
+
     await this.records.recordDelivery(id, "accepted");
+
     return presentChallenge(result.challenge);
   }
 }

@@ -21,7 +21,11 @@ export type { SavedScout } from "../scouts/scout-contracts";
 /** Rejects malformed saved-state transport instead of claiming a scout was saved. */
 function requireSavedScout(value: unknown): SavedScout {
   const scout = parseSavedScout(value);
-  if (!scout) throw new AccountRequestError("service_unavailable");
+
+  if (!scout) {
+    throw new AccountRequestError("service_unavailable");
+  }
+
   return scout;
 }
 
@@ -38,6 +42,7 @@ export function activationPayload(draft: ScoutDraft, key: string) {
     alertConsent,
     ...search
   } = draft;
+
   return {
     key,
     search,

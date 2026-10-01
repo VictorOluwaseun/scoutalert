@@ -24,6 +24,7 @@ export function feedbackAffinity(
     .map((example) =>
       roleTerms(example.title).filter((term) => terms.includes(term)),
     );
+
   // Two shared role/task terms are required; repeated clicks cannot amplify the score.
   return (
     matches
@@ -56,6 +57,7 @@ export function rankWithFeedback(
 ): Assessment {
   const terms = feedbackAffinity(posting, examples);
   const boost = terms.length >= 2 ? 1 : 0;
+
   return {
     ...assessment,
     rank: assessment.rank + boost,

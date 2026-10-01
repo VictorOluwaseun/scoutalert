@@ -14,10 +14,13 @@ export class SourceConnectorRouter extends SourceConnector {
   ) {
     super();
   }
+
   /** Refuses unsupported names before invoking network access. */
   async read(source: string, now: Date): Promise<SourceSnapshot> {
-    if (!Object.hasOwn(this.sources, source))
+    if (!Object.hasOwn(this.sources, source)) {
       throw new Error("unsupported_source");
+    }
+
     return this.sources[source]!.read(source, now);
   }
 }
@@ -30,15 +33,18 @@ export class AvailabilitySourceRouter extends AvailabilitySource {
   ) {
     super();
   }
+
   /** Unknown sources remain unresolved and cannot qualify for a prompt alert. */
   async check(posting: Posting): Promise<AvailabilityEvidence> {
-    if (!Object.hasOwn(this.sources, posting.source))
+    if (!Object.hasOwn(this.sources, posting.source)) {
       return {
         status: "unresolved",
         checkedAt: new Date().toISOString(),
         fingerprint: null,
         sourceUrl: posting.url,
       };
+    }
+
     return this.sources[posting.source]!.check(posting);
   }
 }

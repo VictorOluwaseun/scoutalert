@@ -20,12 +20,15 @@ async function call(path, body) {
     body: body === undefined ? undefined : JSON.stringify(body),
     signal: AbortSignal.timeout(20_000),
   });
+
   for (const header of response.headers.getSetCookie()) {
     const cookie = header.split(";")[0];
     const position = cookie.indexOf("=");
     cookies.set(cookie.slice(0, position), cookie.slice(position + 1));
   }
+
   assert.equal(response.status, 200, `${path}: HTTP ${response.status}`);
+
   return response.json();
 }
 
@@ -36,6 +39,7 @@ async function messages(query) {
   const result = await fetch(url, { signal: AbortSignal.timeout(5_000) }).then(
     (response) => response.json(),
   );
+
   return result.messages;
 }
 
@@ -85,16 +89,21 @@ async function verify() {
     search: { ...search, name: "Live overlapping sales scout" },
   });
   let page;
+
   for (let attempt = 0; attempt < 120; attempt++) {
     page = await call("/api/scouts");
+
     if (
       page.items.every((item) => item.discovery === "completed") &&
       page.opportunities.length &&
       page.discovery.email.acceptedAt
-    )
+    ) {
       break;
+    }
+
     await new Promise((resolve) => setTimeout(resolve, 2000));
   }
+
   assert.ok(page.opportunities.length > 0, "No real opportunities appeared.");
   assert.ok(
     page.items.some(
@@ -133,11 +142,14 @@ async function verify() {
   const assessed = page.opportunities.filter(
     (opportunity) => opportunity.detail?.assessedBy === "ai",
   );
-  if (process.env.SCOUT_AI_LIVE_CHECK === "1")
+
+  if (process.env.SCOUT_AI_LIVE_CHECK === "1") {
     assert.ok(
       assessed.length > 0,
       "No evidence-linked AI recommendation appeared.",
     );
+  }
+
   console.info(
     JSON.stringify({
       result: "Live scouting check passed",
@@ -149,9 +161,11 @@ async function verify() {
     }),
   );
 }
+
 try {
   await verify();
 } finally {
-  if (cookies.has("scout-session") || cookies.has("__Host-scout-session"))
+  if (cookies.has("scout-session") || cookies.has("__Host-scout-session")) {
     await call("/api/identity/logout", {});
+  }
 }

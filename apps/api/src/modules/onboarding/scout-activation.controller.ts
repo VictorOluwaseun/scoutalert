@@ -38,26 +38,37 @@ export class ScoutActivationController {
     @Inject(ActivatedScoutRepository)
     private readonly scouts: ActivatedScoutRepository,
   ) {}
+
   /** Revalidates confirmed answers and obtains the owner exclusively from the verified session. */
   @Post()
   @HttpCode(200)
   activate(@Body() body: unknown, @Req() request: AccountRequest) {
     const input = activationSchema.safeParse(body);
-    if (!input.success)
+
+    if (!input.success) {
       throw new BadRequestException({ code: 'invalid_request' });
+    }
+
     return this.activateScout.execute(
       request.account.id,
       request.get('x-scout-browser')!,
       input.data,
     );
   }
+
   /** Returns no record when the ID is absent or belongs to another account. */
   @Get(':id')
   async find(@Param('id') id: string, @Req() request: AccountRequest) {
-    if (!z.uuid().safeParse(id).success)
+    if (!z.uuid().safeParse(id).success) {
       throw new BadRequestException({ code: 'invalid_request' });
+    }
+
     const scout = await this.scouts.find(request.account.id, id);
-    if (!scout) throw new NotFoundException({ code: 'scout_not_found' });
+
+    if (!scout) {
+      throw new NotFoundException({ code: 'scout_not_found' });
+    }
+
     return scout;
   }
 }

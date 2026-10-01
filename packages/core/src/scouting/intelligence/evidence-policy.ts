@@ -14,21 +14,28 @@ import {
 export function postingEvidence(posting: Posting): string {
   return `${posting.title}\n${posting.location}\n${posting.text}`;
 }
+
 /** Collects only user-confirmed search values, excluding the account identity and email. */
 export function briefEvidence(search: SearchDraft): string[] {
   return Object.values(search).filter(
     (value): value is string => typeof value === "string" && value.length > 0,
   );
 }
+
 /** Rejects fabricated quotes, unsupported certainty, and internally inconsistent compensation. */
 export function validAnalysis(
   posting: Posting,
   analysis: PostingAnalysis,
 ): boolean {
   const text = `${postingEvidence(posting)}\n${researchText(analysis)}`;
-  if (analysis.research && !validResearch(analysis.research)) return false;
+
+  if (analysis.research && !validResearch(analysis.research)) {
+    return false;
+  }
+
   const factsValid = factNames.every((name) => {
     const fact = analysis.facts[name];
+
     return (
       fact &&
       fact.quotes.every(
@@ -39,16 +46,30 @@ export function validAnalysis(
   });
   const { minimum, maximum, currency, period } = analysis.pay;
   const hasPay = minimum !== null || maximum !== null;
-  if (!factsValid) return false;
-  if (!hasPay) return true; // A currency/period may be stated while the amount remains unknown.
-  if (analysis.facts.compensation.status !== "stated" || !currency || !period)
+
+  if (!factsValid) {
     return false;
-  if (minimum !== null && (!Number.isFinite(minimum) || minimum < 0))
+  }
+
+  if (!hasPay) {
+    return true;
+  } // A currency/period may be stated while the amount remains unknown.
+
+  if (analysis.facts.compensation.status !== "stated" || !currency || !period) {
     return false;
-  if (maximum !== null && (!Number.isFinite(maximum) || maximum < 0))
+  }
+
+  if (minimum !== null && (!Number.isFinite(minimum) || minimum < 0)) {
     return false;
+  }
+
+  if (maximum !== null && (!Number.isFinite(maximum) || maximum < 0)) {
+    return false;
+  }
+
   return minimum === null || maximum === null || minimum <= maximum;
 }
+
 /** Validates all required criteria and both sides of the evidence trail before applying any business rule. */
 export function validFit(
   posting: Posting,
@@ -58,12 +79,18 @@ export function validFit(
 ): boolean {
   const text = `${postingEvidence(posting)}\n${researchText(analysis)}`;
   const brief = briefEvidence(search);
-  if (fit.criteria.length !== criterionNames.length) return false;
+
+  if (fit.criteria.length !== criterionNames.length) {
+    return false;
+  }
+
   if (
     new Set(fit.criteria.map((item) => item.criterion)).size !==
     criterionNames.length
-  )
+  ) {
     return false;
+  }
+
   return fit.criteria.every(
     (item) =>
       criterionNames.includes(item.criterion) &&
@@ -78,41 +105,55 @@ export function validFit(
         (item.quotes.length > 0 && item.briefQuotes.length > 0)),
   );
 }
+
 /** Enforces compensation arithmetic without model-generated exchange rates or guessed annual hours. */
 function payCriterion(
   search: SearchDraft,
   analysis: PostingAnalysis,
   proposed: FitCriterion,
 ): FitCriterion {
-  if (!search.minimumPay) return proposed;
-  if (proposed.status === "unknown") return proposed;
+  if (!search.minimumPay) {
+    return proposed;
+  }
+
+  if (proposed.status === "unknown") {
+    return proposed;
+  }
+
   const pay = analysis.pay;
   const minimum = Number(search.minimumPay);
+
   if (
     analysis.facts.compensation.status !== "stated" ||
     pay.currency !== search.currency ||
     pay.period !== search.payPeriod ||
     !Number.isFinite(minimum)
-  )
+  ) {
     return {
       ...proposed,
       status: "unknown",
       explanation:
         "Pay cannot yet be compared with your minimum in the same currency and period.",
     };
-  if (pay.maximum !== null && pay.maximum < minimum)
+  }
+
+  if (pay.maximum !== null && pay.maximum < minimum) {
     return {
       ...proposed,
       status: "conflicts",
       explanation: "The stated pay range is below your minimum.",
     };
-  if (pay.minimum !== null && pay.minimum >= minimum)
+  }
+
+  if (pay.minimum !== null && pay.minimum >= minimum) {
     return {
       ...proposed,
       status: "meets",
       explanation:
         "The stated minimum pay meets your minimum in the same currency and period.",
     };
+  }
+
   return {
     ...proposed,
     status: "unknown",
@@ -120,6 +161,7 @@ function payCriterion(
       "The range does not guarantee your minimum; the offered amount needs confirmation.",
   };
 }
+
 /** Unknowns and contradictions stay visible; a model cannot waive a confirmed must-have. */
 export function assessPersonalFit(
   search: SearchDraft,
@@ -127,17 +169,23 @@ export function assessPersonalFit(
   fit: PersonalFit,
 ): Assessment | null {
   const criteria = fit.criteria.map((item): FitCriterion => {
-    if (item.criterion === "arrangement")
+    if (item.criterion === "arrangement") {
       return arrangementCriterion(search, analysis, item);
-    if (item.criterion === "compensation")
+    }
+
+    if (item.criterion === "compensation") {
       return payCriterion(search, analysis, item);
-    if (item.criterion === "experience" && !search.background.trim())
+    }
+
+    if (item.criterion === "experience" && !search.background.trim()) {
       return {
         ...item,
         status: "unknown",
         explanation:
           "Add your experience before we can assess these requirements.",
       };
+    }
+
     // A positive authorization comparison needs explicit, current user-declared details.
     if (
       item.criterion === "authorization" &&
@@ -148,55 +196,77 @@ export function assessPersonalFit(
         search.sponsorshipNeed === "unknown" ||
         (search.sponsorshipNeed === "needed" &&
           analysis.facts.sponsorship.status !== "stated"))
-    )
+    ) {
       return {
         ...item,
         status: "unknown",
         explanation:
           "Your authorization details or the employer’s sponsorship requirements still need confirmation.",
       };
+    }
+
     const factName =
       item.criterion === "experience" ? "requirements" : item.criterion;
-    if (analysis.facts[factName].status !== "stated" && item.status === "meets")
+
+    if (
+      analysis.facts[factName].status !== "stated" &&
+      item.status === "meets"
+    ) {
       return {
         ...item,
         status: "unknown",
         explanation:
           "The posting does not provide clear, consistent evidence for this requirement.",
       };
+    }
+
     return item;
   });
   const get = (name: FitCriterion["criterion"]) =>
     criteria.find((item) => item.criterion === name)!;
-  if (get("role").status !== "meets" || get("category").status !== "meets")
+
+  if (get("role").status !== "meets" || get("category").status !== "meets") {
     return null;
+  }
+
   if (
     get("location").status === "conflicts" ||
     get("authorization").status === "conflicts"
-  )
+  ) {
     return null;
-  if (search.arrangementRequired && get("arrangement").status !== "meets")
+  }
+
+  if (search.arrangementRequired && get("arrangement").status !== "meets") {
     return null;
-  if (search.minimumPay && get("compensation").status === "conflicts")
+  }
+
+  if (search.minimumPay && get("compensation").status === "conflicts") {
     return null;
+  }
+
   if (
     search.unknownEligibility === "exclude" &&
     [get("location"), get("authorization")].some(
       (item) => item.status !== "meets",
     )
-  )
+  ) {
     return null;
+  }
+
   if (
     search.undisclosedPay === "exclude" &&
     analysis.facts.compensation.status !== "stated"
-  )
+  ) {
     return null;
+  }
+
   const reasons = criteria
     .filter((item) => item.status === "meets")
     .map((item) => item.explanation);
   const uncertainties = criteria
     .filter((item) => item.status !== "meets")
     .map((item) => item.explanation);
+
   return {
     policy: "personal-fit-v1",
     reasons,

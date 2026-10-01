@@ -31,6 +31,7 @@ export const config = [
       turbo: turboPlugin,
     },
     rules: {
+      curly: ["error", "all"],
       "turbo/no-undeclared-env-vars": "warn",
     },
   },

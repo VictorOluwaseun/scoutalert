@@ -5,6 +5,7 @@ import { ReviewSearchDraft } from "../../packages/core/dist/onboarding/public.js
 /** Hashes frozen evidence and synthetic inputs; labels are independently versioned and never alter source identity. */
 export function corpusHash(corpus) {
   const { postings, documents, briefs } = corpus;
+
   return createHash("sha256")
     .update(JSON.stringify({ postings, documents, briefs }))
     .digest("hex");
@@ -18,6 +19,7 @@ export function validateCorpus(corpus) {
     corpusHash(corpus),
     "Frozen corpus content changed",
   );
+
   for (const key of ["postings", "briefs", "cases"]) {
     assert.ok(corpus[key].length > 0, `Empty ${key}`);
     assert.equal(
@@ -26,11 +28,13 @@ export function validateCorpus(corpus) {
       `Duplicate ${key}`,
     );
   }
+
   assert.ok(
     corpus.cases.length <= 1000,
     "Maximum 1,000 explicit evaluation pairs",
   );
   const pairs = new Set();
+
   for (const entry of corpus.cases) {
     assert.ok(
       corpus.briefs.some((item) => item.id === entry.briefId),
@@ -49,6 +53,7 @@ export function validateCorpus(corpus) {
     );
     pairs.add(pair);
   }
+
   // Prior feedback is an explicit synthetic input, never a label derived from the evaluation answers.
   for (const brief of corpus.briefs) {
     const checked = new ReviewSearchDraft().execute(brief.search);
@@ -56,6 +61,7 @@ export function validateCorpus(corpus) {
       checked.ready,
       `Invalid synthetic brief ${brief.id}: ${JSON.stringify(checked.issues ?? [])}`,
     );
+
     for (const example of brief.feedbackHistory ?? []) {
       assert.equal(example.provenance, "synthetic-prior-feedback");
       assert.ok(
@@ -64,6 +70,7 @@ export function validateCorpus(corpus) {
       );
     }
   }
+
   return corpus;
 }
 
@@ -105,6 +112,7 @@ export function applyReviews(corpus, packet) {
     "Duplicate review IDs",
   );
   const updates = new Map();
+
   for (const entry of packet.reviews) {
     const previous = corpus.cases.find((item) => item.id === entry.id);
     assert.ok(previous, "Review references an unknown pair");
@@ -123,6 +131,7 @@ export function applyReviews(corpus, packet) {
     );
     updates.set(entry.id, structuredClone(entry.review));
   }
+
   return {
     ...corpus,
     cases: corpus.cases.map((entry) => ({

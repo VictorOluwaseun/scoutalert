@@ -20,26 +20,34 @@ export class PostgresSourceRepository extends SourceRepository {
         AND (opportunity_sources.checked_at IS NULL OR opportunity_sources.checked_at < ${now}::timestamptz - interval '5 minutes')
       RETURNING lease_token
     `.execute(this.db);
+
     return result.rows[0]?.lease_token ?? null;
   }
 
   /** Bulk upserts evidence once per meaningful version; source locking prevents late lease holders from publishing. */
   async publish(snapshot: SourceSnapshot, lease: string): Promise<void> {
     const kind = snapshot.kind ?? "job";
+
     if (
       snapshot.postings.some(
         (posting) =>
           posting.source !== snapshot.source ||
           (posting.kind ?? "job") !== kind,
       )
-    )
+    ) {
       throw new Error("invalid_source_snapshot");
+    }
+
     await this.db.transaction().execute(async (tx) => {
       const owner =
         await sql`SELECT id FROM opportunity_sources WHERE id=${snapshot.source} AND lease_token=${lease}::uuid AND lease_until>now() FOR UPDATE`.execute(
           tx,
         );
-      if (!owner.rows.length) throw new Error("source_lease_expired");
+
+      if (!owner.rows.length) {
+        throw new Error("source_lease_expired");
+      }
+
       await sql`
         INSERT INTO opportunity_postings (id,source_id,external_id,family_id,company,title,location,url,content,fingerprint,version,source_updated_at,checked_at,open,kind)
         SELECT p.id,${snapshot.source},p."externalId",p."familyId",p.company,p.title,p.location,p.url,p.text,p.fingerprint,1,p."sourceUpdatedAt"::timestamptz,${snapshot.checkedAt}::timestamptz,true,${kind}

@@ -15,6 +15,7 @@ export function EditScoutAlerts({
 }) {
   const email = alerts.frequency !== "dashboard";
   const quiet = alerts.quietHours ?? { start: "20:00", end: "08:00" };
+
   /** Dashboard-only clears email permissions; moving back to email requires a fresh affirmative choice. */
   function frequency(value: ManagedScout["alerts"]["frequency"]): void {
     update({
@@ -24,6 +25,7 @@ export function EditScoutAlerts({
       promptAlerts: value === "dashboard" ? false : alerts.promptAlerts,
     });
   }
+
   return (
     <fieldset className="workspace-edit-section" disabled={disabled}>
       <legend>Your alerts</legend>

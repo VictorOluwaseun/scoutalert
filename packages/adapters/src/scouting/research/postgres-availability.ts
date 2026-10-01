@@ -36,11 +36,16 @@ export class PostgresAvailabilityRepository extends AvailabilityRepository {
         ORDER BY a.next_check_at,p.id LIMIT 1 FOR UPDATE OF a SKIP LOCKED
       `.execute(tx);
       const posting = row.rows[0];
-      if (!posting) return null;
+
+      if (!posting) {
+        return null;
+      }
+
       const token = randomUUID();
       await sql`UPDATE posting_availability SET lease_token=${token}::uuid,lease_until=now()+interval '30 seconds' WHERE posting_id=${posting.id} AND posting_version=${posting.version}`.execute(
         tx,
       );
+
       return { token, posting };
     });
   }
@@ -55,12 +60,18 @@ export class PostgresAvailabilityRepository extends AvailabilityRepository {
         RETURNING posting_id,posting_version
       `.execute(tx);
       const saved = result.rows[0];
-      if (!saved) return;
+
+      if (!saved) {
+        return;
+      }
+
       // Only a current, equal-content observation can renew freshness outside a rolling feed window.
-      if (evidence.status === "available")
+      if (evidence.status === "available") {
         await sql`UPDATE opportunity_postings SET checked_at=now() WHERE id=${saved.posting_id} AND version=${saved.posting_version} AND fingerprint=${evidence.fingerprint} AND open`.execute(
           tx,
         );
+      }
+
       await sql`INSERT INTO posting_availability_observations(id,posting_id,posting_version,evidence) VALUES(${token}::uuid,${saved.posting_id},${saved.posting_version},${JSON.stringify(evidence)}::jsonb) ON CONFLICT DO NOTHING`.execute(
         tx,
       );

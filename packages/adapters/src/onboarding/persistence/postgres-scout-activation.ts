@@ -17,6 +17,7 @@ export class PostgresScoutActivationUnitOfWork extends ScoutActivationUnitOfWork
   constructor(private readonly db: Kysely<ScoutAlertDatabase>) {
     super();
   }
+
   /** Rollback includes the approved draft, consent and outbox if any repository fails. */
   run<T>(
     operation: (records: ScoutActivationTransaction) => Promise<T>,
@@ -35,10 +36,12 @@ export class NodeScoutActivationIdentity extends ScoutActivationIdentity {
   id(): string {
     return randomUUID();
   }
+
   /** Hashes the schema-ordered request snapshot; persisted fingerprints carry no raw brief. */
   fingerprint(input: ScoutActivation): string {
     return createHash("sha256").update(JSON.stringify(input)).digest("hex");
   }
+
   /** Stores a digest of the high-entropy browser handle used to claim this draft. */
   browserHash(browser: string): string {
     return createHash("sha256").update(browser).digest("hex");
@@ -54,18 +57,21 @@ export class PostgresActivatedScoutRepository
   constructor(private readonly db: Kysely<ScoutAlertDatabase>) {
     super();
   }
+
   /** Ownership is checked in SQL before any personal search details are returned. */
   async find(ownerId: string, id: string) {
     const row = await this.ownedQuery(ownerId)
       .where("scouts.id", "=", id)
       .executeTakeFirst();
+
     return row ? this.toScout(row) : null;
   }
 
   /** Uses bounded keyset pagination, with ownership enforced before any personal fields are returned. */
   async list(ownerId: string, after: ScoutCursor | null, limit: number) {
     let query = this.ownedQuery(ownerId);
-    if (after)
+
+    if (after) {
       query = query.where((eb) =>
         eb.or([
           eb("scouts.activated_at", "<", new Date(after.activatedAt)),
@@ -75,11 +81,14 @@ export class PostgresActivatedScoutRepository
           ]),
         ]),
       );
+    }
+
     const rows = await query
       .orderBy("scouts.activated_at", "desc")
       .orderBy("scouts.id", "desc")
       .limit(limit)
       .execute();
+
     return rows.map((row) => this.toScout(row));
   }
 
