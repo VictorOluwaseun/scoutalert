@@ -10,10 +10,11 @@
     "build": "nest build",
     "deploy": "nest deploy",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
-    "dev": "nest start --watch",
+    "dev": "pnpm --filter @repo/core build && pnpm --filter @repo/adapters build && nest start --watch",
+    "email:check": "pnpm --filter @repo/core build && pnpm --filter @repo/adapters build && nest build && node dist/scripts/check-email.js",
     "check-types": "tsc --noEmit",
     "start": "nest start",
-    "start:dev": "nest start --watch",
+    "start:dev": "pnpm --filter @repo/core build && pnpm --filter @repo/adapters build && nest start --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
     "lint": "oxlint --type-aware src/ test/",
@@ -21,7 +22,8 @@
     "test:watch": "vitest",
     "test:cov": "vitest run --coverage",
     "test:debug": "vitest --inspect-brk --no-file-parallelism",
-    "test:e2e": "vitest run --config ./vitest.config.e2e.ts"
+    "test:e2e": "vitest run --config ./vitest.config.e2e.ts",
+    "db:migrate": "pnpm --filter @repo/core build && pnpm --filter @repo/adapters build && nest build && node dist/scripts/migrate.js"
   },
   "dependencies": {
     "@nestjs/bullmq": "12.0.0",
@@ -29,10 +31,12 @@
     "@nestjs/core": "^12.0.1",
     "@nestjs/observe": "^0.3.0",
     "@nestjs/platform-express": "^12.0.1",
+    "@repo/adapters": "workspace:*",
     "@repo/core": "workspace:*",
     "bullmq": "6.3.9",
     "reflect-metadata": "^0.2.2",
-    "rxjs": "^7.8.1"
+    "rxjs": "^7.8.1",
+    "zod": "4.4.3"
   },
   "devDependencies": {
     "@nestjs/cli": "^12.0.0",

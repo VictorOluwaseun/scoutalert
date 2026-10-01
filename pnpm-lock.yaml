@@ -25,7 +25,7 @@ importers:
     dependencies:
       '@nestjs/bullmq':
         specifier: 12.0.0
-        version: 12.0.0(@nestjs/common@12.1.0(reflect-metadata@0.2.2)(rxjs@7.8.2)(supports-color@7.2.0))(@nestjs/core@12.1.0)(bullmq@6.3.9(ioredis@6.0.0(supports-color@7.2.0))(pg@8.23.0))
+        version: 12.0.0(@nestjs/common@12.1.0(reflect-metadata@0.2.2)(rxjs@7.8.2)(supports-color@7.2.0))(@nestjs/core@12.1.0)(bullmq@6.3.9(ioredis@6.0.0(supports-color@8.1.1))(pg@8.23.0))
       '@nestjs/common':
         specifier: ^12.0.1
         version: 12.1.0(reflect-metadata@0.2.2)(rxjs@7.8.2)(supports-color@7.2.0)
@@ -34,26 +34,32 @@ importers:
         version: 12.1.0(@nestjs/common@12.1.0(reflect-metadata@0.2.2)(rxjs@7.8.2)(supports-color@7.2.0))(@nestjs/platform-express@12.1.0)(reflect-metadata@0.2.2)(rxjs@7.8.2)
       '@nestjs/observe':
         specifier: ^0.3.0
-        version: 0.3.2(@nestjs/bullmq@12.0.0(@nestjs/common@12.1.0(reflect-metadata@0.2.2)(rxjs@7.8.2)(supports-color@7.2.0))(@nestjs/core@12.1.0)(bullmq@6.3.9(ioredis@6.0.0(supports-color@7.2.0))(pg@8.23.0)))(@nestjs/common@12.1.0(reflect-metadata@0.2.2)(rxjs@7.8.2)(supports-color@7.2.0))(@nestjs/core@12.1.0)(bullmq@6.3.9(ioredis@6.0.0(supports-color@7.2.0))(pg@8.23.0))(reflect-metadata@0.2.2)(rxjs@7.8.2)
+        version: 0.3.2(@nestjs/bullmq@12.0.0(@nestjs/common@12.1.0(reflect-metadata@0.2.2)(rxjs@7.8.2)(supports-color@7.2.0))(@nestjs/core@12.1.0)(bullmq@6.3.9(ioredis@6.0.0(supports-color@8.1.1))(pg@8.23.0)))(@nestjs/common@12.1.0(reflect-metadata@0.2.2)(rxjs@7.8.2)(supports-color@7.2.0))(@nestjs/core@12.1.0)(bullmq@6.3.9(ioredis@6.0.0(supports-color@8.1.1))(pg@8.23.0))(reflect-metadata@0.2.2)(rxjs@7.8.2)
       '@nestjs/platform-express':
         specifier: ^12.0.1
-        version: 12.1.0(@nestjs/common@12.1.0(reflect-metadata@0.2.2)(rxjs@7.8.2)(supports-color@7.2.0))(@nestjs/core@12.1.0)(supports-color@7.2.0)
+        version: 12.1.0(@nestjs/common@12.1.0(reflect-metadata@0.2.2)(rxjs@7.8.2)(supports-color@7.2.0))(@nestjs/core@12.1.0)(supports-color@8.1.1)
+      '@repo/adapters':
+        specifier: workspace:*
+        version: link:../../packages/adapters
       '@repo/core':
         specifier: workspace:*
         version: link:../../packages/core
       bullmq:
         specifier: 6.3.9
-        version: 6.3.9(ioredis@6.0.0(supports-color@7.2.0))(pg@8.23.0)
+        version: 6.3.9(ioredis@6.0.0(supports-color@8.1.1))(pg@8.23.0)
       reflect-metadata:
         specifier: ^0.2.2
         version: 0.2.2
       rxjs:
         specifier: ^7.8.1
         version: 7.8.2
+      zod:
+        specifier: 4.4.3
+        version: 4.4.3
     devDependencies:
       '@nestjs/cli':
         specifier: ^12.0.0
-        version: 12.0.7(@types/node@24.19.0)(prettier@3.9.6)
+        version: 12.0.7(@swc/core@1.16.12(@swc/helpers@0.5.23))(@types/node@24.19.0)(prettier@3.9.6)(webpack@5.111.1(@swc/core@1.16.12(@swc/helpers@0.5.23))(lightningcss@1.33.0)(postcss@8.5.28)(sharp@0.35.4(@types/node@24.19.0)))
       '@nestjs/mau':
         specifier: ^0.2.6
         version: 0.2.8
@@ -95,7 +101,7 @@ importers:
         version: 6.0.3
       vitest:
         specifier: ^4.1.2
-        version: 4.1.11(@types/node@24.19.0)(@vitest/coverage-v8@4.1.11)(vite@8.3.1(@types/node@24.19.0)(jiti@2.7.0))
+        version: 4.1.11(@types/node@24.19.0)(@vitest/coverage-v8@4.1.11)(vite@8.3.1(@types/node@24.19.0)(jiti@2.7.0)(terser@5.51.2))
 
   apps/docs:
     dependencies:
