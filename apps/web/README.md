@@ -1,36 +1,31 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/create-next-app).
+# ScoutAlert web
 
-## Getting Started
+The product interface uses Next.js, React, Tailwind CSS, and the shared UI package. The first implemented experience is an onboarding experience with connected review, identity and scout saving at `/` and `/onboarding`.
 
-First, run the development server:
+## Development
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+From the repository root:
+
+```sh
+pnpm --filter web dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [localhost:3030/onboarding](http://localhost:3030/onboarding). This starts only the web app. The root URL redirects to onboarding, and step URLs preserve browser Back and Forward navigation.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+For connected onboarding, start the web and API hosts together with `pnpm dev:start`. The API dev command builds core and adapters before starting. Run `pnpm --filter api db:migrate` first. Match the private `WEB_API_SECRET` between `apps/api/.env` and `apps/web/.env.local`. The web route uses `http://127.0.0.1:4040` in development; set `SCOUTALERT_API_URL` for another API origin or in production.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load Inter, a custom Google Font.
+```sh
+pnpm --filter web lint
+pnpm --filter web check-types
+pnpm --filter web build
+```
 
-## Learn More
+## Onboarding
 
-To learn more about Next.js, take a look at the following resources:
+Presentation components, the draft view model, fixtures, and browser draft recovery live in `features/onboarding`. Reusable visual primitives live in `packages/ui`; route entry points remain in `app`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Email/code screens use real Mailpit codes; sessions stay in HttpOnly cookies. Scout saving, limited Greenhouse discovery and scheduled Mailpit digests are connected. Results identify their sources and unresolved fit criteria.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The completion action opens [the dashboard](http://localhost:3030/dashboard), which server-renders account-owned scouts, confirmed briefs, alert choices, current discovery status and real opportunity evidence. Returning users can use `/sign-in` without repeating onboarding. The optional `/dashboard/examples` preview remains fictional. Read [the dashboard notes](features/scouts/README.md) for ownership, paging and UI boundaries.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Read [the onboarding notes](features/onboarding/README.md) for the flow, preview boundaries, and verification checklist.

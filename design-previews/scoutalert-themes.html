@@ -1,0 +1,490 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&display=swap">
+<style>
+  #scoutalert-theme-directions .sa-variant {
+    --sa-canvas: #F6F7F8;
+    --sa-ink: #191C22;
+    --sa-muted: #646B77;
+    --sa-surface: #FFFFFF;
+    --sa-line: #DDE1E6;
+    --sa-accent: #D9EF70;
+    --sa-accent-ink: #191C22;
+    --sa-soft: #F1F5DF;
+    --sa-radius: 6px;
+    --sa-font: "Manrope", sans-serif;
+    font-family: var(--sa-font);
+  }
+  #scoutalert-theme-directions .sa-graphite {
+    --sa-canvas: #F7F8FB;
+    --sa-ink: #20242D;
+    --sa-accent: #345AF4;
+    --sa-accent-ink: #FFFFFF;
+    --sa-soft: #EEF2FF;
+    --sa-radius: 10px;
+    --sa-font: "IBM Plex Sans", sans-serif;
+  }
+  #scoutalert-theme-directions .sa-midnight {
+    --sa-canvas: #F3F5F6;
+    --sa-ink: #19232E;
+    --sa-accent: #C96942;
+    --sa-accent-ink: #19232E;
+    --sa-soft: #F8EEE8;
+    --sa-radius: 8px;
+    --sa-font: "DM Sans", sans-serif;
+  }
+  #scoutalert-theme-directions .sa-product,
+  #scoutalert-theme-directions .sa-product * { box-sizing: border-box; }
+  #scoutalert-theme-directions .sa-product {
+    color-scheme: light;
+    background: var(--sa-canvas);
+    color: var(--sa-ink);
+    min-height: 1030px;
+    font-size: 14px;
+    line-height: 1.55;
+    border: 1px solid var(--sa-line);
+    overflow-wrap: anywhere;
+  }
+  #scoutalert-theme-directions .sa-product button,
+  #scoutalert-theme-directions .sa-product input,
+  #scoutalert-theme-directions .sa-product select { font: inherit; }
+  #scoutalert-theme-directions .sa-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 24px 38px;
+    border-bottom: 1px solid var(--sa-line);
+  }
+  #scoutalert-theme-directions .sa-brand { display: flex; align-items: center; gap: 10px; font-size: 20px; font-weight: 800; letter-spacing: -.9px; }
+  #scoutalert-theme-directions .sa-brand-mark { display: grid; place-items: center; width: 31px; height: 31px; background: var(--sa-ink); color: var(--sa-accent); border-radius: 7px; }
+  #scoutalert-theme-directions .sa-brand-mark svg { width: 19px; height: 19px; }
+  #scoutalert-theme-directions .sa-topbar-note { color: var(--sa-muted); font-size: 12px; }
+  #scoutalert-theme-directions .sa-progress { display: flex; gap: 22px; padding: 21px 38px; margin: 0; list-style: none; border-bottom: 1px solid var(--sa-line); color: var(--sa-muted); font-size: 12px; }
+  #scoutalert-theme-directions .sa-progress li { display: flex; align-items: center; gap: 8px; }
+  #scoutalert-theme-directions .sa-progress li[aria-current="step"] { color: var(--sa-ink); font-weight: 700; }
+  #scoutalert-theme-directions .sa-step-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--sa-line); }
+  #scoutalert-theme-directions [aria-current="step"] .sa-step-dot { background: var(--sa-accent); box-shadow: 0 0 0 4px var(--sa-soft); }
+  #scoutalert-theme-directions .sa-progress svg { width: 14px; height: 14px; }
+  #scoutalert-theme-directions .sa-workspace { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, .9fr); gap: 46px; padding: 42px 38px 36px; }
+  #scoutalert-theme-directions .sa-form-area { min-width: 0; }
+  #scoutalert-theme-directions .sa-form-area h1 { font-size: clamp(30px, 3.5vw, 43px); line-height: 1.1; font-weight: 800; letter-spacing: -1.9px; margin: 0 0 17px; color: var(--sa-ink); }
+  #scoutalert-theme-directions .sa-lede { color: var(--sa-muted); margin: 0 0 27px; max-width: 440px; font-size: 14px; line-height: 1.7; }
+  #scoutalert-theme-directions .sa-form { display: flex; flex-direction: column; gap: 20px; }
+  #scoutalert-theme-directions .sa-form[hidden],
+  #scoutalert-theme-directions .sa-brief-review[hidden] { display: none; }
+  #scoutalert-theme-directions .sa-form fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
+  #scoutalert-theme-directions .sa-form legend,
+  #scoutalert-theme-directions .sa-field > span { display: block; margin-bottom: 9px; font-size: 12px; font-weight: 700; }
+  #scoutalert-theme-directions .sa-options { display: flex; flex-wrap: wrap; gap: 8px; }
+  #scoutalert-theme-directions .sa-option { border: 1px solid var(--sa-line); border-radius: var(--sa-radius); padding: 10px 12px; color: var(--sa-ink); background: var(--sa-surface); display: flex; align-items: center; gap: 8px; min-height: 44px; }
+  #scoutalert-theme-directions .sa-option[aria-pressed="true"] { border-color: var(--sa-ink); background: var(--sa-soft); }
+  #scoutalert-theme-directions .sa-option svg { width: 15px; height: 15px; }
+  #scoutalert-theme-directions .sa-field { display: block; }
+  #scoutalert-theme-directions .sa-field input,
+  #scoutalert-theme-directions .sa-field select { border: 1px solid var(--sa-line); border-radius: var(--sa-radius); padding: 13px 14px; min-height: 48px; width: 100%; color: var(--sa-ink); background: var(--sa-surface); }
+  #scoutalert-theme-directions .sa-field small { display: block; margin-top: 7px; font-size: 12px; color: var(--sa-muted); }
+  #scoutalert-theme-directions .sa-check { display: flex; align-items: center; gap: 9px; min-height: 44px; font-size: 12px; color: var(--sa-muted); }
+  #scoutalert-theme-directions .sa-check input { width: 17px; height: 17px; accent-color: var(--sa-ink); }
+  #scoutalert-theme-directions .sa-action { display: inline-flex; align-items: center; justify-content: center; gap: 10px; border: 0; border-radius: var(--sa-radius); min-height: 48px; padding: 13px 22px; background: var(--sa-ink); color: var(--sa-surface); font-weight: 700; align-self: flex-start; }
+  #scoutalert-theme-directions .sa-action svg { width: 16px; height: 16px; }
+  #scoutalert-theme-directions .sa-action:hover { opacity: .9; }
+  #scoutalert-theme-directions .sa-form-foot { display: flex; align-items: center; gap: 7px; font-size: 12px; color: var(--sa-muted); }
+  #scoutalert-theme-directions .sa-form-foot svg { width: 14px; height: 14px; }
+  #scoutalert-theme-directions .sa-scout-area { margin-top: 5px; min-width: 0; }
+  #scoutalert-theme-directions .sa-scout-panel { padding: 27px 24px; background: var(--sa-ink); color: var(--sa-surface); border-radius: calc(var(--sa-radius) + 4px); }
+  #scoutalert-theme-directions .sa-scout-heading { display: flex; gap: 10px; align-items: center; font-size: 12px; margin-bottom: 20px; }
+  #scoutalert-theme-directions .sa-scout-heading > span { width: 31px; height: 31px; background: var(--sa-accent); color: var(--sa-accent-ink); border-radius: var(--sa-radius); display: grid; place-items: center; }
+  #scoutalert-theme-directions .sa-scout-heading svg { width: 19px; height: 19px; }
+  #scoutalert-theme-directions .sa-scout-panel h2 { font-size: 24px; font-weight: 700; line-height: 1.25; letter-spacing: -.9px; margin: 0 0 15px; color: inherit; }
+  #scoutalert-theme-directions .sa-scout-meta { font-size: 12px; color: #C7CBD2; display: flex; flex-wrap: wrap; gap: 8px 15px; padding-bottom: 21px; border-bottom: 1px solid #444851; }
+  #scoutalert-theme-directions .sa-scout-meta span { display: flex; gap: 6px; align-items: center; }
+  #scoutalert-theme-directions .sa-scout-meta svg { width: 14px; height: 14px; }
+  #scoutalert-theme-directions .sa-scout-detail { margin: 18px 0 0; font-size: 12px; color: #C7CBD2; line-height: 1.7; }
+  #scoutalert-theme-directions .sa-scout-detail strong { color: var(--sa-surface); font-weight: 600; display: block; margin-bottom: 5px; }
+  #scoutalert-theme-directions .sa-example { margin-top: 24px; }
+  #scoutalert-theme-directions .sa-example-label { display: flex; align-items: center; gap: 6px; color: var(--sa-muted); font-size: 12px; margin: 0 0 12px; }
+  #scoutalert-theme-directions .sa-example-label svg { width: 14px; height: 14px; }
+  #scoutalert-theme-directions .sa-opportunity { padding: 19px; border: 1px solid var(--sa-line); border-radius: var(--sa-radius); background: var(--sa-surface); }
+  #scoutalert-theme-directions .sa-opportunity-top { display: flex; justify-content: space-between; gap: 12px; align-items: center; }
+  #scoutalert-theme-directions .sa-company { color: var(--sa-muted); font-size: 12px; }
+  #scoutalert-theme-directions .sa-save { background: transparent; border: 0; color: var(--sa-muted); padding: 7px; min-width: 44px; min-height: 44px; display: grid; place-items: center; }
+  #scoutalert-theme-directions .sa-save[aria-pressed="true"] { color: var(--sa-ink); background: var(--sa-soft); border-radius: var(--sa-radius); }
+  #scoutalert-theme-directions .sa-save svg { width: 17px; height: 17px; }
+  #scoutalert-theme-directions .sa-opportunity h3 { font-size: 17px; font-weight: 700; letter-spacing: -.3px; margin: 5px 0 10px; color: var(--sa-ink); }
+  #scoutalert-theme-directions .sa-job-facts { color: var(--sa-muted); font-size: 12px; display: flex; flex-wrap: wrap; gap: 8px 15px; }
+  #scoutalert-theme-directions .sa-job-facts span { display: flex; gap: 6px; align-items: center; }
+  #scoutalert-theme-directions .sa-job-facts svg { width: 13px; height: 13px; }
+  #scoutalert-theme-directions .sa-fit-note { margin: 17px 0 0; border-top: 1px solid var(--sa-line); padding-top: 13px; display: flex; gap: 7px; align-items: flex-start; color: var(--sa-muted); font-size: 12px; }
+  #scoutalert-theme-directions .sa-fit-note svg { width: 15px; height: 15px; flex-shrink: 0; margin-top: 2px; }
+  #scoutalert-theme-directions .sa-colour-key { display: flex; flex-wrap: wrap; gap: 12px 25px; padding: 16px 0 18px; color: light-dark(#4C5260, #CAD0DA); font-size: 12px; }
+  #scoutalert-theme-directions .sa-colour-key span { display: flex; gap: 8px; align-items: center; }
+  #scoutalert-theme-directions .sa-colour-key i { width: 16px; height: 16px; border-radius: 4px; border: 1px solid #B6BEC9; }
+  #scoutalert-theme-directions .sa-brief-review { padding: 20px; border: 1px solid var(--sa-line); background: var(--sa-surface); border-radius: var(--sa-radius); }
+  #scoutalert-theme-directions .sa-brief-review h2 { font-size: 20px; margin: 0 0 10px; font-weight: 700; color: var(--sa-ink); }
+  #scoutalert-theme-directions .sa-brief-review dl { margin: 0; }
+  #scoutalert-theme-directions .sa-brief-review dl > div { display: grid; grid-template-columns: 105px minmax(0, 1fr); gap: 10px; padding: 12px 0; border-top: 1px solid var(--sa-line); }
+  #scoutalert-theme-directions .sa-brief-review dt { color: var(--sa-muted); font-size: 12px; }
+  #scoutalert-theme-directions .sa-brief-review dd { margin: 0; font-size: 12px; }
+  #scoutalert-theme-directions .sa-graphite .sa-topbar { background: var(--sa-surface); }
+  #scoutalert-theme-directions .sa-graphite .sa-brand { font-weight: 600; letter-spacing: -.7px; }
+  #scoutalert-theme-directions .sa-graphite .sa-brand-mark { background: var(--sa-accent); color: var(--sa-accent-ink); }
+  #scoutalert-theme-directions .sa-graphite .sa-product-body { display: grid; grid-template-columns: 134px minmax(0, 1fr); }
+  #scoutalert-theme-directions .sa-graphite .sa-progress { flex-direction: column; gap: 28px; padding: 44px 16px 20px 25px; border-bottom: 0; border-right: 1px solid var(--sa-line); }
+  #scoutalert-theme-directions .sa-graphite .sa-workspace { padding: 43px 28px 35px; gap: 25px; grid-template-columns: minmax(0, 1.2fr) minmax(0, .9fr); }
+  #scoutalert-theme-directions .sa-graphite .sa-form-area h1 { font-weight: 600; letter-spacing: -1.1px; font-size: 35px; }
+  #scoutalert-theme-directions .sa-graphite .sa-options { flex-direction: column; }
+  #scoutalert-theme-directions .sa-graphite .sa-option { padding: 11px 15px; }
+  #scoutalert-theme-directions .sa-graphite .sa-option[aria-pressed="true"] { border-color: var(--sa-accent); color: var(--sa-accent); }
+  #scoutalert-theme-directions .sa-graphite .sa-action { background: var(--sa-accent); color: var(--sa-accent-ink); }
+  #scoutalert-theme-directions .sa-graphite .sa-scout-panel { background: var(--sa-surface); color: var(--sa-ink); border: 1px solid var(--sa-line); padding: 23px 20px; border-top: 3px solid var(--sa-accent); }
+  #scoutalert-theme-directions .sa-graphite .sa-scout-meta { color: var(--sa-muted); border-color: var(--sa-line); }
+  #scoutalert-theme-directions .sa-graphite .sa-scout-detail { color: var(--sa-muted); }
+  #scoutalert-theme-directions .sa-graphite .sa-scout-detail strong { color: var(--sa-ink); }
+  #scoutalert-theme-directions .sa-graphite .sa-opportunity { padding: 18px 0; background: transparent; border-width: 1px 0 0; border-radius: 0; }
+  #scoutalert-theme-directions .sa-midnight .sa-topbar { background: var(--sa-ink); color: var(--sa-surface); border-color: #39434E; }
+  #scoutalert-theme-directions .sa-midnight .sa-topbar-note { color: #C7CBD2; }
+  #scoutalert-theme-directions .sa-midnight .sa-brand-mark { background: var(--sa-accent); color: var(--sa-surface); }
+  #scoutalert-theme-directions .sa-midnight .sa-progress { background: var(--sa-ink); color: #C7CBD2; border: 0; padding: 23px 38px; }
+  #scoutalert-theme-directions .sa-midnight .sa-progress [aria-current="step"] { color: var(--sa-surface); }
+  #scoutalert-theme-directions .sa-midnight .sa-progress .sa-step-dot { background: #5E6874; }
+  #scoutalert-theme-directions .sa-midnight .sa-progress [aria-current="step"] .sa-step-dot { background: var(--sa-accent); box-shadow: none; }
+  #scoutalert-theme-directions .sa-midnight .sa-workspace { grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); gap: 46px; padding-top: 35px; }
+  #scoutalert-theme-directions .sa-midnight .sa-form-area h1 { font-size: 36px; letter-spacing: -1.3px; font-weight: 700; }
+  #scoutalert-theme-directions .sa-midnight .sa-form { background: var(--sa-surface); padding: 23px; border-radius: var(--sa-radius); border: 1px solid var(--sa-line); gap: 18px; }
+  #scoutalert-theme-directions .sa-midnight .sa-option { background: var(--sa-canvas); }
+  #scoutalert-theme-directions .sa-midnight .sa-option[aria-pressed="true"] { background: var(--sa-soft); border-color: var(--sa-accent); }
+  #scoutalert-theme-directions .sa-midnight .sa-scout-panel { background: transparent; color: var(--sa-ink); padding: 4px 0 25px; border-radius: 0; border-bottom: 1px solid var(--sa-line); }
+  #scoutalert-theme-directions .sa-midnight .sa-scout-heading > span { background: var(--sa-soft); color: var(--sa-ink); }
+  #scoutalert-theme-directions .sa-midnight .sa-scout-meta { color: var(--sa-muted); border-color: var(--sa-line); }
+  #scoutalert-theme-directions .sa-midnight .sa-scout-detail { color: var(--sa-muted); }
+  #scoutalert-theme-directions .sa-midnight .sa-scout-detail strong { color: var(--sa-ink); }
+  #scoutalert-theme-directions .sa-midnight .sa-example { margin-top: 22px; }
+  #scoutalert-theme-directions .sa-midnight .sa-opportunity { border-left: 3px solid var(--sa-accent); }
+  @media (max-width: 820px) {
+    #scoutalert-theme-directions .sa-workspace { gap: 24px; padding: 32px 25px; }
+    #scoutalert-theme-directions .sa-graphite .sa-product-body { grid-template-columns: 1fr; }
+    #scoutalert-theme-directions .sa-graphite .sa-progress { flex-direction: row; border-right: 0; border-bottom: 1px solid var(--sa-line); padding: 22px 25px; gap: 20px; }
+    #scoutalert-theme-directions .sa-graphite .sa-options { flex-direction: row; }
+    #scoutalert-theme-directions .sa-graphite .sa-workspace { padding: 32px 25px; }
+    #scoutalert-theme-directions .sa-midnight .sa-workspace { gap: 24px; }
+  }
+  @media (max-width: 620px) {
+    #scoutalert-theme-directions .sa-product { min-height: 1790px; }
+    #scoutalert-theme-directions .sa-topbar { padding: 20px; }
+    #scoutalert-theme-directions .sa-brand { font-size: 18px; }
+    #scoutalert-theme-directions .sa-topbar-note { max-width: 60px; text-align: right; }
+    #scoutalert-theme-directions .sa-progress,
+    #scoutalert-theme-directions .sa-graphite .sa-progress,
+    #scoutalert-theme-directions .sa-midnight .sa-progress { padding: 19px 20px; gap: 14px; flex-wrap: wrap; font-size: 11px; }
+    #scoutalert-theme-directions .sa-workspace,
+    #scoutalert-theme-directions .sa-graphite .sa-workspace,
+    #scoutalert-theme-directions .sa-midnight .sa-workspace { grid-template-columns: 1fr; gap: 29px; padding: 29px 20px; }
+    #scoutalert-theme-directions .sa-form-area h1 { font-size: 34px; }
+    #scoutalert-theme-directions .sa-field input,
+    #scoutalert-theme-directions .sa-field select { font-size: 16px; }
+    #scoutalert-theme-directions .sa-option { flex: 1; justify-content: center; font-size: 12px; white-space: nowrap; }
+    #scoutalert-theme-directions .sa-midnight .sa-form { padding: 19px; }
+    #scoutalert-theme-directions .sa-action { width: 100%; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    #scoutalert-theme-directions .sa-product * { animation: none !important; transition: none !important; }
+  }
+</style>
+<div id="scoutalert-theme-directions" class="viz-carousel" aria-label="ScoutAlert theme directions">
+  <section class="sa-variant sa-ink" data-variant="Ink + citron" aria-label="Ink and citron design">
+    <div class="sa-product" aria-label="Ink and citron onboarding">
+      <header class="sa-topbar">
+        <div class="sa-brand"><span class="sa-brand-mark"><i data-lucide="compass" aria-hidden="true"></i></span>ScoutAlert</div>
+        <span class="sa-topbar-note">Design preview</span>
+      </header>
+      <div class="sa-product-body">
+        <ol class="sa-progress" aria-label="Onboarding progress">
+          <li><i data-lucide="check" aria-hidden="true"></i>Your goal</li>
+          <li aria-current="step"><span class="sa-step-dot"></span>The details</li>
+          <li><span class="sa-step-dot"></span>Review</li>
+          <li><span class="sa-step-dot"></span>Alerts</li>
+        </ol>
+        <div class="sa-workspace">
+          <div class="sa-form-area">
+            <h1>Define your<br>next move.</h1>
+            <p class="sa-lede">Give your scout a clear brief. It should know what makes an opportunity worth your attention.</p>
+            <form class="sa-form">
+              <fieldset><legend>What are you looking for?</legend><div class="sa-options">
+                <button class="sa-option cursor-interaction" type="button" data-category="Employment" aria-pressed="true"><i data-lucide="briefcase-business" aria-hidden="true"></i>A new job</button>
+                <button class="sa-option cursor-interaction" type="button" data-category="Contracts" aria-pressed="false">Contracts</button>
+                <button class="sa-option cursor-interaction" type="button" data-category="Client projects" aria-pressed="false">Client projects</button>
+              </div></fieldset>
+              <label class="sa-field"><span>Your target work</span><input name="target" value="Product designer" maxlength="100" required></label>
+              <label class="sa-field"><span>Work arrangement</span><select name="arrangement"><option>Remote</option><option>Hybrid</option><option>On-site</option><option>Open to exploring</option></select><small>Remote work can still have hiring restrictions.</small></label>
+              <label class="sa-check"><input type="checkbox" name="required">This work arrangement is a must-have</label>
+              <label class="sa-field"><span>Where would you like to work?</span><input name="location" placeholder="Locations or regions — or leave it open" maxlength="100"></label>
+              <button class="sa-action cursor-interaction" type="button">Review my scout<i data-lucide="arrow-right" aria-hidden="true"></i></button>
+              <span class="sa-form-foot"><i data-lucide="shield-check" aria-hidden="true"></i>You can change your brief at any time.</span>
+            </form>
+            <div class="sa-brief-review" hidden aria-live="polite"></div>
+          </div>
+          <aside class="sa-scout-area" aria-label="Your scout preview">
+            <div class="sa-scout-panel">
+              <div class="sa-scout-heading"><span><i data-lucide="compass" aria-hidden="true"></i></span>Your scout brief</div>
+              <h2 data-target>Product designer</h2>
+              <div class="sa-scout-meta"><span data-category-label>Employment</span><span><i data-lucide="map-pin" aria-hidden="true"></i><span data-arrangement>Remote</span></span></div>
+              <p class="sa-scout-detail"><strong>Your priorities</strong><span data-priority>Remote work preferred. Hiring eligibility stays unconfirmed until there is evidence.</span></p>
+            </div>
+            <div class="sa-example">
+              <p class="sa-example-label"><i data-lucide="eye" aria-hidden="true"></i>Example opportunity</p>
+              <article class="sa-opportunity">
+                <div class="sa-opportunity-top"><span class="sa-company">Example design studio</span><button class="sa-save cursor-interaction" type="button" aria-label="Save example opportunity" aria-pressed="false"><i data-lucide="bookmark" aria-hidden="true"></i></button></div>
+                <h3>Product designer</h3>
+                <div class="sa-job-facts"><span><i data-lucide="globe" aria-hidden="true"></i>Remote</span><span>$70k–$95k / year</span></div>
+                <p class="sa-fit-note"><i data-lucide="circle-help" aria-hidden="true"></i>Hiring countries need confirmation.</p>
+              </article>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+    <div class="sa-colour-key" aria-label="Ink and citron colours"><span><i style="background:#191C22"></i>Ink #191C22</span><span><i style="background:#F6F7F8"></i>Cool white #F6F7F8</span><span><i style="background:#D9EF70"></i>Citron #D9EF70</span></div>
+  </section>
+  <section class="sa-variant sa-graphite" data-variant="Graphite + cobalt" aria-label="Graphite and cobalt design" hidden>
+    <div class="sa-product" aria-label="Graphite and cobalt onboarding">
+      <header class="sa-topbar">
+        <div class="sa-brand"><span class="sa-brand-mark"><i data-lucide="compass" aria-hidden="true"></i></span>ScoutAlert</div>
+        <span class="sa-topbar-note">Design preview</span>
+      </header>
+      <div class="sa-product-body">
+        <ol class="sa-progress" aria-label="Onboarding progress">
+          <li><i data-lucide="check" aria-hidden="true"></i>Your goal</li>
+          <li aria-current="step"><span class="sa-step-dot"></span>The details</li>
+          <li><span class="sa-step-dot"></span>Review</li>
+          <li><span class="sa-step-dot"></span>Alerts</li>
+        </ol>
+        <div class="sa-workspace">
+          <div class="sa-form-area">
+            <h1>Make your search<br>more specific.</h1>
+            <p class="sa-lede">Set the work you want and the preferences your scout should keep in view.</p>
+            <form class="sa-form">
+              <fieldset><legend>What are you looking for?</legend><div class="sa-options">
+                <button class="sa-option cursor-interaction" type="button" data-category="Employment" aria-pressed="true"><i data-lucide="briefcase-business" aria-hidden="true"></i>A new job</button>
+                <button class="sa-option cursor-interaction" type="button" data-category="Contracts" aria-pressed="false">Contracts</button>
+                <button class="sa-option cursor-interaction" type="button" data-category="Client projects" aria-pressed="false">Client projects</button>
+              </div></fieldset>
+              <label class="sa-field"><span>Your target work</span><input name="target" value="Product designer" maxlength="100" required></label>
+              <label class="sa-field"><span>Work arrangement</span><select name="arrangement"><option>Remote</option><option>Hybrid</option><option>On-site</option><option>Open to exploring</option></select><small>Remote work can still have hiring restrictions.</small></label>
+              <label class="sa-check"><input type="checkbox" name="required">This work arrangement is a must-have</label>
+              <label class="sa-field"><span>Where would you like to work?</span><input name="location" placeholder="Locations or regions — or leave it open" maxlength="100"></label>
+              <button class="sa-action cursor-interaction" type="button">Review my scout<i data-lucide="arrow-right" aria-hidden="true"></i></button>
+              <span class="sa-form-foot"><i data-lucide="shield-check" aria-hidden="true"></i>You can change your brief at any time.</span>
+            </form>
+            <div class="sa-brief-review" hidden aria-live="polite"></div>
+          </div>
+          <aside class="sa-scout-area" aria-label="Your scout preview">
+            <div class="sa-scout-panel">
+              <div class="sa-scout-heading"><span><i data-lucide="compass" aria-hidden="true"></i></span>Your scout brief</div>
+              <h2 data-target>Product designer</h2>
+              <div class="sa-scout-meta"><span data-category-label>Employment</span><span><i data-lucide="map-pin" aria-hidden="true"></i><span data-arrangement>Remote</span></span></div>
+              <p class="sa-scout-detail"><strong>Your priorities</strong><span data-priority>Remote work preferred. Hiring eligibility stays unconfirmed until there is evidence.</span></p>
+            </div>
+            <div class="sa-example">
+              <p class="sa-example-label"><i data-lucide="eye" aria-hidden="true"></i>Example opportunity</p>
+              <article class="sa-opportunity">
+                <div class="sa-opportunity-top"><span class="sa-company">Example design studio</span><button class="sa-save cursor-interaction" type="button" aria-label="Save example opportunity" aria-pressed="false"><i data-lucide="bookmark" aria-hidden="true"></i></button></div>
+                <h3>Product designer</h3>
+                <div class="sa-job-facts"><span><i data-lucide="globe" aria-hidden="true"></i>Remote</span><span>$70k–$95k / year</span></div>
+                <p class="sa-fit-note"><i data-lucide="circle-help" aria-hidden="true"></i>Hiring countries need confirmation.</p>
+              </article>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+    <div class="sa-colour-key" aria-label="Graphite and cobalt colours"><span><i style="background:#20242D"></i>Graphite #20242D</span><span><i style="background:#F7F8FB"></i>Porcelain #F7F8FB</span><span><i style="background:#345AF4"></i>Cobalt #345AF4</span></div>
+  </section>
+  <section class="sa-variant sa-midnight" data-variant="Midnight + copper" aria-label="Midnight and copper design" hidden>
+    <div class="sa-product" aria-label="Midnight and copper onboarding">
+      <header class="sa-topbar">
+        <div class="sa-brand"><span class="sa-brand-mark"><i data-lucide="compass" aria-hidden="true"></i></span>ScoutAlert</div>
+        <span class="sa-topbar-note">Design preview</span>
+      </header>
+      <div class="sa-product-body">
+        <ol class="sa-progress" aria-label="Onboarding progress">
+          <li><i data-lucide="check" aria-hidden="true"></i>Your goal</li>
+          <li aria-current="step"><span class="sa-step-dot"></span>The details</li>
+          <li><span class="sa-step-dot"></span>Review</li>
+          <li><span class="sa-step-dot"></span>Alerts</li>
+        </ol>
+        <div class="sa-workspace">
+          <div class="sa-form-area">
+            <h1>A clear brief.<br>A considered search.</h1>
+            <p class="sa-lede">Tell your scout what matters, and leave space for the things you’re still deciding.</p>
+            <form class="sa-form">
+              <fieldset><legend>What are you looking for?</legend><div class="sa-options">
+                <button class="sa-option cursor-interaction" type="button" data-category="Employment" aria-pressed="true"><i data-lucide="briefcase-business" aria-hidden="true"></i>A new job</button>
+                <button class="sa-option cursor-interaction" type="button" data-category="Contracts" aria-pressed="false">Contracts</button>
+                <button class="sa-option cursor-interaction" type="button" data-category="Client projects" aria-pressed="false">Client projects</button>
+              </div></fieldset>
+              <label class="sa-field"><span>Your target work</span><input name="target" value="Product designer" maxlength="100" required></label>
+              <label class="sa-field"><span>Work arrangement</span><select name="arrangement"><option>Remote</option><option>Hybrid</option><option>On-site</option><option>Open to exploring</option></select><small>Remote work can still have hiring restrictions.</small></label>
+              <label class="sa-check"><input type="checkbox" name="required">This work arrangement is a must-have</label>
+              <label class="sa-field"><span>Where would you like to work?</span><input name="location" placeholder="Locations or regions — or leave it open" maxlength="100"></label>
+              <button class="sa-action cursor-interaction" type="button">Review my scout<i data-lucide="arrow-right" aria-hidden="true"></i></button>
+              <span class="sa-form-foot"><i data-lucide="shield-check" aria-hidden="true"></i>You can change your brief at any time.</span>
+            </form>
+            <div class="sa-brief-review" hidden aria-live="polite"></div>
+          </div>
+          <aside class="sa-scout-area" aria-label="Your scout preview">
+            <div class="sa-scout-panel">
+              <div class="sa-scout-heading"><span><i data-lucide="compass" aria-hidden="true"></i></span>Your scout brief</div>
+              <h2 data-target>Product designer</h2>
+              <div class="sa-scout-meta"><span data-category-label>Employment</span><span><i data-lucide="map-pin" aria-hidden="true"></i><span data-arrangement>Remote</span></span></div>
+              <p class="sa-scout-detail"><strong>Your priorities</strong><span data-priority>Remote work preferred. Hiring eligibility stays unconfirmed until there is evidence.</span></p>
+            </div>
+            <div class="sa-example">
+              <p class="sa-example-label"><i data-lucide="eye" aria-hidden="true"></i>Example opportunity</p>
+              <article class="sa-opportunity">
+                <div class="sa-opportunity-top"><span class="sa-company">Example design studio</span><button class="sa-save cursor-interaction" type="button" aria-label="Save example opportunity" aria-pressed="false"><i data-lucide="bookmark" aria-hidden="true"></i></button></div>
+                <h3>Product designer</h3>
+                <div class="sa-job-facts"><span><i data-lucide="globe" aria-hidden="true"></i>Remote</span><span>$70k–$95k / year</span></div>
+                <p class="sa-fit-note"><i data-lucide="circle-help" aria-hidden="true"></i>Hiring countries need confirmation.</p>
+              </article>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+    <div class="sa-colour-key" aria-label="Midnight and copper colours"><span><i style="background:#19232E"></i>Midnight #19232E</span><span><i style="background:#F3F5F6"></i>Pale grey #F3F5F6</span><span><i style="background:#C96942"></i>Copper #C96942</span></div>
+  </section>
+</div>
+<script>
+  (() => {
+    const root = document.getElementById("scoutalert-theme-directions");
+    const variants = [...root.querySelectorAll(".sa-variant")];
+    const initialSnapshot = window.openai?.widgetState;
+    const remembered = { ...(initialSnapshot?.privateContent?.briefs ?? {}) };
+    const restoreCallbacks = [];
+
+    /** Builds a DOM-only review of the current illustrative brief, without submitting any data. */
+    function showReview(variant, state) {
+      const review = variant.querySelector(".sa-brief-review");
+      review.replaceChildren();
+      const heading = document.createElement("h2");
+      heading.textContent = "Your scout brief";
+      const list = document.createElement("dl");
+      const answers = { "Looking for": state.target, Opportunity: state.category, "Work style": state.arrangement, Priority: state.required ? "Must-have" : "Preference", "Work locations": state.location || "Open to exploring; eligibility unconfirmed" };
+      Object.entries(answers).forEach(([label, value]) => {
+        const row = document.createElement("div");
+        const term = document.createElement("dt");
+        const detail = document.createElement("dd");
+        term.textContent = label;
+        detail.textContent = value;
+        row.append(term, detail);
+        list.append(row);
+      });
+      const edit = document.createElement("button");
+      edit.type = "button";
+      edit.className = "sa-action cursor-interaction";
+      edit.textContent = "Edit my brief";
+      edit.style.marginTop = "18px";
+      edit.addEventListener("click", () => {
+        review.hidden = true;
+        variant.querySelector(".sa-form").hidden = false;
+      });
+      review.append(heading, list, edit);
+      variant.querySelector(".sa-form").hidden = true;
+      review.hidden = false;
+    }
+
+    variants.forEach((variant) => {
+      const name = variant.dataset.variant;
+      const product = variant.querySelector(".sa-product");
+      const form = variant.querySelector(".sa-form");
+      const saved = remembered[name] ?? {};
+      const state = { category: saved.category ?? "Employment", target: saved.target ?? "Product designer", arrangement: saved.arrangement ?? "Remote", location: saved.location ?? "", required: saved.required === true, accent: getComputedStyle(variant).getPropertyValue("--sa-accent").trim(), radius: parseInt(getComputedStyle(variant).getPropertyValue("--sa-radius")), bookmarked: false };
+      form.elements.target.value = state.target;
+      form.elements.arrangement.value = state.arrangement;
+      form.elements.location.value = state.location;
+      form.elements.required.checked = state.required;
+
+      /** Applies brief edits to this variant only, preserving the other designs' local state. */
+      function renderBrief() {
+        variant.querySelector("[data-target]").textContent = state.target || "Your next opportunity";
+        variant.querySelector("[data-category-label]").textContent = state.category;
+        variant.querySelector("[data-arrangement]").textContent = state.arrangement;
+        const preference = state.arrangement === "Open to exploring" ? "Work arrangement open." : `${state.arrangement} work ${state.required ? "required" : "preferred"}.`;
+        variant.querySelector("[data-priority]").textContent = `${preference} Hiring eligibility stays unconfirmed until there is evidence.`;
+        variant.querySelectorAll("[data-category]").forEach((button) => button.setAttribute("aria-pressed", String(button.dataset.category === state.category)));
+        const bookmark = variant.querySelector(".sa-save");
+        bookmark.setAttribute("aria-pressed", String(state.bookmarked));
+        bookmark.setAttribute("aria-label", `${state.bookmarked ? "Unsave" : "Save"} example opportunity`);
+      }
+
+      /** Remembers presentation choices in the conversation when the host supports it. */
+      function remember() {
+        remembered[name] = { category: state.category, target: state.target, arrangement: state.arrangement, location: state.location, required: state.required };
+        window.openai?.setWidgetState?.({ modelContent: { previewedTheme: name }, privateContent: { briefs: remembered } })?.catch(() => {});
+      }
+
+      form.addEventListener("input", () => {
+        state.target = form.elements.target.value;
+        state.arrangement = form.elements.arrangement.value;
+        state.location = form.elements.location.value;
+        state.required = form.elements.required.checked;
+        renderBrief();
+        remember();
+      });
+      variant.querySelectorAll("[data-category]").forEach((button) => button.addEventListener("click", () => {
+        state.category = button.dataset.category;
+        renderBrief();
+        remember();
+      }));
+      variant.querySelector(".sa-save").addEventListener("click", () => {
+        state.bookmarked = !state.bookmarked;
+        renderBrief();
+      });
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        reviewBrief();
+      });
+      /** Opens a local review on a button action; the sandbox never needs to submit a form. */
+      function reviewBrief() {
+        if (!form.reportValidity()) return;
+        showReview(variant, state);
+      }
+      form.querySelector(".sa-action").addEventListener("click", reviewBrief);
+      renderBrief();
+
+      /** Reapplies host-restored presentation choices without resaving the snapshot. */
+      function restoreBrief(snapshot) {
+        const restored = snapshot?.privateContent?.briefs?.[name];
+        if (!restored) return;
+        state.category = ["Employment", "Contracts", "Client projects"].includes(restored.category) ? restored.category : "Employment";
+        state.target = typeof restored.target === "string" ? restored.target.slice(0, 100) : "Product designer";
+        state.arrangement = ["Remote", "Hybrid", "On-site", "Open to exploring"].includes(restored.arrangement) ? restored.arrangement : "Remote";
+        state.location = typeof restored.location === "string" ? restored.location.slice(0, 100) : "";
+        state.required = restored.required === true;
+        form.elements.target.value = state.target;
+        form.elements.arrangement.value = state.arrangement;
+        form.elements.location.value = state.location;
+        form.elements.required.checked = state.required;
+        renderBrief();
+      }
+      restoreCallbacks.push(restoreBrief);
+
+      /** Applies optional design adjustments without modifying ScoutAlert's application theme. */
+      function renderDesign() {
+        variant.style.setProperty("--sa-accent", state.accent);
+        variant.style.setProperty("--sa-radius", `${state.radius}px`);
+        const swatch = variant.querySelector(".sa-colour-key span:last-child");
+        swatch.querySelector("i").style.background = state.accent;
+        swatch.lastChild.textContent = `${name.split(" + ")[1]} ${state.accent.toUpperCase()}`;
+      }
+      if (window.Tweak) {
+        const tweak = new window.Tweak({ container: product, onChange: renderDesign });
+        tweak.addColorPicker(state, "accent", { label: "Accent colour", reference: "--sa-accent" });
+        tweak.addSlider(state, "radius", { label: "Corner radius", min: 0, max: 16, step: 1, unit: "px" });
+      }
+    });
+    window.addEventListener("openai:set_globals", (event) => {
+      const snapshot = event.detail?.globals?.widgetState;
+      restoreCallbacks.forEach((restore) => restore(snapshot));
+    });
+  })();
+</script>

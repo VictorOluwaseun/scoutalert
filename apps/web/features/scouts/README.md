@@ -1,0 +1,23 @@
+# Saved-scout dashboard
+
+The completion action opens `/dashboard`. Next.js server rendering reads the authenticated account's scouts directly from the private Nest API. `/sign-in` lets returning users verify their inbox through the same identity routes as onboarding, without creating a scout or changing alert consent. `/api/scouts` exposes the cookie-bound list to browser clients.
+
+The selected Ink + citron direction continues here: cool-white `#f6f7f8`, white surfaces, ink `#191c22`, citron `#d9ef70`, soft green `#f1f5df`, and muted text `#394657`. Bundled Manrope carries both headings and body text. A light navigation rail frames a left-aligned list of real scouts; mobile navigation wraps above the content. Status and alert icons align with the first text line. The page uses no invented metrics or dark panels.
+
+Each record shows its saved target, category, arrangement, residence, first-search status and alert schedule. Native details disclosures expose the confirmed brief and consent choices. Real source postings are grouped across scouts, with reasons and unresolved criteria. Source freshness, queued/searching/completed/failed runs, bounded job-board and client-request coverage and held/rejected email outcomes are visible. The server validates every DTO field and HTTPS source link; source HTML is never rendered. Only pending/searching pages refresh every fifteen seconds while visible, and every page has a manual refresh action. Editing and pausing existing scouts are connected to owner-scoped versioned API mutations.
+
+`@repo/core/scouts` owns the bounded list use case and inward catalog contract. A PostgreSQL repository reads authoritative scouts and notification preferences with an owner predicate. Nest guards obtain the owner exclusively from the durable session. Listing reads at most 21 records to return 20 scouts and a next-page marker. Ordering uses activation time and UUID descending; equal timestamps and concurrent newer inserts do not shift earlier pages. Cursors select ordering and cannot authorize another account.
+
+All personal API responses disable caching. Server fetches use `no-store`; cookies make dashboard routes dynamic. Next development emits its own `no-cache` page header, while production dynamic pages use private caching restrictions. Session and host transport secrets remain server-only. Missing or expired sessions redirect to sign-in. Service failures show a retryable state, and malformed cursors offer a return to the latest scouts.
+
+“Add a scout” explicitly starts an empty onboarding draft and clears the prior activation retry key. It preserves the verified account. New scouts can use the same brief without accidentally recovering the previous scout's completed save request.
+
+`/dashboard/examples` is an optional, separately labelled fictional preview. It has no editing control for a saved scout. Example bookmarks are held in component memory and reset on leaving; they never modify real records.
+
+Verification covers real Mailpit sign-in, account isolation, absent sessions, malformed cursors, tied timestamps across pages, a newer insert between pages, server rendering without credentials, completion navigation, fresh setup, example filters, sign-out and responsive layout. See [connected onboarding](../../../../docs/engineering/scoutalert-connected-onboarding.md) for local services and commands.
+
+Saved scouts now expose version-fenced editing at `/dashboard/scouts/[id]`, plus pause/resume on each row. Mutations pass through `/api/scouts/[id]/change` with a stable request key for unchanged retries and the displayed revision. The editor reuses core validation via the API, shows inline errors, and requires an explicit reload after a concurrent edit. Editing a paused scout keeps it paused.
+
+Opportunity feedback goes through `/api/scouts/feedback`. Relevant records a private positive signal that prioritises similar retrieved work and applies a capped ranking boost on the next search; Hide suppresses an exact posting across the owner's scouts and future alerts. The separate hidden section retains up to twenty historical snapshots for undo even after live recommendations change. Undo restores eligibility for later searches, without claiming current availability or resending an already reserved posting. Feedback does not silently change confirmed personal details.
+
+The editor now collects explicit authorization countries and sponsorship needs. Changes clear confirmation in the form. Employer research details expose dated evidence and unresolved questions; prompt alerts require all seven supported criteria rather than allowing unknown authorization.

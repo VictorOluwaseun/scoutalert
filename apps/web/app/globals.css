@@ -1,36 +1,50 @@
 @import "@repo/ui/globals.css";
+@import "../features/onboarding/onboarding.css";
+@import "../features/scouts/dashboard.css";
+
+:root {
+  --background: #f6f7f8;
+  --foreground: #191c22;
+  --card: #ffffff;
+  --card-foreground: #191c22;
+  --primary: #191c22;
+  --primary-foreground: #ffffff;
+  --secondary: #eef0f2;
+  --secondary-foreground: #191c22;
+  --muted: #eef0f2;
+  --muted-foreground: #394657;
+  --accent: #d9ef70;
+  --accent-foreground: #191c22;
+  --border: #dde1e6;
+  --input: #dde1e6;
+  --ring: #191c22;
+  --destructive: #a24534;
+  color-scheme: light;
+}
 
 @layer base {
-  html,
   body {
-    max-width: 100vw;
-    overflow-x: hidden;
-  }
-
-  body {
+    margin: 0;
     color: var(--foreground);
     background: var(--background);
+    font-family: var(--font-manrope), Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
   }
-
-  a {
-    color: inherit;
-    text-decoration: none;
+  button,
+  input,
+  textarea,
+  select {
+    font: inherit;
   }
-}
-
-.imgDark {
-  display: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+  button:not(:disabled),
+  summary {
+    cursor: pointer;
   }
-
-  .imgLight {
-    display: none;
+  button:disabled {
+    cursor: default;
   }
-  .imgDark {
-    display: unset;
+  ::selection {
+    background: var(--accent);
+    color: var(--accent-foreground);
   }
 }

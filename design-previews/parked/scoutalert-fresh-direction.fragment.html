@@ -1,0 +1,466 @@
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<div id="scoutalert-fresh-direction" aria-label="ScoutAlert bright and personal design">
+  <div class="sf-app">
+    <header class="sf-header">
+      <div class="sf-logo"><span><i data-lucide="scan-search" aria-hidden="true"></i></span>ScoutAlert</div>
+      <nav class="sf-nav" aria-label="Scout workspace"><button type="button" data-view="setup" aria-pressed="true" class="cursor-interaction">Create scout</button><button type="button" data-view="preview" aria-pressed="false" class="cursor-interaction">Preview</button><button type="button" data-view="saved" aria-pressed="false" class="cursor-interaction">Saved<span data-save-count>0</span></button></nav>
+      <div class="sf-account"><button type="button" class="sf-appearance cursor-interaction" aria-label="Switch to dark appearance"><i data-lucide="moon" aria-hidden="true"></i></button><span class="sf-avatar" aria-label="Example profile">A</span></div>
+    </header>
+    <main>
+      <section class="sf-setup" aria-label="Create your scout">
+        <div class="sf-intro"><h1 data-setup-title>Find your next customer.</h1><p>A little about what you do. A scout that knows what to look for.</p></div>
+        <div class="sf-goals" aria-label="What you want to find">
+          <button type="button" data-goal="jobs" aria-pressed="false" class="cursor-interaction"><i data-lucide="briefcase-business" aria-hidden="true"></i>My next role</button>
+          <button type="button" data-goal="contracts" aria-pressed="false" class="cursor-interaction"><i data-lucide="pen-tool" aria-hidden="true"></i>Contract work</button>
+          <button type="button" data-goal="services" aria-pressed="true" class="cursor-interaction"><i data-lucide="handshake" aria-hidden="true"></i>Local customers</button>
+        </div>
+        <div class="sf-setup-layout">
+          <form class="sf-composer" aria-label="Your scout brief">
+            <label for="sf-brief" class="sf-prompt" data-brief-label>What services do you offer?</label>
+            <textarea id="sf-brief" name="brief" required maxlength="500" rows="4">I offer home and office cleaning. I’m looking for regular customers and one-off cleaning jobs around Lekki and Ikoyi.</textarea>
+            <div class="sf-fields"><label><span data-location-label>Where do you work?</span><input name="location" required maxlength="80" value="Lekki and Ikoyi" autocomplete="off"></label><label><span data-scope-label>How far can you travel?</span><select name="scope"><option>Within 5 km</option><option selected>Within 12 km</option><option>Within 25 km</option></select></label></div>
+            <div class="sf-alert-row"><span class="sf-field-icon"><i data-lucide="bell" aria-hidden="true"></i></span><label><span>When would you like updates?</span><select name="alerts"><option value="daily">Daily digest</option><option value="weekly">Weekly digest</option><option value="dashboard">In the app only</option></select></label></div>
+            <button type="button" data-preview class="sf-primary cursor-interaction">Preview my scout<i data-lucide="arrow-right" aria-hidden="true"></i></button>
+            <p class="sf-control-note"><i data-lucide="sliders-horizontal" aria-hidden="true"></i>You can refine your brief and alerts at any time.</p>
+          </form>
+          <aside class="sf-example" aria-label="Example of an opportunity">
+            <div class="sf-example-caption"><span class="sf-preview-dot"></span>What an opportunity could look like</div>
+            <div class="sf-opportunity-peek">
+              <div class="sf-peek-top"><div class="sf-identity" data-peek-identity><i data-lucide="house" aria-hidden="true"></i></div><span class="sf-peek-type" data-peek-type>Customer request</span></div>
+              <h2 data-peek-title>Weekly home cleaning</h2><p class="sf-peek-location" data-peek-location>Lekki Phase 1</p>
+              <p class="sf-peek-price" data-peek-price>₦20,000–₦30,000<span>per visit</span></p>
+              <div class="sf-peek-reason"><span><i data-lucide="check" aria-hidden="true"></i></span><div><strong data-peek-reason-title>Recurring work, close to home</strong><p data-peek-reason>Weekly cleaning requested in Lekki.</p></div></div>
+              <div class="sf-peek-question"><i data-lucide="circle-help" aria-hidden="true"></i><span data-peek-question>Check the address and who provides supplies.</span></div>
+              <div class="sf-peek-footer"><span>Fictional example</span><button type="button" data-peek-details class="cursor-interaction">See the details<i data-lucide="arrow-up-right" aria-hidden="true"></i></button></div>
+            </div>
+            <div class="sf-your-control"><span class="sf-mini-identity"><i data-lucide="shield-check" aria-hidden="true"></i></span><p><strong>Your brief. Your decisions.</strong><span>See the relevant details and what still needs checking.</span></p></div>
+          </aside>
+        </div>
+        <div class="sf-simple-promise"><span><i data-lucide="search" aria-hidden="true"></i>Discover opportunities</span><span><i data-lucide="file-check-2" aria-hidden="true"></i>Understand the details</span><span><i data-lucide="bookmark" aria-hidden="true"></i>Keep what interests you</span></div>
+      </section>
+      <section class="sf-workspace" aria-label="Your scout preview" hidden>
+        <div class="sf-workspace-heading"><div><span class="sf-greeting">Your scout preview</span><h1 data-workspace-title>New work, on your terms.</h1><p data-workspace-description>Example requests with the useful details up front.</p></div><button type="button" data-edit class="sf-secondary cursor-interaction"><i data-lucide="pencil" aria-hidden="true"></i>Edit brief</button></div>
+        <div class="sf-brief-strip"><span class="sf-strip-icon"><i data-lucide="scan-search" aria-hidden="true"></i></span><div><strong data-brief-heading>Home and office cleaning</strong><p data-brief-summary>Lekki and Ikoyi</p></div><span class="sf-delivery" data-delivery>Daily digest</span></div>
+        <div class="sf-results-heading"><h2 data-results-title>Worth exploring</h2><span class="sf-results-count" role="status" aria-live="polite">2 examples</span></div>
+        <div class="sf-results"></div>
+        <div class="sf-empty" hidden><i data-lucide="bookmark" aria-hidden="true"></i><h2>Keep your favourites here.</h2><p>Save an opportunity to return to it later.</p><button type="button" data-explore class="sf-secondary cursor-interaction">Explore examples</button></div>
+      </section>
+      <footer class="sf-footer"><span>Design preview with fictional opportunities.</span><span>No scout is running.</span></footer>
+    </main>
+  </div>
+  <template id="sf-result-template"><article class="sf-result"><div class="sf-result-top"><div class="sf-identity"><i data-lucide="briefcase-business" aria-hidden="true"></i></div><button type="button" class="sf-bookmark cursor-interaction" aria-pressed="false"><i data-lucide="bookmark" aria-hidden="true"></i><span>Save</span></button></div><span class="sf-result-kind"></span><h3></h3><p class="sf-result-source"></p><div class="sf-result-meta"><span><i data-lucide="map-pin" aria-hidden="true"></i><span data-result-location></span></span><span><i data-lucide="calendar-days" aria-hidden="true"></i><span data-result-schedule></span></span></div><p class="sf-result-price"></p><div class="sf-result-evidence"><i data-lucide="check" aria-hidden="true"></i><p></p></div><div class="sf-result-question"><i data-lucide="circle-help" aria-hidden="true"></i><p></p></div><button type="button" class="sf-result-details cursor-interaction">Explore opportunity<i data-lucide="arrow-up-right" aria-hidden="true"></i></button></article></template>
+  <template id="sf-dialog-template"><dialog class="sf-dialog"><div class="sf-dialog-top"><h2></h2><button type="button" aria-label="Close details" class="sf-close cursor-interaction"><i data-lucide="x" aria-hidden="true"></i></button></div><div class="sf-dialog-content"></div></dialog></template>
+</div>
+<style>
+  #scoutalert-fresh-direction { --sf-accent:#2962FF; --sf-radius:24px; color-scheme:light; font:400 15px/1.5 'Figtree',sans-serif; color:light-dark(#1C2C3D,#EDF5FD); }
+  #scoutalert-fresh-direction .sf-app { --sf-canvas:light-dark(#F8FAFE,#142130); --sf-paper:light-dark(#FFFFFF,#213346); --sf-ink:light-dark(#1C2C3D,#EDF5FD); --sf-muted:light-dark(#62748A,#B5C5D7); --sf-line:light-dark(#E4EBF3,#3B5067); --sf-tint:light-dark(#EEF3FF,#253E5B); --sf-soft:light-dark(#F5F8FC,#1B2C40); --sf-positive:light-dark(#22664F,#ADF0D4); --sf-mint:light-dark(#E9F8F1,#244837); --sf-shadow:light-dark(#213B6A0B,#0000001F); color:var(--sf-ink); background:var(--sf-canvas); border-radius:18px; overflow:hidden; min-height:920px; }
+  #scoutalert-fresh-direction .sf-app * { box-sizing:border-box; }
+  #scoutalert-fresh-direction .sf-app :where(h1,h2,h3,p,ul) { margin:0; }
+  #scoutalert-fresh-direction .sf-app [hidden] { display:none !important; }
+  #scoutalert-fresh-direction .sf-app button { font:inherit; color:inherit; }
+  #scoutalert-fresh-direction .sf-app svg { width:20px; height:20px; flex:none; stroke-width:1.8; }
+  #scoutalert-fresh-direction .sf-header { display:flex; justify-content:space-between; align-items:center; gap:24px; padding:22px 40px; background:var(--sf-paper); }
+  #scoutalert-fresh-direction .sf-logo { display:flex; align-items:center; gap:10px; font-size:23px; font-weight:800; letter-spacing:-.7px; }
+  #scoutalert-fresh-direction .sf-logo > span { display:grid; place-items:center; width:36px; height:36px; background:var(--sf-accent); color:#FFFFFF; border-radius:12px; }
+  #scoutalert-fresh-direction .sf-logo svg { width:23px; height:23px; }
+  #scoutalert-fresh-direction .sf-nav { display:flex; align-items:center; gap:6px; }
+  #scoutalert-fresh-direction .sf-nav button { border:0; background:transparent; color:var(--sf-muted); border-radius:12px; font-size:14px; padding:10px 15px; min-height:42px; display:flex; gap:7px; align-items:center; }
+  #scoutalert-fresh-direction .sf-nav button[aria-pressed="true"] { background:var(--sf-tint); color:var(--sf-ink); font-weight:600; }
+  #scoutalert-fresh-direction .sf-nav [data-save-count] { font-size:12px; }
+  #scoutalert-fresh-direction .sf-account { display:flex; gap:15px; align-items:center; }
+  #scoutalert-fresh-direction .sf-avatar { width:34px; height:34px; border-radius:50%; display:grid; place-items:center; background:light-dark(#FCE4D0,#6A4733); color:var(--sf-ink); font-size:14px; font-weight:600; }
+  #scoutalert-fresh-direction .sf-appearance { border:0; background:transparent; padding:8px; min-height:36px; min-width:36px; display:grid; place-items:center; color:var(--sf-muted) !important; }
+  #scoutalert-fresh-direction main { max-width:1100px; margin:0 auto; padding:0 42px 25px; }
+  #scoutalert-fresh-direction .sf-intro { padding:51px 0 24px; text-align:center; }
+  #scoutalert-fresh-direction h1 { font-size:48px; line-height:1.1; letter-spacing:-1.7px; font-weight:700; }
+  #scoutalert-fresh-direction .sf-intro > p { margin-top:15px; color:var(--sf-muted); font-size:17px; }
+  #scoutalert-fresh-direction .sf-goals { display:flex; justify-content:center; gap:12px; flex-wrap:wrap; margin-bottom:34px; }
+  #scoutalert-fresh-direction .sf-goals button { display:flex; align-items:center; justify-content:center; gap:9px; border:1px solid var(--sf-line); border-radius:14px; padding:12px 18px; min-height:48px; background:var(--sf-paper); font-size:14px; font-weight:500; }
+  #scoutalert-fresh-direction .sf-goals button[aria-pressed="true"] { border-color:var(--sf-accent); background:var(--sf-tint); color:var(--sf-ink); box-shadow:inset 0 0 0 1px var(--sf-accent); }
+  #scoutalert-fresh-direction .sf-goals svg { width:18px; height:18px; }
+  #scoutalert-fresh-direction .sf-setup-layout { display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr); gap:38px; align-items:start; }
+  #scoutalert-fresh-direction .sf-composer { padding:28px; background:var(--sf-paper); border-radius:var(--sf-radius); box-shadow:0 8px 32px var(--sf-shadow); }
+  #scoutalert-fresh-direction .sf-prompt { display:block; font-size:19px; font-weight:600; letter-spacing:-.3px; margin-bottom:15px; }
+  #scoutalert-fresh-direction .sf-composer textarea { width:100%; color:var(--sf-ink); background:var(--sf-soft); border:1px solid var(--sf-line); border-radius:16px; padding:17px 18px; resize:vertical; min-height:140px; font:400 17px/1.6 'Figtree',sans-serif; }
+  #scoutalert-fresh-direction .sf-fields { display:grid; grid-template-columns:minmax(0,1.2fr) minmax(0,1fr); gap:17px; margin-top:21px; }
+  #scoutalert-fresh-direction .sf-fields label { min-width:0; }
+  #scoutalert-fresh-direction .sf-fields label > span, #scoutalert-fresh-direction .sf-alert-row label > span { display:block; margin-bottom:8px; font-size:13px; font-weight:500; }
+  #scoutalert-fresh-direction .sf-composer :is(input,select) { min-height:45px; width:100%; background:var(--sf-paper); color:var(--sf-ink); border:1px solid var(--sf-line); border-radius:11px; padding:10px 11px; font:400 15px/1.5 'Figtree',sans-serif; }
+  #scoutalert-fresh-direction .sf-alert-row { display:flex; gap:12px; align-items:center; margin:21px 0 24px; }
+  #scoutalert-fresh-direction .sf-field-icon { width:37px; height:37px; display:grid; place-items:center; color:var(--sf-muted); background:var(--sf-soft); border-radius:12px; flex:none; }
+  #scoutalert-fresh-direction .sf-alert-row label { display:flex; align-items:center; justify-content:space-between; gap:15px; width:100%; }
+  #scoutalert-fresh-direction .sf-alert-row label > span { margin:0; max-width:160px; }
+  #scoutalert-fresh-direction .sf-alert-row select { width:auto; max-width:175px; font-size:13px; border:0; background:var(--sf-soft); }
+  #scoutalert-fresh-direction .sf-primary { display:flex; align-items:center; justify-content:center; gap:12px; min-height:52px; width:100%; padding:13px 18px; border:0; border-radius:14px; background:var(--sf-accent); color:#FFFFFF !important; font-weight:600 !important; font-size:16px !important; }
+  #scoutalert-fresh-direction .sf-control-note { display:flex; align-items:center; justify-content:center; gap:7px; margin-top:16px; color:var(--sf-muted); font-size:12px; text-align:center; }
+  #scoutalert-fresh-direction .sf-control-note svg { width:15px; height:15px; }
+  #scoutalert-fresh-direction .sf-example { min-width:0; padding-top:9px; }
+  #scoutalert-fresh-direction .sf-example-caption { display:flex; gap:8px; align-items:center; color:var(--sf-muted); font-size:13px; margin-bottom:18px; }
+  #scoutalert-fresh-direction .sf-preview-dot { width:7px; height:7px; background:var(--sf-accent); border-radius:50%; }
+  #scoutalert-fresh-direction .sf-opportunity-peek { padding:27px 25px 0; background:var(--sf-paper); border-radius:var(--sf-radius); box-shadow:0 8px 32px var(--sf-shadow); }
+  #scoutalert-fresh-direction .sf-peek-top { display:flex; align-items:center; justify-content:space-between; gap:15px; margin-bottom:23px; }
+  #scoutalert-fresh-direction .sf-identity { display:grid; place-items:center; width:48px; height:48px; border-radius:16px; background:var(--sf-tint); color:var(--sf-accent); font-size:17px; font-weight:700; }
+  #scoutalert-fresh-direction .sf-identity svg { width:24px; height:24px; }
+  #scoutalert-fresh-direction .sf-peek-type { font-size:12px; color:var(--sf-muted); }
+  #scoutalert-fresh-direction .sf-opportunity-peek h2 { font-size:26px; line-height:1.2; font-weight:600; letter-spacing:-.8px; }
+  #scoutalert-fresh-direction .sf-peek-location { color:var(--sf-muted); font-size:14px; margin-top:10px; }
+  #scoutalert-fresh-direction .sf-peek-price { margin-top:23px; font-size:22px; font-weight:600; letter-spacing:-.5px; }
+  #scoutalert-fresh-direction .sf-peek-price span { display:block; margin-top:2px; color:var(--sf-muted); font-size:13px; font-weight:400; letter-spacing:0; }
+  #scoutalert-fresh-direction .sf-peek-reason { display:flex; gap:10px; margin-top:23px; align-items:flex-start; }
+  #scoutalert-fresh-direction .sf-peek-reason > span { width:24px; height:24px; display:grid; place-items:center; color:var(--sf-positive); background:var(--sf-mint); border-radius:50%; flex:none; }
+  #scoutalert-fresh-direction .sf-peek-reason svg { width:15px; height:15px; }
+  #scoutalert-fresh-direction .sf-peek-reason strong { display:block; font-size:13px; font-weight:600; }
+  #scoutalert-fresh-direction .sf-peek-reason p { color:var(--sf-muted); font-size:12px; margin-top:5px; }
+  #scoutalert-fresh-direction .sf-peek-question { display:flex; align-items:flex-start; gap:8px; margin-top:19px; font-size:12px; color:var(--sf-muted); }
+  #scoutalert-fresh-direction .sf-peek-question svg { width:16px; height:16px; margin-top:1px; }
+  #scoutalert-fresh-direction .sf-peek-footer { display:flex; justify-content:space-between; align-items:center; gap:12px; border-top:1px solid var(--sf-line); margin-top:23px; padding:12px 0; }
+  #scoutalert-fresh-direction .sf-peek-footer > span { font-size:11px; color:var(--sf-muted); }
+  #scoutalert-fresh-direction .sf-peek-footer button { border:0; display:flex; align-items:center; gap:7px; background:transparent; padding:7px 0 7px 6px; font-size:13px; font-weight:600; }
+  #scoutalert-fresh-direction .sf-peek-footer svg { width:16px; height:16px; }
+  #scoutalert-fresh-direction .sf-your-control { display:flex; align-items:center; gap:12px; margin:22px 8px 0; }
+  #scoutalert-fresh-direction .sf-mini-identity { display:grid; place-items:center; width:37px; height:37px; border-radius:12px; background:var(--sf-tint); color:var(--sf-muted); flex:none; }
+  #scoutalert-fresh-direction .sf-your-control strong { display:block; font-size:13px; font-weight:600; }
+  #scoutalert-fresh-direction .sf-your-control p > span { display:block; color:var(--sf-muted); font-size:12px; margin-top:3px; }
+  #scoutalert-fresh-direction .sf-simple-promise { display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:24px; padding:32px 0 10px; color:var(--sf-muted); font-size:13px; }
+  #scoutalert-fresh-direction .sf-simple-promise > span { display:flex; align-items:center; gap:8px; }
+  #scoutalert-fresh-direction .sf-simple-promise svg { width:16px; height:16px; }
+  #scoutalert-fresh-direction .sf-footer { display:flex; align-items:center; justify-content:center; gap:8px; flex-wrap:wrap; font-size:11px; color:var(--sf-muted); padding-top:24px; }
+  #scoutalert-fresh-direction .sf-workspace { padding-top:47px; }
+  #scoutalert-fresh-direction .sf-workspace-heading { display:flex; justify-content:space-between; align-items:center; gap:20px; margin-bottom:28px; }
+  #scoutalert-fresh-direction .sf-greeting { display:block; font-size:14px; color:var(--sf-muted); margin-bottom:9px; }
+  #scoutalert-fresh-direction .sf-workspace h1 { font-size:38px; letter-spacing:-1.2px; }
+  #scoutalert-fresh-direction .sf-workspace-heading p { color:var(--sf-muted); font-size:15px; margin-top:12px; }
+  #scoutalert-fresh-direction .sf-secondary { display:flex; align-items:center; justify-content:center; gap:8px; border:1px solid var(--sf-line); border-radius:12px; padding:11px 16px; background:var(--sf-paper); font-size:13px !important; min-height:44px; white-space:nowrap; }
+  #scoutalert-fresh-direction .sf-secondary svg { width:16px; height:16px; }
+  #scoutalert-fresh-direction .sf-brief-strip { display:flex; align-items:center; gap:14px; padding:19px 22px; border-radius:17px; background:var(--sf-tint); margin-bottom:29px; }
+  #scoutalert-fresh-direction .sf-strip-icon { display:grid; place-items:center; width:39px; height:39px; border-radius:12px; color:var(--sf-accent); background:var(--sf-paper); flex:none; }
+  #scoutalert-fresh-direction .sf-brief-strip > div { min-width:0; }
+  #scoutalert-fresh-direction .sf-brief-strip strong { font-size:15px; font-weight:600; }
+  #scoutalert-fresh-direction .sf-brief-strip p { font-size:13px; margin-top:4px; color:var(--sf-muted); overflow-wrap:anywhere; }
+  #scoutalert-fresh-direction .sf-delivery { margin-left:auto; color:var(--sf-muted); font-size:12px; white-space:nowrap; }
+  #scoutalert-fresh-direction .sf-results-heading { display:flex; justify-content:space-between; align-items:center; gap:16px; margin-bottom:17px; }
+  #scoutalert-fresh-direction .sf-results-heading h2 { font-size:19px; font-weight:600; letter-spacing:-.4px; }
+  #scoutalert-fresh-direction .sf-results-count { color:var(--sf-muted); font-size:13px; }
+  #scoutalert-fresh-direction .sf-results { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:22px; }
+  #scoutalert-fresh-direction .sf-result { display:flex; flex-direction:column; padding:25px; border-radius:var(--sf-radius); background:var(--sf-paper); box-shadow:0 8px 32px var(--sf-shadow); }
+  #scoutalert-fresh-direction .sf-result-top { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:20px; }
+  #scoutalert-fresh-direction .sf-bookmark { display:flex; align-items:center; gap:5px; background:transparent; border:0; padding:8px; min-height:36px; font-size:12px !important; color:var(--sf-muted) !important; }
+  #scoutalert-fresh-direction .sf-bookmark svg { width:17px; height:17px; }
+  #scoutalert-fresh-direction .sf-bookmark[aria-pressed="true"] { color:var(--sf-accent) !important; }
+  #scoutalert-fresh-direction .sf-bookmark[aria-pressed="true"] svg { fill:var(--sf-tint); }
+  #scoutalert-fresh-direction .sf-result-kind { color:var(--sf-muted); font-size:12px; margin-bottom:8px; }
+  #scoutalert-fresh-direction .sf-result h3 { font-size:23px; font-weight:600; line-height:1.25; letter-spacing:-.6px; }
+  #scoutalert-fresh-direction .sf-result-source { color:var(--sf-muted); font-size:13px; margin-top:8px; }
+  #scoutalert-fresh-direction .sf-result-meta { display:flex; flex-wrap:wrap; gap:10px 18px; margin:20px 0 13px; color:var(--sf-muted); font-size:13px; }
+  #scoutalert-fresh-direction .sf-result-meta > span { display:flex; gap:6px; align-items:center; }
+  #scoutalert-fresh-direction .sf-result-meta svg { width:16px; height:16px; }
+  #scoutalert-fresh-direction .sf-result-price { font-size:18px; font-weight:600; letter-spacing:-.3px; margin-bottom:23px; }
+  #scoutalert-fresh-direction .sf-result-evidence, #scoutalert-fresh-direction .sf-result-question { display:flex; gap:9px; align-items:flex-start; font-size:13px; }
+  #scoutalert-fresh-direction .sf-result-evidence { color:var(--sf-positive); }
+  #scoutalert-fresh-direction .sf-result-question { color:var(--sf-muted); margin:13px 0 24px; }
+  #scoutalert-fresh-direction .sf-result-evidence svg, #scoutalert-fresh-direction .sf-result-question svg { width:17px; height:17px; margin-top:1px; }
+  #scoutalert-fresh-direction .sf-result-details { display:flex; align-items:center; justify-content:space-between; gap:9px; border:0; background:var(--sf-soft); border-radius:12px; min-height:45px; padding:11px 14px; margin-top:auto; text-align:left; font-size:13px !important; font-weight:600 !important; }
+  #scoutalert-fresh-direction .sf-result-details svg { width:16px; height:16px; }
+  #scoutalert-fresh-direction .sf-empty { padding:60px 20px; text-align:center; }
+  #scoutalert-fresh-direction .sf-empty > svg { width:28px; height:28px; color:var(--sf-muted); margin-bottom:15px; }
+  #scoutalert-fresh-direction .sf-empty h2 { font-size:24px; font-weight:600; }
+  #scoutalert-fresh-direction .sf-empty p { color:var(--sf-muted); margin-top:10px; font-size:14px; }
+  #scoutalert-fresh-direction .sf-empty button { margin:25px auto 0; }
+  #scoutalert-fresh-direction .sf-dialog { width:calc(100% - 32px); max-width:520px; border:0; border-radius:24px; background:var(--sf-paper); color:var(--sf-ink); padding:29px; box-shadow:0 20px 70px #152C4540; font:400 15px/1.65 'Figtree',sans-serif; }
+  #scoutalert-fresh-direction .sf-dialog::backdrop { background:#152C4555; }
+  #scoutalert-fresh-direction .sf-dialog-top { display:flex; justify-content:space-between; align-items:flex-start; gap:16px; margin-bottom:20px; }
+  #scoutalert-fresh-direction .sf-dialog-top h2 { font-size:26px; line-height:1.2; letter-spacing:-.5px; font-weight:600; }
+  #scoutalert-fresh-direction .sf-close { border:0; border-radius:11px; min-width:36px; min-height:36px; background:var(--sf-soft); display:grid; place-items:center; }
+  #scoutalert-fresh-direction .sf-dialog-content > p { color:var(--sf-muted); margin-top:10px; font-size:14px; }
+  #scoutalert-fresh-direction .sf-dialog-content > h3 { margin-top:23px; font-size:14px; font-weight:600; }
+  #scoutalert-fresh-direction .sf-dialog-content > button { margin-top:28px; }
+  @media (max-width:900px) {
+    #scoutalert-fresh-direction .sf-header { padding:20px 25px; gap:17px; }
+    #scoutalert-fresh-direction .sf-nav button { padding:10px; font-size:13px; }
+    #scoutalert-fresh-direction main { padding:0 26px 24px; }
+    #scoutalert-fresh-direction .sf-setup-layout { gap:22px; grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr); }
+    #scoutalert-fresh-direction .sf-composer { padding:23px; }
+    #scoutalert-fresh-direction .sf-fields { grid-template-columns:1fr; gap:16px; }
+    #scoutalert-fresh-direction .sf-alert-row label { display:block; }
+    #scoutalert-fresh-direction .sf-alert-row label > span { max-width:none; margin-bottom:8px; }
+    #scoutalert-fresh-direction .sf-alert-row select { width:100%; max-width:none; }
+    #scoutalert-fresh-direction .sf-opportunity-peek { padding:23px 20px 0; }
+    #scoutalert-fresh-direction .sf-opportunity-peek h2 { font-size:24px; }
+    #scoutalert-fresh-direction .sf-peek-price { font-size:20px; }
+    #scoutalert-fresh-direction .sf-peek-footer { flex-wrap:wrap; gap:3px; }
+    #scoutalert-fresh-direction .sf-your-control { margin-left:0; margin-right:0; }
+  }
+  @media (max-width:640px) {
+    #scoutalert-fresh-direction .sf-app { border-radius:15px; }
+    #scoutalert-fresh-direction .sf-header { flex-wrap:wrap; padding:18px 19px; gap:16px; }
+    #scoutalert-fresh-direction .sf-logo { font-size:21px; }
+    #scoutalert-fresh-direction .sf-account { gap:6px; }
+    #scoutalert-fresh-direction .sf-avatar { width:30px; height:30px; }
+    #scoutalert-fresh-direction .sf-appearance { min-height:44px; min-width:44px; }
+    #scoutalert-fresh-direction .sf-nav { order:3; width:100%; justify-content:space-between; gap:4px; }
+    #scoutalert-fresh-direction .sf-nav button { min-height:44px; padding:10px 11px; font-size:13px; }
+    #scoutalert-fresh-direction main { padding:0 18px 22px; }
+    #scoutalert-fresh-direction .sf-intro { padding:34px 0 24px; text-align:left; }
+    #scoutalert-fresh-direction h1 { font-size:39px; line-height:1.08; letter-spacing:-1.3px; }
+    #scoutalert-fresh-direction .sf-intro > p { font-size:15px; line-height:1.6; margin-top:14px; }
+    #scoutalert-fresh-direction .sf-goals { justify-content:flex-start; gap:8px; margin-bottom:24px; }
+    #scoutalert-fresh-direction .sf-goals button { padding:10px 12px; min-height:44px; font-size:12px; border-radius:12px; gap:6px; }
+    #scoutalert-fresh-direction .sf-goals svg { width:16px; height:16px; }
+    #scoutalert-fresh-direction .sf-setup-layout { grid-template-columns:1fr; gap:29px; }
+    #scoutalert-fresh-direction .sf-composer { padding:21px; }
+    #scoutalert-fresh-direction .sf-prompt { font-size:18px; }
+    #scoutalert-fresh-direction .sf-composer textarea { padding:15px; font-size:16px; min-height:155px; }
+    #scoutalert-fresh-direction .sf-composer :is(input,select) { font-size:16px; }
+    #scoutalert-fresh-direction .sf-alert-row { margin-bottom:21px; }
+    #scoutalert-fresh-direction .sf-control-note { align-items:flex-start; font-size:11px; line-height:1.5; }
+    #scoutalert-fresh-direction .sf-example { padding-top:0; }
+    #scoutalert-fresh-direction .sf-opportunity-peek { padding:24px 22px 0; }
+    #scoutalert-fresh-direction .sf-opportunity-peek h2 { font-size:26px; }
+    #scoutalert-fresh-direction .sf-peek-footer { flex-wrap:nowrap; gap:10px; }
+    #scoutalert-fresh-direction .sf-peek-footer button { min-height:44px; font-size:12px; }
+    #scoutalert-fresh-direction .sf-simple-promise { justify-content:flex-start; gap:15px; padding:30px 7px 10px; font-size:12px; }
+    #scoutalert-fresh-direction .sf-footer { font-size:11px; line-height:1.65; }
+    #scoutalert-fresh-direction .sf-workspace { padding-top:32px; }
+    #scoutalert-fresh-direction .sf-workspace-heading { flex-wrap:wrap; gap:20px; }
+    #scoutalert-fresh-direction .sf-workspace h1 { font-size:35px; }
+    #scoutalert-fresh-direction .sf-workspace-heading p { font-size:14px; }
+    #scoutalert-fresh-direction .sf-brief-strip { padding:17px; align-items:flex-start; gap:10px; flex-wrap:wrap; }
+    #scoutalert-fresh-direction .sf-brief-strip > div { flex:1; }
+    #scoutalert-fresh-direction .sf-delivery { margin-left:49px; }
+    #scoutalert-fresh-direction .sf-results { grid-template-columns:1fr; gap:18px; }
+    #scoutalert-fresh-direction .sf-result { padding:23px; }
+    #scoutalert-fresh-direction .sf-bookmark { min-height:44px; }
+    #scoutalert-fresh-direction .sf-dialog { padding:24px; }
+    #scoutalert-fresh-direction .sf-close { min-height:44px; min-width:44px; }
+    #scoutalert-fresh-direction .sf-dialog-top h2 { font-size:24px; }
+  }
+</style>
+<script>
+(() => {
+  const root = document.getElementById('scoutalert-fresh-direction');
+  const app = root.querySelector('.sf-app');
+  const form = root.querySelector('.sf-composer');
+  const resultTemplate = root.querySelector('#sf-result-template');
+  const dialogTemplate = root.querySelector('#sf-dialog-template');
+  const state = { goal:'services', view:'setup', appearance:'light', saved:new Set() };
+  const design = { accent:'#2962FF', radius:24 };
+  const goals = {
+    services:{ title:'Find your next customer.', briefLabel:'What services do you offer?', brief:'I offer home and office cleaning. I’m looking for regular customers and one-off cleaning jobs around Lekki and Ikoyi.', location:'Lekki and Ikoyi', locationLabel:'Where do you work?', scope:'Within 12 km', scopeLabel:'How far can you travel?', scopes:['Within 5 km','Within 12 km','Within 25 km'], name:'Home and office cleaning', resultTitle:'New work, on your terms.', description:'Example customer requests with the useful details up front.' },
+    jobs:{ title:'Find your next role.', briefLabel:'What would you like to do next?', brief:'I’m a frontend engineer working with React and TypeScript. I’m looking for a full-time role that lets me work remotely from Nigeria.', location:'Nigeria', locationLabel:'Where are you based?', scope:'Remote only', scopeLabel:'Your work arrangement', scopes:['Remote only','Hybrid','On-site','Open to options'], name:'Frontend engineering', resultTitle:'Your next move, in focus.', description:'Example roles with the requirements and unresolved details clearly shown.' },
+    contracts:{ title:'Find your next project.', briefLabel:'What kind of projects do you want?', brief:'I’m a brand designer. I’m looking for identity and packaging projects for small businesses, with a clear scope and budget.', location:'Remote', locationLabel:'Where can you work?', scope:'Remote projects', scopeLabel:'Your project arrangement', scopes:['Remote projects','Local projects','Either'], name:'Brand design projects', resultTitle:'Projects worth your time.', description:'Example projects with a clear brief, budget and questions to follow up.' }
+  };
+  const items = {
+    services:[
+      { id:'clean-home', icon:'house', kind:'Customer request', title:'Weekly home cleaning', source:'Example neighbourhood request', location:'Lekki Phase 1', schedule:'Every Friday', amount:'₦20,000–₦30,000', unit:'per visit', reasonTitle:'Recurring work, close to home', evidence:'Weekly cleaning requested in Lekki.', question:'Check the address and who provides supplies.', sourceText:'A two-bedroom flat needs cleaning every Friday. The stated budget is ₦20,000–₦30,000 per visit. Tasks include floors, bathrooms, kitchen surfaces and dusting.', unresolved:'Exact address, expected hours and cleaning supplies are not specified.' },
+      { id:'clean-office', icon:'building-2', kind:'One-off cleaning project', title:'Move-out office clean', source:'Example local business request', location:'Ikoyi', schedule:'Weekday booking', amount:'Budget not stated', unit:'Confirm before quoting', evidence:'Office cleaning requested in Ikoyi on a weekday.', question:'Check floor area, access and agreed price.', sourceText:'An office needs a thorough clean after moving out. The request includes floors, windows and empty work areas and asks for a weekday booking.', unresolved:'The budget, floor area, parking and access arrangements are not specified.' }
+    ],
+    jobs:[
+      { id:'job-react', icon:'code-2', kind:'Full-time role', title:'Senior Frontend Engineer', source:'Example company careers page', location:'Remote, EMEA', schedule:'Full-time', amount:'$85,000–$110,000', unit:'per year', reasonTitle:'React and TypeScript experience', evidence:'React and TypeScript are explicitly listed.', question:'Check eligibility to work from Nigeria.', sourceText:'A product team is looking for a senior frontend engineer with React, TypeScript and experience building accessible applications. The role is remote within EMEA and full-time.', unresolved:'The eligible hiring countries are not specified; the regional description does not confirm Nigeria eligibility.' },
+      { id:'job-web', icon:'panels-top-left', kind:'Full-time role', title:'Frontend Engineer', source:'Example recruitment listing', location:'Lagos', schedule:'Hybrid', amount:'Salary not disclosed', unit:'Confirm compensation', evidence:'The posting specifies a hybrid frontend role in Lagos.', question:'Check office attendance and compensation.', sourceText:'A Lagos company is looking for a frontend engineer to build customer-facing web applications. The role is listed as hybrid and full-time.', unresolved:'The salary range and the number of office days are not specified.' }
+    ],
+    contracts:[
+      { id:'design-brand', icon:'pen-tool', kind:'Brand design project', title:'Brand identity for a new café', source:'Example client project brief', location:'Remote', schedule:'Four-week project', amount:'$1,500–$2,500', unit:'project budget', reasonTitle:'A defined identity project', evidence:'A logo, colour system and packaging concepts are requested.', question:'Confirm revisions, usage rights and payment milestones.', sourceText:'A new café needs a logo, a colour system and packaging concepts. The example project has a four-week timeline and a budget of $1,500–$2,500.', unresolved:'Revision limits, usage rights and payment milestones are not specified.' },
+      { id:'design-pack', icon:'package', kind:'Packaging project', title:'Packaging refresh for a skincare brand', source:'Example client project brief', location:'Remote', schedule:'Timeline to confirm', amount:'Budget not stated', unit:'Agree scope before quoting', evidence:'Packaging updates for three product types are requested.', question:'Confirm dimensions, print specifications and budget.', sourceText:'A skincare business wants packaging updates for three product types. The work can be delivered remotely.', unresolved:'The budget, delivery date, dimensions and print specifications are not specified.' }
+    ]
+  };
+
+  /** Creates a text node element without interpreting the user's brief as HTML. */
+  function textElement(tag,text,className) {
+    const element = document.createElement(tag);
+    element.textContent = text;
+    if (className) element.className = className;
+    return element;
+  }
+
+  /** Restores only presentation choices from this preview's compatible saved state. */
+  function restore(snapshot) {
+    const stored = snapshot?.privateContent;
+    if (stored?.version !== 1 || stored.preview !== 'fresh-direction') return;
+    if (['jobs','contracts','services'].includes(stored.goal)) state.goal = stored.goal;
+    if (['light','dark'].includes(stored.appearance)) state.appearance = stored.appearance;
+    if (/^#[0-9a-f]{6}$/i.test(stored.accent || '')) design.accent = stored.accent;
+    if (Number.isFinite(stored.radius)) design.radius = Math.max(12,Math.min(30,stored.radius));
+  }
+
+  /** Saves appearance and example category, without retaining user-entered brief text. */
+  function remember() {
+    if (!window.openai?.setWidgetState) return;
+    window.openai.setWidgetState({ modelContent:{ preview:'ScoutAlert fresh direction', audience:state.goal, appearance:state.appearance },privateContent:{ version:1,preview:'fresh-direction',goal:state.goal,appearance:state.appearance,accent:design.accent,radius:design.radius } }).catch(() => {});
+  }
+
+  /** Applies appearance independently of the surrounding conversation and refreshes its action label. */
+  function renderAppearance() {
+    root.style.colorScheme = state.appearance;
+    root.style.setProperty('--sf-accent',design.accent);
+    root.style.setProperty('--sf-radius',`${design.radius}px`);
+    const button = root.querySelector('.sf-appearance');
+    button.setAttribute('aria-label',`Switch to ${state.appearance === 'light' ? 'dark' : 'light'} appearance`);
+    const icon = document.createElement('i');
+    icon.dataset.lucide = state.appearance === 'light' ? 'moon' : 'sun';
+    icon.setAttribute('aria-hidden','true');
+    button.replaceChildren(icon);
+    initializeIcons();
+  }
+
+  /** Initializes supplied icons after local content changes, without loading another library. */
+  function initializeIcons() {
+    if (globalThis.lucide) lucide.createIcons({ attrs:{width:20,height:20} });
+  }
+
+  /** Fills an explicitly chosen example category and preserves no inferred profile information. */
+  function chooseGoal(goal) {
+    state.goal = goal;
+    const config = goals[goal];
+    form.elements.brief.value = config.brief;
+    form.elements.location.value = config.location;
+    form.elements.scope.replaceChildren(...config.scopes.map(value => {
+      const option = textElement('option',value);
+      option.value = value;
+      return option;
+    }));
+    form.elements.scope.value = config.scope;
+    root.querySelector('[data-setup-title]').textContent = config.title;
+    root.querySelector('[data-brief-label]').textContent = config.briefLabel;
+    root.querySelector('[data-location-label]').textContent = config.locationLabel;
+    root.querySelector('[data-scope-label]').textContent = config.scopeLabel;
+    root.querySelectorAll('[data-goal]').forEach(button => button.setAttribute('aria-pressed',String(button.dataset.goal === goal)));
+    renderPeek();
+  }
+
+  /** Displays a fixed illustrative opportunity rather than claiming the typed brief was researched. */
+  function renderPeek() {
+    const item = items[state.goal][0];
+    root.querySelector('[data-peek-title]').textContent = item.title;
+    root.querySelector('[data-peek-type]').textContent = item.kind;
+    root.querySelector('[data-peek-location]').textContent = item.location;
+    root.querySelector('[data-peek-price]').replaceChildren(document.createTextNode(item.amount),textElement('span',item.unit));
+    root.querySelector('[data-peek-reason-title]').textContent = item.reasonTitle;
+    root.querySelector('[data-peek-reason]').textContent = item.evidence;
+    root.querySelector('[data-peek-question]').textContent = item.question;
+    const icon = document.createElement('i');
+    icon.dataset.lucide = item.icon;
+    icon.setAttribute('aria-hidden','true');
+    root.querySelector('[data-peek-identity]').replaceChildren(icon);
+    initializeIcons();
+  }
+
+  /** Validates a local brief before showing its example preview; no form is submitted. */
+  function previewScout() {
+    form.elements.brief.value = form.elements.brief.value.trim();
+    form.elements.location.value = form.elements.location.value.trim();
+    if (!form.reportValidity()) return;
+    showView('preview');
+  }
+
+  /** Switches between setup, illustrative results and locally bookmarked opportunities. */
+  function showView(view) {
+    state.view = view;
+    root.querySelector('.sf-setup').hidden = view !== 'setup';
+    root.querySelector('.sf-workspace').hidden = view === 'setup';
+    root.querySelectorAll('[data-view]').forEach(button => button.setAttribute('aria-pressed',String(button.dataset.view === view)));
+    if (view !== 'setup') renderResults();
+  }
+
+  /** Displays source text and missing details in a native, keyboard-dismissible dialog. */
+  function showDetails(item) {
+    root.querySelectorAll('dialog').forEach(dialog => dialog.remove());
+    const fragment = dialogTemplate.content.cloneNode(true);
+    const dialog = fragment.querySelector('dialog');
+    dialog.setAttribute('aria-label',item.title);
+    dialog.querySelector('h2').textContent = item.title;
+    const content = dialog.querySelector('.sf-dialog-content');
+    content.append(textElement('p',`${item.location} — ${item.amount}`),textElement('h3','Fictional posting'),textElement('p',item.sourceText),textElement('h3','What still needs checking'),textElement('p',item.unresolved));
+    const button = textElement('button','Back to my scout','sf-primary cursor-interaction');
+    button.type = 'button';
+    button.addEventListener('click',() => dialog.close());
+    content.append(button);
+    dialog.querySelector('.sf-close').addEventListener('click',() => dialog.close());
+    dialog.addEventListener('close',() => dialog.remove());
+    app.append(dialog);
+    initializeIcons();
+    dialog.showModal();
+  }
+
+  /** Constructs an illustrative opportunity with local save and detail controls. */
+  function createResult(item) {
+    const fragment = resultTemplate.content.cloneNode(true);
+    const result = fragment.querySelector('article');
+    result.querySelector('.sf-identity i').dataset.lucide = item.icon;
+    result.querySelector('.sf-result-kind').textContent = item.kind;
+    result.querySelector('h3').textContent = item.title;
+    result.querySelector('.sf-result-source').textContent = item.source;
+    result.querySelector('[data-result-location]').textContent = item.location;
+    result.querySelector('[data-result-schedule]').textContent = item.schedule;
+    result.querySelector('.sf-result-price').textContent = `${item.amount} ${item.amount.startsWith('Budget') || item.amount.startsWith('Salary') ? '' : item.unit}`.trim();
+    result.querySelector('.sf-result-evidence p').textContent = item.evidence;
+    result.querySelector('.sf-result-question p').textContent = item.question;
+    const bookmark = result.querySelector('.sf-bookmark');
+    const saved = state.saved.has(item.id);
+    bookmark.dataset.opportunity = item.id;
+    bookmark.setAttribute('aria-pressed',String(saved));
+    bookmark.setAttribute('aria-label',`${saved ? 'Unsave' : 'Save'} ${item.title}`);
+    bookmark.querySelector('span').textContent = saved ? 'Saved' : 'Save';
+    bookmark.addEventListener('click',() => {
+      const shouldSave = !state.saved.has(item.id);
+      if (shouldSave) state.saved.add(item.id);
+      if (!shouldSave) state.saved.delete(item.id);
+      renderResults();
+      const nextControl = root.querySelector(`[data-opportunity="${item.id}"]`) || root.querySelector('[data-explore]');
+      nextControl?.focus();
+    });
+    result.querySelector('.sf-result-details').addEventListener('click',() => showDetails(item));
+    return fragment;
+  }
+
+  /** Refreshes the preview from explicit brief fields and a fixed, clearly labeled example dataset. */
+  function renderResults() {
+    const config = goals[state.goal];
+    const examples = state.view === 'saved' ? Object.values(items).flat().filter(item => state.saved.has(item.id)) : items[state.goal];
+    root.querySelector('[data-workspace-title]').textContent = state.view === 'saved' ? 'The ones you want to keep.' : config.resultTitle;
+    root.querySelector('[data-workspace-description]').textContent = state.view === 'saved' ? 'Your saved example opportunities, together in one place.' : config.description;
+    root.querySelector('[data-brief-heading]').textContent = config.name;
+    root.querySelector('[data-brief-summary]').textContent = `${form.elements.location.value} — ${form.elements.scope.value}`;
+    root.querySelector('[data-brief-summary]').setAttribute('data-tooltip',form.elements.brief.value);
+    root.querySelector('[data-delivery]').textContent = form.elements.alerts.selectedOptions[0].textContent;
+    root.querySelector('[data-results-title]').textContent = state.view === 'saved' ? 'Saved opportunities' : 'Worth exploring';
+    root.querySelector('.sf-results-count').textContent = `${examples.length} ${examples.length === 1 ? 'example' : 'examples'}`;
+    root.querySelector('[data-save-count]').textContent = String(state.saved.size);
+    root.querySelector('.sf-results').replaceChildren(...examples.map(createResult));
+    root.querySelector('.sf-empty').hidden = examples.length > 0;
+    initializeIcons();
+  }
+
+  root.querySelectorAll('[data-goal]').forEach(button => button.addEventListener('click',() => { chooseGoal(button.dataset.goal); remember(); }));
+  root.querySelectorAll('[data-view]').forEach(button => button.addEventListener('click',() => {
+    if (button.dataset.view === 'preview') { previewScout(); return; }
+    showView(button.dataset.view);
+  }));
+  root.querySelector('[data-preview]').addEventListener('click',previewScout);
+  root.querySelector('[data-edit]').addEventListener('click',() => showView('setup'));
+  root.querySelector('[data-explore]').addEventListener('click',() => showView('preview'));
+  root.querySelector('[data-peek-details]').addEventListener('click',() => showDetails(items[state.goal][0]));
+  root.querySelector('.sf-appearance').addEventListener('click',() => { state.appearance = state.appearance === 'light' ? 'dark' : 'light'; renderAppearance(); remember(); });
+  form.addEventListener('keydown',event => {
+    if (event.key !== 'Enter' || event.target.tagName !== 'INPUT') return;
+    event.preventDefault();
+    previewScout();
+  });
+  restore(window.openai?.widgetState);
+  chooseGoal(state.goal);
+  renderAppearance();
+  window.addEventListener('openai:set_globals',event => {
+    const snapshot = event.detail?.globals?.widgetState;
+    if (!snapshot) return;
+    const previousGoal = state.goal;
+    restore(snapshot);
+    if (state.goal !== previousGoal) chooseGoal(state.goal);
+    renderAppearance();
+    if (state.view !== 'setup') renderResults();
+  });
+  if (globalThis.Tweak) {
+    const tweak = new Tweak({container:root,onChange:() => { renderAppearance(); remember(); }});
+    tweak.addColorPicker(design,'accent',{label:'Accent colour',reference:'--sf-accent'});
+    tweak.addSlider(design,'radius',{label:'Surface corners',min:12,max:30,unit:'px',reference:'--sf-radius'});
+  }
+})();
+</script>
