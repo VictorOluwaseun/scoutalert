@@ -33,7 +33,59 @@ const web = {
   directory: "apps/web",
   manifest: { name: "web", dependencies: {} },
 };
-const workspaces = [core, adapters, api, web];
+const workflows = {
+  directory: "packages/workflows",
+  manifest: {
+    name: "@repo/workflows",
+    exports: { "./scouting": "./dist/scouting/public.js" },
+    dependencies: { "@temporalio/workflow": "1.24.0" },
+  },
+};
+const workspaces = [core, adapters, api, web, workflows];
+
+test("workflows allow deterministic SDK/local contracts and reject clients, repositories, frameworks and core execution", () => {
+  assert.deepEqual(checkManifest(workflows), []);
+  assert.deepEqual(
+    violations(
+      workflows,
+      'import { sleep } from "@temporalio/workflow"; import type { Input } from "./contracts.js";',
+    ),
+    [],
+  );
+  for (const specifier of [
+    "pg",
+    "@nestjs/common",
+    "@temporalio/client",
+    "@repo/adapters/scouts",
+    "@repo/core/scouts",
+    "node:fs",
+  ])
+    assert.equal(
+      violations(workflows, `import type { Client } from "${specifier}";`)
+        .length,
+      1,
+    );
+  assert.equal(
+    checkManifest({
+      ...workflows,
+      manifest: {
+        ...workflows.manifest,
+        dependencies: { "@temporalio/client": "1.24.0" },
+      },
+    }).length,
+    1,
+  );
+  assert.equal(
+    checkManifest({
+      ...adapters,
+      manifest: {
+        ...adapters.manifest,
+        dependencies: { "@repo/workflows": "workspace:*" },
+      },
+    }).length,
+    1,
+  );
+});
 
 /** Checks a source fixture under the same workspace ownership rules as the command. */
 function violations(

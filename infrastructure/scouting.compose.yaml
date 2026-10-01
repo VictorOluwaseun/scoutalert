@@ -1,0 +1,22 @@
+services:
+  temporal-state:
+    image: temporalio/temporal:1.9.1
+    user: "0:0"
+    entrypoint: ["/bin/sh", "-c"]
+    command: ["chown 1000:1000 /var/lib/temporal"]
+    volumes:
+      - temporal-development:/var/lib/temporal
+  temporal:
+    image: temporalio/temporal:1.9.1
+    command: ["server", "start-dev", "--ip", "0.0.0.0", "--db-filename", "/var/lib/temporal/scoutalert.db"]
+    ports:
+      - "127.0.0.1:7233:7233"
+      - "127.0.0.1:8233:8233"
+    volumes:
+      - temporal-development:/var/lib/temporal
+    depends_on:
+      temporal-state:
+        condition: service_completed_successfully
+    restart: unless-stopped
+volumes:
+  temporal-development:

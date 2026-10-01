@@ -3,7 +3,8 @@ import { dirname, relative, resolve } from "node:path";
 
 const coreName = "@repo/core";
 const adaptersName = "@repo/adapters";
-const protectedPackages = new Set([coreName, adaptersName]);
+const workflowsName = "@repo/workflows";
+const protectedPackages = new Set([coreName, adaptersName, workflowsName]);
 const coreTooling = new Set([
   "@repo/eslint-config",
   "@repo/typescript-config",
@@ -64,6 +65,8 @@ export function checkManifest(workspace) {
 function checkRuntimeDependency(consumer, dependency, version) {
   const workspaceReference =
     dependency.startsWith("@repo/") || /^(workspace|file|link):/.test(version);
+  if (consumer === workflowsName && dependency !== "@temporalio/workflow")
+    return `Workflow definitions cannot depend on ${dependency}; keep activities and clients in the worker.`;
   if (consumer === coreName)
     return `Core cannot declare runtime dependency ${dependency}; pure additions require explicit architectural review.`;
   if (
@@ -127,6 +130,9 @@ function checkImport(file, specifier, workspace, workspaces, root) {
     return `Import ${target.manifest.name} through a declared feature export, not ${specifier}.`;
   if (local) return null;
 
+  if (consumer === workflowsName && specifier !== "@temporalio/workflow")
+    return `Workflow definitions cannot import ${specifier}; use serializable local contracts.`;
+
   if (
     consumer === coreName &&
     target?.manifest.name !== coreName &&
@@ -136,7 +142,7 @@ function checkImport(file, specifier, workspace, workspaces, root) {
   if (
     consumer === adaptersName &&
     target &&
-    !protectedPackages.has(target.manifest.name)
+    ![coreName, adaptersName].includes(target.manifest.name)
   )
     return `Adapters cannot import workspace ${target.manifest.name}; compose applications outside adapters.`;
   if (
