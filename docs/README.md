@@ -2,7 +2,7 @@
 
 **Baseline revision:** 0.2
 
-**Updated:** 29 September 2026
+**Updated:** 1 October 2026
 
 ScoutAlert is a continuously operating opportunity intelligence platform with persistent personal Scouts. These documents describe the full product and its target architecture. Implementation milestones sequence that work; they do not define the limit of the product.
 
@@ -44,8 +44,10 @@ Execution-engine adoption, provider/model selection, and measured operating targ
 
 ## Implementation status
 
-The workspace contains application and dependency foundations. These documents are a target design, not a claim that source connectors, Scouts, matching, email delivery, or durable workflows have been implemented.
+The workspace contains deterministic onboarding review, [shared email verification and sessions, transactional scout activation and an account-owned dashboard](engineering/scoutalert-connected-onboarding.md), and [local email capture through Mailpit](engineering/scoutalert-local-email.md). Confirmed Scouts, preferences, consent and unique initial discovery intents persist in PostgreSQL. Returning users can sign in independently of onboarding, edit and pause scouts, and give private opportunity feedback. The first live path includes shared Greenhouse collection from Figma/Remote and Freelancer buyer requests for fixed-price client projects and hourly services, evidence-based matching, account-owned dashboard results, Temporal execution and grouped scheduled Mailpit digests. Discovery covers these initial sources; additional marketplaces, broader research coverage and production execution/provider operations remain separate work.
 
-`@repo/core` has no runtime dependencies. The database, Redis, and queue SDKs previously held there now belong to `@repo/adapters`, which depends inward on core. Both packages expose no features until implementations exist. Add target feature folders and explicit public exports with real implementations; do not generate empty scaffolding for the whole roadmap.
+`@repo/core` has no runtime dependencies. Database, Redis and email SDKs belong to `@repo/adapters`, which depends inward on core. Temporal definitions and their deterministic SDK live in `@repo/workflows`; execution/client SDKs and composition live in `apps/worker`. Implemented identity, onboarding, scouting, notification and storage capabilities have explicit feature exports. Add other target feature folders and public exports with real implementations; do not generate empty scaffolding for the whole roadmap.
 
-`pnpm check:architecture`, also run by `pnpm lint`, checks manifests and source imports for the core/adapters boundary, protected package exports, relative-path bypasses, and web/UI access to those packages. `pnpm test:architecture` verifies these checks. Additional feature-layer, controller/activity, and workflow rules must be implemented as those responsibilities are introduced.
+`pnpm check:architecture`, also run by `pnpm lint`, checks manifests and source imports for core/adapters/workflow ownership, protected feature exports, relative-path bypasses, web/UI access and forbidden workflow clients/frameworks/repositories. `pnpm test:architecture` verifies these checks. Additional feature-layer and controller/activity rules remain work as their responsibilities grow.
+
+The local intelligence milestone adds opt-in shared posting extraction, private evidence-linked fit assessment, durable request/cost budgets, and dashboard explanations. The [operating guide](engineering/scoutalert-connected-onboarding.md#evidence-linked-ai-assessment) records evaluation evidence and limits. Availability checks cover jobs and client requests. Bounded employer eligibility/sponsorship research, explicit personal authorization declarations and evidence-gated prompt alerts are implemented. Private positive feedback can adjust candidate priority and accepted-match ranking within fixed limits; hiding suppresses the posting. Wider research coverage and independently reviewed retrieval/assessment quality validation remain platform work; the [evaluation packet](../evaluations/opportunity-quality/README.md) records the current measurements and pending human review.

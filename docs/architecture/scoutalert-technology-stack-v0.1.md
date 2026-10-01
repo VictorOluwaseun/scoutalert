@@ -1,8 +1,8 @@
 # ScoutAlert — Technology and AI Stack
 
-**Version:** 0.2
+**Version:** 0.3
 
-**Date:** 29 September 2026
+**Date:** 1 October 2026
 
 **Status:** Platform stack baseline; execution/provider adoption qualified below
 
@@ -25,29 +25,29 @@ The stack is designed for:
 
 ## 2. Application stack
 
-| Area                      | Technology                                             | Role                                                                                                 |
-| ------------------------- | ------------------------------------------------------ | ---------------------------------------------------------------------------------------------------- |
-| Runtime                   | Node.js + TypeScript                                   | Common runtime across web, API, workers, and AI integration                                          |
-| Monorepo                  | pnpm + Turborepo                                       | Workspace dependency management and build orchestration                                              |
-| Web                       | Next.js + React                                        | Public site, onboarding, Scouts, recommendations, opportunity workspace, settings                    |
-| Styling/components        | Tailwind CSS + shadcn/ui                               | Product UI foundation and accessible component composition                                           |
-| Client server-state       | TanStack Query                                         | Fetching, mutations, caching, invalidation for interactive client flows                              |
-| API host                  | NestJS                                                 | HTTP presentation, authorization context, modules, DI composition of shared core use cases           |
-| API style                 | REST first                                             | Clear resource/action contracts; internal providers remain behind ports                              |
-| Validation                | Zod                                                    | Runtime request, provider, configuration, and structured-output validation                           |
-| Database                  | PostgreSQL                                             | Durable system of record                                                                             |
-| Query layer               | Kysely + pg                                            | Typed SQL, transactions, explicit query control                                                      |
-| Semantic search           | pgvector                                               | Vector retrieval inside PostgreSQL                                                                   |
-| Keyword search            | PostgreSQL full-text search                            | Exact/domain-term retrieval                                                                          |
-| Cache/runtime             | Redis                                                  | Temporary state, coordination, rate limits, short-lived caches                                       |
-| Durable execution         | Temporal, preferred target pending adoption checks     | Multi-step scouting/research, retries, waits, cancellation, notification coordination                |
-| Existing queue dependency | BullMQ + NestJS integration, installed bootstrap       | Retain only for an explicit execution responsibility if justified; not a second workflow-state owner |
-| Object storage            | S3-compatible storage                                  | Private documents and permitted source snapshots                                                     |
-| Email                     | EmailProvider adapter; Resend is an initial candidate  | Verification and opportunity alerts                                                                  |
-| Observability             | OpenTelemetry + Langfuse-compatible tracing/evaluation | Operational and AI workflow visibility                                                               |
-| Testing                   | Vitest + Playwright + Testcontainers                   | Unit, browser, and real dependency integration testing                                               |
+| Area                      | Technology                                                                                  | Role                                                                                                 |
+| ------------------------- | ------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| Runtime                   | Node.js + TypeScript                                                                        | Common runtime across web, API, workers, and AI integration                                          |
+| Monorepo                  | pnpm + Turborepo                                                                            | Workspace dependency management and build orchestration                                              |
+| Web                       | Next.js + React                                                                             | Public site, onboarding, Scouts, recommendations, opportunity workspace, settings                    |
+| Styling/components        | Tailwind CSS + shadcn/ui                                                                    | Product UI foundation and accessible component composition                                           |
+| Client server-state       | TanStack Query                                                                              | Fetching, mutations, caching, invalidation for interactive client flows                              |
+| API host                  | NestJS                                                                                      | HTTP presentation, authorization context, modules, DI composition of shared core use cases           |
+| API style                 | REST first                                                                                  | Clear resource/action contracts; internal providers remain behind ports                              |
+| Validation                | Zod                                                                                         | Runtime request, provider, configuration, and structured-output validation                           |
+| Database                  | PostgreSQL                                                                                  | Durable system of record                                                                             |
+| Query layer               | Kysely + pg                                                                                 | Typed SQL, transactions, explicit query control                                                      |
+| Semantic search           | pgvector                                                                                    | Vector retrieval inside PostgreSQL                                                                   |
+| Keyword search            | PostgreSQL full-text search                                                                 | Exact/domain-term retrieval                                                                          |
+| Cache/runtime             | Redis                                                                                       | Temporary state, coordination, rate limits, short-lived caches                                       |
+| Durable execution         | Temporal, preferred target pending adoption checks                                          | Multi-step scouting/research, retries, waits, cancellation, notification coordination                |
+| Existing queue dependency | BullMQ + NestJS integration, installed bootstrap                                            | Retain only for an explicit execution responsibility if justified; not a second workflow-state owner |
+| Object storage            | S3-compatible storage                                                                       | Private documents and permitted source snapshots                                                     |
+| Email                     | EmailProvider port; Nodemailer SMTP to local Mailpit; Resend remains a production candidate | Local verification and grouped scheduled opportunity digests connected                               |
+| Observability             | OpenTelemetry + Langfuse-compatible tracing/evaluation                                      | Operational and AI workflow visibility                                                               |
+| Testing                   | Vitest + Playwright + Testcontainers                                                        | Unit, browser, and real dependency integration testing                                               |
 
-The repository contains pnpm/Turborepo, Next.js, NestJS, UI, and dependency foundations. It does not yet implement the product pipeline. `@repo/core` is dependency-free; `@repo/adapters` now owns the datasource/queue SDKs previously held in core and depends inward on core. Manifest and source boundary checks run with linting. Neither package implements product features yet, and Temporal is not installed.
+The repository contains pnpm/Turborepo, Next.js, NestJS, UI and dependency foundations, deterministic onboarding review, shared email verification/sessions, transactional Scout activation, and a local SMTP email adapter. It does not yet implement the full product pipeline. `@repo/core` is dependency-free; `@repo/adapters` owns the datasource/queue/email SDKs and depends inward on core. Manifest and source boundary checks run with linting. Identity challenges, verified accounts/sessions, confirmed Scouts, separate alert consent, retry receipts and initial-discovery outbox intents are implemented. A first live path now connects shared Greenhouse and Freelancer ingestion, evidence-based matching, current dashboard results, grouped scheduled Mailpit digests, leased outbox dispatch and finite Temporal execution. A local opt-in OpenAI extraction/personal-fit path now adds versioned caching, citation validation and bounded request admission. Bounded posting-availability and employer eligibility/sponsorship research, explicit personal authorization declarations and evidence-gated prompt alerts are implemented locally. Saved scouts support versioned edits, pause/resume and private recommendation feedback with bounded ranking adjustments. Broad source and research coverage, semantic retrieval, independent relevance judgments and production operations validation remain open. See [connected onboarding](../engineering/scoutalert-connected-onboarding.md) for the milestone boundary. The [local email guide](../engineering/scoutalert-local-email.md) owns Mailpit configuration and checks.
 
 Separate established foundations from evaluated additions: PostgreSQL/Kysely/pg, Redis, Next.js/React, NestJS, and Tailwind/shadcn remain the chosen foundation. Temporal is the preferred execution target. AI models/providers, reranking, research frameworks, dedicated search, event streaming, and analytical storage require their specific adoption evidence.
 
@@ -355,7 +355,7 @@ NotificationWorkflow
 
 Workflow definitions own durable ordering, waits, cancellation, and retry decisions. Activities receive IDs/versions and call shared core use cases through injected repositories/ports. Source collection serves many Scouts. Use finite runs/schedules or bounded entity histories; do not assume every persistent Scout requires one permanently growing execution.
 
-Before introducing Temporal, demonstrate process/crash recovery, duplicate-effect protection, cancellation/superseded revisions, history continuation, replay-compatible deployment, throughput under the target workload, managed/self-hosted operations, and cost. Choose the deployment approach in that implementation decision. Temporal activities still require idempotency, and workflow code needs safe versioning/continuation. [Activities](https://docs.temporal.io/activities), [safe deployments](https://docs.temporal.io/develop/safe-deployments), [Continue-As-New](https://docs.temporal.io/workflow-execution/continue-as-new).
+Before introducing Temporal, demonstrate process/crash recovery, duplicate-effect protection, cancellation/superseded revisions, history continuation, replay-compatible deployment, throughput under the target workload, managed/self-hosted operations, and cost. Choose the deployment approach in that implementation decision. Temporal activities still require idempotency, and workflow code needs safe versioning/continuation. The 1 October local implementation uses pinned SDK 1.24.0, an isolated persistent development server, finite run/schedule histories and repository-backed effect protection. Recovery, duplicate rejection, cancellation, stale revisions and replay have automated coverage; a 100-workflow synthetic smoke test completed in 3,408 ms with four activity slots. This validates local integration only. Representative matching/source/database capacity, history retention, production deployment operations and cost remain required production adoption gates. See the live execution sections of [connected onboarding](../engineering/scoutalert-connected-onboarding.md). [Activities](https://docs.temporal.io/activities), [safe deployments](https://docs.temporal.io/develop/safe-deployments), [Continue-As-New](https://docs.temporal.io/workflow-execution/continue-as-new).
 
 BullMQ is already an installed dependency. It may serve a specifically justified responsibility if the execution decision requires it; installation alone is not a reason to run both systems. If retained for durable queues, isolate persistence/non-eviction requirements from disposable cache policy. The business outbox/run/effect ledgers are engine-independent.
 
