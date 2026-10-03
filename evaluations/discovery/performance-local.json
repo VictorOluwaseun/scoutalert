@@ -1,0 +1,156 @@
+{
+  "recordedAt": "2026-10-03T01:52:36.297Z",
+  "policy": "discovery-yield-v1",
+  "historicalBackfill": false,
+  "sampling": {
+    "maximumAttempts": 20,
+    "maximumIdentities": 200,
+    "windowDays": 7,
+    "minimumAttemptsForRanking": 3,
+    "minimumReviewsForQuality": 5
+  },
+  "routes": [
+    {
+      "provider": "public-documents",
+      "kind": "source",
+      "routes": 4,
+      "tracking_started_at": "2026-10-03T01:52:18.430Z"
+    },
+    {
+      "provider": "serper",
+      "kind": "query",
+      "routes": 16,
+      "tracking_started_at": "2026-10-03T01:52:19.873Z"
+    }
+  ],
+  "outcomes": [
+    {
+      "provider": "public-documents",
+      "kind": "source",
+      "state": "running",
+      "attempts": 1,
+      "successful": 0,
+      "observations": 0,
+      "new_to_route": 0,
+      "reserved_micros": "0"
+    },
+    {
+      "provider": "public-documents",
+      "kind": "source",
+      "state": "succeeded",
+      "attempts": 4,
+      "successful": 3,
+      "observations": 3,
+      "new_to_route": 3,
+      "reserved_micros": "0"
+    },
+    {
+      "provider": "serper",
+      "kind": "query",
+      "state": "running",
+      "attempts": 1,
+      "successful": 0,
+      "observations": 0,
+      "new_to_route": 0,
+      "reserved_micros": "10000"
+    },
+    {
+      "provider": "serper",
+      "kind": "query",
+      "state": "succeeded",
+      "attempts": 15,
+      "successful": 15,
+      "observations": 150,
+      "new_to_route": 150,
+      "reserved_micros": "150000"
+    }
+  ],
+  "modelClassifications": [
+    {
+      "provider": "serper",
+      "kind": "query",
+      "label": "directory",
+      "unique_sources": 9
+    },
+    {
+      "provider": "serper",
+      "kind": "query",
+      "label": "job_opening",
+      "unique_sources": 4
+    }
+  ],
+  "selections": [
+    {
+      "provider": "public-documents",
+      "kind": "source",
+      "selection": "measured_yield",
+      "admissions": 4
+    },
+    {
+      "provider": "public-documents",
+      "kind": "source",
+      "selection": "oldest_due",
+      "admissions": 1
+    },
+    {
+      "provider": "serper",
+      "kind": "query",
+      "selection": "approved_query_order",
+      "admissions": 16
+    }
+  ],
+  "dailyReservations": [
+    {
+      "provider": "public-documents",
+      "requests": 115,
+      "reserved_micros": "0"
+    },
+    {
+      "provider": "serper",
+      "requests": 58,
+      "reserved_micros": "580000"
+    },
+    {
+      "provider": "x-api",
+      "requests": 100,
+      "reserved_micros": "4785000"
+    }
+  ],
+  "nativeLimits": {
+    "dailyRequests": 100,
+    "dailyReservationUsd": 10,
+    "pacedAcrossDay": true
+  },
+  "nativeQueries": [
+    {
+      "reason": "daily_budget_reached",
+      "queries": 1,
+      "next_check_at": "2026-10-03T00:42:04.969Z"
+    },
+    {
+      "reason": "recent_window_checked",
+      "queries": 5,
+      "next_check_at": "2026-10-03T00:42:05.368Z"
+    }
+  ],
+  "nativeRefreshes": {
+    "posts": 140,
+    "observed_unchanged": 0,
+    "revisit_later_than_one_hour": 0
+  },
+  "syntheticEmptyQueryWorkload": {
+    "description": "One always-empty query over 24 hours, with no budget or provider contention; synthetic policy simulation only.",
+    "priorFiveMinutePolls": 288,
+    "adaptivePolls": 16,
+    "maximumRevisitMinutes": 120
+  },
+  "independentRelevance": null,
+  "knownOpportunityRecall": null,
+  "notes": [
+    "Counts start with this deployment's admitted operations. Cached work and pre-deployment operations are not counted as new measurements.",
+    "Novel means canonical identity new to that route, not globally unique, relevant or eligible. Identity totals across routes/providers must not be summed as unique opportunities.",
+    "Current model classifications guide scheduling; they are not independent relevance labels or proof of personal fit. Unreviewed, stale, unavailable and truncated evidence is excluded from these labels.",
+    "Attempt totals cover seven days; scheduler samples are capped per route. Request reservations are ceilings, not billed cost, and exclude AI/compute charges. Zero monetary reservation for document checks does not mean zero operating cost.",
+    "Every fifth native selection prefers the oldest due query when one exists; monitoring similarly preserves oldest-due selections. This is a bounded fairness mechanism, not a global-scale service-level guarantee."
+  ]
+}

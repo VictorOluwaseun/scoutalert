@@ -2,6 +2,8 @@
 
 This workspace separates implementation regressions, measured model behavior and independently reviewed quality evidence. It is not a production readiness certificate.
 
+The [internet discovery protocol](../discovery/README.md) adds acquisition recall, informal demand, provider contribution, held-out sources and continuous exploration evaluation. This existing packet remains historical assessment/retrieval evidence for configured sources; it does not pass the new [DACC release gates](../../docs/engineering/scoutalert-discovery-acceptance.md). Its captured inputs, model outputs and pending independent labels are unchanged.
+
 ## Current review packet
 
 The current packet is [`runs/2026-10-01-held-out/corpus.json`](runs/2026-10-01-held-out/corpus.json): eight frozen public postings from Figma, Remote and Freelancer, seven synthetic briefs and 56 comparisons. Briefs cover employment, contract roles and international client work, including a US/Nigeria comparison for the same design role, sponsorship requirements, minimum pay and explicit unknown policies. Four records are jobs and four are buyer requests. This is a deterministic convenience sample; the contract brief has negative examples but no dedicated contract-job source. It does not cover the whole market, all languages or representative user demographics.

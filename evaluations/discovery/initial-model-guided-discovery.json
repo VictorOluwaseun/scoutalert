@@ -1,0 +1,8 @@
+{
+  "status": "incomplete",
+  "scope": "First synthetic Product designer or UX designer live trial",
+  "observed": "Discovery terminated after 31 activity calls. No AI source review was available, and no alert was submitted. The diagnostic runner asserted before exporting its rows; the disposable schema was cleaned up.",
+  "measurementLimitation": "Per-operation and usage rows were not preserved. This diagnostic failure is not a quality or coverage result.",
+  "changes": "Keep incomplete trials exportable. Let model-guided cases choose all document checks after seeing the search portfolio instead of prefetching the highest-ranked results blindly. Preserve earlier deterministic policies.",
+  "date": "2026-10-01"
+}

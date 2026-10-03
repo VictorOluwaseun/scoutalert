@@ -1,0 +1,137 @@
+{
+  "recordedAt": "2026-10-03T00:31:24.287Z",
+  "protocol": "native-x-context-v1",
+  "enabled": true,
+  "credentialConfigured": true,
+  "limits": {
+    "dailyRequests": 100,
+    "dailyReservationUsd": 10,
+    "postReservationUsd": 0.005,
+    "pageSize": 10
+  },
+  "queries": {
+    "queries": 6,
+    "unfinished_windows": 0,
+    "recorded_window_gaps": 0
+  },
+  "attempts": [
+    {
+      "state": "succeeded",
+      "attempts": 121,
+      "returned_posts": 666,
+      "first_native_captures": 140,
+      "previously_seen_through_google": 10,
+      "p50_ms": 343,
+      "p95_ms": 685
+    }
+  ],
+  "operationKinds": [
+    {
+      "kind": "lookup",
+      "purpose": "context",
+      "state": "succeeded",
+      "attempts": 3
+    },
+    {
+      "kind": "lookup",
+      "purpose": null,
+      "state": "succeeded",
+      "attempts": 54
+    },
+    {
+      "kind": "search",
+      "purpose": null,
+      "state": "succeeded",
+      "attempts": 64
+    }
+  ],
+  "context": {
+    "packets": 11,
+    "complete_packets": 9,
+    "incomplete_packets": 2,
+    "related_post_references": 15
+  },
+  "contextRequests": [
+    {
+      "state": "available",
+      "identities": 13,
+      "lookup_admissions": 26
+    }
+  ],
+  "posts": {
+    "retained_identities": 140,
+    "available_captures": 140,
+    "pending_updates": 457,
+    "dispatched_cases": 155
+  },
+  "dailyLedger": {
+    "requests": 76,
+    "reserved_micros": "3605000"
+  },
+  "providerAccess": {
+    "reason": null,
+    "next_allowed_at": "2026-10-03 00:31:19.216278+00"
+  },
+  "modelClassifications": [
+    {
+      "label": "directory",
+      "count": 2
+    },
+    {
+      "label": "discussion",
+      "count": 2
+    },
+    {
+      "label": "job_opening",
+      "count": 9
+    },
+    {
+      "label": "service_offer",
+      "count": 6
+    }
+  ],
+  "reviewCases": [
+    {
+      "status": "complete",
+      "reason": "some_reviews_unavailable",
+      "count": 8
+    },
+    {
+      "status": "complete",
+      "reason": "source_reviews_complete",
+      "count": 76
+    },
+    {
+      "status": "deferred",
+      "reason": "ai_budget_reached",
+      "count": 49
+    },
+    {
+      "status": "not_started",
+      "reason": null,
+      "count": 17
+    },
+    {
+      "status": "reviewing",
+      "reason": null,
+      "count": 5
+    }
+  ],
+  "sharedAiBudget": {
+    "dailyRequests": 50000,
+    "dailyReservationUsd": 50000,
+    "ledger": {
+      "requests": 947,
+      "reserved_microusd": "71025000"
+    }
+  },
+  "independentRelevance": null,
+  "knownOpportunityRecall": null,
+  "notes": [
+    "Aggregate operational measurements; no private briefs, account IDs or credentials exported.",
+    "Overlap covers matching canonical post identities previously observed through Serper; it is not a paired recall benchmark.",
+    "Model classifications are not independent relevance judgments. Reservations are conservative ceilings, not billed provider cost.",
+    "Parent/quote/conversation-root checks are bounded to six related posts and two reference levels; a complete packet does not mean a complete thread. Missing or truncated context remains incomplete.",
+    "Native streaming and full-archive search are not enabled. Context counts establish captured references, not classification quality."
+  ]
+}

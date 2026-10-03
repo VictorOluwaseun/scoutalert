@@ -1,0 +1,19 @@
+{
+  "recordedAt": "2026-10-02T23:17:15.239Z",
+  "protocol": "native-x-v1",
+  "source": "Authored X response and model fixtures; no live X or paid AI calls",
+  "scouts": 2,
+  "sharedNativeReads": 1,
+  "sharedExtractionCalls": 1,
+  "privateFitCalls": 2,
+  "acceptedMailpitMessages": 2,
+  "duplicateMessages": 0,
+  "messageIds": [
+    "<68fa5394-f412-4156-bcc5-0b6ad0ee2e1f@scoutalert.test>",
+    "<e586aa8e-b3a0-44ed-b62f-00bd11f5d382@scoutalert.test>"
+  ],
+  "elapsedMs": 472,
+  "externalProviderSpendUsd": 0,
+  "independentRelevance": null,
+  "knownOpportunityRecall": null
+}

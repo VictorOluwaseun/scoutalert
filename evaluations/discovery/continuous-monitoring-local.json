@@ -1,0 +1,68 @@
+{
+  "recordedAt": "2026-10-01T23:46:18.818Z",
+  "enrolledCases": 0,
+  "monitors": [
+    {
+      "kind": "directory",
+      "status": "active",
+      "count": 2
+    },
+    {
+      "kind": "posting",
+      "status": "active",
+      "count": 5
+    },
+    {
+      "kind": "probe",
+      "status": "deferred",
+      "count": 12
+    },
+    {
+      "kind": "probe",
+      "status": "pending_review",
+      "count": 13
+    }
+  ],
+  "checks": {
+    "checks": 13,
+    "changed": 13,
+    "links": 0
+  },
+  "interests": {
+    "subscriptions": 123,
+    "sharedpages": 32,
+    "activescouts": 12
+  },
+  "evidence": {
+    "indexed_pages": 5,
+    "dispatched_observations": 37,
+    "pending_observations": 12
+  },
+  "sharedDailyLedger": [
+    {
+      "provider": "public-documents",
+      "requests": 214,
+      "reserved_micros": "0"
+    },
+    {
+      "provider": "serper",
+      "requests": 217,
+      "reserved_micros": "2170000"
+    }
+  ],
+  "limits": {
+    "dailyDocuments": 1000,
+    "dailySearches": 1500,
+    "searchReservationUsd": 100,
+    "dailyAiRequests": 5000,
+    "aiReservationUsd": 100,
+    "sourcesPerScout": 32
+  },
+  "independentRelevance": null,
+  "knownOpportunityRecall": null,
+  "notes": [
+    "Aggregate local runtime snapshot; no account identifiers or private briefs exported.",
+    "Indexed pages can predate monitoring. These counts do not establish causal yield or independently judged relevance.",
+    "Daily ledgers include ordinary discovery and monitoring. Reservations are limits, not provider invoices."
+  ]
+}

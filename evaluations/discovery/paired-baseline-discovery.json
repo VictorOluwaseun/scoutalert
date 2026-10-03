@@ -1,0 +1,2132 @@
+{
+  "checkedAt": "2026-10-01T22:32:28.368Z",
+  "scenario": "us",
+  "baseline": true,
+  "status": "incomplete",
+  "reasoning": [],
+  "sourceReviewsCompleted": 1,
+  "intelligence": [],
+  "reviewAttempts": [
+    {
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 3677,
+        "responseId": "resp_05bfc81dda036915016abedf422c9487d2b684d3d03226ae2f",
+        "inputTokens": 3822,
+        "outputTokens": 381,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 4581
+      }
+    },
+    {
+      "state": "failed",
+      "usage": null,
+      "cost": null
+    },
+    {
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 5331,
+        "responseId": "resp_026a086d8a069e9d016abedf4a4dd887d28ca889dc289286dd",
+        "inputTokens": 1842,
+        "outputTokens": 1091,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 6291
+      }
+    },
+    {
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 5359,
+        "responseId": "resp_026aa079b028b1f3016abedf4fb32c87d2842921160ad93015",
+        "inputTokens": 1841,
+        "outputTokens": 1061,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 6156
+      }
+    },
+    {
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 5068,
+        "responseId": "resp_0b4f5c35d1497cb2016abedf5523e887d2a05db56ec69b0a1d",
+        "inputTokens": 1851,
+        "outputTokens": 981,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 5803
+      }
+    },
+    {
+      "state": "failed",
+      "usage": null,
+      "cost": null
+    },
+    {
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 5331,
+        "responseId": "resp_055256710255883f016abedf60860487d2a35cfbdffb25ef05",
+        "inputTokens": 1846,
+        "outputTokens": 1047,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 6096
+      }
+    },
+    {
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 5801,
+        "responseId": "resp_098bde6f4bc995c4016abedf65ecbc87d2bd86c449eab772e3",
+        "inputTokens": 1804,
+        "outputTokens": 1127,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 6425
+      }
+    },
+    {
+      "state": "failed",
+      "usage": null,
+      "cost": null
+    },
+    {
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 6019,
+        "responseId": "resp_023b20bd4c2d3175016abedf71e14887d288525ca29b3b73d2",
+        "inputTokens": 1842,
+        "outputTokens": 1172,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 6656
+      }
+    },
+    {
+      "state": "failed",
+      "usage": null,
+      "cost": null
+    }
+  ],
+  "opportunities": [],
+  "deliveries": [],
+  "durationMs": 83324,
+  "search": {
+    "goal": "Find remote product designer or UX designer jobs",
+    "category": "employment",
+    "target": "Product designer or UX designer",
+    "name": "Synthetic model-guided scout",
+    "arrangement": "remote",
+    "arrangementRequired": true,
+    "residence": "New York, United States",
+    "workLocations": "United States or remote worldwide",
+    "background": "Eight years of product and UX design for B2B SaaS products and internal tools, user research, Figma prototyping and design systems. Bachelor's degree in design and a portfolio of shipped products.",
+    "minimumPay": "",
+    "currency": "USD",
+    "payPeriod": "year",
+    "unknownEligibility": "review",
+    "undisclosedPay": "include",
+    "authorizationLocations": "United States",
+    "authorizationConfirmed": true,
+    "sponsorshipNeed": "not_needed"
+  },
+  "operations": [
+    {
+      "key": "d0d76113aa4f20f204ad06a5564f9ae2ed70e0f6875db2128f207c1cdfb51b53",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "Product designer or UX designer remote jobs",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "6b325daeeff0a41f3785bb8ba0e7fa83d5dc3a887a7a04c065b0cf1362d56522",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "Product designer or UX designer remote hiring",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "0d9d303dd35e380595ecbedc3ef616b6f95ca01bc11e4009a37fbbe56675792e",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "site:x.com Product designer or UX designer hiring",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "dab022228043cd3b6849bb19a15a4867afa018ca91404976b538201154ba717c",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "site:linkedin.com/posts Product designer or UX designer hiring",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "dd323fb375666130b36e3a00f61fb7fb25472a6d13440e61e3006083ea039ca1",
+      "kind": "document",
+      "input": {
+        "url": "https://www.indeed.com/q-ux-designer-remote-l-seattle,-wa-jobs.html",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "captured_text": null,
+      "source_status": "access_limited",
+      "source_reason": "source_requires_another_access_path",
+      "observed_links": 0
+    },
+    {
+      "key": "d7df68b547896fbb17a840b0d75adf049e16a7944fc073e41a71bfea21247984",
+      "kind": "document",
+      "input": {
+        "url": "https://www.linkedin.com/jobs/view/ux-designer-remote-at-hire-feed-4472722684",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "captured_text": null,
+      "source_status": "access_limited",
+      "source_reason": "crawl_policy_denied",
+      "observed_links": 0
+    },
+    {
+      "key": "0d29a8403cd6e3aba849e3526d68f789a353cfc9b1c4e29d1ca07ce6314e4d58",
+      "kind": "document",
+      "input": {
+        "url": "https://remotivated.com/jobs/function/product-design-ux",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "captured_text": null,
+      "source_status": "access_limited",
+      "source_reason": "crawl_policy_unavailable",
+      "observed_links": 0
+    },
+    {
+      "key": "e8028c7e9d317eefb2864ef54782888b0908f7ac3916efb575ca2dbd4d89ebc9",
+      "kind": "document",
+      "input": {
+        "url": "https://edtechjobs.io/jobs/product-design",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": [
+        {
+          "url": "https://edtechjobs.io/jobs/eba3606e-9c48-4279-91a9-8eb8dc6f3ba9-designer",
+          "text": ""
+        },
+        {
+          "url": "https://edtechjobs.io/companies/scholastic",
+          "text": "Scholastic"
+        },
+        {
+          "url": "https://edtechjobs.io/jobs?category=k12",
+          "text": "K-12"
+        },
+        {
+          "url": "https://edtechjobs.io/jobs/product",
+          "text": "Product"
+        },
+        {
+          "url": "https://edtechjobs.io/jobs/graphic-design",
+          "text": "Graphic Design"
+        },
+        {
+          "url": "https://edtechjobs.io/jobs/ux-ui-design",
+          "text": "UX UI Design"
+        },
+        {
+          "url": "https://edtechjobs.io/jobs/marketing",
+          "text": "Marketing"
+        },
+        {
+          "url": "https://edtechjobs.io/jobs/content-development",
+          "text": "Content Development"
+        },
+        {
+          "url": "https://edtechjobs.io/jobs/ae49dbea-9cee-4128-aa69-f72cd56e28d5-director-ux-design-engineering",
+          "text": ""
+        },
+        {
+          "url": "https://edtechjobs.io/companies/leading-educators",
+          "text": "Leading Educators"
+        },
+        {
+          "url": "https://edtechjobs.io/jobs/front-end-development",
+          "text": "Front End Development"
+        },
+        {
+          "url": "https://edtechjobs.io/jobs/ai-development",
+          "text": "AI Development"
+        },
+        {
+          "url": "https://edtechjobs.io/jobs/product-management",
+          "text": "Product Management"
+        },
+        {
+          "url": "https://edtechjobs.io/jobs/898e23d4-30e6-4720-aa68-0193c171a25d-staff-product-designer-growth",
+          "text": ""
+        },
+        {
+          "url": "https://edtechjobs.io/companies/handshake",
+          "text": "Handshake"
+        },
+        {
+          "url": "https://edtechjobs.io/jobs?category=higher_ed",
+          "text": "Higher Ed"
+        },
+        {
+          "url": "https://edtechjobs.io/jobs/growth",
+          "text": "Growth"
+        },
+        {
+          "url": "https://edtechjobs.io/jobs/consumer-product",
+          "text": "Consumer Product"
+        },
+        {
+          "url": "https://edtechjobs.io/jobs/network-effects",
+          "text": "Network Effects"
+        },
+        {
+          "url": "https://edtechjobs.io/jobs/052ce881-faa6-4550-a77f-939d5439725c-principal-experience-architect",
+          "text": ""
+        },
+        {
+          "url": "https://edtechjobs.io/companies/khan-academy-1678054",
+          "text": "Khan Academy"
+        },
+        {
+          "url": "https://edtechjobs.io/jobs/ux-architecture",
+          "text": "UX Architecture"
+        },
+        {
+          "url": "https://edtechjobs.io/jobs/information-architecture",
+          "text": "Information Architecture"
+        },
+        {
+          "url": "https://edtechjobs.io/jobs/design-systems",
+          "text": "Design Systems"
+        },
+        {
+          "url": "https://edtechjobs.io/jobs/cross-product-design",
+          "text": "Cross Product Design"
+        },
+        {
+          "url": "https://edtechjobs.io/jobs/c82725f9-80d4-4b65-8b97-6b76b5fa396b-senior-product-designer",
+          "text": ""
+        },
+        {
+          "url": "https://edtechjobs.io/companies/wayfinder",
+          "text": "Wayfinder"
+        },
+        {
+          "url": "https://edtechjobs.io/jobs/human-centered-design",
+          "text": "Human Centered Design"
+        },
+        {
+          "url": "https://edtechjobs.io/jobs/curriculum-design",
+          "text": "Curriculum Design"
+        },
+        {
+          "url": "https://edtechjobs.io/jobs/educational-technology",
+          "text": "Educational Technology"
+        },
+        {
+          "url": "https://edtechjobs.io/jobs/181d45f1-c284-4dc6-ae2d-a1c3b73a542d-senior-product-manager-impact-portfolio",
+          "text": ""
+        },
+        {
+          "url": "https://edtechjobs.io/companies/think-together",
+          "text": "Think Together"
+        },
+        {
+          "url": "https://edtechjobs.io/jobs/ux-research",
+          "text": "UX Research"
+        },
+        {
+          "url": "https://edtechjobs.io/jobs/school-administration",
+          "text": "School Administration"
+        },
+        {
+          "url": "https://edtechjobs.io/jobs/2a799751-8c49-4a85-aaca-7a3fe986b043-senior-product-designer-cybersecurity",
+          "text": ""
+        },
+        {
+          "url": "https://edtechjobs.io/companies/clever-inc",
+          "text": "Clever Inc."
+        },
+        {
+          "url": "https://edtechjobs.io/jobs/cybersecurity",
+          "text": "Cybersecurity"
+        },
+        {
+          "url": "https://edtechjobs.io/jobs/identity-management",
+          "text": "Identity Management"
+        },
+        {
+          "url": "https://edtechjobs.io/jobs/authentication",
+          "text": "Authentication"
+        },
+        {
+          "url": "https://edtechjobs.io/jobs/128a2cf3-c4e4-482e-ad18-5be967510f59-director-web-experience-design",
+          "text": ""
+        },
+        {
+          "url": "https://edtechjobs.io/companies/cengage",
+          "text": "Cengage"
+        },
+        {
+          "url": "https://edtechjobs.io/jobs/ecommerce-optimization",
+          "text": "Ecommerce Optimization"
+        },
+        {
+          "url": "https://edtechjobs.io/jobs/conversion-optimization",
+          "text": "Conversion Optimization"
+        },
+        {
+          "url": "https://edtechjobs.io/jobs/design-leadership",
+          "text": "Design Leadership"
+        },
+        {
+          "url": "https://edtechjobs.io/jobs/051d440a-8bd9-4680-95ee-9a7f396f2004-ux-ui-designer-reach",
+          "text": ""
+        },
+        {
+          "url": "https://edtechjobs.io/companies/riverside-insights",
+          "text": "Riverside Insights"
+        },
+        {
+          "url": "https://edtechjobs.io/jobs/assessment-design",
+          "text": "Assessment Design"
+        },
+        {
+          "url": "https://edtechjobs.io/jobs/data-visualization",
+          "text": "Data Visualization"
+        },
+        {
+          "url": "https://edtechjobs.io/jobs/90e38baa-8f8d-45ec-ba3b-288eadb17b38-associate-production-designer",
+          "text": ""
+        },
+        {
+          "url": "https://edtechjobs.io/companies/kiwico",
+          "text": "KiwiCo"
+        },
+        {
+          "url": "https://edtechjobs.io/jobs/print-production",
+          "text": "Print Production"
+        },
+        {
+          "url": "https://edtechjobs.io/jobs/adobe-creative-suite",
+          "text": "Adobe Creative Suite"
+        },
+        {
+          "url": "https://edtechjobs.io/jobs/cb58106f-c1e0-45a1-916e-3d8ee468cd70-senior-ux-designer",
+          "text": ""
+        },
+        {
+          "url": "https://edtechjobs.io/companies/curriculum-associates",
+          "text": "Curriculum Associates"
+        },
+        {
+          "url": "https://edtechjobs.io/jobs/interaction-design",
+          "text": "Interaction Design"
+        },
+        {
+          "url": "https://edtechjobs.io/jobs/accessibility-design",
+          "text": "Accessibility Design"
+        },
+        {
+          "url": "https://edtechjobs.io/jobs/ai-design",
+          "text": "AI Design"
+        },
+        {
+          "url": "https://edtechjobs.io/jobs/17008d9c-71c9-44b6-b3cf-e5350bf20e4f-marketing-engineer",
+          "text": ""
+        },
+        {
+          "url": "https://edtechjobs.io/companies/marcopolo-learning",
+          "text": "MarcoPolo Learning"
+        },
+        {
+          "url": "https://edtechjobs.io/jobs/product-marketing",
+          "text": "Product Marketing"
+        },
+        {
+          "url": "https://edtechjobs.io/jobs/subscription-business",
+          "text": "Subscription Business"
+        },
+        {
+          "url": "https://edtechjobs.io/jobs/4508102d-397b-4093-95bb-8fba70cf26a4-head-of-design",
+          "text": ""
+        },
+        {
+          "url": "https://edtechjobs.io/companies/padlet",
+          "text": "Padlet"
+        },
+        {
+          "url": "https://edtechjobs.io/jobs/product-strategy",
+          "text": "Product Strategy"
+        },
+        {
+          "url": "https://edtechjobs.io/jobs/team-management",
+          "text": "Team Management"
+        },
+        {
+          "url": "https://edtechjobs.io/jobs/79984ebc-64c7-46d6-9a10-f88252f34962-sr-manager-product-design",
+          "text": ""
+        },
+        {
+          "url": "https://edtechjobs.io/companies/discovery-education",
+          "text": "Discovery Education"
+        },
+        {
+          "url": "https://edtechjobs.io/jobs/b7cb5333-08bb-4e74-8d49-1166a93eb215-lead-ux-game-designer",
+          "text": ""
+        },
+        {
+          "url": "https://edtechjobs.io/companies/age-of-learning",
+          "text": "Age of Learning"
+        },
+        {
+          "url": "https://edtechjobs.io/jobs/game-design",
+          "text": "Game Design"
+        },
+        {
+          "url": "https://edtechjobs.io/jobs/user-research",
+          "text": "User Research"
+        },
+        {
+          "url": "https://edtechjobs.io/jobs/bb35ccfc-95fb-451d-b051-2a22eb0a42e9-product-designer-consumer",
+          "text": ""
+        },
+        {
+          "url": "https://edtechjobs.io/companies/speak",
+          "text": "Speak"
+        },
+        {
+          "url": "https://edtechjobs.io/jobs?category=corporate",
+          "text": "Corporate"
+        },
+        {
+          "url": "https://edtechjobs.io/jobs/learning-design",
+          "text": "Learning Design"
+        },
+        {
+          "url": "https://edtechjobs.io/jobs/a6940739-30f0-49af-b7dc-281e63ada2f9-product-manager",
+          "text": ""
+        },
+        {
+          "url": "https://edtechjobs.io/companies/edia",
+          "text": "Edia"
+        },
+        {
+          "url": "https://edtechjobs.io/jobs/school-technology",
+          "text": "School Technology"
+        },
+        {
+          "url": "https://edtechjobs.io/jobs/6c0da0b2-18d8-4971-aa6e-ca9ffc0dbad4-senior-user-experience-designer",
+          "text": ""
+        },
+        {
+          "url": "https://edtechjobs.io/companies/savvas-learning-company",
+          "text": "Savvas Learning Company"
+        }
+      ],
+      "captured_text": "Sign InPost a Job\n\n\nPRODUCT DESIGN EDTECH JOBS\n\n59 jobs available\n\nAll SegmentsK-12Higher EdCorporate\nJob TypeFull-timePart-timeContractTemporaryInternship\nSeniorityEntryMidSeniorLeadDirectorVPExecutive\n\nRemote jobs onlySearch Jobs\n\n\nDESIGNER\n\nScholastic·Full-time·🇺🇸In-Person - New York, NY\n\n$55K–$59K/yr\n\nK-12ProductGraphic DesignUX UI DesignProduct DesignMarketingContent Development\n🇺🇸In-Person - New York, NYK-12ProductGraphic DesignUX UI DesignProduct DesignMarketingContent Development\n\n22h ago\n22h ago\n\n\nDIRECTOR, UX DESIGN & ENGINEERING\n\nLeading Educators·Full-time·🇺🇸United States\n\n$114K–$144K/yr\n\nK-12ProductUX UI DesignProduct DesignFront End DevelopmentAI DevelopmentProduct Management\n🇺🇸United StatesK-12ProductUX UI DesignProduct DesignFront End DevelopmentAI DevelopmentProduct Management\n\n1d ago\n1d ago\n\n\nSTAFF PRODUCT DESIGNER, GROWTH\n\nHandshake·Full-time·🇺🇸Hybrid - San Francisco, CA\nHigher EdProductProduct DesignUX UI DesignGrowthConsumer ProductNetwork Effects\n🇺🇸Hybrid - San Francisco, CAHigher EdProductProduct DesignUX UI DesignGrowthConsumer ProductNetwork Effects\n\n1d ago\n1d ago\n\n\nPRINCIPAL EXPERIENCE ARCHITECT\n\nKhan Academy·🇺🇸Remote - San Mateo\n\n$180K–$240K/yr\n\nK-12ProductProduct DesignUX ArchitectureInformation ArchitectureDesign SystemsCross Product Design\n🇺🇸Remote - San MateoK-12ProductProduct DesignUX ArchitectureInformation ArchitectureDesign SystemsCross Product Design\n\n2d ago\n2d ago\n\n\nSENIOR PRODUCT DESIGNER\n\nWayfinder·🇺🇸Remote\n\n$120K–$180K/yr\n\nK-12ProductProduct DesignUX UI DesignHuman Centered DesignCurriculum DesignEducational Technology\n🇺🇸RemoteK-12ProductProduct DesignUX UI DesignHuman Centered DesignCurriculum DesignEducational Technology\n\n5d ago\n5d ago\n\n\nSENIOR PRODUCT MANAGER, IMPACT PORTFOLIO\n\nThink Together·🇺🇸In-Person - US-CA-Santa Ana\n\nFrom $150K/yr\n\nK-12ProductProduct ManagementProduct DesignUX ResearchAI DevelopmentSchool Administration\n🇺🇸In-Person - US-CA-Santa AnaK-12ProductProduct ManagementProduct DesignUX ResearchAI DevelopmentSchool Administration\n\n5d ago\n5d ago\n\n\nSENIOR PRODUCT DESIGNER, CYBERSECURITY\n\nClever Inc.·Full-time·🇺🇸Remote - San Francisco, CA\n\n$149K–$192K/yr\n\nK-12ProductProduct DesignUX UI DesignCybersecurityIdentity ManagementAuthentication\n🇺🇸Remote - San Francisco, CAK-12ProductProduct DesignUX UI DesignCybersecurityIdentity ManagementAuthentication\n\n1w ago\n1w ago\n\n\nDIRECTOR, WEB EXPERIENCE DESIGN\n\nCengage·🇺🇸Remote - United States\n\n$138K–$200K/yr\n\nHigher EdProductUX UI DesignProduct DesignEcommerce OptimizationConversion OptimizationDesign Leadership\n🇺🇸Remote - United StatesHigher EdProductUX UI DesignProduct DesignEcommerce OptimizationConversion OptimizationDesign Leadership\n\n1w ago\n1w ago\n\n\nUX/UI DESIGNER, REACH\n\nRiverside Insights·Full-time·🇺🇸Remote - United States\n\n$90K–$120K/yr\n\nK-12ProductUX UI DesignProduct DesignDesign SystemsAssessment DesignData Visualization\n🇺🇸Remote - United StatesK-12ProductUX UI DesignProduct DesignDesign SystemsAssessment DesignData Visualization\n\n2w ago\n2w ago\n\n\nASSOCIATE PRODUCTION DESIGNER\n\nKiwiCo·Contract·🇺🇸In-Person - Mountain View, CA\n\n$30–$38/hr\n\nK-12ProductProduct DesignGraphic DesignPrint ProductionAdobe Creative SuiteContent Development\n🇺🇸In-Person - Mountain View, CAK-12ProductProduct DesignGraphic DesignPrint ProductionAdobe Creative SuiteContent Development\n\n2w ago\n2w ago\n\n\nSENIOR UX DESIGNER\n\nCurriculum Associates·Full-time·🇺🇸United States\n\n$69K–$118K/yr\n\nK-12ProductUX UI DesignProduct DesignInteraction DesignAccessibility DesignAI Design\n🇺🇸United StatesK-12ProductUX UI DesignProduct DesignInteraction DesignAccessibility DesignAI Design\n\n2w ago\n2w ago\n\n\nMARKETING ENGINEER\n\nMarcoPolo Learning\nK-12ProductProduct DesignGrowthProduct MarketingSubscription BusinessConversion Optimization\nK-12ProductProduct DesignGrowthProduct MarketingSubscription BusinessConversion Optimization\n\n2w ago\n2w ago\n\n\nHEAD OF DESIGN\n\nPadlet·Full-time·🇺🇸In-Person - San Francisco\nK-12ProductProduct DesignUX UI DesignDesign LeadershipProduct StrategyTeam Management\n🇺🇸In-Person - San FranciscoK-12ProductProduct DesignUX UI DesignDesign LeadershipProduct StrategyTeam Management\n\n2w ago\n2w ago\n\n\nSR. MANAGER, PRODUCT DESIGN\n\nDiscovery Education·Full-time·🇺🇸United States\n\n$157K–$175K/yr\n\nK-12ProductProduct DesignUX UI DesignDesign LeadershipTeam ManagementProduct Management\n🇺🇸United StatesK-12ProductProduct DesignUX UI DesignDesign LeadershipTeam ManagementProduct Management\n\n2w ago\n2w ago\n\n\nLEAD UX/GAME DESIGNER\n\nAge of Learning·Full-time·🇺🇸Hybrid - Glendale\n\n$140K–$165K/yr\n\nK-12ProductUX UI DesignProduct DesignGame DesignProduct ManagementUser Research\n🇺🇸Hybrid - GlendaleK-12ProductUX UI DesignProduct DesignGame DesignProduct ManagementUser Research\n\n2w ago\n2w ago\n\n\nPRODUCT DESIGNER - CONSUMER\n\nSpeak·🇺🇸In-Person - San Francisco\nCorporateProductProduct DesignUX UI DesignAI DevelopmentLearning DesignConsumer Product\n🇺🇸In-Person - San FranciscoCorporateProductProduct DesignUX UI DesignAI DevelopmentLearning DesignConsumer Product\n\n2w ago\n2w ago\n\n\nPRODUCT MANAGER\n\nEdia·🇺🇸In-Person - San Francisco\n\n$120K–$160K/yr\n\nK-12ProductProduct ManagementAI DevelopmentProduct DesignGrowthSchool Technology\n🇺🇸In-Person - San FranciscoK-12ProductProduct ManagementAI DevelopmentProduct DesignGrowthSchool Technology\n\n2w ago\n2w ago\n\n\nSENIOR USER EXPERIENCE DESIGNER\n\nSavvas Learning Company·Full-time·🇺🇸United States\n\n$120K–$160K/yr\n\nK-12ProductUX UI DesignProduct DesignDesign SystemsAI DevelopmentAccessibility Design\n🇺🇸United StatesK-12ProductUX UI DesignProduct DesignDesign SystemsAI DevelopmentAccessibility Design\n\n2w ago\n2w ago\n\n\nINDUSTRIAL DESIGNER II\n\nLearning Resources·Full-time·🇺🇸In-Person - Learning Resources, IL\n\n$77K–$87K/yr\n\nK-12ProductProduct DesignToy DesignIndustrial DesignProduct DevelopmentDesign For Manufacturing\n🇺🇸In-Person - Learning Resources, ILK-12ProductProduct DesignToy DesignIndustrial DesignProduct DevelopmentDesign For Manufacturing\n\n3w ago\n3w ago\n\n\nUX/UI ANALYST\n\nQuaver Ed·Full-time·🇺🇸Hybrid - Nashville, TN\n\n$80K–$90K/yr\n\nK-12ProductUX UI DesignProduct DesignUser ResearchAnalyticsAccessibility\n🇺🇸Hybrid - Nashville, TNK-12ProductUX UI DesignProduct DesignUser ResearchAnalyticsAccessibility\n\n3w ago\n3w ago\nPage 1 of 3Next\n\n\nPRODUCT DESIGN JOBS AT A GLANCE\n\nFrom live US listings on EdTechJobs.io. Updated October 1, 2026.\n\nOpen roles59at 37 companies\nFully remote20%12 of 59 roles\nHiring the mostHandshake (6), IXL Learning (5), Cengage (5), BetterUp (3), Learning Resources (3)\nMost common levelsSenior 36%, Lead 22%, Mid Level 17%\nWho the learners areK-12 63%, corporate learning 20%, higher ed 17%\n\n\nCOMMON QUESTIONS ABOUT PRODUCT DESIGN JOBS\n\n\nHOW MANY PRODUCT DESIGN JOBS ARE OPEN IN EDTECH RIGHT NOW?\n\nEdTechJobs.io lists 59 open product design jobs in the US as of October 1, 2026, from 37 companies.\n\n\nHOW MANY PRODUCT DESIGN JOBS ARE REMOTE?\n\n12 of the 59 are fully remote, about 20%. The rest are hybrid or on-site.\n\n\nWHICH COMPANIES ARE HIRING FOR PRODUCT DESIGN ROLES?\n\nThe most openings right now are at Handshake, IXL Learning and Cengage.\n\nYour EdTech Dream Job is out there. Go get it!\n\nServing 130K+ education technology professionals\n\n\n\n\nFOR JOB SEEKERS\n\n * Browse Jobs\n * Remote Jobs\n * Jobs by City\n * Jobs by State\n * Jobs by Level\n * Companies\n * Career Tools\n * Blog\n\n\nFOR EMPLOYERS\n\n * Post a Job\n * Pricing\n * Claim Your Profile\n\n\nCOMPANY\n\n * About Us\n * Contact Us\n * Privacy Policy\n * Terms of Service\n\n© 2026 Galixi, Inc. All rights reserved.",
+      "source_status": "fetched",
+      "source_reason": null,
+      "observed_links": 80
+    },
+    {
+      "key": "2117487f136311740b422886de8d2ef9f218d8bc026749d29e05261e96c61d5a",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 2,
+          "limit": 10,
+          "query": "Product designer or UX designer remote jobs",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "bf41df088a26d7f7b8e1d5aa535f89b057e57e66a5196668251d7e8e40b5f213",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 2,
+          "limit": 10,
+          "query": "site:x.com Product designer or UX designer hiring",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    }
+  ],
+  "decisions": [
+    {
+      "round": 0,
+      "reason": "check_promising_result",
+      "action": {
+        "url": "https://remotivated.com/jobs/function/product-design-ux",
+        "kind": "document"
+      },
+      "depth": 0,
+      "parent_key": "d0d76113aa4f20f204ad06a5564f9ae2ed70e0f6875db2128f207c1cdfb51b53"
+    },
+    {
+      "round": 1,
+      "reason": "check_promising_result",
+      "action": {
+        "url": "https://edtechjobs.io/jobs/product-design",
+        "kind": "document"
+      },
+      "depth": 0,
+      "parent_key": "d0d76113aa4f20f204ad06a5564f9ae2ed70e0f6875db2128f207c1cdfb51b53"
+    },
+    {
+      "round": 2,
+      "reason": "continue_result_page",
+      "action": {
+        "kind": "search",
+        "query": {
+          "page": 2,
+          "limit": 10,
+          "query": "Product designer or UX designer remote jobs",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "depth": 0,
+      "parent_key": "d0d76113aa4f20f204ad06a5564f9ae2ed70e0f6875db2128f207c1cdfb51b53"
+    },
+    {
+      "round": 3,
+      "reason": "continue_result_page",
+      "action": {
+        "kind": "search",
+        "query": {
+          "page": 2,
+          "limit": 10,
+          "query": "site:x.com Product designer or UX designer hiring",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "depth": 0,
+      "parent_key": "0d9d303dd35e380595ecbedc3ef616b6f95ca01bc11e4009a37fbbe56675792e"
+    },
+    {
+      "round": 4,
+      "reason": "exploration_limit",
+      "action": null,
+      "depth": 0,
+      "parent_key": null
+    }
+  ],
+  "case": {
+    "id": "e7ebe6c4-bb1e-4651-a2fe-6056e6a9d53a",
+    "scoutId": "a9e0ba2e-1e0b-4e59-8225-0d5b70ef2989",
+    "scoutName": "Synthetic model-guided scout",
+    "scoutVersion": 1,
+    "provider": "serper",
+    "strategy": null,
+    "exploration": [
+      {
+        "kind": "document",
+        "reason": "check_promising_result",
+        "target": "https://remotivated.com/jobs/function/product-design-ux"
+      },
+      {
+        "kind": "document",
+        "reason": "check_promising_result",
+        "target": "https://edtechjobs.io/jobs/product-design"
+      },
+      {
+        "kind": "search",
+        "reason": "continue_result_page",
+        "target": "Product designer or UX designer remote jobs"
+      },
+      {
+        "kind": "search",
+        "reason": "continue_result_page",
+        "target": "site:x.com Product designer or UX designer hiring"
+      },
+      {
+        "kind": null,
+        "reason": "exploration_limit",
+        "target": null
+      }
+    ],
+    "reviewStatus": "complete",
+    "reviewReason": "some_reviews_unavailable",
+    "status": "partial",
+    "reason": "some_sources_unavailable",
+    "startedAt": "2026-10-01 22:31:05.234551+00",
+    "finishedAt": "2026-10-01 22:31:29.283145+00",
+    "searchesCompleted": 6,
+    "documentsChecked": 4,
+    "leadCount": 51
+  },
+  "usage": [
+    {
+      "provider": "public-documents",
+      "requests": 4,
+      "reserved_micros": "0"
+    },
+    {
+      "provider": "serper",
+      "requests": 6,
+      "reserved_micros": "60000"
+    }
+  ],
+  "aiBudget": [
+    {
+      "requests": 11,
+      "reserved_microusd": "825000"
+    }
+  ],
+  "leads": [
+    {
+      "url": "https://x.com/ShaziliSambo",
+      "title": "SHAZ⚡️The Product Designer (@ShaziliSambo) ...",
+      "contentStatus": "unfetched",
+      "review": {
+        "facts": {
+          "role": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "category": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "location": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "arrangement": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "sponsorship": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "compensation": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "requirements": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "authorization": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          }
+        },
+        "label": "service_offer",
+        "scope": "search_excerpt",
+        "quotes": [
+          "SHAZ⚡️The Product Designer (@ShaziliSambo) ...",
+          "SHAZ⚡️The Product Designer. @ShaziliSambo. Expert Mobile App & Web Designer | UI/UX & Brand Designer | Frontend Developer | Product Manager | Framer Expert."
+        ],
+        "reviewedAt": "2026-10-01 22:32:23.599855+00",
+        "explanation": "This is a personal profile advertising design and related skills, not a buyer requesting work."
+      },
+      "promoted": false
+    },
+    {
+      "url": "https://x.com/i/status/2098766969042301159",
+      "title": "‍💻 Figma / Product Design / DeFi / Solana | 💰 $110k-$140 ...",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://x.com/VistCreates/status/2095045063370014860",
+      "title": "We are hiring a Brand Designer @thestudiothree Full-time",
+      "contentStatus": "unfetched",
+      "review": {
+        "facts": {
+          "role": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "category": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "location": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "arrangement": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "sponsorship": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "compensation": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "requirements": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "authorization": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          }
+        },
+        "label": "job_opening",
+        "scope": "search_excerpt",
+        "quotes": [
+          "We are hiring a Brand Designer @thestudiothree Full-time",
+          "We are hiring a Brand Designer @thestudiothree Full-time · Remote (Europe preferred) Experienced in brand identity & styleframe design CV + portfolio ..."
+        ],
+        "reviewedAt": "2026-10-01 22:31:43.31892+00",
+        "explanation": "The excerpt explicitly says they are hiring a Brand Designer full-time, which suggests a specific job opening."
+      },
+      "promoted": false
+    },
+    {
+      "url": "https://x.com/kaylahhawt",
+      "title": "Your UI/UX Designer (@kaylahhawt) ...",
+      "contentStatus": "unfetched",
+      "review": {
+        "facts": {
+          "role": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "category": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "location": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "arrangement": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "sponsorship": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "compensation": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "requirements": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "authorization": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          }
+        },
+        "label": "job_opening",
+        "scope": "search_excerpt",
+        "quotes": [
+          "Hola A friend's hiring for a product designer. 1 million NGN per month. It's a 12 month contract, and although it's largely remote, Abuja presence is ..."
+        ],
+        "reviewedAt": "2026-10-01 22:32:11.402716+00",
+        "explanation": "The excerpt describes a specific hiring need: \"A friend's hiring for a product designer.\""
+      },
+      "promoted": false
+    },
+    {
+      "url": "https://x.com/_thecareerlady/status/2100134062518096000",
+      "title": "Post",
+      "contentStatus": "unfetched",
+      "review": {
+        "facts": {
+          "role": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "category": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "location": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "arrangement": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "sponsorship": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "compensation": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "requirements": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "authorization": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          }
+        },
+        "label": "job_opening",
+        "scope": "search_excerpt",
+        "quotes": [
+          "OutSystems is hiring a Senior Product Designer (UK, Remote) ‼️ Required: 3 to 5 years of experience in UX/Product Design, specifically within complex B2B ..."
+        ],
+        "reviewedAt": "2026-10-01 22:32:05.561266+00",
+        "explanation": "The excerpt suggests a specific hiring post for a role at OutSystems."
+      },
+      "promoted": false
+    },
+    {
+      "url": "https://x.com/digitalshane_/status/2101857558277304710",
+      "title": "\"@burcs @grok can you pull the current design job listings ...",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://x.com/askOkara/status/2096960796433780782",
+      "title": "We're hiring a product designer to help us put Okara on the ...",
+      "contentStatus": "unfetched",
+      "review": {
+        "facts": {
+          "role": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "category": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "location": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "arrangement": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "sponsorship": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "compensation": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "requirements": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "authorization": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          }
+        },
+        "label": "job_opening",
+        "scope": "search_excerpt",
+        "quotes": [
+          "We're hiring a product designer to help us put Okara on the ...",
+          "We're hiring a product designer to help us put Okara on the list of iconic products. If you're someone who - ships fast - has exceptional taste - cares ..."
+        ],
+        "reviewedAt": "2026-10-01 22:32:11.402716+00",
+        "explanation": "The excerpt is a hiring post for a specific role: \"We're hiring a product designer.\""
+      },
+      "promoted": false
+    },
+    {
+      "url": "https://x.com/RemotejobWtessy/status/2103820934545031442",
+      "title": "HIRING: UX/UI Designer 🌍 Remote ⏰ 8 hours/day 💰 Pay ...",
+      "contentStatus": "unfetched",
+      "review": {
+        "facts": {
+          "role": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "category": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "location": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "arrangement": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "sponsorship": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "compensation": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "requirements": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "authorization": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          }
+        },
+        "label": "job_opening",
+        "scope": "search_excerpt",
+        "quotes": [
+          "HIRING: UX/UI Designer 🌍 Remote ⏰ 8 hours/day 💰 Pay ...",
+          "HIRING: UX/UI Designer Remote ⏰ 8 hours/day Pay based on skill 3+ years experience You'll design web and mobile products: user flows, wireframes, ..."
+        ],
+        "reviewedAt": "2026-10-01 22:31:48.7395+00",
+        "explanation": "The excerpt presents a specific hiring post for a UX/UI Designer role."
+      },
+      "promoted": false
+    },
+    {
+      "url": "https://x.com/Nenye_designs",
+      "title": "Nenye the UI/UX Designer👩‍💻💕 (@Nenye_designs) ...",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://x.com/designgoddess_/with_replies",
+      "title": "Replies by Goodness E || UI/UX Designer ...",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://job-badger.com/jobs/remote/ux-designer",
+      "title": "Remote UX & product design jobs | Job Badger",
+      "contentStatus": "unfetched",
+      "review": {
+        "facts": {
+          "role": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "category": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "location": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "arrangement": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "sponsorship": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "compensation": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "requirements": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "authorization": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          }
+        },
+        "label": "directory",
+        "scope": "search_excerpt",
+        "quotes": [
+          "Remote UX & product design jobs | Job Badger",
+          "Short answer: Remote UX & product design roles are plentiful, but most carry a country or timezone requirement. Check the location field before you apply, ..."
+        ],
+        "reviewedAt": "2026-10-01 22:31:43.31892+00",
+        "explanation": "The excerpt describes a job search page listing remote UX and product design roles, which is a collection rather than a single opening."
+      },
+      "promoted": false
+    },
+    {
+      "url": "https://www.fetchjobs.co/jobs/uiux-designer-jobs-in-chicago",
+      "title": "UI/UX Designer Jobs in Chicago | Salary & Careers",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://web3.career/remote+ui-ux-designer-jobs",
+      "title": "Remote Ui Ux Designer Jobs in Web3 - Sep 2026",
+      "contentStatus": "unfetched",
+      "review": {
+        "facts": {
+          "role": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "category": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "location": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "arrangement": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "sponsorship": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "compensation": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "requirements": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "authorization": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          }
+        },
+        "label": "directory",
+        "scope": "search_excerpt",
+        "quotes": [
+          "Remote Ui Ux Designer Jobs in Web3 - Sep 2026",
+          "Browse 55 Remote Ui Ux Designer Jobs in Web3 in Sep 2026 at companies like Cerulean Blue, Blockasset, and Curve Labs. Work as a Senior UX/UI Designer ..."
+        ],
+        "reviewedAt": "2026-10-01 22:32:11.402716+00",
+        "explanation": "This is a listings page aggregating multiple openings: \"Browse 55 Remote Ui Ux Designer Jobs in Web3.\""
+      },
+      "promoted": false
+    },
+    {
+      "url": "https://dailyremote.com/remote-product-designer-jobs",
+      "title": "Remote Product Designer Jobs",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.roberthalf.com/us/en/jobs/boston-ma/ux-designerproduct-designer",
+      "title": "6 Results for Ux Designerproduct Designer Jobs in Boston, ...",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.woodyjobs.com/san-diego/remote",
+      "title": "4106 Remote Product and Design Jobs in San Diego",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://uiuxjobsboard.com/job/1615926-remote-united-states-product-designer-ux-ui",
+      "title": "Remote Product Designer (UX/UI) at CareerSwift in United ...",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.remoterocketship.com/jobs/web-designer/",
+      "title": "Remote Web Designer Jobs ($72K–$161K)",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.reddit.com/r/UXDesign/comments/1wmgjj0/what_is_the_state_of_uxproduct_design_market_in/",
+      "title": "What is the state of UX/Product Design market in Germany",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://ixdf.org/jobs",
+      "title": "UX / UI Design Jobs: The World's Largest Design Job Board",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.linkedin.com/posts/dollyaudit_productdesign-uxdesign-designleadership-activity-7508896480166952962-Dw31",
+      "title": "4 Ways to Hire a Great UX Designer Beyond Job Postings",
+      "contentStatus": "unfetched",
+      "review": {
+        "facts": {
+          "role": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "category": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "location": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "arrangement": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "sponsorship": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "compensation": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "requirements": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "authorization": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          }
+        },
+        "label": "discussion",
+        "scope": "search_excerpt",
+        "quotes": [
+          "4 Ways to Hire a Great UX Designer Beyond Job Postings",
+          "4 Ways to Hire a Great UX Designer Beyond Job Postings ... Going direct to the universities has been the best way I find talent. Alumni email lists or job boards ..."
+        ],
+        "reviewedAt": "2026-10-01 22:31:43.31892+00",
+        "explanation": "A post about hiring methods and UX talent sourcing, not a specific opening."
+      },
+      "promoted": false
+    },
+    {
+      "url": "https://www.linkedin.com/posts/devin-green1_uxdesign-productdesign-uxresearch-activity-7507872837441896448-5C-x",
+      "title": "Breaking into UX: The New Path to Getting Hired",
+      "contentStatus": "unfetched",
+      "review": {
+        "facts": {
+          "role": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "category": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "location": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "arrangement": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "sponsorship": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "compensation": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "requirements": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "authorization": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          }
+        },
+        "label": "discussion",
+        "scope": "search_excerpt",
+        "quotes": [
+          "Breaking into UX: The New Path to Getting Hired",
+          "The UX job market isn't dead. But the entry-level ladder feels broken. I went down a rabbit hole today looking at the UX job market in 2026 because, ..."
+        ],
+        "reviewedAt": "2026-10-01 22:31:53.875019+00",
+        "explanation": "A commentary piece about the UX job market and getting hired, not a specific opening."
+      },
+      "promoted": false
+    },
+    {
+      "url": "https://www.linkedin.com/posts/uxjobs_senior-product-designer-activity-7503138869362507776-qxTd",
+      "title": "UX Jobs - Senior Product Designer",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.linkedin.com/posts/jasminetudor_im-hiring-a-product-designer-for-my-team-activity-7505974526166585344-WivL",
+      "title": "Jasmine Tudor's Post - Product Designer",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.linkedin.com/posts/tobiloba-owoade_one-thing-i-find-frustrating-about-ux-hiring-activity-7507215365484249088-rDaG",
+      "title": "UX Designers Don't Need Industry Experience",
+      "contentStatus": "unfetched",
+      "review": {
+        "facts": {
+          "role": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "category": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "location": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "arrangement": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "sponsorship": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "compensation": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "requirements": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "authorization": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          }
+        },
+        "label": "discussion",
+        "scope": "search_excerpt",
+        "quotes": [
+          "UX Designers Don't Need Industry Experience",
+          "One thing I find frustrating about UX hiring today is how much companies focus on industry experience. A healthcare company wants someone who has worked in ..."
+        ],
+        "reviewedAt": "2026-10-01 22:31:43.31892+00",
+        "explanation": "This is commentary on UX hiring and industry experience, not a concrete opening."
+      },
+      "promoted": false
+    },
+    {
+      "url": "https://www.linkedin.com/posts/carlcwheatley_ive-had-ux-jobs-bookmarked-for-many-years-activity-7510349276481503232-681c",
+      "title": "Carl Wheatley's Post",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.linkedin.com/posts/sarahdoody_yesss-someone-got-hired-as-a-staff-product-activity-7508170967249018881-UXx1",
+      "title": "Staff Designer Hired with Figma Slide Deck, Not Website",
+      "contentStatus": "unfetched",
+      "review": {
+        "facts": {
+          "role": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "category": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "location": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "arrangement": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "sponsorship": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "compensation": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "requirements": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "authorization": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          }
+        },
+        "label": "discussion",
+        "scope": "search_excerpt",
+        "quotes": [
+          "Staff Designer Hired with Figma Slide Deck, Not Website",
+          "Someone got hired as a Staff Product Designer at CNN: → Applied to 7 jobs → Got 4 interviews → Portfolio was a Figma slide deck, not a website → Got hired ..."
+        ],
+        "reviewedAt": "2026-10-01 22:32:05.561266+00",
+        "explanation": "This is a hiring success/story post, not a current opening or client demand."
+      },
+      "promoted": false
+    },
+    {
+      "url": "https://www.linkedin.com/posts/anetakmiecik_check-your-portfolio-activity-7502686441731162112-3S4Z",
+      "title": "Check your portfolio | Aneta Kmiecik | 36 comments",
+      "contentStatus": "unfetched",
+      "review": {
+        "facts": {
+          "role": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "category": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "location": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "arrangement": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "sponsorship": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "compensation": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "requirements": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "authorization": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          }
+        },
+        "label": "discussion",
+        "scope": "search_excerpt",
+        "quotes": [
+          "Check your portfolio | Aneta Kmiecik | 36 comments",
+          "You write \"Product Designer for startups\" and immediately want to soften it. Because it feels like you've just ruled yourself out of half the design jobs ..."
+        ],
+        "reviewedAt": "2026-10-01 22:31:53.875019+00",
+        "explanation": "A portfolio/hiring commentary post, not a concrete job or client request."
+      },
+      "promoted": false
+    },
+    {
+      "url": "https://www.linkedin.com/posts/careerstrategylab_do-you-have-15-years-of-experience-in-ux-activity-7508173214624382976-oBAB",
+      "title": "Product Designer shares CNN hiring experience",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.linkedin.com/posts/carlcwheatley_ux-ui-design-activity-7503517729929195520-XqKA",
+      "title": "Carl Wheatley's Post",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://x.com/RemotejobWtessy/status/2102017214295544172",
+      "title": "remote job with tessy",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://x.com/crypto_vazima/status/2099456333468643836",
+      "title": "Posted 20 hours ago - September 13, 2026 The hiring ...",
+      "contentStatus": "unfetched",
+      "review": {
+        "facts": {
+          "role": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "category": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "location": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "arrangement": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "sponsorship": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "compensation": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "requirements": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "authorization": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          }
+        },
+        "label": "job_opening",
+        "scope": "search_excerpt",
+        "quotes": [
+          "Posted 20 hours ago - September 13, 2026 The hiring ...",
+          "The hiring team is seeking a UI/UX Designer to create interfaces for Web3 platforms. The role covers intuitive product design, wireframes, prototypes, and user ..."
+        ],
+        "reviewedAt": "2026-10-01 22:32:23.599855+00",
+        "explanation": "The excerpt explicitly says the hiring team is seeking a UI/UX Designer, indicating a specific open role."
+      },
+      "promoted": false
+    },
+    {
+      "url": "https://x.com/tunayani/status/2100187601604927501",
+      "title": "\"Just updated my CV. Active job search continues, open to ...",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://x.com/_thecareerlady/status/2100134060156744038",
+      "title": "The Career Lady on X",
+      "contentStatus": "unfetched",
+      "review": {
+        "facts": {
+          "role": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "category": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "location": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "arrangement": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "sponsorship": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "compensation": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "requirements": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "authorization": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          }
+        },
+        "label": "job_opening",
+        "scope": "search_excerpt",
+        "quotes": [
+          "The Career Lady on X",
+          "OutSystems is hiring a Senior Product Designer (UK, Remote) ‼️ Required: 3 to 5 years of experience in UX/Product Design, specifically within complex B2B ..."
+        ],
+        "reviewedAt": "2026-10-01 22:32:23.599855+00",
+        "explanation": "The excerpt says a company is hiring for a specific role and lists requirements, which indicates an actual opening."
+      },
+      "promoted": false
+    },
+    {
+      "url": "https://x.com/mathurahravi/article/2104377802195914824?lang=ar-x-fm",
+      "title": "design eng hiring guide - part 1: defining the role",
+      "contentStatus": "unfetched",
+      "review": {
+        "facts": {
+          "role": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "category": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "location": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "arrangement": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "sponsorship": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "compensation": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "requirements": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "authorization": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          }
+        },
+        "label": "discussion",
+        "scope": "search_excerpt",
+        "quotes": [
+          "design eng hiring guide - part 1: defining the role",
+          "Design engineers come from a range of backgrounds, from product designers who've picked up coding, engineers who deeply empathize with design, and everything in ..."
+        ],
+        "reviewedAt": "2026-10-01 22:31:53.875019+00",
+        "explanation": "A hiring guide about defining a design engineering role, not an actionable opening."
+      },
+      "promoted": false
+    },
+    {
+      "url": "https://x.com/Joe_brendan_/status/2104562481297289350",
+      "title": "As a UI UX Designer in 2026 Be frank with yourself ...",
+      "contentStatus": "unfetched",
+      "review": {
+        "facts": {
+          "role": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "category": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "location": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "arrangement": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "sponsorship": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "compensation": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "requirements": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "authorization": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          }
+        },
+        "label": "discussion",
+        "scope": "search_excerpt",
+        "quotes": [
+          "As a UI UX Designer in 2026 Be frank with yourself ...",
+          "will hire for design engineers over UI UX Designers or even Product engineers ・ pay you above 2k USD monthly ・ not leaving, its changing and its being merged ..."
+        ],
+        "reviewedAt": "2026-10-01 22:31:48.7395+00",
+        "explanation": "A commentary about the UX/UI job market and hiring trends, not a specific opening or client request."
+      },
+      "promoted": false
+    },
+    {
+      "url": "https://x.com/Halosznn_/status/2101968811633045833",
+      "title": "\"If you're a Graphic Designer, Product Designer, UI/UX ...",
+      "contentStatus": "unfetched",
+      "review": {
+        "facts": {
+          "role": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "category": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "location": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "arrangement": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "sponsorship": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "compensation": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "requirements": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "authorization": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          }
+        },
+        "label": "discussion",
+        "scope": "search_excerpt",
+        "quotes": [
+          "If you're a Graphic Designer, Product Designer, UI/UX Designer or Creative, here are 10 websites to check for opportunities:"
+        ],
+        "reviewedAt": "2026-10-01 22:32:05.561266+00",
+        "explanation": "This is advice/commentary about where designers can look for opportunities, not a specific opening."
+      },
+      "promoted": false
+    },
+    {
+      "url": "https://x.com/RemotejobWtessy/status/2099265448990658877",
+      "title": "REMOTE JOB WITH TESSY (@RemotejobWtessy) on ...",
+      "contentStatus": "unfetched",
+      "review": {
+        "facts": {
+          "role": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "category": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "location": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "arrangement": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "sponsorship": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "compensation": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "requirements": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "authorization": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          }
+        },
+        "label": "job_opening",
+        "scope": "search_excerpt",
+        "quotes": [
+          "Remote EMPENHANCE is looking for a UI/UX Designer to work on digital learning products. 2+ years experience preferred."
+        ],
+        "reviewedAt": "2026-10-01 22:32:05.561266+00",
+        "explanation": "The excerpt suggests an active role being sought: a UI/UX Designer for digital learning products."
+      },
+      "promoted": false
+    },
+    {
+      "url": "https://x.com/wh0sumit/status/2103053358521319508",
+      "title": "we're hiring 🚨 looking for a lead ux designer for a seed- ...",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://edtechjobs.io/jobs/product-design",
+      "title": "Product Design EdTech Jobs",
+      "contentStatus": "fetched",
+      "review": {
+        "facts": {
+          "role": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "category": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "location": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "arrangement": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "sponsorship": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "compensation": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "requirements": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "authorization": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          }
+        },
+        "label": "directory",
+        "scope": "source",
+        "quotes": [
+          "59 jobs available",
+          "Page 1 of 3Next",
+          "From live US listings on EdTechJobs.io. Updated October 1, 2026.",
+          "Open roles59at 37 companies"
+        ],
+        "reviewedAt": "2026-10-01 22:31:32.9936+00",
+        "explanation": "This is a jobs listing page aggregating multiple product design openings, not a single specific opportunity. It shows many roles and summary stats rather than one actionable posting."
+      },
+      "promoted": false
+    }
+  ],
+  "checks": [
+    "live adaptive decisions",
+    "bounded provider and model admission",
+    "observed parent provenance",
+    "current owner isolation",
+    "terminal replay without new spending"
+  ],
+  "emailsSent": 0,
+  "realAccountsUsed": 0,
+  "scopeNote": "One live synthetic case from model-guided web discovery through cited source review, linked-page research, private assessment and eligible local Mailpit delivery. Uses production use cases and admission boundaries. Labels are model judgments, not independent ground truth. Comparative precision/recall and global throughput remain unproven."
+}

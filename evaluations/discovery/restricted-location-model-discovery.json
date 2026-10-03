@@ -1,0 +1,2407 @@
+{
+  "checkedAt": "2026-10-01T22:24:44.635Z",
+  "status": "incomplete",
+  "reasoning": [
+    {
+      "input": {
+        "kind": "strategy",
+        "intent": {
+          "remote": true,
+          "target": "Product designer or UX designer",
+          "category": "employment"
+        }
+      },
+      "output": {
+        "kind": "strategy",
+        "strategy": {
+          "targets": [
+            "Product designer",
+            "UX designer"
+          ],
+          "explanation": "I split the alternative roles into two focused searches so each can retrieve relevant opportunities separately. The confirmed brief still applies to both searches, including the remote requirement."
+        }
+      },
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 2103,
+        "responseId": "resp_0533233e779af638016abedd7593a487d2b38d2df4dca3774c",
+        "inputTokens": 198,
+        "outputTokens": 147,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 810
+      }
+    },
+    {
+      "input": {
+        "kind": "choice",
+        "intent": {
+          "remote": true,
+          "target": "Product designer or UX designer",
+          "category": "employment"
+        },
+        "choices": [
+          {
+            "depth": 0,
+            "title": "Remote Product / UX Designer Jobs",
+            "action": {
+              "url": "https://remotivated.com/jobs/function/product-design-ux",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "e11db8943c89ba4ae0b3ee54353bbca3dc79e201d075db9cd4b56f218fdc8a9e"
+          },
+          {
+            "depth": 0,
+            "title": "Lead Product Designer (Remote | $50–$90/hr) at Synthires",
+            "action": {
+              "url": "https://www.linkedin.com/jobs/view/lead-product-designer-remote-%2450%E2%80%93%2490-hr-at-synthires-4468997538",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "e11db8943c89ba4ae0b3ee54353bbca3dc79e201d075db9cd4b56f218fdc8a9e"
+          },
+          {
+            "depth": 0,
+            "title": "Product Designer Jobs With Top Global Clients",
+            "action": {
+              "url": "https://www.twine.net/jobs/product-designers",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "e11db8943c89ba4ae0b3ee54353bbca3dc79e201d075db9cd4b56f218fdc8a9e"
+          },
+          {
+            "depth": 0,
+            "title": "Hire Feed hiring UX Designer (Remote) in United States",
+            "action": {
+              "url": "https://www.linkedin.com/jobs/view/ux-designer-remote-at-hire-feed-4472722684",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "143debb5c38a2217e0aa079046a62a3bbe6f18f1aa34db1481b5b0c9f69b83a8"
+          },
+          {
+            "depth": 0,
+            "title": "Remote UI/UX Designer at Uvation in United States",
+            "action": {
+              "url": "https://uiuxjobsboard.com/job/1618126-remote-united-states-ui-ux-designer",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "143debb5c38a2217e0aa079046a62a3bbe6f18f1aa34db1481b5b0c9f69b83a8"
+          },
+          {
+            "depth": 0,
+            "title": "Principal UX Designer | UX Jobs",
+            "action": {
+              "url": "https://www.linkedin.com/posts/uxjobs_principal-ux-designer-activity-7506842015964446720-3OpA",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "8e79f181ed51abc97b89cba56cd2235f5169d816df5e736e80e9cc51211609a6"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "Product designer remote \"apply\"",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "8e79f181ed51abc97b89cba56cd2235f5169d816df5e736e80e9cc51211609a6"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "UX designer remote \"apply\"",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "8e79f181ed51abc97b89cba56cd2235f5169d816df5e736e80e9cc51211609a6"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": null,
+            "reason": "no_further_action",
+            "parentKey": null
+          }
+        ],
+        "evidence": [
+          {
+            "url": "https://www.linkedin.com/jobs/view/lead-product-designer-remote-%2450%E2%80%93%2490-hr-at-synthires-4468997538",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Lead Product Designer (Remote | $50–$90/hr) at Synthires Apply for Lead Product Designer (Remote | $50–$90/hr) at Synthires in United States. Contract Mid-Senior level role. See responsibilities, qualifications ..."
+          },
+          {
+            "url": "https://remotivated.com/jobs/function/product-design-ux",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Remote Product / UX Designer Jobs Browse 57 genuine remote Product / UX Designer jobs at reviewed remote-friendly companies. Compare salary details, hiring locations, and remote culture."
+          },
+          {
+            "url": "https://www.twine.net/jobs/product-designers",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Product Designer Jobs With Top Global Clients Find & apply for work on product designer projects. Find the best remote and freelance jobs from clients around the world on Twine."
+          },
+          {
+            "url": "https://www.linkedin.com/jobs/view/ux-designer-remote-at-hire-feed-4472722684",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Hire Feed hiring UX Designer (Remote) in United States UX Designer (Remote) in Mountain View, CA. Employment Type: Contract / Full-Time. We are looking for a detail-oriented Data Labeling Specialist to review, ..."
+          },
+          {
+            "url": "https://uiuxjobsboard.com/job/1618126-remote-united-states-ui-ux-designer",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Remote UI/UX Designer at Uvation in United States Uvation is hiring a remote UI/UX Designer in United States (September 2026). Experience Level: 5-8 years. UX Designer Contract$135,200 - $153,920 RemoteUnited"
+          },
+          {
+            "url": "https://www.linkedin.com/posts/uxjobs_principal-ux-designer-activity-7506842015964446720-3OpA",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Principal UX Designer | UX Jobs I'm excited to share that I'm growing my Product Operations team at Relias and hiring a Principal UX Designer focused on UX Design Operations."
+          }
+        ]
+      },
+      "output": {
+        "kind": "choice",
+        "index": 4,
+        "explanation": "Check the specific employer/job page for concrete requirements, location eligibility, and any application deadline before spending time on broader directories."
+      },
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 1704,
+        "responseId": "resp_01fbf45d38af4f32016abedd7ede6887d28132cee39369605a",
+        "inputTokens": 1563,
+        "outputTokens": 119,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 1708
+      }
+    },
+    {
+      "input": {
+        "kind": "choice",
+        "intent": {
+          "remote": true,
+          "target": "Product designer or UX designer",
+          "category": "employment"
+        },
+        "choices": [
+          {
+            "depth": 1,
+            "title": "Apply for this job",
+            "action": {
+              "url": "https://uvation.breezy.hr/p/97ea75b438a4-ui-ux-designer",
+              "kind": "document"
+            },
+            "reason": "follow_source_link",
+            "parentKey": "44ec2f30eedfaabfbf52559b1660e1213aca09c4460adeb17fdb4c5790c110d7"
+          },
+          {
+            "depth": 1,
+            "title": "B UX/UI Product Designer at Base360",
+            "action": {
+              "url": "https://uiuxjobsboard.com/job/1623426-remote-anywhere-ux-ui-product-designer",
+              "kind": "document"
+            },
+            "reason": "follow_source_link",
+            "parentKey": "44ec2f30eedfaabfbf52559b1660e1213aca09c4460adeb17fdb4c5790c110d7"
+          },
+          {
+            "depth": 1,
+            "title": "e Senior Product Designer (UX/UI) at elearnio",
+            "action": {
+              "url": "https://uiuxjobsboard.com/job/1620426-remote-europe-senior-product-designer-ux-ui",
+              "kind": "document"
+            },
+            "reason": "follow_source_link",
+            "parentKey": "44ec2f30eedfaabfbf52559b1660e1213aca09c4460adeb17fdb4c5790c110d7"
+          },
+          {
+            "depth": 1,
+            "title": "H Product Designer at Healf",
+            "action": {
+              "url": "https://uiuxjobsboard.com/job/1623326-product-designer-london-united-kingdom",
+              "kind": "document"
+            },
+            "reason": "follow_source_link",
+            "parentKey": "44ec2f30eedfaabfbf52559b1660e1213aca09c4460adeb17fdb4c5790c110d7"
+          },
+          {
+            "depth": 1,
+            "title": "R Senior UX/UI Designer at Robusta",
+            "action": {
+              "url": "https://uiuxjobsboard.com/job/1622326-senior-ux-ui-designer-abu-dhabi-united-arab-emirates",
+              "kind": "document"
+            },
+            "reason": "follow_source_link",
+            "parentKey": "44ec2f30eedfaabfbf52559b1660e1213aca09c4460adeb17fdb4c5790c110d7"
+          },
+          {
+            "depth": 1,
+            "title": "1 UI/UX Designer at 10xme Technology",
+            "action": {
+              "url": "https://uiuxjobsboard.com/job/1622226-ui-ux-designer-makati-city-philippines",
+              "kind": "document"
+            },
+            "reason": "follow_source_link",
+            "parentKey": "44ec2f30eedfaabfbf52559b1660e1213aca09c4460adeb17fdb4c5790c110d7"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "Product designer remote \"apply\"",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "8e79f181ed51abc97b89cba56cd2235f5169d816df5e736e80e9cc51211609a6"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "UX designer remote \"apply\"",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "8e79f181ed51abc97b89cba56cd2235f5169d816df5e736e80e9cc51211609a6"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": null,
+            "reason": "no_further_action",
+            "parentKey": null
+          }
+        ],
+        "evidence": [
+          {
+            "url": "https://uiuxjobsboard.com/job/1618126-remote-united-states-ui-ux-designer",
+            "label": "job_opening",
+            "scope": "source",
+            "unknowns": [
+              "arrangement",
+              "sponsorship",
+              "compensation",
+              "authorization"
+            ],
+            "explanation": "A specific open position is described for UUVATION, with a role, contract type, location, requirements, and application instructions."
+          }
+        ]
+      },
+      "output": {
+        "kind": "choice",
+        "index": 0,
+        "explanation": "Open the employer application page first to verify the role details, eligibility, and application steps directly from the source."
+      },
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 1428,
+        "responseId": "resp_09b1cdc85c76ee43016abedd88766c87d293e93b768d41d7e0",
+        "inputTokens": 1079,
+        "outputTokens": 78,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 1161
+      }
+    },
+    {
+      "input": {
+        "kind": "choice",
+        "intent": {
+          "remote": true,
+          "target": "Product designer or UX designer",
+          "category": "employment"
+        },
+        "choices": [
+          {
+            "depth": 1,
+            "title": "B UX/UI Product Designer at Base360",
+            "action": {
+              "url": "https://uiuxjobsboard.com/job/1623426-remote-anywhere-ux-ui-product-designer",
+              "kind": "document"
+            },
+            "reason": "follow_source_link",
+            "parentKey": "44ec2f30eedfaabfbf52559b1660e1213aca09c4460adeb17fdb4c5790c110d7"
+          },
+          {
+            "depth": 1,
+            "title": "e Senior Product Designer (UX/UI) at elearnio",
+            "action": {
+              "url": "https://uiuxjobsboard.com/job/1620426-remote-europe-senior-product-designer-ux-ui",
+              "kind": "document"
+            },
+            "reason": "follow_source_link",
+            "parentKey": "44ec2f30eedfaabfbf52559b1660e1213aca09c4460adeb17fdb4c5790c110d7"
+          },
+          {
+            "depth": 1,
+            "title": "H Product Designer at Healf",
+            "action": {
+              "url": "https://uiuxjobsboard.com/job/1623326-product-designer-london-united-kingdom",
+              "kind": "document"
+            },
+            "reason": "follow_source_link",
+            "parentKey": "44ec2f30eedfaabfbf52559b1660e1213aca09c4460adeb17fdb4c5790c110d7"
+          },
+          {
+            "depth": 1,
+            "title": "R Senior UX/UI Designer at Robusta",
+            "action": {
+              "url": "https://uiuxjobsboard.com/job/1622326-senior-ux-ui-designer-abu-dhabi-united-arab-emirates",
+              "kind": "document"
+            },
+            "reason": "follow_source_link",
+            "parentKey": "44ec2f30eedfaabfbf52559b1660e1213aca09c4460adeb17fdb4c5790c110d7"
+          },
+          {
+            "depth": 1,
+            "title": "1 UI/UX Designer at 10xme Technology",
+            "action": {
+              "url": "https://uiuxjobsboard.com/job/1622226-ui-ux-designer-makati-city-philippines",
+              "kind": "document"
+            },
+            "reason": "follow_source_link",
+            "parentKey": "44ec2f30eedfaabfbf52559b1660e1213aca09c4460adeb17fdb4c5790c110d7"
+          },
+          {
+            "depth": 1,
+            "title": "Facetis hiringStaff Product Designer",
+            "action": {
+              "url": "https://uiuxjobsboard.com/job/1622026-remote-united-states-staff-product-designer",
+              "kind": "document"
+            },
+            "reason": "follow_source_link",
+            "parentKey": "44ec2f30eedfaabfbf52559b1660e1213aca09c4460adeb17fdb4c5790c110d7"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "Product designer remote \"apply\"",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "8e79f181ed51abc97b89cba56cd2235f5169d816df5e736e80e9cc51211609a6"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "UX designer remote \"apply\"",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "8e79f181ed51abc97b89cba56cd2235f5169d816df5e736e80e9cc51211609a6"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": null,
+            "reason": "no_further_action",
+            "parentKey": null
+          }
+        ],
+        "evidence": [
+          {
+            "url": "https://uiuxjobsboard.com/job/1618126-remote-united-states-ui-ux-designer",
+            "label": "job_opening",
+            "scope": "source",
+            "unknowns": [
+              "arrangement",
+              "sponsorship",
+              "compensation",
+              "authorization"
+            ],
+            "explanation": "A specific open position is described for UUVATION, with a role, contract type, location, requirements, and application instructions."
+          },
+          {
+            "url": "https://uvation.breezy.hr/p/97ea75b438a4-ui-ux-designer",
+            "label": "job_opening",
+            "scope": "source",
+            "unknowns": [
+              "arrangement",
+              "sponsorship",
+              "compensation",
+              "authorization"
+            ],
+            "explanation": "A specific position is being advertised for a UI/UX designer, with role details, requirements, and application buttons shown."
+          }
+        ]
+      },
+      "output": {
+        "kind": "choice",
+        "index": 5,
+        "explanation": "Follow the employer-side job page for the remote U.S. Staff Product Designer role; it should reveal the key eligibility details, requirements, and application path more reliably than a directory listing."
+      },
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 1861,
+        "responseId": "resp_009e262dfe56c2a4016abedd90249487d2bed5e4d8557cd81b",
+        "inputTokens": 1160,
+        "outputTokens": 155,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 1568
+      }
+    },
+    {
+      "input": {
+        "kind": "choice",
+        "intent": {
+          "remote": true,
+          "target": "Product designer or UX designer",
+          "category": "employment"
+        },
+        "choices": [
+          {
+            "depth": 2,
+            "title": "Apply for this job",
+            "action": {
+              "url": "https://jobs.workable.com/view/gya8gJYBxCFhsj71oKbDAe/remote-staff-product-designer%2C-internal-tools-in-united-states-at-facet",
+              "kind": "document"
+            },
+            "reason": "follow_source_link",
+            "parentKey": "962c22427924af3191c7429a9e087dc0e64ef43656e94cd659b051ab7ffbc44f"
+          },
+          {
+            "depth": 1,
+            "title": "B UX/UI Product Designer at Base360",
+            "action": {
+              "url": "https://uiuxjobsboard.com/job/1623426-remote-anywhere-ux-ui-product-designer",
+              "kind": "document"
+            },
+            "reason": "follow_source_link",
+            "parentKey": "44ec2f30eedfaabfbf52559b1660e1213aca09c4460adeb17fdb4c5790c110d7"
+          },
+          {
+            "depth": 1,
+            "title": "e Senior Product Designer (UX/UI) at elearnio",
+            "action": {
+              "url": "https://uiuxjobsboard.com/job/1620426-remote-europe-senior-product-designer-ux-ui",
+              "kind": "document"
+            },
+            "reason": "follow_source_link",
+            "parentKey": "44ec2f30eedfaabfbf52559b1660e1213aca09c4460adeb17fdb4c5790c110d7"
+          },
+          {
+            "depth": 1,
+            "title": "H Product Designer at Healf",
+            "action": {
+              "url": "https://uiuxjobsboard.com/job/1623326-product-designer-london-united-kingdom",
+              "kind": "document"
+            },
+            "reason": "follow_source_link",
+            "parentKey": "44ec2f30eedfaabfbf52559b1660e1213aca09c4460adeb17fdb4c5790c110d7"
+          },
+          {
+            "depth": 1,
+            "title": "R Senior UX/UI Designer at Robusta",
+            "action": {
+              "url": "https://uiuxjobsboard.com/job/1622326-senior-ux-ui-designer-abu-dhabi-united-arab-emirates",
+              "kind": "document"
+            },
+            "reason": "follow_source_link",
+            "parentKey": "44ec2f30eedfaabfbf52559b1660e1213aca09c4460adeb17fdb4c5790c110d7"
+          },
+          {
+            "depth": 1,
+            "title": "1 UI/UX Designer at 10xme Technology",
+            "action": {
+              "url": "https://uiuxjobsboard.com/job/1622226-ui-ux-designer-makati-city-philippines",
+              "kind": "document"
+            },
+            "reason": "follow_source_link",
+            "parentKey": "44ec2f30eedfaabfbf52559b1660e1213aca09c4460adeb17fdb4c5790c110d7"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "Product designer remote \"apply\"",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "8e79f181ed51abc97b89cba56cd2235f5169d816df5e736e80e9cc51211609a6"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "UX designer remote \"apply\"",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "8e79f181ed51abc97b89cba56cd2235f5169d816df5e736e80e9cc51211609a6"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": null,
+            "reason": "no_further_action",
+            "parentKey": null
+          }
+        ],
+        "evidence": [
+          {
+            "url": "https://uiuxjobsboard.com/job/1618126-remote-united-states-ui-ux-designer",
+            "label": "job_opening",
+            "scope": "source",
+            "unknowns": [
+              "arrangement",
+              "sponsorship",
+              "compensation",
+              "authorization"
+            ],
+            "explanation": "A specific open position is described for UUVATION, with a role, contract type, location, requirements, and application instructions."
+          },
+          {
+            "url": "https://uiuxjobsboard.com/job/1622026-remote-united-states-staff-product-designer",
+            "label": "job_opening",
+            "scope": "source",
+            "unknowns": [
+              "sponsorship",
+              "authorization"
+            ],
+            "explanation": "This is a specific hiring post for a Staff Product Designer role at Facet, with duties, requirements, pay, and application instructions stated."
+          },
+          {
+            "url": "https://uvation.breezy.hr/p/97ea75b438a4-ui-ux-designer",
+            "label": "job_opening",
+            "scope": "source",
+            "unknowns": [
+              "arrangement",
+              "sponsorship",
+              "compensation",
+              "authorization"
+            ],
+            "explanation": "A specific position is being advertised for a UI/UX designer, with role details, requirements, and application buttons shown."
+          }
+        ]
+      },
+      "output": {
+        "kind": "choice",
+        "index": 0,
+        "explanation": "Open the Facet application page first; it’s a direct employer posting and is most likely to confirm the role’s location, requirements, pay, and application steps in one place."
+      },
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 1873,
+        "responseId": "resp_053290d2bc4b7ce3016abedd98df9087d286e257477c573d25",
+        "inputTokens": 1253,
+        "outputTokens": 202,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 1849
+      }
+    }
+  ],
+  "sourceReviewsCompleted": 3,
+  "intelligence": [
+    {
+      "kind": "research",
+      "result": {
+        "kind": "research",
+        "usage": {
+          "model": "no-provider-call",
+          "durationMs": 1,
+          "responseId": "",
+          "inputTokens": 0,
+          "outputTokens": 0
+        },
+        "analysis": {
+          "pay": {
+            "period": null,
+            "maximum": null,
+            "minimum": null,
+            "currency": null
+          },
+          "facts": {
+            "role": {
+              "value": "Staff Product Designer",
+              "quotes": [
+                "FFACET IS HIRINGSTAFF PRODUCT DESIGNER",
+                "We're looking for a Staff Product Designer to take ownership of Facet's internal products. Facet relies on dedicated teams across financial planning, sales, support, and investment operations to support tens of thousands of members nationwide. Our bespoke software is essential to their daily workflows. This is a crucial role for a designer who finds deep satisfaction in untangling complex workflows, designing for dense information architecture, and advocating for internal users."
+              ],
+              "status": "stated"
+            },
+            "category": {
+              "value": "employment",
+              "quotes": [
+                "TYPEFull Time CATEGORYProduct Design SALARY$175,000 - $200,000 LOCATIONRemoteUnited States",
+                "FFACET IS HIRINGSTAFF PRODUCT DESIGNER"
+              ],
+              "status": "stated"
+            },
+            "location": {
+              "value": "Remote United States",
+              "quotes": [
+                "TYPEFull Time CATEGORYProduct Design SALARY$175,000 - $200,000 LOCATIONRemoteUnited States",
+                " * Flexibility: Remote-first culture—work from anywhere in the U.S.."
+              ],
+              "status": "stated"
+            },
+            "arrangement": {
+              "value": "remote",
+              "quotes": [
+                "TYPEFull Time CATEGORYProduct Design SALARY$175,000 - $200,000 LOCATIONRemoteUnited States",
+                " * Flexibility: Remote-first culture—work from anywhere in the U.S.."
+              ],
+              "status": "stated"
+            },
+            "sponsorship": {
+              "value": "",
+              "quotes": [],
+              "status": "unknown"
+            },
+            "compensation": {
+              "value": "$175,000 - $200,000 base salary + bonus",
+              "quotes": [
+                "TYPEFull Time CATEGORYProduct Design SALARY$175,000 - $200,000 LOCATIONRemoteUnited States",
+                " * Competitive Compensation: $175,000 - $200,000 base salary + bonus"
+              ],
+              "status": "stated"
+            },
+            "requirements": {
+              "value": "Online portfolio required; 7+ years of product design experience; strong information architecture, systems thinking, complex workflow design; proficiency in Figma; experience leading user research and working with AI capabilities.",
+              "quotes": [
+                " * Online portfolio required for consideration and must showcase strong information architecture, systems thinking, and complex workflow design instead of pure consumer visual polish.",
+                " * 7+ years of product design experience with a track record of shipping software for data intensive workflows, internal tools, or specialized professional platforms; fintech experience a plus.",
+                " * Comfortable leading user research, driving discovery, mapping user journeys, prototyping, high fidelity designs and partnering with engineering to see designs through production.",
+                " * Ability to showcase how you actively integrate AI capabilities to increase efficiency for you as a designer and for the end user of your solutions."
+              ],
+              "status": "stated"
+            },
+            "authorization": {
+              "value": "",
+              "quotes": [],
+              "status": "unknown"
+            }
+          },
+          "research": {
+            "findings": [
+              {
+                "fact": "location",
+                "value": "",
+                "quotes": [],
+                "status": "unresolved",
+                "sourceUrl": null,
+                "explanation": "Approved employer sources did not provide usable evidence for this question.",
+                "applicability": "unclear"
+              },
+              {
+                "fact": "authorization",
+                "value": "",
+                "quotes": [],
+                "status": "unresolved",
+                "sourceUrl": null,
+                "explanation": "Approved employer sources did not provide usable evidence for this question.",
+                "applicability": "unclear"
+              },
+              {
+                "fact": "sponsorship",
+                "value": "",
+                "quotes": [],
+                "status": "unresolved",
+                "sourceUrl": null,
+                "explanation": "Approved employer sources did not provide usable evidence for this question.",
+                "applicability": "unclear"
+              },
+              {
+                "fact": "requirements",
+                "value": "",
+                "quotes": [],
+                "status": "unresolved",
+                "sourceUrl": null,
+                "explanation": "Approved employer sources did not provide usable evidence for this question.",
+                "applicability": "unclear"
+              },
+              {
+                "fact": "deadline",
+                "value": "",
+                "quotes": [],
+                "status": "unresolved",
+                "sourceUrl": null,
+                "explanation": "Approved employer sources did not provide usable evidence for this question.",
+                "applicability": "unclear"
+              }
+            ],
+            "checkedAt": "2026-10-01T22:24:32.702Z",
+            "documents": [],
+            "expiresAt": "2026-10-01T22:39:32.702Z"
+          }
+        }
+      },
+      "outcome": "ready",
+      "usage": {
+        "model": "no-provider-call",
+        "durationMs": 1,
+        "responseId": "",
+        "inputTokens": 0,
+        "outputTokens": 0
+      },
+      "cost": {
+        "source": "none",
+        "currency": "USD",
+        "pricingVersion": "no-provider-call",
+        "estimatedMicrousd": 0
+      }
+    },
+    {
+      "kind": "fit",
+      "result": {
+        "fit": {
+          "criteria": [
+            {
+              "quotes": [
+                "Staff Product Designer",
+                "FFACET IS HIRINGSTAFF PRODUCT DESIGNER",
+                "We're looking for a Staff Product Designer to take ownership of Facet's internal products. Facet relies on dedicated teams across financial planning, sales, support, and investment operations to support tens of thousands of members nationwide. Our bespoke software is essential to their daily workflows. This is a crucial role for a designer who finds deep satisfaction in untangling complex workflows, designing for dense information architecture, and advocating for internal users."
+              ],
+              "status": "meets",
+              "criterion": "role",
+              "briefQuotes": [
+                "Product designer or UX designer"
+              ],
+              "explanation": "The posting is for a Staff Product Designer, which matches the target of product designer or UX designer."
+            },
+            {
+              "quotes": [
+                "TYPEFull Time CATEGORYProduct Design SALARY$175,000 - $200,000 LOCATIONRemoteUnited States"
+              ],
+              "status": "meets",
+              "criterion": "category",
+              "briefQuotes": [
+                "employment"
+              ],
+              "explanation": "This is an employment posting, and the brief is looking for employment jobs."
+            },
+            {
+              "quotes": [
+                "TYPEFull Time CATEGORYProduct Design SALARY$175,000 - $200,000 LOCATIONRemoteUnited States",
+                " * Flexibility: Remote-first culture—work from anywhere in the U.S.."
+              ],
+              "status": "meets",
+              "criterion": "arrangement",
+              "briefQuotes": [
+                "remote",
+                "United Kingdom or remote worldwide"
+              ],
+              "explanation": "The job is explicitly remote, which matches the required remote arrangement."
+            },
+            {
+              "quotes": [
+                "TYPEFull Time CATEGORYProduct Design SALARY$175,000 - $200,000 LOCATIONRemoteUnited States",
+                " * Flexibility: Remote-first culture—work from anywhere in the U.S.."
+              ],
+              "status": "conflicts",
+              "criterion": "location",
+              "briefQuotes": [
+                "London, United Kingdom",
+                "United Kingdom or remote worldwide"
+              ],
+              "explanation": "The job is remote in the United States, while the brief allows the United Kingdom or remote worldwide; the posting does not state UK or worldwide eligibility."
+            },
+            {
+              "quotes": [
+                " * 7+ years of product design experience with a track record of shipping software for data intensive workflows, internal tools, or specialized professional platforms; fintech experience a plus.",
+                " * Comfortable leading user research, driving discovery, mapping user journeys, prototyping, high fidelity designs and partnering with engineering to see designs through production."
+              ],
+              "status": "conflicts",
+              "criterion": "experience",
+              "briefQuotes": [
+                "Five years of product and UX design for B2B SaaS products, user research, prototyping and design systems"
+              ],
+              "explanation": "The role requires 7+ years of product design experience, while the brief background states five years of product and UX design experience."
+            },
+            {
+              "quotes": [
+                "TYPEFull Time CATEGORYProduct Design SALARY$175,000 - $200,000 LOCATIONRemoteUnited States",
+                " * Flexibility: Remote-first culture—work from anywhere in the U.S.."
+              ],
+              "status": "unknown",
+              "criterion": "authorization",
+              "briefQuotes": [
+                "review"
+              ],
+              "explanation": "The posting does not state work authorization, sponsorship, or country eligibility details beyond remote U.S. work, so eligibility cannot be determined from the supplied text."
+            },
+            {
+              "quotes": [
+                "TYPEFull Time CATEGORYProduct Design SALARY$175,000 - $200,000 LOCATIONRemoteUnited States",
+                " * Competitive Compensation: $175,000 - $200,000 base salary + bonus"
+              ],
+              "status": "meets",
+              "criterion": "compensation",
+              "briefQuotes": [
+                "USD",
+                "year",
+                "include"
+              ],
+              "explanation": "The posting lists compensation of $175,000 to $200,000 base salary plus bonus, which matches the brief's USD yearly compensation context."
+            }
+          ]
+        },
+        "kind": "fit",
+        "usage": {
+          "model": "gpt-5.4-mini-2026-03-17",
+          "durationMs": 3387,
+          "responseId": "resp_09290b978ab4e0d9016abedda10c9c87d2b50c14987eaadf9b",
+          "inputTokens": 3799,
+          "outputTokens": 598,
+          "cachedInputTokens": 0
+        }
+      },
+      "outcome": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 3387,
+        "responseId": "resp_09290b978ab4e0d9016abedda10c9c87d2b50c14987eaadf9b",
+        "inputTokens": 3799,
+        "outputTokens": 598,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 5541
+      }
+    },
+    {
+      "kind": "research",
+      "result": {
+        "kind": "research",
+        "usage": {
+          "model": "gpt-5.4-mini-2026-03-17",
+          "durationMs": 3593,
+          "responseId": "resp_0ad1a1eb39480984016abedda466e487d29042aabc965f2509",
+          "inputTokens": 2711,
+          "outputTokens": 728,
+          "cachedInputTokens": 0
+        },
+        "analysis": {
+          "pay": {
+            "period": null,
+            "maximum": null,
+            "minimum": null,
+            "currency": null
+          },
+          "facts": {
+            "role": {
+              "value": "UI/UX Designer",
+              "quotes": [
+                "UUVATION IS HIRINGUI/UX DESIGNER",
+                "Job Title: UIUX Designer"
+              ],
+              "status": "stated"
+            },
+            "category": {
+              "value": "contract",
+              "quotes": [
+                "TYPEContract CATEGORYUI/UX Design LOCATIONRemoteUnited States"
+              ],
+              "status": "stated"
+            },
+            "location": {
+              "value": "Remote United States",
+              "quotes": [
+                "TYPEContract CATEGORYUI/UX Design LOCATIONRemoteUnited States"
+              ],
+              "status": "stated"
+            },
+            "arrangement": {
+              "value": "",
+              "quotes": [],
+              "status": "unknown"
+            },
+            "sponsorship": {
+              "value": "",
+              "quotes": [],
+              "status": "unknown"
+            },
+            "compensation": {
+              "value": "",
+              "quotes": [],
+              "status": "unknown"
+            },
+            "requirements": {
+              "value": "5-8 years of experience; Bachelor's degree or higher in a creative or related field; proficiency in Figma, Adobe Photoshop, Illustrator, InDesign, and Jira; strong portfolio; excellent communication and collaboration skills.",
+              "quotes": [
+                "Experience Level: 5-8 years",
+                "Education: Bachelor's degree or higher in a creative field or a related field.",
+                "Experience: At least 5-8 years of experience in Figma, Adobe Photoshop, Illustrator, Adobe in Design, Jira is a must.",
+                " * Proficiency in Figma, Adobe Photoshop, Illustrator, and InDesign."
+              ],
+              "status": "stated"
+            },
+            "authorization": {
+              "value": "",
+              "quotes": [],
+              "status": "unknown"
+            }
+          },
+          "research": {
+            "findings": [
+              {
+                "fact": "location",
+                "value": "Remote United States vs TX, US / remote within one",
+                "quotes": [
+                  " * TX, US - %LABEL_POSITION_TYPE_REMOTE_WITHIN_ONE%",
+                  "UI UX DESIGNER"
+                ],
+                "status": "conflicting",
+                "sourceUrl": "https://uvation.breezy.hr/p/97ea75b438a4-ui-ux-designer",
+                "explanation": "The page presents two different location signals for this exact role: the posting text says \"RemoteUnitedStates,\" but the job page also shows \"TX, US - %LABEL_POSITION_TYPE_REMOTE_WITHIN_ONE%\". That makes the applicant location requirement unclear from the supplied evidence.",
+                "applicability": "this_role"
+              },
+              {
+                "fact": "authorization",
+                "value": "",
+                "quotes": [],
+                "status": "unresolved",
+                "sourceUrl": null,
+                "explanation": "No passage states whether the applicant must already be authorized to work in the United States or any other country for this role.",
+                "applicability": "this_role"
+              },
+              {
+                "fact": "sponsorship",
+                "value": "",
+                "quotes": [],
+                "status": "unresolved",
+                "sourceUrl": null,
+                "explanation": "The supplied page contains no explicit statement about visa sponsorship for this role.",
+                "applicability": "this_role"
+              },
+              {
+                "fact": "requirements",
+                "value": "Bachelor's degree or higher in a creative or related field; 5-8 years of experience; proficiency in Figma, Adobe Photoshop, Illustrator, InDesign, and Jira; strong portfolio; excellent communication and collaboration skills; ability to work independently and as part of a team; attention to detail; familiarity with HTML and CSS preferred; knowledge of layouts, graphic fundamentals, typography, print, and web.",
+                "quotes": [
+                  "Experience Level: 5-8 years",
+                  "Education: Bachelor's degree or higher in a creative field or a related field.",
+                  "Experience: At least 5-8 years of experience in Figma, Adobe Photoshop, Illustrator, Adobe in Design, Jira is a must.",
+                  " * Proficiency in Figma, Adobe Photoshop, Illustrator, and InDesign."
+                ],
+                "status": "resolved",
+                "sourceUrl": "https://uvation.breezy.hr/p/97ea75b438a4-ui-ux-designer",
+                "explanation": "The role lists specific requirements, including education, experience, software proficiency, portfolio, and soft skills.",
+                "applicability": "this_role"
+              },
+              {
+                "fact": "deadline",
+                "value": "",
+                "quotes": [],
+                "status": "unresolved",
+                "sourceUrl": null,
+                "explanation": "No explicit application deadline or absolute ISO date is stated for this job.",
+                "applicability": "this_role"
+              }
+            ],
+            "checkedAt": "2026-10-01T22:24:36.124Z",
+            "documents": [
+              {
+                "url": "https://uvation.breezy.hr/p/97ea75b438a4-ui-ux-designer",
+                "text": "UI UX DESIGNER\n\n * TX, US - %LABEL_POSITION_TYPE_REMOTE_WITHIN_ONE%\n * %LABEL_POSITION_TYPE_CONTRACT%\n * Designer\n\n * %BREADCRUMB_JOB_OPENINGS%\n * UI UX Designer\n\n * %BUTTON_APPLY_TO_POSITION%\n * %BUTTON_APPLY_USING_INDEED%\n * %BUTTON_APPLY_USING_LINKED_IN%\n\n\n\n\nJob Title: UIUX Designer\n\nJob Description: The UIUX Designer is responsible the entire process of defining requirements, visualizing and creating graphics including illustrations, logos, layouts and photos. You’ll be the one to shape the visual aspects of websites, creative flair and a strong ability to translate requirements into design and collaborate with other designers to create effective and eye-catching images and campaigns to increase our user base.\n\nExperience Level: 5-8 years\n\nResponsibilities:\n\n * Develop and execute design concepts that align with brand guidelines and project specifications.\n * Manage multiple design projects simultaneously and prioritize tasks effectively to meet deadlines.\n * Collaborate with the design and marketing teams to understand project requirements and objectives.\n\n * Create visually appealing graphics, illustrations, and other design elements for digital and print media\n * Create and design various projects using Figma, Adobe Photoshop, Illustrator, Adobe InDesign, Jira\n\n * Work closely with developers and other stakeholders to ensure design integrity and implementation.\n\n * Establish creative direction for the company within brand guidelines\n * Manage multiple projects within design specifications and budget restrictions\n\n * Participate in design reviews and provide constructive feedback to improve design outcomes.\n * Stay updated on industry trends, design tools, and best practices to enhance skill set and creative output.\n\nRequirements:\n\nEducation: Bachelor's degree or higher in a creative field or a related field.\n\nExperience: At least 5-8 years of experience in Figma, Adobe Photoshop, Illustrator, Adobe in Design, Jira is a must.\n\n * Proven experience as a Graphic Designer with 2-5 years of relevant work experience.\n * Proficiency in Figma, Adobe Photoshop, Illustrator, and InDesign.\n * Experience working in an Agile environment using Jira is preferred.\n * Strong portfolio showcasing a diverse range of design projects.\n * Excellent communication and collaboration skills.\n * Ability to work independently and as part of a team in a fast-paced environment.\n * Attention to detail and a passion for creating visually appealing designs.\n\nSoft Skills:\n\n * Excellent written and verbal communication skills\n * Attention to detail.\n * Strong analytical skills\n * Time management and organizational skills\n\nOther:\n\n * Familiarity with HTML and CSS preferred.\n * Knowledge of layouts, graphic fundamentals, typography, print, and web\n\n * %BUTTON_APPLY_TO_POSITION%\n * %BUTTON_APPLY_USING_INDEED%\n * %BUTTON_APPLY_USING_LINKED_IN%\n\n%FOOTER_POWERED_BY%breezy",
+                "checkedAt": "2026-10-01T22:24:12.674Z",
+                "fingerprint": "6013feec1f5de0652305fdd8ce3bac99f9b0d1baa6d823980a1a932425b65944"
+              }
+            ],
+            "expiresAt": "2026-10-02T04:24:12.674Z"
+          }
+        }
+      },
+      "outcome": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 3593,
+        "responseId": "resp_0ad1a1eb39480984016abedda466e487d29042aabc965f2509",
+        "inputTokens": 2711,
+        "outputTokens": 728,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 5310
+      }
+    },
+    {
+      "kind": "fit",
+      "result": {
+        "fit": {
+          "criteria": [
+            {
+              "quotes": [
+                "UI/UX Designer",
+                "UUVATION IS HIRINGUI/UX DESIGNER",
+                "Job Title: UIUX Designer"
+              ],
+              "status": "meets",
+              "criterion": "role",
+              "briefQuotes": [
+                "Find remote product designer or UX designer jobs",
+                "Product designer or UX designer"
+              ],
+              "explanation": "The posting is for a UI/UX Designer, which fits the brief’s target of product designer or UX designer."
+            },
+            {
+              "quotes": [
+                "TYPEContract CATEGORYUI/UX Design LOCATIONRemoteUnited States",
+                "UI UX DESIGNER",
+                " * %LABEL_POSITION_TYPE_CONTRACT%"
+              ],
+              "status": "conflicts",
+              "criterion": "category",
+              "briefQuotes": [
+                "employment"
+              ],
+              "explanation": "The brief is for employment, but the posting is explicitly a contract role."
+            },
+            {
+              "quotes": [
+                "Remote United States",
+                "TYPEContract CATEGORYUI/UX Design LOCATIONRemoteUnited States",
+                " * TX, US - %LABEL_POSITION_TYPE_REMOTE_WITHIN_ONE%"
+              ],
+              "status": "meets",
+              "criterion": "arrangement",
+              "briefQuotes": [
+                "remote"
+              ],
+              "explanation": "The job is presented as remote, which matches the brief’s remote requirement, though the page also contains a conflicting remote-location signal."
+            },
+            {
+              "quotes": [
+                "Remote United States",
+                "TYPEContract CATEGORYUI/UX Design LOCATIONRemoteUnited States"
+              ],
+              "status": "conflicts",
+              "criterion": "location",
+              "briefQuotes": [
+                "London, United Kingdom",
+                "United Kingdom or remote worldwide"
+              ],
+              "explanation": "The brief is for someone in London, United Kingdom or for remote worldwide. This role is shown as remote United States, so the stated work location does not match the brief’s accepted locations."
+            },
+            {
+              "quotes": [
+                "Experience Level: 5-8 years",
+                "Experience: At least 5-8 years of experience in Figma, Adobe Photoshop, Illustrator, Adobe in Design, Jira is a must.",
+                "Experience: At least 5-8 years of experience in Figma, Adobe Photoshop, Illustrator, Adobe in Design, Jira is a must."
+              ],
+              "status": "meets",
+              "criterion": "experience",
+              "briefQuotes": [
+                "Five years of product and UX design for B2B SaaS products, user research, prototyping and design systems"
+              ],
+              "explanation": "The role requires 5-8 years of experience and the candidate background states five years of product and UX design work, which aligns with the minimum stated experience level."
+            },
+            {
+              "quotes": [
+                "Remote United States",
+                "TYPEContract CATEGORYUI/UX Design LOCATIONRemoteUnited States",
+                "Job Title: UIUX Designer"
+              ],
+              "status": "unknown",
+              "criterion": "authorization",
+              "briefQuotes": [
+                "review"
+              ],
+              "explanation": "No explicit work authorization or sponsorship requirement is stated for this role, so eligibility cannot be determined from the supplied text."
+            },
+            {
+              "quotes": [
+                "SALARY DATA",
+                "RELATED JOBSSEE MORE REMOTE DESIGN JOBS"
+              ],
+              "status": "unknown",
+              "criterion": "compensation",
+              "briefQuotes": [
+                "USD",
+                "year",
+                "include"
+              ],
+              "explanation": "No salary, rate, or budget is stated for this job, so compensation cannot be compared to the brief."
+            }
+          ]
+        },
+        "kind": "fit",
+        "usage": {
+          "model": "gpt-5.4-mini-2026-03-17",
+          "durationMs": 4782,
+          "responseId": "resp_0d8e341601fe60a8016abedda80ae087d292babb5f034ec9d5",
+          "inputTokens": 4400,
+          "outputTokens": 926,
+          "cachedInputTokens": 0
+        }
+      },
+      "outcome": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 4782,
+        "responseId": "resp_0d8e341601fe60a8016abedda80ae087d292babb5f034ec9d5",
+        "inputTokens": 4400,
+        "outputTokens": 926,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 7467
+      }
+    }
+  ],
+  "reviewAttempts": [
+    {
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 4132,
+        "responseId": "resp_0727ff3220f6b2a0016abedd84ae5087d2a144c55bc85a0076",
+        "inputTokens": 2560,
+        "outputTokens": 635,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 4778
+      }
+    },
+    {
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 3069,
+        "responseId": "resp_01663fd6f3287a4e016abedd8d05a087d2982c2ae08fa022d3",
+        "inputTokens": 2040,
+        "outputTokens": 555,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 4028
+      }
+    },
+    {
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 3205,
+        "responseId": "resp_0fbb1204df6524ea016abedd95aa7487d28bc420d8d62e55dc",
+        "inputTokens": 3394,
+        "outputTokens": 514,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 4859
+      }
+    },
+    {
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 2786,
+        "responseId": "resp_045e600671d83a0d016abedd9e327887d292169f82f0e05f78",
+        "inputTokens": 1364,
+        "outputTokens": 356,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 2625
+      }
+    }
+  ],
+  "opportunities": [],
+  "deliveries": [],
+  "durationMs": 55980,
+  "search": {
+    "goal": "Find remote product designer or UX designer jobs",
+    "category": "employment",
+    "target": "Product designer or UX designer",
+    "name": "Synthetic model-guided scout",
+    "arrangement": "remote",
+    "arrangementRequired": true,
+    "residence": "London, United Kingdom",
+    "workLocations": "United Kingdom or remote worldwide",
+    "background": "Five years of product and UX design for B2B SaaS products, user research, prototyping and design systems",
+    "minimumPay": "",
+    "currency": "USD",
+    "payPeriod": "year",
+    "unknownEligibility": "review",
+    "undisclosedPay": "include"
+  },
+  "operations": [
+    {
+      "key": "e11db8943c89ba4ae0b3ee54353bbca3dc79e201d075db9cd4b56f218fdc8a9e",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "Product designer remote jobs",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "143debb5c38a2217e0aa079046a62a3bbe6f18f1aa34db1481b5b0c9f69b83a8",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "UX designer remote jobs",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "8ff06575ebaac44e0bb540dd4fd300b27da65b1e8eaeef73cfd074950ea644d8",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "site:x.com Product designer jobs",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "8e79f181ed51abc97b89cba56cd2235f5169d816df5e736e80e9cc51211609a6",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "site:linkedin.com/posts UX designer jobs",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "44ec2f30eedfaabfbf52559b1660e1213aca09c4460adeb17fdb4c5790c110d7",
+      "kind": "document",
+      "input": {
+        "url": "https://uiuxjobsboard.com/job/1618126-remote-united-states-ui-ux-designer",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": [
+        {
+          "url": "https://www.facebook.com/sharer/sharer.php?u=https://uiuxjobsboard.com/job/1618126-remote-united-states-ui-ux-designer",
+          "text": ""
+        },
+        {
+          "url": "https://www.linkedin.com/sharing/share-offsite/?url=https://uiuxjobsboard.com/job/1618126-remote-united-states-ui-ux-designer",
+          "text": ""
+        },
+        {
+          "url": "https://twitter.com/intent/tweet?url=https://uiuxjobsboard.com/job/1618126-remote-united-states-ui-ux-designer",
+          "text": ""
+        },
+        {
+          "url": "https://api.whatsapp.com/send?text=UI/UX%20Designer%20at%20Uvation%20https://uiuxjobsboard.com/job/1618126-remote-united-states-ui-ux-designer",
+          "text": ""
+        },
+        {
+          "url": "https://uiuxjobsboard.com/cdn-cgi/l/email-protection",
+          "text": "Report job"
+        },
+        {
+          "url": "https://uiuxjobsboard.com/job/1623426-remote-anywhere-ux-ui-product-designer",
+          "text": "B UX/UI Product Designer at Base360"
+        },
+        {
+          "url": "https://uiuxjobsboard.com/job/1623326-product-designer-london-united-kingdom",
+          "text": "H Product Designer at Healf"
+        },
+        {
+          "url": "https://uiuxjobsboard.com/job/1622326-senior-ux-ui-designer-abu-dhabi-united-arab-emirates",
+          "text": "R Senior UX/UI Designer at Robusta"
+        },
+        {
+          "url": "https://uiuxjobsboard.com/job/1622226-ui-ux-designer-makati-city-philippines",
+          "text": "1 UI/UX Designer at 10xme Technology"
+        },
+        {
+          "url": "https://uiuxjobsboard.com/job/1620426-remote-europe-senior-product-designer-ux-ui",
+          "text": "e Senior Product Designer (UX/UI) at elearnio"
+        },
+        {
+          "url": "https://uiuxjobsboard.com/design-jobs/ui-ux-designer",
+          "text": "UI/UX designer jobs"
+        },
+        {
+          "url": "https://uiuxjobsboard.com/design-jobs/product-designer",
+          "text": "Product designer jobs"
+        },
+        {
+          "url": "https://uiuxjobsboard.com/design-jobs/ux-designer",
+          "text": "UX designer jobs"
+        },
+        {
+          "url": "https://uiuxjobsboard.com/design-jobs/ui-designer",
+          "text": "UI designer jobs"
+        },
+        {
+          "url": "https://uiuxjobsboard.com/design-jobs/ux-researcher",
+          "text": "UX researcher jobs"
+        },
+        {
+          "url": "https://uiuxjobsboard.com/design-jobs/ux-writer",
+          "text": "UX writer jobs"
+        },
+        {
+          "url": "https://uiuxjobsboard.com/salary/ui-ux-designer",
+          "text": "UI/UX Design Salary Guide"
+        },
+        {
+          "url": "https://uiuxjobsboard.com/salary/ui-ux-designer/united-states",
+          "text": "UI/UX Design Salary in United States"
+        },
+        {
+          "url": "https://uvation.breezy.hr/p/97ea75b438a4-ui-ux-designer",
+          "text": "Apply for this job"
+        },
+        {
+          "url": "https://uiuxjobsboard.com/design-jobs/remote-united-states",
+          "text": "See more remote design jobs"
+        },
+        {
+          "url": "https://uiuxjobsboard.com/job/1624026-remote-united-states-director-product-design",
+          "text": "Impiricusis hiringDirector, Product Design"
+        },
+        {
+          "url": "https://uiuxjobsboard.com/design-jobs/remote",
+          "text": "Remote"
+        },
+        {
+          "url": "https://uiuxjobsboard.com/job/1622026-remote-united-states-staff-product-designer",
+          "text": "Facetis hiringStaff Product Designer"
+        },
+        {
+          "url": "https://uiuxjobsboard.com/job/1622626-remote-united-states-lead-product-designer",
+          "text": "MURALis hiringLead Product Designer"
+        },
+        {
+          "url": "https://uiuxjobsboard.com/job/1602926-remote-ux-ui-designer-godalming-united-kingdom",
+          "text": "Compassion in World Farming International (CIWF)is hiringUX/UI Designer"
+        },
+        {
+          "url": "https://uiuxjobsboard.com/design-jobs/godalming",
+          "text": "Godalming"
+        },
+        {
+          "url": "https://uiuxjobsboard.com/design-jobs/united-kingdom",
+          "text": "United Kingdom"
+        }
+      ],
+      "captured_text": "Skip to main content\n\n\n\n\nUUVATION IS HIRINGUI/UX DESIGNER\n\nTYPEContract CATEGORYUI/UX Design LOCATIONRemoteUnited States\nPOSTED3d ago\n\nJob Title: UIUX Designer\n\nJob Description: The UIUX Designer is responsible the entire process of defining requirements, visualizing and creating graphics including illustrations, logos, layouts and photos. You’ll be the one to shape the visual aspects of websites, creative flair and a strong ability to translate requirements into design and collaborate with other designers to create effective and eye-catching images and campaigns to increase our user base.\n\nExperience Level: 5-8 years\n\nResponsibilities:\n\n * Develop and execute design concepts that align with brand guidelines and project specifications.\n * Manage multiple design projects simultaneously and prioritize tasks effectively to meet deadlines.\n * Collaborate with the design and marketing teams to understand project requirements and objectives.\n\n * Create visually appealing graphics, illustrations, and other design elements for digital and print media\n * Create and design various projects using Figma, Adobe Photoshop, Illustrator, Adobe InDesign, Jira\n\n * Work closely with developers and other stakeholders to ensure design integrity and implementation.\n\n * Establish creative direction for the company within brand guidelines\n * Manage multiple projects within design specifications and budget restrictions\n\n * Participate in design reviews and provide constructive feedback to improve design outcomes.\n * Stay updated on industry trends, design tools, and best practices to enhance skill set and creative output.\n\nRequirements:\n\nEducation: Bachelor's degree or higher in a creative field or a related field.\n\nExperience: At least 5-8 years of experience in Figma, Adobe Photoshop, Illustrator, Adobe in Design, Jira is a must.\n\n * Proven experience as a Graphic Designer with 2-5 years of relevant work experience.\n * Proficiency in Figma, Adobe Photoshop, Illustrator, and InDesign.\n * Experience working in an Agile environment using Jira is preferred.\n * Strong portfolio showcasing a diverse range of design projects.\n * Excellent communication and collaboration skills.\n * Ability to work independently and as part of a team in a fast-paced environment.\n * Attention to detail and a passion for creating visually appealing designs.\n\nSoft Skills:\n\n * Excellent written and verbal communication skills\n * Attention to detail.\n * Strong analytical skills\n * Time management and organizational skills\n\nOther:\n\n * Familiarity with HTML and CSS preferred.\n * Knowledge of layouts, graphic fundamentals, typography, print, and web\n\n\nSHARE THIS JOB\n\n\n\n\nPEOPLE ALSO VIEWED\n\nB UX/UI Product Designer at Base360H Product Designer at HealfR Senior UX/UI Designer at Robusta1 UI/UX Designer at 10xme Technologye Senior Product Designer (UX/UI) at elearnio\n\n\nDESIGN JOBS BY ROLE\n\nUI/UX designer jobsProduct designer jobsUX designer jobsUI designer jobsUX researcher jobsUX writer jobs\n\n\nSALARY DATA\n\nUI/UX Design Salary GuideUI/UX Design Salary in United States\nReport job\nApply for this job\n\nPlease mention you found this position on UI/UX Jobs Board when applying for this job.\n\nStay safe! When applying for a job you should never have to pay anything.\n\n\nRELATED JOBSSEE MORE REMOTE DESIGN JOBS\n\n\nIMPIRICUSIS HIRINGDIRECTOR, PRODUCT DESIGN\n\nFull Time$180,000 - $200,000\nRemoteUnited States\n13h\n\n\nFACETIS HIRINGSTAFF PRODUCT DESIGNER\n\nFull Time$175,000 - $200,000\nRemoteUnited States\n1d\n\n\nMURALIS HIRINGLEAD PRODUCT DESIGNER\n\nFull Time$169,435 - $211,794\nRemoteUnited States\n1d\n\n\nCOMPASSION IN WORLD FARMING INTERNATIONAL (CIWF)IS HIRINGUX/UI DESIGNER\n\nFull Time\nGodalmingUnited Kingdom\n★ Featured\n\nDESIGN JOBS BY ROLE\n\nProduct designer jobsUX designer jobsUI designer jobsUI/UX designer jobsUX researcher jobsUX writer jobs\n\nDESIGN JOBS BY TYPE\n\nFull-time jobsRemote jobsFreelance gigsInternships\n\nREMOTE DESIGN JOBS\n\nRemote anywhereRemote jobs in EuropeRemote jobs in the USRemote jobs in the UKRemote jobs in CanadaRemote jobs in LatAm\n\nDESIGN JOBS BY LOCATION\n\nDesign jobs in LondonDesign jobs in New YorkDesign jobs in San FranciscoDesign jobs in SydneyDesign jobs in Toronto\n\nDESIGN JOBS BY LOCATION\n\nDesigner jobs in the USDesigner jobs in the UKDesigner jobs in CanadaDesigner jobs in IndiaDesigner jobs in Germany\n\n\nSTART HIRING TOP UI/UX DESIGNERS, PRODUCT DESIGNERS, UX RESEARCHERS AND UX WRITERS.\n\nPost a job\n\nRESOURCES\n\nBlogSalary guideDesign toolsUX terms\n\nUIUXJOBSBOARD\n\nGet in touchNewsletterTerms of servicePrivacy policy\n© UIUXjobsboard\n\nBy using this site, you agree to our terms of service and privacy policy.",
+      "source_status": "fetched",
+      "source_reason": null,
+      "observed_links": 27
+    },
+    {
+      "key": "bdd6465fff594e617aa07678af713cfd5ecc688c9ff6e1c395d0e87f196d6889",
+      "kind": "document",
+      "input": {
+        "url": "https://uvation.breezy.hr/p/97ea75b438a4-ui-ux-designer",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 1,
+      "links": [
+        {
+          "url": "https://uvation.breezy.hr/",
+          "text": "%BREADCRUMB_JOB_OPENINGS%"
+        },
+        {
+          "url": "https://uvation.breezy.hr/p/97ea75b438a4-ui-ux-designer/apply",
+          "text": "%BUTTON_APPLY_TO_POSITION%"
+        },
+        {
+          "url": "https://app.breezy.hr/api/apply/linkedin?position_id=97ea75b438a4",
+          "text": "%BUTTON_APPLY_USING_LINKED_IN%"
+        },
+        {
+          "url": "https://breezy.hr/m/portal",
+          "text": "%FOOTER_POWERED_BY%breezy"
+        }
+      ],
+      "captured_text": "UI UX DESIGNER\n\n * TX, US - %LABEL_POSITION_TYPE_REMOTE_WITHIN_ONE%\n * %LABEL_POSITION_TYPE_CONTRACT%\n * Designer\n\n * %BREADCRUMB_JOB_OPENINGS%\n * UI UX Designer\n\n * %BUTTON_APPLY_TO_POSITION%\n * %BUTTON_APPLY_USING_INDEED%\n * %BUTTON_APPLY_USING_LINKED_IN%\n\n\n\n\nJob Title: UIUX Designer\n\nJob Description: The UIUX Designer is responsible the entire process of defining requirements, visualizing and creating graphics including illustrations, logos, layouts and photos. You’ll be the one to shape the visual aspects of websites, creative flair and a strong ability to translate requirements into design and collaborate with other designers to create effective and eye-catching images and campaigns to increase our user base.\n\nExperience Level: 5-8 years\n\nResponsibilities:\n\n * Develop and execute design concepts that align with brand guidelines and project specifications.\n * Manage multiple design projects simultaneously and prioritize tasks effectively to meet deadlines.\n * Collaborate with the design and marketing teams to understand project requirements and objectives.\n\n * Create visually appealing graphics, illustrations, and other design elements for digital and print media\n * Create and design various projects using Figma, Adobe Photoshop, Illustrator, Adobe InDesign, Jira\n\n * Work closely with developers and other stakeholders to ensure design integrity and implementation.\n\n * Establish creative direction for the company within brand guidelines\n * Manage multiple projects within design specifications and budget restrictions\n\n * Participate in design reviews and provide constructive feedback to improve design outcomes.\n * Stay updated on industry trends, design tools, and best practices to enhance skill set and creative output.\n\nRequirements:\n\nEducation: Bachelor's degree or higher in a creative field or a related field.\n\nExperience: At least 5-8 years of experience in Figma, Adobe Photoshop, Illustrator, Adobe in Design, Jira is a must.\n\n * Proven experience as a Graphic Designer with 2-5 years of relevant work experience.\n * Proficiency in Figma, Adobe Photoshop, Illustrator, and InDesign.\n * Experience working in an Agile environment using Jira is preferred.\n * Strong portfolio showcasing a diverse range of design projects.\n * Excellent communication and collaboration skills.\n * Ability to work independently and as part of a team in a fast-paced environment.\n * Attention to detail and a passion for creating visually appealing designs.\n\nSoft Skills:\n\n * Excellent written and verbal communication skills\n * Attention to detail.\n * Strong analytical skills\n * Time management and organizational skills\n\nOther:\n\n * Familiarity with HTML and CSS preferred.\n * Knowledge of layouts, graphic fundamentals, typography, print, and web\n\n * %BUTTON_APPLY_TO_POSITION%\n * %BUTTON_APPLY_USING_INDEED%\n * %BUTTON_APPLY_USING_LINKED_IN%\n\n%FOOTER_POWERED_BY%breezy",
+      "source_status": "fetched",
+      "source_reason": null,
+      "observed_links": 4
+    },
+    {
+      "key": "962c22427924af3191c7429a9e087dc0e64ef43656e94cd659b051ab7ffbc44f",
+      "kind": "document",
+      "input": {
+        "url": "https://uiuxjobsboard.com/job/1622026-remote-united-states-staff-product-designer",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 1,
+      "links": [
+        {
+          "url": "https://facet.com/legal-documents/awards-ratings-disclosure/",
+          "text": "Please see additional information"
+        },
+        {
+          "url": "https://www.facebook.com/sharer/sharer.php?u=https://uiuxjobsboard.com/job/1622026-remote-united-states-staff-product-designer",
+          "text": ""
+        },
+        {
+          "url": "https://www.linkedin.com/sharing/share-offsite/?url=https://uiuxjobsboard.com/job/1622026-remote-united-states-staff-product-designer",
+          "text": ""
+        },
+        {
+          "url": "https://twitter.com/intent/tweet?url=https://uiuxjobsboard.com/job/1622026-remote-united-states-staff-product-designer",
+          "text": ""
+        },
+        {
+          "url": "https://api.whatsapp.com/send?text=Staff%20Product%20Designer%20at%20Facet%20https://uiuxjobsboard.com/job/1622026-remote-united-states-staff-product-designer",
+          "text": ""
+        },
+        {
+          "url": "https://uiuxjobsboard.com/cdn-cgi/l/email-protection",
+          "text": "Report job"
+        },
+        {
+          "url": "https://uiuxjobsboard.com/job/1624026-remote-united-states-director-product-design",
+          "text": "I Director, Product Design at Impiricus"
+        },
+        {
+          "url": "https://uiuxjobsboard.com/job/1623526-remote-north-america-product-design",
+          "text": "C Product Design at Chromatic"
+        },
+        {
+          "url": "https://uiuxjobsboard.com/job/1623226-senior-product-designer-los-angeles-ca-united-states",
+          "text": "R Senior Product Designer at Revel"
+        },
+        {
+          "url": "https://uiuxjobsboard.com/job/1623826-senior-product-designer-denver-co-united-states",
+          "text": "C Senior Product Designer at Checkr"
+        },
+        {
+          "url": "https://uiuxjobsboard.com/job/1622826-product-designer-new-york-united-states",
+          "text": "A Product Designer at Ande"
+        },
+        {
+          "url": "https://uiuxjobsboard.com/design-jobs/ui-ux-designer",
+          "text": "UI/UX designer jobs"
+        },
+        {
+          "url": "https://uiuxjobsboard.com/design-jobs/product-designer",
+          "text": "Product designer jobs"
+        },
+        {
+          "url": "https://uiuxjobsboard.com/design-jobs/ux-designer",
+          "text": "UX designer jobs"
+        },
+        {
+          "url": "https://uiuxjobsboard.com/design-jobs/ui-designer",
+          "text": "UI designer jobs"
+        },
+        {
+          "url": "https://uiuxjobsboard.com/design-jobs/ux-researcher",
+          "text": "UX researcher jobs"
+        },
+        {
+          "url": "https://uiuxjobsboard.com/design-jobs/ux-writer",
+          "text": "UX writer jobs"
+        },
+        {
+          "url": "https://uiuxjobsboard.com/salary/product-designer",
+          "text": "Product Design Salary Guide"
+        },
+        {
+          "url": "https://uiuxjobsboard.com/salary/product-designer/united-states",
+          "text": "Product Design Salary in United States"
+        },
+        {
+          "url": "https://jobs.workable.com/view/gya8gJYBxCFhsj71oKbDAe/remote-staff-product-designer%2C-internal-tools-in-united-states-at-facet",
+          "text": "Apply for this job"
+        },
+        {
+          "url": "https://uiuxjobsboard.com/design-jobs/remote-united-states",
+          "text": "See more remote design jobs"
+        },
+        {
+          "url": "https://uiuxjobsboard.com/design-jobs/remote",
+          "text": "Remote"
+        },
+        {
+          "url": "https://uiuxjobsboard.com/job/1622626-remote-united-states-lead-product-designer",
+          "text": "MURALis hiringLead Product Designer"
+        },
+        {
+          "url": "https://uiuxjobsboard.com/job/1622526-remote-united-states-ui-artist",
+          "text": "Nimbleis hiringUI Artist"
+        },
+        {
+          "url": "https://uiuxjobsboard.com/job/1602926-remote-ux-ui-designer-godalming-united-kingdom",
+          "text": "Compassion in World Farming International (CIWF)is hiringUX/UI Designer"
+        },
+        {
+          "url": "https://uiuxjobsboard.com/design-jobs/godalming",
+          "text": "Godalming"
+        },
+        {
+          "url": "https://uiuxjobsboard.com/design-jobs/united-kingdom",
+          "text": "United Kingdom"
+        }
+      ],
+      "captured_text": "Skip to main content\n\n\n\n\nFFACET IS HIRINGSTAFF PRODUCT DESIGNER\n\nTYPEFull Time CATEGORYProduct Design SALARY$175,000 - $200,000 LOCATIONRemoteUnited States\nPOSTED1d ago\n\n\nDESCRIPTION\n\nFacet was founded in 2016 on the belief that objective, personalized financial advice is essential to living well. Our mission is to empower people to live more enriched lives by delivering a new standard of advice. By removing asset minimums, we provide holistic planning that goes far beyond investments to address every way money impacts life. To achieve this, we leverage a \"human-plus-tech\" approach, combining the expertise of CFP® professionals with cutting-edge AI and automation. This model allows Facet to integrate advice into our members’ entire financial picture—all for an affordable, flat membership fee.\n\nOur commitment to innovation and member success has earned national recognition, including being ranked the #1 Best Financial Advisory Firm 2025 by USA TODAY and named to Newsweek’s list of America’s Top Financial Advisory Firms 2025. With an A+ BBB Rating and a Trustpilot “Excellent” score (as of Sept. 16, 2025)*, we are proud to be redefining the industry for our members and our team alike.\n\nThe Opportunity\n\nWe're looking for a Staff Product Designer to take ownership of Facet's internal products. Facet relies on dedicated teams across financial planning, sales, support, and investment operations to support tens of thousands of members nationwide. Our bespoke software is essential to their daily workflows. This is a crucial role for a designer who finds deep satisfaction in untangling complex workflows, designing for dense information architecture, and advocating for internal users.\n\nStepping into an active and highly energized space, your first mandate is to take over and lead UX research for our internal tools. From there, the goal is to architect scalable, intuitive mental models and interfaces that optimize complex daily tasks. By partnering closely with Product Management and Engineering, this role transforms legacy tools into streamlined workspaces. Ultimately, this work elevates our staff's ability to operate efficiently without sacrificing the top-tier service our members expect. While the immediate priority is redesigning the core platform to increase financial planner capacity, reduce onboarding friction, and drive business unit economics, the scope of this opportunity also extends to critical tools used across our entire internal ecosystem.\n\n\nRESPONSIBILITIES:\n\n * Own the complete design process for Facet's internal, web-based software tools from problem framing and information architecture through UI design, prototyping, and shipping.\n * Translate core planning and operational mental models into clear, intuitive experiences and dense UI patterns that enable Facet's unified philosophy to be executed consistently.\n * Untangle legacy information architecture across multiple internal surfaces by consolidating fragmented tools and duplicate actions into logical, efficient workflows.\n * Design comprehensive workflow solutions for our planners and sales teams, optimizing how they schedule meetings, capture notes, answer messages, and manager daily tasks.\n * Conduct ongoing research with Facet's internal teams to validate interaction patterns, surface unmet workflow needs, and advocate for power users who spend the majority of their day in these tools.\n * Design interfaces that clearly communicate exactly what the tools are doing, giving our teams the confidence to rely on automations rather than falling back on manual habits.\n * Make pragmatic design decisions, knowing when to go deep on UX craft and when to ship scrappy, functional solutions that move operational efficiency forward toward business targets.\n\n\nREQUIREMENTS\n\n * Online portfolio required for consideration and must showcase strong information architecture, systems thinking, and complex workflow design instead of pure consumer visual polish.\n * 7+ years of product design experience with a track record of shipping software for data intensive workflows, internal tools, or specialized professional platforms; fintech experience a plus.\n * Comfortable leading user research, driving discovery, mapping user journeys, prototyping, high fidelity designs and partnering with engineering to see designs through production.\n * Ability to showcase how you actively integrate AI capabilities to increase efficiency for you as a designer and for the end user of your solutions.\n * Must be a systems thinker: naturally looks for structural patterns, reusable components, and mental models rather than isolated singular fixes and can showcase how you've solved systemic problems.\n * No-ego teammate who shares work early, collaborates with your cross-functional peers to find the best solutions, navigates technical constraints confidently, and knows exactly how to align stakeholders around UC decisions.\n * Highly proficient in Figma and comfortable working within, maintaining, and extending design systems.\n * Prefer experience designing for financial planning, wealth management, or investing.\n\n\nBENEFITS\n\n * Competitive Compensation: $175,000 - $200,000 base salary + bonus\n * Ownership: Equity in a rapidly growing company on the path to becoming the \"Next Great Financial Services Company\".\n * Flexibility: Remote-first culture—work from anywhere in the U.S..\n * Time Off: Flexible Paid Time Off (PTO).\n * Comprehensive Benefits and Perks: Medical, dental, vision, 401(k) match, disability, paid parental leave, wellness reimbursement, and education reimbursement programs.\n\n*Facet was ranked #1 Best Financial Advisory Firm 2025 by USA TODAY in April 2025 who partnered with Statista to rank the top 500 RIAs. Recommendations were collected via an independent survey among over 30,000 individuals. self-recommendations were prohibited, and no compensation was provided for the ranking.  Facet has been Accredited with the Better Business Bureau® since June 2025, and as of February 2026 holds an A+ BBB Rating. This Accreditation does not imply BBB approval or endorsement. Plant-A Insights Group and Newsweek partnered to identify America's Top Financial Advisory Firms 2025. This analysis was performed with data as of September 2024 and reviewed over 15,000 financial advisories registered with the SEC. These rankings prepared by Plant-A reflect editorial content and no compensation was provided by Facet in connection with America's Top Financial Advisory Firms 2025.\" As of February 25, 2026; Facet has a 4.8 star rating with TrustPilot.com. TrustPilot uses a formula for calculation that considers three factors: time span, frequency, and Bayesian average. After the calculation, a TrustScore is then visualized into a star rating from 1 to 5 stars, including half stars. Facet’s star rating is calculated from reviews from January of 2022 to present day. Daily star rating may fluctuate. Companies on Trustpilot aren't allowed to offer incentives or pay to hide reviews and Facet has not made any payments in offer or receipt of any reviews. Please see additional information\n\n\nSHARE THIS JOB\n\n\n\n\nPEOPLE ALSO VIEWED\n\nI Director, Product Design at ImpiricusC Product Design at ChromaticR Senior Product Designer at RevelC Senior Product Designer at CheckrA Product Designer at Ande\n\n\nDESIGN JOBS BY ROLE\n\nUI/UX designer jobsProduct designer jobsUX designer jobsUI designer jobsUX researcher jobsUX writer jobs\n\n\nSALARY DATA\n\nProduct Design Salary GuideProduct Design Salary in United States\nReport job\nApply for this job\n\nPlease mention you found this position on UI/UX Jobs Board when applying for this job.\n\nStay safe! When applying for a job you should never have to pay anything.\n\n\nRELATED JOBSSEE MORE REMOTE DESIGN JOBS\n\n\nIMPIRICUSIS HIRINGDIRECTOR, PRODUCT DESIGN\n\nFull Time$180,000 - $200,000\nRemoteUnited States\n13h\n\n\nMURALIS HIRINGLEAD PRODUCT DESIGNER\n\nFull Time$169,435 - $211,794\nRemoteUnited States\n1d\n\n\nNIMBLEIS HIRINGUI ARTIST\n\nContract\nRemoteUnited States\n1d\n\n\nCOMPASSION IN WORLD FARMING INTERNATIONAL (CIWF)IS HIRINGUX/UI DESIGNER\n\nFull Time\nGodalmingUnited Kingdom\n★ Featured\n\nDESIGN JOBS BY ROLE\n\nProduct designer jobsUX designer jobsUI designer jobsUI/UX designer jobsUX researcher jobsUX writer jobs\n\nDESIGN JOBS BY TYPE\n\nFull-time jobsRemote jobsFreelance gigsInternships\n\nREMOTE DESIGN JOBS\n\nRemote anywhereRemote jobs in EuropeRemote jobs in the USRemote jobs in the UKRemote jobs in CanadaRemote jobs in LatAm\n\nDESIGN JOBS BY LOCATION\n\nDesign jobs in LondonDesign jobs in New YorkDesign jobs in San FranciscoDesign jobs in SydneyDesign jobs in Toronto\n\nDESIGN JOBS BY LOCATION\n\nDesigner jobs in the USDesigner jobs in the UKDesigner jobs in CanadaDesigner jobs in IndiaDesigner jobs in Germany\n\n\nSTART HIRING TOP UI/UX DESIGNERS, PRODUCT DESIGNERS, UX RESEARCHERS AND UX WRITERS.\n\nPost a job\n\nRESOURCES\n\nBlogSalary guideDesign toolsUX terms\n\nUIUXJOBSBOARD\n\nGet in touchNewsletterTerms of servicePrivacy policy\n© UIUXjobsboard\n\nBy using this site, you agree to our terms of service and privacy policy.",
+      "source_status": "fetched",
+      "source_reason": null,
+      "observed_links": 27
+    },
+    {
+      "key": "6039e40602ae269de7025e5d2024bdff75ae623d3d2abe0bea1eb7e3e3641e50",
+      "kind": "document",
+      "input": {
+        "url": "https://jobs.workable.com/view/gya8gJYBxCFhsj71oKbDAe/remote-staff-product-designer%2C-internal-tools-in-united-states-at-facet",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 2,
+      "links": [],
+      "captured_text": "",
+      "source_status": "fetched",
+      "source_reason": null,
+      "observed_links": 0
+    }
+  ],
+  "decisions": [
+    {
+      "round": 0,
+      "reason": "check_promising_result",
+      "action": {
+        "url": "https://uiuxjobsboard.com/job/1618126-remote-united-states-ui-ux-designer",
+        "kind": "document"
+      },
+      "depth": 0,
+      "parent_key": "143debb5c38a2217e0aa079046a62a3bbe6f18f1aa34db1481b5b0c9f69b83a8"
+    },
+    {
+      "round": 1,
+      "reason": "follow_source_link",
+      "action": {
+        "url": "https://uvation.breezy.hr/p/97ea75b438a4-ui-ux-designer",
+        "kind": "document"
+      },
+      "depth": 1,
+      "parent_key": "44ec2f30eedfaabfbf52559b1660e1213aca09c4460adeb17fdb4c5790c110d7"
+    },
+    {
+      "round": 2,
+      "reason": "follow_source_link",
+      "action": {
+        "url": "https://uiuxjobsboard.com/job/1622026-remote-united-states-staff-product-designer",
+        "kind": "document"
+      },
+      "depth": 1,
+      "parent_key": "44ec2f30eedfaabfbf52559b1660e1213aca09c4460adeb17fdb4c5790c110d7"
+    },
+    {
+      "round": 3,
+      "reason": "follow_source_link",
+      "action": {
+        "url": "https://jobs.workable.com/view/gya8gJYBxCFhsj71oKbDAe/remote-staff-product-designer%2C-internal-tools-in-united-states-at-facet",
+        "kind": "document"
+      },
+      "depth": 2,
+      "parent_key": "962c22427924af3191c7429a9e087dc0e64ef43656e94cd659b051ab7ffbc44f"
+    },
+    {
+      "round": 4,
+      "reason": "exploration_limit",
+      "action": null,
+      "depth": 0,
+      "parent_key": null
+    }
+  ],
+  "case": {
+    "id": "86d15ca3-2be7-4f94-82c6-aff23828b6af",
+    "scoutId": "5f80ccdb-405a-492c-94f1-515e3fdcae2a",
+    "scoutName": "Synthetic model-guided scout",
+    "scoutVersion": 1,
+    "provider": "serper",
+    "strategy": {
+      "targets": [
+        "Product designer",
+        "UX designer"
+      ],
+      "explanation": "I split the alternative roles into two focused searches so each can retrieve relevant opportunities separately. The confirmed brief still applies to both searches, including the remote requirement."
+    },
+    "exploration": [
+      {
+        "kind": "document",
+        "reason": "check_promising_result",
+        "target": "https://uiuxjobsboard.com/job/1618126-remote-united-states-ui-ux-designer"
+      },
+      {
+        "kind": "document",
+        "reason": "follow_source_link",
+        "target": "https://uvation.breezy.hr/p/97ea75b438a4-ui-ux-designer"
+      },
+      {
+        "kind": "document",
+        "reason": "follow_source_link",
+        "target": "https://uiuxjobsboard.com/job/1622026-remote-united-states-staff-product-designer"
+      },
+      {
+        "kind": "document",
+        "reason": "follow_source_link",
+        "target": "https://jobs.workable.com/view/gya8gJYBxCFhsj71oKbDAe/remote-staff-product-designer%2C-internal-tools-in-united-states-at-facet"
+      },
+      {
+        "kind": null,
+        "reason": "exploration_limit",
+        "target": null
+      }
+    ],
+    "reviewStatus": "complete",
+    "reviewReason": null,
+    "status": "completed",
+    "reason": "bounded_search_window",
+    "startedAt": "2026-10-01 22:23:50.985552+00",
+    "finishedAt": "2026-10-01 22:24:32.678017+00",
+    "searchesCompleted": 4,
+    "documentsChecked": 4,
+    "leadCount": 42
+  },
+  "usage": [
+    {
+      "provider": "public-documents",
+      "requests": 4,
+      "reserved_micros": "0"
+    },
+    {
+      "provider": "serper",
+      "requests": 4,
+      "reserved_micros": "40000"
+    }
+  ],
+  "aiBudget": [
+    {
+      "requests": 13,
+      "reserved_microusd": "975000"
+    }
+  ],
+  "leads": [
+    {
+      "url": "https://jobs.workable.com/view/gya8gJYBxCFhsj71oKbDAe/remote-staff-product-designer%2C-internal-tools-in-united-states-at-facet",
+      "title": "Apply for this job",
+      "contentStatus": "fetched",
+      "review": {
+        "facts": {
+          "role": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "category": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "location": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "arrangement": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "sponsorship": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "compensation": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "requirements": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "authorization": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          }
+        },
+        "label": "job_opening",
+        "scope": "search_excerpt",
+        "quotes": [
+          "Apply for this job"
+        ],
+        "reviewedAt": "2026-10-01 22:24:32.609752+00",
+        "explanation": "The excerpt indicates a specific job posting, including an application prompt for a named role, but as a search excerpt it cannot support detailed facts beyond that."
+      },
+      "promoted": false
+    },
+    {
+      "url": "https://uiuxjobsboard.com/job/1622026-remote-united-states-staff-product-designer",
+      "title": "Facetis hiringStaff Product Designer",
+      "contentStatus": "fetched",
+      "review": {
+        "facts": {
+          "role": {
+            "value": "Staff Product Designer",
+            "quotes": [
+              "FFACET IS HIRINGSTAFF PRODUCT DESIGNER",
+              "We're looking for a Staff Product Designer to take ownership of Facet's internal products. Facet relies on dedicated teams across financial planning, sales, support, and investment operations to support tens of thousands of members nationwide. Our bespoke software is essential to their daily workflows. This is a crucial role for a designer who finds deep satisfaction in untangling complex workflows, designing for dense information architecture, and advocating for internal users."
+            ],
+            "status": "stated"
+          },
+          "category": {
+            "value": "employment",
+            "quotes": [
+              "TYPEFull Time CATEGORYProduct Design SALARY$175,000 - $200,000 LOCATIONRemoteUnited States",
+              "FFACET IS HIRINGSTAFF PRODUCT DESIGNER"
+            ],
+            "status": "stated"
+          },
+          "location": {
+            "value": "Remote United States",
+            "quotes": [
+              "TYPEFull Time CATEGORYProduct Design SALARY$175,000 - $200,000 LOCATIONRemoteUnited States",
+              " * Flexibility: Remote-first culture—work from anywhere in the U.S.."
+            ],
+            "status": "stated"
+          },
+          "arrangement": {
+            "value": "remote",
+            "quotes": [
+              "TYPEFull Time CATEGORYProduct Design SALARY$175,000 - $200,000 LOCATIONRemoteUnited States",
+              " * Flexibility: Remote-first culture—work from anywhere in the U.S.."
+            ],
+            "status": "stated"
+          },
+          "sponsorship": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "compensation": {
+            "value": "$175,000 - $200,000 base salary + bonus",
+            "quotes": [
+              "TYPEFull Time CATEGORYProduct Design SALARY$175,000 - $200,000 LOCATIONRemoteUnited States",
+              " * Competitive Compensation: $175,000 - $200,000 base salary + bonus"
+            ],
+            "status": "stated"
+          },
+          "requirements": {
+            "value": "Online portfolio required; 7+ years of product design experience; strong information architecture, systems thinking, complex workflow design; proficiency in Figma; experience leading user research and working with AI capabilities.",
+            "quotes": [
+              " * Online portfolio required for consideration and must showcase strong information architecture, systems thinking, and complex workflow design instead of pure consumer visual polish.",
+              " * 7+ years of product design experience with a track record of shipping software for data intensive workflows, internal tools, or specialized professional platforms; fintech experience a plus.",
+              " * Comfortable leading user research, driving discovery, mapping user journeys, prototyping, high fidelity designs and partnering with engineering to see designs through production.",
+              " * Ability to showcase how you actively integrate AI capabilities to increase efficiency for you as a designer and for the end user of your solutions."
+            ],
+            "status": "stated"
+          },
+          "authorization": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          }
+        },
+        "label": "job_opening",
+        "scope": "source",
+        "quotes": [
+          "FFACET IS HIRINGSTAFF PRODUCT DESIGNER",
+          "TYPEFull Time CATEGORYProduct Design SALARY$175,000 - $200,000 LOCATIONRemoteUnited States",
+          "We're looking for a Staff Product Designer to take ownership of Facet's internal products. Facet relies on dedicated teams across financial planning, sales, support, and investment operations to support tens of thousands of members nationwide. Our bespoke software is essential to their daily workflows. This is a crucial role for a designer who finds deep satisfaction in untangling complex workflows, designing for dense information architecture, and advocating for internal users.",
+          "REQUIREMENTS"
+        ],
+        "reviewedAt": "2026-10-01 22:24:24.549602+00",
+        "explanation": "This is a specific hiring post for a Staff Product Designer role at Facet, with duties, requirements, pay, and application instructions stated."
+      },
+      "promoted": true
+    },
+    {
+      "url": "https://uvation.breezy.hr/p/97ea75b438a4-ui-ux-designer",
+      "title": "Apply for this job",
+      "contentStatus": "fetched",
+      "review": {
+        "facts": {
+          "role": {
+            "value": "UI UX Designer",
+            "quotes": [
+              "UI UX DESIGNER",
+              " * UI UX Designer",
+              "Job Title: UIUX Designer"
+            ],
+            "status": "stated"
+          },
+          "category": {
+            "value": "contract",
+            "quotes": [
+              " * %LABEL_POSITION_TYPE_CONTRACT%"
+            ],
+            "status": "stated"
+          },
+          "location": {
+            "value": "TX, US",
+            "quotes": [
+              " * TX, US - %LABEL_POSITION_TYPE_REMOTE_WITHIN_ONE%"
+            ],
+            "status": "stated"
+          },
+          "arrangement": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "sponsorship": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "compensation": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "requirements": {
+            "value": "5-8 years of experience; Bachelor's degree or higher in a creative or related field; proficiency in Figma, Adobe Photoshop, Illustrator, and InDesign; strong portfolio; excellent communication and collaboration skills",
+            "quotes": [
+              "Experience Level: 5-8 years",
+              "Education: Bachelor's degree or higher in a creative field or a related field.",
+              "Experience: At least 5-8 years of experience in Figma, Adobe Photoshop, Illustrator, Adobe in Design, Jira is a must.",
+              " * Proficiency in Figma, Adobe Photoshop, Illustrator, and InDesign."
+            ],
+            "status": "stated"
+          },
+          "authorization": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          }
+        },
+        "label": "job_opening",
+        "scope": "source",
+        "quotes": [
+          "UI UX DESIGNER",
+          " * UI UX Designer",
+          "Job Title: UIUX Designer",
+          "Responsibilities:"
+        ],
+        "reviewedAt": "2026-10-01 22:24:15.790804+00",
+        "explanation": "A specific position is being advertised for a UI/UX designer, with role details, requirements, and application buttons shown."
+      },
+      "promoted": true
+    },
+    {
+      "url": "https://www.linkedin.com/posts/uxjobs_new-job-opening-senior-product-designer-activity-7503516500171948032-ySuX",
+      "title": "New Job Opening: Senior Product Designer / UX Designer in",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.linkedin.com/posts/dollyaudit_productdesign-uxdesign-designleadership-activity-7508896480166952962-Dw31",
+      "title": "4 Ways to Hire a Great UX Designer Beyond Job Postings",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.linkedin.com/posts/uxjobs_senior-product-designer-activity-7503138869362507776-qxTd",
+      "title": "UX Jobs - Senior Product Designer",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.linkedin.com/posts/karenwoodin_some-ux-designers-apply-to-100s-of-jobs-and-activity-7505974550946570241-BxQu",
+      "title": "Karen Woodin-Rodríguez, UX Career Coach's Post",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.linkedin.com/posts/carlcwheatley_ive-had-ux-jobs-bookmarked-for-many-years-activity-7510349276481503232-681c",
+      "title": "Carl Wheatley's Post",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.linkedin.com/posts/kfurlan_are-you-a-discerning-ux-designer-with-significant-activity-7503971225971417088-bXWq",
+      "title": "UX Designer Healthcare Experience Stories",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.linkedin.com/posts/utkarshagouttam_uiux-designer-jobs-activity-7502045545385930752-xBNE",
+      "title": "Utkarsh Gautam's Post - UI/UX Designer Jobs",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.linkedin.com/posts/uxjobs_principal-ux-designer-activity-7506842015964446720-3OpA",
+      "title": "Principal UX Designer | UX Jobs",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.linkedin.com/posts/debradesign_what-a-wild-time-to-be-applying-for-jobs-activity-7505444670194421760-Iszy",
+      "title": "Navigating the Broken Job Application Process as a UX ...",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.linkedin.com/posts/carlcwheatley_ux-ui-design-activity-7503517729929195520-XqKA",
+      "title": "Carl Wheatley's Post",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://x.com/RemotejobWtessy/status/2102017214295544172",
+      "title": "remote job with tessy",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://x.com/ShaziliSambo",
+      "title": "SHAZ⚡️The Product Designer (@ShaziliSambo) ...",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://x.com/uxchrisnguyen/status/2095386305559699843/photo/1",
+      "title": "Christopher Nguyen",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://x.com/lennysan/status/2102808801762312693",
+      "title": "Lenny Rachitsky",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://x.com/ppkorevaar/all",
+      "title": "Pieter Korevaar (@ppkorevaar) / X",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://x.com/AramideOyekunle/status/2096297343322619909",
+      "title": "Senior Product Designer Remote (Nigeria), ...",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://x.com/RemotejobWtessy/status/2103496645979566246",
+      "title": "remote job with tessy",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://x.com/digitalshane_/status/2101857558277304710",
+      "title": "\"@burcs @grok can you pull the current design job listings ...",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://x.com/SolomonOkah0/status/2099405424042664432",
+      "title": "Solomon Okah (Job Opportunities) on ...",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://x.com/Joe_brendan_/status/2104562481297289350",
+      "title": "As a UI UX Designer in 2026 Be frank with yourself ...",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.indeed.com/q-remote-ui-ux-designer-entry-level-jobs.html",
+      "title": "Flexible Remote Ui Ux Designer Entry Level Jobs",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://web3.career/remote+ui-ux-designer-jobs",
+      "title": "Remote Ui Ux Designer Jobs in Web3 - Sep 2026",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.ziprecruiter.com/Salaries/Remote-Ux-Designer-Salary",
+      "title": "Salary: Remote Ux Designer (September, 2026) United ...",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.linkedin.com/jobs/view/ux-designer-remote-at-hire-feed-4472722684",
+      "title": "Hire Feed hiring UX Designer (Remote) in United States",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.amazon.jobs/en/search?base_query=ux&loc_query=",
+      "title": "Job search | Amazon.jobs",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://hackajob.com/en-us/talent/ux-designer-jobs",
+      "title": "100+ live UX Designer jobs | Archer",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://simplify.jobs/l/Entry-Level-UI-UX-Jobs",
+      "title": "New Grad UX, UI and Product Designer Jobs",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://uiuxjobsboard.com/job/1618126-remote-united-states-ui-ux-designer",
+      "title": "Remote UI/UX Designer at Uvation in United States",
+      "contentStatus": "fetched",
+      "review": {
+        "facts": {
+          "role": {
+            "value": "UI/UX Designer",
+            "quotes": [
+              "UUVATION IS HIRINGUI/UX DESIGNER",
+              "Job Title: UIUX Designer"
+            ],
+            "status": "stated"
+          },
+          "category": {
+            "value": "contract",
+            "quotes": [
+              "TYPEContract CATEGORYUI/UX Design LOCATIONRemoteUnited States"
+            ],
+            "status": "stated"
+          },
+          "location": {
+            "value": "Remote United States",
+            "quotes": [
+              "TYPEContract CATEGORYUI/UX Design LOCATIONRemoteUnited States"
+            ],
+            "status": "stated"
+          },
+          "arrangement": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "sponsorship": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "compensation": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "requirements": {
+            "value": "5-8 years of experience; Bachelor's degree or higher in a creative or related field; proficiency in Figma, Adobe Photoshop, Illustrator, InDesign, and Jira; strong portfolio; excellent communication and collaboration skills.",
+            "quotes": [
+              "Experience Level: 5-8 years",
+              "Education: Bachelor's degree or higher in a creative field or a related field.",
+              "Experience: At least 5-8 years of experience in Figma, Adobe Photoshop, Illustrator, Adobe in Design, Jira is a must.",
+              " * Proficiency in Figma, Adobe Photoshop, Illustrator, and InDesign."
+            ],
+            "status": "stated"
+          },
+          "authorization": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          }
+        },
+        "label": "job_opening",
+        "scope": "source",
+        "quotes": [
+          "UUVATION IS HIRINGUI/UX DESIGNER",
+          "TYPEContract CATEGORYUI/UX Design LOCATIONRemoteUnited States",
+          "Job Title: UIUX Designer",
+          "Apply for this job"
+        ],
+        "reviewedAt": "2026-10-01 22:24:08.128724+00",
+        "explanation": "A specific open position is described for UUVATION, with a role, contract type, location, requirements, and application instructions."
+      },
+      "promoted": true
+    },
+    {
+      "url": "https://www.indeed.com/q-remote-ui-designer-jobs.html",
+      "title": "Flexible Remote Ui Designer Jobs",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://lensa.com/job-v1/24-mag-llc/remote/ux-designer/2e9f31ea5f6e67f3004fd21d92301c7e",
+      "title": "UI/UX Designer - $30-$80/hour job at 24-MAG LLC",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://edtechjobs.io/jobs/product-design",
+      "title": "Product Design EdTech Jobs",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://startup.jobs/roles/product-designer",
+      "title": "Product Designer Jobs in October 2026",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://ng.indeed.com/q-product-designer-remote-jobs.html",
+      "title": "6 Product Designer Remote Jobs - 30 September 2026",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://dailyremote.com/remote-product-designer-jobs",
+      "title": "Remote Product Designer Jobs",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://uiuxjobsboard.com/design-jobs/remote?page=2",
+      "title": "Remote Design Jobs | Work From Home Roles 2026 - Page 2",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.linkedin.com/jobs/view/lead-product-designer-remote-%2450%E2%80%93%2490-hr-at-synthires-4468997538",
+      "title": "Lead Product Designer (Remote | $50–$90/hr) at Synthires",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://remotivated.com/jobs/function/product-design-ux",
+      "title": "Remote Product / UX Designer Jobs",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    }
+  ],
+  "checks": [
+    "live adaptive decisions",
+    "bounded provider and model admission",
+    "observed parent provenance",
+    "current owner isolation",
+    "terminal replay without new spending"
+  ],
+  "emailsSent": 0,
+  "realAccountsUsed": 0,
+  "scopeNote": "One live synthetic case from model-guided web discovery through cited source review, linked-page research, private assessment and eligible local Mailpit delivery. Uses production use cases and admission boundaries. Labels are model judgments, not independent ground truth. Comparative precision/recall and global throughput remain unproven."
+}

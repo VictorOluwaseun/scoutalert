@@ -1,0 +1,24 @@
+{
+  "checkedAt": "2026-10-01T19:24:47.644Z",
+  "environment": "local",
+  "provider": "serper",
+  "enabled": true,
+  "limits": {
+    "dailySearchRequests": 100,
+    "dailyReservationUsd": 1,
+    "perRequestReservationUsd": 0.01,
+    "maximumDocumentsPerCase": 4,
+    "concurrentSearches": 2
+  },
+  "observed": {
+    "partialCases": 7,
+    "successfulSharedSearchOperations": 8,
+    "documentOperations": 6,
+    "leads": 57,
+    "capturedSourceDocuments": 2,
+    "accessLimitedSources": 4,
+    "uncheckedLeads": 51,
+    "reservedSearchUsd": 0.08
+  },
+  "scopeNote": "Aggregate snapshot of the first scheduled local runs after activation. Counts can change as later scouts run. These are public search leads, not verified relevant opportunities or sent alerts. The separate synthetic smoke request is excluded; reservations are not measured provider bills. No private account identifiers or briefs are recorded."
+}

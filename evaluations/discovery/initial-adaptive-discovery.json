@@ -1,0 +1,1460 @@
+{
+  "checkedAt": "2026-10-01T21:29:19.002Z",
+  "status": "passed",
+  "durationMs": 46600,
+  "search": {
+    "goal": "Find remote product design jobs",
+    "category": "employment",
+    "target": "Product designer",
+    "name": "Synthetic adaptive discovery",
+    "arrangement": "remote",
+    "arrangementRequired": true,
+    "residence": "Lagos",
+    "workLocations": "Remote worldwide",
+    "background": "Synthetic design experience",
+    "minimumPay": "",
+    "currency": "USD",
+    "payPeriod": "year",
+    "unknownEligibility": "review",
+    "undisclosedPay": "include"
+  },
+  "operations": [
+    {
+      "key": "f104ecbf146b59c027a7171d10a956c5cb2875b97d5e7954626d267760b0281f",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "Product designer remote jobs",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "4a3420c8c965374824ae4b569bb68b477e77d6aff87297d199f4ca24407418a2",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "Product designer remote hiring",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "0d5b0ae7c6a1774e1b32c231bf63c7a3ab254e35459201fa99140160bc00a175",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "site:x.com Product designer hiring",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "2271b46b1ef6e5047bd4f70e878062cf60556e02d3904e7537128d6153425d6b",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "site:linkedin.com/posts Product designer hiring",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "5d6985e1209cdc57f90b591ea5559b856ee74051b7e8bb9795ef1fb53aadfe9e",
+      "kind": "document",
+      "input": {
+        "url": "https://ng.indeed.com/q-product-designer-remote-jobs.html",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "source_status": "access_limited",
+      "source_reason": "source_requires_another_access_path",
+      "observed_links": 0
+    },
+    {
+      "key": "fb9edacd71ca0c081b55a06eb8667c492511c7e2b6f71dace26ebbd797c11e1e",
+      "kind": "document",
+      "input": {
+        "url": "https://dailyremote.com/remote-product-designer-jobs",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": [
+        {
+          "url": "https://dailyremote.com/remote-job/product-designer-5705597",
+          "text": "Product Designer"
+        },
+        {
+          "url": "https://dailyremote.com/remote-design-jobs",
+          "text": "Design"
+        },
+        {
+          "url": "https://dailyremote.com/remote-javascript-jobs",
+          "text": "javascript"
+        },
+        {
+          "url": "https://dailyremote.com/remote-css-jobs",
+          "text": "css"
+        },
+        {
+          "url": "https://dailyremote.com/remote-illustration-jobs",
+          "text": "illustration"
+        },
+        {
+          "url": "https://dailyremote.com/remote-product-design-jobs",
+          "text": "product-design"
+        },
+        {
+          "url": "https://dailyremote.com/remote-figma-jobs",
+          "text": "figma"
+        },
+        {
+          "url": "https://dailyremote.com/remote-b2b-jobs",
+          "text": "b2b"
+        },
+        {
+          "url": "https://dailyremote.com/remote-communication-jobs",
+          "text": "communication"
+        },
+        {
+          "url": "https://dailyremote.com/remote-job/product-designer-5705581",
+          "text": "Product Designer"
+        },
+        {
+          "url": "https://dailyremote.com/remote-insurance-jobs",
+          "text": "insurance"
+        },
+        {
+          "url": "https://dailyremote.com/remote-saas-jobs",
+          "text": "saas"
+        },
+        {
+          "url": "https://dailyremote.com/remote-react-jobs",
+          "text": "react"
+        },
+        {
+          "url": "https://dailyremote.com/remote-training-jobs",
+          "text": "training"
+        },
+        {
+          "url": "https://dailyremote.com/remote-testing-jobs",
+          "text": "testing"
+        },
+        {
+          "url": "https://dailyremote.com/remote-job/product-designer-5704592",
+          "text": "Product Designer"
+        },
+        {
+          "url": "https://dailyremote.com/remote-researcher-jobs",
+          "text": "researcher"
+        },
+        {
+          "url": "https://dailyremote.com/remote-job/product-designer-5700707",
+          "text": "Product Designer"
+        },
+        {
+          "url": "https://dailyremote.com/remote-express-jobs",
+          "text": "express"
+        },
+        {
+          "url": "https://dailyremote.com/remote-product-development-jobs",
+          "text": "product-development"
+        },
+        {
+          "url": "https://dailyremote.com/remote-agile-jobs",
+          "text": "agile"
+        },
+        {
+          "url": "https://dailyremote.com/remote-job/product-designer-5699052",
+          "text": "Product Designer"
+        },
+        {
+          "url": "https://dailyremote.com/remote-product-management-jobs",
+          "text": "product-management"
+        },
+        {
+          "url": "https://dailyremote.com/remote-operations-jobs",
+          "text": "operations"
+        },
+        {
+          "url": "https://dailyremote.com/remote-hiring-jobs",
+          "text": "hiring"
+        },
+        {
+          "url": "https://dailyremote.com/sign_up?redirect_to=%2Fmanage-alerts%3Fprefill_token%3DL3JlbW90ZS1wcm9kdWN0LWRlc2lnbmVyLWpvYnM",
+          "text": "Get free alerts"
+        },
+        {
+          "url": "https://dailyremote.com/get-started",
+          "text": "Get instant access"
+        },
+        {
+          "url": "https://dailyremote.com/remote-job/product-designer-5698503",
+          "text": "Product Designer"
+        },
+        {
+          "url": "https://dailyremote.com/remote-reporting-jobs",
+          "text": "reporting"
+        },
+        {
+          "url": "https://dailyremote.com/remote-visual-design-jobs",
+          "text": "visual-design"
+        },
+        {
+          "url": "https://dailyremote.com/remote-job/product-designer-5694075",
+          "text": "Product Designer"
+        },
+        {
+          "url": "https://dailyremote.com/remote-job/product-designer-5687248",
+          "text": "Product Designer"
+        },
+        {
+          "url": "https://dailyremote.com/remote-feedback-jobs",
+          "text": "feedback"
+        },
+        {
+          "url": "https://dailyremote.com/remote-onboarding-jobs",
+          "text": "onboarding"
+        },
+        {
+          "url": "https://dailyremote.com/remote-customer-feedback-jobs",
+          "text": "customer-feedback"
+        },
+        {
+          "url": "https://dailyremote.com/remote-compliance-jobs",
+          "text": "compliance"
+        },
+        {
+          "url": "https://dailyremote.com/remote-job/product-designer-5684203",
+          "text": "Product Designer"
+        },
+        {
+          "url": "https://dailyremote.com/remote-typescript-jobs",
+          "text": "typescript"
+        },
+        {
+          "url": "https://dailyremote.com/remote-b2b-saas-jobs",
+          "text": "b2b-saas"
+        },
+        {
+          "url": "https://dailyremote.com/remote-history-jobs",
+          "text": "history"
+        },
+        {
+          "url": "https://dailyremote.com/remote-job/product-designer-5683211",
+          "text": "Product Designer"
+        },
+        {
+          "url": "https://dailyremote.com/remote-job/product-designer-5682714",
+          "text": "Product Designer"
+        },
+        {
+          "url": "https://dailyremote.com/remote-trading-jobs",
+          "text": "trading"
+        },
+        {
+          "url": "https://dailyremote.com/remote-job/product-designer-5678889",
+          "text": "Product Designer"
+        },
+        {
+          "url": "https://dailyremote.com/remote-medical-jobs",
+          "text": "medical"
+        },
+        {
+          "url": "https://dailyremote.com/remote-organization-jobs",
+          "text": "organization"
+        },
+        {
+          "url": "https://dailyremote.com/remote-job/product-designer-5674586",
+          "text": "Product Designer"
+        },
+        {
+          "url": "https://dailyremote.com/remote-product-marketing-jobs",
+          "text": "product-marketing"
+        },
+        {
+          "url": "https://dailyremote.com/remote-creative-jobs",
+          "text": "creative"
+        },
+        {
+          "url": "https://dailyremote.com/remote-leadership-jobs",
+          "text": "leadership"
+        },
+        {
+          "url": "https://dailyremote.com/remote-counseling-jobs",
+          "text": "counseling"
+        },
+        {
+          "url": "https://dailyremote.com/remote-mentoring-jobs",
+          "text": "mentoring"
+        },
+        {
+          "url": "https://dailyremote.com/remote-job/product-designer-5674403",
+          "text": "Product Designer"
+        },
+        {
+          "url": "https://dailyremote.com/remote-cloud-jobs",
+          "text": "cloud"
+        },
+        {
+          "url": "https://dailyremote.com/remote-data-analyst-jobs",
+          "text": "data-analyst"
+        },
+        {
+          "url": "https://dailyremote.com/remote-project-management-jobs",
+          "text": "project-management"
+        },
+        {
+          "url": "https://dailyremote.com/remote-job/product-designer-5668085",
+          "text": "Product Designer"
+        },
+        {
+          "url": "https://dailyremote.com/remote-job/product-designer-5664734",
+          "text": "Product Designer"
+        },
+        {
+          "url": "https://dailyremote.com/remote-other-jobs",
+          "text": "Others"
+        },
+        {
+          "url": "https://dailyremote.com/remote-copywriting-jobs",
+          "text": "copywriting"
+        },
+        {
+          "url": "https://dailyremote.com/remote-iot-jobs",
+          "text": "iot"
+        },
+        {
+          "url": "https://dailyremote.com/remote-job/product-designer-5663589",
+          "text": "Product Designer"
+        },
+        {
+          "url": "https://dailyremote.com/remote-salesforce-jobs",
+          "text": "salesforce"
+        },
+        {
+          "url": "https://dailyremote.com/remote-job/product-designer-5660401",
+          "text": "Product Designer"
+        },
+        {
+          "url": "https://dailyremote.com/remote-job/product-designer-5658600",
+          "text": "Product Designer"
+        },
+        {
+          "url": "https://dailyremote.com/remote-entertainment-jobs",
+          "text": "entertainment"
+        },
+        {
+          "url": "https://dailyremote.com/remote-job/product-designer-5658300",
+          "text": "Product Designer"
+        },
+        {
+          "url": "https://dailyremote.com/remote-social-media-jobs",
+          "text": "social-media"
+        },
+        {
+          "url": "https://dailyremote.com/remote-recruiting-jobs",
+          "text": "recruiting"
+        },
+        {
+          "url": "https://dailyremote.com/remote-media-jobs",
+          "text": "media"
+        },
+        {
+          "url": "https://dailyremote.com/remote-qa-jobs",
+          "text": "qa"
+        },
+        {
+          "url": "https://dailyremote.com/remote-job/product-designer-5654736",
+          "text": "Product Designer"
+        },
+        {
+          "url": "https://dailyremote.com/remote-user-experience-jobs",
+          "text": "user-experience"
+        },
+        {
+          "url": "https://dailyremote.com/remote-job/product-designer-5648155",
+          "text": "Product Designer"
+        },
+        {
+          "url": "https://dailyremote.com/remote-adobe-creative-suite-jobs",
+          "text": "adobe-creative-suite"
+        },
+        {
+          "url": "https://dailyremote.com/remote-ecommerce-jobs",
+          "text": "ecommerce"
+        },
+        {
+          "url": "https://dailyremote.com/remote-customer-support-jobs",
+          "text": "customer-support"
+        },
+        {
+          "url": "https://dailyremote.com/remote-brand-design-jobs",
+          "text": "brand-design"
+        },
+        {
+          "url": "https://dailyremote.com/remote-b2c-jobs",
+          "text": "b2c"
+        },
+        {
+          "url": "https://dailyremote.com/remote-job/product-designer-5646506",
+          "text": "Product Designer"
+        }
+      ],
+      "source_status": "fetched",
+      "source_reason": null,
+      "observed_links": 80
+    },
+    {
+      "key": "24b8597362b5ab89145084c7c73381236bb0965d6e8f3b705833a59e620366a5",
+      "kind": "document",
+      "input": {
+        "url": "https://www.linkedin.com/jobs/view/lead-product-designer-remote-%2450%E2%80%93%2490-hr-at-synthires-4468997538",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "source_status": "access_limited",
+      "source_reason": "crawl_policy_denied",
+      "observed_links": 0
+    },
+    {
+      "key": "3d68db282c28fe1957dca4526ad51bc48188caf8a7f5c3d3d516aaae58c4ba15",
+      "kind": "document",
+      "input": {
+        "url": "https://www.linkedin.com/jobs/view/product-designer-remote-at-yo-ai-labs-4469408063",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "source_status": "access_limited",
+      "source_reason": "crawl_policy_denied",
+      "observed_links": 0
+    },
+    {
+      "key": "8890afa0a7d8544f3fa12ee78dd231975ec5214bfa7e00fc6e66cc38a8735a42",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 2,
+          "limit": 10,
+          "query": "Product designer remote jobs",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "1736d1242cd1f91ae1b3d0069ba680c053493b3e4412e1401ec8389f505cf569",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 2,
+          "limit": 10,
+          "query": "Product designer remote hiring",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    }
+  ],
+  "decisions": [
+    {
+      "round": 0,
+      "reason": "check_promising_result",
+      "action": {
+        "url": "https://www.linkedin.com/jobs/view/lead-product-designer-remote-%2450%E2%80%93%2490-hr-at-synthires-4468997538",
+        "kind": "document"
+      },
+      "depth": 0,
+      "parent_key": "f104ecbf146b59c027a7171d10a956c5cb2875b97d5e7954626d267760b0281f"
+    },
+    {
+      "round": 1,
+      "reason": "check_promising_result",
+      "action": {
+        "url": "https://www.linkedin.com/jobs/view/product-designer-remote-at-yo-ai-labs-4469408063",
+        "kind": "document"
+      },
+      "depth": 0,
+      "parent_key": "4a3420c8c965374824ae4b569bb68b477e77d6aff87297d199f4ca24407418a2"
+    },
+    {
+      "round": 2,
+      "reason": "continue_result_page",
+      "action": {
+        "kind": "search",
+        "query": {
+          "page": 2,
+          "limit": 10,
+          "query": "Product designer remote jobs",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "depth": 0,
+      "parent_key": "f104ecbf146b59c027a7171d10a956c5cb2875b97d5e7954626d267760b0281f"
+    },
+    {
+      "round": 3,
+      "reason": "continue_result_page",
+      "action": {
+        "kind": "search",
+        "query": {
+          "page": 2,
+          "limit": 10,
+          "query": "Product designer remote hiring",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "depth": 0,
+      "parent_key": "4a3420c8c965374824ae4b569bb68b477e77d6aff87297d199f4ca24407418a2"
+    },
+    {
+      "round": 4,
+      "reason": "exploration_limit",
+      "action": null,
+      "depth": 0,
+      "parent_key": null
+    }
+  ],
+  "case": {
+    "id": "864ac496-b2f4-4726-a8b0-90c6347bc4b2",
+    "scoutId": "0eee8f26-c648-49eb-a466-27d6225ec575",
+    "scoutName": "Synthetic adaptive discovery",
+    "scoutVersion": 1,
+    "provider": "serper",
+    "exploration": [
+      {
+        "kind": "document",
+        "reason": "check_promising_result",
+        "target": "https://www.linkedin.com/jobs/view/lead-product-designer-remote-%2450%E2%80%93%2490-hr-at-synthires-4468997538"
+      },
+      {
+        "kind": "document",
+        "reason": "check_promising_result",
+        "target": "https://www.linkedin.com/jobs/view/product-designer-remote-at-yo-ai-labs-4469408063"
+      },
+      {
+        "kind": "search",
+        "reason": "continue_result_page",
+        "target": "Product designer remote jobs"
+      },
+      {
+        "kind": "search",
+        "reason": "continue_result_page",
+        "target": "Product designer remote hiring"
+      },
+      {
+        "kind": null,
+        "reason": "exploration_limit",
+        "target": null
+      }
+    ],
+    "reviewStatus": "deferred",
+    "reviewReason": "ai_budget_reached",
+    "status": "partial",
+    "reason": "some_sources_unavailable",
+    "startedAt": "2026-10-01 21:28:32.554451+00",
+    "finishedAt": "2026-10-01 21:28:55.430251+00",
+    "searchesCompleted": 6,
+    "documentsChecked": 4,
+    "leadCount": 49
+  },
+  "usage": [
+    {
+      "provider": "public-documents",
+      "requests": 4,
+      "reserved_micros": "0"
+    },
+    {
+      "provider": "serper",
+      "requests": 6,
+      "reserved_micros": "60000"
+    }
+  ],
+  "aiBudget": [
+    {
+      "requests": 4,
+      "reserved_microusd": "300000"
+    }
+  ],
+  "leads": [
+    {
+      "url": "https://www.ziprecruiter.com/Salaries/Remote-Product-Designer-Salary",
+      "title": "Salary: Remote Product Designer (Sep, 2026) United States",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://wfh.team/job/26177-senior-product-designer-clipboard",
+      "title": "Remote Senior Product Designer at Clipboard",
+      "contentStatus": "unfetched",
+      "review": {
+        "facts": {
+          "role": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "category": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "location": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "arrangement": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "sponsorship": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "compensation": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "requirements": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "authorization": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          }
+        },
+        "label": "job_opening",
+        "scope": "search_excerpt",
+        "quotes": [
+          "Remote Senior Product Designer at Clipboard",
+          "The role is remote within the U.S., with the San Francisco Bay Area preferred. Requires 5+ years of product design experience and a portfolio of shipped work."
+        ],
+        "reviewedAt": "2026-10-01 21:29:06.698105+00",
+        "explanation": "The excerpt suggests a specific open role: a remote Senior Product Designer position at Clipboard."
+      },
+      "promoted": false
+    },
+    {
+      "url": "https://justidjobs.com/jobs",
+      "title": "Open roles · Just ID Jobs",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://explore.jobs.netflix.net/careers/job/790316471296-senior-product-designer-emerging-creative-new-york-remote-united-states-of-america?domain=netflix.com&microsite=netflix.com",
+      "title": "Senior Product Designer, Emerging Creative | New York",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://remote.com/jobs/workwave-c1fnxgha/product-designer-j1cw9fh9",
+      "title": "Product Designer at WorkWave - Remote",
+      "contentStatus": "unfetched",
+      "review": {
+        "facts": {
+          "role": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "category": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "location": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "arrangement": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "sponsorship": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "compensation": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "requirements": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "authorization": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          }
+        },
+        "label": "job_opening",
+        "scope": "search_excerpt",
+        "quotes": [
+          "Product Designer at WorkWave - Remote",
+          "We are seeking a Product Designer to craft intuitive and efficient product experiences. You will partner with product and engineering teams to deliver high- ..."
+        ],
+        "reviewedAt": "2026-10-01 21:29:18.870733+00",
+        "explanation": "This excerpt is a specific opening: \"Product Designer at WorkWave - Remote\" and describes the role responsibilities."
+      },
+      "promoted": false
+    },
+    {
+      "url": "https://careers.toasttab.com/jobs/senior-product-designer-consumer-remote-united-states",
+      "title": "Senior Product Designer, Consumer - Remote, United States",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://job-boards.greenhouse.io/sparkadvisors/jobs/5426374008",
+      "title": "Job Application for Senior Product Designer at Spark ...",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.landearly.com/remote-jobs/product-designer",
+      "title": "123 Remote Product Designer Jobs - LandEarly",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.remoterocketship.com/jobs/web-designer/",
+      "title": "Remote Web Designer Jobs ($72K–$161K)",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.gofractional.com/job/rippling-senior-product-designer-design-systems-rippling",
+      "title": "Senior Product Designer — Design Systems",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://job-boards.greenhouse.io/instridehealth/jobs/4736298005",
+      "title": "Senior Product Designer (Temporary)",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://web3.career/design+remote-jobs",
+      "title": "Remote Design Jobs in Web3 - Sep 2026",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.virtualvocations.com/job/senior-product-designer-3238599-i.html",
+      "title": "Senior Product Designer",
+      "contentStatus": "unfetched",
+      "review": {
+        "facts": {
+          "role": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "category": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "location": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "arrangement": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "sponsorship": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "compensation": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "requirements": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "authorization": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          }
+        },
+        "label": "job_opening",
+        "scope": "search_excerpt",
+        "quotes": [
+          "Senior Product Designer",
+          "Job Summary. Joining a dynamic Payments team, the part-time hybrid Senior Product Designer will represent design in cross-functional meetings, manage design ..."
+        ],
+        "reviewedAt": "2026-10-01 21:29:06.698105+00",
+        "explanation": "The excerpt suggests a specific Senior Product Designer opening and includes a hybrid work arrangement."
+      },
+      "promoted": false
+    },
+    {
+      "url": "https://haystackapp.io/jobs/bb79af90-b298-4d20-aab5-46cadabe7a42",
+      "title": "Product Designer Opportunity | AI-Powered 3D Positioning ...",
+      "contentStatus": "unfetched",
+      "review": {
+        "facts": {
+          "role": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "category": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "location": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "arrangement": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "sponsorship": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "compensation": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "requirements": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "authorization": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          }
+        },
+        "label": "job_opening",
+        "scope": "search_excerpt",
+        "quotes": [
+          "Product Designer Opportunity | AI-Powered 3D Positioning ...",
+          "This remote Product Designer role offers a unique opportunity to blend product thinking and design excellence with hands-on development, ..."
+        ],
+        "reviewedAt": "2026-10-01 21:29:11.757877+00",
+        "explanation": "The excerpt suggests a specific job posting for a Product Designer role."
+      },
+      "promoted": false
+    },
+    {
+      "url": "https://dynamitejobs.com/company/theflex/remote-job/product-designer",
+      "title": "🧨 Product Designer, Remote Job, September 2026",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://wfh.team/job/26392-staff-product-designer-growth-reddit",
+      "title": "Remote Staff Product Designer, Growth at Reddit",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://explore.jobs.netflix.net/careers/job/790316471296-senior-product-designer-emerging-creative-remote-united-states?domain=netflix.com&microsite=netflix.com",
+      "title": "Senior Product Designer, Emerging Creative | New York",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.woodyjobs.com/design/united-states",
+      "title": "1397 Product Design Jobs in United States",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.linkedin.com/posts/elijahvargas_im-hiring-a-staff-product-designer-for-my-activity-7506428858078875649-0CRh",
+      "title": "Elijah Vargas' Post",
+      "contentStatus": "unfetched",
+      "review": {
+        "facts": {
+          "role": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "category": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "location": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "arrangement": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "sponsorship": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "compensation": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "requirements": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "authorization": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          }
+        },
+        "label": "job_opening",
+        "scope": "search_excerpt",
+        "quotes": [
+          "Elijah Vargas' Post",
+          "I'm hiring a Staff Product Designer for my team at Fetch. This is a fully remote role. Product Design, AI Products, Design Systems & Design Engineering … ..."
+        ],
+        "reviewedAt": "2026-10-01 21:29:06.698105+00",
+        "explanation": "The excerpt indicates an open hiring post for a Staff Product Designer on the Fetch team and says it is fully remote."
+      },
+      "promoted": false
+    },
+    {
+      "url": "https://www.linkedin.com/posts/jasminetudor_im-hiring-a-product-designer-for-my-team-activity-7505974526166585344-WivL",
+      "title": "Jasmine Tudor's Post - Product Designer",
+      "contentStatus": "unfetched",
+      "review": {
+        "facts": {
+          "role": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "category": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "location": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "arrangement": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "sponsorship": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "compensation": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "requirements": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "authorization": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          }
+        },
+        "label": "job_opening",
+        "scope": "search_excerpt",
+        "quotes": [
+          "Jasmine Tudor's Post - Product Designer",
+          "Fully remote, US-based, $100K–$129K. 2–5 years of experience, curious about designing for AI. No retail background needed. Apply below, or send it to someone ..."
+        ],
+        "reviewedAt": "2026-10-01 21:29:18.870733+00",
+        "explanation": "The excerpt describes a specific hiring post for a product designer and includes application direction: \"I'm hiring a product designer for my team\" and \"Apply below.\""
+      },
+      "promoted": false
+    },
+    {
+      "url": "https://www.linkedin.com/posts/laurkim_hiring-senior-product-designer-contractor-activity-7505717429952507904-H3yV",
+      "title": "Hiring Senior Product Designer: Contractor",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.linkedin.com/posts/priyankakodikal_hey-folks-were-hiring-a-senior-product-activity-7503047390954950656-vuAB",
+      "title": "Priyanka Kodikal posted this",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.linkedin.com/posts/sarahdoody_yesss-someone-got-hired-as-a-staff-product-activity-7508170967249018881-UXx1",
+      "title": "Staff Designer Hired with Figma Slide Deck, Not Website",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.linkedin.com/posts/alyssahartigan_im-hiring-were-bringing-on-a-senior-contract-activity-7510702823937052673-HX5b",
+      "title": "Alyssa Hartigan's Post",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.linkedin.com/posts/tomscottt_design-hiring-observations-september-edition-activity-7505924787882487808-DuPo",
+      "title": "Design Hiring Trends: AI, Technical Skills, and Craft Matter",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.linkedin.com/posts/johnyvino_senior-product-designer-services-special-activity-7508244502130909184-8Vgn",
+      "title": "Johny vino - Senior Product Designer",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.linkedin.com/posts/akashmazumdar_hiring-designers-swish-open-roles-senior-activity-7502726359287377920--vYp",
+      "title": "Product Design Intern • Visual… | Akash Mazumdar",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.linkedin.com/posts/rohail-khan1_im-hiring-a-product-designer-were-moving-activity-7503441498705694720-vmFI",
+      "title": "I'm hiring a product designer :) We're moving fast, and I ...",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://x.com/mange_manali/status/2097577614634602991",
+      "title": "Manali Mango - Hiring a Senior Product Designer ...",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://x.com/mange_manali/status/2095069567232139460",
+      "title": "Manali Mango on X: \"🚨 Hiring: Founding Product Designer",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://x.com/lennysan/status/2102808801762312693",
+      "title": "Lenny Rachitsky",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://x.com/_thecareerlady/status/2100134060156744038",
+      "title": "The Career Lady on X",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://x.com/RemotejobWtessy/status/2103496645979566246",
+      "title": "remote job with tessy",
+      "contentStatus": "unfetched",
+      "review": {
+        "facts": {
+          "role": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "category": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "location": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "arrangement": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "sponsorship": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "compensation": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "requirements": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "authorization": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          }
+        },
+        "label": "job_opening",
+        "scope": "search_excerpt",
+        "quotes": [
+          "Redesigned Agency is hiring a Product Designer. Remote Full-time Salary not listed They need someone who can handle product design from start to ..."
+        ],
+        "reviewedAt": "2026-10-01 21:29:11.757877+00",
+        "explanation": "The excerpt suggests a specific hiring post for a Product Designer role."
+      },
+      "promoted": false
+    },
+    {
+      "url": "https://x.com/Jobnetworkng/status/2104538106489684164",
+      "title": "HIRING Product Designer (UI and UX)",
+      "contentStatus": "unfetched",
+      "review": {
+        "facts": {
+          "role": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "category": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "location": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "arrangement": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "sponsorship": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "compensation": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "requirements": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "authorization": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          }
+        },
+        "label": "job_opening",
+        "scope": "search_excerpt",
+        "quotes": [
+          "HIRING Product Designer (UI and UX)",
+          "HIRING Product Designer (UI and UX) | Startup Company Location: Ikeja, Lagos Job Type: Full-time Experience: 5 years Compensation: ₦300,000 – ₦600,000/month ..."
+        ],
+        "reviewedAt": "2026-10-01 21:29:06.698105+00",
+        "explanation": "The excerpt describes a concrete hiring post for a Product Designer (UI and UX) role with location, type, experience, and compensation details."
+      },
+      "promoted": false
+    },
+    {
+      "url": "https://x.com/mathurahravi/article/2104377802195914824?lang=ar-x-fm",
+      "title": "design eng hiring guide - part 1: defining the role",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://x.com/Pejuola_a/status/2104576597277774173",
+      "title": "Pejuola 🗣️ on X",
+      "contentStatus": "unfetched",
+      "review": {
+        "facts": {
+          "role": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "category": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "location": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "arrangement": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "sponsorship": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "compensation": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "requirements": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "authorization": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          }
+        },
+        "label": "job_opening",
+        "scope": "search_excerpt",
+        "quotes": [
+          "WE'RE HIRING: PRODUCT DESIGNER ToNote Technologies is looking for a Product Designer to join its team in Abuja. Abuja — Live-in ₦350k–₦500k 6-month ..."
+        ],
+        "reviewedAt": "2026-10-01 21:29:11.757877+00",
+        "explanation": "The excerpt explicitly says they are hiring a Product Designer."
+      },
+      "promoted": false
+    },
+    {
+      "url": "https://x.com/MzOyindolly/status/2096297575439880515",
+      "title": "Senior Product Designer Remote (Nigeria), ...",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://x.com/Joe_brendan_/status/2104562481297289350",
+      "title": "As a UI UX Designer in 2026 Be frank with yourself ...",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://edtechjobs.io/jobs/product-design",
+      "title": "Product Design EdTech Jobs",
+      "contentStatus": "unfetched",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://startup.jobs/roles/product-designer",
+      "title": "Product Designer Jobs in October 2026",
+      "contentStatus": "unfetched",
+      "review": {
+        "facts": {
+          "role": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "category": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "location": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "arrangement": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "sponsorship": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "compensation": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "requirements": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "authorization": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          }
+        },
+        "label": "directory",
+        "scope": "search_excerpt",
+        "quotes": [
+          "Product Designer Jobs in October 2026",
+          "Median Salary $157,484/yr based on 5,000 jobs Hiring. Browse 439 remote Product Designer jobs"
+        ],
+        "reviewedAt": "2026-10-01 21:29:18.870733+00",
+        "explanation": "This is a job listings/search page, not a single specific opening: it says there are \"Product Designer Jobs\" and invites users to \"Browse 439 remote Product Designer jobs.\""
+      },
+      "promoted": false
+    }
+  ],
+  "checks": [
+    "live adaptive decisions",
+    "bounded provider and model admission",
+    "observed parent provenance",
+    "current owner isolation",
+    "terminal replay without new spending"
+  ],
+  "emailsSent": 0,
+  "realAccountsUsed": 0,
+  "scopeNote": "One live synthetic case using heuristic adaptive routing and AI evidence review. Labels are model judgments, not independent ground truth. No completeness, multilingual recall, private-fit, native social access or global throughput claim."
+}

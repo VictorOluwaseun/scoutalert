@@ -1,0 +1,70 @@
+{
+  "policy": "diagnostic-paired-run-v1",
+  "brief": {
+    "goal": "Find remote product designer or UX designer jobs",
+    "category": "employment",
+    "target": "Product designer or UX designer",
+    "name": "Synthetic model-guided scout",
+    "arrangement": "remote",
+    "arrangementRequired": true,
+    "residence": "New York, United States",
+    "workLocations": "United States or remote worldwide",
+    "background": "Eight years of product and UX design for B2B SaaS products and internal tools, user research, Figma prototyping and design systems. Bachelor's degree in design and a portfolio of shipped products.",
+    "minimumPay": "",
+    "currency": "USD",
+    "payPeriod": "year",
+    "unknownEligibility": "review",
+    "undisclosedPay": "include",
+    "authorizationLocations": "United States",
+    "authorizationConfirmed": true,
+    "sponsorshipNeed": "not_needed"
+  },
+  "envelope": {
+    "maximumSearches": 6,
+    "maximumDocuments": 4,
+    "maximumAiAttempts": 20,
+    "maximumAiReservationMicrousd": 1500000
+  },
+  "modelGuided": {
+    "observedAt": "2026-10-01T22:29:32.879Z",
+    "durationMs": 48610,
+    "searches": 4,
+    "sourceChecks": 4,
+    "leads": 41,
+    "recommendations": 1,
+    "localMailpitSubmissions": 1,
+    "admittedAiAttempts": 12,
+    "recordedModelCalls": 11,
+    "attemptsWithoutUsage": 0,
+    "estimatedRecordedAiMicrousd": 35849,
+    "reservedAiMicrousd": 900000,
+    "reservedSearchMicrousd": 40000,
+    "independentlyJudgedPrecision": null,
+    "knownOpportunityRecall": null
+  },
+  "deterministic": {
+    "observedAt": "2026-10-01T22:32:28.368Z",
+    "durationMs": 83324,
+    "searches": 6,
+    "sourceChecks": 4,
+    "leads": 51,
+    "recommendations": 0,
+    "localMailpitSubmissions": 0,
+    "admittedAiAttempts": 11,
+    "recordedModelCalls": 7,
+    "attemptsWithoutUsage": 4,
+    "estimatedRecordedAiMicrousd": 42008,
+    "reservedAiMicrousd": 825000,
+    "reservedSearchMicrousd": 60000,
+    "independentlyJudgedPrecision": null,
+    "knownOpportunityRecall": null
+  },
+  "limitations": [
+    "One tuning scenario, successive live runs, no randomized or held-out cohort.",
+    "Provider results can change between runs. Different query portfolios are part of the compared policies.",
+    "Classifications and personal-fit judgments are model outputs, not independent labels. Missed opportunities and precision remain unmeasured.",
+    "Recorded AI estimates exclude attempts without usage and are not invoices; search amounts are configured reservations.",
+    "The successful synthetic US brief was chosen after a separate UK case exposed location restrictions; this proves pipeline mechanics, not general relevance.",
+    "The model-guided policy reviews captured sources during discovery. Historical deterministic cases also review excerpts afterward; this scheduling change is part of the comparison."
+  ]
+}

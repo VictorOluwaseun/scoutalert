@@ -1,0 +1,99 @@
+{
+  "checkedAt": "2026-10-01T19:20:40.065Z",
+  "status": "passed",
+  "provider": {
+    "id": "serper",
+    "configuration": "google-search-v1",
+    "access": "public_index",
+    "language": "en",
+    "country": "us",
+    "requestCostMicros": 10000
+  },
+  "query": {
+    "query": "Product designer remote jobs",
+    "language": "en",
+    "country": "us",
+    "freshness": "month",
+    "page": 1,
+    "limit": 10
+  },
+  "calls": {
+    "search": 1,
+    "document": 1
+  },
+  "observations": [
+    {
+      "url": "https://ng.indeed.com/q-product-designer-remote-jobs.html",
+      "rank": 1
+    },
+    {
+      "url": "https://www.linkedin.com/jobs/view/product-designer-remote-%2450%E2%80%93%2490-hr-at-synthires-4471384958",
+      "rank": 2
+    },
+    {
+      "url": "https://uiuxjobsboard.com/design-jobs/remote?page=2",
+      "rank": 3
+    },
+    {
+      "url": "https://dailyremote.com/remote-product-designer-jobs",
+      "rank": 4
+    },
+    {
+      "url": "https://edtechjobs.io/jobs/product-design",
+      "rank": 5
+    },
+    {
+      "url": "https://startup.jobs/roles/product-designer",
+      "rank": 6
+    },
+    {
+      "url": "https://www.woodyjobs.com/san-diego/remote",
+      "rank": 7
+    },
+    {
+      "url": "https://www.twine.net/jobs/product-designers",
+      "rank": 8
+    },
+    {
+      "url": "https://uk.indeed.com/q-product-design-l-remote-jobs.html",
+      "rank": 9
+    },
+    {
+      "url": "https://justidjobs.com/jobs",
+      "rank": 10
+    }
+  ],
+  "document": {
+    "url": "https://ng.indeed.com/q-product-designer-remote-jobs.html",
+    "status": "access_limited",
+    "reason": "source_requires_another_access_path",
+    "textCharacters": 0,
+    "formalPosting": false
+  },
+  "caseStatus": "partial",
+  "persistedLeads": 10,
+  "usage": [
+    {
+      "provider": "public-documents",
+      "requests": 1,
+      "reserved_micros": "0"
+    },
+    {
+      "provider": "serper",
+      "requests": 1,
+      "reserved_micros": "10000"
+    }
+  ],
+  "checks": [
+    "live Serper response contract",
+    "durable admission before network",
+    "public lead persistence",
+    "owner isolation",
+    "completed case replay without another paid request"
+  ],
+  "emailsSent": 0,
+  "modelRequests": 0,
+  "realAccountsUsed": 0,
+  "scopeNote": "One synthetic public query with at most one source document check. Admission reservations are not reconciled provider charges. This checks connectivity and persistence, not discovery recall, relevance, native social access or eligible delivery.",
+  "durationMs": 6110
+}

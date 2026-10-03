@@ -26,8 +26,11 @@ An earlier two-call AI smoke correctly identified the client-request category wh
 
 These are bounded execution checks, not evidence of real-world relevance, global coverage or production capacity. See the JSON reports for timestamps, source identity and detailed observations.
 
+A later 1 October runtime investigation found a valid single-segment `seo_url` that the connector rejected. The parser now permits source-issued slugs with or without a category segment while retaining its path restrictions. Its regression check passed, and a bounded live connector read at approximately 18:45 UTC returned 382 public requests. This was a read-only parsing/collection check; it did not rerun the downstream smoke packet, call a model or send an email.
+
 ## Coverage and policy limits
 
+- This packet evaluates the connected Freelancer adapter. Broader web/social discovery, newly found source admission and continuous exploration follow the [new discovery protocol](../discovery/README.md) and [DACC gates](../../docs/engineering/scoutalert-discovery-acceptance.md); the historical results above do not validate those capabilities.
 - Shared refresh every five minutes; up to 200 fixed-price and 200 hourly entries, before exclusions. Maximum two simultaneous requests, four reads total, 40-second aggregate timeout, eight-megabyte decoded cap per response. No complete-marketplace or guaranteed no-gap claim.
 - Private, local-only and direct-hire listings are excluded. A global platform or a non-local flag does not prove remote delivery or worldwide supplier eligibility; confirmed scout requirements still decide acceptance.
 - Requests retain their original source URL, project ID, description, skills, budget currency and period. Buyer identity and indicative budgets are not independently verified. No bidding, applications, account creation or external messaging is implemented.

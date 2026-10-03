@@ -1,0 +1,133 @@
+# Internet discovery evaluation protocol
+
+**Revision:** 0.7 · **Date:** 3 October 2026
+
+**Status:** Planned benchmark protocol with recorded connectivity and bounded source-to-delivery smoke checks. Independent quality labels and global-scale benchmarks remain outstanding.
+
+## Recorded connectivity check
+
+[`latest-serper-smoke.json`](latest-serper-smoke.json) records the first live Serper contract check on 1 October 2026 at 20:20 WAT. One synthetic public query returned ten leads; PostgreSQL admission, owner isolation and terminal-case replay passed. The single checked source page restricted access, so the case remained partial. No models, real accounts or email were used. The $0.01 reservation is a configured bound, not measured billing.
+
+Run `node scripts/check-web-discovery.mjs` for an explicitly requested live repeat after building core/adapters. Each invocation makes at most one paid search and one document operation in a disposable test schema, separately from the worker's daily ledger. This report establishes live connectivity and bounded persistence only; the benchmark protocol and release gates below remain open.
+
+[`local-activation.json`](local-activation.json) records aggregate observations from the first scheduled local runs at 20:24 WAT: seven partial cases reused eight successful search operations and retained 57 leads. Six document operations captured two pages and recorded four access restrictions; 51 leads remained unchecked. The worker reserved $0.08 under its separate daily budget. This snapshot establishes that scheduled execution reached live search and storage, not that these leads passed matching or reached email.
+
+This protocol evaluates the [internet discovery design](../../docs/architecture/scoutalert-discovery-architecture.md) against [DACC-001–020](../../docs/engineering/scoutalert-discovery-acceptance.md). Existing [opportunity-quality](../opportunity-quality/README.md) and [marketplace-discovery](../marketplace-discovery/README.md) results cover narrower implemented paths; preserve their original dates, inputs and conclusions.
+
+## Recorded lead-review and delivery check
+
+[`latest-lead-review.json`](latest-lead-review.json) records the `lead-evidence-v2` check on 1 October at 21:10 WAT. Two freshly recaptured public pages produced one specific job and one rejected directory. Four authored excerpt examples received the expected offer, discussion, buyer-request and closed labels; excerpt facts remained unknown and none was promoted. The job's extraction was reused for one private assessment of a synthetic brief, then fresh actionable source evidence enabled one ordinary Mailpit digest. Repeating delivery submitted no duplicate.
+
+The check took 29.6 seconds, reserved $0.30 across four AI calls and estimated $0.0200 in model usage. Estimated costs use the repository's recorded pricing version and are not a provider invoice. This is a small diagnostic/integration sample. The job was already found by earlier local search and recaptured by URL; this run does not measure held-out source discovery, independent relevance, social platform coverage or multilingual recall.
+
+[`initial-lead-review.json`](initial-lead-review.json) retains the first run, which exposed full-time/permanent terms misclassified as work arrangement. The separate fit policy kept location arrangement unknown, but the public facts were misleading. The provider schema now separates work arrangement from engagement, and deterministic citation/value validation downgrades unsupported arrangement facts. The second run correctly kept arrangement unknown and put employment under engagement.
+
+Run `node scripts/evaluation/check-web-leads.mjs` only for an authorized live check after building core/adapters. Each invocation creates and removes its own schema in `scoutalert_test`, permits two public document reads and at most five AI reservations ($0.375), and binds SMTP to `127.0.0.1:1025`. Any test digest targets a synthetic `@scoutalert.test` address in Mailpit. The budget is separate from the local worker's shared daily ledger. Both diagnostic runs together used eight AI calls and produced two synthetic Mailpit digests. The script preserves unresolved results rather than relaxing policy to force mail.
+
+## Recorded adaptive discovery check
+
+[`initial-adaptive-discovery.json`](initial-adaptive-discovery.json) preserves the first live run that spent follow-up checks on restricted search results instead of captured directory links. The policy now prioritizes relevant observed links, preserves their page order, and defers a host after access fails within a case.
+
+[`latest-adaptive-discovery.json`](latest-adaptive-discovery.json) records the corrected run: 55 leads, six Google-result requests through Serper, four document operations, four AI calls, about 48 seconds and a $0.36 configured reservation. Two observed directory links were fetched and accepted by cited demand review as jobs. This check uses no real account, private-fit evaluation or email. Some access remained unavailable and the small review budget left leads pending. Native X/LinkedIn access and independent recall/relevance are not established.
+
+Run `node scripts/evaluation/check-adaptive-discovery.mjs` only for an authorized live repeat. Each run uses its own disposable schema and small budget, separately from the live worker. Both diagnostic runs together made twelve searches, eight document operations and eight model calls. Public reports include sources and model judgments; they are not independent labels or a matched fixed-versus-adaptive benchmark.
+
+## Model-guided planning and complete delivery check
+
+[`latest-model-guided-discovery.json`](latest-model-guided-discovery.json) records the 23:29 WAT positive synthetic US-profile run: separate product-design and UX-design searches, observed source/application links, cited source review, public research, private matching and one eligible ordinary Mailpit digest. It used four searches, four source checks, twelve AI reservations and eleven recorded model calls in 48.6 seconds. Recorded model usage estimates $0.035849; conservative reservations were $0.90 AI/$0.04 search. A repeated delivery pass sent no duplicate. Work-authorization uncertainty remained explicit, so this does not verify exceptional prompt-alert eligibility.
+
+[`restricted-location-model-discovery.json`](restricted-location-model-discovery.json) keeps the earlier UK-profile run, which rejected concrete US-location/experience conflicts. [`directory-model-discovery.json`](directory-model-discovery.json) keeps a fallback/directory-only run with no recommendation. [`initial-model-guided-discovery.json`](initial-model-guided-discovery.json) documents the first failed smoke whose diagnostic runner asserted before exporting rows. Preserve these outcomes alongside success.
+
+[`planning-comparison.json`](planning-comparison.json) compares the successful model-guided case with [`paired-baseline-discovery.json`](paired-baseline-discovery.json), using the same synthetic brief and ceilings. The deterministic run used six searches and four document checks, took 83.3 seconds and delivered no recommendation. Its $0.042008 recorded model estimate excludes four attempts without usage. Source results changed between successive runs and the synthetic US profile was chosen after a separate UK trial exposed restrictions. This is a tuning/engineering comparison, not independent quality evidence; precision and known-opportunity recall remain null.
+
+Use `node scripts/evaluation/check-model-guided-discovery.mjs --scenario=us` for an authorized positive-path repeat; omit `--scenario=us` for the UK case, or add `--baseline` for the prior deterministic policy. Each invocation is limited to six paid searches, four document checks and twenty AI reservations ($1.56 maximum combined reservation) in a disposable test schema. Mail targets a synthetic address and SMTP is bound to `127.0.0.1:1025`. `node scripts/evaluation/compare-discovery-runs.mjs` only reads saved reports and makes no paid calls.
+
+The final local regression suite passed 100 deterministic checks, 48 database checks, four Temporal recovery/replay checks and fourteen API checks. These cover public-word constraints, exact approved action selection, review-before-follow-up, shared public work/private ownership, budget and lease fencing, terminal replay, linked evidence and source-review reuse. Independent judgments and production workload tests remain required by the protocol below.
+
+## Continuous monitoring check
+
+[`continuous-monitoring.json`](continuous-monitoring.json) is a controlled two-scout fixture with real local PostgreSQL and Mailpit. A directory gains a posting; the scouts share two fetch calls and one posting extraction, each receives a separate private fit assessment and an ordinary digest, and repeating delivery sends none. Source bodies and model outputs are authored fixtures; external search/AI cost is zero. Due timestamps are explicitly advanced. This is scheduling/reuse/delivery evidence, not organic relevance or recall.
+
+Seven isolated database scenarios and four pure policy tests cover source admission, changed destinations, pause/revision fencing, uncertain attempts, duplicate receipts, per-scout ceilings, shared document concurrency and four-link expansion per capture. A separate Temporal check exercises retries and replay. Run the source-monitoring integration file with `WEB_DISCOVERY_INTEGRATION=1`; add `MONITOR_MAILPIT=1` only for the authorized local SMTP check.
+
+[`continuous-monitoring-local.json`](continuous-monitoring-local.json) records an aggregate snapshot of the running registry, current interests, observed changes, pending updates and shared budgets. Produce it with `node scripts/evaluation/report-source-monitoring.mjs --write`. `--learn-existing` additionally enrolls up to 100 current reviewed scout cases using core policy; no paid/network/mail operation is made by that command. It does not reset any ledger. Indexed monitored pages can predate enrollment, so those totals are not attributed discovery yield. Independent relevance and known-opportunity recall stay null until reviewed labels exist.
+
+## 1. Separate the questions
+
+1. Did the source/provider expose the opportunity within the observation window?
+2. Did ScoutAlert discover and admit it?
+3. Did classification recognize actual demand and preserve a useful lead?
+4. Did extraction retain the necessary evidence without inventing facts?
+5. Did retrieval route it to plausible Scouts without false exclusion?
+6. Was private fit assessment useful and appropriately uncertain?
+7. Did research add decision-relevant supported evidence?
+8. Did a current eligible recommendation reach the dashboard and permitted delivery channel?
+
+Report stage failures separately. Strong fit quality on already-selected postings does not measure discovery recall. A successful live request does not measure relevance.
+
+## 2. Sample construction
+
+Create a versioned manifest covering jobs, contracts, fixed-price projects, hourly services and informal requests; common and rare professions; international remote and restricted-location work; multiple enabled languages and regions; recent, stale, closed, edited and reposted content.
+
+Include known opportunity references independently collected by reviewers, provider-discovered candidates, negatives such as service advertisements and commentary, incomplete leads, inaccessible content and adversarial documents. Record when and how references were observable. Hold out domains, authors or source instances and later time windows to test generalization beyond configured integrations.
+
+Use synthetic fixtures for deterministic boundaries and fault injection. Keep them labeled synthetic. Live samples need observation times, permitted snapshots or references, source lineage and retention/access metadata. A controlled public fixture tests collection mechanics, not organic marketplace usefulness.
+
+## 3. Independent labels
+
+Reviewers see the confirmed brief and relevant original evidence without model rankings or verdicts. Label actual demand, category, relevance, hard conflicts, unresolved facts, evidence support and whether further investigation would be worthwhile. Record reviewer identity/pseudonym, rubric version and disagreements; adjudicate consequential conflicts.
+
+The model under evaluation cannot supply its own independent ground truth. Model-assisted preliminary labels remain separate until human review. Behavioral clicks and saves carry exposure bias and supplement rather than replace this benchmark.
+
+Freeze the held-out split and thresholds before the final run. Keep tuning samples separate and record any subsequent dataset change. Missing independent labels keep the quality gate pending, even if the evaluation runner works.
+
+## 4. Required measurements
+
+| Measure                            | Definition and important qualification                                                                                                          |
+| ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| Known-opportunity discovery recall | Discovered eligible references divided by observable eligible references in the declared sample/window; report inaccessible cases separately    |
+| Demand precision                   | Reviewed discovered leads that are genuine relevant demand; report service-offer and commentary false positives                                 |
+| Retrieval Recall@K                 | Known relevant items retrieved from the acquired corpus; distinguishes acquisition failure from retrieval failure                               |
+| Recommendation usefulness          | Independently reviewed ranking/relevance with unknowns and hard conflicts reported separately                                                   |
+| Provider contribution              | Unique useful leads and sources added beyond other providers, with overlap, duplicates and cost                                                 |
+| Exploration contribution           | Useful new sources and underserved-cohort discoveries attributable to the reserved exploration allocation                                       |
+| Evidence and research quality      | Supported claims, incorrect scope, unresolved outcomes, useful resolutions, unnecessary calls and missed evidence                               |
+| Freshness                          | Publication/change-to-observation where trustworthy timestamps exist; observation-to-recommendation and recommendation-to-submission separately |
+| Reliability                        | Lost acknowledged events, duplicate effects, recovery time, stale publications, stream gaps and reconciliation outcomes                         |
+| Efficiency                         | Search/fetch/render/model/storage/egress cost, amortized shared work, cache reuse and cost per reviewed useful recommendation                   |
+
+Report category/language/region/source-family slices, sample sizes and uncertainty intervals where meaningful. A global average cannot hide a severely degraded cohort. Avoid an unsupported percentage for coverage or recall across the entire internet.
+
+## 5. Baselines and experiments
+
+Compare configured-source collection, a simple fixed-query web baseline and the adaptive discovery strategy under matched time/access/cost envelopes. Isolate improvements from planner changes, provider breadth, exploration allocation and evidence reuse. Compare model-assisted classification with deterministic baselines. Retain both successes and exclusions.
+
+Measure source expansion beyond its proposal count: validated instances, sustained useful yield, duplication, monitoring cost and failed admission. Measure shared-work efficiency with overlapping Scouts and with distinct/private searches. Research experiments account for related-question batching and cache freshness.
+
+## 6. Workload and failure manifest
+
+Declare active Scouts, arrival/change rates, source and provider mix, document sizes, language/category distribution, expected reuse, burst shape, model/request quotas, worker slots, database/index configuration and network region. State target queue delay, latency percentiles, recovery bounds and cost ceiling before running.
+
+Inject failures around durable ingestion/acknowledgement, provider timeouts, cursor expiry, cache loss, worker termination, outbox dispatch, source revocation, Scout edits and delivery ambiguity. Preserve failing artifacts and explain whether backfill was possible. Regional claims need actual failover and ownership-fencing exercises.
+
+## 7. Run report and promotion
+
+A run report includes manifest version, code/policy/model/provider configuration, source window, privacy controls, independent label status, baseline comparison, cohort results, stage failures, complete usage/cost accounting, DACC results and unresolved dependencies. Estimates are labeled and separated from measured bills; cached shared work is charged consistently across compared strategies.
+
+Promotion requires the declared acceptance thresholds and hard invariants to pass, followed by a bounded rollout with rollback and operational ownership. This protocol does not itself authorize a paid benchmark, source access, outbound contact or a production deployment; execution follows the user's authorized task and configured platform policies.
+
+## Native X integration checks — 3 October 2026
+
+The native recent-search/lookup path has captured-contract and isolated database tests, plus a separate Temporal retry/replay check. The worker regression run passed 181 non-Temporal checks and six Temporal checks. These are fixture and recovery results. After credentials were supplied, a separate live recent-search request returned HTTP 200 with seven original posts, reserved $0.05 and dispatched six scout cases. Scheduled native access was initially enabled under 20 requests/$1 per UTC day and subsequently raised by the operator to 100 requests/$10. Later runs verified native refresh and bounded context lookup; organic relevance and complete coverage are not established.
+
+`WEB_DISCOVERY_INTEGRATION=1 SOCIAL_MAILPIT=1 pnpm --filter worker exec vitest run test/social-discovery.integration.spec.ts -t 'shares search and public extraction' --no-file-parallelism` records the controlled two-scout source/review/private-fit/delivery path in `native-social-fixture.json`. Provider and model responses are authored; SMTP is bound to local Mailpit. The same test verifies duplicate suppression and expiry of retained source/assessment/delivery copies.
+
+`node scripts/evaluation/report-social-discovery.mjs --write` saves aggregate runtime state to `native-social-local.json`, including enablement, retained reservations, query gaps, latency and known Google overlap. Independent relevance, useful incremental coverage and known-opportunity recall remain unmeasured. See [native social implementation and limits](../../docs/engineering/scoutalert-native-social-discovery.md).
+
+The 3 October budget-recovery follow-up passed 38 focused configuration/native checks. It verifies resumed review after larger admission limits without additional X reads, historical-ledger resets, changed source timestamps or revival of paused/obsolete scout subscriptions. A live restart then produced completed native source classifications; the saved runtime report distinguishes those from independent relevance judgments. Historical deferred review cases remain audit records, and current dispatched-case counts include the replacement cases.
+
+The bounded-context increment passed 209 worker checks, including all isolated persistence suites. Two initial live context requests resolved 13 referenced IDs, with nine complete and two incomplete packets recorded at 01:21:47 WAT. `native-social-local.json` now separates ordinary lookup, context lookup, reference state and bounded packet completeness. Capture counts are not independent classification scores. The corpus still needs paired organic buyer/reply/quote cases and independent judgments.
+
+## Discovery scheduling measurements
+
+`node scripts/evaluation/report-discovery-performance.mjs --write` records newly admitted query/source attempts, canonical route novelty, current model intent labels, selection reasons and unchanged-post timing in `performance-local.json`. Historical daily spend is shown separately; no backfill is implied. Core and PostgreSQL fixtures verify pacing, oldest-due selection, bounded samples and stale-label exclusion. The always-empty-query simulation measures repeat polling only; independent real-world relevance, known-opportunity recall and global workload gates remain open. See the [policy and operating notes](../../docs/engineering/scoutalert-discovery-scheduling.md).

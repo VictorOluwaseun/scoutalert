@@ -1,0 +1,27 @@
+{
+  "recordedAt": "2026-10-01T23:17:47.261Z",
+  "protocol": "continuous-monitoring-v1",
+  "source": "controlled fixture; no public network fetch or paid AI",
+  "storage": "disposable PostgreSQL schema",
+  "clock": "fixture due times advanced explicitly",
+  "elapsedMs": 307,
+  "scouts": 2,
+  "sourceDocumentCalls": 2,
+  "directoryReviews": 1,
+  "postingReviews": 1,
+  "privateFitCalls": 2,
+  "sourceChecksSharedAcrossScouts": true,
+  "acceptedMailpitDigests": 2,
+  "duplicateDigests": 0,
+  "messageIds": [
+    "<b79123a0-ec9c-4018-8c4a-791466ecbac9@scoutalert.test>",
+    "<42e6dfa7-73b6-4588-b066-e9bee2e64680@scoutalert.test>"
+  ],
+  "externalProviderSpendUsd": 0,
+  "independentRelevance": null,
+  "knownOpportunityRecall": null,
+  "limitations": [
+    "Authored fixtures verify scheduling, source expansion, evidence sharing and delivery mechanics.",
+    "This does not establish organic source yield, ranking quality, multilingual discovery, or global scale."
+  ]
+}
