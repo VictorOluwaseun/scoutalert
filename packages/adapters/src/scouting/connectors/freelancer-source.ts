@@ -18,7 +18,7 @@ const projectSchema = z.object({
   seo_url: z
     .string()
     .max(1500)
-    .regex(/^[a-zA-Z0-9_-]+\/[a-zA-Z0-9_-]+$/),
+    .regex(/^[a-zA-Z0-9_-]+(?:\/[a-zA-Z0-9_-]+)?$/),
   type: z.enum(["fixed", "hourly"]),
   status: z.string().max(40),
   frontend_project_status: z.string().max(40),
@@ -159,8 +159,8 @@ export class FreelancerSourceConnector extends SourceConnector {
 
           if (
             !previous ||
-            Date.parse(posting.sourceUpdatedAt) >
-              Date.parse(previous.sourceUpdatedAt)
+            Date.parse(posting.sourceUpdatedAt ?? "") >
+              Date.parse(previous.sourceUpdatedAt ?? "")
           ) {
             projects.set(posting.id, posting);
           }

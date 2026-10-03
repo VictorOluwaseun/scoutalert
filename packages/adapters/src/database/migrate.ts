@@ -1,4 +1,14 @@
+import * as discoveryPerformance from "./migrations/20261003-yield-scheduling.js";
+import * as monitorExpansionWindow from "./migrations/20261002-source-monitor-expansion-window.js";
+import * as xDiscovery from "./migrations/20261002-x-discovery.js";
+import * as xContext from "./migrations/20261003-x-context.js";
+import * as sourceMonitoring from "./migrations/20261002-continuous-source-monitoring.js";
+import * as strategyReasoning from "./migrations/20261001-worldwide-strategy-reasoning.js";
+import * as reviewStatus from "./migrations/20261001-worldwide-review-status.js";
+import * as sourceExploration from "./migrations/20261001-worldwide-source-exploration.js";
 import * as windowedDiscovery from "./migrations/20261001-windowed-discovery.js";
+import * as webDiscovery from "./migrations/20261001-worldwide-discovery.js";
+import * as leadIntelligence from "./migrations/20261001-worldwide-lead-intelligence.js";
 import * as verifiedResearch from "./migrations/20261001-verified-research.js";
 import * as controls from "./migrations/20261001-user-controls.js";
 import type { Kysely } from "kysely";
@@ -20,6 +30,11 @@ export async function migrateDatabase(
     migrationTableSchema,
     provider: {
       getMigrations: async () => ({
+        "20261002-x-discovery": xDiscovery,
+        "20261003-x-context": xContext,
+        "20261003-yield-scheduling": discoveryPerformance,
+        "20261002-continuous-source-monitoring": sourceMonitoring,
+        "20261002-source-monitor-expansion-window": monitorExpansionWindow,
         "20260930-identity-and-activation": initial,
         "20261001-live-scouting": scouting,
         "20261001-recipient-scan": deliveryCursor,
@@ -28,6 +43,11 @@ export async function migrateDatabase(
         "20261001-user-controls": controls,
         "20261001-verified-research": verifiedResearch,
         "20261001-windowed-discovery": windowedDiscovery,
+        "20261001-worldwide-discovery": webDiscovery,
+        "20261001-worldwide-lead-intelligence": leadIntelligence,
+        "20261001-worldwide-review-status": reviewStatus,
+        "20261001-worldwide-source-exploration": sourceExploration,
+        "20261001-worldwide-strategy-reasoning": strategyReasoning,
       }),
     },
   });

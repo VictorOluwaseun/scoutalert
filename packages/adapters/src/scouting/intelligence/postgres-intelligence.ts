@@ -12,6 +12,7 @@ import {
   type RunContext,
   type Posting,
   type PostingAnalysis,
+  validAnalysis,
 } from "@repo/core/scouting";
 import type { ScoutAlertDatabase } from "../../database/types/database.js";
 
@@ -213,6 +214,41 @@ export class PostgresIntelligenceRepository extends IntelligenceRepository {
     return found.rows[0]?.id ?? null;
   }
 
+  /** Reuses a source review's cited extraction; account-specific assessment is still performed independently. */
+  private async reusableLeadExtraction(
+    tx: Transaction<ScoutAlertDatabase>,
+    task: IntelligenceTask,
+    id: string,
+  ): Promise<IntelligenceResult | null> {
+    if (task.kind !== "extraction") {
+      return null;
+    }
+    const reviewed = await sql<{
+      analysis: PostingAnalysis;
+    }>`SELECT r.result->'analysis' AS analysis FROM web_lead_reviews r JOIN opportunity_postings p ON p.id=r.posting_id AND p.version=r.posting_version WHERE r.posting_id=${task.posting.id} AND r.posting_version=${task.posting.version} AND r.state='ready' AND r.input->>'scope'='source' AND r.input->>'truncated'='false' ORDER BY r.reviewed_at DESC LIMIT 1`.execute(
+      tx,
+    );
+    const analysis = reviewed.rows[0]?.analysis;
+    if (!analysis || !validAnalysis(task.posting, analysis)) {
+      return null;
+    }
+    const result: IntelligenceResult = {
+      kind: "extraction",
+      analysis,
+      usage: {
+        model: "no-provider-call",
+        inputTokens: 0,
+        outputTokens: 0,
+        durationMs: 0,
+        responseId: "shared-lead-extraction",
+      },
+    };
+    await sql`INSERT INTO intelligence_tasks(id,kind,configuration,posting_id,posting_version,status,result) VALUES(${id},'extraction',${task.configuration},${task.posting.id},${task.posting.version},'ready',${JSON.stringify(result)}::jsonb) ON CONFLICT(id) DO NOTHING`.execute(
+      tx,
+    );
+    return result;
+  }
+
   /** Reserves attempts behind the global daily row lock; crashes spend one allowance and expired leases can retry once. */
   async claim(task: IntelligenceTask): Promise<TaskClaim> {
     return this.db.transaction().execute(async (tx) => {
@@ -233,6 +269,10 @@ export class PostgresIntelligenceRepository extends IntelligenceRepository {
       }
 
       const id = this.identity(task);
+      const extraction = await this.reusableLeadExtraction(tx, task, id);
+      if (extraction) {
+        return { status: "ready", result: extraction };
+      }
       const request = task.kind === "fit" ? task.context!.request : undefined;
       await sql`INSERT INTO intelligence_tasks(id,kind,configuration,posting_id,posting_version,owner_id,scout_id,scout_version,analysis_task_id)
         VALUES(${id},${task.kind},${task.configuration},${task.posting.id},${task.posting.version},${request?.ownerId ?? null}::uuid,${request?.scoutId ?? null}::uuid,${request?.version ?? null},${analysisId}) ON CONFLICT(id) DO NOTHING`.execute(
@@ -298,7 +338,7 @@ export class PostgresIntelligenceRepository extends IntelligenceRepository {
 
       const active = await sql<{
         count: number;
-      }>`SELECT count(*)::int AS count FROM intelligence_tasks WHERE status='running' AND lease_until>now()`.execute(
+      }>`SELECT ((SELECT count(*) FROM intelligence_tasks WHERE status='running' AND lease_until>now())+(SELECT count(*) FROM web_lead_review_attempts WHERE state='running' AND lease_until>now())+(SELECT count(*) FROM web_reasoning_tasks WHERE state='running' AND lease_until>now()))::int AS count`.execute(
         tx,
       );
 

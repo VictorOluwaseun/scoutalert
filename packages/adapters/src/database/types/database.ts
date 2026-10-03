@@ -144,14 +144,14 @@ export interface ScoutAlertDatabase {
     source_id: string;
     external_id: string;
     family_id: string;
-    company: string;
+    company: string | null;
     title: string;
-    location: string;
+    location: string | null;
     url: string;
     content: string;
     fingerprint: string;
     version: number;
-    source_updated_at: Timestamp;
+    source_updated_at: Timestamp | null;
     checked_at: Timestamp;
     open: boolean;
     search_document: ColumnType<string, never, never>;

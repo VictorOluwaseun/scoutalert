@@ -182,7 +182,7 @@ export class PostgresScoutingRepository extends ScoutingRepository {
         id: string;
         owner_id: string;
         version: number;
-      }>`SELECT id,owner_id,version FROM scouts WHERE status='active' AND NOT EXISTS(SELECT 1 FROM discovery_runs running WHERE running.scout_id=scouts.id AND running.scout_version=scouts.version AND running.status='searching') AND discovery_requested_at<${now}::timestamptz-interval '10 minutes' ORDER BY discovery_requested_at,id FOR UPDATE SKIP LOCKED LIMIT 500`.execute(
+      }>`SELECT id,owner_id,version FROM scouts WHERE status='active' AND NOT EXISTS(SELECT 1 FROM web_discovery_cases c WHERE c.scout_id=scouts.id AND c.plan->>'origin'='source_monitor' AND c.started_at>${now}::timestamptz-interval '5 minutes') AND NOT EXISTS(SELECT 1 FROM discovery_runs running WHERE running.scout_id=scouts.id AND running.scout_version=scouts.version AND running.status='searching') AND discovery_requested_at<${now}::timestamptz-interval '10 minutes' ORDER BY discovery_requested_at,id FOR UPDATE SKIP LOCKED LIMIT 500`.execute(
         tx,
       );
       const intents = scouts.rows.map((scout) => ({

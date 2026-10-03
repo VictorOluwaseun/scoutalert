@@ -9,6 +9,10 @@
     "check-types": "tsc --noEmit -p tsconfig.json"
   },
   "exports": {
+    "./discovery": {
+      "types": "./dist/discovery/public.d.ts",
+      "default": "./dist/discovery/public.js"
+    },
     "./notifications": {
       "types": "./dist/notifications/public.d.ts",
       "default": "./dist/notifications/public.js"
@@ -39,11 +43,14 @@
     "bullmq": "6.3.9",
     "he": "1.2.0",
     "html-to-text": "10.0.1",
+    "htmlparser2": "^12.0.0",
     "ioredis": "6.0.0",
+    "ipaddr.js": "^2.5.0",
     "kysely": "0.29.6",
     "nodemailer": "10.0.12",
     "openai": "7.25.0",
     "pg": "8.23.0",
+    "robots-parser": "^3.0.1",
     "zod": "4.4.3"
   },
   "devDependencies": {

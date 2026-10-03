@@ -125,9 +125,10 @@ export class PostgresOpportunityDeliveryRepository extends OpportunityDeliveryRe
       const rows = await sql<{
         id: string;
         kind: "job" | "client_request";
+        requiresFreshSource: boolean;
         title: string;
-        company: string;
-        location: string;
+        company: string | null;
+        location: string | null;
         url: string;
         checkedAt: string;
         scout: string;
@@ -139,7 +140,7 @@ export class PostgresOpportunityDeliveryRepository extends OpportunityDeliveryRe
         search: SearchDraft;
         availability: OpportunityView["availability"];
       }>`
-        SELECT p.id,p.kind,p.title,p.company,p.location,p.url,p.checked_at::text AS "checkedAt",s.name AS scout,r.assessment,n.preferences AS alerts,s.search,a.evidence AS availability
+        SELECT p.id,p.kind,(p.source_id IN ('web-discovery','web-client-requests')) AS "requiresFreshSource",p.title,p.company,p.location,p.url,p.checked_at::text AS "checkedAt",s.name AS scout,r.assessment,n.preferences AS alerts,s.search,a.evidence AS availability
         FROM jsonb_to_recordset(${JSON.stringify(captured)}::jsonb) AS c("scoutId" uuid,"scoutVersion" integer,"preferenceVersion" integer,"postingId" text,"postingVersion" integer)
         JOIN scouts s ON s.id=c."scoutId" AND s.owner_id=${ownerId}::uuid AND s.version=c."scoutVersion" AND s.status='active'
         JOIN notification_preferences n ON n.scout_id=s.id AND n.owner_id=s.owner_id AND n.version=c."preferenceVersion" AND n.email_enabled AND (n.preferences->>'consent')::boolean AND n.preferences->>'frequency'<>'dashboard'
@@ -158,6 +159,7 @@ export class PostgresOpportunityDeliveryRepository extends OpportunityDeliveryRe
         const opportunity: OpportunityView = {
           id: row.id,
           kind: row.kind,
+          requiresFreshSource: row.requiresFreshSource,
           title: row.title,
           company: row.company,
           location: row.location,
