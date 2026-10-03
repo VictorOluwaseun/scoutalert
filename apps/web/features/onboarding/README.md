@@ -64,3 +64,9 @@ Review remains stateless. Identity creates or reuses a durable verified account,
 Run web and shared UI lint/type checks, the repository architecture check, and a production web build alongside this browser pass.
 
 Optional authorization countries, sponsorship needs and explicit confirmation are part of the reviewed brief. Residence never fills these answers. Prompt alerts require supported eligibility; unknowns remain reviewable according to the user’s choices.
+
+## Expanded discovery handoff target
+
+The confirmed goal will feed the [Scout Planner and adaptive discovery system](../../../../docs/architecture/scoutalert-discovery-architecture.md) through the existing durable activation intent. Those capabilities are not enabled by this documentation update. Users should not need to choose providers or supply a formal job title for a meaningful client/service goal.
+
+The target handoff distinguishes saved, planning, searching, partial coverage and delayed/access-limited work; it does not wait for a worldwide crawl before showing the saved scout. Actual connected integrations and optional fictional examples remain clearly identified. ONB-030–031 in the [onboarding backlog](../../../../docs/user-stories/scoutalert-onboarding-user-stories-v0.1.md) define preserved intent and truthful status requirements. The current structured confirmation flow remains the implemented behavior until separately changed.

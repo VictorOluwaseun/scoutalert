@@ -124,7 +124,8 @@ export function OpportunityPreview({
         <Icon name="eye" size={20} />
         <p>
           <strong>Illustrative opportunities</strong>These fictional examples
-          haven’t been matched to your brief. No live search is running.
+          haven’t been matched to your brief. This preview does not run a
+          search.
         </p>
       </div>
       <div className="scout-preview-toolbar">

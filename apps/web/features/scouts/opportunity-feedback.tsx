@@ -6,11 +6,13 @@ import { Icon } from "@repo/ui/components/icon";
 import type { Opportunity } from "./scout-contracts";
 import { useScoutMutation } from "./use-scout-mutation";
 
-/** Makes recipient-level relevance choices explicit and reversible, keeping confirmed briefs unchanged. */
+/** Makes recipient-level relevance choices explicit and reversible; compact listing controls use the same revision-fenced mutations. */
 export function OpportunityFeedbackControls({
   opportunity,
+  compact = false,
 }: {
   opportunity: Opportunity;
+  compact?: boolean;
 }) {
   const router = useRouter();
   const mutation = useScoutMutation();
@@ -31,12 +33,22 @@ export function OpportunityFeedbackControls({
   }
 
   return (
-    <div className="workspace-feedback">
-      <p>
-        {hidden
-          ? "Hidden across your scouts. We won’t include it in new alerts."
-          : "Is this opportunity relevant to you?"}
-      </p>
+    <div
+      className={
+        compact
+          ? "workspace-feedback workspace-feedback-compact"
+          : "workspace-feedback"
+      }
+      role="group"
+      aria-label={`Relevance for ${opportunity.title}`}
+    >
+      {(!compact || hidden) && (
+        <p>
+          {hidden
+            ? "Hidden across your scouts. We won’t include it in new alerts."
+            : "Is this opportunity relevant to you?"}
+        </p>
+      )}
       <div className="workspace-control-buttons">
         {hidden ? (
           <button

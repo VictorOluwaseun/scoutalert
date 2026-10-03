@@ -9,10 +9,12 @@ import type { VerifiedAccount } from "../account/account-client";
 export function DashboardShell({
   account,
   examples = false,
+  section = "dashboard",
   children,
 }: {
   account?: VerifiedAccount;
   examples?: boolean;
+  section?: "dashboard" | "discovery";
   children: ReactNode;
 }) {
   return (
@@ -25,9 +27,21 @@ export function DashboardShell({
           <Brand small />
         </Link>
         <nav aria-label="Dashboard navigation">
-          <Link href="/dashboard" aria-current={examples ? undefined : "page"}>
+          <Link
+            href="/dashboard"
+            aria-current={
+              !examples && section === "dashboard" ? "page" : undefined
+            }
+          >
             <Icon name="compass" size={21} />
             Dashboard
+          </Link>
+          <Link
+            href="/dashboard/discovery"
+            aria-current={section === "discovery" ? "page" : undefined}
+          >
+            <Icon name="globe" size={21} />
+            Web discovery
           </Link>
           <Link href="/dashboard#scouts">
             <Icon name="search" size={21} />

@@ -1,6 +1,7 @@
 @import "@repo/ui/globals.css";
 @import "../features/onboarding/onboarding.css";
 @import "../features/scouts/dashboard.css";
+@import "../features/discovery/discovery.css";
 
 :root {
   --background: #f6f7f8;

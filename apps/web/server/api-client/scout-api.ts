@@ -1,4 +1,5 @@
 import "server-only";
+import { parseWebDiscoveryPage } from "@/features/discovery/discovery-contracts";
 import { NextResponse } from "next/server";
 import {
   cookieOptions,
@@ -319,6 +320,35 @@ export async function readManagedScout(id: string) {
         email: value.account.email as string,
       },
     };
+  } catch {
+    return { status: "unavailable" as const };
+  }
+}
+
+/** Reads current-account web discovery directly for server rendering with the same private session boundary as scouts. */
+export async function readWebDiscovery() {
+  const session = await requestSession();
+
+  if (!session.browser || !session.token) {
+    return { status: "signed_out" as const };
+  }
+
+  try {
+    const response = await fetch(new URL("/v1/discovery", apiOrigin()), {
+      headers: apiHeaders(null, session.browser, session.token),
+      cache: "no-store",
+      signal: AbortSignal.timeout(10_000),
+    });
+    const value = await response.json();
+
+    if (response.status === 401 && value?.code === "unauthenticated") {
+      return { status: "signed_out" as const };
+    }
+
+    const page = response.ok ? parseWebDiscoveryPage(value) : null;
+    return page
+      ? { status: "ready" as const, page }
+      : { status: "unavailable" as const };
   } catch {
     return { status: "unavailable" as const };
   }

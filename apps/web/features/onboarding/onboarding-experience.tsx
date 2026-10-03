@@ -339,7 +339,7 @@ export function OnboardingExperience() {
           )}
           <span className="scout-preview-badge">
             <span />
-            {accountSetup.receipt ? "Scout saved" : "No live search yet"}
+            {accountSetup.receipt ? "Scout saved" : "Scout setup"}
           </span>
           <button
             className="scout-text-button"
@@ -501,9 +501,9 @@ export function OnboardingExperience() {
               <p className="scout-ready-note">
                 <Icon name="eye" size={18} />
                 <span>
-                  Follow your search status and any opportunities on your
-                  dashboard. Current job-board coverage is limited;
-                  client-project sources are still being connected.
+                  Follow your search status and opportunities on your dashboard.
+                  Your scout checks our connected job and client-project
+                  sources.
                 </span>
               </p>
               <div className="scout-ready-actions">
@@ -556,8 +556,8 @@ export function OnboardingExperience() {
               {accountSetup.receipt
                 ? "Scout saved to your account. Follow its progress on your dashboard."
                 : draft.goal
-                  ? "Draft saved in this browser. No search or alert is active."
-                  : "Preview only. No live search or email alerts."}
+                  ? "Draft saved in this browser. Finish setup to start this scout."
+                  : "Set up a scout to start finding opportunities."}
             </>
           )}
         </span>
@@ -607,9 +607,10 @@ export function OnboardingExperience() {
           </li>
         </ol>
         <p className="scout-dialog-note">
-          Saving starts a check of connected job boards. Scheduled emails follow
-          your alert choices. Client-project sources and detailed AI assessment
-          are still being connected. Example opportunities are fictional.
+          Save your scout to search connected job boards and client-project
+          sources. Your dashboard shows matches, supporting details and anything
+          still unconfirmed. Emails follow your alert choices. Example
+          opportunities are fictional.
         </p>
         <Button onClick={() => helpDialog.current?.close()}>
           Let’s give it a try

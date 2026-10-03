@@ -80,8 +80,8 @@ export interface Opportunity {
   feedback?: { value: "relevant" | "hidden" | "none"; version: number };
   id: string;
   title: string;
-  company: string;
-  location: string;
+  company: string | null;
+  location: string | null;
   url: string;
   checkedAt: string;
   scouts: string[];
@@ -137,8 +137,11 @@ function parseOpportunity(value: unknown): Opportunity | null {
 
   if (
     !item ||
-    !["id", "title", "company", "location", "url", "checkedAt"].every(
+    !["id", "title", "url", "checkedAt"].every(
       (key) => typeof item[key] === "string",
+    ) ||
+    ![item.company, item.location].every(
+      (field) => field === null || typeof field === "string",
     ) ||
     !strings(item.scouts) ||
     !strings(item.reasons) ||
@@ -147,7 +150,7 @@ function parseOpportunity(value: unknown): Opportunity | null {
       !["job", "client_request"].includes(String(item.kind))) ||
     !validFeedback(item.feedback) ||
     !validDetail(item.detail) ||
-    !validAvailability(item.availability) ||
+    !validAvailability(item.availability, String(item.url)) ||
     (item.assessmentScout != null && typeof item.assessmentScout !== "string")
   ) {
     return null;
@@ -170,8 +173,8 @@ function parseOpportunity(value: unknown): Opportunity | null {
   }
 }
 
-/** Accepts only dated public ATS observations; source links cannot redirect presentation to an arbitrary host. */
-function validAvailability(value: unknown): boolean {
+/** Accepts dated public observations; general web evidence must use the same HTTPS URL as the opportunity. */
+function validAvailability(value: unknown, postingUrl: string): boolean {
   if (value == null) {
     return true;
   }
@@ -194,10 +197,13 @@ function validAvailability(value: unknown): boolean {
     const url = new URL(item.sourceUrl);
 
     return (
-      [
+      url.protocol === "https:" &&
+      !url.port &&
+      ([
         "https://boards-api.greenhouse.io",
         "https://www.freelancer.com",
-      ].includes(url.origin) &&
+      ].includes(url.origin) ||
+        url.href === postingUrl) &&
       !url.username &&
       !url.password &&
       (item.fingerprint === null || typeof item.fingerprint === "string")
@@ -511,6 +517,26 @@ function validFeedback(value: unknown): boolean {
   );
 }
 
+/** Accepts public HTTPS evidence links while rejecting credentials, custom ports and local destinations. */
+function safeOpportunityUrl(value: unknown): boolean {
+  if (typeof value !== "string" || value.length > 2048) {
+    return false;
+  }
+  try {
+    const url = new URL(value);
+    return (
+      url.protocol === "https:" &&
+      !url.username &&
+      !url.password &&
+      !url.port &&
+      url.hostname.includes(".") &&
+      !/(?:^|\.)(?:localhost|local|internal|test)$/iu.test(url.hostname)
+    );
+  } catch {
+    return false;
+  }
+}
+
 /** Only bounded dated employer evidence is rendered; source links must match the captured approved documents. */
 function validEmployerResearch(value: unknown): boolean {
   if (value === undefined) {
@@ -527,23 +553,18 @@ function validEmployerResearch(value: unknown): boolean {
     !Array.isArray(item.documents) ||
     item.documents.length > 2 ||
     !Array.isArray(item.findings) ||
-    item.findings.length !== 3
+    ![3, 5].includes(item.findings.length)
   ) {
     return false;
   }
 
-  const allowed = [
-    "https://www.figma.com/careers/",
-    "https://remote.com/careers",
-    "https://remote.com/openings",
-  ];
   const documents = item.documents.map(record);
 
   if (
     !documents.every(
       (doc) =>
         doc &&
-        allowed.includes(String(doc.url)) &&
+        safeOpportunityUrl(doc.url) &&
         typeof doc.checkedAt === "string" &&
         Number.isFinite(Date.parse(doc.checkedAt)) &&
         typeof doc.fingerprint === "string",
@@ -557,9 +578,13 @@ function validEmployerResearch(value: unknown): boolean {
 
     return (
       !!finding &&
-      ["location", "authorization", "sponsorship"].includes(
-        String(finding.fact),
-      ) &&
+      [
+        "location",
+        "authorization",
+        "sponsorship",
+        "requirements",
+        "deadline",
+      ].includes(String(finding.fact)) &&
       ["resolved", "unresolved", "conflicting"].includes(
         String(finding.status),
       ) &&
