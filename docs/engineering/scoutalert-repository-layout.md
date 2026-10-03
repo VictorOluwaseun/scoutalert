@@ -1,8 +1,8 @@
 # ScoutAlert — Repository Layout
 
-**Version:** 0.2
+**Version:** 0.3
 
-**Date:** 29 September 2026
+**Date:** 1 October 2026
 
 **Status:** Canonical target layout
 
@@ -48,7 +48,7 @@ scoutalert/
 └── turbo.json
 ```
 
-`apps/docs` is an application; root `docs` contains the product and engineering specifications. `infra/` may be introduced for actual deployment definitions when a deployment target is selected.
+`apps/docs` is an application; root `docs` contains the product and engineering specifications. Existing local deployment definitions live in `infrastructure/`; extend that responsibility deliberately rather than creating a parallel folder. The trees are target ownership, not a claim that every listed package exists.
 
 ## 3. Shared business modules
 
@@ -58,6 +58,7 @@ packages/core/src/
 ├── onboarding/
 ├── profiles/
 ├── scouts/
+├── discovery/
 ├── sources/
 ├── opportunities/
 ├── evidence/
@@ -77,6 +78,20 @@ packages/core/src/
 ```
 
 These are module ownership boundaries, not necessarily twenty independent packages or deployments. Split a module into a workspace package only when its dependency, build, ownership, or release requirements justify that split.
+
+Discovery-related ownership is explicit:
+
+| Core feature                 | Owns                                                                                                       |
+| ---------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `scouts`                     | Confirmed goals, policies, revisions and lifecycle                                                         |
+| `discovery`                  | Plans, query portfolios, observations, leads, deep-discovery cases and coverage observations               |
+| `sources`                    | Provider/source registries, source candidates, expansion policy, monitoring, frontier and cursor contracts |
+| `opportunities` / `evidence` | Accepted normalized opportunities/variants and scoped supporting claims                                    |
+| `retrieval` / `matching`     | Owned projections, candidate routing and private evaluation/publication policies                           |
+| `research`                   | Question/case lifecycle, related-question grouping, applicability and reuse policy                         |
+| `operations`                 | Shared budget admission, durable dispatch, progress/recovery and operational read contracts                |
+
+The Scout Planner and Deep Discovery Agent are discovery application responsibilities; Source Expansion belongs to sources; Evidence Research belongs to research. Model/tool adapters implement their inward capabilities. Avoid a catch-all `agents` package containing duplicate business rules.
 
 A core feature uses:
 
@@ -120,8 +135,16 @@ packages/adapters/src/
 │   └── embeddings/
 ├── matching/
 │   └── evaluators/
+├── discovery/
+│   ├── persistence/
+│   ├── planning/
+│   └── search/
 ├── sources/
-│   └── connectors/
+│   ├── persistence/
+│   ├── connectors/
+│   ├── streams/
+│   ├── fetch/
+│   └── expansion/
 ├── research/
 │   ├── planners/
 │   ├── search/
@@ -151,6 +174,8 @@ Add the other feature adapters as implemented. Feature repositories own queries,
 This replaces the earlier proposed top-level `database`, `cache`, `queue`, and `ai` package collection. Do not create parallel copies of those responsibilities. Extract a technical package later only for a demonstrated independent consumer or lifecycle need.
 
 AI request routing and instrumentation can be shared adapter capabilities. Business-specific prompts and schema mapping stay with the feature adapter that owns their meaning. All provider outputs must be translated and validated before crossing into core.
+
+Discovery search and research tools reuse the owning source/search capability through deliberate contracts; they must not copy vendor transport. Registry data configures source instances under implemented adapters. Search, stream, feed, fetch and monitor contracts preserve pagination, recovery and access semantics. Paid tool/client construction stays in composition; source access and persistence stay in adapters, governed by core policy decisions.
 
 ## 5. API host
 
@@ -214,7 +239,9 @@ Route files compose screens; feature folders own product UI, hooks, and transpor
 ```text
 packages/workflows/src/
 ├── scouting/
+├── discovery/
 ├── source-sync/
+├── source-expansion/
 ├── enrichment/
 ├── research/
 ├── notifications/
@@ -234,9 +261,9 @@ Workflow definitions describe execution order, durable waiting, cancellation, re
 
 Activities establish execution context and call shared core use cases. They do not add duplicate eligibility, consent, ranking, or persistence logic. Outbox dispatch constructs the execution adapter through composition.
 
-The worker host may run separate processes/pools for discovery, indexing, matching, research, and delivery. Add distinct applications only when independent deployment requirements justify them. Split operational capacity before splitting business logic.
+The worker host may run separate processes/pools for search I/O, streams/collection, fetch/render, indexing, matching, research, source expansion and delivery. Agent types, executions, task slots and worker processes are different concepts. Add distinct applications only when independent deployment requirements justify them. Split operational capacity before splitting business logic.
 
-`packages/workflows` is introduced with the execution-engine implementation. Until that adoption is validated, keep durable intents and execution contracts engine-independent in core; do not add empty Temporal or BullMQ wrappers.
+`packages/workflows` already contains finite Temporal definitions. Expanded discovery/expansion definitions are target work and must be introduced with real activities, serializable contracts, replay tests and bounded histories. Durable business intents remain engine-independent in core; no parallel BullMQ state owner is implied by installed dependencies.
 
 ## 8. Exports and allowed dependency graph
 
@@ -262,6 +289,10 @@ Package export maps expose only implemented feature entry points. Workflow SDK a
 Co-locate focused policy/use-case tests. Keep repository contract/integration tests with adapters, workflow replay/recovery tests with workflows/worker, HTTP integration tests with API, and browser end-to-end tests with web. `packages/evaluation` is the target home for versioned quality fixtures and experiment runners; current runners live in `scripts/evaluation` with public-posting and synthetic-brief packets in `evaluations`. Sensitive datasets require separate controlled storage/access.
 
 Current web/API/UI foundations stay in place while moving toward this layout. The installed datasource/queue SDKs have moved from the dependency-only core bootstrap into `@repo/adapters`; core is dependency-free. The adapter manifest declares its inward core dependency. Implemented identity, onboarding and email features now use explicit public exports, PostgreSQL repositories, Redis abuse limits, native client lifecycle and transaction-bound units of work. The first Greenhouse connector, evidence repositories, matching use cases and recipient delivery ledger are implemented. `packages/workflows` now contains finite Temporal definitions and serializable activity contracts; `apps/worker` owns native Nest composition, execution pools, activities and leased outbox dispatch. Workflow import restrictions are enforced. Production orchestration operations/cost gates remain open.
+
+Current source/evidence/matching/research code is still grouped under the implemented `scouting` feature export, including Freelancer collection. Introduce the target discovery and source ownership incrementally through real use cases and explicit exports; keep existing consumers working through deliberate compatibility contracts until migrated. Do not mechanically relocate everything, create empty packages or build a second pipeline with different consent and publication rules. Existing fully populated `Posting` records must not force informal leads to invent missing attributes.
+
+Root `docs/architecture/scoutalert-discovery-architecture.md` owns discovery contracts. Root `docs/engineering/scoutalert-discovery-acceptance.md` owns cross-component gates, and `evaluations/discovery` owns the new protocol and future run artifacts. Existing evaluation packets remain historical evidence rather than being rewritten into broader coverage claims.
 
 Run `pnpm test:architecture` for boundary regression tests and `pnpm lint` for the boundary check followed by workspace linting. Introduce feature packages, build/type-check scripts, and feature exports with their first implemented responsibilities.
 

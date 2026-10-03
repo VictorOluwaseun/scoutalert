@@ -1,16 +1,18 @@
 # ScoutAlert — Platform PRD
 
-**Version:** 0.2
+**Version:** 0.3
 
-**Date:** 29 September 2026
+**Date:** 1 October 2026
 
-**Status:** Platform product direction and proposed delivery baseline
+**Status:** Agreed platform product baseline; implementation and release evidence tracked separately
 
 **Scope:** The complete opportunity scouting lifecycle and platform operations
 
 ## 1. Product direction
 
-ScoutAlert is a continuously operating opportunity intelligence platform. Each person can operate persistent personal Scouts that understand their goals, discover relevant opportunities, investigate important unknowns, evaluate suitability, monitor changes, and deliver useful recommendations.
+ScoutAlert is a continuously operating opportunity intelligence platform with internet-wide discovery as a core capability. Each person can operate persistent personal Scouts that understand their goals, search beyond preconfigured sites, discover relevant opportunities, investigate important unknowns, evaluate suitability, monitor changes, and deliver useful recommendations.
+
+An opportunity can begin as a company listing, a founder's social post, a recruiter announcement, a client asking for help, a community discussion, a feed item or a permitted newsletter. The product finds demand wherever supported public or authorized discovery paths can reach it and continuously expands those paths. General web search, native social discovery, focused crawling and ScoutAlert's own opportunity index are first-class capabilities.
 
 The product must become advanced, robust, and efficient while preserving user control and evidence quality. Its continuing discovery and intelligence work is central to the product. Onboarding establishes the initial brief and is one supporting feature.
 
@@ -22,7 +24,7 @@ Implementation milestones cover increasing capability, coverage, and operating s
 
 ## 2. People and goals
 
-Support individuals across professions, experience levels, languages enabled by the product, and local and international markets. Search quality must account for different kinds of work and opportunities rather than assuming one profession, geography, or compensation model.
+Support individuals across professions, experience levels, languages enabled by the product, and local and international markets. Search quality must account for different kinds of work and opportunities rather than assuming one profession, geography, or compensation model. International remote client projects are the first client-work coverage priority. Languages and regions expand through evaluated discovery and matching support; interface language, source language and applicant eligibility are separate concepts.
 
 A person can maintain several independent Scouts. For example, one Scout can seek a permanent role while another seeks part-time client projects. Each has its own goal, constraints, uncertainty policy, discovery policy, and notification settings.
 
@@ -43,7 +45,7 @@ Separate:
 | Contracts and service opportunities | Freelance work, gigs, client projects, service requests, relevant tenders; deliverables, scope, budget/rate, duration, availability, client requirements, engagement stages |
 | Category expansion                  | Scholarships, fellowships, grants, accelerators, founder programs, and other selected opportunities; dedicated eligibility, evidence, terms, and source coverage            |
 
-Jobs, paid contracts, and scouting demand for a person's services belong in the platform direction. Enabled categories and source integrations are release configuration, not universal coverage claims.
+Jobs, paid contracts, and scouting demand for a person's services are core product requirements. Informal requests count even before they have a formal listing, budget or application URL. Enabled categories and source integrations are release configuration, not universal coverage claims or a permanent provider list.
 
 The working meaning of **services** is finding suitable demand for work a person can provide. It does not establish a separate career-services marketplace, payment escrow, or service fulfillment product. If the intended services include those capabilities, define their actors, transactions, and lifecycle explicitly before implementation. Preserve this as an open product decision rather than silently treating employment rules as sufficient.
 
@@ -56,8 +58,10 @@ Do not force non-employment categories into job-only fields. Shared opportunity 
 | Goal entry and onboarding  | Interpret ordinary language, clarify consequential gaps, review a versioned specification, preserve guest/account boundaries, activate a persistent Scout           |
 | Profiles                   | Maintain confirmed background, qualifications, portfolio/document references, availability, and aspirations separately; optional imports remain reviewable          |
 | Scouts                     | Multiple independent goals; create, edit, pause, resume, archive, duplicate; versioned policies, schedules, and lifecycle                                           |
-| Discovery                  | Continuously collect supported sources; adaptive refresh, change detection, source health, targeted discovery, user-submitted opportunities                         |
-| Opportunity knowledge      | Canonical opportunities and meaningful variants; employer/client identity; versioned source records, terms, status, evidence, and change history                    |
+| Discovery                  | Adaptive general/regional web search, native social discovery, feeds, focused crawling, permitted community/email inputs, standing queries and source expansion     |
+| Discovery planning         | Versioned strategy from the confirmed brief; query families, languages, provider capabilities, coverage gaps, deadlines and budgets                                 |
+| Source ecosystem           | Extensible adapters and validated source instances; access, reuse, cursors, recovery, freshness and health; no fixed provider ceiling                               |
+| Opportunity knowledge      | Incomplete leads, canonical opportunities and meaningful variants; organization/author relationships; versioned source records, evidence and change history         |
 | Retrieval                  | Structured, lexical, and semantic candidate retrieval; safe routing, fusion, measured reranking, multilingual and category-specific evaluation                      |
 | Matching                   | Evaluate professional fit, transferable experience, eligibility, compensation/budget, arrangement, availability, evidence, and freshness separately                 |
 | Research                   | Investigate consequential missing or conflicting evidence with explicit questions, authorized tools, budgets, deadlines, and stopping rules                         |
@@ -72,17 +76,47 @@ Do not force non-employment categories into job-only fields. Shared opportunity 
 | Administration and support | Source management, restricted troubleshooting, quality correction, run recovery, delivery investigation, access auditing                                            |
 | Intelligence evolution     | Curated evaluation data, experiment/rollout controls, model lineage, provider and ScoutAlert-owned extraction, embeddings, rerankers, fit and research capabilities |
 
-Scouts provide a persistent product experience. That does not prescribe one permanently growing workflow execution per Scout.
+Scouts provide a persistent product experience. That does not prescribe one permanently growing workflow execution per Scout or an always-running agent team for every user. The four initial agent responsibilities are Scout Planner, Deep Discovery Agent, Evidence Research Agent and Source Expansion Agent. Extraction and fit assessment remain focused services unless a task actually requires iterative tool choice.
 
 ## 5. Discovery and coverage
 
-Maintain a source registry with category/geography coverage, access and reuse policy, connector version, refresh interval, completeness semantics, cursor, failure state, and last successful scan.
+### 5.1 Open-ended discovery
 
-Before enabling a category for release, name its initial sources and demonstrate live collection. Record refresh expectations and coverage gaps. An empty result set must remain distinguishable from unsupported coverage, partial scans, source failures, and a complete scan without suitable opportunities.
+Support an extensible ecosystem of general and regional search, X and other native social integrations, public/authorized LinkedIn paths, recruitment systems, marketplaces, company sites, feeds, sitemaps, focused crawling, licensed data, permitted communities, newsletters and user submissions. Examples identify useful integration families; they do not define the limit of the product.
 
-Collect and process shareable public content once per meaningful source version. Personalized evaluation uses private confirmed data. Targeted research can address gaps without repeating a full public-source crawl per user.
+Provider capabilities must retain search filters, streams, pagination, historical recovery, entity monitoring, fetching and source-specific completeness. A newly discovered source using an existing adapter should be onboarded as validated configuration. Novel protocols require implementation and verification.
 
-Retain published-at, first-seen, last-successfully-checked, and known closure/deadline times separately. A failed response or missing item in an incomplete scan cannot automatically close an opportunity.
+### 5.2 Adaptive and continuous search
+
+The Scout Planner translates the approved brief into a versioned strategy. The Deep Discovery Agent executes staged searches, inspects results, follows promising context and adjusts terminology or source choices. Query portfolios include synonyms, skills, deliverables, hiring/buyer language, geography, multiple languages, domain-focused searches and long-tail discovery. Requirements remain unchanged unless the user changes them.
+
+Run shared collection and source exploration continuously alongside personalized searches. Existing good indexed matches do not cancel external monitoring. Reserve exploration capacity and measure whether rare goals, languages, regions or source families receive meaningful discovery effort. Increasing query volume alone is not evidence of better coverage.
+
+### 5.3 Source expansion and our own index
+
+The shared Source Expansion Agent finds and evaluates additional domains, accounts, feeds, structured endpoints and communities. Successful admitted discoveries can become monitored source instances, improving future coverage. The focused crawler prioritizes useful pages and revisits them under source policy and bounded resource use.
+
+Build ScoutAlert's searchable lead/opportunity/evidence index from the first discovery increment. Its growth, source relationships, terminology and feedback improve future retrieval. Separate infrastructure can be introduced when measurements justify it; an owned index is not deferred until we can build a general web search engine.
+
+### 5.4 Informal demand and trust
+
+Preserve incomplete opportunity leads. Distinguish requests to hire/buy services from offers selling services, commentary, spam and unrelated discussion. Retain permitted author/thread/link context and original language. Missing formal job fields cannot automatically reject an otherwise useful lead.
+
+Keep source authenticity, claim support, availability and personal fit separate. Suspicious or unsupported content follows an explicit review/quarantine policy. A trustworthy source does not establish every requirement or make an unresolved lead eligible for a verified prompt alert.
+
+### 5.5 Honest coverage and permission
+
+Maintain provider and source registries with category/geography/language coverage, access and reuse policy, adapter version, refresh expectations, completeness, cursor, failure state and last successful scan. Public URL discovery, content access and permission to reuse are separate states. Private groups and inaccessible pages cannot be represented as fully covered.
+
+Google Alerts and similar authorized inbound signals can supplement discovery; ScoutAlert owns its standing searches, schedules and change detection. Optional user connections do not authorize outgoing contact or global reuse of private material.
+
+Before claiming an integration works, demonstrate its live supported capabilities. Distinguish no matches within a checked scope from partial scans, unsupported access, stale evidence, provider failures and exhausted budgets. There is no whole-internet completeness claim.
+
+### 5.6 Reuse and change tracking
+
+Collect and process shareable public content once per compatible meaningful version. Coalesce equivalent public searches and reuse still-valid evidence; personal evaluation remains private. Account scope and content rights constrain reuse. Query plans minimize personal information sent to external providers.
+
+Retain published-at, first-seen, last-successfully-checked and closure/deadline times separately. Missing items in search results, windowed feeds or broken streams cannot establish closure. Durable progress and explicit recovery gaps prevent lost observations being presented as complete scans.
 
 ## 6. Evidence and matching quality
 
@@ -94,11 +128,13 @@ Retrieval must be broad enough to find useful alternatives and precise enough to
 
 Research returns supported evidence, conflicts, or an explicit unresolved outcome. More model reasoning cannot manufacture absent evidence. Result limits are maxima; recommendations are not filled with weak items to meet a quota.
 
+Research questions are individually tracked, but related questions can share one investigation and fetched evidence. Reuse respects role/entity applicability, geography, engagement terms, source version and freshness. A lead, investigated opportunity and private recommendation have separate identities and quality states.
+
 ## 7. Alerts and continuing monitoring
 
 Discovery cadence and delivery cadence are independently configurable. Dashboard-only Scouts continue discovery.
 
-Prompt alerts should support highly relevant newly discovered opportunities, with configurable urgency, thresholds, quiet hours, and frequency limits. Digests combine current recommendations across Scouts for a recipient. Change alerts and reminders use validated material changes and deadlines.
+Prompt alerts support verified exceptional new matches, with required evidence, relevance, novelty, urgency, quiet hours and frequency limits. A high ranking score or a user's tolerance for unknowns does not satisfy the prompt verification standard. Provisional leads can remain reviewable and scheduled digests follow their explicit uncertainty policy. Digests combine current recommendations across Scouts for a recipient. Change alerts and reminders use validated material changes and deadlines.
 
 Before submission, check current opportunity and assessment state, Scout revision/lifecycle, recipient eligibility, consent, and suppression. Coordinate deduplication across Scouts and alert types while allowing deliberate re-alerting for material changes.
 
@@ -121,6 +157,10 @@ Preserve controlled exploration within hard constraints. Evaluation and future t
 - Reconciliation repairs missed dispatches and stale projections without duplicating visible effects.
 - Cache loss may increase work; it must not erase Scouts, consent, recommendations, or delivery identity.
 - Source or research-provider failure remains isolated from unrelated workloads, and partial results retain their coverage state.
+- Durable source progress advances only with accepted work; retries cannot lose acknowledged observations or reset a logical budget.
+- Search, fetch/render, extraction/indexing, matching, research, source expansion and delivery have independent capacity controls and fair scheduling.
+- Agent types are distinct from execution slots and worker processes. Scale from measured demand, provider quotas, latency and cost rather than one swarm per account.
+- Regional account/source ownership, failover fencing and permitted evidence distribution are explicit before claiming multi-region operation.
 - Restore and recovery procedures are exercised before broad release.
 
 ## 10. Operating targets
@@ -129,6 +169,8 @@ Targets must be recorded with workload, category/source coverage, region, percen
 
 | Measure                  | Required definition                                                                                                                          |
 | ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| Discovery quality        | Known-opportunity recall within a declared observable sample; demand precision, false exclusions and stage-specific failure attribution      |
+| Coverage growth          | Newly validated useful sources, provider contribution/overlap, exploration yield and underserved cohort coverage                             |
 | Source freshness         | Publication/change to successful observation where a reliable source timestamp exists; configured refresh and collection lag                 |
 | Recommendation freshness | Observation to eligible published recommendation, including research escalation                                                              |
 | Alert latency            | Eligible publication to provider submission for prompt alerts; scheduled-window adherence for digests                                        |
@@ -139,19 +181,22 @@ Targets must be recorded with workload, category/source coverage, region, percen
 | Efficiency               | Cost per processed opportunity, active Scout period, research case, and useful recommendation; cache/research reuse and resource utilization |
 | Delivery quality         | Suppression correctness, ambiguous submissions, bounces, complaints, provider-reported outcomes                                              |
 
-Do not claim a production service level or cost target without defining the test workload and measuring it. Critical consent, authorization, constraint, and evidence regressions block release independently of aggregate quality scores.
+Do not claim a production service level or cost target without defining the test workload and measuring it. Whole-internet recall has no known denominator; evaluate defined samples and disclose coverage gaps. Independent human judgments, source/time holdouts and cohort reports are required for quality claims. Critical consent, authorization, constraint and evidence regressions block release independently of aggregate quality scores.
 
 ## 11. Delivery milestones
 
-1. **Platform foundation:** Domain ownership, public contracts, persistence/versioning, dependency enforcement, execution interfaces, source registry, evaluation fixtures, and operating metrics.
-2. **Complete scouting loop:** A confirmed Scout, a live supported source, canonical evidence, retrieval, assessment/research, durable recommendation, an eligible alert, user feedback, and fault recovery.
-3. **Production breadth:** Multiple Scouts and sources, service-opportunity policies, recurring monitoring, prompt/digest coordination, opportunity workspace, support, usage/entitlements, and operational recovery.
-4. **Advanced intelligence and scale:** Richer representations, measured reranking, wider categories/languages, assistance/integrations, curated models, independent worker scaling, and search/event/analytics infrastructure when measured requirements justify it.
+The current local baseline has configured-source discovery, assessment and delivery. Its limited coverage does not satisfy the internet-discovery milestone. The [delivery roadmap](../engineering/scoutalert-delivery-roadmap.md) owns implementation status and detailed sequencing:
 
-Deliver vertical slices through the complete product loop. A working onboarding flow alone does not satisfy the first complete scouting-loop milestone. Sequence features within milestones through the platform backlog without removing them from this product direction.
+1. **Discovery foundation:** Lead/observation/plan contracts, source/provider capabilities, persistence, owned index and a first live web-search path.
+2. **Adaptive and social discovery:** Scout planning, iterative deep discovery, native X integration and separately verified public/authorized LinkedIn paths; informal demand classification.
+3. **Continuous expansion:** Shared exploration even with good existing matches, source expansion, monitoring, focused crawling, query coalescing and bundled evidence research.
+4. **Measured release:** Independent discovery/relevance evaluation, failure recovery, freshness/cost measurement, cohort coverage and workload-specific capacity evidence.
+5. **Continuing breadth and product growth:** Additional providers, languages, regions, communities and categories; opportunity workspace, assistance, integrations, commercial operations and owned intelligence.
+
+These increments can overlap; no fixed provider count completes coverage permanently. The first acceptance path is a confirmed Scout discovering a relevant opportunity on a previously unconfigured public source, preserving evidence, assessing fit and delivering an eligible alert. Native social discovery, continuing exploration and recovery remain explicit gates, not optional work hidden after a job-board milestone.
 
 ## 12. Related documents and open decisions
 
-The [platform user stories](../user-stories/scoutalert-platform-user-stories-v0.1.md) contain detailed acceptance criteria. The [platform architecture](../architecture/scoutalert-platform-architecture-v0.1.md) defines implementation boundaries, and the [repository layout](../engineering/scoutalert-repository-layout.md) defines their code locations.
+The [platform user stories](../user-stories/scoutalert-platform-user-stories-v0.1.md) contain feature acceptance criteria. The [discovery acceptance gates](../engineering/scoutalert-discovery-acceptance.md) define cross-component pass/fail scenarios and the [evaluation protocol](../../evaluations/discovery/README.md) defines quality evidence. The [platform architecture](../architecture/scoutalert-platform-architecture-v0.1.md) and [discovery architecture](../architecture/scoutalert-discovery-architecture.md) define implementation boundaries; the [repository layout](../engineering/scoutalert-repository-layout.md) owns code locations.
 
-Open release decisions include named initial sources and refresh targets, exact services beyond client-work scouting, enabled categories/languages, commercial plans, external action permissions, providers, retention, operating budgets, and measured execution-engine adoption. They refine delivery; they do not reduce the full platform scope.
+Open release decisions include actual search/social provider access and reuse terms, refresh targets, services beyond client-work scouting, enabled interface/source languages, commercial plans, external action permissions, retention, regional deployment and measured operating budgets. Temporal is already integrated locally; production operations and capacity remain unverified. These decisions refine delivery without reducing the full platform scope.

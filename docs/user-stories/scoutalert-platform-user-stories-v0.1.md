@@ -1,20 +1,22 @@
 # ScoutAlert — Platform User Stories
 
-**Version:** 0.2
+**Version:** 0.3
 
-**Date:** 29 September 2026
+**Date:** 1 October 2026
 
 **Status:** Product backlog baseline
 
 **Scope:** Complete opportunity scouting lifecycle and platform operations
 
-**Product baseline:** [Platform PRD](../prd/scoutalert-platform-prd.md), revision 0.2
+**Product baseline:** [Platform PRD](../prd/scoutalert-platform-prd.md), revision 0.3
 
-**Onboarding backlog:** [ScoutAlert Onboarding User Stories](scoutalert-onboarding-user-stories-v0.1.md), revision 0.2
+**Onboarding backlog:** [ScoutAlert Onboarding User Stories](scoutalert-onboarding-user-stories-v0.1.md), revision 0.3
+
+**Cross-component acceptance:** [DACC scenarios and release gates](../engineering/scoutalert-discovery-acceptance.md). Stories describe required behavior, not completed work. Existing IDs remain stable; [the roadmap](../engineering/scoutalert-delivery-roadmap.md) owns implementation status.
 
 ## 1. Priority definitions
 
-- **P0** — Core capability required for the first complete scouting loop across enabled work categories.
+- **P0** — Core capability required for the internet-discovery scouting loop across enabled employment, contract and client/service categories.
 - **P1** — Important production capability required for a strong broad release.
 - **P2** — Advanced or category-expansion capability that builds on the core platform.
 
@@ -143,15 +145,18 @@ As a user, I want each scout to define how missing salary, location eligibility,
 
 ## 4. Opportunity discovery and source coverage
 
-### DISC-001 — Discover opportunities across supported global sources
+### DISC-001 — Discover opportunities beyond configured sources
 
 **User story**
 
-As a user, I want ScoutAlert to continuously discover relevant opportunities from supported sources so that I do not need to monitor many sites manually.
+As a user, I want ScoutAlert to search across the web and supported social platforms, including sources it has not monitored before, so that useful opportunities are not limited to a configured list of boards.
 
 **Acceptance criteria**
 
 - The system ingests enabled approved sources according to their refresh policies.
+- General web search and native social discovery can admit leads from previously unconfigured public sources through access policy.
+- New domains using supported protocols do not require a hardcoded connector entry to contribute a lead.
+- Informal client requests and hiring posts are valid inputs; formal job fields are not required to preserve a lead.
 - Source failures do not appear as successful scans.
 - Source coverage is represented honestly.
 - Worldwide service does not imply every employer/site is covered.
@@ -213,8 +218,9 @@ As a user, I want to understand relevant coverage gaps so that an empty result s
 - Scout/run status can distinguish no matches, incomplete coverage, source failure, and partial completion.
 - Coverage messaging is scoped to supported sources/categories.
 - Users can see when a source is temporarily unavailable when materially relevant.
+- Access-blocked, stale and budget-exhausted states remain distinguishable; no-match claims are scoped to actual checks.
 
-**Priority:** P1
+**Priority:** P0
 
 ### DISC-006 — Submit an opportunity I found
 
@@ -230,6 +236,263 @@ As a user, I want to submit an opportunity URL or text so that ScoutAlert can ev
 - User submission does not automatically make the opportunity trusted.
 
 **Priority:** P1
+
+### DISC-007 — Expand discovery through capable providers
+
+**User story**
+
+As a platform operator, I want extensible discovery providers so that additional search engines, social platforms and feeds can improve coverage without changing matching or delivery rules.
+
+**Acceptance criteria**
+
+- Registry entries declare actual implemented search, stream, feed, fetch, monitor and research capabilities.
+- Filters, cursors, completeness, recovery support, quota units and access/reuse scope retain their meaning.
+- A source instance is configuration under an adapter; a new protocol requires a tested implementation.
+- Unsupported capabilities are explicit; a provider name or installed SDK is not a connected integration.
+
+**Priority:** P0
+
+### DISC-008 — Search using varied language and useful query strategies
+
+**User story**
+
+As a user, I want my scout to search related wording, skills, deliverables and hiring or buyer language so that opportunities need not use my exact phrase.
+
+**Acceptance criteria**
+
+- Query portfolios include exact terms, meaningful alternatives, source-focused and freshness-aware searches.
+- Geography, language and negative-query choices preserve confirmed intent and are evaluated for false exclusions.
+- Query actions, results, costs and plan versions are traceable.
+- Repeated low-yield queries can be revised while reserved exploration remains available.
+
+**Priority:** P0
+
+### DISC-009 — Recognize informal demand on social platforms
+
+**User story**
+
+As a service professional or job seeker, I want relevant social requests and hiring announcements found before a formal listing exists.
+
+**Acceptance criteria**
+
+- Native social results preserve platform/post identity, timestamps and permitted author/thread/link context.
+- Buyer demand, service advertisements, referrals, commentary and irrelevant content are distinguished.
+- Missing company, pay or application URL remains unknown rather than fabricated or automatically rejected.
+- Native X discovery is verified separately from web search returning X URLs.
+
+**Priority:** P0
+
+### DISC-010 — Turn new discoveries into monitored sources
+
+**User story**
+
+As a user, I want ScoutAlert to learn where useful opportunities appear so that successful discovery improves future coverage.
+
+**Acceptance criteria**
+
+- New domains, accounts, feeds and structured endpoints can create source candidates with provenance.
+- Capability/access validation precedes source activation; duplicates consolidate under a stable instance identity.
+- Existing adapters can admit supported instances through configured policy without new matching code.
+- Unsupported protocols remain explicit candidates; no agent-generated code executes automatically.
+
+**Priority:** P0
+
+### DISC-011 — Keep discovering when there are already good matches
+
+**User story**
+
+As a user, I want fresh external exploration to continue even when ScoutAlert already has suitable results so that better or newer opportunities are not missed.
+
+**Acceptance criteria**
+
+- Shared monitoring and reserved source exploration run independently of indexed shortlist sufficiency.
+- Exploration allocation, missed schedules and resulting useful discoveries are observable.
+- Popular sources cannot consume all discovery capacity under the configured fairness policy.
+- Pausing one scout blocks its private publication without unnecessarily stopping public work for others.
+
+**Priority:** P0
+
+### DISC-012 — Search across languages and regions fairly
+
+**User story**
+
+As a user with a local or international goal, I want discovery to consider relevant languages and regional sources without assuming the largest market represents everyone.
+
+**Acceptance criteria**
+
+- Interface language, query language, source language and applicant eligibility are separate.
+- Original evidence remains attributable when translation is used.
+- Rare goals and underserved cohorts receive measured exploration opportunities.
+- Coverage and quality are reported by language, region, category and source family; unsupported coverage stays visible.
+
+**Priority:** P0
+
+### DISC-013 — Monitor standing searches and source changes
+
+**User story**
+
+As a user, I want searches and useful sources revisited so that new requests and material changes reach my scout without repeating setup.
+
+**Acceptance criteria**
+
+- Standing queries and monitored entities have durable identity, cadence, progress and recovery state.
+- Refresh responds to urgency, activity, demand, freshness targets and available quota.
+- Search disappearance does not prove opportunity closure.
+- Discovery schedules remain independent of email schedules.
+
+**Priority:** P0
+
+### DISC-014 — Use authorized alert, newsletter and community inputs
+
+**User story**
+
+As a user, I want supported forwarded alerts and permitted community or newsletter content considered alongside web discoveries.
+
+**Acceptance criteria**
+
+- Optional Google Alerts and other inbound signals follow explicit authorization and source-scope rules.
+- Private content is not promoted into public evidence merely because it contains a public URL.
+- Messages and linked content remain untrusted and use normal fetch/evidence checks.
+- ScoutAlert owns ongoing search and monitoring; inbound alerts do not authorize outgoing contact.
+
+**Priority:** P1
+
+### DISC-015 — Benefit from shared public discovery efficiently
+
+**User story**
+
+As a platform user, I want repeated public discovery work shared so that useful results arrive efficiently as the number of scouts grows.
+
+**Acceptance criteria**
+
+- Compatible public queries coalesce by provider, query semantics, language, region, access class and freshness window.
+- Public content processing is reused per meaningful version with invalidation and bounded leases.
+- Private profiles, queries containing confidential information and personal assessments retain their access scope.
+- Cache loss affects performance, not durable leads, budget authority or delivery identity.
+
+**Priority:** P0
+
+### DISC-016 — Follow useful web leads through a focused crawler
+
+**User story**
+
+As a user, I want ScoutAlert to follow relevant pages, feeds and sitemaps so that a search result can reveal deeper opportunities.
+
+**Acceptance criteria**
+
+- A durable frontier records canonical URLs, purpose, priority, revisit time, lease and outcome.
+- Admission checks precede network access and repeat for redirects; per-host limits and crawl policy apply.
+- Crawl traps, huge responses and rendering costs are bounded.
+- New permitted sources can pass policy without a hardcoded domain list; disallowed access remains blocked.
+
+**Priority:** P0
+
+### DISC-017 — Recover source streams and batches without silent gaps
+
+**User story**
+
+As a platform operator, I want ingestion progress tied to durable accepted work so that interruptions do not silently lose opportunities.
+
+**Acceptance criteria**
+
+- Accepted observations and downstream intent persist before acknowledgement or equivalent progress commitment.
+- Duplicate delivery is idempotent; reconnect and backfill follow actual provider capabilities.
+- Unrecoverable gaps and truncated batches are visible.
+- Windowed, partial or failed collection cannot close absent opportunities.
+
+**Priority:** P0
+
+### DISC-018 — Understand platform access boundaries
+
+**User story**
+
+As a user, I want ScoutAlert to distinguish discovering a link from reading its contents so that platform coverage claims remain accurate.
+
+**Acceptance criteria**
+
+- Publicly indexed LinkedIn leads, authorized API reads and inaccessible content have distinct capability/access states.
+- Permitted pointers can be retained without invented full text or verified claims.
+- Connection revocation propagates required restrictions to future access and derived records.
+- Supporting a platform never implies access to every private group, account or post.
+
+**Priority:** P0
+
+### DISC-019 — See meaningful search progress and coverage
+
+**User story**
+
+As a user, I want understandable discovery progress and gaps so that I can tell whether my scout searched, needs more time or cannot access an important source.
+
+**Acceptance criteria**
+
+- Saved, queued, searching, partial, exhausted, access-blocked, failed and checked states retain their actual meaning.
+- The last successful observation and relevant source/category gaps are visible without raw operational details.
+- Connected integrations and planned providers are never presented as equivalent.
+- No screen turns an empty bounded run into a claim that no opportunities exist anywhere.
+
+**Priority:** P0
+
+## 4.1 Agent responsibilities
+
+### AGENT-001 — Maintain a useful versioned search plan
+
+**User story**
+
+As a user, I want a Scout Planner to maintain a strategy for my confirmed goal so that discovery can adapt without changing my requirements.
+
+**Acceptance criteria**
+
+- Plans bind to Scout/profile/specification revisions and declare query families, capabilities, gaps and expiry.
+- Material changes, stale plans and observed poor coverage can trigger replanning; every scan need not invoke a model.
+- Mandatory constraints and personal facts cannot change through planner output.
+- Plans record privacy class, budget policy and reasons for selected strategies.
+
+**Priority:** P0
+
+### AGENT-002 — Investigate promising discovery paths adaptively
+
+**User story**
+
+As a user, I want a Deep Discovery Agent to examine results and choose useful next searches so that difficult goals receive more than one fixed query.
+
+**Acceptance criteria**
+
+- Each case has an objective, input revisions, permitted tools, action history and reserved limits.
+- Actions can reformulate queries and follow admitted context based on observed findings.
+- Outputs include evidence-linked leads, source candidates, coverage observations and explicit partial/unresolved outcomes.
+- Cancellation, exhaustion and superseded inputs stop further unauthorized work; retries cannot reset the budget.
+
+**Priority:** P0
+
+### AGENT-003 — Research evidence that changes a decision
+
+**User story**
+
+As a user, I want an Evidence Research Agent to investigate consequential gaps so that supported recommendations replace avoidable uncertainty.
+
+**Acceptance criteria**
+
+- The case records specific questions and existing evidence before choosing tools.
+- Related questions can share research; outcomes retain applicability and source references.
+- Missing evidence remains unresolved when stopping conditions are reached.
+- Research cannot directly publish, send messages or modify confirmed facts.
+
+**Priority:** P0
+
+### AGENT-004 — Expand sources as a shared platform capability
+
+**User story**
+
+As a user, I want a shared Source Expansion Agent to investigate useful new sources so that coverage compounds across scouts.
+
+**Acceptance criteria**
+
+- Coverage gaps, new discoveries and reserved exploration can trigger expansion cases.
+- Outputs are validated source/monitoring proposals with provenance and access decisions.
+- Enabled instances run under supported adapters and deterministic admission policy.
+- Measure sustained useful coverage and cost rather than source proposal count alone.
+
+**Priority:** P0
 
 ## 5. Evidence and opportunity understanding
 
@@ -277,6 +540,51 @@ As a user, I want ScoutAlert to recognize material changes to opportunities so t
 - Material-change policies are versioned/testable.
 
 **Priority:** P1
+
+### EVID-004 — Preserve incomplete opportunity leads
+
+**User story**
+
+As a user, I want promising incomplete requests preserved so that missing formal fields do not prevent useful investigation.
+
+**Acceptance criteria**
+
+- Observation, lead, source version, normalized opportunity and private assessment have separate identities.
+- Missing title, organization, budget or application URL is explicit and does not require invented values.
+- Lead investigation/rejection/staleness state and reasons remain traceable.
+- Provisional review and verified prompt eligibility remain distinct policies.
+
+**Priority:** P0
+
+### EVID-005 — Link related sources without erasing differences
+
+**User story**
+
+As a user, I want reposts, discussions and formal listings linked so that I can see the evidence behind one opportunity.
+
+**Acceptance criteria**
+
+- Canonical identity links source posts, authors/organizations and evidence where supported.
+- Location, arrangement, scope, budget and deadline variants are preserved.
+- Merges can be audited and reversed with dependent recommendation/delivery identity reconciled.
+- Original language and translation lineage remain available under retention policy.
+
+**Priority:** P0
+
+### EVID-006 — Keep trust and source instructions separate from facts
+
+**User story**
+
+As a user, I want suspicious content handled carefully and source instructions treated as data so that a convincing post cannot manipulate my scout.
+
+**Acceptance criteria**
+
+- Authenticity, claim support, availability and suitability are separate dimensions.
+- Suspicion/quarantine decisions carry reasons and do not invent safe/scam certainty.
+- Retrieved instructions cannot change tools, expose secrets, authorize contact or bypass hard constraints.
+- Source edits, deletion and access revocation invalidate affected current claims according to policy.
+
+**Priority:** P0
 
 ## 6. Retrieval and matching
 
@@ -400,6 +708,21 @@ As a user, I want optional stretch opportunities clearly separated from direct m
 
 **Priority:** P1
 
+### MATCH-009 — Retrieve broadly across acquired leads and languages
+
+**User story**
+
+As a user, I want our growing opportunity index to retrieve useful leads across terminology and languages so that acquisition work translates into relevant results.
+
+**Acceptance criteria**
+
+- The owned index starts with the first discovery increment and is rebuildable from permitted durable records.
+- Original terms, translated concepts, category, geography and freshness remain searchable where enabled.
+- Broad/uncertain goals retain catch-all routing and periodic reconciliation.
+- Acquisition recall, routing losses and retrieval recall are measured separately on defined samples.
+
+**Priority:** P0
+
 ## 7. Agentic research
 
 ### RSRCH-001 — Investigate consequential unknowns
@@ -444,6 +767,21 @@ As a user, I want ScoutAlert to stop when the question is resolved or when evide
 - Budget exhaustion produces an unresolved state rather than a fabricated answer.
 - A stronger model is not used solely because evidence is absent.
 - Research outcome is persisted for audit/reuse according to policy.
+
+**Priority:** P0
+
+### RSRCH-004 — Answer related questions without repeating public work
+
+**User story**
+
+As a user, I want related questions to share valid evidence so that deeper investigation remains efficient.
+
+**Acceptance criteria**
+
+- Question records can belong to one research case and reuse a document fetch.
+- Reuse keys preserve entity/role, geography, engagement, source version, access class and validity.
+- A broad employer policy does not override a specific restriction.
+- Private personal eligibility remains separate from shared public facts.
 
 **Priority:** P0
 
@@ -925,8 +1263,9 @@ As a service professional, I want a Scout for suitable client projects, gigs, an
 - Skills, portfolio evidence, deliverables, client requirements, availability, engagement duration, and budget/rate basis remain distinct.
 - Employment-specific assumptions are not applied to service opportunities.
 - The services definition follows the platform PRD's working scope and open decisions.
+- Informal buyer requests on the web/social platforms are core inputs; international remote projects are the first client-work coverage priority.
 
-**Priority:** P1
+**Priority:** P0
 
 ### SVC-002 — Evaluate project compatibility
 
@@ -941,7 +1280,7 @@ As a service professional, I want ScoutAlert to compare a project with my capabi
 - Financial comparisons preserve currency, unit, milestones, and stated assumptions.
 - Evidence supports important client/project claims.
 
-**Priority:** P1
+**Priority:** P0
 
 ### SVC-003 — Manage service leads and engagement progress
 
@@ -984,6 +1323,7 @@ As a user, I want an optional prompt email when ScoutAlert discovers a highly re
 **Acceptance criteria**
 
 - Prompt alerts follow explicit relevance, novelty, urgency, freshness, consent, and volume policies.
+- Required criteria must be supported under the verified exceptional-match policy; unknown tolerance for provisional review/digests does not waive prompt verification.
 - Discovery and notification latency are measured separately.
 - They coordinate item-level deduplication with later digests and other Scouts.
 - Current revisions and opportunity status are revalidated before submission.
@@ -1119,6 +1459,81 @@ As a platform operator, I want workload-specific freshness, quality, latency, co
 
 **Priority:** P0
 
+### OPS-011 — Preserve ingestion capability and recovery semantics
+
+**User story**
+
+As an operator, I want provider-specific progress and failure semantics retained so that search, streams and feeds recover correctly.
+
+**Acceptance criteria**
+
+- Contracts preserve pagination, windows, offsets, gaps, partial results and unsupported capability states.
+- Durable observations and work intents commit before acknowledgement/progress permits their loss.
+- Replay and deduplication are tested around commit and acknowledgement failure windows.
+- Provider gaps trigger available backfill or explicit coverage degradation.
+
+**Priority:** P0
+
+### OPS-012 — Allocate capacity fairly across discovery workloads
+
+**User story**
+
+As an operator, I want independent limits and fair scheduling so that global growth does not starve timely results or underserved searches.
+
+**Acceptance criteria**
+
+- Search, collection, rendering, extraction/indexing, matching, research, expansion and delivery expose separate lag/capacity controls.
+- Provider requests/tokens, source-host limits, accounts, deadlines and platform budgets constrain admission.
+- Exploration has an explicit allocation and exhaustion/deferral remains observable.
+- One noisy account, provider outage or expensive investigation cannot consume every work slot.
+
+**Priority:** P0
+
+### OPS-013 — Validate new provider contribution before promotion
+
+**User story**
+
+As a quality operator, I want actual provider capabilities and incremental usefulness evaluated so that more integrations improve the product measurably.
+
+**Acceptance criteria**
+
+- Access, costs, quotas, attribution/reuse, recovery and runtime health are verified for the actual integration.
+- Discovery recall, demand precision, duplicate overlap and useful new sources are measured against baselines.
+- Independent labels and held-out sources/time windows support quality claims.
+- Planned, implemented, connected, verified and production-ready states remain distinct.
+
+**Priority:** P0
+
+### OPS-014 — Define regional ownership and safe failover
+
+**User story**
+
+As an operator, I want explicit account and source ownership across regions so that global operation does not create inconsistent state or duplicate work.
+
+**Acceptance criteria**
+
+- Private account home regions, source-collection ownership and permitted evidence distribution are documented.
+- Failover fences old owners and accounts for replication/index lag.
+- Residency, revocation and deletion propagation are preserved.
+- Multi-region claims require recovery and failure tests on the proposed deployment.
+
+**Priority:** P1
+
+### OPS-015 — Demonstrate capacity with realistic workload evidence
+
+**User story**
+
+As an operator, I want measured capacity plans so that a count of agent types or synthetic workflows is not mistaken for global scalability.
+
+**Acceptance criteria**
+
+- Workload manifests declare arrival rates, task mix, service times, document sizes, overlap, quotas, bursts and resource configuration.
+- Throughput, queue-delay percentiles, freshness, recovery, cost and cohort quality meet targets chosen before the run.
+- Agent types, logical cases, execution slots and processes are reported separately.
+- Dedicated search, event or analytical infrastructure adoption includes measured need, migration and rollback evidence.
+
+**Priority:** P0
+
 ## 19. Future opportunity categories
 
 ### CAT-001 — Search scholarships and fellowships
@@ -1152,19 +1567,22 @@ As a founder, I want ScoutAlert to find grants, accelerators, procurement opport
 
 ## 20. Platform release definition
 
-The first complete scouting-loop milestone across enabled categories is complete when a user can:
+The internet-discovery milestone across employment, contracts and client/service demand is complete only with the [DACC release evidence](../engineering/scoutalert-discovery-acceptance.md). Users must be able to:
 
 1. maintain a confirmed profile;
 2. create multiple independent scouts;
-3. receive continuously refreshed source-backed opportunities;
+3. receive opportunities discovered beyond configured boards, including an unconfigured public source and a separately verified native social path;
 4. get hybrid-retrieval and evidence-grounded matching;
 5. see hard constraints, fit, compensation, and uncertainty separately;
 6. benefit from bounded research when important evidence is unclear;
 7. inspect/save/dismiss recommendations;
 8. receive reliable consent-aware prompt alerts and/or configured digests;
 9. track scout health and distinguish failures from no matches;
-10. control their data and notification scope.
+10. control their data and notification scope;
+11. benefit from continued external exploration even when the index already contains suitable matches;
+12. receive useful informal leads without fabricated formal job fields;
+13. benefit from newly discovered sources becoming monitored through validated capabilities.
 
-Platform operations must support source health, provenance, idempotent recovery, AI/research budgets, quality evaluation, and delivery observability.
+Platform operations must support source/provider health, durable ingestion progress, provenance, idempotent recovery, shared public reuse, independent quality evaluation, budgets, fair scheduling and delivery observability. Declared production targets need workload-specific evidence. The [roadmap](../engineering/scoutalert-delivery-roadmap.md) distinguishes the existing configured-source loop from these unimplemented discovery requirements.
 
-Production breadth includes service-opportunity policies and engagement management, monitoring, application assistance, integrations, commercial operations, support, and advanced intelligence according to the platform PRD milestones. These capabilities remain in scope when sequenced after the first complete loop.
+Service demand discovery and project compatibility are core requirements. Further production breadth includes richer engagement management, application assistance, integrations, commercial operations, support, regional operation and advanced intelligence according to the platform PRD. These capabilities remain in scope when sequenced into later increments.

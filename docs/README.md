@@ -1,53 +1,61 @@
 # ScoutAlert documentation
 
-**Baseline revision:** 0.2
+**Baseline revision:** 0.3
 
 **Updated:** 1 October 2026
 
-ScoutAlert is a continuously operating opportunity intelligence platform with persistent personal Scouts. These documents describe the full product and its target architecture. Implementation milestones sequence that work; they do not define the limit of the product.
+ScoutAlert is a continuously operating opportunity intelligence platform with persistent personal Scouts and internet-wide discovery as a core capability. These documents define the agreed target, implementation boundaries and evidence required for release. Milestones sequence delivery without reducing the product to onboarding or a fixed source list.
 
 ## Reading order and ownership
 
-| Document                                                                           | Owns                                                                                                    |
-| ---------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| [Platform PRD](prd/scoutalert-platform-prd.md)                                     | Product direction, full lifecycle, opportunity categories, platform capabilities, release outcomes      |
-| [Platform architecture](architecture/scoutalert-platform-architecture-v0.1.md)     | Domain ownership, data authority, discovery, retrieval, matching, research, execution, delivery, growth |
-| [Repository layout](engineering/scoutalert-repository-layout.md)                   | Canonical folder structure, package responsibilities, public exports, application composition           |
-| [Engineering standards](engineering/scoutalert-engineering-standards-v0.1.md)      | Mandatory coding, repository, transaction, documentation, and dependency rules                          |
-| [Technology stack](architecture/scoutalert-technology-stack-v0.1.md)               | Selected foundations, preferred execution target, evaluation candidates, adoption criteria              |
-| [Platform user stories](user-stories/scoutalert-platform-user-stories-v0.1.md)     | Detailed platform acceptance criteria and backlog                                                       |
-| [Onboarding PRD](prd/scoutalert-onboarding-prd-v0.1.md)                            | Goal-first entry, clarification, review, guest exploration, identity, initial activation                |
-| [Onboarding architecture](architecture/scoutalert-onboarding-architecture-v0.1.md) | Implementation of that feature within the platform boundaries                                           |
-| [Onboarding user stories](user-stories/scoutalert-onboarding-user-stories-v0.1.md) | Onboarding acceptance criteria and backlog                                                              |
+| Document                                                                             | Owns                                                                                                                     |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ |
+| [Platform PRD](prd/scoutalert-platform-prd.md)                                       | Complete product direction, opportunity categories, continuous discovery and release outcomes                            |
+| [Platform architecture](architecture/scoutalert-platform-architecture-v0.1.md)       | Domain ownership, data authority, intelligence, execution, delivery and global operation                                 |
+| [Internet discovery architecture](architecture/scoutalert-discovery-architecture.md) | Four agent responsibilities, plans, leads, provider capabilities, source expansion, crawl/monitoring, reuse and recovery |
+| [Discovery acceptance gates](engineering/scoutalert-discovery-acceptance.md)         | DACC-001–020, cross-component pass/fail behavior, required evidence and release gates                                    |
+| [Delivery roadmap](engineering/scoutalert-delivery-roadmap.md)                       | Current implementation, remaining increments, dependencies and completion boundaries                                     |
+| [Platform user stories](user-stories/scoutalert-platform-user-stories-v0.1.md)       | Stable story IDs, feature requirements and acceptance criteria                                                           |
+| [Repository layout](engineering/scoutalert-repository-layout.md)                     | Canonical code locations, feature ownership, exports and migration boundaries                                            |
+| [Engineering standards](engineering/scoutalert-engineering-standards-v0.1.md)        | Repository, transaction, stack, agent, documentation and control-flow rules                                              |
+| [Technology stack](architecture/scoutalert-technology-stack-v0.1.md)                 | Selected foundations, provider capability strategy and adoption evidence                                                 |
+| [Discovery evaluation protocol](../evaluations/discovery/README.md)                  | Sampling, independent labels, baselines, cohort quality, capacity and cost measurement                                   |
+| [Onboarding PRD](prd/scoutalert-onboarding-prd-v0.1.md)                              | Goal entry, review, identity, activation and discovery handoff                                                           |
+| [Onboarding architecture](architecture/scoutalert-onboarding-architecture-v0.1.md)   | Feature state, ownership, transactions and downstream plan handoff                                                       |
+| [Onboarding stories](user-stories/scoutalert-onboarding-user-stories-v0.1.md)        | Feature-specific acceptance, including truthful coverage and preserved intent                                            |
+| [Connected onboarding and scouting](engineering/scoutalert-connected-onboarding.md)  | Existing local setup, implemented behavior, commands, historical checks and limitations                                  |
+| [Local email](engineering/scoutalert-local-email.md)                                 | Mailpit transport configuration and verification                                                                         |
 
-The platform PRD is the product baseline. Onboarding documents specify one feature and cannot narrow platform scope. The repository layout owns directory decisions; other documents reference it rather than define alternative trees. `AGENTS.md` and explicit user instructions govern working agreements and take precedence over conflicting examples.
+The PRD owns scope; the platform/discovery architecture owns design; acceptance gates own proof; the roadmap owns implementation status. Operational guides describe actual code and historical measurements. Onboarding cannot narrow platform scope. `AGENTS.md` and explicit user instructions govern working agreements.
 
-Existing filenames containing `v0.1` are retained for link stability; the version in each document header identifies its current revision. Existing story IDs are also retained when terminology changes.
+Existing filenames containing `v0.1` remain stable for links; document headers identify their current revision. The stack document has its own revision history. Existing story IDs and historical evaluation artifacts are preserved.
 
-## Architecture alignment
+## Agreed discovery decisions
 
-The 29 September clarification retains the current platform direction and repository layout. ScoutAlert business modules remain in `packages/core`, infrastructure implementations remain in `packages/adapters`, and API/worker hosts compose the same business behavior. Packages can contain both reusable product modules and technical libraries.
+- Search across the useful public web and authorized connected sources, including informal social hiring and buyer requests. Named platforms/providers are examples and integrations, never a permanent ceiling.
+- Use four initial agent roles: **Scout Planner**, **Deep Discovery Agent**, **Evidence Research Agent** and **Source Expansion Agent**. Extraction and fit remain focused services unless iterative tool choice is needed.
+- Run shared collection and reserved source exploration alongside private personal scouting. Good indexed results cannot cancel external freshness and exploration.
+- Persist observations and incomplete leads separately from normalized opportunities and private assessments. Missing formal job fields do not force fabricated values or discard useful demand.
+- Keep provider capabilities expressive: search, streams, feeds, fetch/render, monitoring, cursors, recovery and completeness have distinct contracts.
+- Build the owned opportunity/evidence index from the first discovery increment. Supported new sources can become monitored registry instances; new protocols require implementation.
+- Reuse public query/content/research work only within compatible access, scope, versions and freshness. Personal data and assessments stay private.
+- Bound each execution through durable budgets, deadlines, retries and concurrency. Agent types are not process counts or per-user swarms.
+- Measure known-opportunity recall, demand precision, useful coverage growth, cohort gaps, freshness, cost and recovery. No whole-internet recall or production-capacity claim is implied.
 
-The latest [design clarification](https://chatgpt.com/s/t_6abb222cfb588191ae639303e0e25611) is supporting discussion. This documentation baseline and explicit user instructions govern implementation. The platform retains persistent Scouts, shared opportunity intelligence, event-driven evaluation and reconciliation, bounded research, durable orchestration, independently scalable workloads, and recipient-level notification identity.
+## Existing architectural decisions retained
 
-Execution-engine adoption, provider/model selection, and measured operating targets retain their documented validation requirements.
+Framework-independent business modules live in `packages/core`; repositories and external implementations live in `packages/adapters`; web/API/worker hosts compose their respective responsibilities. Temporal is selected and integrated locally, with deterministic definitions in `packages/workflows`. Production operating gates remain open. LangGraph is optional and installed BullMQ dependencies do not establish a second state owner.
 
-## Baseline decisions
+PostgreSQL remains authoritative for business records, consent, budgets and durable intents. Redis is disposable cache and bounded coordination. Workflow history, search projections and event replay are distinct responsibilities. Transactions explicitly bind participating repositories; model/network effects occur outside them. Source and Scout revisions protect current publication, and recipient-level delivery identity protects notifications.
 
-- A **Scout** owns a person's search goal, approved specification, policies, versions, and lifecycle. Profiles, execution runs, recommendations, applications, engagements, and deliveries have separate identities.
-- Framework-independent business modules live in `packages/core/src/<feature>/{domain,application}`.
-- Repositories, cache implementations, source connectors, and provider adapters live outside core in `packages/adapters`, organized by owning feature.
-- Web, API, and worker applications are execution and presentation hosts. They compose shared use cases and infrastructure.
-- Temporal is the preferred target for durable multi-step execution, subject to the adoption checks in the stack document. Installed BullMQ dependencies do not establish a deployed workflow implementation. LangGraph remains conditional.
-- PostgreSQL owns durable business records. Redis holds disposable cache and bounded runtime state. Workflow execution history and searchable projections have explicitly separate authority.
-- Continuous discovery, research, recommendations, prompt alerts, opportunity management, feedback, platform operations, and ScoutAlert-owned intelligence are part of the platform design.
+## Current implementation boundary
 
-## Implementation status
+The existing local path includes reviewed onboarding, real Mailpit verification, sessions, transactional activation, saved Scouts, dashboard reads, edit/pause/resume and opportunity feedback. Live sources are Figma and Remote's Greenhouse boards and bounded Freelancer buyer requests for fixed-price projects and hourly services. Evidence extraction/private fit, bounded availability and employer-policy research, Temporal execution and local digests/prompt controls are implemented.
 
-The workspace contains deterministic onboarding review, [shared email verification and sessions, transactional scout activation and an account-owned dashboard](engineering/scoutalert-connected-onboarding.md), and [local email capture through Mailpit](engineering/scoutalert-local-email.md). Confirmed Scouts, preferences, consent and unique initial discovery intents persist in PostgreSQL. Returning users can sign in independently of onboarding, edit and pause scouts, and give private opportunity feedback. The first live path includes shared Greenhouse collection from Figma/Remote and Freelancer buyer requests for fixed-price client projects and hourly services, evidence-based matching, account-owned dashboard results, Temporal execution and grouped scheduled Mailpit digests. Discovery covers these initial sources; additional marketplaces, broader research coverage and production execution/provider operations remain separate work.
+The [first web discovery implementation](engineering/scoutalert-web-discovery.md) provides an opt-in Serper adapter, shared query admission, incomplete leads, public evidence and a connected private UI. Live Serper access passed a one-query contract check and is enabled locally; the recorded source-page check remained access-limited. [Native X discovery](engineering/scoutalert-native-social-discovery.md) now has recent-search/lookup adapters and shared durable progress; live recent search, post refresh and bounded parent/quote/conversation context lookup are verified locally. Related authors remain separately attributed; missing context and independent quality measurements remain explicit. Reviewed-page monitoring and a bounded observed-link frontier are implemented. [Measured discovery scheduling](engineering/scoutalert-discovery-scheduling.md) now prioritizes approved queries and source checks, slows repeated low-yield native work, and paces the X allowance across the day. Independent quality and global capacity remain unproven. Broader thread/stream access, source protocols and the full four-role adaptive architecture remain incomplete. Semantic retrieval, independently reviewed broad quality, representative global capacity and production delivery operations remain unverified or unimplemented as recorded in the roadmap.
 
-`@repo/core` has no runtime dependencies. Database, Redis and email SDKs belong to `@repo/adapters`, which depends inward on core. Temporal definitions and their deterministic SDK live in `@repo/workflows`; execution/client SDKs and composition live in `apps/worker`. Implemented identity, onboarding, scouting, notification and storage capabilities have explicit feature exports. Add other target feature folders and public exports with real implementations; do not generate empty scaffolding for the whole roadmap.
+The [assessment packet](../evaluations/opportunity-quality/README.md) and [marketplace checks](../evaluations/marketplace-discovery/README.md) retain their narrower historical evidence. A completed onboarding or configured-source loop cannot close the broader discovery gates.
 
-`pnpm check:architecture`, also run by `pnpm lint`, checks manifests and source imports for core/adapters/workflow ownership, protected feature exports, relative-path bypasses, web/UI access and forbidden workflow clients/frameworks/repositories. `pnpm test:architecture` verifies these checks. Additional feature-layer and controller/activity rules remain work as their responsibilities grow.
+## Design provenance
 
-The local intelligence milestone adds opt-in shared posting extraction, private evidence-linked fit assessment, durable request/cost budgets, and dashboard explanations. The [operating guide](engineering/scoutalert-connected-onboarding.md#evidence-linked-ai-assessment) records evaluation evidence and limits. Availability checks cover jobs and client requests. Bounded employer eligibility/sponsorship research, explicit personal authorization declarations and evidence-gated prompt alerts are implemented. Private positive feedback can adjust candidate priority and accepted-match ranking within fixed limits; hiding suppresses the posting. Wider research coverage and independently reviewed retrieval/assessment quality validation remain platform work; the [evaluation packet](../evaluations/opportunity-quality/README.md) records the current measurements and pending human review.
+The accepted direction incorporates the 1 October discussions on [broad discovery](https://chatgpt.com/s/t_6abe583294f481919b5d49dc7747569f), [open-ended providers](https://chatgpt.com/s/t_6abe60aa7ba88191999ee52710cdb7ed) and [agent responsibilities](https://chatgpt.com/s/t_6abe615559a88191b77d3c46c60a94cb), with the agreed refinements: continuous exploration despite good index results, first-class informal leads, capability-preserving contracts, bundled research and measured scale. These local specifications and explicit user instructions govern implementation; external discussions are supporting context.

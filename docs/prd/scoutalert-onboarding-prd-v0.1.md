@@ -1,10 +1,10 @@
 # ScoutAlert — Onboarding PRD
 
-**Version:** 0.2
+**Version:** 0.3
 
-**Date:** 29 September 2026
+**Date:** 1 October 2026
 
-**Status:** Proposed implementation specification; ready for product and engineering review
+**Status:** Target feature specification within the agreed platform baseline; current implementation documented separately
 
 **Product name:** ScoutAlert
 
@@ -50,6 +50,8 @@ Authenticated dashboard-only scouting is supported: account verification establi
 **Outside onboarding v1:** automated applications, recruiter outreach, interview preparation, billing, employer accounts, document-heavy identity checks, and universal opportunity coverage. Production CV parsing and scholarship, fellowship, grant, or accelerator onboarding are subsequent capabilities unless explicitly added to the release.
 
 These are onboarding boundaries. Continuous discovery, monitoring, prompt alerts, opportunity management, feedback, services, commercial operations, integrations, and intelligence evolution belong to the platform PRD and backlog; their implementation is not limited by this feature's release.
+
+The [internet discovery architecture](../architecture/scoutalert-discovery-architecture.md) now defines the downstream search capability. Users describe goals rather than choose a closed list of websites. Missing employer names, formal job titles or target URLs do not make a meaningful service/client-work goal invalid. Current connected sources are a release coverage statement, not the meaning of the user's goal.
 
 The opening examples must follow enabled categories. For an unsupported goal, explain the limitation and allow editing; do not silently convert a scholarship request into a job search.
 
@@ -169,6 +171,8 @@ Persist the confirmed scout, selected preferences, relevant confirmed profile da
 
 Show the saved scout, actual initial-scan state, and next known scheduled action. “Queued” is not “search completed.” If discovery later fails, keep the saved scout and expose retry/status in the dashboard. A save failure must not show success or dispatch alerts.
 
+Activation hands the confirmed specification and revision to discovery through a durable intent. Planning and external searches run asynchronously; onboarding does not wait for a worldwide crawl. The user-facing handoff distinguishes planning, searching, partial coverage, access limitations, budget deferral and completed checks when those capabilities are implemented. Broad product copy must not claim that a particular social integration is connected before it works.
+
 **Acceptance:** One approved activation creates one scout. Email sending requires a verified address, current alert consent, enabled preferences, and no applicable suppression; these conditions are rechecked at dispatch.
 
 ### FR-09 — Recovery, privacy, accessibility, and returning users
@@ -184,6 +188,16 @@ Support mobile browsers, keyboard navigation, semantic labels, visible focus, sc
 Authenticated returners can reuse confirmed profile information and create a new scout. Search-specific changes do not overwrite the shared profile or other scouts without separate confirmation.
 
 **Acceptance:** Core onboarding remains usable without animations or a pointing device; recovery and returning-user paths do not duplicate or silently replace data.
+
+### FR-10 — Discovery scope and plan handoff
+
+_User stories: ONB-030–031_
+
+Explain that the scout searches for jobs, contracts and demand for services across enabled web/social/source capabilities and expands coverage over time. Preserve the user's original goal, languages, geography, constraints and uncertainty choices as confirmed inputs; provider selection and query mechanics belong to the discovery layer.
+
+Show relevant coverage gaps without forcing users to configure connectors or supply a complete query portfolio. Optional refinements can improve a difficult search, but temporary provider failure or an empty index does not invalidate a reviewed brief. Sharing personal information with external search providers follows a minimized task-specific data policy; the full profile is not a public search query.
+
+**Acceptance:** A current approved revision produces one durable discovery handoff; a later edit supersedes incompatible plans/results. The dashboard explains actual work state and the first applicable gap. Saving, planning, discovery and alert delivery remain different outcomes. The first internet-discovery release also passes [DACC-001–020](../engineering/scoutalert-discovery-acceptance.md).
 
 ## 6. AI behavior and implementation boundaries
 
@@ -279,6 +293,8 @@ The following are proposed defaults requiring approval: v1 opportunity categorie
 ## 12. Definition of done
 
 Onboarding is ready when a new visitor can describe a supported goal, correct the interpretation, set meaningful constraints, review an honest preview, and either explore as a guest or activate a persistent scout. Verified and consenting users receive the chosen alert experience; authenticated dashboard-only users do not receive opportunity emails.
+
+Onboarding completion does not establish broad discovery coverage. The [roadmap](../engineering/scoutalert-delivery-roadmap.md) tracks current deterministic review, fictional guest examples and implemented saving separately from target interpretation, live preview and adaptive web/social discovery. Feature completion must not be used to close the wider discovery milestone.
 
 The flow must pass the acceptance scenarios, preserve progress through recoverable failures, explain unknowns, work on mobile and with assistive technology, and expose actual activation and search state. Operational visibility, privacy controls, and measurement must be implemented—not postponed until after launch.
 

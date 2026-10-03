@@ -1,6 +1,6 @@
 # Local email with Mailpit
 
-Mailpit is the local email capture destination for ScoutAlert. The API uses the same SMTP adapter boundary intended for identity emails and opportunity notifications; Mailpit remains a development dependency. A production provider is still a separate adoption decision.
+Mailpit is the local email capture destination for ScoutAlert. Identity and opportunity notifications use the SMTP adapter boundary; Mailpit remains a development dependency. A production provider is still a separate adoption decision. Broader discovery will reuse these notification contracts and the durable recipient/item ledger; see the [discovery acceptance gates](scoutalert-discovery-acceptance.md).
 
 ## Current local instance
 
@@ -52,8 +52,10 @@ The optional integration test reads only its own synthetic message by Message-ID
 - `@repo/core/notifications` owns the `EmailProvider` contract and provider-independent submission outcomes.
 - `@repo/adapters/notifications` implements that contract using Nodemailer SMTP.
 - The API's `composition/email.module.ts` validates configuration, constructs one shared pool, binds the port through NestJS DI, and closes it on shutdown.
-- Identity use cases own challenges, expiry, attempts, browser binding, and session creation. Notification use cases will own eligibility, durable dispatch, and delivery reconciliation; activation already records the separate opportunity-alert consent decision.
+- Identity use cases own challenges, expiry, attempts, browser binding and session creation. Notification use cases own eligibility, durable dispatch and delivery outcome/reconciliation policy; activation records separate opportunity-alert consent. The worker composes opportunity delivery independently of the API's identity transport.
 
 The pool has bounded connection/greeting/socket waits, two connections by default, and automatic requeue disabled. Message IDs support tracing; they do not deduplicate SMTP deliveries. An accepted SMTP submission does not establish recipient delivery, and an uncertain failure must not be blindly retried. [Nodemailer pooled transport documentation](https://nodemailer.com/smtp/pooled).
 
 The onboarding email/code screens use actual Mailpit codes. The old demonstration code has been removed. The API exposes no arbitrary email-send HTTP route. See [connected onboarding](scoutalert-connected-onboarding.md) for identity, session, database migration, activation and test details.
+
+Optional inbound Google Alerts/newsletter ingestion belongs to source discovery and has separate authorization, parsing and access-scope contracts. Mailpit capture does not implement that integration. Agent outputs cannot directly send mail: current consent, evidence, Scout revisions, suppression and delivery identity remain application decisions.

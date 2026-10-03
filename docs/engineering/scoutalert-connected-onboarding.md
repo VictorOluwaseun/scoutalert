@@ -1,6 +1,27 @@
 # Connected onboarding
 
+**Document role:** Implemented local behavior and historical verification, updated 1 October 2026. The [delivery roadmap](scoutalert-delivery-roadmap.md) owns remaining work; the [internet discovery architecture](../architecture/scoutalert-discovery-architecture.md) and [DACC gates](scoutalert-discovery-acceptance.md) define the expanded target.
+
 Onboarding now checks the brief, verifies an email, creates or reuses an account, establishes a shared session, and saves an active scout with separate notification consent. It persists an initial discovery intent in PostgreSQL. The initial intent now reaches a Temporal worker, shared Greenhouse and Freelancer source collection, an evidence-based matching pass, account-owned dashboard results and consent-gated scheduled digests captured in Mailpit. Examples remain clearly fictional. This is the first live product path; initial employer-policy research is now connected; broad source coverage and independently reviewed quality evidence remain outstanding.
+
+## Boundary with the new discovery design
+
+| Existing behavior                                       | Target extension; not implemented by this documentation update                                  |
+| ------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| Composition-registered Greenhouse/Freelancer collection | General web search, native social capabilities, new-source admission and focused crawling       |
+| Fully populated source `Posting` records                | Separate observations and incomplete opportunity leads before normalized opportunities          |
+| Fixed source refresh and bounded candidate retrieval    | Versioned plans, adaptive discovery cases and continuous shared exploration                     |
+| Shared extraction and narrow employer research          | Query coalescing, richer source relationships and related-question evidence research            |
+| Source/run summaries                                    | Capability-aware coverage, access/gap/exhaustion states and understandable plan progress        |
+| Local request/concurrency defaults and recovery checks  | Independently measured cohort quality, provider quotas, fair scheduling and production capacity |
+
+The initial sources demonstrate the existing pipeline, not the product's coverage ceiling. A new search provider must connect to current ownership, evidence, versioning, notification and idempotency rules. Do not create a parallel path that bypasses them. Existing fixed-source fetch restrictions remain actual behavior until the new policy-driven admission implementation is delivered and tested.
+
+The four agent responsibilities are target roles: Scout Planner, Deep Discovery Agent, Evidence Research Agent and Source Expansion Agent. Existing extraction/fit calls are focused AI services, and employer research implements only a narrow portion of the future research role. An installed dependency or this design description does not make those roles operational.
+
+## General-web extension
+
+The [first web discovery increment](scoutalert-web-discovery.md) now adds an opt-in Serper adapter, bounded public-source fetch, durable shared queries, incomplete leads and the private `/dashboard/discovery` view. This supersedes the earlier target-only descriptions of those initial contracts above. It does not complete adaptive agents or native social access. The bounded live Serper contract check passed and local web discovery is enabled under shared budget caps; broader discovery and delivery acceptance remains open.
 
 ## Local setup
 
@@ -64,6 +85,8 @@ Integration coverage includes expiry, wrong browser, five concurrent failed atte
 
 ## Live scouting execution
 
+This section records the configured-source implementation. Broader source support must not be inferred from the word "live."
+
 Connected sources are the **Figma** and **Remote** public Greenhouse job boards, plus **Freelancer** public buyer requests for fixed-price client projects and hourly services. Collection is shared across scouts and runs every five minutes. Freelancer coverage prioritises international remote work, excludes local-only/private/direct-hire requests and is a bounded rolling window, not the whole marketplace. Marketplace presence does not establish remote delivery or worldwide eligibility. The `services` scout category now retrieves buyer requests and participates in normal reconciliation; employment and contract-role scouts retain job-board retrieval. See [marketplace discovery](../../evaluations/marketplace-discovery/README.md) for limits and verification.
 
 Start the isolated, persistent local execution service and worker in addition to web/API:
@@ -90,6 +113,8 @@ The initial policy requires a whole-word role phrase in the title's primary segm
 Publication locks sources before scouts and checks current owner, active status, scout revision, latest run, posting revision/open status and thirty-minute evidence freshness. Changed evidence requires a new assessment. Dashboard reads repeat ownership/version/open/freshness checks and group contributions across scouts, showing at most twenty recent opportunities. These bounded lists are not exhaustive discovery counts. Refresh uses fresh Next server reads; only pending/searching pages poll, and hidden tabs pause polling.
 
 ## Evidence-linked AI assessment
+
+This section and its recorded counts/costs describe specific historical runs. They are not independent discovery-quality or global-capacity evidence. The broader [discovery protocol](../../evaluations/discovery/README.md) adds acquisition recall, provider contribution, informal demand, source/time holdouts and cohort evaluation.
 
 The local worker now supports shared posting extraction and private personal-fit assessment through the official OpenAI SDK. `packages/core/src/scouting/intelligence` owns the ports, evidence checks and publication rules; `packages/adapters/src/scouting/intelligence` owns Responses API access, runtime schemas and PostgreSQL task persistence. Nest composition constructs clients and binds the use case. API routes contain no model calls.
 
@@ -211,3 +236,7 @@ A zero-provider-call policy replay withdrew the unsupported mandatory-remote acc
 The engineering controls, bounded employer research, feedback ranking and evaluation/review workflow are implemented. Independent human relevance labels, representative contract/multilingual/source coverage, demonstrated feedback lift, and production end-to-end latency/cost measurements remain open. The milestone should not be described as empirically complete until those inputs exist.
 
 Verification for this change: all 80 worker tests passed, including isolated PostgreSQL, Temporal and Mailpit checks and transaction-time suppression of superseded AI evidence. Seven evaluation integrity/metric tests, one failure/interruption cleanup integration test, twelve architecture-rule tests, type checks and package builds passed. The local worker was restarted with the corrected policy under the user’s existing restart approval.
+
+### Subsequent model-guided web research increment
+
+The [general web implementation](scoutalert-web-discovery.md) now supplements this earlier configured-employer path. AI-enabled web discovery separates alternative public role targets and reviews captured sources between exploration actions. Research can reuse up to two fresh application/employer pages actually linked from a discovered posting, without unbudgeted HTTP access. Its structured findings cover location, authorization, sponsorship, requirements and absolute deadlines, with citations and applicability. Private fit and email eligibility retain confirmed constraints; unknown evidence cannot establish personal authorization. A synthetic complete live search-to-Mailpit check and negative location case are recorded, while independent quality, broad recall and native social access remain outstanding.

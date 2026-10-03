@@ -1,0 +1,46 @@
+# Discovery scheduling and measurements — 3 October 2026
+
+## Implemented behavior
+
+Public query and source history now affects admission order and native revisit intervals. The policy is framework-independent in `packages/core`; transactional measurements and admission remain repository responsibilities in `packages/adapters`. Existing workflows, personal matching, consent, freshness, provider access and hard budgets still apply.
+
+`20261003-yield-scheduling` adds route, attempt and observed-identity tables plus an unchanged-post counter. Apply it before starting the rebuilt worker. Existing query cursors, budgets and account data are preserved. Measurements start with new admissions; historical operations are not backfilled or presented as newly measured work.
+
+| Work                  | Scheduling behavior                                                                                                                                                                                                                                                                                                                                                         |
+| --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Initial web portfolio | Orders approved queries using compatible public route history; preserves every query and freezes the order in the durable case. Follow-up strategy validation is unchanged.                                                                                                                                                                                                 |
+| Source monitoring     | Chooses among the oldest twenty eligible URLs using hostname history, recovering pending receipts first. Every fifth document-admission position preserves oldest-due order. Existing URL change/health backoff remains active.                                                                                                                                             |
+| Native X queries      | Chooses among the oldest twenty eligible public queries. Every fifth native admission prefers the oldest due query when available; other positions rank by measured utility and share turns with context and refresh.                                                                                                                                                       |
+| Native X windows      | Revisits successful completed windows after 10–120 minutes. Repeated empty, duplicate-heavy or model-classified noise receives slower revisits. Partial responses retain their cursor and five-minute retry; more pages retain their two-second continuation eligibility.                                                                                                   |
+| Native X posts        | Current model-classified demand uses twenty-minute refresh eligibility; unchanged unclassified posts back off from fifteen minutes to three hours; classified discussion, seller offers and closed requests use six hours. Changed primary evidence resets the wait and requires a current review. Related context for noise is deferred while its primary post is not due. |
+| Native daily pacing   | After three startup admissions, spreads remaining request and monetary capacity across the remaining UTC day, using the latest admission timestamp. Limits raised by the operator shorten the calculated wait without clearing spend. Provider backoff, concurrency and hard caps remain authoritative.                                                                     |
+
+Intervals describe eligibility, not guaranteed freshness or delivery latency. Provider contention, global budgets and the one-minute worker schedule can delay actual work. Pacing can delay continuation pages; unfinished windows remain durable and recent-search horizon gaps remain recorded. The policy does not fabricate freshness to keep an opportunity eligible for delivery.
+
+## Measurement and interpretation
+
+A query route includes provider, public query and applicable language, country and freshness. Pages of one query share a route. A source route includes provider and hostname. Personal briefs, account identity, private assessments and user feedback never enter shared route measurements.
+
+Each actual admitted operation records its reservation and selection reason exactly once in the admission transaction. Its fenced receipt records canonical observations and identities new to that route exactly once. Replays and cross-scout cache reuse do not inflate attempts. Failed or ambiguous operations retain their reservations and count as unsuccessful attempts. An unavailable document does not count as a new captured source.
+
+Scheduling reads at most twenty completed attempts and two hundred recent identities per route over seven days, using indexed lookups. Utility stays neutral until three attempts exist. It combines novelty and success rate; model label balance contributes only after five complete current source reviews exist. Pending, stale, truncated, inaccessible and snippet-only evidence cannot be counted as rejected demand. Public labels indicate source intent, not a person's eligibility or independently judged relevance.
+
+Noise never permanently disables a query. Oldest-due selections and bounded revisits retain exploration for new and rare goals. These are local fairness controls; global cohort service levels, statistical confidence and production capacity still require representative tests. Source-host aggregation can mask mixed-content sections and should be evaluated before adding finer routing.
+
+## Verification and operation
+
+`apps/worker/test/discovery-performance.spec.ts` exercises cold-start neutrality, evidence thresholds, oldest-due turns, bounded revisits, UTC pacing and raised limits. Its declared always-empty-query workload compares the policy with five-minute polling over one synthetic day. That comparison measures polling behavior, not real discovery quality or missed opportunities.
+
+Database tests cover canonical deduplication, replay, transaction rollback, failed/unfinished attempts, bounded sampling and current complete evidence. Native integration checks cover shared route history, adaptive empty windows, changed/unchanged source timing, measured query ordering, oldest-due selection and pacing without resetting reservations. Existing end-to-end fixture checks continue to cover private fits, delivery idempotency, context invalidation, pauses and revisions.
+
+After core, adapters and worker builds, run `node scripts/evaluation/report-discovery-performance.mjs --write` for a public aggregate snapshot in `evaluations/discovery/performance-local.json`. It exports no query text, private brief, account ID or credential. The report separates tracked operations from historical daily reservations and model classifications from independent labels. Route novelty is not globally unique opportunity count. Document checks reserve no monetary provider cost in this ledger; AI, compute and billed provider charges require separate accounting.
+
+The next quality gate remains a paired, independently reviewed sample of real jobs and buyer requests, including rare goals and negative examples. Measure useful discoveries, known-opportunity recall, latency and full cost before claiming improved organic quality or global efficiency. Learned query rewriting, multilingual strategies, semantic retrieval and additional source protocols remain separate work.
+
+## Local verification — 3 October, 02:52 WAT
+
+The additive migration applied successfully, and all eight worker pools started. The full non-Temporal worker suite passed 223 tests, API/web type checks passed, and the architecture scanner and twelve architecture-rule tests passed. Temporal definitions were unchanged; their historical retry/replay results are not counted as a fresh run here.
+
+The saved aggregate snapshot records sixteen admitted Serper requests (fifteen completed) and five document checks (four completed) after startup. Newly measured source checks include four utility-order selections and one oldest-due selection; cold histories remain neutral until their minimum sample is reached. Current source labels include four model-classified openings and nine directories among observed Serper identities; these are not new independently verified opportunities.
+
+X had already used its configured 100 daily requests, reserving $4.785 of the separate $10 monetary ceiling. Its new pacing and revisit behavior is verified with database fixtures, but live paid admission under this policy awaits available request capacity. Existing spend is preserved; Google discovery, source monitoring and retained-evidence review continue. The snapshot's empty-query simulation makes sixteen checks versus 288 fixed five-minute polls, without claiming real-world recall or cost improvement.

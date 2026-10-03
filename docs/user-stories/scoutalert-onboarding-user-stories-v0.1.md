@@ -1,16 +1,16 @@
 # ScoutAlert — Onboarding User Stories
 
-**Version:** 0.2
+**Version:** 0.3
 
-**Date:** 29 September 2026
+**Date:** 1 October 2026
 
 **Status:** Product backlog baseline
 
 **Scope:** Goal-first onboarding from first visit through guest exploration or scout activation
 
-**Related PRD:** [ScoutAlert Onboarding PRD](../prd/scoutalert-onboarding-prd-v0.1.md), revision 0.2
+**Related PRD:** [ScoutAlert Onboarding PRD](../prd/scoutalert-onboarding-prd-v0.1.md), revision 0.3
 
-**Platform baseline:** [Platform PRD](../prd/scoutalert-platform-prd.md), revision 0.2. These stories cover one feature; the platform backlog owns continuing discovery, services, alerts, opportunity management, and operations.
+**Platform baseline:** [Platform PRD](../prd/scoutalert-platform-prd.md), revision 0.3. These stories cover one feature; the platform backlog owns continuing discovery, services, alerts, opportunity management, and operations.
 
 ## 1. Priority definitions
 
@@ -81,6 +81,7 @@ As a user, I want ScoutAlert to understand the type of opportunity I am seeking 
 **Acceptance criteria**
 
 - The system proposes a supported opportunity category and target scope.
+- Meaningful client/service goals do not require a formal job title, named employer or preselected source website.
 - Ambiguous goals trigger clarification instead of guessing.
 - Unsupported categories are explained rather than silently converted.
 - Independent goals can be separated into distinct searches.
@@ -533,6 +534,37 @@ As a returning user, I want ScoutAlert to reuse confirmed profile facts for a ne
 
 **Related requirement:** FR-09
 
+### ONB-030 — Understand what my saved scout will search
+
+**User story**
+
+As a user, I want clear discovery scope and status after setup so that saving a scout is not confused with completing a search across every platform.
+
+**Acceptance criteria**
+
+- The handoff explains actual planning/search state, last known progress and relevant coverage gaps.
+- Connected providers and target integrations remain distinguishable.
+- Partial, access-limited, deferred, failed and no-match outcomes do not claim complete internet coverage.
+- Temporary provider problems preserve the saved brief and offer appropriate status/recovery.
+
+**Priority:** P0
+
+### ONB-031 — Pass my confirmed goal to discovery without rewriting it
+
+**User story**
+
+As a user, I want my reviewed goal handed to the scout's search planner so that adaptive searches preserve what I actually approved.
+
+**Acceptance criteria**
+
+- Activation persists one current approved specification and durable discovery intent with a stable retry identity.
+- Planning/search work happens asynchronously outside the activation transaction.
+- Later edits supersede incompatible plans and outputs; a model cannot relax confirmed must-haves.
+- Users do not need to choose a connector list or construct search-engine queries.
+- External provider requests minimize personal data rather than sending a full profile by default.
+
+**Priority:** P0
+
 ## 9. Onboarding release definition
 
 The onboarding release is complete when a new visitor can:
@@ -541,7 +573,7 @@ The onboarding release is complete when a new visitor can:
 2. receive only relevant clarification;
 3. correct ScoutAlert's interpretation;
 4. set meaningful hard constraints and preferences;
-5. review an evidence-aware preview;
+5. review an evidence-aware preview with sample, live and unavailable states clearly distinguished;
 6. explore without email or verify an account;
 7. explicitly configure notifications;
 8. activate exactly one persistent scout;

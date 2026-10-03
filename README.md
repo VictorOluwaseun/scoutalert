@@ -1,159 +1,45 @@
-# Turborepo starter
+# ScoutAlert
 
-This Turborepo starter is maintained by the Turborepo core team.
+ScoutAlert is a persistent personal opportunity scout. It is designed to search across the web and social platforms, discover jobs, contracts and demand for services, investigate consequential details, match confirmed goals and send useful alerts.
 
-## Using this example
+The product combines shared public discovery and evidence with private personal assessments. Adaptive search, source expansion, a focused crawler and our own opportunity index are core target capabilities. International remote client projects are the first client-work coverage priority; a configured provider list does not define the product's ceiling.
 
-Run the following command:
+## Start with the documentation
 
-```sh
-npx create-turbo@latest
-```
+- [Documentation index and baseline](docs/README.md)
+- [Platform requirements](docs/prd/scoutalert-platform-prd.md)
+- [Platform architecture](docs/architecture/scoutalert-platform-architecture-v0.1.md)
+- [Internet discovery and four agent responsibilities](docs/architecture/scoutalert-discovery-architecture.md)
+- [Discovery acceptance and release gates](docs/engineering/scoutalert-discovery-acceptance.md)
+- [Implementation status and delivery roadmap](docs/engineering/scoutalert-delivery-roadmap.md)
+- [Platform user stories](docs/user-stories/scoutalert-platform-user-stories-v0.1.md)
+- [Repository layout](docs/engineering/scoutalert-repository-layout.md) and [engineering standards](docs/engineering/scoutalert-engineering-standards-v0.1.md)
 
-## What's inside?
+## Current implementation
 
-This Turborepo includes the following packages/apps:
+The local product connects onboarding, Mailpit email verification, sessions, Scout activation, an account-owned dashboard, edits, pause/resume and feedback. Discovery currently collects Figma and Remote Greenhouse boards plus a bounded Freelancer buyer-request feed. Evidence extraction, private fit, bounded employer/availability research, finite Temporal execution and local opportunity-email delivery are connected.
 
-### Apps and Packages
+The first general-web foundation is implemented: an opt-in Serper adapter, shared query admission, public leads/evidence and an account-owned discovery view. Serper passed a bounded live contract check and is enabled locally under shared request and reservation caps. Native X/LinkedIn access, adaptive discovery plans, automatic source expansion and the focused crawl frontier remain outstanding. See the [web discovery implementation notes](docs/engineering/scoutalert-web-discovery.md). Existing tests and evaluation packets do not establish broad internet coverage, independently validated global relevance or production-scale capacity. The roadmap distinguishes implemented behavior from target design and release evidence.
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `@next/eslint-plugin-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
+## Workspace and stack
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+| Location             | Responsibility                                                                  |
+| -------------------- | ------------------------------------------------------------------------------- |
+| `apps/web`           | Next.js/React product interface and same-origin server routes                   |
+| `apps/api`           | NestJS HTTP presentation, authorization and composition                         |
+| `apps/worker`        | NestJS execution host, Temporal activities, dispatch and reconciliation         |
+| `apps/docs`          | Documentation-site application; root `docs/` owns specifications                |
+| `packages/core`      | Framework-independent business models, policies, use cases and inward contracts |
+| `packages/adapters`  | Repositories, PostgreSQL/Kysely/pg, Redis and external provider implementations |
+| `packages/workflows` | Deterministic Temporal definitions and serializable activity contracts          |
+| `packages/ui`        | Shared interface primitives and design tokens                                   |
+| `evaluations`        | Versioned evaluation evidence and protocols                                     |
+| `infrastructure`     | Local execution infrastructure definitions                                      |
 
-### Utilities
+The foundation is TypeScript, Next.js, NestJS, PostgreSQL with Kysely/pg, Redis, Temporal, Tailwind CSS and shadcn/ui. The four initial agent roles are Scout Planner, Deep Discovery Agent, Evidence Research Agent and Source Expansion Agent. Ordinary extraction, retrieval and fit evaluation remain focused services. Provider and deployment decisions follow measured quality, access, reliability and cost requirements.
 
-This Turborepo has some additional tools already setup for you:
+## Local development and verification
 
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
+Use the repository's declared Node.js and pnpm versions from `package.json`. Follow [connected onboarding and scouting](docs/engineering/scoutalert-connected-onboarding.md) for environment files, migrations, web/API startup and separate worker startup. Follow [local email](docs/engineering/scoutalert-local-email.md) for Mailpit. No secrets belong in committed documentation.
 
-### Build
-
-To build all apps and packages, run the following command:
-
-With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended):
-
-```sh
-cd my-turborepo
-turbo build
-```
-
-Without global `turbo`, use your package manager:
-
-```sh
-cd my-turborepo
-npx turbo build
-pnpm exec turbo build
-pnpm exec turbo build
-```
-
-You can build a specific package by using a [filter](https://turborepo.dev/docs/crafting-your-repository/running-tasks#using-filters):
-
-With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed:
-
-```sh
-turbo build --filter=docs
-```
-
-Without global `turbo`:
-
-```sh
-npx turbo build --filter=docs
-pnpm exec turbo build --filter=docs
-pnpm exec turbo build --filter=docs
-```
-
-### Develop
-
-To develop all apps and packages, run the following command:
-
-With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended):
-
-```sh
-cd my-turborepo
-turbo dev
-```
-
-Without global `turbo`, use your package manager:
-
-```sh
-cd my-turborepo
-npx turbo dev
-pnpm exec turbo dev
-pnpm exec turbo dev
-```
-
-You can develop a specific package by using a [filter](https://turborepo.dev/docs/crafting-your-repository/running-tasks#using-filters):
-
-With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed:
-
-```sh
-turbo dev --filter=web
-```
-
-Without global `turbo`:
-
-```sh
-npx turbo dev --filter=web
-pnpm exec turbo dev --filter=web
-pnpm exec turbo dev --filter=web
-```
-
-### Remote Caching
-
-> [!TIP]
-> Vercel Remote Cache is free for all plans. Get started today at [vercel.com](https://vercel.com/signup?utm_source=remote-cache-sdk&utm_campaign=free_remote_cache).
-
-Turborepo can use a technique known as [Remote Caching](https://turborepo.dev/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup?utm_source=turborepo-examples), then enter the following commands:
-
-With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended):
-
-```sh
-cd my-turborepo
-turbo login
-```
-
-Without global `turbo`, use your package manager:
-
-```sh
-cd my-turborepo
-npx turbo login
-pnpm exec turbo login
-pnpm exec turbo login
-```
-
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
-
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
-
-With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed:
-
-```sh
-turbo link
-```
-
-Without global `turbo`:
-
-```sh
-npx turbo link
-pnpm exec turbo link
-pnpm exec turbo link
-```
-
-## Useful Links
-
-Learn more about the power of Turborepo:
-
-- [Tasks](https://turborepo.dev/docs/crafting-your-repository/running-tasks)
-- [Caching](https://turborepo.dev/docs/crafting-your-repository/caching)
-- [Remote Caching](https://turborepo.dev/docs/core-concepts/remote-caching)
-- [Filtering](https://turborepo.dev/docs/crafting-your-repository/running-tasks#using-filters)
-- [Configuration Options](https://turborepo.dev/docs/reference/configuration)
-- [CLI Usage](https://turborepo.dev/docs/reference/command-line-reference)
+Package READMEs describe their actual commands and boundaries. Architecture checks, relevant package tests and the [discovery acceptance gates](docs/engineering/scoutalert-discovery-acceptance.md) have different scopes; a passing local integration test is not a completed product milestone. Read [AGENTS.md](AGENTS.md) before changing code or Git state.

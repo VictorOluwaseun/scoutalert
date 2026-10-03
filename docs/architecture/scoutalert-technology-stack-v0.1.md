@@ -1,6 +1,6 @@
 # ScoutAlert — Technology and AI Stack
 
-**Version:** 0.3
+**Version:** 0.4
 
 **Date:** 1 October 2026
 
@@ -14,10 +14,10 @@ ScoutAlert is TypeScript-first and uses established infrastructure for generic c
 
 The stack is designed for:
 
-- robust global opportunity discovery;
+- adaptive web/social discovery, focused crawling and continuously expanding global coverage;
 - high-quality hybrid retrieval;
 - evidence-grounded RAG;
-- bounded agentic research;
+- bounded planning, deep discovery, evidence research and source-expansion agents;
 - efficient model use;
 - reliable scheduled execution;
 - strong observability;
@@ -25,35 +25,42 @@ The stack is designed for:
 
 ## 2. Application stack
 
-| Area                      | Technology                                                                                  | Role                                                                                                 |
-| ------------------------- | ------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| Runtime                   | Node.js + TypeScript                                                                        | Common runtime across web, API, workers, and AI integration                                          |
-| Monorepo                  | pnpm + Turborepo                                                                            | Workspace dependency management and build orchestration                                              |
-| Web                       | Next.js + React                                                                             | Public site, onboarding, Scouts, recommendations, opportunity workspace, settings                    |
-| Styling/components        | Tailwind CSS + shadcn/ui                                                                    | Product UI foundation and accessible component composition                                           |
-| Client server-state       | TanStack Query                                                                              | Fetching, mutations, caching, invalidation for interactive client flows                              |
-| API host                  | NestJS                                                                                      | HTTP presentation, authorization context, modules, DI composition of shared core use cases           |
-| API style                 | REST first                                                                                  | Clear resource/action contracts; internal providers remain behind ports                              |
-| Validation                | Zod                                                                                         | Runtime request, provider, configuration, and structured-output validation                           |
-| Database                  | PostgreSQL                                                                                  | Durable system of record                                                                             |
-| Query layer               | Kysely + pg                                                                                 | Typed SQL, transactions, explicit query control                                                      |
-| Semantic search           | pgvector                                                                                    | Vector retrieval inside PostgreSQL                                                                   |
-| Keyword search            | PostgreSQL full-text search                                                                 | Exact/domain-term retrieval                                                                          |
-| Cache/runtime             | Redis                                                                                       | Temporary state, coordination, rate limits, short-lived caches                                       |
-| Durable execution         | Temporal, preferred target pending adoption checks                                          | Multi-step scouting/research, retries, waits, cancellation, notification coordination                |
-| Existing queue dependency | BullMQ + NestJS integration, installed bootstrap                                            | Retain only for an explicit execution responsibility if justified; not a second workflow-state owner |
-| Object storage            | S3-compatible storage                                                                       | Private documents and permitted source snapshots                                                     |
-| Email                     | EmailProvider port; Nodemailer SMTP to local Mailpit; Resend remains a production candidate | Local verification and grouped scheduled opportunity digests connected                               |
-| Observability             | OpenTelemetry + Langfuse-compatible tracing/evaluation                                      | Operational and AI workflow visibility                                                               |
-| Testing                   | Vitest + Playwright + Testcontainers                                                        | Unit, browser, and real dependency integration testing                                               |
+| Area                      | Technology                                                                                  | Role                                                                                                       |
+| ------------------------- | ------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| Runtime                   | Node.js + TypeScript                                                                        | Common runtime across web, API, workers, and AI integration                                                |
+| Monorepo                  | pnpm + Turborepo                                                                            | Workspace dependency management and build orchestration                                                    |
+| Web                       | Next.js + React                                                                             | Public site, onboarding, Scouts, recommendations, opportunity workspace, settings                          |
+| Styling/components        | Tailwind CSS + shadcn/ui                                                                    | Product UI foundation and accessible component composition                                                 |
+| Client server-state       | TanStack Query                                                                              | Fetching, mutations, caching, invalidation for interactive client flows                                    |
+| API host                  | NestJS                                                                                      | HTTP presentation, authorization context, modules, DI composition of shared core use cases                 |
+| API style                 | REST first                                                                                  | Clear resource/action contracts; internal providers remain behind ports                                    |
+| Validation                | Zod                                                                                         | Runtime request, provider, configuration, and structured-output validation                                 |
+| Database                  | PostgreSQL                                                                                  | Durable system of record                                                                                   |
+| Query layer               | Kysely + pg                                                                                 | Typed SQL, transactions, explicit query control                                                            |
+| Semantic search           | pgvector                                                                                    | Vector retrieval inside PostgreSQL                                                                         |
+| Keyword search            | PostgreSQL full-text search                                                                 | Exact/domain-term retrieval                                                                                |
+| Cache/runtime             | Redis                                                                                       | Temporary state, coordination, rate limits, short-lived caches                                             |
+| Durable execution         | Temporal, selected and integrated locally; production adoption gates remain                 | Durable agent cases, scouting, retries, waits, cancellation and notification coordination                  |
+| External discovery        | Capability-specific search/social/feed adapters; provider selection and access pending      | General web search, native X, public/authorized social paths and additional evaluated providers            |
+| Focused crawling          | Source-policy fetchers, durable frontier and optional rendering adapters; target capability | Discover and monitor useful new sources, preserve versions and source progress                             |
+| Owned opportunity index   | PostgreSQL projections initially; semantic/dedicated search evolves through evaluation      | Search admitted leads, opportunities, evidence and entity relationships from the first discovery increment |
+| Existing queue dependency | BullMQ + NestJS integration, installed bootstrap                                            | Retain only for an explicit execution responsibility if justified; not a second workflow-state owner       |
+| Object storage            | S3-compatible storage                                                                       | Private documents and permitted source snapshots                                                           |
+| Email                     | EmailProvider port; Nodemailer SMTP to local Mailpit; Resend remains a production candidate | Local verification and grouped scheduled opportunity digests connected                                     |
+| Observability             | OpenTelemetry + Langfuse-compatible tracing/evaluation                                      | Operational and AI workflow visibility                                                                     |
+| Testing                   | Vitest + Playwright + Testcontainers                                                        | Unit, browser, and real dependency integration testing                                                     |
 
 The repository contains pnpm/Turborepo, Next.js, NestJS, UI and dependency foundations, deterministic onboarding review, shared email verification/sessions, transactional Scout activation, and a local SMTP email adapter. It does not yet implement the full product pipeline. `@repo/core` is dependency-free; `@repo/adapters` owns the datasource/queue/email SDKs and depends inward on core. Manifest and source boundary checks run with linting. Identity challenges, verified accounts/sessions, confirmed Scouts, separate alert consent, retry receipts and initial-discovery outbox intents are implemented. A first live path now connects shared Greenhouse and Freelancer ingestion, evidence-based matching, current dashboard results, grouped scheduled Mailpit digests, leased outbox dispatch and finite Temporal execution. A local opt-in OpenAI extraction/personal-fit path now adds versioned caching, citation validation and bounded request admission. Bounded posting-availability and employer eligibility/sponsorship research, explicit personal authorization declarations and evidence-gated prompt alerts are implemented locally. Saved scouts support versioned edits, pause/resume and private recommendation feedback with bounded ranking adjustments. Broad source and research coverage, semantic retrieval, independent relevance judgments and production operations validation remain open. See [connected onboarding](../engineering/scoutalert-connected-onboarding.md) for the milestone boundary. The [local email guide](../engineering/scoutalert-local-email.md) owns Mailpit configuration and checks.
 
-Separate established foundations from evaluated additions: PostgreSQL/Kysely/pg, Redis, Next.js/React, NestJS, and Tailwind/shadcn remain the chosen foundation. Temporal is the preferred execution target. AI models/providers, reranking, research frameworks, dedicated search, event streaming, and analytical storage require their specific adoption evidence.
+Separate established foundations from evaluated additions: PostgreSQL/Kysely/pg, Redis, Next.js/React, NestJS and Tailwind/shadcn remain the chosen foundation. Temporal is integrated locally and remains the selected durable execution direction. General web/native social adapters, the four discovery agent roles and source expansion are unimplemented target capabilities. Models/providers, reranking, optional research frameworks, dedicated search, event streaming and analytical storage require their specific adoption evidence. The [roadmap](../engineering/scoutalert-delivery-roadmap.md) owns implementation status.
+
+Use native NestJS modules, DI, guards, validation and lifecycle hooks for hosts; Next.js rendering and route handlers for the product transport; PostgreSQL constraints, indexing and explicit transactions for correctness; Kysely for typed queries and `pg` for pooling inside adapters. Redis is disposable cache and bounded coordination. Provider abstractions must preserve useful stack capabilities rather than replace them with generic lowest-common-denominator wrappers.
 
 ## 3. AI approach
 
-ScoutAlert is a **continuous opportunity intelligence platform** using hybrid retrieval, evidence-grounded interpretation, bounded agentic research, monitoring, delivery, opportunity management, and feedback.
+ScoutAlert is a **continuous opportunity intelligence platform** using adaptive external discovery, an owned index, hybrid retrieval, evidence-grounded interpretation, bounded agents, monitoring, delivery, opportunity management and feedback.
+
+The initial roles are Scout Planner, Deep Discovery Agent, Evidence Research Agent and Source Expansion Agent. An agent iteratively selects permitted actions based on observations. Extraction, classification, embeddings, fit and ranking remain focused services when a bounded evaluation suffices. Agent types do not prescribe per-user running processes. The [discovery architecture](scoutalert-discovery-architecture.md) owns role contracts and action admission.
 
 Fine-tuning is not required for the initial intelligence pipeline, but the architecture supports fine-tuned or ScoutAlert-owned models as the evaluation data and requirements justify them.
 
@@ -162,23 +169,15 @@ Check existing evidence
 
 Adopt it only if graph composition adds measured value to a specialized research workflow. The selected durable execution engine owns cross-step retries, timers, cancellation, and recovery. Do not introduce overlapping state authorities without explicit checkpoint and recovery contracts. ScoutAlert repositories remain authoritative for evidence and domain state.
 
-### 4.6 Web research provider
+### 4.6 Discovery and research providers
 
-**Candidates**
+External search is a core acquisition capability as well as a research tool. The first integration work includes evaluated general web search and a distinct native X path; public/authorized LinkedIn coverage records the actual access capability. Additional general/regional search, social, feed, community, marketplace and licensed providers remain open-ended.
 
-- Tavily
-- OpenAI web search
-- other providers that pass our source-quality, privacy, latency, and cost evaluation
+Keep search results, grounded-answer research, full-content fetching, streams and monitoring as separate capability contracts. A provider may implement several, but a synthesized answer with citations is not assumed to be a complete paginated result feed. Tavily and OpenAI web search remain research candidates from the earlier design; no candidate name establishes selection or current access.
 
-**What it does**
+Provider admission evaluates useful incremental coverage, actual account quotas, query/filter support, freshness, pagination/recovery, language/region quality, access/reuse and attribution requirements, privacy, latency and total cost. Native capabilities remain available through typed inward ports. Registry entries are configuration; new protocols need tested adapters.
 
-Finds additional public evidence when the indexed opportunity data does not answer an important question.
-
-**Why ScoutAlert needs it**
-
-Hiring geography, sponsorship, employment arrangements, or company policies may be documented outside the opportunity posting.
-
-The provider is accessed behind WebSearchProvider and SourceFetchProvider interfaces and is subject to tool budgets, access policy, source restrictions, and privacy controls.
+The [provider adoption notes](scoutalert-discovery-architecture.md#14-provider-adoption-notes) record official-source checks: legacy Bing Search APIs are retired, Google Custom Search JSON is closed to new customers, and grounding products require a separate capability assessment. Recheck commercial/access details before implementation. Google Alerts is an optional authorized inbound signal; ScoutAlert owns standing-query scheduling and change detection.
 
 ### 4.7 Zod
 
@@ -297,15 +296,19 @@ The retrieval layer creates a compact evidence package. The model interprets tha
 
 Business modules depend on ScoutAlert abstractions:
 
-| Contract family                                            | Responsibility                                                            |
-| ---------------------------------------------------------- | ------------------------------------------------------------------------- |
-| Opportunity, Evidence, Scout, MatchEvaluation repositories | Actor/access-scoped durable business records and versioned queries/writes |
-| Cache and document repositories                            | Scoped reusable artifacts, validity/invalidation, storage metadata        |
-| CandidateRetriever / OpportunitySearchIndex                | Candidate projections, filters, ranking metadata, projection versions     |
-| EmbeddingProvider / FitEvaluator / Reranker                | Versioned intelligence tasks with validated results                       |
-| ResearchPlanner / WebSearchProvider / SourceFetchProvider  | Bounded evidence investigation and provider access                        |
-| EmailProvider                                              | Provider submission/outcomes; business send policy remains in core        |
-| ExecutionDispatcher / EventPublisher                       | Dispatch durable intents/events without leaking engine/broker SDK types   |
+| Contract family                                                | Responsibility                                                                                           |
+| -------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| Opportunity, Evidence, Scout, MatchEvaluation repositories     | Actor/access-scoped durable business records and versioned queries/writes                                |
+| Cache and document repositories                                | Scoped reusable artifacts, validity/invalidation, storage metadata                                       |
+| CandidateRetriever / OpportunitySearchIndex                    | Candidate projections, filters, ranking metadata, projection versions                                    |
+| EmbeddingProvider / FitEvaluator / Reranker                    | Versioned intelligence tasks with validated results                                                      |
+| ResearchPlanner / WebSearchProvider / SourceFetchProvider      | Bounded evidence investigation and provider access                                                       |
+| DiscoveryPlan / Lead / Observation repositories                | Durable strategies, incomplete demand, provenance, input revisions and work intents                      |
+| ProviderRegistry / SourceRegistry / CrawlFrontier repositories | Capabilities, source candidates, access decisions, cursors, leases and revisit policy                    |
+| Search / Stream / Feed / Monitor capability ports              | Native source behavior with explicit completeness, recovery and unsupported-operation outcomes           |
+| Agent action and budget contracts                              | Versioned steps, permitted tool proposals, durable observations, reservation/reconciliation and stopping |
+| EmailProvider                                                  | Provider submission/outcomes; business send policy remains in core                                       |
+| ExecutionDispatcher / EventPublisher                           | Dispatch durable intents/events without leaking engine/broker SDK types                                  |
 
 Provider-specific implementations live in infrastructure.
 
@@ -343,19 +346,22 @@ Redis supports:
 
 Durable business records and reconciled budget/delivery identity stay in PostgreSQL. Cache eviction/loss must not erase a Scout or authorize a duplicate email.
 
-Temporal is the preferred primary engine for cross-step durable work. Expected execution responsibilities include:
+Temporal is the selected primary engine for cross-step durable work and is already used locally. The expanded target execution responsibilities include:
 
 ```text
 SourceSyncWorkflow
+DiscoveryPlanWorkflow
+DeepDiscoveryWorkflow
+SourceExpansionWorkflow
 OpportunityEnrichmentWorkflow
 ScoutRunWorkflow
 ResearchWorkflow
 NotificationWorkflow
 ```
 
-Workflow definitions own durable ordering, waits, cancellation, and retry decisions. Activities receive IDs/versions and call shared core use cases through injected repositories/ports. Source collection serves many Scouts. Use finite runs/schedules or bounded entity histories; do not assume every persistent Scout requires one permanently growing execution.
+Workflow definitions execute configured durable ordering, waits, cancellation and retry policies. Activities receive IDs/versions and call shared core use cases through injected repositories/ports. Agent action selection occurs in bounded application steps, not nondeterministic workflow code. Source collection and expansion serve many Scouts. Use finite runs/schedules or bounded entity histories; do not assume every persistent Scout requires one permanently growing execution. The new workflow names above describe responsibilities, not existing exported definitions.
 
-Before introducing Temporal, demonstrate process/crash recovery, duplicate-effect protection, cancellation/superseded revisions, history continuation, replay-compatible deployment, throughput under the target workload, managed/self-hosted operations, and cost. Choose the deployment approach in that implementation decision. Temporal activities still require idempotency, and workflow code needs safe versioning/continuation. The 1 October local implementation uses pinned SDK 1.24.0, an isolated persistent development server, finite run/schedule histories and repository-backed effect protection. Recovery, duplicate rejection, cancellation, stale revisions and replay have automated coverage; a 100-workflow synthetic smoke test completed in 3,408 ms with four activity slots. This validates local integration only. Representative matching/source/database capacity, history retention, production deployment operations and cost remain required production adoption gates. See the live execution sections of [connected onboarding](../engineering/scoutalert-connected-onboarding.md). [Activities](https://docs.temporal.io/activities), [safe deployments](https://docs.temporal.io/develop/safe-deployments), [Continue-As-New](https://docs.temporal.io/workflow-execution/continue-as-new).
+Before production expansion, demonstrate process/crash recovery, duplicate-effect protection, cancellation/superseded revisions, history continuation, replay-compatible deployment, throughput under the target workload, managed/self-hosted operations and cost. Temporal activities still require idempotency and workflow code needs safe versioning/continuation. The 1 October local implementation uses pinned SDK 1.24.0, an isolated persistent development server, finite run/schedule histories and repository-backed effect protection. Recovery, duplicate rejection, cancellation, stale revisions and replay have automated coverage; a 100-workflow synthetic smoke test completed in 3,408 ms with four activity slots. This validates local integration only. Representative discovery/model/source/database capacity, history retention, regional recovery, production operations and cost remain required gates. See [connected onboarding](../engineering/scoutalert-connected-onboarding.md). [Activities](https://docs.temporal.io/activities), [safe deployments](https://docs.temporal.io/develop/safe-deployments), [Continue-As-New](https://docs.temporal.io/workflow-execution/continue-as-new).
 
 BullMQ is already an installed dependency. It may serve a specifically justified responsibility if the execution decision requires it; installation alone is not a reason to run both systems. If retained for durable queues, isolate persistence/non-eviction requirements from disposable cache policy. The business outbox/run/effect ledgers are engine-independent.
 
@@ -418,6 +424,8 @@ Maintain ScoutAlert-specific labeled datasets for:
 
 Every major prompt/model/embedding/retrieval/reranker change runs against the relevant evaluation suites.
 
+Discovery changes additionally need provider contract fixtures, live connectivity checks, unconfigured-source and social-demand cases, cursor/acknowledgement fault tests, source-policy tests and independent acquisition/relevance labels. Evaluate shared reuse and fair scheduling under declared load. The [discovery evaluation protocol](../../evaluations/discovery/README.md) separates measured results from planned work and defines cohort, cost and failure reports.
+
 ## 12. ScoutAlert-owned AI evolution
 
 The interfaces are designed for side-by-side migration to our own technology.
@@ -460,6 +468,9 @@ The [canonical repository layout](../engineering/scoutalert-repository-layout.md
 
 ## 14. Related documents
 
+- [Internet Discovery Architecture](scoutalert-discovery-architecture.md)
+- [Discovery Acceptance Gates](../engineering/scoutalert-discovery-acceptance.md)
+- [Delivery Roadmap](../engineering/scoutalert-delivery-roadmap.md)
 - [Platform PRD](../prd/scoutalert-platform-prd.md)
 - [Repository Layout](../engineering/scoutalert-repository-layout.md)
 - [Platform Architecture](scoutalert-platform-architecture-v0.1.md)

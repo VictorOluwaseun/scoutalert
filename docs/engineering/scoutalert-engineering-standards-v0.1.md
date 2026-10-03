@@ -1,8 +1,8 @@
 # ScoutAlert — Engineering Standards and Project Structure
 
-**Version:** 0.2
+**Version:** 0.3
 
-**Date:** 29 September 2026
+**Date:** 1 October 2026
 
 **Status:** Mandatory engineering baseline
 
@@ -25,6 +25,8 @@ The following are mandatory ScoutAlert engineering rules:
 9. **Infrastructure is replaceable.** Provider-specific code implements inward-facing interfaces.
 10. **Hosts execute shared use cases.** Controllers, worker activities, and processors do not duplicate business rules.
 11. **Names describe responsibilities.** Follow `AGENTS.md` naming restrictions and use product/capability names for project-defined folders, files, packages, and identifiers.
+12. **Use the chosen stack effectively.** Prefer supported native capabilities at the correct boundary; check installed-version documentation before version-sensitive APIs. Do not replace NestJS lifecycle/DI, Next.js rendering/transport, PostgreSQL constraints/transactions or provider capabilities with weaker generic substitutes.
+13. **Always use braces.** Every `if`/`else` and loop body uses curly braces, including single statements. Separate methods and logical blocks with blank lines.
 
 ## 2. Dependency direction
 
@@ -310,7 +312,7 @@ The use case coordinates. Domain objects enforce behavior. Repositories persist.
 
 ## 11. No nested conditionals
 
-Business code uses guard clauses.
+Business code uses guard clauses. Every `if`/`else` and loop body has curly braces, including one-statement bodies. Separate methods and logical blocks with blank lines while keeping related statements together.
 
 Preferred:
 
@@ -511,11 +513,26 @@ Use the transactional outbox when a durable state change must cause background w
 
 ## 17. Workflow and worker structure
 
-Workflow definitions live in `packages/workflows` when the execution engine is adopted. They own durable sequencing, timers, cancellation, and bounded continuation, and contain no raw datasource or provider calls. Business rules remain in core.
+Workflow definitions already live in `packages/workflows` using Temporal. They execute configured durable sequencing, timers, cancellation and bounded continuation, and contain no raw datasource or provider calls. Business rules remain in core.
 
 Worker composition registers workflows/activities and selected workload roles. An activity validates serializable input, establishes actor/version/correlation context, calls a core use case, and maps declared retry/failure outcomes. A processor implementing a different execution adapter follows the same boundary.
 
 Workers must not duplicate matching, eligibility, consent, persistence, or ranking rules. Long-running work checks superseded revisions and cancellation before publication. External effects use durable logical identities and reconciliation. Recovery/replay and workflow-compatible deployment checks accompany the implementation.
+
+### Discovery and agent implementation rules
+
+- Agent roles are application responsibilities with explicit inputs, permitted actions, observations, outputs and stopping policy. A bounded extraction/fit call does not need an agent framework.
+- Scout planning, deep discovery, evidence research and source expansion have distinct ownership and evaluation. They do not directly access data sources or authorize their own effects.
+- Provider contracts retain search filters, streams, pagination, completeness, recovery and access scope; unsupported features are explicit.
+- Registries hold validated source/provider data. Adding a source instance under an existing adapter does not require hardcoding every domain in business logic; novel protocols require reviewed implementation and tests.
+- Persist observations, accepted work and downstream intent before committing ingestion progress. Retry-safe identity, fenced leases and explicit gap handling protect recovery.
+- Network admission occurs before fetch and on redirects. Untrusted source instructions cannot change permissions, leak private data or invoke outbound contact.
+- No database transaction spans a model, search, fetch/render or email request. Budgets are reserved durably and reconciled, including uncertain outcomes.
+- Shared caches include source rights, query semantics, versions and freshness. Private briefs and assessments remain actor-scoped; cache loss cannot authorize a duplicate effect.
+- Multiple questions can share a research case and fetch. Reuse still checks role/entity applicability, geography, engagement type and freshness.
+- Independent workload limits, fair scheduling and reserved exploration protect timely discovery and underserved cohorts.
+
+These are target implementation requirements, not claims that all corresponding enforcement tooling exists. The [discovery architecture](../architecture/scoutalert-discovery-architecture.md) and [acceptance gates](scoutalert-discovery-acceptance.md) provide contracts and failure scenarios.
 
 ## 18. Shared packages
 
@@ -581,7 +598,7 @@ Infrastructure is explicitly allowed to use technical packages. Composition root
 
 The current implementation runs `pnpm check:architecture` before workspace linting. It checks core runtime/development dependency ownership, core source imports, outward adapter workspace dependencies/imports, explicit core/adapter feature exports, relative-path access to those packages, and web/UI access to them. Static and type-only imports, re-exports, CommonJS imports, and literal dynamic imports are checked; computed module paths fail. Core test/config tooling must be explicitly approved and declared. Boundary regression tests run through `pnpm test:architecture`.
 
-The remaining examples above describe required checks to introduce with feature layers, API presentation, worker activities, and workflow definitions. Their finer-grained boundaries are not implemented yet. Alternative path aliases or custom module loaders require boundary-tool support before adoption; they must not bypass package ownership.
+Workflow SDK and import restrictions are also enforced in the current tooling. Finer-grained feature-layer, cross-feature, API presentation and activity checks remain necessary as those modules expand. Alternative path aliases or custom module loaders require boundary-tool support before adoption; they must not bypass package ownership.
 
 ## 20. Error handling
 
@@ -633,6 +650,8 @@ packages/test-utils/
 
 Repository contract suites should be reusable across repository implementations. AI adapters use contract tests and evaluation fixtures so provider changes cannot silently alter domain expectations.
 
+Discovery suites separate deterministic provider fixtures, real capability smoke checks, independent usefulness labels and load/recovery measurements. Use held-out sources and time windows, buyer-versus-seller negatives, multilingual cases, malformed cursors, partial batches, provider quota failures and crash windows around acknowledgement. Synthetic evidence alone cannot certify internet coverage or global capacity. Preserve historical run data and report unrun gates explicitly.
+
 ## 22. Code review checklist
 
 Before approval, confirm:
@@ -641,6 +660,7 @@ Before approval, confirm:
 - No application service imports database, Redis, vector, queue, storage, or vendor SDK clients.
 - Repository interfaces expose domain/application concepts rather than infrastructure types.
 - Control flow contains no nested `if` statements.
+- Every conditional/loop body has braces, and methods/logical blocks have readable spacing.
 - Classes have cohesive responsibilities.
 - Classes are documented.
 - Every method, including constructors, private methods, and interface methods, has useful documentation.
@@ -653,9 +673,17 @@ Before approval, confirm:
 - Sensitive data is not leaked into logs/traces.
 - Relevant unit, integration, end-to-end, and AI evaluation tests exist.
 - Versioning and evidence provenance are preserved where applicable.
+- Source/provider capability and completeness semantics are preserved.
+- Ingestion acknowledgement cannot outrun durable accepted work.
+- Agent actions obey current tools, budgets, input revisions and source policy.
+- Shared reuse does not expose private data or stop reserved exploration.
+- Discovery and production-readiness claims link to their actual acceptance evidence.
 
 ## 23. Related documents
 
+- [Internet Discovery Architecture](../architecture/scoutalert-discovery-architecture.md)
+- [Discovery Acceptance Gates](scoutalert-discovery-acceptance.md)
+- [Discovery Evaluation Protocol](../../evaluations/discovery/README.md)
 - [Platform PRD](../prd/scoutalert-platform-prd.md)
 - [Repository Layout](scoutalert-repository-layout.md)
 - [Platform Architecture](../architecture/scoutalert-platform-architecture-v0.1.md)
