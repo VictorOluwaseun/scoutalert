@@ -21,6 +21,8 @@ describe.skipIf(!enabled)(
   "finite Temporal execution and deployment replay",
   () => {
     let env: TestWorkflowEnvironment;
+    let webWorker: Worker;
+    let webRunning: Promise<void>;
     beforeAll(async () => {
       const connection = await Connection.connect({
         address: "127.0.0.1:7233",
@@ -39,8 +41,20 @@ describe.skipIf(!enabled)(
         address: "127.0.0.1:7233",
         namespace,
       });
+      webWorker = await Worker.create({
+        connection: env.nativeConnection,
+        namespace,
+        taskQueue: "scout-web-discovery-v1",
+        activities: {
+          discoverWeb: async () => "done",
+          reviewDiscoveryLeads: async () => "done",
+        },
+      });
+      webRunning = webWorker.run();
     }, 20_000);
     afterAll(async () => {
+      webWorker?.shutdown();
+      await webRunning;
       await env?.teardown();
     });
 
@@ -212,6 +226,83 @@ describe.skipIf(!enabled)(
       })();
       await Promise.all([workflow.runUntil(work), matching.runUntil(work)]);
       expect(recorded).toBe(1);
+    }, 20_000);
+
+    it("retries a monitor activity and replays its separate finite workflow", async () => {
+      let attempts = 0;
+      const workflow = await Worker.create({
+        connection: env.nativeConnection,
+        namespace,
+        workflowsPath,
+        taskQueue: "test-monitoring",
+      });
+      const monitoring = await Worker.create({
+        connection: env.nativeConnection,
+        namespace,
+        taskQueue: "scout-source-monitoring-v1",
+        activities: {
+          monitorSources: async () => {
+            attempts++;
+            if (attempts === 1) {
+              throw new Error("simulated_monitor_outage");
+            }
+            return attempts === 2 ? "progress" : "done";
+          },
+        },
+      });
+      const handle = await env.client.workflow.start("sourceMonitorWorkflow", {
+        taskQueue: "test-monitoring",
+        workflowId: `monitor-${randomUUID()}`,
+        args: [],
+      });
+      await Promise.all([
+        workflow.runUntil(handle.result()),
+        monitoring.runUntil(handle.result()),
+      ]);
+      expect(attempts).toBe(3);
+      const history = await handle.fetchHistory();
+      expect(history.events!.length).toBeLessThan(30);
+      await Worker.runReplayHistory({ workflowsPath }, history);
+    }, 20_000);
+
+    it("recovers a native discovery activity and replays its separate history", async () => {
+      let attempts = 0;
+      const workflow = await Worker.create({
+        connection: env.nativeConnection,
+        namespace,
+        workflowsPath,
+        taskQueue: "test-social",
+      });
+      const native = await Worker.create({
+        connection: env.nativeConnection,
+        namespace,
+        taskQueue: "scout-social-discovery-v1",
+        activities: {
+          discoverSocial: async () => {
+            attempts++;
+            if (attempts === 1) {
+              throw new Error("simulated_social_outage");
+            }
+            return attempts === 2 ? "progress" : "done";
+          },
+        },
+      });
+      const handle = await env.client.workflow.start(
+        "socialDiscoveryWorkflow",
+        {
+          taskQueue: "test-social",
+          workflowId: `social-${randomUUID()}`,
+          args: [],
+        },
+      );
+      await Promise.all([
+        workflow.runUntil(handle.result()),
+        native.runUntil(handle.result()),
+      ]);
+      expect(attempts).toBe(3);
+      const history = await handle.fetchHistory();
+      expect(history.events!.length).toBeLessThan(30);
+      await Worker.runReplayHistory({ workflowsPath }, history);
     }, 20_000);
 
     it("measures bounded concurrent execution without claiming production capacity", async () => {

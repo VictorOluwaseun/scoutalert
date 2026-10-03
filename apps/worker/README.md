@@ -1,8 +1,8 @@
 # ScoutAlert worker
 
-This Nest application context composes shared core use cases, repository/provider implementations and native Temporal clients. Five task queues separate workflow orchestration, shared source collection, private matching, public availability research and recipient delivery. Activities bind to core use cases; they contain no queries or copied policy.
+This Nest application context composes shared core use cases, repository/provider implementations and native Temporal clients. Eight task queues separate workflow orchestration, shared source collection, general-web discovery, learned-source monitoring, native social discovery, private matching, public availability research and recipient delivery. Activities bind to core use cases; they contain no queries or copied policy.
 
-Start the local Temporal service with `docker compose -p scoutalert-execution -f infrastructure/scouting.compose.yaml up -d`. Build `@repo/core`, `@repo/adapters`, `@repo/workflows` and `worker`, then run `pnpm --filter worker start`. The worker reads `../api/.env` and optional `.env`; see `.env.example`. The execution UI is on localhost:8233. `dev` watches built JavaScript; rebuild changed workspace packages before restart. Production startup is refused until a production email provider is composed.
+Start the local Temporal service with `docker compose -p scoutalert-execution -f infrastructure/scouting.compose.yaml up -d`. Build `@repo/core`, `@repo/adapters`, `@repo/workflows` and `worker`, then run `pnpm --filter worker start`. The worker reads `../api/.env` and optional `.env`; see `.env.example`. The execution UI is on localhost:8233. `dev` starts built JavaScript without Node watch mode; rebuild changed workspace packages and restart explicitly. Production startup is refused until a production email provider is composed.
 
 `SCOUTING_INTEGRATION=1 TEMPORAL_INTEGRATION=1 pnpm --filter worker test` exercises isolated PostgreSQL transactions, Mailpit outcomes and a separate Temporal test namespace. Ordinary tests cover matching, schedule and connector policies without external services. Test namespaces have one-day history retention; local namespace deletion is a separate operator cleanup action.
 
@@ -10,8 +10,42 @@ The [connected onboarding and live scouting guide](../../docs/engineering/scouta
 
 AI assessment is opt-in with `SCOUT_AI_ENABLED=true` and `OPENAI_API_KEY` in the ignored local `.env`. Model settings and the default 50-request daily admission ceiling are in `.env.example`. Run `node scripts/check-ai-assessment.mjs` from the repository root for the separate five-call paid smoke evaluation. The worker uses shared versioned extraction, private fit caching, strict source citations, fenced leases, a bounded per-run candidate batch and conservative fallback. The operating guide documents supported pay formats, quality limits and remaining research work.
 
+Daily allowances are operator configuration, validated against PostgreSQL counter capacity and exact microdollar arithmetic. The former 10,000-request/$100 validation caps no longer prevent a deliberately larger allowance. Changing configuration does not clear reservations or change per-attempt costs, concurrency, deadlines or provider quotas. Rebuild and restart to load it. Invalid-setting errors name fields without disclosing credentials.
+
 Availability research uses allowlisted employer ATS endpoints, shared posting/version leases, fifteen-minute reuse and independent finite Temporal runs. Prompt alerts require the strict relevance/availability policy, explicit opt-in, local quiet hours and a one-per-recipient rolling 24-hour limit. Prompt and digest delivery share the same item ledger. Apply migrations before starting the new worker.
 
 For the expanded nine-case synthetic assessment evaluation, run `SCOUT_AI_EXTENDED_CHECK=1 node scripts/check-ai-assessment.mjs` (up to seventeen paid requests, separate from the worker allowance). It is a regression suite, not a representative quality benchmark.
 
 Freelancer public fixed-price projects and hourly service requests are now collected through a bounded rolling feed. Individual availability is checked before any client-request email. Relevant feedback queues a refresh and adjusts private ranking without changing evidence or the confirmed brief. See [source coverage and verification](../../evaluations/marketplace-discovery/README.md).
+
+## Target internet discovery workloads
+
+The [discovery architecture](../../docs/architecture/scoutalert-discovery-architecture.md) expands execution into search I/O, streams/collection, fetch/render, extraction/indexing, personal matching, research, source expansion and delivery pools. The current eight queues and local concurrency values describe today's implementation; they are not the target's maximum capacity or proof of global scale.
+
+Scout Planner, Deep Discovery Agent, Evidence Research Agent and Source Expansion Agent are distinct application responsibilities. The host binds their core use cases and provider/repository adapters; it does not duplicate planning, source-admission, matching or consent rules. The initial Serper adapter and finite query planner are implemented, live-tested and enabled locally under shared budget caps. Native X recent search and lookup are implemented behind explicit configuration; recent search, refresh and bounded context lookup are live locally; independently measured social quality remains open. The broader agent roles remain incomplete.
+
+Shared monitoring and reserved exploration run independently of whether a personal index read found enough matches. Provider quotas, source limits, fair scheduling, durable budgets and input revisions constrain execution. Ingestion progress cannot advance beyond accepted durable work; gaps and partial results remain visible. See the [roadmap](../../docs/engineering/scoutalert-delivery-roadmap.md) and [DACC gates](../../docs/engineering/scoutalert-discovery-acceptance.md) before expanding live worker behavior.
+
+## General web discovery
+
+The worker now includes an opt-in Serper search adapter and a separate `scout-web-discovery-v1` pool. It persists reusable public queries, provisional leads, source evidence and bounded request reservations. A subsequent review activity classifies public demand and extracts cited source facts; it shares the existing AI request/cost/concurrency budget with private matching. Budget deferrals are visible in discovery activity. Configure `apps/worker/.env.example` settings only after following the [implementation and verification notes](../../docs/engineering/scoutalert-web-discovery.md). The provider is disabled by default; choosing Serper does not establish live access.
+
+`dev` runs without Node watch mode because the installed Node/Temporal combination crashes before polling when watch mode is enabled. Rebuild and restart after changes. Workflow threading and timeouts stay enabled; no dependency code is patched.
+
+New discovery cases use a bounded adaptive policy after the initial portfolio: observed source/application links, promising results, productive next pages and demand-query refinements. The existing document/daily budgets and four-minute deadline apply to all follow-ups. Historical fixed plans keep their original behavior. See the implementation guide for the decision ledger, live smoke report and model-guided planning and remaining coverage work. Raising `SCOUT_AI_DAILY_REQUESTS` does not raise the independent `SCOUT_AI_DAILY_USD` reservation ceiling.
+
+AI-enabled new cases use `public-intent-v3`: shared structured strategy, source review between exploration actions, and bounded model selection from permitted actions. Public/private boundaries and the global AI ledger apply to planning too. Captured linked application/employer pages can support research without another unbudgeted fetch. Apply `20261001-worldwide-strategy-reasoning` before restarting. Historical plans remain frozen; source-only review completion leaves unchecked snippets explicitly unverified. See the implementation guide for live positive/negative trials and the diagnostic baseline comparison.
+
+## Continuous source monitoring
+
+`scout-source-monitoring-v1` runs a separate one-minute native schedule with finite histories. Complete source reviews can enroll shared URLs; changed captures and a bounded observed-link frontier feed current private scout runs through the outbox. `SCOUT_MONITOR_ENABLED` defaults to true when web discovery is enabled. `SCOUT_MONITOR_MAX_SOURCES` defaults to 32 per current scout. Both monitoring migrations must run before loading this worker. Document and AI limits remain shared with the existing pipeline; disabling monitoring does not erase its ledger. See [behavior and verification](../../docs/engineering/scoutalert-web-discovery.md#continuous-source-monitoring--2-october-2026).
+
+## Native X discovery
+
+`scout-social-discovery-v1` advances shared recent-search windows and post refreshes with a separate UTC-day request/reservation budget. Apply `20261002-x-discovery`, `20261003-x-context` and `20261003-yield-scheduling` before startup. Context follows up to six source-declared related posts across two levels, sharing requests and retaining separate attribution; edits, expiry and deletion invalidate dependent assessments. Native reads require `SCOUT_X_ENABLED=true` and `X_BEARER_TOKEN`; default access is disabled. Existing post-expiry maintenance continues without API access. See [configuration, source lifecycle and verification](../../docs/engineering/scoutalert-native-social-discovery.md).
+
+When AI admission becomes available, maintenance requeues unfinished native reviews deferred by a budget or elapsed review window. Retained captures can be reviewed without another X read; their original observation timestamps still govern personal matching and delivery freshness. Paused/edited scouts and expired/inaccessible sources remain excluded. New native batches wait for active public reviews instead of superseding them.
+
+## Discovery scheduling
+
+Public query/source measurements now guide approved query order and source-check selection. X uses adaptive revisit intervals and daily pacing after three startup requests, while preserving oldest-due turns, exact cursors and existing budget/freshness guards. Apply `20261003-yield-scheduling` before restarting the rebuilt worker. See [policy, measurement semantics and verification](../../docs/engineering/scoutalert-discovery-scheduling.md). The aggregate report is `node scripts/evaluation/report-discovery-performance.mjs --write`; it does not supply independent relevance judgments.

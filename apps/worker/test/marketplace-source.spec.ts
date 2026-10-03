@@ -48,6 +48,24 @@ function feed(url: URL) {
 
 describe("public client projects and service requests", () => {
   afterEach(() => vi.unstubAllGlobals());
+  it("accepts source-issued project slugs without a category segment while retaining path restrictions", () => {
+    expect(
+      normalizeFreelancerProject({
+        ...project,
+        seo_url: "Remote-website-design-service",
+      }).url,
+    ).toBe("https://www.freelancer.com/projects/Remote-website-design-service");
+    for (const path of [
+      "//other.example/path",
+      "https://other.example/path",
+      "project?redirect=other",
+      "a/../b",
+    ]) {
+      expect(() =>
+        normalizeFreelancerProject({ ...project, seo_url: path }),
+      ).toThrow();
+    }
+  });
   it("shares bounded fixed/hourly feeds without calling a rolling window a complete snapshot", async () => {
     const fetch = vi.fn(async (url: URL) => feed(url));
     vi.stubGlobal("fetch", fetch);

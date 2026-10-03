@@ -6,6 +6,13 @@ import {
   type ScoutRunRequest,
 } from "@repo/core/scouting";
 import { DeliverOpportunityDigests } from "@repo/core/notifications";
+import {
+  DiscoverWeb,
+  DiscoverSocial,
+  ReviewDiscoveryLeads,
+  LearnSourceMonitoring,
+  MonitorSources,
+} from "@repo/core/discovery";
 
 /** Thin activity host delegates business decisions to shared framework-independent use cases. */
 export class ScoutingActivityHost {
@@ -16,7 +23,36 @@ export class ScoutingActivityHost {
     private readonly records: ScoutingRepository,
     private readonly delivery: DeliverOpportunityDigests,
     private readonly research: ResearchAvailability,
+    private readonly web: DiscoverWeb,
+    private readonly leadReviews: ReviewDiscoveryLeads,
+    private readonly learning?: LearnSourceMonitoring,
+    private readonly monitoring?: MonitorSources,
+    private readonly social?: DiscoverSocial,
   ) {}
+
+  /** Advances one shared public search or evidence step with durable budgets and revision checks. */
+  discoverWeb(input: ScoutRunRequest) {
+    return this.web.execute(input);
+  }
+
+  /** Shares public demand classification and source extraction before private fit assessment. */
+  async reviewDiscoveryLeads(input: ScoutRunRequest) {
+    const result = await this.leadReviews.execute(input);
+    if (result === "done") {
+      await this.learning?.execute(input);
+    }
+    return result;
+  }
+
+  /** Advances a finite shared source check independently of private search and matching concurrency. */
+  monitorSources() {
+    return this.monitoring?.execute() ?? Promise.resolve("done" as const);
+  }
+
+  /** Advances one shared native page or post refresh without using the generic HTML document pool. */
+  discoverSocial() {
+    return this.social?.execute() ?? Promise.resolve("done" as const);
+  }
 
   /** Refreshes one server-approved public board; the repository collapses duplicate attempts. */
   refreshSource(source: string) {

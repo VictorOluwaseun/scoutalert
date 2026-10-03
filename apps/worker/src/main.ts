@@ -12,6 +12,18 @@ import { discoverySourceIds } from "./config.js";
 /** Creates stable native schedules; existing schedules retain history and are never blindly replaced on restart. */
 async function ensureSchedules(resources: WorkerResources): Promise<void> {
   const definitions = [
+    {
+      id: "scout-social-discovery-v1",
+      workflow: "socialDiscoveryWorkflow",
+      args: [],
+      interval: "1 minute",
+    },
+    {
+      id: "scout-source-monitoring-v1",
+      workflow: "sourceMonitorWorkflow",
+      args: [],
+      interval: "1 minute",
+    },
     ...discoverySourceIds.map((board) => ({
       id: `scout-source-${board}-v1`,
       workflow: "sourceWorkflow",
@@ -77,6 +89,25 @@ async function start(): Promise<void> {
       taskQueue: "scout-sources-v1",
       activities: { refreshSource: host.refreshSource.bind(host) },
       maxConcurrentActivityTaskExecutions: 2,
+    },
+    {
+      taskQueue: "scout-web-discovery-v1",
+      activities: {
+        discoverWeb: host.discoverWeb.bind(host),
+        reviewDiscoveryLeads: host.reviewDiscoveryLeads.bind(host),
+      },
+      maxConcurrentActivityTaskExecutions:
+        resources.config.SCOUT_WEB_CONCURRENCY,
+    },
+    {
+      taskQueue: "scout-source-monitoring-v1",
+      activities: { monitorSources: host.monitorSources.bind(host) },
+      maxConcurrentActivityTaskExecutions: 2,
+    },
+    {
+      taskQueue: "scout-social-discovery-v1",
+      activities: { discoverSocial: host.discoverSocial.bind(host) },
+      maxConcurrentActivityTaskExecutions: 1,
     },
     {
       taskQueue: "scout-matching-v1",
