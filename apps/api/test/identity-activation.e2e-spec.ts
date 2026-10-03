@@ -245,6 +245,15 @@ describe.skipIf(!enabled)(
         .expect(200);
       expect(empty.body.items).toEqual([]);
       expect(empty.body.account).toEqual(other.account);
+      const web = await request(app.getHttpServer())
+        .get(`/v1/discovery?ownerId=${signed.account.id}`)
+        .set(other.authorized)
+        .expect(200);
+      expect(web.body.account).toEqual(other.account);
+      expect(web.body.leads).toEqual([]);
+      expect(web.headers['cache-control']).toBe('no-store, private');
+      await request(app.getHttpServer()).get('/v1/discovery').set(signed.context).expect(401);
+      await request(app.getHttpServer()).get('/v1/discovery').set({ ...signed.authorized, 'x-scout-web-key': 'forged' }).expect(401);
       await request(app.getHttpServer())
         .get('/v1/scouts')
         .set(signed.context)

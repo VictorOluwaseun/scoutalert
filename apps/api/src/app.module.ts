@@ -9,6 +9,7 @@ import { OnboardingModule } from './modules/onboarding/onboarding.module.js';
 import { IdentityModule } from './modules/identity/identity.module.js';
 import { ScoutActivationModule } from './modules/onboarding/scout-activation.module.js';
 import { ScoutsModule } from './modules/scouts/scouts.module.js';
+import { DiscoveryModule } from './modules/discovery/discovery.module.js';
 import { ApplicationErrorFilter } from './shared/filters/application-error.filter.js';
 
 loadLocalEnvironment();
@@ -55,6 +56,7 @@ export const observeEnabled = observeImports.length > 0;
     IdentityModule,
     ScoutActivationModule,
     ScoutsModule,
+    DiscoveryModule,
     ...observeImports,
   ],
   controllers: [AppController],
