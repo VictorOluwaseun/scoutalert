@@ -50,3 +50,26 @@ export function arrangementCriterion(
 
   return proposed;
 }
+
+/** Removes engagement/payment terms misfiled as work arrangement; stated location modes need agreeing source citations. */
+export function normalizeArrangement(
+  analysis: PostingAnalysis,
+): PostingAnalysis {
+  const fact = analysis.facts.arrangement;
+  const stated = arrangement(fact.value);
+  const cited = arrangement(fact.quotes.join("\n"));
+  const supported =
+    fact.status === "stated" && stated !== null && stated === cited;
+  const conflict =
+    fact.status === "conflicting" && (stated !== null || cited !== null);
+  if (supported || conflict || fact.status === "unknown") {
+    return analysis;
+  }
+  return {
+    ...analysis,
+    facts: {
+      ...analysis.facts,
+      arrangement: { status: "unknown", value: "", quotes: [] },
+    },
+  };
+}

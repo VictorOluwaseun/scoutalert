@@ -29,12 +29,12 @@ export interface Posting {
   source: string;
   externalId: string;
   familyId: string;
-  company: string;
+  company: string | null;
   title: string;
-  location: string;
+  location: string | null;
   url: string;
   text: string;
-  sourceUpdatedAt: string;
+  sourceUpdatedAt: string | null;
   fingerprint: string;
   version: number;
 }
@@ -68,12 +68,14 @@ export interface AssessmentDetail {
 
 /** Account-owned recommendation with public evidence and current scout contributions. */
 export interface OpportunityView {
+  /** Web demand must have recent actionable source evidence before any email. */
+  requiresFreshSource?: boolean;
   kind?: "job" | "client_request";
   feedback?: import("../../scouts/application/opportunity-feedback.js").OpportunityFeedback;
   id: string;
   title: string;
-  company: string;
-  location: string;
+  company: string | null;
+  location: string | null;
   url: string;
   checkedAt: string;
   scouts: string[];

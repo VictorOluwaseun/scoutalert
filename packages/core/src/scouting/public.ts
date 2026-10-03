@@ -45,3 +45,4 @@ export type { AvailabilityEvidence } from "./research/availability.js";
 export * from "./research/employer-evidence.js";
 
 export * from "./ranking/relevance-feedback.js";
+export { normalizeArrangement } from "./intelligence/arrangement-policy.js";

@@ -148,7 +148,7 @@ export class DeliverOpportunityDigests {
       const entries = delivery.opportunities
         .map(
           (opportunity) =>
-            `${opportunity.title} — ${opportunity.company}\n${opportunity.location}\nScouts: ${opportunity.scouts.join(", ")}\n${opportunity.reasons.join("\n")}\nNeeds review:\n${opportunity.uncertainties.map((value) => `- ${value}`).join("\n")}\n${opportunity.url}${employerEvidenceSummary(opportunity)}`,
+            `${opportunity.title} — ${opportunity.company ?? "Organization not stated"}\n${opportunity.location ?? "Location not stated"}\nScouts: ${opportunity.scouts.join(", ")}\n${opportunity.reasons.join("\n")}\nNeeds review:\n${opportunity.uncertainties.map((value) => `- ${value}`).join("\n")}\n${opportunity.url}${employerEvidenceSummary(opportunity)}`,
         )
         .join("\n\n");
 

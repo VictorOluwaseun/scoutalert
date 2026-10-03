@@ -56,7 +56,8 @@ export function hasUnavailablePosting(
     : Number.NaN;
 
   if (
-    opportunity.kind === "client_request" &&
+    (opportunity.kind === "client_request" ||
+      opportunity.requiresFreshSource === true) &&
     (!evidence ||
       evidence.status !== "available" ||
       !evidence.fingerprint ||

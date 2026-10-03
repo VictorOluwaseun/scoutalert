@@ -9,6 +9,10 @@
     "check-types": "tsc --noEmit -p tsconfig.json"
   },
   "exports": {
+    "./discovery": {
+      "types": "./dist/discovery/public.d.ts",
+      "default": "./dist/discovery/public.js"
+    },
     "./scouts": {
       "types": "./dist/scouts/public.d.ts",
       "default": "./dist/scouts/public.js"

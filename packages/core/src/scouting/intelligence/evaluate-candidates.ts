@@ -148,7 +148,8 @@ export class EvaluateCandidates extends CandidateEvaluator {
     analysis: import("./contracts.js").PostingAnalysis,
   ) {
     if (
-      common.posting.kind === "client_request" ||
+      (common.posting.kind === "client_request" &&
+        common.posting.source !== "web-client-requests") ||
       !this.researcher ||
       !needsEmployerResearch(analysis)
     ) {

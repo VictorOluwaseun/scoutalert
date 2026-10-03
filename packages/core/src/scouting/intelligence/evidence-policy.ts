@@ -12,7 +12,9 @@ import {
 
 /** Stable evidence input: quotes must be present in the exact captured text, not model memory. */
 export function postingEvidence(posting: Posting): string {
-  return `${posting.title}\n${posting.location}\n${posting.text}`;
+  return [posting.title, posting.location, posting.text]
+    .filter(Boolean)
+    .join("\n");
 }
 
 /** Collects only user-confirmed search values, excluding the account identity and email. */

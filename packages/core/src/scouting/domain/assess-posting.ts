@@ -49,6 +49,11 @@ export function assessPosting(
   search: SearchDraft,
   posting: Posting,
 ): Assessment | null {
+  // General web demand requires personal evidence assessment; title fallback cannot publish it.
+  if (["web-discovery", "web-client-requests"].includes(posting.source)) {
+    return null;
+  }
+
   const clientRequest = posting.kind === "client_request";
 
   if ((search.category === "services") !== clientRequest) {

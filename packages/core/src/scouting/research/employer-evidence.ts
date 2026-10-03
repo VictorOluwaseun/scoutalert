@@ -8,6 +8,8 @@ export const researchFacts = [
   "location",
   "authorization",
   "sponsorship",
+  "requirements",
+  "deadline",
 ] as const;
 export type ResearchFact = (typeof researchFacts)[number];
 
@@ -40,7 +42,7 @@ export interface EmployerResearch {
 
 /** Shared source access/cache lives behind a repository; private briefs never enter employer fetching. */
 export abstract class EmployerEvidenceRepository {
-  /** Reads at most two composition-approved pages, with bounded bytes/deadlines and shared refresh leases. */
+  /** Reads at most two approved employer pages or already-captured application pages observed from this posting; source access remains bounded and shared. */
   abstract read(posting: Posting): Promise<EmployerDocument[]>;
 }
 
@@ -58,7 +60,9 @@ export abstract class EmployerResearchProvider {
 export function needsEmployerResearch(analysis: PostingAnalysis): boolean {
   return (
     !analysis.research &&
-    researchFacts.some((name) => analysis.facts[name].status !== "stated")
+    researchFacts.some(
+      (name) => name !== "deadline" && analysis.facts[name].status !== "stated",
+    )
   );
 }
 
@@ -82,8 +86,12 @@ export function validResearch(
 
   if (
     research.documents.length > 2 ||
-    research.findings.length !== 3 ||
-    new Set(research.findings.map((item) => item.fact)).size !== 3
+    ![3, 5].includes(research.findings.length) ||
+    new Set(research.findings.map((item) => item.fact)).size !==
+      research.findings.length ||
+    !["location", "authorization", "sponsorship"].every((name) =>
+      research.findings.some((finding) => finding.fact === name),
+    )
   ) {
     return false;
   }
@@ -121,6 +129,14 @@ export function validResearch(
       );
     }
 
+    if (
+      finding.fact === "deadline" &&
+      finding.status === "resolved" &&
+      (!Number.isFinite(Date.parse(finding.value)) ||
+        finding.applicability !== "this_role")
+    ) {
+      return false;
+    }
     return (
       finding.applicability !== "unclear" &&
       !!document &&
@@ -144,6 +160,21 @@ export function applyEmployerResearch(
   const facts = { ...analysis.facts };
 
   for (const finding of research.findings) {
+    if (finding.fact === "deadline") {
+      continue;
+    }
+    if (
+      finding.status === "conflicting" &&
+      finding.applicability === "this_role"
+    ) {
+      const prior = facts[finding.fact];
+      facts[finding.fact] = {
+        status: "conflicting",
+        value: finding.value,
+        quotes: [...new Set([...prior.quotes, ...finding.quotes])],
+      };
+      continue;
+    }
     if (
       facts[finding.fact].status !== "unknown" ||
       finding.status === "unresolved" ||
