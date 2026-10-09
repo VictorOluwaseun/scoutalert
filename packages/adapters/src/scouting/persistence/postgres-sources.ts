@@ -1,6 +1,10 @@
 import { randomUUID } from "node:crypto";
 import { sql, type Kysely } from "kysely";
-import { SourceRepository, type SourceSnapshot } from "@repo/core/scouting";
+import {
+  SourceRepository,
+  type Posting,
+  type SourceSnapshot,
+} from "@repo/core/scouting";
 import type { ScoutAlertDatabase } from "../../database/types/database.js";
 
 /** Publishes shared source snapshots transactionally; failed fetches cannot close legitimate postings. */
@@ -24,11 +28,13 @@ export class PostgresSourceRepository extends SourceRepository {
     return result.rows[0]?.lease_token ?? null;
   }
 
-  /** Bulk upserts evidence once per meaningful version; source locking prevents late lease holders from publishing. */
+  /** Publishes bounded SQL batches in one atomic snapshot; failed batches cannot expose partial sources or close existing postings. */
   async publish(snapshot: SourceSnapshot, lease: string): Promise<void> {
     const kind = snapshot.kind ?? "job";
 
     if (
+      new Set(snapshot.postings.map((posting) => posting.id)).size !==
+        snapshot.postings.length ||
       snapshot.postings.some(
         (posting) =>
           posting.source !== snapshot.source ||
@@ -48,26 +54,60 @@ export class PostgresSourceRepository extends SourceRepository {
         throw new Error("source_lease_expired");
       }
 
-      await sql`
-        INSERT INTO opportunity_postings (id,source_id,external_id,family_id,company,title,location,url,content,fingerprint,version,source_updated_at,checked_at,open,kind)
-        SELECT p.id,${snapshot.source},p."externalId",p."familyId",p.company,p.title,p.location,p.url,p.text,p.fingerprint,1,p."sourceUpdatedAt"::timestamptz,${snapshot.checkedAt}::timestamptz,true,${kind}
-        FROM jsonb_to_recordset(${JSON.stringify(snapshot.postings)}::jsonb) AS p(id text,"externalId" text,"familyId" text,company text,title text,location text,url text,text text,fingerprint text,"sourceUpdatedAt" text)
-        ON CONFLICT (id) DO UPDATE SET kind=excluded.kind,family_id=excluded.family_id,company=excluded.company,title=excluded.title,location=excluded.location,url=excluded.url,content=excluded.content,
-          fingerprint=excluded.fingerprint,version=opportunity_postings.version + CASE WHEN opportunity_postings.fingerprint<>excluded.fingerprint OR NOT opportunity_postings.open THEN 1 ELSE 0 END,
-          source_updated_at=excluded.source_updated_at,checked_at=excluded.checked_at,open=true;
-      `.execute(tx);
-      await sql`UPDATE opportunity_postings SET open=false,version=version+1,checked_at=${snapshot.checkedAt}::timestamptz WHERE ${snapshot.scope ?? "complete"}='complete' AND source_id=${snapshot.source} AND open AND checked_at<>${snapshot.checkedAt}::timestamptz`.execute(
+      for (let offset = 0; offset < snapshot.postings.length; offset += 500) {
+        const batch = snapshot.postings.slice(offset, offset + 500);
+        await this.upsert(tx, snapshot, batch);
+        await this.recordEvidence(
+          tx,
+          snapshot.checkedAt,
+          batch.map((posting) => posting.id),
+        );
+      }
+      const closed = await sql<{
+        id: string;
+      }>`UPDATE opportunity_postings SET open=false,version=version+1,checked_at=${snapshot.checkedAt}::timestamptz WHERE ${snapshot.scope ?? "complete"}='complete' AND source_id=${snapshot.source} AND open AND checked_at<>${snapshot.checkedAt}::timestamptz RETURNING id`.execute(
         tx,
       );
-      await sql`
-        INSERT INTO opportunity_evidence (posting_id,version,snapshot,recorded_at)
-        SELECT id,version,jsonb_build_object('kind',kind,'title',title,'company',company,'location',location,'url',url,'text',content,'open',open,'sourceUpdatedAt',source_updated_at,'fingerprint',fingerprint,'familyId',family_id),${snapshot.checkedAt}::timestamptz
-        FROM opportunity_postings WHERE source_id=${snapshot.source} AND checked_at=${snapshot.checkedAt}::timestamptz ON CONFLICT DO NOTHING
-      `.execute(tx);
+      for (let offset = 0; offset < closed.rows.length; offset += 500) {
+        await this.recordEvidence(
+          tx,
+          snapshot.checkedAt,
+          closed.rows.slice(offset, offset + 500).map((row) => row.id),
+        );
+      }
       await sql`UPDATE opportunity_sources SET kind=${kind},scope=${snapshot.scope ?? "complete"},checked_at=${snapshot.checkedAt}::timestamptz,posting_count=${snapshot.postings.length},last_error_at=NULL,lease_token=NULL,lease_until=NULL WHERE id=${snapshot.source}`.execute(
         tx,
       );
     });
+  }
+
+  /** Keeps each indexed insertion bounded while joining the caller's source lock and transaction. */
+  private async upsert(
+    tx: Kysely<ScoutAlertDatabase>,
+    snapshot: SourceSnapshot,
+    postings: Posting[],
+  ): Promise<void> {
+    await sql`
+        INSERT INTO opportunity_postings (id,source_id,external_id,family_id,company,title,location,url,content,fingerprint,version,source_updated_at,checked_at,open,kind)
+        SELECT p.id,${snapshot.source},p."externalId",p."familyId",p.company,p.title,p.location,p.url,p.text,p.fingerprint,1,p."sourceUpdatedAt"::timestamptz,${snapshot.checkedAt}::timestamptz,true,${snapshot.kind ?? "job"}
+        FROM jsonb_to_recordset(${JSON.stringify(postings)}::jsonb) AS p(id text,"externalId" text,"familyId" text,company text,title text,location text,url text,text text,fingerprint text,"sourceUpdatedAt" text)
+        ON CONFLICT (id) DO UPDATE SET kind=excluded.kind,family_id=excluded.family_id,company=excluded.company,title=excluded.title,location=excluded.location,url=excluded.url,content=excluded.content,
+          fingerprint=excluded.fingerprint,version=opportunity_postings.version + CASE WHEN opportunity_postings.fingerprint<>excluded.fingerprint OR NOT opportunity_postings.open THEN 1 ELSE 0 END,
+          source_updated_at=excluded.source_updated_at,checked_at=excluded.checked_at,open=true;
+      `.execute(tx);
+  }
+
+  /** Writes immutable evidence only for this batch, including closures; the posting/version key makes unchanged snapshots idempotent. */
+  private async recordEvidence(
+    tx: Kysely<ScoutAlertDatabase>,
+    checkedAt: string,
+    ids: string[],
+  ): Promise<void> {
+    await sql`
+        INSERT INTO opportunity_evidence (posting_id,version,snapshot,recorded_at)
+        SELECT id,version,jsonb_build_object('kind',kind,'title',title,'company',company,'location',location,'url',url,'text',content,'open',open,'sourceUpdatedAt',source_updated_at,'fingerprint',fingerprint,'familyId',family_id),${checkedAt}::timestamptz
+        FROM opportunity_postings WHERE id=ANY(${ids}::text[]) ON CONFLICT DO NOTHING
+      `.execute(tx);
   }
 
   /** Records health independently of successful freshness, then releases this attempt's lease. */

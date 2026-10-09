@@ -242,6 +242,109 @@ describe.skipIf(!enabled)(
       ).toBe(false);
     });
 
+    it("rolls back earlier import batches when a later row fails and records complete closures on retry", async () => {
+      const source = `atomic-${randomUUID()}`;
+      const now = new Date();
+      const old = {
+        ...posting,
+        source,
+        id: `${source}:old`,
+        externalId: "old",
+        familyId: `${source}:old`,
+      };
+      const firstLease = await sources.claim(source, now);
+      const oldCheckedAt = new Date(now.getTime() - 10 * 60_000).toISOString();
+      await sources.publish(
+        { source, checkedAt: oldCheckedAt, postings: [old] },
+        firstLease!,
+      );
+      const lease = await sources.claim(source, new Date());
+      const postings = Array.from({ length: 501 }, (_, index) => ({
+        ...posting,
+        source,
+        id: `${source}:${index}`,
+        externalId: String(index),
+        familyId: `${source}:${index}`,
+      }));
+      const invalid = [...postings];
+      invalid[500] = { ...invalid[500]!, sourceUpdatedAt: "invalid-date" };
+      await expect(
+        sources.publish(
+          { source, checkedAt: now.toISOString(), postings: invalid },
+          lease!,
+        ),
+      ).rejects.toThrow();
+      expect(
+        (
+          await sql<{
+            id: string;
+            open: boolean;
+          }>`SELECT id,open FROM opportunity_postings WHERE source_id=${source}`.execute(
+            db,
+          )
+        ).rows,
+      ).toEqual([{ id: old.id, open: true }]);
+      expect(
+        (
+          await sql<{
+            count: number;
+          }>`SELECT count(*)::int AS count FROM opportunity_evidence e JOIN opportunity_postings p ON p.id=e.posting_id WHERE p.source_id=${source}`.execute(
+            db,
+          )
+        ).rows[0]!.count,
+      ).toBe(1);
+      await expect(
+        sources.publish(
+          {
+            source,
+            checkedAt: now.toISOString(),
+            postings: [...postings, postings[0]!],
+          },
+          lease!,
+        ),
+      ).rejects.toThrow("invalid_source_snapshot");
+      await sources.publish(
+        { source, checkedAt: now.toISOString(), postings },
+        lease!,
+      );
+      expect(
+        (
+          await sql<{
+            count: number;
+          }>`SELECT count(*)::int AS count FROM opportunity_postings WHERE source_id=${source} AND open`.execute(
+            db,
+          )
+        ).rows[0]!.count,
+      ).toBe(501);
+      expect(
+        (
+          await sql<{
+            version: number;
+            open: boolean;
+          }>`SELECT version,open FROM opportunity_postings WHERE id=${old.id}`.execute(
+            db,
+          )
+        ).rows[0],
+      ).toEqual({ version: 2, open: false });
+      expect(
+        (
+          await sql<{
+            count: number;
+          }>`SELECT count(*)::int AS count FROM opportunity_evidence e JOIN opportunity_postings p ON p.id=e.posting_id WHERE p.source_id=${source}`.execute(
+            db,
+          )
+        ).rows[0]!.count,
+      ).toBe(503);
+      // This suite intentionally shares a schema; remove only the new load fixture before later matching scenarios.
+      await sql`DELETE FROM opportunity_evidence WHERE posting_id IN (SELECT id FROM opportunity_postings WHERE source_id=${source})`.execute(
+        db,
+      );
+      await sql`DELETE FROM opportunity_postings WHERE source_id=${source}`.execute(
+        db,
+      );
+      await sql`DELETE FROM opportunity_sources WHERE id=${source}`.execute(db);
+    });
+
     it("recovers dispatch leases, scopes results to owners, and rejects stale revisions at publication", async () => {
       await snapshot();
       const { ownerId, scouts } = await fixture();

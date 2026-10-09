@@ -1,0 +1,150 @@
+{
+  "measuredAt": "2026-10-04T03:07:34.904Z",
+  "corpusHash": "5b8e4e17e160023baa855edd708520c4263af8965412c10d37dcee29c949be82",
+  "scope": "Local PostgreSQL retrieval microbenchmark; duplicated frozen public text, synthetic identities, warm shared instance. Not population recall, end-to-end alert latency or production capacity evidence.",
+  "workload": {
+    "sizes": [
+      1000,
+      10000,
+      50000
+    ],
+    "concurrency": [
+      4,
+      8
+    ],
+    "batchesPerConcurrency": 10
+  },
+  "database": {
+    "version": "18.6 (Debian 18.6-1.pgdg13+2)",
+    "statement_timeout": "10s"
+  },
+  "runs": [
+    {
+      "status": "completed",
+      "postingCount": 1000,
+      "queries": 40,
+      "concurrency": 4,
+      "ingestionMs": 1196.222959,
+      "queryElapsedMs": 235.87512500000025,
+      "p50Ms": 15.601875000000064,
+      "p95Ms": 52.86970900000006,
+      "maximumCandidates": 200,
+      "unavailableQueries": 0,
+      "candidateCap": 200,
+      "byCategory": {
+        "employment": {
+          "queries": 24,
+          "p95Ms": 53.316959,
+          "maximumCandidates": 200
+        },
+        "contracts": {
+          "queries": 6,
+          "p95Ms": 19.132000000000062,
+          "maximumCandidates": 125
+        },
+        "services": {
+          "queries": 10,
+          "p95Ms": 10.638249999999971,
+          "maximumCandidates": 125
+        }
+      }
+    },
+    {
+      "status": "completed",
+      "postingCount": 1000,
+      "queries": 80,
+      "concurrency": 8,
+      "ingestionMs": 1196.222959,
+      "queryElapsedMs": 357.4072500000002,
+      "p50Ms": 25.388041999999587,
+      "p95Ms": 38.03770900000018,
+      "maximumCandidates": 200,
+      "unavailableQueries": 0,
+      "candidateCap": 200,
+      "byCategory": {
+        "employment": {
+          "queries": 47,
+          "p95Ms": 37.17445799999996,
+          "maximumCandidates": 200
+        },
+        "contracts": {
+          "queries": 11,
+          "p95Ms": 57.64808299999959,
+          "maximumCandidates": 125
+        },
+        "services": {
+          "queries": 22,
+          "p95Ms": 49.79341700000032,
+          "maximumCandidates": 125
+        }
+      }
+    },
+    {
+      "status": "completed",
+      "postingCount": 10000,
+      "queries": 40,
+      "concurrency": 4,
+      "ingestionMs": 10909.854416999999,
+      "queryElapsedMs": 552.1128329999992,
+      "p50Ms": 37.076624999999694,
+      "p95Ms": 146.26708300000064,
+      "maximumCandidates": 200,
+      "unavailableQueries": 0,
+      "candidateCap": 200,
+      "byCategory": {
+        "employment": {
+          "queries": 24,
+          "p95Ms": 148.90858399999888,
+          "maximumCandidates": 200
+        },
+        "contracts": {
+          "queries": 6,
+          "p95Ms": 44.654333000000406,
+          "maximumCandidates": 200
+        },
+        "services": {
+          "queries": 10,
+          "p95Ms": 27.10112499999923,
+          "maximumCandidates": 200
+        }
+      }
+    },
+    {
+      "status": "completed",
+      "postingCount": 10000,
+      "queries": 80,
+      "concurrency": 8,
+      "ingestionMs": 10909.854416999999,
+      "queryElapsedMs": 718.34375,
+      "p50Ms": 52.62774999999965,
+      "p95Ms": 93.07145800000035,
+      "maximumCandidates": 200,
+      "unavailableQueries": 0,
+      "candidateCap": 200,
+      "byCategory": {
+        "employment": {
+          "queries": 47,
+          "p95Ms": 96.21845900000153,
+          "maximumCandidates": 200
+        },
+        "contracts": {
+          "queries": 11,
+          "p95Ms": 93.07145800000035,
+          "maximumCandidates": 200
+        },
+        "services": {
+          "queries": 22,
+          "p95Ms": 58.4620419999992,
+          "maximumCandidates": 200
+        }
+      }
+    }
+  ],
+  "failures": [
+    {
+      "postingCount": 50000,
+      "phase": "ingestion",
+      "code": "statement_timeout"
+    }
+  ]
+}
