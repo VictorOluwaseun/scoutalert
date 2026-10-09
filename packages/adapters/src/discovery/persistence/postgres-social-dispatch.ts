@@ -10,7 +10,7 @@ export class PostgresSocialDispatchRepository {
   /** Joins receipt/retention transactions under the shared source lock. */
   constructor(private readonly tx: Kysely<ScoutAlertDatabase>) {}
 
-  /** Requeues bounded unfinished reviews after allowance becomes available; captured timestamps and historical receipts stay intact. */
+  /** Recovers interrupted or retryable reviews within the shared AI budget; source timestamps, attempt ceilings and original cases remain intact. */
   async resumeReviews(
     limits: Pick<SocialLimits, "dailyRequests" | "dailyMicros"> | null,
   ): Promise<void> {
@@ -30,11 +30,33 @@ export class PostgresSocialDispatchRepository {
     await sql`WITH eligible AS (
       SELECT u.lead_id,u.scout_id,u.scout_version FROM x_source_updates u
       JOIN scouts s ON s.id=u.scout_id AND s.owner_id=u.owner_id AND s.version=u.scout_version AND s.status='active'
-      JOIN web_lead_review_cases c ON c.case_id=u.case_id
+      JOIN web_discovery_cases original ON original.id=u.case_id
+      JOIN outbox_events event ON event.id=original.id AND event.published_at IS NOT NULL
+      LEFT JOIN web_lead_review_cases c ON c.case_id=u.case_id
       JOIN x_posts p ON p.lead_id=u.lead_id AND NOT p.unavailable AND p.expires_at>now()
       JOIN web_discovery_leads l ON l.id=u.lead_id AND l.content_status='fetched'
-      WHERE c.status='deferred' AND c.reason IN ('ai_budget_reached','review_window_ended')
-      AND EXISTS(SELECT 1 FROM web_lead_reviews r WHERE r.lead_id=u.lead_id AND r.key=ANY(c.keys) AND r.state IN ('pending','running'))
+      LEFT JOIN LATERAL (
+        SELECT r.state,r.failure,r.retry_at,r.lease_until,r.attempts FROM web_lead_reviews r
+        WHERE r.lead_id=u.lead_id AND r.input->>'documentFingerprint'=l.document->>'fingerprint'
+        AND (c.configuration IS NULL OR r.configuration=c.configuration)
+        ORDER BY r.created_at DESC,r.key LIMIT 1
+      ) review ON true
+      WHERE (
+        (c.case_id IS NULL AND (
+          original.deadline<=now()
+          OR EXISTS(SELECT 1 FROM web_discovery_cases newer WHERE newer.scout_id=s.id AND newer.owner_id=s.owner_id AND newer.started_at>original.started_at)
+          OR EXISTS(SELECT 1 FROM discovery_runs run WHERE run.id=original.id AND run.status IN ('completed','failed'))
+        ))
+        OR (c.status='deferred' AND c.reason IN ('ai_budget_reached','review_window_ended'))
+        OR (c.status IN ('pending','reviewing') AND c.deadline<=now())
+        OR (c.status='complete' AND c.reason='some_reviews_unavailable')
+      )
+      AND (
+        review.state IS NULL OR review.state='pending'
+        OR (review.state='ready' AND c.case_id IS NULL)
+        OR (review.state='running' AND review.lease_until<=now() AND review.attempts<2)
+        OR (review.state='failed' AND review.failure IN ('provider_unavailable','attempt_outcome_unknown') AND review.attempts<2 AND review.retry_at<=now())
+      )
       ORDER BY u.observed_at,u.lead_id,u.scout_id LIMIT 500 FOR UPDATE OF u
     ) UPDATE x_source_updates u SET case_id=NULL FROM eligible e
       WHERE u.lead_id=e.lead_id AND u.scout_id=e.scout_id AND u.scout_version=e.scout_version`.execute(

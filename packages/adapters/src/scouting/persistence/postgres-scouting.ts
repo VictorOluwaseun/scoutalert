@@ -162,7 +162,7 @@ export class PostgresScoutingRepository extends ScoutingRepository {
     });
   }
 
-  /** One batch favors the least recently requested scouts; repeated ticks sweep beyond a single fixed page. */
+  /** Favors the least recently requested scouts while letting recent native/monitor batches finish review before a full search can supersede them. */
   async reconcile(epoch: string, now: Date): Promise<number> {
     return this.db.transaction().execute(async (tx) => {
       // Lock scout rows before closing orphaned runs, using the same order as normal run completion.
@@ -182,7 +182,7 @@ export class PostgresScoutingRepository extends ScoutingRepository {
         id: string;
         owner_id: string;
         version: number;
-      }>`SELECT id,owner_id,version FROM scouts WHERE status='active' AND NOT EXISTS(SELECT 1 FROM web_discovery_cases c WHERE c.scout_id=scouts.id AND c.plan->>'origin'='source_monitor' AND c.started_at>${now}::timestamptz-interval '5 minutes') AND NOT EXISTS(SELECT 1 FROM discovery_runs running WHERE running.scout_id=scouts.id AND running.scout_version=scouts.version AND running.status='searching') AND discovery_requested_at<${now}::timestamptz-interval '10 minutes' ORDER BY discovery_requested_at,id FOR UPDATE SKIP LOCKED LIMIT 500`.execute(
+      }>`SELECT id,owner_id,version FROM scouts WHERE status='active' AND NOT EXISTS(SELECT 1 FROM web_discovery_cases c WHERE c.scout_id=scouts.id AND c.plan->>'origin' IN ('source_monitor','native_social') AND c.started_at>${now}::timestamptz-interval '5 minutes') AND NOT EXISTS(SELECT 1 FROM discovery_runs running WHERE running.scout_id=scouts.id AND running.scout_version=scouts.version AND running.status='searching') AND discovery_requested_at<${now}::timestamptz-interval '10 minutes' ORDER BY discovery_requested_at,id FOR UPDATE SKIP LOCKED LIMIT 500`.execute(
         tx,
       );
       const intents = scouts.rows.map((scout) => ({

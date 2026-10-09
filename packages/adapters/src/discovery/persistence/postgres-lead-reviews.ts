@@ -246,7 +246,7 @@ export class PostgresLeadReviewRepository extends LeadReviewRepository {
     }
   }
 
-  /** Publishes one supported current source and links its review atomically; negative reviews withdraw web candidates. */
+  /** Publishes current evidence and clears obsolete retry failures atomically; failed attempts remain in their audit ledger. Negative reviews withdraw web candidates. */
   private async accept(
     tx: Kysely<ScoutAlertDatabase>,
     key: string,
@@ -264,7 +264,7 @@ export class PostgresLeadReviewRepository extends LeadReviewRepository {
         tx,
       );
     }
-    await sql`UPDATE web_lead_reviews SET state='ready',result=${JSON.stringify(review)}::jsonb,reviewed_at=coalesce(reviewed_at,now()),lease_until=NULL,posting_id=${posting?.id ?? null},posting_version=${posting?.version ?? null} WHERE key=${key}`.execute(
+    await sql`UPDATE web_lead_reviews SET state='ready',failure=NULL,retry_at=NULL,result=${JSON.stringify(review)}::jsonb,reviewed_at=coalesce(reviewed_at,now()),lease_until=NULL,posting_id=${posting?.id ?? null},posting_version=${posting?.version ?? null} WHERE key=${key}`.execute(
       tx,
     );
     await sql`UPDATE web_discovery_leads SET review_key=${key},posting_id=${posting?.id ?? null} WHERE id=${input.id}`.execute(

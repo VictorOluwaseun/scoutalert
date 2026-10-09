@@ -716,6 +716,48 @@ describe.skipIf(!enabled)(
       return { request, id, document };
     }
 
+    it("clears obsolete failure state after a successful retry and preserves both paid attempt receipts", async () => {
+      const { request, id } = await reviewFixture();
+      const provider = new FixtureLeadProvider();
+      const repository = new PostgresLeadReviewRepository(db, 100, 10_000_000);
+      const first = await repository.claim(request, provider.configuration);
+      expect(first.status).toBe("claimed");
+      if (first.status !== "claimed") {
+        throw new Error("fixture_admission_missing");
+      }
+      await repository.fail(first.token, "provider_unavailable");
+      await sql`UPDATE web_lead_reviews SET retry_at=now() WHERE lead_id=${id}`.execute(
+        db,
+      );
+      const retry = await repository.claim(request, provider.configuration);
+      expect(retry.status).toBe("claimed");
+      if (retry.status !== "claimed") {
+        throw new Error("fixture_retry_missing");
+      }
+      await repository.complete(
+        retry.token,
+        await provider.review(retry.inputs),
+      );
+      const review =
+        await sql`SELECT state,failure,retry_at,attempts FROM web_lead_reviews WHERE lead_id=${id}`.execute(
+          db,
+        );
+      expect(review.rows[0]).toEqual({
+        state: "ready",
+        failure: null,
+        retry_at: null,
+        attempts: 2,
+      });
+      const attempts =
+        await sql`SELECT state,failure FROM web_lead_review_attempts WHERE id=ANY(${[first.token, retry.token]}::uuid[]) ORDER BY started_at`.execute(
+          db,
+        );
+      expect(attempts.rows).toEqual([
+        { state: "failed", failure: "provider_unavailable" },
+        { state: "ready", failure: null },
+      ]);
+    });
+
     it("shares public reviews across owners while keeping excerpt facts out of the posting index", async () => {
       const a = await reviewFixture("search_excerpt");
       const b = await fixture();
@@ -771,11 +813,14 @@ describe.skipIf(!enabled)(
       expect(claims.filter((claim) => claim.status === "waiting")).toHaveLength(
         1,
       );
-      const first = claims[0];
+      const first = claims.find((claim) => claim.status === "claimed");
       if (first?.status !== "claimed") {
         throw new Error("expected_first_claim");
       }
-      await sql`UPDATE web_discovery_leads SET document=jsonb_set(document,'{fingerprint}','"changed"'::jsonb) WHERE id=${a.id}`.execute(
+      const changed = [a, b, c].find(
+        (entry) => entry.id === first.inputs[0]!.id,
+      )!;
+      await sql`UPDATE web_discovery_leads SET document=jsonb_set(document,'{fingerprint}','"changed"'::jsonb) WHERE id=${changed.id}`.execute(
         db,
       );
       await reviews.complete(first.token, {
@@ -788,7 +833,7 @@ describe.skipIf(!enabled)(
       expect(
         (
           await new PostgresWebDiscoveryCatalogRepository(db).read(
-            a.request.ownerId,
+            changed.request.ownerId,
           )
         ).leads[0]!.postingId,
       ).toBeNull();

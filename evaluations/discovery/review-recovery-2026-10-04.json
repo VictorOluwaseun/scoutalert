@@ -1,0 +1,113 @@
+{
+  "protocol": "review-recovery-audit-v1",
+  "recordedAt": "2026-10-04T03:18:17.554Z",
+  "nativeReviews": [
+    {
+      "state": "ready",
+      "failure": null,
+      "posts": 48
+    }
+  ],
+  "nativeSubscriptions": [
+    {
+      "status": "public_review_ready",
+      "subscriptions": 212,
+      "unique_posts": 48,
+      "oldest_source_observation": "2026-10-04T02:26:42.900Z"
+    }
+  ],
+  "discoveryFamilies": [
+    {
+      "family": "expired_or_unavailable_native_x",
+      "content_status": "unavailable",
+      "leads": 140,
+      "source_reviews": 0,
+      "excerpt_reviews": 0,
+      "open_candidates": 0
+    },
+    {
+      "family": "indexed_linkedin",
+      "content_status": "access_limited",
+      "leads": 40,
+      "source_reviews": 0,
+      "excerpt_reviews": 4,
+      "open_candidates": 0
+    },
+    {
+      "family": "indexed_linkedin",
+      "content_status": "unfetched",
+      "leads": 201,
+      "source_reviews": 0,
+      "excerpt_reviews": 20,
+      "open_candidates": 0
+    },
+    {
+      "family": "indexed_x",
+      "content_status": "access_limited",
+      "leads": 16,
+      "source_reviews": 0,
+      "excerpt_reviews": 4,
+      "open_candidates": 0
+    },
+    {
+      "family": "indexed_x",
+      "content_status": "unfetched",
+      "leads": 241,
+      "source_reviews": 0,
+      "excerpt_reviews": 31,
+      "open_candidates": 0
+    },
+    {
+      "family": "native_x",
+      "content_status": "fetched",
+      "leads": 48,
+      "source_reviews": 48,
+      "excerpt_reviews": 0,
+      "open_candidates": 18
+    },
+    {
+      "family": "other_public_web",
+      "content_status": "access_limited",
+      "leads": 66,
+      "source_reviews": 0,
+      "excerpt_reviews": 4,
+      "open_candidates": 0
+    },
+    {
+      "family": "other_public_web",
+      "content_status": "fetched",
+      "leads": 148,
+      "source_reviews": 91,
+      "excerpt_reviews": 8,
+      "open_candidates": 49
+    },
+    {
+      "family": "other_public_web",
+      "content_status": "unavailable",
+      "leads": 4,
+      "source_reviews": 0,
+      "excerpt_reviews": 0,
+      "open_candidates": 0
+    },
+    {
+      "family": "other_public_web",
+      "content_status": "unfetched",
+      "leads": 352,
+      "source_reviews": 0,
+      "excerpt_reviews": 63,
+      "open_candidates": 0
+    }
+  ],
+  "publicationGuards": {
+    "incomplete_promoted": 0,
+    "non_demand_promoted": 0
+  },
+  "independentQuality": null,
+  "notes": [
+    "Read-only operational snapshot; no provider calls, paid work or email. No source text, query text, personal brief, account ID or credential is exported.",
+    "Native review totals include only the current document version on a retained available source. Subscription totals include only active current-version scouts. A shared public review is not a completed private fit assessment.",
+    "Subscription status is per account-source pair; unique post counts across status groups overlap. A pending review is not a negative relevance judgment.",
+    "Source-family counts describe the last seven days of observed leads, not internet coverage or recall. Indexed social content is not native platform access; open candidates may still need freshness, eligibility and personal-fit checks.",
+    "Independent relevance and global capacity remain unverified. Failed or incomplete evidence is never counted as a useful opportunity."
+  ]
+}

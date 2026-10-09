@@ -1,0 +1,129 @@
+{
+  "recordedAt": "2026-10-04T02:46:19.650Z",
+  "dayUtc": "2026-10-04",
+  "protocol": "native-pacing-audit-v1",
+  "limits": {
+    "requests": 100,
+    "reservationUsd": 10,
+    "postReservationUsd": 0.005
+  },
+  "ledgerDays": [
+    {
+      "day": "2026-10-03",
+      "requests": 100,
+      "reserved_micros": 4785000
+    },
+    {
+      "day": "2026-10-04",
+      "requests": 4,
+      "reserved_micros": 200000
+    }
+  ],
+  "ledgerChecks": {
+    "completeHistory": true,
+    "requestsReconcile": true,
+    "reservationsReconcile": true,
+    "perAttemptReservationsMatchConfiguredPrice": true,
+    "withinRequestCap": true,
+    "withinReservationCap": true
+  },
+  "today": [
+    {
+      "admittedAt": "2026-10-04T02:26:41.163Z",
+      "kind": "search",
+      "purpose": null,
+      "state": "succeeded",
+      "failure": null,
+      "reservationMicros": 50000,
+      "returnedPosts": 0,
+      "firstNativeCaptures": 0,
+      "partial": false,
+      "latencyMs": 864
+    },
+    {
+      "admittedAt": "2026-10-04T02:26:42.424Z",
+      "kind": "search",
+      "purpose": null,
+      "state": "succeeded",
+      "failure": null,
+      "reservationMicros": 50000,
+      "returnedPosts": 10,
+      "firstNativeCaptures": 9,
+      "partial": false,
+      "latencyMs": 469
+    },
+    {
+      "admittedAt": "2026-10-04T02:26:43.261Z",
+      "kind": "search",
+      "purpose": null,
+      "state": "succeeded",
+      "failure": null,
+      "reservationMicros": 50000,
+      "returnedPosts": 10,
+      "firstNativeCaptures": 10,
+      "partial": false,
+      "latencyMs": 584
+    },
+    {
+      "admittedAt": "2026-10-04T02:40:01.066Z",
+      "kind": "search",
+      "purpose": null,
+      "state": "succeeded",
+      "failure": null,
+      "reservationMicros": 50000,
+      "returnedPosts": 10,
+      "firstNativeCaptures": 10,
+      "partial": false,
+      "latencyMs": 783
+    }
+  ],
+  "pacing": {
+    "checkedAdmissionsAfterStartup": 1,
+    "comparisons": [
+      {
+        "admittedAt": "2026-10-04T02:40:01.066Z",
+        "gapSeconds": 797.805,
+        "remainingPolicyDelayMs": 0,
+        "passes": true
+      }
+    ],
+    "currentlyDelayedQueries": 1,
+    "estimatedDelayForFullPageMs": 417462
+  },
+  "cursors": {
+    "comparedWindows": 4,
+    "unexplainedGaps": 0,
+    "recordedHorizonGaps": 0,
+    "unfinishedWindows": 3,
+    "pendingReceipts": 0
+  },
+  "currentNativeReviewStates": [
+    {
+      "state": "failed",
+      "failure": "provider_unavailable",
+      "count": 4
+    },
+    {
+      "state": "ready",
+      "failure": null,
+      "count": 17
+    },
+    {
+      "state": "not_started",
+      "failure": null,
+      "count": 8
+    }
+  ],
+  "currentPublicationGuards": {
+    "incomplete_sources_promoted": 0,
+    "non_demand_promoted": 0
+  },
+  "independentQuality": null,
+  "assumptions": [
+    "Retrospective pacing and per-post reservation comparisons assume the configured limits and price were unchanged during this UTC day. Oldest three daily admissions are the permitted startup burst.",
+    "A one-second timing tolerance accounts for PostgreSQL transaction timestamps preceding application admission checks. No ledger, due time, cursor or configured limit is changed by this report.",
+    "Pacing comparisons require an actual post-startup admission; zero comparisons means that step remains unverified. Current pacing reasons alone do not prove a later read resumed.",
+    "Cursor comparisons check overlapping fixed search windows, not completeness of provider results. Preserved unfinished pages are not completed windows.",
+    "Only timestamps, counts and safe status categories are exported; no post bodies, query text, cursor tokens, credentials or private account identifiers."
+  ]
+}

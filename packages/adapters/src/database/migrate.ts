@@ -1,3 +1,4 @@
+import * as reviewRecovery from "./migrations/20261004-review-recovery.js";
 import * as discoveryPerformance from "./migrations/20261003-yield-scheduling.js";
 import * as monitorExpansionWindow from "./migrations/20261002-source-monitor-expansion-window.js";
 import * as xDiscovery from "./migrations/20261002-x-discovery.js";
@@ -30,6 +31,7 @@ export async function migrateDatabase(
     migrationTableSchema,
     provider: {
       getMigrations: async () => ({
+        "20261004-review-recovery": reviewRecovery,
         "20261002-x-discovery": xDiscovery,
         "20261003-x-context": xContext,
         "20261003-yield-scheduling": discoveryPerformance,

@@ -756,6 +756,173 @@ describe.skipIf(!enabled)("native X durable discovery", () => {
     expect(await records.maintain()).toBe(1);
   });
 
+  it("recovers a native batch replaced before review without another X read or a changed source timestamp", async () => {
+    await scout();
+    await records.complete(await claim(), response());
+    const original = await nextBatch();
+    await due();
+    await records.complete(await claim(), response(null, "102"));
+    const newer = await nextBatch();
+    expect(newer.runId).not.toBe(original.runId);
+    const provider = new FixtureLeadProvider();
+    const reviews = new ReviewDiscoveryLeads(
+      new PostgresLeadReviewRepository(db, 10, 1_000_000),
+      provider,
+    );
+    expect(await reviews.execute(original)).toBe("done");
+    expect(await reviews.execute(newer)).toBe("progress");
+    expect(await reviews.execute(newer)).toBe("done");
+    const before = (
+      await sql`SELECT lead_id,observed_at FROM x_source_updates ORDER BY lead_id`.execute(
+        db,
+      )
+    ).rows;
+    const recovery = new PostgresSocialDiscoveryRepository(db, {
+      dailyRequests: 10,
+      dailyMicros: 1_000_000,
+    });
+    await sql`UPDATE outbox_events SET published_at=now()`.execute(db);
+    await sql`UPDATE web_discovery_cases SET started_at=started_at-interval '2 minutes'`.execute(
+      db,
+    );
+    expect(await recovery.maintain()).toBe(1);
+    expect(await recovery.maintain()).toBe(0);
+    const recovered = await nextBatch();
+    expect(await reviews.execute(recovered)).toBe("progress");
+    expect(await reviews.execute(recovered)).toBe("done");
+    expect(provider.calls).toBe(2);
+    expect(
+      (
+        await sql`SELECT lead_id,observed_at FROM x_source_updates ORDER BY lead_id`.execute(
+          db,
+        )
+      ).rows,
+    ).toEqual(before);
+    expect(
+      (
+        await sql<{
+          requests: number;
+        }>`SELECT requests FROM web_discovery_usage WHERE provider='x-api'`.execute(
+          db,
+        )
+      ).rows[0]!.requests,
+    ).toBe(2);
+    expect(
+      (
+        await sql<{
+          count: number;
+        }>`SELECT count(*)::int AS count FROM web_lead_reviews WHERE state='ready'`.execute(
+          db,
+        )
+      ).rows[0]!.count,
+    ).toBe(2);
+  });
+
+  it("requeues due transient review failures once while retaining both attempt receipts and their spend", async () => {
+    await scout();
+    await records.complete(await claim(), response());
+    const original = await nextBatch();
+    const provider = new FixtureLeadProvider();
+    const reviews = new PostgresLeadReviewRepository(db, 10, 1_000_000);
+    const first = await reviews.claim(original, provider.configuration);
+    if (first.status !== "claimed") {
+      throw new Error("expected_first_review");
+    }
+    await reviews.fail(first.token, "provider_unavailable");
+    expect((await reviews.claim(original, provider.configuration)).status).toBe(
+      "done",
+    );
+    await sql`UPDATE outbox_events SET published_at=now()`.execute(db);
+    await sql`UPDATE web_discovery_cases SET started_at=started_at-interval '2 minutes'`.execute(
+      db,
+    );
+    const recovery = new PostgresSocialDiscoveryRepository(db, {
+      dailyRequests: 10,
+      dailyMicros: 1_000_000,
+    });
+    expect(await recovery.maintain()).toBe(0);
+    await sql`UPDATE web_lead_reviews SET retry_at=now()-interval '1 second'`.execute(
+      db,
+    );
+    expect(await recovery.maintain()).toBe(1);
+    const resumed = await nextBatch();
+    const second = await reviews.claim(resumed, provider.configuration);
+    if (second.status !== "claimed") {
+      throw new Error("expected_retry_review");
+    }
+    await reviews.fail(second.token, "provider_unavailable");
+    expect((await reviews.claim(resumed, provider.configuration)).status).toBe(
+      "done",
+    );
+    await sql`UPDATE web_lead_reviews SET retry_at=now()-interval '1 second'`.execute(
+      db,
+    );
+    await sql`UPDATE outbox_events SET published_at=now()`.execute(db);
+    await sql`UPDATE web_discovery_cases SET started_at=started_at-interval '2 minutes'`.execute(
+      db,
+    );
+    expect(await recovery.maintain()).toBe(0);
+    expect(
+      (
+        await sql<{
+          count: number;
+        }>`SELECT count(*)::int AS count FROM web_lead_review_attempts WHERE state='failed'`.execute(
+          db,
+        )
+      ).rows[0]!.count,
+    ).toBe(2);
+    expect(
+      (
+        await sql<{
+          requests: number;
+          reserved: number;
+        }>`SELECT requests,reserved_microusd::int AS reserved FROM intelligence_daily_budget`.execute(
+          db,
+        )
+      ).rows[0],
+    ).toEqual({ requests: 2, reserved: 150_000 });
+  });
+
+  it("recovers an expired review window after contention without replacing a live review lease", async () => {
+    await scout();
+    await records.complete(await claim(), response());
+    const original = await nextBatch();
+    const provider = new FixtureLeadProvider();
+    const reviews = new PostgresLeadReviewRepository(db, 10, 1_000_000);
+    const lease = await reviews.claim(original, provider.configuration);
+    expect(lease.status).toBe("claimed");
+    await sql`UPDATE outbox_events SET published_at=now()`.execute(db);
+    await sql`UPDATE web_discovery_cases SET started_at=started_at-interval '2 minutes'`.execute(
+      db,
+    );
+    await sql`UPDATE web_lead_review_cases SET deadline=now()-interval '1 second'`.execute(
+      db,
+    );
+    const recovery = new PostgresSocialDiscoveryRepository(db, {
+      dailyRequests: 10,
+      dailyMicros: 1_000_000,
+    });
+    expect(await recovery.maintain()).toBe(0);
+    await sql`UPDATE web_lead_reviews SET lease_until=now()-interval '1 second'`.execute(
+      db,
+    );
+    expect(await recovery.maintain()).toBe(1);
+    expect(await recovery.maintain()).toBe(0);
+    expect(provider.calls).toBe(0);
+  });
+
+  it("lets a queued native batch review before the periodic full search can replace it", async () => {
+    await scout();
+    await records.complete(await claim(), response());
+    await nextBatch();
+    await sql`UPDATE scouts SET discovery_requested_at=now()-interval '1 hour'`.execute(
+      db,
+    );
+    await sql`UPDATE outbox_events SET published_at=now()`.execute(db);
+    const matching = new PostgresScoutingRepository(db);
+    expect(await matching.reconcile("native-review-guard", new Date())).toBe(0);
+  });
+
   it("uses measured outcomes for native selection while reserving the oldest due query", async () => {
     await scout();
     const firstQuery = socialQuery(brief);
