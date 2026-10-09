@@ -181,3 +181,41 @@ Native X recent-search/lookup, shared query subscriptions, exact pagination reco
 Public query/source measurements, bounded outcome sampling, adaptive native revisits and daily pacing now support the existing exploration, budget and efficiency requirements. Database fixtures verify shared accounting, replay/rollback, stale-label exclusion, measured query order, oldest-due selection and raised-limit pacing. The worker regression suite passes 223 tests; API/web types and architecture checks pass. The additive migration is applied locally and all eight worker pools started successfully.
 
 The first live scheduling report records 15 completed Serper requests and four completed document checks after deployment. X had already consumed its separate 100-request allowance before this deployment, so live X admission under the new pacing policy is not yet verified; its database fixtures pass. The synthetic empty-query comparison observes 16 polls versus 288 with fixed five-minute polling. This is scheduling evidence only: independent organic relevance, missed-opportunity recall, cross-cohort fairness and production-scale gates remain open. See [policy and interpretation](scoutalert-discovery-scheduling.md) and the [recorded snapshot](../../evaluations/discovery/performance-local.json).
+
+## Live pacing evidence — 4 October
+
+The worker resumed after a local stop, admitted its three-request startup burst and then waited 13 minutes 18 seconds before a fourth successful X search. The [dated audit](../../evaluations/discovery/native-pacing-2026-10-04.json) reconciles all four requests/$0.20 with the existing caps and retained prior-day ledger. Four fixed-window comparisons have no unexplained gap; three pagination windows remain unfinished. Current incomplete/non-demand source reviews promoted no postings. Seventeen source reviews were ready; four failed and eight unstarted reviews remain explicit. This closes the first live pacing/resumption check, not the independent quality, complete-pagination or scale gates. The successful-retry status cleanup passes its regression and preserves failed attempt history; [operating details](scoutalert-discovery-scheduling.md#live-pacing-verification--4-october-0346-wat) distinguish that defect from earlier provider errors whose cause was not reproduced.
+
+### Recovery and bounded local load — 4 October
+
+Recovery now covers cases superseded before review starts, expired review windows and due transient failures while preserving current ownership, leases, source observation times, reservations and the two-attempt ceiling. The deployed [04:18 WAT snapshot](../../evaluations/discovery/review-recovery-2026-10-04.json) shows all 48 current retained native posts reviewed and no incomplete/non-demand publication violations. This closes the observed stuck-review defect, not every historical failure or future queue.
+
+A 50,000-posting import exposed a ten-second statement timeout. Bounded SQL batches within the same atomic source transaction resolved it; late-batch rollback and duplicate-ID checks pass. The [local workload](../../evaluations/discovery/retrieval-load-after-2026-10-04.json) completed at 1,000, 10,000 and 50,000 postings, with no unavailable queries. At the largest size and concurrency eight, retrieval p95 was 312.73 ms. This provides limited local evidence toward DACC-020; burst/soak tests, provider contention, deployed capacity and regional recovery remain unverified.
+
+Ninety-one focused worker tests and seven evaluation-integrity checks pass. The frozen 56-pair human review packet remains unlabelled, so no independent relevance or recall score is reported. The coverage audit records 241 indexed LinkedIn leads with zero original-source reviews; broader coverage and source-access work remain open. See the [complete operating record](scoutalert-discovery-scheduling.md#review-recovery-and-load-check--4-october-0418-wat).
+
+## Deeper source discovery — 4 October
+
+The first deeper-source increment adds observed public GET searches and bounded rendering for thin JavaScript pages. Acceptance requires the source portal → submitted query → rendered result → observed detail-page chain, preserved parent provenance, private-intent exclusion, shared capture reuse, bounded resource cancellation and explicit incomplete outcomes. The cases cover employment, contract and service demand; discovering a page alone does not establish a verified personal match.
+
+Implementation and test commands are in [deeper source discovery](scoutalert-deeper-source-discovery.md). The live checks distinguish a successfully rendered public demonstration from an unsupported employer portal. Wider form/widget support, authenticated access, multilingual discovery, independent quality, coverage and production-scale gates remain open.
+
+### Public API fallback and later result pages
+
+A previously unreadable Ashby board must yield listed source records through its documented public API while preserving original job URLs and API provenance. Unlisted, malformed, cross-board and conflicting records cannot become published demand. Directory/detail cache reuse preserves observation time and consumes one provider fetch; stale lease completion cannot overwrite a newer holder.
+
+A public source form → first results page → observed next page → specific demand chain must execute with durable parent/depth records under unchanged document and spending ceilings. Repeated result sets, reordered query aliases, hidden controls and excessive page/depth/action counts must stop expansion. These gates establish access and routing mechanics; independent relevance and global coverage remain open.
+
+## Private email connection increment — 5 October
+
+The first private-source slice implements explicit Google readonly consent, user-label selection, requested durable imports, owner-isolated encrypted evidence and disconnect erasure. Twenty-four focused provider, application, PostgreSQL and HTTP checks pass. Google credentials are absent; no real account has been connected or imported. Automatic recurring mailbox discovery and private matching/research/notification acceptance remain open. See [private email connections](scoutalert-private-mail-connections.md) for full acceptance evidence and bounds.
+
+A private email cannot satisfy public-evidence acceptance or become a verified recommendation merely because import succeeded. Revoked or superseded work must not restore deleted imports; no grant or email body may enter public caches, model prompts or workflow history in this increment.
+
+## Public feed increment — 10 October
+
+The feed portion of the continuous expansion gates now has implemented RSS 2.0/Atom reads, observed head advertisements, bounded entry windows, parent-linked exploration, shared monitoring and deterministic directory recognition. A feed must never publish as a listing or supply private-fit facts. Its child remains a probe until separately captured and reviewed. Repeated imports must reuse public work across owners without exposing private scout associations. Empty valid windows must remain monitorable; malformed XML and denied crawl policy must remain explicit failures.
+
+100 focused checks pass, including two-owner reuse and changed-feed dispatch in an isolated database. Six optional browser checks were not enabled in this pass. One documented public feed and one linked source page were read successfully; no live scout subscription, recommendation or email was created. See [access limits and evidence](scoutalert-deeper-source-discovery.md#public-rss-and-atom-discovery--10-october).
+
+This is partial DACC-005/010/011/013/017 evidence. Broader feed formats, push/stream recovery, archive completeness, organic source yield, independent match quality and deployment-scale gates remain open. SMTP setup is independent of this increment.

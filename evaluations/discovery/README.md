@@ -131,3 +131,37 @@ The bounded-context increment passed 209 worker checks, including all isolated p
 ## Discovery scheduling measurements
 
 `node scripts/evaluation/report-discovery-performance.mjs --write` records newly admitted query/source attempts, canonical route novelty, current model intent labels, selection reasons and unchanged-post timing in `performance-local.json`. Historical daily spend is shown separately; no backfill is implied. Core and PostgreSQL fixtures verify pacing, oldest-due selection, bounded samples and stale-label exclusion. The always-empty-query simulation measures repeat polling only; independent real-world relevance, known-opportunity recall and global workload gates remain open. See the [policy and operating notes](../../docs/engineering/scoutalert-discovery-scheduling.md).
+
+[`native-pacing-2026-10-04.json`](native-pacing-2026-10-04.json) records the first live paced admission after the UTC reset: three startup requests, a fourth successful search after 13 minutes 18 seconds, unchanged previous-day spend and a reconciled $0.20 current-day reservation. Three continuation windows remain open. Source-review failures and pending work remain explicit; independent quality is null. Reproduce the read-only audit with `node scripts/evaluation/report-native-pacing.mjs`; `--write` creates a dated file without overwriting prior evidence. Timing checks assume unchanged configured limits/prices during the observed day and permit one second of transaction timestamp tolerance. No new provider/model requests or mail are made by the report.
+
+## Review recovery and local load — 4 October
+
+[`review-recovery-2026-10-04.json`](review-recovery-2026-10-04.json) is a later read-only snapshot after fixing native cases lost before review initialization. All 48 current retained posts had ready public reviews, covering 212 active scout-source subscriptions; no incomplete/non-demand posts were promoted. These are operational counts, not independent quality labels or private recommendations. Indexed LinkedIn remains a coverage gap: 241 observed leads and no original-source reviews. `node scripts/evaluation/report-review-recovery.mjs` reproduces the aggregate report; `--output=path.json` saves a new artifact exclusively.
+
+[`retrieval-load-before-2026-10-04.json`](retrieval-load-before-2026-10-04.json) preserves the original 50,000-posting import timeout. [`retrieval-load-after-2026-10-04.json`](retrieval-load-after-2026-10-04.json) uses the same workload after source publication was divided into bounded SQL batches within one transaction. All 1,000/10,000/50,000 sizes pass with the unchanged ten-second statement timeout; 50,000-posting retrieval p95 at concurrency eight is 312.73 ms. The dataset repeats frozen public text with synthetic identities, so this is a local microbenchmark, not internet recall or global production capacity.
+
+Run `SCOUT_BENCH_SIZES=1000,10000,50000 node scripts/evaluation/benchmark-retrieval.mjs evaluations/opportunity-quality/runs/2026-10-01-held-out/corpus.json path-to-new-report.json` for an isolated database repeat without provider/model/email calls. The runner preserves completed sizes and safe failure codes even when a later workload fails. See [implementation, validation and limitations](../../docs/engineering/scoutalert-discovery-scheduling.md#review-recovery-and-load-check--4-october-0418-wat). The existing human-review packet remains open; automated checks cannot supply independent human relevance labels.
+
+## Deeper source discovery — 4 October
+
+[`deeper-source-discovery-2026-10-04.json`](deeper-source-discovery-2026-10-04.json) records 82 focused checks, including actual Chromium against controlled job, contract and service-request pages, durable PostgreSQL form decisions/reuse, and resource-flood cancellation. Static fixture result HTML exposes no listing links; the rendered path exposes and follows the detail link. This establishes the access mechanism, not independent match quality.
+
+The live check initially missed a small JavaScript page because its login and pagination anchors looked like useful content. The corrected detector rendered the public demonstration in 13.5 seconds, with seven network attempts and 218,085 captured bytes. The Ashby jobs portal remained incomplete because it required an unsupported browser request. No live opportunity, personal assessment or email is attributed to these checks.
+
+`node scripts/evaluation/check-deep-discovery.mjs <public-https-url>` runs a read-only smoke check on one to three explicit URLs. It uses the normal per-page bounds, no models or accounts, and does not write to the application database; it is separate from the worker's daily reservation ledger. See [implementation and remaining access paths](../../docs/engineering/scoutalert-deeper-source-discovery.md).
+
+## Ashby access and deeper navigation — 4 October
+
+[`ashby-public-access-2026-10-04.json`](ashby-public-access-2026-10-04.json) replaces the earlier Ashby access gap for supported hosted board/detail URLs. The documented public API yielded 62 listed jobs; one detail and a repeated directory read reused the same Redis snapshot and original observation time. The three reads required one provider request, captured 2,053,650 response bytes and took 2.028 seconds. This is live access/reuse evidence on one known employer board, not search recall, independent relevance or a verified personal match.
+
+[`portal-navigation-checks-2026-10-04.json`](portal-navigation-checks-2026-10-04.json) combines the latest results of 117 focused checks. The first database run exposed legacy two-hop/four-round constraints; the versioned migration resolved that mismatch, and the durable suites passed on rerun. Checks include Chromium, observed pagination, frozen plan limits, conflicting/unlisted feed records, source monitoring, Redis lease fencing and timestamp preservation.
+
+For an authorized live repeat, run `node scripts/evaluation/check-ashby-discovery.mjs --write`. It uses an isolated Redis namespace and cleans up its own cache. No model, search-provider query, application submission, email or real account is used. Its source fetch is bounded separately from the running worker's daily reservation ledger.
+
+## Public feed access — 10 October
+
+[`feed-access-2026-10-10.json`](feed-access-2026-10-10.json) records one live RSS capture and one observed detail-page read through normal public-address/crawl-policy enforcement. We Work Remotely supplied 89 entries; 80 unique readable links were retained and nine omitted by the declared window. The selected detail was readable but received no AI review or personal assessment. Four HTTP requests, including robots, took 6.639 seconds. These are access results, not relevance or whole-site recall measurements.
+
+Reproduce with `node scripts/evaluation/check-feed-discovery.mjs`; `--write` saves the dated receipt. No secrets, application database, SMTP or paid provider are loaded. Source requests are independently bounded and separate from the worker's daily ledger.
+
+The associated 100 passing focused checks include two synthetic owners sharing three source reads, with just two model-fixture calls (board and detail). Feed directory recognition uses zero AI reservations. A changed feed creates shared child probes and cannot publish an unread entry. Six optional browser checks were not enabled. See [the implementation record](../../docs/engineering/scoutalert-deeper-source-discovery.md#public-rss-and-atom-discovery--10-october) for scope and remaining work.
