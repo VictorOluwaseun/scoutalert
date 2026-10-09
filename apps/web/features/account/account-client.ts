@@ -14,6 +14,17 @@ export interface AccountContext {
   csrfToken: string;
 }
 const messages: Record<string, string> = {
+  connection_unavailable:
+    "The Gmail connection is unavailable. Please try again later.",
+  connection_changed:
+    "This connection changed in another tab. Refresh and try again.",
+  invalid_connection_state:
+    "That connection link has expired. Connect Gmail again.",
+  reconnect_required:
+    "Gmail access has expired. Connect Gmail again to continue.",
+  invalid_label: "Choose an available Gmail label before importing.",
+  import_limited:
+    "Your daily import allowance has been reached. Try again tomorrow.",
   scout_changed:
     "This scout changed in another tab. Load the latest saved version before trying again.",
   feedback_changed:

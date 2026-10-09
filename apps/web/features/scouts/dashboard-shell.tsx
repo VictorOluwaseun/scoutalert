@@ -14,7 +14,7 @@ export function DashboardShell({
 }: {
   account?: VerifiedAccount;
   examples?: boolean;
-  section?: "dashboard" | "discovery";
+  section?: "dashboard" | "discovery" | "connections";
   children: ReactNode;
 }) {
   return (
@@ -42,6 +42,13 @@ export function DashboardShell({
           >
             <Icon name="globe" size={21} />
             Web discovery
+          </Link>
+          <Link
+            href="/dashboard/connections"
+            aria-current={section === "connections" ? "page" : undefined}
+          >
+            <Icon name="mail" size={21} />
+            Connections
           </Link>
           <Link href="/dashboard#scouts">
             <Icon name="search" size={21} />

@@ -1,3 +1,4 @@
+import { parseMailPage } from "@/features/connections/mail-contracts";
 import "server-only";
 import { parseWebDiscoveryPage } from "@/features/discovery/discovery-contracts";
 import { NextResponse } from "next/server";
@@ -352,4 +353,93 @@ export async function readWebDiscovery() {
   } catch {
     return { status: "unavailable" as const };
   }
+}
+
+/** Reads private integration status directly from Nest without exposing server credentials. */
+export async function readMailConnections() {
+  const session = await requestSession();
+  if (!session.browser || !session.token) {
+    return { status: "signed_out" as const };
+  }
+  try {
+    const response = await fetch(
+      new URL("/v1/connections/gmail", apiOrigin()),
+      {
+        headers: apiHeaders(null, session.browser, session.token),
+        cache: "no-store",
+        signal: AbortSignal.timeout(10000),
+      },
+    );
+    const data = await response.json();
+    if (response.status === 401 && data?.code === "unauthenticated") {
+      return { status: "signed_out" as const };
+    }
+    const page = response.ok ? parseMailPage(data) : null;
+    return page
+      ? { status: "ready" as const, page }
+      : { status: "unavailable" as const };
+  } catch {
+    return { status: "unavailable" as const };
+  }
+}
+
+/** Consumes an external OAuth callback using the original HttpOnly session/browser and returns only a safe result redirect. */
+export async function finishGmailConnection(
+  request: Request,
+): Promise<NextResponse> {
+  const callback = new URL(request.url);
+  const destination = new URL(
+    "/dashboard/connections",
+    process.env.SCOUTALERT_WEB_ORIGIN ?? callback.origin,
+  );
+  let result = "failed";
+  try {
+    const session = await requestSession();
+    const state = callback.searchParams.get("state");
+    const code = callback.searchParams.get("code");
+    if (
+      !session.browser ||
+      !session.token ||
+      !state ||
+      !/^[A-Za-z0-9_-]{43}$/.test(state)
+    ) {
+      throw new Error("expired");
+    }
+    if (callback.searchParams.has("error")) {
+      throw new Error("cancelled");
+    }
+    if (
+      !code ||
+      code.length > 4096 ||
+      callback.searchParams.getAll("state").length !== 1 ||
+      callback.searchParams.getAll("code").length !== 1
+    ) {
+      throw new Error("failed");
+    }
+    const response = await fetch(
+      new URL("/v1/connections/gmail/finish", apiOrigin()),
+      {
+        method: "POST",
+        headers: apiHeaders(null, session.browser, session.token),
+        body: JSON.stringify({ state, code }),
+        cache: "no-store",
+        signal: AbortSignal.timeout(35000),
+      },
+    );
+    result = response.ok
+      ? "connected"
+      : response.status === 401 || response.status === 409
+        ? "expired"
+        : "failed";
+  } catch (error) {
+    result =
+      error instanceof Error && ["expired", "cancelled"].includes(error.message)
+        ? error.message
+        : "failed";
+  }
+  destination.searchParams.set("result", result);
+  const response = NextResponse.redirect(destination, 303);
+  response.headers.set("cache-control", "no-store, private");
+  response.headers.set("referrer-policy", "no-referrer");
+  return response;
 }
