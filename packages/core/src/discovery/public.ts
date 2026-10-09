@@ -25,3 +25,4 @@ export {
 } from "./application/monitor-sources.js";
 
 export * from "./domain/public-api-snapshots.js";
+export { feedDirectoryReview } from "./domain/feed-review.js";

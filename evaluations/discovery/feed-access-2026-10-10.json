@@ -1,0 +1,40 @@
+{
+  "kind": "live-public-feed-access",
+  "recordedAt": "2026-10-09T23:17:59.226Z",
+  "feed": {
+    "url": "https://weworkremotely.com/remote-jobs.rss",
+    "checkedAt": "2026-10-09T23:17:56.281Z",
+    "status": "fetched",
+    "reason": null,
+    "window": {
+      "format": "rss",
+      "title": "We Work Remotely: Remote jobs in design, programming, marketing and more",
+      "entries": 89,
+      "omitted": 9
+    },
+    "links": 80,
+    "capture": {
+      "method": "http",
+      "requests": 2,
+      "bytes": 788432,
+      "complete": true
+    },
+    "promotedAsPosting": false
+  },
+  "detail": {
+    "url": "https://weworkremotely.com/remote-jobs/retr-customer-success-manager",
+    "titleHint": "RETR: Customer Success Manager",
+    "status": "fetched",
+    "reason": null,
+    "characters": 10860,
+    "capture": {
+      "method": "http",
+      "requests": 2,
+      "bytes": 128532,
+      "complete": true
+    },
+    "structuredPosting": false
+  },
+  "elapsedMilliseconds": 6639,
+  "limitations": "One documented public feed and at most one observed detail page. No search-provider run, account matching, relevance assessment, notification or production-scale claim. Policy denials and unsupported access remain explicit."
+}

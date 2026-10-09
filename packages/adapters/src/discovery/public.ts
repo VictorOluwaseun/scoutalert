@@ -44,3 +44,5 @@ export {
 } from "./connectors/ashby-postings.js";
 
 export { documentPagination } from "./connectors/document-pagination.js";
+export { documentFeeds } from "./connectors/document-feeds.js";
+export { parseFeedDocument } from "./connectors/feed-document.js";

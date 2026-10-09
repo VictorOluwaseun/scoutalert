@@ -48,6 +48,10 @@ export function validLeadReview(
     version: 1,
   };
   return (
+    (!input.collection ||
+      (review.label === "directory" &&
+        facts.every((fact) => fact.status === "unknown") &&
+        Object.values(review.analysis.pay).every((value) => value === null))) &&
     leadLabels.includes(review.label) &&
     review.explanation.length > 0 &&
     review.explanation.length <= 600 &&
@@ -78,6 +82,7 @@ export function mayPublishLead(
   return (
     validLeadReview(input, review) &&
     input.scope === "source" &&
+    !input.collection &&
     !input.truncated &&
     ["job_opening", "client_request"].includes(review.label) &&
     role.status === "stated" &&

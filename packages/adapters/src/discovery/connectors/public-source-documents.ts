@@ -9,6 +9,8 @@ import { documentText, parseFormalPosting } from "./document-parser.js";
 import { documentPagination } from "./document-pagination.js";
 import { documentLinks } from "./document-links.js";
 import { documentSearchForms } from "./document-search-forms.js";
+import { documentFeeds } from "./document-feeds.js";
+import { isFeedDocument, parseFeedDocument } from "./feed-document.js";
 import { discoveryKey } from "../persistence/discovery-identities.js";
 
 /** Reads permitted public pages, escalating thin JavaScript shells to an optional bounded browser repository. */
@@ -49,6 +51,9 @@ export class PublicSourceDocumentRepository extends SourceDocumentRepository {
         "crawl_policy_denied",
         "crawl_delay_exceeds_run_budget",
         "source_bundle_limit",
+        "source_feed_invalid",
+        "source_feed_unsupported",
+        "source_feed_limit",
       ];
       return {
         ...empty,
@@ -75,6 +80,25 @@ export class PublicSourceDocumentRepository extends SourceDocumentRepository {
     session: PublicPageSession,
   ): Promise<SourceDocumentResult> {
     const response = await session.read(url);
+    if (
+      response.status === 200 &&
+      isFeedDocument(response.contentType, response.body)
+    ) {
+      return {
+        ...empty,
+        ...parseFeedDocument(response.body, url),
+        checkedAt: new Date().toISOString(),
+        status: "fetched",
+        truncated: false,
+        hostDelaySeconds: session.hostDelaySeconds,
+        capture: {
+          method: "http",
+          requests: session.requests,
+          bytes: session.bytes,
+          complete: true,
+        },
+      };
+    }
     if (
       response.status !== 200 ||
       !/^(text\/html|application\/xhtml\+xml|text\/plain)(;|$)/i.test(
@@ -116,6 +140,7 @@ export class PublicSourceDocumentRepository extends SourceDocumentRepository {
         : "browser_render_failed";
     }
     const links = documentLinks(html, url);
+    const feeds = documentFeeds(html, url);
     const searchForms = documentSearchForms(html, url);
     const next = documentPagination(html, url);
     const items = links.filter((link) => !next.includes(link.url));
@@ -131,17 +156,19 @@ export class PublicSourceDocumentRepository extends SourceDocumentRepository {
       text,
       reason,
       fingerprint: discoveryKey([
-        "public-capture-v4",
+        "public-capture-v5",
         text,
         links,
         searchForms,
         next,
+        feeds,
         reason,
       ]),
       posting: reason ? null : parseFormalPosting(html, url, now),
       truncated: reason !== null,
       hostDelaySeconds: session.hostDelaySeconds,
       links,
+      feeds,
       searchForms,
       pagination,
       capture: {

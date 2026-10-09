@@ -7,11 +7,14 @@ import type {
   SourceMonitor,
 } from "./source-monitoring.js";
 
-/** Selects visible demand links, not authentication, advice, pagination traps or seller advertisements. */
+/** Selects observed feed advertisements and candidate entry links; every child still needs its own source review. */
 export function monitorLinks(
   document: SourceDocumentResult,
 ): { url: string; text: string }[] {
   const unique = new Map<string, { url: string; text: string }>();
+  for (const feed of document.feeds ?? []) {
+    unique.set(feed.url, feed);
+  }
   for (const link of document.links ?? []) {
     if (
       !link.text.trim() ||
@@ -22,6 +25,7 @@ export function monitorLinks(
       continue;
     }
     if (
+      !document.feed &&
       !/\/(?:jobs?|positions?|openings?|careers?|projects?|requests?|opportunities)\/[^/?#]+/iu.test(
         link.url,
       ) &&
@@ -36,7 +40,7 @@ export function monitorLinks(
   return [...unique.values()].slice(0, 80);
 }
 
-/** Promotes only recent complete source reviews, with actionable anchors required for directories. */
+/** Enrolls recent complete source reviews; valid empty feeds remain monitored so a quiet window does not retire the source. */
 export function monitoringKind(
   candidate: MonitorCandidate,
   now: Date,
@@ -55,10 +59,16 @@ export function monitoringKind(
   ) {
     return null;
   }
-  if (["job_opening", "client_request"].includes(review.label)) {
+  if (
+    !document.feed &&
+    ["job_opening", "client_request"].includes(review.label)
+  ) {
     return "posting";
   }
-  if (review.label === "directory" && monitorLinks(document).length > 0) {
+  if (
+    review.label === "directory" &&
+    (document.feed || monitorLinks(document).length > 0)
+  ) {
     return "directory";
   }
   return null;

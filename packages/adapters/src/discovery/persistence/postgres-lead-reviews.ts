@@ -2,6 +2,7 @@ import { randomUUID } from "node:crypto";
 import { sql, type Kysely } from "kysely";
 import {
   LeadReviewRepository,
+  feedDirectoryReview,
   mayPublishLead,
   validLeadReview,
   type LeadReviewClaim,
@@ -49,7 +50,7 @@ export class PostgresLeadReviewRepository extends LeadReviewRepository {
     super();
   }
 
-  /** Refreshes the bounded batch after each exploration round; active discovery reviews source captures first and reuses unchanged reviews. */
+  /** Refreshes each bounded review round; parser-confirmed feeds receive a structural directory review before any AI reservation. */
   private async freeze(
     tx: Kysely<ScoutAlertDatabase>,
     request: ScoutRunRequest,
@@ -94,6 +95,10 @@ export class PostgresLeadReviewRepository extends LeadReviewRepository {
       await sql`INSERT INTO web_lead_reviews(key,lead_id,configuration,input) VALUES(${record.key},${record.input.id},${configuration},${JSON.stringify(record.input)}::jsonb)
         ON CONFLICT(key) DO UPDATE SET input=excluded.input,state='pending',failure=NULL,attempts=0,retry_at=NULL,posting_id=NULL,posting_version=NULL
         WHERE web_lead_reviews.failure='source_unavailable'`.execute(tx);
+      const directory = feedDirectoryReview(record.input);
+      if (directory) {
+        await this.accept(tx, record.key, record.input, directory);
+      }
     }
     await sql`INSERT INTO web_lead_review_cases(case_id,configuration,keys,round,source_only,deadline) VALUES(${request.runId}::uuid,${configuration},${records.map((record) => record.key)}::text[],${current.round},${sourceOnly},CASE WHEN ${current.searching} THEN (SELECT deadline FROM web_discovery_cases WHERE id=${request.runId}::uuid) ELSE now()+interval '180 seconds' END) ON CONFLICT(case_id) DO UPDATE SET configuration=excluded.configuration,keys=excluded.keys,round=excluded.round,source_only=excluded.source_only,deadline=CASE WHEN web_lead_review_cases.source_only AND NOT excluded.source_only THEN excluded.deadline ELSE web_lead_review_cases.deadline END,status='pending',reason=NULL`.execute(
       tx,

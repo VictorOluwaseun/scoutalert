@@ -154,7 +154,7 @@ export class PostgresSourceMonitoringRepository extends SourceMonitoringReposito
       );
       const key =
         monitor.pending_key ??
-        discoveryKey(["public-document-v4", monitor.url, epoch.rows[0]!.value]);
+        discoveryKey(["public-document-v5", monitor.url, epoch.rows[0]!.value]);
       await sql`INSERT INTO web_discovery_operations(key,provider,kind,input) VALUES(${key},'public-documents','document',${JSON.stringify({ kind: "document", url: monitor.url })}::jsonb) ON CONFLICT DO NOTHING`.execute(
         tx,
       );

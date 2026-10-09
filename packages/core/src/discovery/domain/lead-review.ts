@@ -18,6 +18,8 @@ export type LeadLabel = (typeof leadLabels)[number];
 
 /** Immutable public input; search excerpts cannot establish source facts or authorize opportunity publication. */
 export interface LeadReviewInput {
+  /** Parser-confirmed collections cannot be classified or published as individual demand. */
+  collection?: "feed";
   nativePost?: import("./social-discovery.js").NativePost;
   nativeContext?: import("./social-context.js").NativeContext;
   id: string;

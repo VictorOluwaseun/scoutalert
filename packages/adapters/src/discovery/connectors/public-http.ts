@@ -72,7 +72,7 @@ export class PublicHttpRepository {
           headers: {
             "user-agent": "ScoutAlert/1.0",
             accept:
-              "text/html,application/xhtml+xml,application/json,text/javascript,text/css,text/plain;q=0.9",
+              "text/html,application/xhtml+xml,application/rss+xml,application/atom+xml,application/xml,application/json,text/javascript,text/css,text/plain;q=0.9",
             "accept-encoding": "identity",
           },
         },

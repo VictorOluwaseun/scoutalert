@@ -163,6 +163,16 @@ function documentCandidates(
           score: 16,
         });
       }
+      for (const feed of result.feeds ?? []) {
+        candidates.push({
+          url: feed.url,
+          title: feed.text,
+          parentKey: operation.key,
+          depth: operation.depth + 1,
+          reason: "follow_source_link",
+          score: 9,
+        });
+      }
       for (const link of result.links ?? []) {
         candidates.push({
           url: link.url,

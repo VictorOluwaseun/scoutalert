@@ -59,6 +59,15 @@ export interface SourceDocumentResult {
   hostDelaySeconds: number;
   /** Bounded observed anchors, never model-invented destinations; absent on older captures. */
   links?: { url: string; text: string }[];
+  /** Explicit HTML feed advertisements; these are observed destinations, never guessed endpoints. */
+  feeds?: { url: string; text: string }[];
+  /** A bounded feed window is a directory of unassessed links, never a single opportunity. */
+  feed?: {
+    format: "rss" | "atom";
+    title: string;
+    entries: number;
+    omitted: number;
+  };
   /** Observed public GET search forms; only the frozen public target may fill the named field. */
   searchForms?: {
     action: string;

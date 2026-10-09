@@ -76,7 +76,7 @@ export class PostgresDiscoveryLeadRepository {
       }
 
       const key = discoveryKey([
-        plan.exploration ? "public-document-v4" : "public-document-v1",
+        plan.exploration ? "public-document-v5" : "public-document-v1",
         item.url,
         epoch,
       ]);
