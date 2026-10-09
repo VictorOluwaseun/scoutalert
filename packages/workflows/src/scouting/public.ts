@@ -191,3 +191,21 @@ export async function socialDiscoveryWorkflow(): Promise<void> {
     }
   }
 }
+
+const privateMail = proxyActivities<{ importPrivateMail(): Promise<boolean> }>({
+  taskQueue: "scout-private-mail-v1",
+  startToCloseTimeout: "45 seconds",
+  scheduleToCloseTimeout: "90 seconds",
+  retry: { maximumAttempts: 2, initialInterval: "5 seconds" },
+});
+
+/** Imports finite private batches; neither account credentials nor email bodies enter workflow arguments or history. */
+export async function privateMailWorkflow(): Promise<void> {
+  for (let batch = 0; batch < 10; batch++) {
+    const progressed = await privateMail.importPrivateMail();
+    if (!progressed) {
+      return;
+    }
+    await sleep("10 seconds");
+  }
+}

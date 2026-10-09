@@ -1,3 +1,4 @@
+import { ConnectionsModule } from './modules/connections/connections.module.js';
 import { DynamicModule, Module } from '@nestjs/common';
 import { APP_FILTER } from '@nestjs/core';
 import { createObserveModule } from '@nestjs/observe';
@@ -57,6 +58,7 @@ export const observeEnabled = observeImports.length > 0;
     ScoutActivationModule,
     ScoutsModule,
     DiscoveryModule,
+    ConnectionsModule,
     ...observeImports,
   ],
   controllers: [AppController],

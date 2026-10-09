@@ -1,3 +1,4 @@
+import * as privateMail from "./migrations/20261005-private-mail.js";
 import * as sourceNavigationBounds from "./migrations/20261004-source-navigation-bounds.js";
 import * as reviewRecovery from "./migrations/20261004-review-recovery.js";
 import * as discoveryPerformance from "./migrations/20261003-yield-scheduling.js";
@@ -32,6 +33,7 @@ export async function migrateDatabase(
     migrationTableSchema,
     provider: {
       getMigrations: async () => ({
+        "20261005-private-mail": privateMail,
         "20261004-source-navigation-bounds": sourceNavigationBounds,
         "20261004-review-recovery": reviewRecovery,
         "20261002-x-discovery": xDiscovery,

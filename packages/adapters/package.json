@@ -36,11 +36,16 @@
     "./scouts": {
       "types": "./dist/scouts/public.d.ts",
       "default": "./dist/scouts/public.js"
+    },
+    "./connections": {
+      "types": "./dist/connections/public.d.ts",
+      "default": "./dist/connections/public.js"
     }
   },
   "dependencies": {
     "@repo/core": "workspace:*",
     "bullmq": "6.3.9",
+    "google-auth-library": "11.1.0",
     "he": "1.2.0",
     "html-to-text": "10.0.1",
     "htmlparser2": "^12.0.0",

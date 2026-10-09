@@ -1,3 +1,4 @@
+import { MailConnectionError } from '@repo/core/connections';
 import { ScoutManagementError, FeedbackError } from '@repo/core/scouts';
 import {
   ArgumentsHost,
@@ -59,6 +60,19 @@ export class ApplicationErrorFilter implements ExceptionFilter {
         )
         .json({ code: error.code, issues });
 
+      return;
+    }
+
+    if (error instanceof MailConnectionError) {
+      response
+        .status(
+          error.code === 'connection_unavailable'
+            ? 503
+            : error.code === 'import_limited'
+              ? 429
+              : 409,
+        )
+        .json({ code: error.code });
       return;
     }
 

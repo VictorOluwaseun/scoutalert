@@ -32,6 +32,10 @@
     "./scouting": {
       "types": "./dist/scouting/public.d.ts",
       "default": "./dist/scouting/public.js"
+    },
+    "./connections": {
+      "types": "./dist/connections/public.d.ts",
+      "default": "./dist/connections/public.js"
     }
   },
   "devDependencies": {

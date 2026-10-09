@@ -1,3 +1,11 @@
+import { ImportPrivateMail } from "@repo/core/connections";
+import {
+  createGmailClient,
+  GmailSourceRepository,
+  MailSecrets,
+  PostgresMailConnectionRepository,
+  readGmailConfiguration,
+} from "@repo/adapters/connections";
 import { Module } from "@nestjs/common";
 import {
   createPostgresClient,
@@ -77,6 +85,7 @@ export const WORKER_RESOURCES = Symbol("WORKER_RESOURCES");
       provide: WORKER_RESOURCES,
       useFactory: async () => {
         const config = readWorkerConfiguration();
+        const gmail = readGmailConfiguration(process.env);
         const connection = await Connection.connect({
           address: config.TEMPORAL_ADDRESS,
         });
@@ -288,6 +297,15 @@ export const WORKER_RESOURCES = Symbol("WORKER_RESOURCES");
               },
             ),
           ),
+          privateMail: gmail
+            ? new ImportPrivateMail(
+                new PostgresMailConnectionRepository(
+                  db,
+                  new MailSecrets(gmail.encryptionKey),
+                ),
+                new GmailSourceRepository(() => createGmailClient(gmail)),
+              )
+            : null,
           relay: new DiscoveryOutboxRelay(
             new PostgresDiscoveryIntentRepository(db),
             temporal,
@@ -308,4 +326,5 @@ export type WorkerResources = {
   temporal: Client;
   activities: ScoutingActivityHost;
   relay: DiscoveryOutboxRelay;
+  privateMail: ImportPrivateMail | null;
 };

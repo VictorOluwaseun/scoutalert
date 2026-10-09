@@ -1,6 +1,10 @@
 import "reflect-metadata";
 import { NestFactory } from "@nestjs/core";
-import { NativeConnection, Worker } from "@temporalio/worker";
+import {
+  NativeConnection,
+  Worker,
+  type WorkerOptions,
+} from "@temporalio/worker";
 import { ScheduleAlreadyRunning } from "@temporalio/client";
 import {
   WorkerModule,
@@ -44,6 +48,15 @@ async function ensureSchedules(resources: WorkerResources): Promise<void> {
     },
   ];
 
+  if (resources.privateMail) {
+    definitions.push({
+      id: "scout-private-mail-v1",
+      workflow: "privateMailWorkflow",
+      args: [],
+      interval: "1 minute",
+    });
+  }
+
   for (const definition of definitions) {
     try {
       const handle = await resources.temporal.schedule.create({
@@ -78,7 +91,13 @@ async function start(): Promise<void> {
   const workflowPath = import.meta
     .resolve("@repo/workflows/scouting")
     .replace("file://", "");
-  const definitions = [
+  const definitions: Pick<
+    WorkerOptions,
+    | "taskQueue"
+    | "workflowsPath"
+    | "activities"
+    | "maxConcurrentActivityTaskExecutions"
+  >[] = [
     {
       taskQueue: "scout-workflows-v1",
       workflowsPath: workflowPath,
@@ -131,6 +150,13 @@ async function start(): Promise<void> {
       maxConcurrentActivityTaskExecutions: 1,
     },
   ];
+  definitions.push({
+    taskQueue: "scout-private-mail-v1",
+    activities: {
+      importPrivateMail: async () => resources.privateMail?.execute() ?? false,
+    },
+    maxConcurrentActivityTaskExecutions: 2,
+  });
   const workers = await Promise.all(
     definitions.map((definition) =>
       Worker.create({
