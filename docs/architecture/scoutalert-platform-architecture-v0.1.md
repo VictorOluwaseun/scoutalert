@@ -1,8 +1,8 @@
 # ScoutAlert — Platform Architecture
 
-**Version:** 0.3
+**Version:** 0.4
 
-**Date:** 1 October 2026
+**Date:** 4 October 2026
 
 **Status:** Agreed target architecture; local implementation and production readiness tracked separately
 
@@ -445,6 +445,10 @@ Record impressions/rank positions and policy versions alongside feedback, includ
 
 ## 17. Observability and evaluation
 
+The [monitoring and audit architecture](scoutalert-observability-and-auditing.md) defines the full platform coverage contract, operational stack, transactional audit journal, decision/evidence history, shared/private attribution, usage accounting, protected exports and operations console. Every consequential operation retains its identity, outcome or unresolved state, and reason, including work deferred or rejected. Technical completion and product success are measured separately.
+
+The [monitoring and audit acceptance gates](../engineering/scoutalert-observability-acceptance.md) own OACC-001–024 and the evidence required for implementation and production readiness. These are target obligations; existing business receipts and local workflow tests do not establish complete audit coverage.
+
 For every recommendation we should be able to answer:
 
 ```text
@@ -516,6 +520,8 @@ The [discovery acceptance criteria](../engineering/scoutalert-discovery-acceptan
 
 ## 22. Related documents
 
+- [Monitoring and Audit Architecture](scoutalert-observability-and-auditing.md)
+- [Monitoring and Audit Acceptance Gates](../engineering/scoutalert-observability-acceptance.md)
 - [Internet Discovery Architecture](scoutalert-discovery-architecture.md)
 - [Discovery Acceptance and Release Gates](../engineering/scoutalert-discovery-acceptance.md)
 - [Delivery Roadmap](../engineering/scoutalert-delivery-roadmap.md)

@@ -2,7 +2,7 @@
 
 **Baseline revision:** 0.3
 
-**Updated:** 1 October 2026
+**Updated:** 4 October 2026
 
 ScoutAlert is a continuously operating opportunity intelligence platform with persistent personal Scouts and internet-wide discovery as a core capability. These documents define the agreed target, implementation boundaries and evidence required for release. Milestones sequence delivery without reducing the product to onboarding or a fixed source list.
 
@@ -12,6 +12,8 @@ ScoutAlert is a continuously operating opportunity intelligence platform with pe
 | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ |
 | [Platform PRD](prd/scoutalert-platform-prd.md)                                       | Complete product direction, opportunity categories, continuous discovery and release outcomes                            |
 | [Platform architecture](architecture/scoutalert-platform-architecture-v0.1.md)       | Domain ownership, data authority, intelligence, execution, delivery and global operation                                 |
+| [Monitoring and audit architecture](architecture/scoutalert-observability-and-auditing.md) | Platform-wide monitoring, durable auditing, decision history, coverage, cost, operational investigation and implementation phases |
+| [Monitoring and audit acceptance gates](engineering/scoutalert-observability-acceptance.md) | OACC-001–024, fault scenarios, evidence requirements and operational readiness gates |
 | [Internet discovery architecture](architecture/scoutalert-discovery-architecture.md) | Four agent responsibilities, plans, leads, provider capabilities, source expansion, crawl/monitoring, reuse and recovery |
 | [Discovery acceptance gates](engineering/scoutalert-discovery-acceptance.md)         | DACC-001–020, cross-component pass/fail behavior, required evidence and release gates                                    |
 | [Delivery roadmap](engineering/scoutalert-delivery-roadmap.md)                       | Current implementation, remaining increments, dependencies and completion boundaries                                     |
@@ -26,7 +28,7 @@ ScoutAlert is a continuously operating opportunity intelligence platform with pe
 | [Connected onboarding and scouting](engineering/scoutalert-connected-onboarding.md)  | Existing local setup, implemented behavior, commands, historical checks and limitations                                  |
 | [Local email](engineering/scoutalert-local-email.md)                                 | Mailpit transport configuration and verification                                                                         |
 
-The PRD owns scope; the platform/discovery architecture owns design; acceptance gates own proof; the roadmap owns implementation status. Operational guides describe actual code and historical measurements. Onboarding cannot narrow platform scope. `AGENTS.md` and explicit user instructions govern working agreements.
+The PRD owns scope; the platform/discovery architecture owns design; the monitoring and audit architecture owns cross-platform observability and audit guarantees; acceptance gates own proof; the roadmap owns implementation status. Operational guides describe actual code and historical measurements. Onboarding cannot narrow platform scope. `AGENTS.md` and explicit user instructions govern working agreements.
 
 Existing filenames containing `v0.1` remain stable for links; document headers identify their current revision. The stack document has its own revision history. Existing story IDs and historical evaluation artifacts are preserved.
 
@@ -49,6 +51,8 @@ Framework-independent business modules live in `packages/core`; repositories and
 PostgreSQL remains authoritative for business records, consent, budgets and durable intents. Redis is disposable cache and bounded coordination. Workflow history, search projections and event replay are distinct responsibilities. Transactions explicitly bind participating repositories; model/network effects occur outside them. Source and Scout revisions protect current publication, and recipient-level delivery identity protects notifications.
 
 ## Current implementation boundary
+
+The [monitoring and audit design](architecture/scoutalert-observability-and-auditing.md) records the 4 October target for complete consequential-operation accounting, including deferred work, rejected findings and suppressed notifications. Existing consent, provider, usage and delivery records are foundations; a unified audit journal, central operational deployment and complete coverage remain implementation work. Its [acceptance gates](engineering/scoutalert-observability-acceptance.md) are specified, not passed.
 
 The existing local path includes reviewed onboarding, real Mailpit verification, sessions, transactional activation, saved Scouts, dashboard reads, edit/pause/resume and opportunity feedback. Live sources are Figma and Remote's Greenhouse boards and bounded Freelancer buyer requests for fixed-price projects and hourly services. Evidence extraction/private fit, bounded availability and employer-policy research, Temporal execution and local digests/prompt controls are implemented.
 
