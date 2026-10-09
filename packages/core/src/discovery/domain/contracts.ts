@@ -45,7 +45,7 @@ export interface WebSearchResult {
 export interface SourceDocumentResult {
   nativePost?: import("./social-discovery.js").NativePost;
   nativeContext?: import("./social-context.js").NativeContext;
-  /** Incomplete native text/context cannot authorize publication as complete evidence. */
+  /** Incomplete text, native context or browser captures cannot authorize publication as complete evidence. */
   truncated?: boolean;
   kind: "document";
   url: string;
@@ -59,6 +59,24 @@ export interface SourceDocumentResult {
   hostDelaySeconds: number;
   /** Bounded observed anchors, never model-invented destinations; absent on older captures. */
   links?: { url: string; text: string }[];
+  /** Observed public GET search forms; only the frozen public target may fill the named field. */
+  searchForms?: {
+    action: string;
+    field: string;
+    parameters: [string, string][];
+  }[];
+  /** Observed source pagination with a stable result signature for loop detection. */
+  pagination?: { next: string[]; contentFingerprint: string };
+  /** Exact public API used for this source observation; provider data is never relabeled as an HTML capture. */
+  publicApi?: { provider: "ashby"; url: string; snapshotFingerprint: string };
+  /** Bounded page-bundle accounting, including robots and browser resources; absent on older captures. */
+  capture?: {
+    method: "http" | "browser" | "public_api";
+    cacheHit?: boolean;
+    requests: number;
+    bytes: number;
+    complete: boolean;
+  };
 }
 
 export type DiscoveryOperation =
@@ -84,6 +102,7 @@ export interface DiscoveryPlan {
     maximumRounds: number;
     maximumSearches: number;
     maximumDepth: number;
+    maximumSourcePages?: number;
   };
 }
 
@@ -94,6 +113,11 @@ export interface DiscoveryLimits {
   dailyDocumentRequests: number;
   maximumConcurrentSearches: number;
   maximumDocuments: number;
+  exploration?: {
+    maximumDepth: number;
+    maximumRounds: number;
+    maximumSourcePages: number;
+  };
 }
 
 /** Thin search boundary preserves provider semantics while keeping HTTP clients out of core services. */
@@ -176,6 +200,8 @@ export interface DiscoveryExploration {
 export interface DiscoveryDecision {
   reason:
     | "follow_source_link"
+    | "search_source_site"
+    | "continue_source_page"
     | "check_promising_result"
     | "continue_result_page"
     | "refine_demand_query"

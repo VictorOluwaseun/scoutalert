@@ -200,7 +200,7 @@ export class PostgresWebDiscoveryRepository extends WebDiscoveryRepository {
 
       if (!operation) {
         const failures =
-          await sql`SELECT 1 FROM web_discovery_steps s JOIN web_discovery_operations o ON o.key=s.operation_key WHERE s.case_id=${request.runId}::uuid AND (o.state='failed' OR (o.kind='document' AND o.result->>'status'<>'fetched')) LIMIT 1`.execute(
+          await sql`SELECT 1 FROM web_discovery_steps s JOIN web_discovery_operations o ON o.key=s.operation_key WHERE s.case_id=${request.runId}::uuid AND (o.state='failed' OR (o.kind='document' AND (o.result->>'status'<>'fetched' OR coalesce((o.result->>'truncated')::boolean,false)))) LIMIT 1`.execute(
             tx,
           );
         await this.finish(
@@ -268,10 +268,11 @@ export class PostgresWebDiscoveryRepository extends WebDiscoveryRepository {
         key,
         result.kind === "search"
           ? result.observations.map((item) => item.url)
-          : result.status === "fetched"
+          : result.status === "fetched" && !result.truncated
             ? [result.url]
             : [],
-        result.kind === "search" || result.status === "fetched",
+        result.kind === "search" ||
+          (result.status === "fetched" && !result.truncated),
       );
 
       await sql`UPDATE web_discovery_operations SET state='succeeded',result=${JSON.stringify(result)}::jsonb,finished_at=now(),lease_until=NULL WHERE key=${key} AND lease_token=${token}::uuid`.execute(

@@ -9,6 +9,8 @@ export interface PublicResponse {
   status: number;
   contentType: string;
   body: string;
+  /** Response policy headers only; cookies and authentication headers are never propagated. */
+  headers?: Record<string, string>;
 }
 
 /** Rejects special-use, mapped, private and reserved addresses before opening a source connection. */
@@ -69,7 +71,8 @@ export class PublicHttpRepository {
             callback(null, chosen.address, chosen.family),
           headers: {
             "user-agent": "ScoutAlert/1.0",
-            accept: "text/html,application/xhtml+xml,text/plain;q=0.9",
+            accept:
+              "text/html,application/xhtml+xml,application/json,text/javascript,text/css,text/plain;q=0.9",
             "accept-encoding": "identity",
           },
         },
@@ -100,6 +103,17 @@ export class PublicHttpRepository {
               status: response.statusCode ?? 0,
               contentType: response.headers["content-type"] ?? "",
               body: Buffer.concat(chunks).toString("utf8"),
+              headers: Object.fromEntries(
+                [
+                  "content-security-policy",
+                  "access-control-allow-origin",
+                  "x-content-type-options",
+                ].flatMap((name) =>
+                  typeof response.headers[name] === "string"
+                    ? [[name, response.headers[name] as string]]
+                    : [],
+                ),
+              ),
             }),
           );
         },

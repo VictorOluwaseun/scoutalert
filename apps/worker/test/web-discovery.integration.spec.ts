@@ -432,6 +432,196 @@ describe.skipIf(!enabled)(
       );
     });
 
+    it("reaches demand through a form and a later source page with durable parents and frozen limits", async () => {
+      const request = await fixture("Product designer");
+      const directory = "https://pagination.example.org/projects";
+      const search = "https://pagination.example.org/search?q=Product+designer";
+      const second =
+        "https://pagination.example.org/search?page=2&q=Product+designer";
+      const detail = "https://pagination.example.org/projects/42";
+      const requested: string[] = [];
+      const provider = {
+        capability: { ...capability, id: randomUUID() },
+        /** Returns an observed portal so follow-up destinations must come from captured source controls. */
+        async search() {
+          return result(directory);
+        },
+      };
+      const documents = {
+        /** Supplies different source result pages and one discovered client-project link. */
+        async read(url: string) {
+          requested.push(url);
+          return {
+            kind: "document" as const,
+            url,
+            status: "fetched" as const,
+            checkedAt: new Date().toISOString(),
+            reason: null,
+            posting: null,
+            text:
+              url === detail
+                ? "Product designer needed for a client project"
+                : "Published opportunities",
+            fingerprint: url,
+            hostDelaySeconds: 2,
+            searchForms:
+              url === directory
+                ? [
+                    {
+                      action: "https://pagination.example.org/search",
+                      field: "q",
+                      parameters: [],
+                    },
+                  ]
+                : [],
+            links:
+              url === second
+                ? [{ url: detail, text: "Product designer needed" }]
+                : [],
+            pagination: {
+              next: url === search ? [second] : [],
+              contentFingerprint: url,
+            },
+          };
+        },
+      };
+      const exploration = {
+        maximumDepth: 4,
+        maximumRounds: 8,
+        maximumSourcePages: 3,
+      };
+      const useCase = new DiscoverWeb(records, documents, provider, {
+        ...limits,
+        exploration,
+      });
+      for (
+        let step = 0;
+        step < 60 && (await useCase.execute(request)) !== "done";
+        step += 1
+      ) {
+        await sql`UPDATE web_discovery_hosts SET next_allowed_at=now() WHERE hostname='pagination.example.org'`.execute(
+          db,
+        );
+      }
+      expect(requested).toEqual([directory, search, second, detail]);
+      const decisions = await sql<{
+        reason: string;
+        depth: number;
+      }>`SELECT reason,depth FROM web_discovery_decisions WHERE case_id=${request.runId}::uuid AND action->>'kind'='document' ORDER BY round`.execute(
+        db,
+      );
+      expect(decisions.rows).toEqual([
+        { reason: "search_source_site", depth: 1 },
+        { reason: "continue_source_page", depth: 2 },
+        { reason: "follow_source_link", depth: 3 },
+      ]);
+      const plan = await records.preparedPlan(request);
+      expect(plan?.exploration).toMatchObject(exploration);
+      const catalogue = await new PostgresWebDiscoveryCatalogRepository(
+        db,
+      ).read(request.ownerId);
+      expect(catalogue.cases[0]).toMatchObject({
+        status: "completed",
+        documentsChecked: 4,
+      });
+    });
+
+    it("persists observed site searches, reuses captures across owners and reports incomplete rendering", async () => {
+      const request = await fixture("Product designer");
+      const directory = "https://deep.example.org/projects";
+      const searchUrl = "https://deep.example.org/search?q=Product+designer";
+      const requests: string[] = [];
+      const provider = {
+        capability: { ...capability, id: randomUUID() },
+        /** Routes the scout to an observed portal rather than inventing a search endpoint. */
+        async search() {
+          return result(directory);
+        },
+      };
+      const documents = {
+        /** Supplies a recorded form followed by a partial browser capture; neither is a verified listing. */
+        async read(url: string) {
+          requests.push(url);
+          return {
+            kind: "document" as const,
+            url,
+            checkedAt: new Date().toISOString(),
+            status: "fetched" as const,
+            reason: url === searchUrl ? "browser_deadline" : null,
+            text: "Product designer opportunities",
+            fingerprint: url,
+            posting: null,
+            hostDelaySeconds: 0,
+            truncated: url === searchUrl,
+            searchForms:
+              url === directory
+                ? [
+                    {
+                      action: "https://deep.example.org/search",
+                      field: "q",
+                      parameters: [],
+                    },
+                  ]
+                : [],
+            capture: {
+              method:
+                url === searchUrl ? ("browser" as const) : ("http" as const),
+              requests: 3,
+              bytes: 1500,
+              complete: url !== searchUrl,
+            },
+          };
+        },
+      };
+      const useCase = new DiscoverWeb(records, documents, provider, limits);
+      for (
+        let step = 0;
+        step < 40 && (await useCase.execute(request)) !== "done";
+        step += 1
+      ) {
+        await sql`UPDATE web_discovery_hosts SET next_allowed_at=now() WHERE hostname='deep.example.org'`.execute(
+          db,
+        );
+      }
+      expect(requests).toEqual([directory, searchUrl]);
+      const decisions = await sql<{
+        reason: string;
+        depth: number;
+        parent_key: string;
+      }>`SELECT reason,depth,parent_key FROM web_discovery_decisions WHERE case_id=${request.runId}::uuid AND reason='search_source_site'`.execute(
+        db,
+      );
+      expect(decisions.rows).toHaveLength(1);
+      expect(decisions.rows[0]).toMatchObject({
+        reason: "search_source_site",
+        depth: 1,
+      });
+      expect(decisions.rows[0]!.parent_key).toBeTruthy();
+      const view = await new PostgresWebDiscoveryCatalogRepository(db).read(
+        request.ownerId,
+      );
+      expect(view.cases[0]).toMatchObject({
+        status: "partial",
+        reason: "some_sources_unavailable",
+      });
+      expect(view.leads.every((lead) => lead.postingId === null)).toBe(true);
+      const second = await fixture("Product designer");
+      for (
+        let step = 0;
+        step < 40 && (await useCase.execute(second)) !== "done";
+        step += 1
+      ) {
+        // The second owner reuses the bounded public capture and keeps a private case association.
+      }
+      expect(requests).toEqual([directory, searchUrl]);
+      const capture = await sql<{
+        result: { capture: { complete: boolean } };
+      }>`SELECT result FROM web_discovery_operations WHERE input->>'url'=${searchUrl}`.execute(
+        db,
+      );
+      expect(capture.rows[0]!.result.capture.complete).toBe(false);
+    });
+
     it("shares public strategy across owners, fences leases and keeps all planning inside the common AI budget", async () => {
       const first = await fixture("Android engineer");
       const second = await fixture("Android engineer");

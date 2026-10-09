@@ -1,0 +1,484 @@
+{
+  "recordedAt": "2026-10-04T12:26:15.885851+00:00",
+  "scope": "Public Ashby API access, bounded source pagination, shared Redis feed reuse and durable plan compatibility.",
+  "uniqueChecks": 117,
+  "passed": 117,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "bounded adaptive discovery prefers observed listing links in page order over stronger-looking snippets, and defers inaccessible hosts",
+      "status": "passed"
+    },
+    {
+      "name": "bounded adaptive discovery changes wording after empty results without relaxing the remote preference or exposing personal details",
+      "status": "passed"
+    },
+    {
+      "name": "bounded adaptive discovery refines a noisy result set toward demand without copying source instructions into queries",
+      "status": "passed"
+    },
+    {
+      "name": "bounded adaptive discovery does not pay for extra searches during a complete provider outage",
+      "status": "passed"
+    },
+    {
+      "name": "bounded adaptive discovery follows a relevant directory link before spending another search request",
+      "status": "passed"
+    },
+    {
+      "name": "bounded adaptive discovery investigates an observed application destination and prevents loops beyond two hops",
+      "status": "passed"
+    },
+    {
+      "name": "bounded adaptive discovery does not follow unsafe URLs, login links, or unobserved destinations",
+      "status": "passed"
+    },
+    {
+      "name": "bounded adaptive discovery pages only promising new results, then stops paginating repeated result sets",
+      "status": "passed"
+    },
+    {
+      "name": "bounded adaptive discovery stops at the frozen round and search limits",
+      "status": "passed"
+    },
+    {
+      "name": "bounded adaptive discovery preserves historic fixed plans and refuses blocked public intent",
+      "status": "passed"
+    },
+    {
+      "name": "bounded adaptive discovery extracts only bounded inert anchors and ignores base tags, boilerplate, trackers and private credentials",
+      "status": "passed"
+    },
+    {
+      "name": "public Ashby source capability captures a live-board shape with exact API provenance and preserves location restrictions",
+      "status": "passed"
+    },
+    {
+      "name": "public Ashby source capability excludes unlisted jobs even from direct detail lookup and never treats absence as confirmed closure",
+      "status": "passed"
+    },
+    {
+      "name": "public Ashby source capability rejects malformed, conflicting and cross-board facts without discarding a valid independent job",
+      "status": "passed"
+    },
+    {
+      "name": "public Ashby source capability withholds oversized detail text and reports API failure instead of falling through to authenticated requests",
+      "status": "passed"
+    },
+    {
+      "name": "public Ashby source capability does not grant the API capability to https://jobs.ashbyhq.com.attacker.example/example",
+      "status": "passed"
+    },
+    {
+      "name": "public Ashby source capability does not grant the API capability to https://jobs.ashbyhq.com/example/12345678-1234-1234-1234-123456789012/application",
+      "status": "passed"
+    },
+    {
+      "name": "public Ashby source capability does not grant the API capability to https://api.ashbyhq.com/jobPosting.list",
+      "status": "passed"
+    },
+    {
+      "name": "public Ashby source capability does not grant the API capability to https://jobs.ashbyhq.com/example/not-a-job-id",
+      "status": "passed"
+    },
+    {
+      "name": "public Ashby source capability does not grant the API capability to https://person:password@jobs.ashbyhq.com/example",
+      "status": "passed"
+    },
+    {
+      "name": "public Ashby source capability routes only recognized public portal identities, leaving normal crawl policy intact elsewhere",
+      "status": "passed"
+    },
+    {
+      "name": "observed public site searches accepts a public GET search and excludes account, cross-origin, POST, token and ambiguous forms",
+      "status": "passed"
+    },
+    {
+      "name": "observed public site searches freezes only public intent into observed forms and respects the existing depth/document ceilings",
+      "status": "passed"
+    },
+    {
+      "name": "observed public site searches keeps complete static content on the fast path",
+      "status": "passed"
+    },
+    {
+      "name": "actual Chromium deeper discovery finds employment demand via a public form, JavaScript results and a linked detail page",
+      "status": "passed"
+    },
+    {
+      "name": "actual Chromium deeper discovery finds contracts demand via a public form, JavaScript results and a linked detail page",
+      "status": "passed"
+    },
+    {
+      "name": "actual Chromium deeper discovery finds services demand via a public form, JavaScript results and a linked detail page",
+      "status": "passed"
+    },
+    {
+      "name": "actual Chromium deeper discovery blocks writes, private destinations, frames and socket connections without forwarding them to the network repository",
+      "status": "passed"
+    },
+    {
+      "name": "actual Chromium deeper discovery stops a resource flood at the capture deadline and cancels queued requests before returning",
+      "status": "passed"
+    },
+    {
+      "name": "actual Chromium deeper discovery does not publish a partially rendered page when a required resource is unavailable",
+      "status": "passed"
+    },
+    {
+      "name": "shared public feed cache in an isolated Redis namespace coalesces concurrent requests and rejects stale or forged fill completions",
+      "status": "passed"
+    },
+    {
+      "name": "shared public feed cache in an isolated Redis namespace rejects aged observations and permits a fresh holder after a failed fill",
+      "status": "passed"
+    },
+    {
+      "name": "shared public feed cache in an isolated Redis namespace reuses one API observation for directory and job reads without caching unlisted jobs or refreshing evidence time",
+      "status": "passed"
+    },
+    {
+      "name": "model planning boundaries separates alternatives without adding professions or dropping confirmed public words",
+      "status": "passed"
+    },
+    {
+      "name": "model planning boundaries normalizes a redundant confirmed remote qualifier without admitting an invented preference",
+      "status": "passed"
+    },
+    {
+      "name": "model planning boundaries accepts only a supplied action index, never arbitrary model destinations",
+      "status": "passed"
+    },
+    {
+      "name": "model planning boundaries always includes a stop action and preserves document/search/depth ceilings",
+      "status": "passed"
+    },
+    {
+      "name": "model planning boundaries adds grounded application requirements while preserving known posting restrictions and explicit deadlines",
+      "status": "passed"
+    },
+    {
+      "name": "continuous shared source monitoring discovers a new linked posting, shares source review across owners, matches privately and sends each recipient once",
+      "status": "passed"
+    },
+    {
+      "name": "continuous shared source monitoring coalesces concurrent attempts, fences expired leases and preserves reservations after unknown outcomes",
+      "status": "passed"
+    },
+    {
+      "name": "continuous shared source monitoring requires active current interest and respects daily exhaustion before making a request",
+      "status": "passed"
+    },
+    {
+      "name": "continuous shared source monitoring resumes budget-only holds after a limit increase without resetting usage or bypassing current interest",
+      "status": "passed"
+    },
+    {
+      "name": "continuous shared source monitoring bounds automatic expansion per scout and prevents forged ownership from enrolling sources",
+      "status": "passed"
+    },
+    {
+      "name": "continuous shared source monitoring suppresses downstream dispatch when the scout pauses during a source fetch",
+      "status": "passed"
+    },
+    {
+      "name": "continuous shared source monitoring shares document concurrency with ordinary discovery admission",
+      "status": "passed"
+    },
+    {
+      "name": "continuous shared source monitoring shares the four-link expansion allowance across subscribers and replay",
+      "status": "passed"
+    },
+    {
+      "name": "source monitoring policy requires recent complete cited source evidence, not snippets or stale classifications",
+      "status": "passed"
+    },
+    {
+      "name": "source monitoring policy recognizes changed destinations even when visible text stays identical",
+      "status": "passed"
+    },
+    {
+      "name": "source monitoring policy bounds backoff and retains explicit access gaps without claiming closure",
+      "status": "passed"
+    },
+    {
+      "name": "source monitoring policy excludes obvious seller, account and advice links from expansion",
+      "status": "passed"
+    },
+    {
+      "name": "deeper observed source navigation reads pagination from nav and head metadata while refusing hidden, foreign, previous and invented destinations",
+      "status": "passed"
+    },
+    {
+      "name": "deeper observed source navigation reaches matching demand beyond a first page without inventing a search or relaxing the user's requirements",
+      "status": "passed"
+    },
+    {
+      "name": "deeper observed source navigation stops repeated result content even when the source keeps changing page URLs",
+      "status": "passed"
+    },
+    {
+      "name": "deeper observed source navigation bounds page counts, depth, rounds and document admissions independently",
+      "status": "passed"
+    },
+    {
+      "name": "deeper observed source navigation treats query-order aliases and backward links as already visited",
+      "status": "passed"
+    },
+    {
+      "name": "durable web discovery in an isolated PostgreSQL schema splits alternative goals and uses completed source reviews during the same discovery run",
+      "status": "passed"
+    },
+    {
+      "name": "durable web discovery in an isolated PostgreSQL schema reaches demand through a form and a later source page with durable parents and frozen limits",
+      "status": "passed"
+    },
+    {
+      "name": "durable web discovery in an isolated PostgreSQL schema persists observed site searches, reuses captures across owners and reports incomplete rendering",
+      "status": "passed"
+    },
+    {
+      "name": "durable web discovery in an isolated PostgreSQL schema shares public strategy across owners, fences leases and keeps all planning inside the common AI budget",
+      "status": "passed"
+    },
+    {
+      "name": "durable web discovery in an isolated PostgreSQL schema executes adaptive source and application-link investigation through the use case with bounded public reuse",
+      "status": "passed"
+    },
+    {
+      "name": "durable web discovery in an isolated PostgreSQL schema fences concurrent adaptive decisions and rejects invented actions before spending or association",
+      "status": "passed"
+    },
+    {
+      "name": "durable web discovery in an isolated PostgreSQL schema rejects adaptive decisions when the case becomes paused",
+      "status": "passed"
+    },
+    {
+      "name": "durable web discovery in an isolated PostgreSQL schema rejects adaptive decisions when the case becomes revised",
+      "status": "passed"
+    },
+    {
+      "name": "durable web discovery in an isolated PostgreSQL schema rejects adaptive decisions when the case becomes expired",
+      "status": "passed"
+    },
+    {
+      "name": "durable web discovery in an isolated PostgreSQL schema rejects adaptive decisions when the case becomes newer",
+      "status": "passed"
+    },
+    {
+      "name": "durable web discovery in an isolated PostgreSQL schema clears obsolete failure state after a successful retry and preserves both paid attempt receipts",
+      "status": "passed"
+    },
+    {
+      "name": "durable web discovery in an isolated PostgreSQL schema shares public reviews across owners while keeping excerpt facts out of the posting index",
+      "status": "passed"
+    },
+    {
+      "name": "durable web discovery in an isolated PostgreSQL schema bounds Unicode source excerpts for JavaScript transport without splitting emoji",
+      "status": "passed"
+    },
+    {
+      "name": "durable web discovery in an isolated PostgreSQL schema shares the AI request ceiling and concurrency slots, and rejects paused or changed public input",
+      "status": "passed"
+    },
+    {
+      "name": "durable web discovery in an isolated PostgreSQL schema reuses a fresh actionable capture without inventing a newer observation and withholds expired evidence",
+      "status": "passed"
+    },
+    {
+      "name": "durable web discovery in an isolated PostgreSQL schema publishes a source-grounded client request into the services index without fabricated organization or dates",
+      "status": "passed"
+    },
+    {
+      "name": "durable web discovery in an isolated PostgreSQL schema coalesces concurrent equivalent searches across owners, charges once, and isolates observations",
+      "status": "passed"
+    },
+    {
+      "name": "durable web discovery in an isolated PostgreSQL schema fences stale attempts and never resends an operation after its lease expires",
+      "status": "passed"
+    },
+    {
+      "name": "durable web discovery in an isolated PostgreSQL schema enforces shared request and monetary ceilings before dispatch",
+      "status": "passed"
+    },
+    {
+      "name": "durable web discovery in an isolated PostgreSQL schema rejects paused and superseded briefs before admitting another operation",
+      "status": "passed"
+    },
+    {
+      "name": "durable web discovery in an isolated PostgreSQL schema reports disabled provider access honestly without admitting work",
+      "status": "passed"
+    },
+    {
+      "name": "durable web discovery in an isolated PostgreSQL schema preserves incomplete leads, promotes evidence-backed jobs, and feeds existing matching without closing absent listings",
+      "status": "passed"
+    },
+    {
+      "name": "durable web discovery in an isolated PostgreSQL schema retains immutable evidence across changed and unchanged page refreshes without inflating source totals",
+      "status": "passed"
+    },
+    {
+      "name": "public discovery boundaries exports only public target intent, preserves the confirmed brief, and covers open-web and indexed social paths",
+      "status": "passed"
+    },
+    {
+      "name": "public discovery boundaries rejects unsafe query intent person@example.com",
+      "status": "passed"
+    },
+    {
+      "name": "public discovery boundaries rejects unsafe query intent https://private.example/brief",
+      "status": "passed"
+    },
+    {
+      "name": "public discovery boundaries rejects unsafe query intent 123456789",
+      "status": "passed"
+    },
+    {
+      "name": "public discovery boundaries rejects unsafe query intent designer\nprivate information",
+      "status": "passed"
+    },
+    {
+      "name": "public discovery boundaries looks for service demand without changing hard requirements",
+      "status": "passed"
+    },
+    {
+      "name": "public discovery boundaries blocks special-use address 127.0.0.1",
+      "status": "passed"
+    },
+    {
+      "name": "public discovery boundaries blocks special-use address 10.0.0.1",
+      "status": "passed"
+    },
+    {
+      "name": "public discovery boundaries blocks special-use address 169.254.169.254",
+      "status": "passed"
+    },
+    {
+      "name": "public discovery boundaries blocks special-use address 100.64.0.1",
+      "status": "passed"
+    },
+    {
+      "name": "public discovery boundaries blocks special-use address 192.0.2.1",
+      "status": "passed"
+    },
+    {
+      "name": "public discovery boundaries blocks special-use address ::1",
+      "status": "passed"
+    },
+    {
+      "name": "public discovery boundaries blocks special-use address fc00::1",
+      "status": "passed"
+    },
+    {
+      "name": "public discovery boundaries blocks special-use address fe80::1",
+      "status": "passed"
+    },
+    {
+      "name": "public discovery boundaries blocks special-use address ::ffff:127.0.0.1",
+      "status": "passed"
+    },
+    {
+      "name": "public discovery boundaries blocks special-use address 2001:db8::1",
+      "status": "passed"
+    },
+    {
+      "name": "public discovery boundaries admits ordinary public addresses and preserves meaningful URL variants",
+      "status": "passed"
+    },
+    {
+      "name": "public discovery boundaries rejects mixed public/private DNS answers before opening a socket",
+      "status": "passed"
+    },
+    {
+      "name": "public discovery boundaries does not fetch pages denied by robots or follow redirected crawl policy",
+      "status": "passed"
+    },
+    {
+      "name": "public discovery boundaries does not interpret a login or challenge HTML page as permissive robots",
+      "status": "passed"
+    },
+    {
+      "name": "public discovery boundaries keeps informal, incomplete, expired and multi-job pages as leads",
+      "status": "passed"
+    },
+    {
+      "name": "public discovery boundaries promotes only explicit formal facts and strips executable content",
+      "status": "passed"
+    },
+    {
+      "name": "public discovery boundaries uses a fixed provider endpoint, validates its response and keeps credentials in the header",
+      "status": "passed"
+    },
+    {
+      "name": "configured daily budget limits retains conservative defaults when no allowance is supplied",
+      "status": "passed"
+    },
+    {
+      "name": "configured daily budget limits accepts explicitly configured allowances above the former hard-coded caps",
+      "status": "passed"
+    },
+    {
+      "name": "configured daily budget limits rejects a request allowance incompatible with the ledger: 0",
+      "status": "passed"
+    },
+    {
+      "name": "configured daily budget limits rejects a request allowance incompatible with the ledger: -1",
+      "status": "passed"
+    },
+    {
+      "name": "configured daily budget limits rejects a request allowance incompatible with the ledger: 1.5",
+      "status": "passed"
+    },
+    {
+      "name": "configured daily budget limits rejects a request allowance incompatible with the ledger: 2147483648",
+      "status": "passed"
+    },
+    {
+      "name": "configured daily budget limits rejects a request allowance incompatible with the ledger: Infinity",
+      "status": "passed"
+    },
+    {
+      "name": "configured daily budget limits rejects a request allowance incompatible with the ledger: NaN",
+      "status": "passed"
+    },
+    {
+      "name": "configured daily budget limits rejects a monetary allowance outside exact reservation arithmetic: 0",
+      "status": "passed"
+    },
+    {
+      "name": "configured daily budget limits rejects a monetary allowance outside exact reservation arithmetic: 0.074",
+      "status": "passed"
+    },
+    {
+      "name": "configured daily budget limits rejects a monetary allowance outside exact reservation arithmetic: -1",
+      "status": "passed"
+    },
+    {
+      "name": "configured daily budget limits rejects a monetary allowance outside exact reservation arithmetic: 9007199255",
+      "status": "passed"
+    },
+    {
+      "name": "configured daily budget limits rejects a monetary allowance outside exact reservation arithmetic: Infinity",
+      "status": "passed"
+    },
+    {
+      "name": "configured daily budget limits rejects a monetary allowance outside exact reservation arithmetic: NaN",
+      "status": "passed"
+    },
+    {
+      "name": "configured daily budget limits identifies invalid fields without including supplied credentials",
+      "status": "passed"
+    },
+    {
+      "name": "configured daily budget limits keeps navigation within database bounds without raising the document or spending defaults",
+      "status": "passed"
+    }
+  ],
+  "migration": "20261004-source-navigation-bounds",
+  "schemaFinding": "The first durable navigation check correctly exposed old depth<=2 and round<=4 constraints. The migration expands structural ceilings to eight/sixteen; all durable checks then passed.",
+  "limitations": [
+    "The live source smoke is stored separately; controlled tests do not establish independent relevance or global coverage.",
+    "No private account source was connected.",
+    "No new source was claimed to provide verified personal recommendations solely from these access tests."
+  ]
+}

@@ -108,6 +108,18 @@ describe("source monitoring policy", () => {
       }),
     ).toMatchObject({ status: "deferred", changed: false, failures: 1 });
     expect(
+      nextMonitorCheck(monitor, {
+        ...document,
+        truncated: true,
+        reason: "browser_deadline",
+      }),
+    ).toMatchObject({
+      status: "deferred",
+      changed: false,
+      failures: 1,
+      reason: "browser_deadline",
+    });
+    expect(
       nextMonitorCheck({ ...monitor, kind: "probe", failures: 2 }, null),
     ).toMatchObject({ status: "retired" });
     expect(

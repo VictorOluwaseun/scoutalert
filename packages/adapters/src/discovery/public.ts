@@ -1,6 +1,9 @@
 export { PostgresWebDiscoveryRepository } from "./persistence/postgres-web-discovery.js";
 export { PostgresWebDiscoveryCatalogRepository } from "./persistence/postgres-discovery-catalog.js";
-export { PublicSourceDocumentRepository } from "./connectors/public-source-documents.js";
+export {
+  PublicSourceDocumentRepository,
+  needsBrowser,
+} from "./connectors/public-source-documents.js";
 export { SerperSearchProvider } from "./connectors/serper-search.js";
 export {
   PublicHttpRepository,
@@ -28,3 +31,16 @@ export {
   queryRoute,
   sourceRoute,
 } from "./persistence/postgres-discovery-performance.js";
+
+export { BrowserDocumentRepository } from "./connectors/browser-document.js";
+export { documentSearchForms } from "./connectors/document-search-forms.js";
+
+export { AshbySourceDocumentRepository } from "./connectors/ashby-source-documents.js";
+export { SourceDocumentRouter } from "./connectors/source-document-router.js";
+export { RedisPublicApiSnapshotRepository } from "./cache/redis-public-api-snapshots.js";
+export {
+  ashbyTarget,
+  parseAshbyPostings,
+} from "./connectors/ashby-postings.js";
+
+export { documentPagination } from "./connectors/document-pagination.js";

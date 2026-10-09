@@ -1,3 +1,5 @@
+import { sourceNextPages } from "./source-pagination.js";
+import { sourceSearchUrls } from "./source-search.js";
 import type {
   DiscoveryDecision,
   DiscoveryExploration,
@@ -11,7 +13,7 @@ type Candidate = {
   parentKey: string;
   depth: number;
   score: number;
-  linked: boolean;
+  reason: DiscoveryDecision["reason"];
 };
 const noise =
   /\b(?:salary guide|career advice|how to|resume tips|i offer|my services|hire me|privacy|log in|sign in|register|subscribe)\b/iu;
@@ -114,7 +116,7 @@ function documentCandidates(
           title: item.title,
           parentKey: operation.key,
           depth: 0,
-          linked: false,
+          reason: "check_promising_result",
           score: relevance(
             `${item.title ?? ""} ${item.snippet ?? ""}`,
             item.url,
@@ -138,13 +140,36 @@ function documentCandidates(
       result.status === "fetched" &&
       operation.depth < snapshot.plan.exploration!.maximumDepth
     ) {
+      for (const url of sourceNextPages(result, snapshot)) {
+        candidates.push({
+          url,
+          title: "Next source results page",
+          parentKey: operation.key,
+          depth: operation.depth + 1,
+          reason: "continue_source_page",
+          score: 8,
+        });
+      }
+      for (const url of sourceSearchUrls(
+        result,
+        snapshot.plan.exploration!.target,
+      )) {
+        candidates.push({
+          url,
+          title: "Search this source",
+          parentKey: operation.key,
+          depth: operation.depth + 1,
+          reason: "search_source_site",
+          score: 16,
+        });
+      }
       for (const link of result.links ?? []) {
         candidates.push({
           url: link.url,
           title: link.text || null,
           parentKey: operation.key,
           depth: operation.depth + 1,
-          linked: true,
+          reason: "follow_source_link",
           score:
             snapshot.plan.policy === "public-intent-v3" &&
             /\b(?:apply|application|eligibility|sponsorship|requirements|careers|hiring policy)\b/iu.test(
@@ -266,9 +291,7 @@ export function planExploration(
   const candidate = documentCandidates(snapshot, words)[0];
   if (candidate && documents.length < snapshot.plan.maximumDocuments) {
     return {
-      reason: candidate.linked
-        ? "follow_source_link"
-        : "check_promising_result",
+      reason: candidate.reason,
       action: { kind: "document", url: candidate.url },
       parentKey: candidate.parentKey,
       depth: candidate.depth,
@@ -343,9 +366,7 @@ export function explorationChoices(
       targetWords(settings.target),
     ).slice(0, 6)) {
       choices.push({
-        reason: candidate.linked
-          ? "follow_source_link"
-          : "check_promising_result",
+        reason: candidate.reason,
         action: { kind: "document", url: candidate.url },
         parentKey: candidate.parentKey,
         depth: candidate.depth,

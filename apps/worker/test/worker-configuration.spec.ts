@@ -13,6 +13,26 @@ describe("configured daily budget limits", () => {
     expect(config.SCOUT_AI_DAILY_USD).toBe(5);
   });
 
+  it("keeps navigation within database bounds without raising the document or spending defaults", () => {
+    const config = readWorkerConfiguration(environment);
+    expect(config.SCOUT_WEB_MAX_DEPTH).toBe(4);
+    expect(config.SCOUT_WEB_MAX_ROUNDS).toBe(8);
+    expect(config.SCOUT_WEB_MAX_SOURCE_PAGES).toBe(3);
+    expect(config.SCOUT_WEB_MAX_DOCUMENTS).toBe(4);
+    expect(() =>
+      readWorkerConfiguration({ ...environment, SCOUT_WEB_MAX_DEPTH: "9" }),
+    ).toThrow();
+    expect(() =>
+      readWorkerConfiguration({ ...environment, SCOUT_WEB_MAX_ROUNDS: "17" }),
+    ).toThrow();
+    expect(() =>
+      readWorkerConfiguration({
+        ...environment,
+        SCOUT_WEB_MAX_SOURCE_PAGES: "0",
+      }),
+    ).toThrow();
+  });
+
   it("accepts explicitly configured allowances above the former hard-coded caps", () => {
     const config = readWorkerConfiguration({
       ...environment,

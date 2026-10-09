@@ -1,0 +1,58 @@
+{
+  "kind": "live-public-ashby-and-cache-smoke",
+  "recordedAt": "2026-10-04T12:21:47.984Z",
+  "board": {
+    "url": "https://jobs.ashbyhq.com/ashby",
+    "checkedAt": "2026-10-04T12:21:47.833Z",
+    "status": "fetched",
+    "reason": null,
+    "listedJobs": 62,
+    "capture": {
+      "method": "public_api",
+      "requests": 1,
+      "bytes": 2053650,
+      "complete": true,
+      "cacheHit": false
+    },
+    "provenance": {
+      "provider": "ashby",
+      "url": "https://api.ashbyhq.com/posting-api/job-board/ashby?includeCompensation=true",
+      "snapshotFingerprint": "aa967e1aa09e5e03b90aa71c7c8fedb83c25e6f74ab910622041e27367a099cb"
+    }
+  },
+  "detail": {
+    "url": "https://jobs.ashbyhq.com/ashby/7458d4e9-da2e-47bd-98cb-adfda43d42b2",
+    "checkedAt": "2026-10-04T12:21:47.833Z",
+    "status": "fetched",
+    "reason": null,
+    "characters": 21086,
+    "capture": {
+      "method": "public_api",
+      "requests": 0,
+      "bytes": 0,
+      "complete": true,
+      "cacheHit": true
+    },
+    "sameObservation": true,
+    "sourceTitle": "Engineering Manager - EU"
+  },
+  "repeated": {
+    "checkedAt": "2026-10-04T12:21:47.833Z",
+    "capture": {
+      "method": "public_api",
+      "requests": 0,
+      "bytes": 0,
+      "complete": true,
+      "cacheHit": true
+    },
+    "sameObservation": true
+  },
+  "totalProviderRequests": 1,
+  "milliseconds": 2028,
+  "limits": {
+    "maximumResponseBytes": 6000000,
+    "cacheSeconds": 300,
+    "timeoutMilliseconds": 15000
+  },
+  "limitations": "One observed employer board and one detail, no search-provider discovery, AI assessment, private match, application or email. No independent relevance or coverage score."
+}

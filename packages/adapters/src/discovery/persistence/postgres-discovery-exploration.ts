@@ -95,7 +95,7 @@ export class PostgresDiscoveryExplorationRepository {
     const action = decision.action;
     const key =
       action.kind === "document"
-        ? discoveryKey(["public-document-v2", action.url, epoch])
+        ? discoveryKey(["public-document-v4", action.url, epoch])
         : discoveryKey([
             capability.id,
             capability.configuration,
@@ -157,7 +157,7 @@ export class PostgresDiscoveryExplorationRepository {
   /** Retains partial access/failure status while recording the adaptive stop separately from completeness. */
   private async finish(caseId: string): Promise<void> {
     const failures =
-      await sql`SELECT 1 FROM web_discovery_steps s JOIN web_discovery_operations o ON o.key=s.operation_key WHERE s.case_id=${caseId}::uuid AND (o.state='failed' OR (o.kind='document' AND o.result->>'status'<>'fetched')) LIMIT 1`.execute(
+      await sql`SELECT 1 FROM web_discovery_steps s JOIN web_discovery_operations o ON o.key=s.operation_key WHERE s.case_id=${caseId}::uuid AND (o.state='failed' OR (o.kind='document' AND (o.result->>'status'<>'fetched' OR coalesce((o.result->>'truncated')::boolean,false)))) LIMIT 1`.execute(
         this.tx,
       );
     await sql`UPDATE web_discovery_cases SET status=${failures.rows.length ? "partial" : "completed"},reason=${failures.rows.length ? "some_sources_unavailable" : "bounded_search_window"},finished_at=now() WHERE id=${caseId}::uuid AND status='searching'`.execute(

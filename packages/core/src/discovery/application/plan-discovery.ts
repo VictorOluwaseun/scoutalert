@@ -1,5 +1,9 @@
 import type { SearchDraft } from "../../onboarding/domain/search-draft.js";
-import type { DiscoveryPlan, SearchCapability } from "../domain/contracts.js";
+import type {
+  DiscoveryPlan,
+  SearchCapability,
+  DiscoveryLimits,
+} from "../domain/contracts.js";
 
 /** Freezes public intent; adaptive cases reserve part of their document budget for evidence-led follow-ups. */
 export function planDiscovery(
@@ -8,6 +12,7 @@ export function planDiscovery(
   maximumDocuments: number,
   capability?: SearchCapability,
   adaptive = false,
+  exploration?: DiscoveryLimits["exploration"],
 ): DiscoveryPlan {
   const target = search.target.trim().replace(/\s+/gu, " ");
   const publicTarget = target.replace(/[^\p{L}\p{N} +#.-]/gu, " ").trim();
@@ -49,9 +54,10 @@ export function planDiscovery(
           exploration: {
             target: publicTarget,
             remote: search.arrangement === "remote",
-            maximumRounds: 4,
+            maximumRounds: exploration?.maximumRounds ?? 4,
             maximumSearches: 6,
-            maximumDepth: 2,
+            maximumDepth: exploration?.maximumDepth ?? 2,
+            maximumSourcePages: exploration?.maximumSourcePages ?? 3,
           },
         }
       : {}),

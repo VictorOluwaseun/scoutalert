@@ -173,6 +173,7 @@ async function start(): Promise<void> {
     await native.close();
     await resources.connection.close();
     resources.smtp.close();
+    resources.redis?.disconnect();
     await resources.db.destroy();
     await app.close();
   }

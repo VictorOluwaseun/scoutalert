@@ -79,7 +79,7 @@ export function nextMonitorCheck(
   monitor: SourceMonitor,
   result: SourceDocumentResult | null,
 ): MonitorOutcome {
-  if (!result || result.status !== "fetched") {
+  if (!result || result.status !== "fetched" || result.truncated) {
     const failures = monitor.failures + 1;
     const retired =
       result?.status === "blocked" ||

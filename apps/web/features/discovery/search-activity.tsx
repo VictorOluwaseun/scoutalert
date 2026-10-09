@@ -35,6 +35,8 @@ const reasons: Record<string, string> = {
 };
 
 const explorationLabels: Record<string, string> = {
+  continue_source_page: "Checked the next page on a source website",
+  search_source_site: "Searched within a source website",
   follow_source_link: "Followed a relevant source link",
   check_promising_result: "Checked a promising result",
   continue_result_page: "Checked another results page",

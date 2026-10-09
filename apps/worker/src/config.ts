@@ -72,6 +72,15 @@ export function readWorkerConfiguration(environment = process.env) {
         .min(1)
         .max(maximumDailyRequests)
         .default(200),
+      SCOUT_WEB_RENDER_ENABLED: z.enum(["true", "false"]).default("true"),
+      SCOUT_WEB_MAX_DEPTH: z.coerce.number().int().min(1).max(8).default(4),
+      SCOUT_WEB_MAX_ROUNDS: z.coerce.number().int().min(1).max(16).default(8),
+      SCOUT_WEB_MAX_SOURCE_PAGES: z.coerce
+        .number()
+        .int()
+        .min(1)
+        .max(5)
+        .default(3),
       SCOUT_WEB_MAX_DOCUMENTS: z.coerce
         .number()
         .int()
@@ -97,6 +106,10 @@ export function readWorkerConfiguration(environment = process.env) {
         .min(0.075)
         .max(maximumDailyUsd)
         .default(5),
+      REDIS_URL: z
+        .url()
+        .refine((value) => /^rediss?:/.test(value))
+        .optional(),
       DATABASE_URL: z.url().refine((value) => /^postgres(?:ql)?:/.test(value)),
       TEMPORAL_ADDRESS: z.string().default("127.0.0.1:7233"),
       TEMPORAL_NAMESPACE: z.string().default("default"),

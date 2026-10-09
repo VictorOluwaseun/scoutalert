@@ -1,28 +1,32 @@
-import { setTimeout as delay } from "node:timers/promises";
-import { createRequire } from "node:module";
 import {
   SourceDocumentRepository,
   type SourceDocumentResult,
 } from "@repo/core/discovery";
 import { PublicHttpRepository } from "./public-http.js";
+import { PublicPageSession } from "./public-page-session.js";
+import { BrowserDocumentRepository } from "./browser-document.js";
 import { documentText, parseFormalPosting } from "./document-parser.js";
+import { documentPagination } from "./document-pagination.js";
 import { documentLinks } from "./document-links.js";
+import { documentSearchForms } from "./document-search-forms.js";
 import { discoveryKey } from "../persistence/discovery-identities.js";
 
-// robots-parser publishes a CommonJS function with an ESM default declaration.
-const robotsParser = createRequire(import.meta.url)(
-  "robots-parser",
-) as typeof import("robots-parser").default;
-
-/** Reads permitted public pages; restrictions remain visible evidence gaps rather than triggering bypasses. */
+/** Reads permitted public pages, escalating thin JavaScript shells to an optional bounded browser repository. */
 export class PublicSourceDocumentRepository extends SourceDocumentRepository {
-  /** Receives a pinned public-network repository; private/authenticated sessions are never involved. */
-  constructor(private readonly http = new PublicHttpRepository()) {
+  /** Receives network and rendering repositories from composition; authenticated sessions are never involved. */
+  constructor(
+    private readonly http = new PublicHttpRepository(),
+    private readonly browser: BrowserDocumentRepository | null = null,
+  ) {
     super();
   }
 
-  /** Bounds robots and page retrieval together to 25 seconds and stores text separately from formal listings. */
+  /** Bounds the complete page bundle to 25 seconds; failed rendering remains explicit and cannot publish a listing. */
   async read(url: string): Promise<SourceDocumentResult> {
+    const session = new PublicPageSession(
+      this.http,
+      AbortSignal.timeout(25_000),
+    );
     const empty: SourceDocumentResult = {
       kind: "document",
       url,
@@ -34,69 +38,43 @@ export class PublicSourceDocumentRepository extends SourceDocumentRepository {
       posting: null,
       hostDelaySeconds: 2,
     };
-
     try {
-      return await this.retrieve(url, empty);
+      return await this.retrieve(url, empty, session);
     } catch (error) {
-      const blocked =
-        error instanceof Error && error.message === "source_address_blocked";
+      const reason =
+        error instanceof Error ? error.message : "source_request_failed";
+      const known = [
+        "source_address_blocked",
+        "crawl_policy_unavailable",
+        "crawl_policy_denied",
+        "crawl_delay_exceeds_run_budget",
+        "source_bundle_limit",
+      ];
       return {
         ...empty,
-        status: blocked ? "blocked" : "unavailable",
-        reason: blocked ? "source_address_blocked" : "source_request_failed",
+        status:
+          reason === "source_address_blocked" ? "blocked" : "access_limited",
+        reason: known.includes(reason) ? reason : "source_request_failed",
+        hostDelaySeconds: session.hostDelaySeconds,
+        capture: {
+          method: "http",
+          requests: session.requests,
+          bytes: session.bytes,
+          complete: false,
+        },
       };
+    } finally {
+      session.close();
     }
   }
 
-  /** Requires a readable crawl policy before fetching content and refuses redirects, challenges and unsupported media. */
+  /** Preserves the fast HTML path, observed form controls and source identity; browser failures keep only incomplete evidence. */
   private async retrieve(
     url: string,
     empty: SourceDocumentResult,
+    session: PublicPageSession,
   ): Promise<SourceDocumentResult> {
-    const signal = AbortSignal.timeout(25_000);
-    const robotsUrl = new URL("/robots.txt", url).href;
-    const robots = await this.http.read(robotsUrl, 512_000, signal);
-
-    if (robots.status !== 200 && robots.status !== 404) {
-      return {
-        ...empty,
-        status: "access_limited",
-        reason: "crawl_policy_unavailable",
-      };
-    }
-
-    if (
-      robots.status === 200 &&
-      !/^text\/plain(?:;|$)/i.test(robots.contentType)
-    ) {
-      return {
-        ...empty,
-        status: "access_limited",
-        reason: "crawl_policy_unavailable",
-      };
-    }
-
-    const policy = robotsParser(
-      robotsUrl,
-      robots.status === 404 ? "" : robots.body,
-    );
-    const crawlDelay = Math.max(2, policy.getCrawlDelay("ScoutAlert") ?? 2);
-
-    if (policy.isAllowed(url, "ScoutAlert") !== true || crawlDelay > 5) {
-      return {
-        ...empty,
-        status: "access_limited",
-        reason:
-          crawlDelay > 5
-            ? "crawl_delay_exceeds_run_budget"
-            : "crawl_policy_denied",
-        hostDelaySeconds: Number.isFinite(crawlDelay) ? crawlDelay : 86_400,
-      };
-    }
-
-    await delay(crawlDelay * 1_000, undefined, { signal });
-    const response = await this.http.read(url, 2_000_000, signal);
-
+    const response = await session.read(url);
     if (
       response.status !== 200 ||
       !/^(text\/html|application\/xhtml\+xml|text\/plain)(;|$)/i.test(
@@ -107,21 +85,91 @@ export class PublicSourceDocumentRepository extends SourceDocumentRepository {
         ...empty,
         status: "access_limited",
         reason: "source_requires_another_access_path",
-        hostDelaySeconds: crawlDelay,
+        hostDelaySeconds: session.hostDelaySeconds,
+        capture: {
+          method: "http",
+          requests: session.requests,
+          bytes: session.bytes,
+          complete: false,
+        },
       };
     }
-
-    const text = documentText(response.body);
+    let html = response.body;
+    let text = documentText(html);
+    let reason: string | null =
+      text.length >= 64_000 ? "source_text_truncated" : null;
+    let method: "http" | "browser" = "http";
+    const dynamic = needsBrowser(html, text, url);
+    if (dynamic && !this.browser) {
+      reason = "browser_rendering_disabled";
+    }
+    if (dynamic && this.browser) {
+      method = "browser";
+      const rendered = await this.browser
+        .render(url, response, session)
+        .catch(() => null);
+      html = rendered?.html ?? html;
+      text = rendered?.text ?? text;
+      reason = rendered
+        ? (rendered.reason ??
+          (rendered.complete ? null : "browser_capture_incomplete"))
+        : "browser_render_failed";
+    }
+    const links = documentLinks(html, url);
+    const searchForms = documentSearchForms(html, url);
+    const next = documentPagination(html, url);
+    const items = links.filter((link) => !next.includes(link.url));
+    const pagination = {
+      next,
+      contentFingerprint: discoveryKey(items.length ? items : text),
+    };
     const now = new Date();
     return {
       ...empty,
       checkedAt: now.toISOString(),
       status: "fetched",
       text,
-      fingerprint: discoveryKey(text),
-      posting: parseFormalPosting(response.body, url, now),
-      hostDelaySeconds: crawlDelay,
-      links: documentLinks(response.body, url),
+      reason,
+      fingerprint: discoveryKey([
+        "public-capture-v4",
+        text,
+        links,
+        searchForms,
+        next,
+        reason,
+      ]),
+      posting: reason ? null : parseFormalPosting(html, url, now),
+      truncated: reason !== null,
+      hostDelaySeconds: session.hostDelaySeconds,
+      links,
+      searchForms,
+      pagination,
+      capture: {
+        method,
+        requests: session.requests,
+        bytes: session.bytes,
+        complete: reason === null,
+      },
     };
   }
+}
+
+/** Renders executable shells with little useful content; full HTML listings and ordinary pages keep the inexpensive path. */
+export function needsBrowser(html: string, text: string, url: string): boolean {
+  const executable =
+    /<script\b(?![^>]*type\s*=\s*["']application\/(?:ld\+json|json)["'])[^>]*>/iu.test(
+      html,
+    );
+  const usefulLinks = documentLinks(html, url).filter(
+    (link) =>
+      !/^(?:log.?in|sign.?in|home|next|previous|back)(?:\s|$)/iu.test(
+        link.text,
+      ) && new URL(link.url).pathname !== "/",
+  );
+  return (
+    executable &&
+    !parseFormalPosting(html, url, new Date()) &&
+    (/\b(?:enable|requires?) javascript\b/iu.test(text) ||
+      (text.length < 1200 && usefulLinks.length < 2))
+  );
 }

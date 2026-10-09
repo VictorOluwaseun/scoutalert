@@ -47,6 +47,7 @@ export class DiscoverWeb {
         this.limits.maximumDocuments,
         this.provider?.capability,
         true,
+        this.limits.exploration,
       );
     const plan =
       !frozen && this.provider && this.planner

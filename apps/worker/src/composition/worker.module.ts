@@ -1,5 +1,8 @@
 import { Module } from "@nestjs/common";
-import { createPostgresClient } from "@repo/adapters/database";
+import {
+  createPostgresClient,
+  createRedisClient,
+} from "@repo/adapters/database";
 import {
   PostgresSourceMonitoringRepository,
   PostgresSocialDiscoveryRepository,
@@ -8,6 +11,11 @@ import {
   OpenAIDiscoveryReasoningProvider,
   PostgresWebDiscoveryRepository,
   PublicSourceDocumentRepository,
+  PublicHttpRepository,
+  BrowserDocumentRepository,
+  AshbySourceDocumentRepository,
+  SourceDocumentRouter,
+  RedisPublicApiSnapshotRepository,
   SerperSearchProvider,
   PostgresLeadReviewRepository,
   PostgresWebAvailabilitySource,
@@ -103,7 +111,23 @@ export const WORKER_RESOURCES = Symbol("WORKER_RESOURCES");
           }),
         );
         const webRecords = new PostgresWebDiscoveryRepository(db);
-        const sourceDocuments = new PublicSourceDocumentRepository();
+        const redis = config.REDIS_URL
+          ? createRedisClient(config.REDIS_URL)
+          : null;
+        await redis?.connect();
+        const http = new PublicHttpRepository();
+        const sourceDocuments = new SourceDocumentRouter(
+          new PublicSourceDocumentRepository(
+            http,
+            config.SCOUT_WEB_RENDER_ENABLED === "true"
+              ? new BrowserDocumentRepository()
+              : null,
+          ),
+          new AshbySourceDocumentRepository(
+            http,
+            redis ? new RedisPublicApiSnapshotRepository(redis) : null,
+          ),
+        );
         const monitors = new PostgresSourceMonitoringRepository(
           db,
           config.SCOUT_MONITOR_MAX_SOURCES,
@@ -177,6 +201,7 @@ export const WORKER_RESOURCES = Symbol("WORKER_RESOURCES");
 
         return {
           config,
+          redis,
           db,
           smtp,
           connection,
@@ -219,6 +244,11 @@ export const WORKER_RESOURCES = Symbol("WORKER_RESOURCES");
                 ),
                 dailyDocumentRequests: config.SCOUT_WEB_DAILY_DOCUMENTS,
                 maximumDocuments: config.SCOUT_WEB_MAX_DOCUMENTS,
+                exploration: {
+                  maximumDepth: config.SCOUT_WEB_MAX_DEPTH,
+                  maximumRounds: config.SCOUT_WEB_MAX_ROUNDS,
+                  maximumSourcePages: config.SCOUT_WEB_MAX_SOURCE_PAGES,
+                },
                 maximumConcurrentSearches: config.SCOUT_WEB_CONCURRENCY,
               },
               planner,
@@ -270,6 +300,7 @@ export const WORKER_RESOURCES = Symbol("WORKER_RESOURCES");
 export class WorkerModule {}
 
 export type WorkerResources = {
+  redis: ReturnType<typeof createRedisClient> | null;
   config: ReturnType<typeof readWorkerConfiguration>;
   db: ReturnType<typeof createPostgresClient>;
   smtp: ReturnType<typeof createSmtpClient>;
