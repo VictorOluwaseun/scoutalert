@@ -1,8 +1,8 @@
 # ScoutAlert — Discovery Acceptance and Release Gates
 
-**Version:** 0.3
+**Version:** 0.4
 
-**Date:** 1 October 2026
+**Date:** 10 October 2026
 
 **Status:** Required acceptance specification; D1 component/recovery checks and a bounded recaptured web source → private assessment → Mailpit smoke have run locally. Demand classification and cited source extraction are implemented, but the full release scenarios and independent quality gates remain open. See the [implementation evidence and limitations](scoutalert-web-discovery.md).
 
@@ -146,6 +146,12 @@ Given proposed search/social providers and a held-out case set, run actual suppo
 
 Given a proposed production workload and regional ownership plan, exercise burst load, rate limits, worker loss, durable storage recovery and region failover where enabled. Record source and account ownership fencing, replication/index lag, replay behavior and deletion propagation. Production scale or multi-region operation remains unverified until the declared targets pass; the local Temporal smoke benchmark does not establish these results.
 
+### DACC-021 — Preserve useful candidates beyond literal wording
+
+Given observed listings or buyer requests that express a confirmed goal using different words, when a model-enabled case selects its next action, then those sources can enter a bounded action menu without a literal target-word match. Menus retain provenance, source/excerpt distinctions, access policy and frozen budgets. Source-reviewed negative pages and their links remain excluded; provider failure uses a conservative fallback.
+
+Given a fresh source-reviewed posting discovered by that case, matching can pass it to the same current scout's private assessment even if full-text retrieval misses it. A candidate is not a recommendation. Verify ownership, scout/posting versions, source fingerprint, freshness, hidden feedback, current requirements and alert policy. Replay must not invent or duplicate actions. Record inclusion and routing separately from end-to-end recall, and compare on independently labeled held-out cases before claiming a quality gate passed.
+
 ## 4. Gate groups and required evidence
 
 | Gate                            | Required evidence                                                                                         | Current status                                                                                                                                                                       |
@@ -153,7 +159,7 @@ Given a proposed production workload and regional ownership plan, exercise burst
 | Discovery foundation            | Lead/plan/provider contracts, persistence invariants and adapter contract checks; DACC-003, 006, 007, 009 | Partly implemented: public contracts, durable reuse/admission, incremental source review, alternative-role planning and bounded model-selected actions; expanded gates still open    |
 | Live web and native social path | Actual configured providers; DACC-001, 002 and 018, plus current recommendation/delivery gates            | One synthetic live Serper → research → private fit → Mailpit case passed; native social gate remains open                                                                            |
 | Continuous expansion and reuse  | DACC-004, 005, 010, 011, 013, 016 and 017                                                                 | Partial: shared page monitoring, bounded link expansion, current-scout dispatch and controlled Mailpit checks pass; organic source yield, feed/stream recovery and scale remain open |
-| Quality and efficiency          | DACC-012 and 019 with independent judgments and declared thresholds                                       | Diagnostic same-brief baseline comparison recorded; independent labels, missed opportunities and release thresholds still outstanding                                                |
+| Quality and efficiency          | DACC-012, 019 and 021 with independent judgments and declared thresholds                                  | Diagnostic same-brief baseline comparison recorded; independent labels, missed opportunities and release thresholds still outstanding                                                |
 | Release recovery and scale      | DACC-008, 014, 015 and 020 on the intended deployment/workload                                            | Existing local recovery tests are partial evidence only                                                                                                                              |
 
 These groups may be implemented in overlapping increments. A dependency delay does not erase a gate or relabel the complete milestone as done.
@@ -219,3 +225,17 @@ The feed portion of the continuous expansion gates now has implemented RSS 2.0/A
 100 focused checks pass, including two-owner reuse and changed-feed dispatch in an isolated database. Six optional browser checks were not enabled in this pass. One documented public feed and one linked source page were read successfully; no live scout subscription, recommendation or email was created. See [access limits and evidence](scoutalert-deeper-source-discovery.md#public-rss-and-atom-discovery--10-october).
 
 This is partial DACC-005/010/011/013/017 evidence. Broader feed formats, push/stream recovery, archive completeness, organic source yield, independent match quality and deployment-scale gates remain open. SMTP setup is independent of this increment.
+
+## Contextual routing and live feed persistence — 10 October
+
+DACC-021 is partly implemented: new model-planned cases offer bounded, diverse observed candidates beyond exact words; matching admits up to eight current source-reviewed discoveries for their owning scout alongside full-text results. Unit and database checks cover menu limits, fallback, observed-action validation/replay and private assessment with ownership/version/fingerprint/freshness guards. The six-case development comparison improved expected routing from 2/6 to 6/6; it does not replace independent quality evidence. See [the report and method](../../evaluations/discovery/README.md#contextual-routing-and-live-feed-persistence--10-october).
+
+The real feed diagnostic adds durable DACC-005/010 evidence: a single public capture and zero-call directory review were reused by two synthetic owners, with one monitor and four probes registered in an isolated database. It used a supplied seed, not live search, and ran no child assessment or delivery. Neither result closes the broad discovery, independent quality or production-scale gates. The account worker was not restarted while its normal database was stopped.
+
+### Sitemap and access-outcome evidence — 10 October
+
+DACC-005/010/011/013/017 now also cover same-origin robots-advertised XML sitemaps and sitemap indexes. Required behavior: save parent provenance, respect each target's access policy and existing budgets, record retained/omitted entries, share public captures, classify collections without model cost, and keep every child unassessed until independently read. Sitemap dates, absent entries and missing HTTP pages must never independently establish eligibility or closure. Denied pages may expose other explicitly advertised permitted paths; site-wide denial/throttling must not be evaded.
+
+Controlled database checks pass for index-to-sitemap-to-detail discovery, two-owner reuse and changed-map monitoring. Unit checks cover XML/namespace admission, bounded gzip, redirect policies/loops/hop limits, private-address/credential rejection and page-versus-host access failures. Dashboard details show known access reasons, while historical responses without a reason remain compatible.
+
+The live sample adds 78 URLs relative to a bounded homepage capture, including directory/filter pages; no independently assessed new match is claimed. Large maps, cross-site sitemap submissions, resumable coverage, measured organic yield and deployment-scale evidence remain open. See [implementation and receipts](scoutalert-deeper-source-discovery.md#advertised-sitemaps-and-checked-redirects--10-october). These checks extend the gates; they do not close the full platform's coverage or quality gates.

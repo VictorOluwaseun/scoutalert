@@ -165,3 +165,52 @@ For an authorized live repeat, run `node scripts/evaluation/check-ashby-discover
 Reproduce with `node scripts/evaluation/check-feed-discovery.mjs`; `--write` saves the dated receipt. No secrets, application database, SMTP or paid provider are loaded. Source requests are independently bounded and separate from the worker's daily ledger.
 
 The associated 100 passing focused checks include two synthetic owners sharing three source reads, with just two model-fixture calls (board and detail). Feed directory recognition uses zero AI reservations. A changed feed creates shared child probes and cannot publish an unread entry. Six optional browser checks were not enabled. See [the implementation record](../../docs/engineering/scoutalert-deeper-source-discovery.md#public-rss-and-atom-discovery--10-october) for scope and remaining work.
+
+## Contextual routing and live feed persistence — 10 October
+
+[`candidate-selection-cases.json`](candidate-selection-cases.json) is a six-case **development** set with implementation-authored expected actions. Two cases reuse public Figma job text from the development opportunity corpus; four are synthetic, including client work, services, Spanish wording and a negative seller/advice case. It is not a held-out set and must not be used to claim independent relevance.
+
+[`candidate-selection-2026-10-10.json`](candidate-selection-2026-10-10.json) records both action menus against the same observations and current model prompt. The legacy menu offered 1/5 expected positive sources; contextual selection offered 5/5. Expected routing passed 2/6 versus 6/6. Twelve requests used an estimated $0.010219, with a conservative maximum diagnostic reservation of $0.90. This measures source inclusion and one-step selection only, not personal fit, total discovery recall or complete search cost. Prompt size, latency and token usage are retained per case/request.
+
+Reproduce without paid calls with `node scripts/evaluation/check-candidate-selection.mjs`. Add `--live` only for an intentional bounded model run; `--output=<new-path>` writes an exclusive receipt. The live diagnostic reads the worker's model configuration/key but no application database, real account, search provider or SMTP. Its allowance is separate from the worker ledger. Both policies use the same current prompt, isolating candidate input changes rather than comparing complete old/new deployments.
+
+[`feed-pipeline-2026-10-10.json`](feed-pipeline-2026-10-10.json) records a real public feed through the source repository, durable coordinator, directory review and monitor registration in an isolated PostgreSQL schema. Two synthetic owners reuse one capture and one public review; one directory monitor and four child probes are saved, with no AI reservations. The feed contains 89 entries, of which nine are omitted by the declared 80-link window. Two HTTP requests captured 788,432 bytes; the diagnostic took 4.089 seconds. The seed was supplied explicitly, so this does not prove organic feed discovery. No private recommendation, child-page review, email or running production worker was exercised. The schema is removed afterward.
+
+Reproduce with `FEED_TEST_DATABASE_URL=postgresql://.../scoutalert_test node scripts/evaluation/check-feed-pipeline.mjs --output=<new-path>`. Only a loopback test database is accepted; it loads no application configuration. The single live feed read remains separate from the worker's source ledger.
+
+Focused regression commands:
+
+```sh
+pnpm --filter worker exec vitest run test/contextual-candidates.spec.ts test/scout-planning.spec.ts test/adaptive-discovery.spec.ts test/feed-discovery.spec.ts test/web-discovery.spec.ts test/matching.spec.ts test/intelligence-policy.spec.ts
+DATABASE_URL=postgresql://.../scoutalert_test WEB_DISCOVERY_INTEGRATION=1 pnpm --filter worker exec vitest run test/web-discovery.integration.spec.ts test/feed-discovery.integration.spec.ts --no-file-parallelism --hookTimeout=30000
+```
+
+The first command passed 84 checks. The database suite passed 27 cases, including action replay and a zero-keyword-overlap posting reaching private assessment with source, ownership, version and freshness guards. Fixtures test mechanics, not AI relevance. Broader independent usefulness, corpus-wide semantic retrieval and global-scale gates remain open.
+
+[`contextual-retrieval-load-2026-10-10.json`](contextual-retrieval-load-2026-10-10.json) records 240 retrievals over 50,000 synthetic postings, including eight source-reviewed discoveries with no target-word overlap. Both modes use the current repository; one has no admitted discovery IDs. At concurrency eight, p95 was 40.04 ms without those IDs and 46.66 ms with them; all results stayed within 200 unique candidates and the eight discoveries received priority. This is a warm local microbenchmark with one scout and eight review records, not a paired old/new deployment, large-history join test or global-capacity result. Lower times in another run do not prove a speed improvement.
+
+Reproduce with `DATABASE_URL=postgresql://.../scoutalert_test node scripts/evaluation/benchmark-contextual-retrieval.mjs --output=<new-path>`. Only a loopback test database is accepted. Initial fixture setup hit the existing ten-second timeout when inserting all postings at once; batches of 500 resolved setup without changing application timeouts. No external source, AI or SMTP is used.
+
+## Local contextual discovery activation — 10 October
+
+[`contextual-activation-2026-10-10.json`](contextual-activation-2026-10-10.json) records startup of the rebuilt local API, worker and web preview with the existing PostgreSQL, Redis, Temporal and Mailpit services. Nine worker pools started and the three HTTP surfaces responded. Live discovery cases adopted `contextual-v1`; completed choice tasks included candidate context. User-configured limits and SMTP configuration were retained. One startup database deadlock recovered on Temporal retry; inaccessible sources left cases partial. These aggregate runtime counts establish activation, not independently useful results, complete coverage or scale.
+
+## Sitemap capture and checked redirects — 10 October
+
+- `sitemap-discovery-2026-10-10.json`: initial public access/window measurement.
+- `sitemap-discovery-prioritized-2026-10-10.json`: final reader, after preferring likely listing paths and excluding self-advertisements.
+- Both explicitly seed one homepage, load no application secrets and use no paid search, AI or email. Additional URLs are compared only against the bounded HTML-link window; the followed pages were directories, not verified personal matches. Hosting/compute cost is not priced.
+
+```sh
+pnpm --filter @repo/core build
+pnpm --filter @repo/adapters build
+pnpm --filter worker exec vitest run test/sitemap-discovery.spec.ts test/feed-discovery.spec.ts test/contextual-candidates.spec.ts test/deep-discovery.spec.ts test/source-monitoring.spec.ts test/source-pagination.spec.ts test/lead-review.spec.ts test/adaptive-discovery.spec.ts test/web-discovery.spec.ts test/ashby-discovery.spec.ts
+WEB_DISCOVERY_INTEGRATION=1 pnpm --filter worker exec vitest run test/feed-discovery.integration.spec.ts test/source-monitoring.integration.spec.ts test/web-discovery.integration.spec.ts --no-file-parallelism --hookTimeout=30000
+node scripts/evaluation/check-sitemap-discovery.mjs
+```
+
+The live diagnostic makes at most four document captures and optionally saves a new receipt with `--output=<new-path>`; it refuses to overwrite an existing result. Database tests use random disposable schemas in `scoutalert_test`, fixtures, synthetic owners and no SMTP. The first full pass had 124 unit passes, six opt-in skips and 37 database passes; the added redirect-ceiling check brings unit coverage to 125. A final focused rerun passed all 27 sitemap cases and 29 feed/sitemap/discovery database cases after the last implementation edits.
+
+Core/adapters/API/worker builds, web type checks and architecture checks pass. The existing web ESLint configuration skips TS by default and misinterprets TS/TSX when forced; it is recorded as a tooling limitation, not a passing lint check. Independent relevance, real useful-result yield and global capacity remain unmeasured by this check.
+
+`sitemap-activation-2026-10-10.json` records the subsequent local restart: nine worker pools running, web/API/Mailpit healthy, one new capture with a sitemap advertisement and no sitemap capture yet at the initial snapshot. The worker continues on existing schedules and budgets. This runtime evidence is separate from the isolated fixture and public diagnostic checks.
