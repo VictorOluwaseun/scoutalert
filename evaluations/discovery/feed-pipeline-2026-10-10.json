@@ -1,0 +1,37 @@
+{
+  "kind": "live-feed-durable-pipeline-check",
+  "recordedAt": "2026-10-10T02:07:00.029Z",
+  "feedUrl": "https://weworkremotely.com/remote-jobs.rss",
+  "window": {
+    "format": "rss",
+    "title": "We Work Remotely: Remote jobs in design, programming, marketing and more",
+    "entries": 89,
+    "omitted": 9
+  },
+  "capture": {
+    "method": "http",
+    "requests": 2,
+    "bytes": 788432,
+    "complete": true
+  },
+  "captures": 1,
+  "review": {
+    "posting_id": null,
+    "label": "directory",
+    "attempts": 0
+  },
+  "monitors": [
+    {
+      "kind": "directory",
+      "count": 1
+    },
+    {
+      "kind": "probe",
+      "count": 4
+    }
+  ],
+  "subscribedSyntheticOwners": 2,
+  "aiRequests": 0,
+  "elapsedMilliseconds": 4089,
+  "limitations": "A documented feed was seeded explicitly, not discovered by a live search provider. Real source capture, durable review, two-owner reuse and monitor/probe registration ran against an isolated database. No child-page AI assessment, private recommendation, mail delivery or running production worker is claimed. The schema is deleted after the check."
+}

@@ -1,0 +1,327 @@
+{
+  "kind": "paired-candidate-selection-development-regression",
+  "recordedAt": "2026-10-10T02:02:21.207Z",
+  "corpusHash": "acd8bdbc7fb3d78ea81aff95d3d62cb202e45e7afbd87aa9f75a9a5b2f9816c3",
+  "configuration": "openai:gpt-5.4-mini-2026-03-17:scout-planning-v3",
+  "eligibleExamples": 5,
+  "baselineOffered": 1,
+  "contextualOffered": 5,
+  "baselineSelectionsPassed": 2,
+  "contextualSelectionsPassed": 6,
+  "providerCalls": 12,
+  "maximumReservedUsd": 0.9,
+  "estimatedUsd": 0.010219,
+  "usage": [
+    {
+      "model": "gpt-5.4-mini-2026-03-17",
+      "inputTokens": 408,
+      "cachedInputTokens": 0,
+      "outputTokens": 134,
+      "durationMs": 2294,
+      "responseId": "resp_047d707379892c6d016ac99c9e411087d28f8457c33f251b6c"
+    },
+    {
+      "model": "gpt-5.4-mini-2026-03-17",
+      "inputTokens": 917,
+      "cachedInputTokens": 0,
+      "outputTokens": 86,
+      "durationMs": 1608,
+      "responseId": "resp_0d78d8808df297ec016ac99c9fc5a487d2a18f23315fce0eaa"
+    },
+    {
+      "model": "gpt-5.4-mini-2026-03-17",
+      "inputTokens": 635,
+      "cachedInputTokens": 0,
+      "outputTokens": 93,
+      "durationMs": 1136,
+      "responseId": "resp_0d18bb32cb7b7d51016ac99ca1609087d2b1918cd62f688575"
+    },
+    {
+      "model": "gpt-5.4-mini-2026-03-17",
+      "inputTokens": 886,
+      "cachedInputTokens": 0,
+      "outputTokens": 90,
+      "durationMs": 1612,
+      "responseId": "resp_08b0becf1843bf1a016ac99ca2872c87d2b5566d676c444731"
+    },
+    {
+      "model": "gpt-5.4-mini-2026-03-17",
+      "inputTokens": 407,
+      "cachedInputTokens": 0,
+      "outputTokens": 82,
+      "durationMs": 1299,
+      "responseId": "resp_0719a70ee2144502016ac99ca4241487d2bcc6fa6cabb46eda"
+    },
+    {
+      "model": "gpt-5.4-mini-2026-03-17",
+      "inputTokens": 577,
+      "cachedInputTokens": 0,
+      "outputTokens": 106,
+      "durationMs": 1132,
+      "responseId": "resp_0bc00945641fb86b016ac99ca56c6887d28b9db2e95ca8082c"
+    },
+    {
+      "model": "gpt-5.4-mini-2026-03-17",
+      "inputTokens": 407,
+      "cachedInputTokens": 0,
+      "outputTokens": 79,
+      "durationMs": 1441,
+      "responseId": "resp_0eed5b5712bbfa61016ac99ca696c087d29bfb1c4935158201"
+    },
+    {
+      "model": "gpt-5.4-mini-2026-03-17",
+      "inputTokens": 577,
+      "cachedInputTokens": 0,
+      "outputTokens": 84,
+      "durationMs": 1058,
+      "responseId": "resp_095abaabd8970525016ac99ca8006487d2be7bce252360e9b4"
+    },
+    {
+      "model": "gpt-5.4-mini-2026-03-17",
+      "inputTokens": 407,
+      "cachedInputTokens": 0,
+      "outputTokens": 81,
+      "durationMs": 1139,
+      "responseId": "resp_04914e031f180733016ac99ca90e9c87d2aa6564e30eac7951"
+    },
+    {
+      "model": "gpt-5.4-mini-2026-03-17",
+      "inputTokens": 596,
+      "cachedInputTokens": 0,
+      "outputTokens": 81,
+      "durationMs": 1018,
+      "responseId": "resp_0725387d1458807a016ac99caa321487d2aa73089b0090f48a"
+    },
+    {
+      "model": "gpt-5.4-mini-2026-03-17",
+      "inputTokens": 407,
+      "cachedInputTokens": 0,
+      "outputTokens": 106,
+      "durationMs": 1185,
+      "responseId": "resp_0ca3d1d7c8ac4690016ac99cab348487d2a37589bf2000484e"
+    },
+    {
+      "model": "gpt-5.4-mini-2026-03-17",
+      "inputTokens": 687,
+      "cachedInputTokens": 0,
+      "outputTokens": 96,
+      "durationMs": 1091,
+      "responseId": "resp_000fc8852ce851cb016ac99cac684c87d2a6049af674fd8a3c"
+    }
+  ],
+  "results": [
+    {
+      "id": "captured-1",
+      "provenance": "Previously captured public posting from development corpus; synthetic public goal",
+      "baseline": {
+        "offered": false,
+        "choices": 2,
+        "documentChoices": 0,
+        "inputBytes": 452,
+        "selected": {
+          "kind": "search",
+          "query": {
+            "query": "UX interaction specialist remote \"apply\"",
+            "language": "en",
+            "country": null,
+            "freshness": "month",
+            "page": 1,
+            "limit": 10
+          }
+        },
+        "explanation": "Run the remote UX interaction specialist job search first; it is the only option that can surface current openings and clarify employer requirements, while the no-further-action choice would stop the investigation.",
+        "passed": false,
+        "latencyMs": 2296
+      },
+      "contextual": {
+        "offered": true,
+        "choices": 3,
+        "documentChoices": 1,
+        "inputBytes": 2819,
+        "selected": {
+          "kind": "document",
+          "url": "https://boards.greenhouse.io/figma/jobs/5711468004?gh_jid=5711468004"
+        },
+        "explanation": "This looks like a relevant design/interaction-focused employer page that could clarify role duties, remote eligibility, and requirements better than a broad query.",
+        "passed": true,
+        "latencyMs": 1608
+      }
+    },
+    {
+      "id": "captured-2",
+      "provenance": "Previously captured public posting from development corpus; synthetic public goal",
+      "baseline": {
+        "offered": true,
+        "choices": 3,
+        "documentChoices": 1,
+        "inputBytes": 1456,
+        "selected": {
+          "kind": "document",
+          "url": "https://boards.greenhouse.io/figma/jobs/5551532004?gh_jid=5551532004"
+        },
+        "explanation": "Review the Figma Machine Learning / AI Engineer posting; it looks like a directly relevant remote applied-AI job and can clarify the role, requirements, and application details.",
+        "passed": true,
+        "latencyMs": 1136
+      },
+      "contextual": {
+        "offered": true,
+        "choices": 3,
+        "documentChoices": 1,
+        "inputBytes": 2793,
+        "selected": {
+          "kind": "document",
+          "url": "https://boards.greenhouse.io/figma/jobs/5551532004?gh_jid=5551532004"
+        },
+        "explanation": "This is a relevant employer job opening for a Machine Learning/AI Engineer, which is close to an applied AI developer role and can resolve key details like remote status and requirements. The next practical step is to inspect the posting.",
+        "passed": true,
+        "latencyMs": 1612
+      }
+    },
+    {
+      "id": "client-storefront",
+      "provenance": "Authored regression, not an organic discovery sample",
+      "baseline": {
+        "offered": false,
+        "choices": 2,
+        "documentChoices": 0,
+        "inputBytes": 434,
+        "selected": {
+          "kind": "search",
+          "query": {
+            "query": "Web developer remote \"project brief\"",
+            "language": "en",
+            "country": null,
+            "freshness": "month",
+            "page": 1,
+            "limit": 10
+          }
+        },
+        "explanation": "Search for remote web development projects with a brief can surface current demand and concrete requirements to evaluate next.",
+        "passed": false,
+        "latencyMs": 1299
+      },
+      "contextual": {
+        "offered": true,
+        "choices": 3,
+        "documentChoices": 1,
+        "inputBytes": 1233,
+        "selected": {
+          "kind": "document",
+          "url": "https://buyers.example.org/request/42"
+        },
+        "explanation": "Review the buyer request for a paid remote ecommerce build; it looks directly relevant to a web developer service opportunity and could clarify scope, budget, and requirements.",
+        "passed": true,
+        "latencyMs": 1131
+      }
+    },
+    {
+      "id": "brand-contract",
+      "provenance": "Authored regression, not an organic discovery sample",
+      "baseline": {
+        "offered": false,
+        "choices": 2,
+        "documentChoices": 0,
+        "inputBytes": 437,
+        "selected": {
+          "kind": "search",
+          "query": {
+            "query": "Brand designer remote \"project brief\"",
+            "language": "en",
+            "country": null,
+            "freshness": "month",
+            "page": 1,
+            "limit": 10
+          }
+        },
+        "explanation": "This is the only actionable lead and it focuses on remote brand-designer project demand, so it’s worth checking for a relevant brief or contract opening.",
+        "passed": false,
+        "latencyMs": 1441
+      },
+      "contextual": {
+        "offered": true,
+        "choices": 3,
+        "documentChoices": 1,
+        "inputBytes": 1244,
+        "selected": {
+          "kind": "document",
+          "url": "https://briefs.example.org/42"
+        },
+        "explanation": "This looks like a relevant remote contract opening for brand design work: logo, visual identity, colour palette, and packaging guidelines. Reviewing the source could confirm scope, budget, and deadline.",
+        "passed": true,
+        "latencyMs": 1058
+      }
+    },
+    {
+      "id": "spanish-bookkeeping",
+      "provenance": "Authored multilingual regression, not language-wide validation",
+      "baseline": {
+        "offered": false,
+        "choices": 2,
+        "documentChoices": 0,
+        "inputBytes": 428,
+        "selected": {
+          "kind": "search",
+          "query": {
+            "query": "Bookkeeper remote \"project brief\"",
+            "language": "en",
+            "country": null,
+            "freshness": "month",
+            "page": 1,
+            "limit": 10
+          }
+        },
+        "explanation": "Search for a remote bookkeeping project brief could surface an actual client need, scope, and requirements, which is useful for evaluating demand.",
+        "passed": false,
+        "latencyMs": 1140
+      },
+      "contextual": {
+        "offered": true,
+        "choices": 3,
+        "documentChoices": 1,
+        "inputBytes": 1252,
+        "selected": {
+          "kind": "document",
+          "url": "https://buyers.example.org/solicitud/19"
+        },
+        "explanation": "The Spanish posting appears to be a paid remote bookkeeping opportunity with bookkeeping, reconciliation, and monthly reporting duties, so checking the source page is the most useful next step.",
+        "passed": true,
+        "latencyMs": 1018
+      }
+    },
+    {
+      "id": "seller-and-advice",
+      "provenance": "Authored negative regression; offering work is not buying work",
+      "baseline": {
+        "offered": null,
+        "choices": 2,
+        "documentChoices": 0,
+        "inputBytes": 440,
+        "selected": {
+          "kind": "search",
+          "query": {
+            "query": "Product designer remote \"project brief\"",
+            "language": "en",
+            "country": null,
+            "freshness": "month",
+            "page": 1,
+            "limit": 10
+          }
+        },
+        "explanation": "Searches for recent remote product design briefs, which could surface active buyer needs and clarify scope before deciding if it’s relevant.",
+        "passed": true,
+        "latencyMs": 1185
+      },
+      "contextual": {
+        "offered": null,
+        "choices": 4,
+        "documentChoices": 2,
+        "inputBytes": 1746,
+        "selected": null,
+        "explanation": "No supplied choice looks like useful demand evidence for a remote product designer services opportunity. The first is a seller’s portfolio, not a buyer request, and the second is just a salary guide.",
+        "passed": true,
+        "latencyMs": 1091
+      }
+    }
+  ],
+  "limitations": "Six implementation-authored development cases; two use previously captured public job text and four are synthetic. Both policies use the same current model prompt. Expected routes are not independent human labels. This measures shortlist inclusion and single-step routing, not discovery recall, personal fit, whole-internet coverage, delivery or global scale. Live model calls are bounded separately from the worker ledger; the production planner retains its shared admission policy."
+}

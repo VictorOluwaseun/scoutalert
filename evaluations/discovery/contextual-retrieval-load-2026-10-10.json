@@ -1,0 +1,47 @@
+{
+  "kind": "contextual-retrieval-local-microbenchmark",
+  "recordedAt": "2026-10-10T02:14:16.306Z",
+  "postingCount": 50000,
+  "discoveredCount": 8,
+  "fixtureBatchSize": 500,
+  "setupNotes": "The first fixture insert attempted all 50,000 rows in one statement and hit the existing 10-second statement timeout before any retrieval was measured. Fixture setup now uses batches of 500; application timeouts are unchanged.",
+  "runs": [
+    {
+      "mode": "keyword_only",
+      "concurrency": 4,
+      "queries": 40,
+      "p50Ms": 27.243625000000975,
+      "p95Ms": 45.5201249999991,
+      "maximumMs": 47.34574999999859
+    },
+    {
+      "mode": "keyword_only",
+      "concurrency": 8,
+      "queries": 80,
+      "p50Ms": 27.672833000000537,
+      "p95Ms": 40.035125000000335,
+      "maximumMs": 42.59299999999894
+    },
+    {
+      "mode": "with_discovered",
+      "concurrency": 4,
+      "queries": 40,
+      "p50Ms": 19.63500000000022,
+      "p95Ms": 28.2221669999999,
+      "maximumMs": 29.41924999999901
+    },
+    {
+      "mode": "with_discovered",
+      "concurrency": 8,
+      "queries": 80,
+      "p50Ms": 28.241833000000042,
+      "p95Ms": 46.66491700000006,
+      "maximumMs": 47.155791999999565
+    }
+  ],
+  "limitations": "One synthetic scout, eight manually seeded source-review records and 50,000 synthetic postings in a warm disposable local database. Both modes use the current repository; keyword_only has no admitted discovery IDs. This checks the retrieval handoff, not production capacity, large discovery-history joins, independent relevance, provider work or full pipeline latency.",
+  "database": {
+    "version": "18.6",
+    "statement_timeout": "10s"
+  }
+}

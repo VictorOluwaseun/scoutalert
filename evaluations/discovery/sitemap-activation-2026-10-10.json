@@ -1,0 +1,30 @@
+{
+  "kind": "local-sitemap-activation",
+  "recordedAt": "2026-10-10T02:44:57.606Z",
+  "startedAt": "2026-10-10T02:44:05.626Z",
+  "services": {
+    "web": 200,
+    "api": 200,
+    "mailpit": 200
+  },
+  "runningWorkerPools": [
+    "scout-workflows-v1",
+    "scout-sources-v1",
+    "scout-web-discovery-v1",
+    "scout-source-monitoring-v1",
+    "scout-social-discovery-v1",
+    "scout-matching-v1",
+    "scout-research-v1",
+    "scout-delivery-v1",
+    "scout-private-mail-v1"
+  ],
+  "activityFailures": 0,
+  "captures": {
+    "completedDocumentOperations": 1,
+    "documentsWithSitemapAdvertisements": 1,
+    "capturedSitemaps": 0
+  },
+  "budgets": "Existing user-configured allowances retained",
+  "mail": "Existing Mailpit configuration retained",
+  "limitations": "Startup and aggregate capture evidence only. Live useful-match yield, full coverage and independent relevance are not established. Historical operations retain their original captures; new admissions use public-document-v6."
+}

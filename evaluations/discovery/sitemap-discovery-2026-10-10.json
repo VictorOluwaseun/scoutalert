@@ -1,0 +1,95 @@
+{
+  "kind": "bounded-live-sitemap-discovery",
+  "recordedAt": "2026-10-10T02:38:56.357Z",
+  "seed": "https://weworkremotely.com/",
+  "documents": [
+    {
+      "url": "https://weworkremotely.com/",
+      "parent": null,
+      "retrievedUrl": "https://weworkremotely.com/",
+      "status": "fetched",
+      "reason": null,
+      "sitemap": null,
+      "advertisedSitemaps": [
+        {
+          "url": "https://weworkremotely.com/sitemap.xml",
+          "text": "Site-advertised sitemap"
+        }
+      ],
+      "retainedLinks": 80,
+      "formalPosting": false,
+      "capture": {
+        "method": "http",
+        "requests": 2,
+        "bytes": 454545,
+        "complete": true
+      },
+      "milliseconds": 3623
+    },
+    {
+      "url": "https://weworkremotely.com/sitemap.xml",
+      "parent": "https://weworkremotely.com/",
+      "retrievedUrl": "https://weworkremotely.com/sitemap.xml",
+      "status": "fetched",
+      "reason": null,
+      "sitemap": {
+        "format": "urlset",
+        "entries": 332,
+        "omitted": 252
+      },
+      "advertisedSitemaps": [
+        {
+          "url": "https://weworkremotely.com/sitemap.xml",
+          "text": "Site-advertised sitemap"
+        }
+      ],
+      "retainedLinks": 80,
+      "formalPosting": false,
+      "capture": {
+        "method": "http",
+        "requests": 2,
+        "bytes": 270569,
+        "complete": true
+      },
+      "milliseconds": 6931
+    },
+    {
+      "url": "https://weworkremotely.com/categories/remote-design-jobs",
+      "parent": "https://weworkremotely.com/sitemap.xml",
+      "retrievedUrl": "https://weworkremotely.com/categories/remote-design-jobs",
+      "status": "fetched",
+      "reason": null,
+      "sitemap": null,
+      "advertisedSitemaps": [
+        {
+          "url": "https://weworkremotely.com/sitemap.xml",
+          "text": "Site-advertised sitemap"
+        }
+      ],
+      "retainedLinks": 55,
+      "formalPosting": false,
+      "capture": {
+        "method": "http",
+        "requests": 2,
+        "bytes": 121281,
+        "complete": true
+      },
+      "milliseconds": 2821
+    }
+  ],
+  "baselineHtmlLinks": 80,
+  "sitemapLinkWindow": 80,
+  "additionalPageUrls": 78,
+  "sampleAdditionalUrls": [
+    "https://weworkremotely.com/company/rsa-career",
+    "https://weworkremotely.com/categories/remote-design-jobs",
+    "https://weworkremotely.com/categories/remote-product-design-jobs"
+  ],
+  "httpRequests": 6,
+  "accountedBytes": 846395,
+  "elapsedMilliseconds": 13375,
+  "aiRequests": 0,
+  "paidSearchRequests": 0,
+  "modelAndSearchCostUsd": 0,
+  "limitations": "Known public homepage seeded explicitly. Additional URLs are relative only to its bounded HTML-link capture, not to Google's index or prior platform coverage. A sitemap is an unassessed URL window; this check does not establish personal relevance, full-site recall or global scale. No account worker, database, model review or email was invoked. Public HTTP hosting/compute costs are not priced; the diagnostic's bounded captures are separate from the worker ledger."
+}

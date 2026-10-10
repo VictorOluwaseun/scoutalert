@@ -1,0 +1,90 @@
+{
+  "kind": "bounded-live-sitemap-discovery",
+  "recordedAt": "2026-10-10T02:40:56.431Z",
+  "seed": "https://weworkremotely.com/",
+  "documents": [
+    {
+      "url": "https://weworkremotely.com/",
+      "parent": null,
+      "retrievedUrl": "https://weworkremotely.com/",
+      "status": "fetched",
+      "reason": null,
+      "sitemap": null,
+      "advertisedSitemaps": [
+        {
+          "url": "https://weworkremotely.com/sitemap.xml",
+          "text": "Site-advertised sitemap"
+        }
+      ],
+      "retainedLinks": 80,
+      "formalPosting": false,
+      "capture": {
+        "method": "http",
+        "requests": 2,
+        "bytes": 454545,
+        "complete": true
+      },
+      "milliseconds": 3889
+    },
+    {
+      "url": "https://weworkremotely.com/sitemap.xml",
+      "parent": "https://weworkremotely.com/",
+      "retrievedUrl": "https://weworkremotely.com/sitemap.xml",
+      "status": "fetched",
+      "reason": null,
+      "sitemap": {
+        "format": "urlset",
+        "entries": 332,
+        "omitted": 252
+      },
+      "advertisedSitemaps": [],
+      "retainedLinks": 80,
+      "formalPosting": false,
+      "capture": {
+        "method": "http",
+        "requests": 2,
+        "bytes": 270569,
+        "complete": true
+      },
+      "milliseconds": 7895
+    },
+    {
+      "url": "https://weworkremotely.com/remote-jobs/salary/10k-to-25k",
+      "parent": "https://weworkremotely.com/sitemap.xml",
+      "retrievedUrl": "https://weworkremotely.com/remote-jobs/salary/10k-to-25k",
+      "status": "fetched",
+      "reason": null,
+      "sitemap": null,
+      "advertisedSitemaps": [
+        {
+          "url": "https://weworkremotely.com/sitemap.xml",
+          "text": "Site-advertised sitemap"
+        }
+      ],
+      "retainedLinks": 5,
+      "formalPosting": false,
+      "capture": {
+        "method": "http",
+        "requests": 2,
+        "bytes": 69191,
+        "complete": true
+      },
+      "milliseconds": 2687
+    }
+  ],
+  "baselineHtmlLinks": 80,
+  "sitemapLinkWindow": 80,
+  "additionalPageUrls": 78,
+  "sampleAdditionalUrls": [
+    "https://weworkremotely.com/remote-jobs/salary/10k-to-25k",
+    "https://weworkremotely.com/remote-jobs/salary/25k-to-49k",
+    "https://weworkremotely.com/remote-jobs/salary/50k-to-75k"
+  ],
+  "httpRequests": 6,
+  "accountedBytes": 794305,
+  "elapsedMilliseconds": 14470,
+  "aiRequests": 0,
+  "paidSearchRequests": 0,
+  "modelAndSearchCostUsd": 0,
+  "limitations": "Known public homepage seeded explicitly. Additional URLs are relative only to its bounded HTML-link capture, not to Google's index or prior platform coverage. A sitemap is an unassessed URL window; this check does not establish personal relevance, full-site recall or global scale. No account worker, database, model review or email was invoked. Public HTTP hosting/compute costs are not priced; the diagnostic's bounded captures are separate from the worker ledger."
+}

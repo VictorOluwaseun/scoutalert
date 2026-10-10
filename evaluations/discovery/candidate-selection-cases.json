@@ -1,0 +1,102 @@
+{
+  "kind": "development-regression",
+  "independentLabels": false,
+  "cases": [
+    {
+      "id": "captured-1",
+      "category": "employment",
+      "target": "UX interaction specialist",
+      "provenance": "Previously captured public posting from development corpus; synthetic public goal",
+      "observations": [
+        {
+          "url": "https://boards.greenhouse.io/figma/jobs/5711468004?gh_jid=5711468004",
+          "title": "Product Designer, Design, Dev, & AI Tools",
+          "snippet": "Figma is growing our team of passionate creatives and builders on a mission to make design accessible to all. Figma’s platform helps teams bring ideas to life—whether you're brainstorming, creating a prototype, translating designs into code, or iterating with AI. From idea to product, Figma empowers teams to streamline workflows, move faster, and work together in real time from anywhere in the world. If you're excited to shape the future of design and collaboration, join us!\n\nWe’re looking for technically-minded product designers who are excited to shape how teams build together. At Figma, design isn’t just how something looks—it’s how it works, how it feels, and how it scales. Our designers are systems thinkers, prototypers, storytellers, and craftspeople who care deeply about quality and collaboration. In this role, you’ll turn ambiguity into clarity, push the product forward with engineers, PMs, and researchers, and help us invent new ways for people to design and build products together.\n\nWith an eye for simplicity and craft, curiosity for complex systems, and an appetite for technical challenges, you can help define the future of how software is made. \n\nThis opportunity applie",
+          "rank": 1
+        }
+      ],
+      "expectedUrl": "https://boards.greenhouse.io/figma/jobs/5711468004?gh_jid=5711468004"
+    },
+    {
+      "id": "captured-2",
+      "category": "employment",
+      "target": "Applied AI developer",
+      "provenance": "Previously captured public posting from development corpus; synthetic public goal",
+      "observations": [
+        {
+          "url": "https://boards.greenhouse.io/figma/jobs/5551532004?gh_jid=5551532004",
+          "title": "Software Engineer - Machine Learning",
+          "snippet": "Figma is growing our team of passionate creatives and builders on a mission to make design accessible to all. Figma’s platform helps teams bring ideas to life—whether you're brainstorming, creating a prototype, translating designs into code, or iterating with AI. From idea to product, Figma empowers teams to streamline workflows, move faster, and work together in real time from anywhere in the world. If you're excited to shape the future of design and collaboration, join us!\n\nFigma is seeking a versatile and experienced Machine Learning / AI Engineer to join our growing AI team, working at the intersection of applied machine learning, infrastructure, and product innovation. Whether you’re building intelligent search systems, crafting scalable data pipelines, or enhancing AI-powered creativity tools, your work will drive user productivity, shape new product experiences, and advance the state of AI at Figma.\n\nYou’ll collaborate closely with engineers, researchers, designers, and product managers across multiple teams to deliver high-quality ML-driven features and infrastructure. This is a high-impact, cross-functional role where you’ll shape both foundational systems and user-facing ",
+          "rank": 1
+        }
+      ],
+      "expectedUrl": "https://boards.greenhouse.io/figma/jobs/5551532004?gh_jid=5551532004"
+    },
+    {
+      "id": "client-storefront",
+      "category": "services",
+      "target": "Web developer",
+      "provenance": "Authored regression, not an organic discovery sample",
+      "observations": [
+        {
+          "url": "https://buyers.example.org/request/42",
+          "title": "Our shop needs an online checkout",
+          "snippet": "We need someone to build an online store for our bakery. Please share your estimate and past ecommerce work. Paid remote project.",
+          "rank": 1
+        }
+      ],
+      "expectedUrl": "https://buyers.example.org/request/42"
+    },
+    {
+      "id": "brand-contract",
+      "category": "contracts",
+      "target": "Brand designer",
+      "provenance": "Authored regression, not an organic discovery sample",
+      "observations": [
+        {
+          "url": "https://briefs.example.org/42",
+          "title": "Logo and visual identity for a coffee shop",
+          "snippet": "Seeking an independent contractor to create a logo, colour palette and packaging guidelines. Fixed budget; remote work welcome.",
+          "rank": 1
+        }
+      ],
+      "expectedUrl": "https://briefs.example.org/42"
+    },
+    {
+      "id": "spanish-bookkeeping",
+      "category": "services",
+      "target": "Bookkeeper",
+      "provenance": "Authored multilingual regression, not language-wide validation",
+      "observations": [
+        {
+          "url": "https://buyers.example.org/solicitud/19",
+          "title": "Ayuda con la contabilidad de nuestra tienda",
+          "snippet": "Buscamos una persona que lleve los libros, concilie cuentas y prepare los informes mensuales. Servicio remunerado a distancia.",
+          "rank": 1
+        }
+      ],
+      "expectedUrl": "https://buyers.example.org/solicitud/19"
+    },
+    {
+      "id": "seller-and-advice",
+      "category": "services",
+      "target": "Product designer",
+      "provenance": "Authored negative regression; offering work is not buying work",
+      "observations": [
+        {
+          "url": "https://sellers.example.org/portfolio",
+          "title": "Product designer for hire",
+          "snippet": "Hire me. I offer my services to clients. See my portfolio and pricing.",
+          "rank": 1
+        },
+        {
+          "url": "https://guides.example.org/salary",
+          "title": "Product designer salary guide",
+          "snippet": "Career advice and salary statistics, not a vacancy or buyer request.",
+          "rank": 2
+        }
+      ],
+      "expectedUrl": null
+    }
+  ]
+}

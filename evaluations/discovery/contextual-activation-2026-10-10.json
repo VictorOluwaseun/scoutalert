@@ -1,0 +1,66 @@
+{
+  "kind": "local-contextual-discovery-activation",
+  "recordedAt": "2026-10-10T02:24:07.793416+00:00",
+  "contextualCases": [
+    {
+      "status": "partial",
+      "reason": "some_sources_unavailable",
+      "count": 8
+    }
+  ],
+  "plannerTasks": [
+    {
+      "kind": "choice",
+      "state": "pending",
+      "count": 1,
+      "with_context": 1
+    },
+    {
+      "kind": "choice",
+      "state": "ready",
+      "count": 32,
+      "with_context": 32
+    },
+    {
+      "kind": "strategy",
+      "state": "ready",
+      "count": 3,
+      "with_context": 0
+    }
+  ],
+  "sourceRequestsToday": [
+    {
+      "provider": "public-documents",
+      "requests": 49
+    },
+    {
+      "provider": "x-api",
+      "requests": 3
+    },
+    {
+      "provider": "serper",
+      "requests": 15
+    }
+  ],
+  "deliverySinceStartup": [
+    {
+      "status": "accepted",
+      "count": 2
+    }
+  ],
+  "startedAt": "2026-10-10T02:20:40Z",
+  "services": {
+    "apiHttpStatus": 200,
+    "dashboardHttpStatus": 200,
+    "mailpitHttpStatus": 200,
+    "workerPoolsStarted": 9
+  },
+  "email": "Existing local Mailpit on 127.0.0.1:1025; configuration unchanged.",
+  "budgets": "Existing user-configured limits retained.",
+  "startupRecovery": "One discoverWeb activity hit PostgreSQL deadlock 40P01 during catch-up. Temporal retried it; its case proceeded under contextual-v1 and ended partial because some source pages were unavailable.",
+  "limitations": [
+    "Runtime aggregate counts only; no private briefs, account identifiers, source content or credentials exported.",
+    "New cases used contextual-v1 and completed model choice tasks included candidate context. Historical plans retain their frozen routing policy.",
+    "Partial source access does not establish complete coverage. This startup check does not prove new useful recommendations, independent relevance or global scale."
+  ]
+}
