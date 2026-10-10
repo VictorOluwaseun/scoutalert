@@ -7,12 +7,15 @@ import type {
   SourceMonitor,
 } from "./source-monitoring.js";
 
-/** Selects observed feed advertisements and candidate entry links; every child still needs its own source review. */
+/** Selects observed collection advertisements and candidate entry links; every child still needs its own source review. */
 export function monitorLinks(
   document: SourceDocumentResult,
 ): { url: string; text: string }[] {
   const unique = new Map<string, { url: string; text: string }>();
-  for (const feed of document.feeds ?? []) {
+  for (const feed of [
+    ...(document.feeds ?? []),
+    ...(document.sitemap ? [] : (document.sitemaps ?? [])),
+  ]) {
     unique.set(feed.url, feed);
   }
   for (const link of document.links ?? []) {
@@ -26,6 +29,7 @@ export function monitorLinks(
     }
     if (
       !document.feed &&
+      !document.sitemap &&
       !/\/(?:jobs?|positions?|openings?|careers?|projects?|requests?|opportunities)\/[^/?#]+/iu.test(
         link.url,
       ) &&
@@ -40,7 +44,7 @@ export function monitorLinks(
   return [...unique.values()].slice(0, 80);
 }
 
-/** Enrolls recent complete source reviews; valid empty feeds remain monitored so a quiet window does not retire the source. */
+/** Enrolls recent complete source reviews; valid empty collections remain monitored so a quiet window does not retire the source. */
 export function monitoringKind(
   candidate: MonitorCandidate,
   now: Date,
@@ -61,13 +65,14 @@ export function monitoringKind(
   }
   if (
     !document.feed &&
+    !document.sitemap &&
     ["job_opening", "client_request"].includes(review.label)
   ) {
     return "posting";
   }
   if (
     review.label === "directory" &&
-    (document.feed || monitorLinks(document).length > 0)
+    (document.feed || document.sitemap || monitorLinks(document).length > 0)
   ) {
     return "directory";
   }

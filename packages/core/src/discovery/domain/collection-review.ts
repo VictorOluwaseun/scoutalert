@@ -5,21 +5,27 @@ import {
 } from "../../scouting/public.js";
 import type { LeadReview, LeadReviewInput } from "./lead-review.js";
 
-/** Classifies parser-confirmed feed structure without buying model inference or asserting facts about its entries. */
-export function feedDirectoryReview(input: LeadReviewInput): LeadReview | null {
+/** Classifies parser-confirmed collection structure without buying model inference or asserting facts about its entries. */
+export function collectionDirectoryReview(
+  input: LeadReviewInput,
+): LeadReview | null {
   if (
-    input.collection !== "feed" ||
+    !input.collection ||
     input.scope !== "source" ||
     input.truncated ||
-    !input.text.startsWith("Feed directory:")
+    !input.text.startsWith(
+      input.collection === "feed" ? "Feed directory:" : "Sitemap directory:",
+    )
   ) {
     return null;
   }
   return {
     label: "directory",
     explanation:
-      "A public feed lists links to separate items. Each item needs its own source review before matching.",
-    quotes: ["Feed directory:"],
+      "A public collection lists links to separate items. Each item needs its own source review before matching.",
+    quotes: [
+      input.collection === "feed" ? "Feed directory:" : "Sitemap directory:",
+    ],
     company: unknown(),
     deadline: unknown(),
     application: unknown(),
@@ -32,7 +38,7 @@ export function feedDirectoryReview(input: LeadReviewInput): LeadReview | null {
   };
 }
 
-/** Keeps every entry-level claim unconfirmed; the feed's wording cannot establish a listing's eligibility. */
+/** Keeps every entry-level claim unconfirmed; the collection's wording cannot establish a listing's eligibility. */
 function unknown(): PostingFact {
   return { status: "unknown", value: "", quotes: [] };
 }

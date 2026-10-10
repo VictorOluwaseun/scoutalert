@@ -95,7 +95,7 @@ export class PostgresDiscoveryExplorationRepository {
     const action = decision.action;
     const key =
       action.kind === "document"
-        ? discoveryKey(["public-document-v5", action.url, epoch])
+        ? discoveryKey(["public-document-v6", action.url, epoch])
         : discoveryKey([
             capability.id,
             capability.configuration,

@@ -17,6 +17,7 @@ import {
   PostgresLeadReviewRepository,
   PostgresSourceMonitoringRepository,
   parseFeedDocument,
+  parseSitemapDocument,
   PostgresWebDiscoveryCatalogRepository,
 } from "@repo/adapters/discovery";
 import {
@@ -38,7 +39,6 @@ import { demandReview, reviewUsage } from "./fixtures/lead-review.js";
 
 const enabled = process.env.WEB_DISCOVERY_INTEGRATION === "1";
 const origin = "https://feeds.example.org";
-const feedUrl = `${origin}/feed`;
 const brief: SearchDraft = {
   goal: "Find design jobs",
   category: "employment",
@@ -99,9 +99,12 @@ function identity(url: string): string {
   return createHash("sha256").update(JSON.stringify(url)).digest("hex");
 }
 
-describe.skipIf(!enabled)(
-  "durable feed discovery and shared monitoring",
-  () => {
+describe.skipIf(!enabled).each(["feed", "sitemap"] as const)(
+  "durable %s discovery and shared monitoring",
+  (format) => {
+    const feedUrl = `${origin}/${format === "feed" ? "feed" : "sitemap.xml"}`;
+    const indexUrl = `${origin}/index.xml`;
+    const maximumDocuments = format === "feed" ? 3 : 4;
     const schema = `feed_discovery_${randomUUID().replaceAll("-", "")}`;
     let admin: ReturnType<typeof createPostgresClient>;
     let db: ReturnType<typeof createPostgresClient>;
@@ -182,7 +185,7 @@ describe.skipIf(!enabled)(
         version: 1,
         runId: randomUUID(),
       };
-      const plan = planDiscovery(brief, 1, 3, capability, true, {
+      const plan = planDiscovery(brief, 1, maximumDocuments, capability, true, {
         maximumDepth: 3,
         maximumRounds: 6,
         maximumSourcePages: 2,
@@ -208,11 +211,35 @@ describe.skipIf(!enabled)(
         text: "Product designer. Permanent remote employment. Apply through this page.",
         fingerprint: url,
       };
+      if (format === "sitemap" && url === indexUrl) {
+        return {
+          ...base,
+          ...parseSitemapDocument(
+            `<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><sitemap><loc>${feedUrl}</loc></sitemap></sitemapindex>`,
+            url,
+          ),
+        };
+      }
+      if (format === "sitemap" && url === feedUrl) {
+        const items = ["42", ...(changed ? ["43"] : [])]
+          .map(
+            (id) =>
+              `<url><loc>${origin}/jobs/product-designer-${id}</loc></url>`,
+          )
+          .join("");
+        return {
+          ...base,
+          ...parseSitemapDocument(
+            `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${items}</urlset>`,
+            url,
+          ),
+        };
+      }
       if (url === feedUrl) {
         const items = ["42", ...(changed ? ["43"] : [])]
           .map(
             (id) =>
-              `<item><title>Product designer needed</title><link>${origin}/jobs/${id}</link></item>`,
+              `<item><title>Product designer needed</title><link>${origin}/jobs/product-designer-${id}</link></item>`,
           )
           .join("");
         return {
@@ -224,7 +251,16 @@ describe.skipIf(!enabled)(
         };
       }
       return url === `${origin}/board`
-        ? { ...base, feeds: [{ url: feedUrl, text: "Design roles feed" }] }
+        ? {
+            ...base,
+            ...(format === "feed"
+              ? { feeds: [{ url: feedUrl, text: "Design roles feed" }] }
+              : {
+                  sitemaps: [
+                    { url: indexUrl, text: "Site-advertised sitemap" },
+                  ],
+                }),
+          }
         : base;
     }
 
@@ -253,7 +289,7 @@ describe.skipIf(!enabled)(
             };
           },
         },
-        limits,
+        { ...limits, maximumDocuments },
         undefined,
         reviews,
       );
@@ -281,7 +317,7 @@ describe.skipIf(!enabled)(
       throw new Error("fixture_review_did_not_settle");
     }
 
-    it("discovers a listing through a feed, preserves parents, and reuses all public work for a second owner", async () => {
+    it("discovers a listing through a collection, preserves parents, and reuses all public work for a second owner", async () => {
       first = await fixture();
       await discover(first);
       second = await fixture();
@@ -289,8 +325,9 @@ describe.skipIf(!enabled)(
       expect(searched).toHaveLength(1);
       expect(fetched).toEqual([
         `${origin}/board`,
+        ...(format === "sitemap" ? [indexUrl] : []),
         feedUrl,
-        `${origin}/jobs/42`,
+        `${origin}/jobs/product-designer-42`,
       ]);
       expect(provider.calls).toBe(2); // Board and detail only; feed structure costs no model request.
       const decisions = await sql<{
@@ -300,12 +337,12 @@ describe.skipIf(!enabled)(
         db,
       );
       expect(decisions.rows).toContainEqual({
-        parent: `${origin}/board`,
+        parent: format === "sitemap" ? indexUrl : `${origin}/board`,
         child: feedUrl,
       });
       expect(decisions.rows).toContainEqual({
         parent: feedUrl,
-        child: `${origin}/jobs/42`,
+        child: `${origin}/jobs/product-designer-42`,
       });
       const feed = await sql<{
         posting_id: string | null;
@@ -333,7 +370,7 @@ describe.skipIf(!enabled)(
       expect(usage.rows[0]?.requests).toBe(2);
     }, 30_000);
 
-    it("shares one changed-feed read, learns its new entry without AI, and does not publish that entry before source review", async () => {
+    it("shares one changed-collection read, learns its new entry without AI, and does not publish that entry before source review", async () => {
       changed = true;
       await sql`UPDATE web_discovery_cases SET started_at=now()-interval '10 minutes'`.execute(
         db,
@@ -382,13 +419,13 @@ describe.skipIf(!enabled)(
       const child = await sql<{
         kind: string;
         posting_id: string | null;
-      }>`SELECT m.kind,l.posting_id FROM web_source_monitors m JOIN web_discovery_leads l ON l.id=m.id WHERE m.url=${`${origin}/jobs/43`}`.execute(
+      }>`SELECT m.kind,l.posting_id FROM web_source_monitors m JOIN web_discovery_leads l ON l.id=m.id WHERE m.url=${`${origin}/jobs/product-designer-43`}`.execute(
         db,
       );
       expect(child.rows).toEqual([{ kind: "probe", posting_id: null }]);
       const owners = await sql<{
         count: number;
-      }>`SELECT count(*)::int AS count FROM web_source_interests WHERE monitor_id=${identity(`${origin}/jobs/43`)}`.execute(
+      }>`SELECT count(*)::int AS count FROM web_source_interests WHERE monitor_id=${identity(`${origin}/jobs/product-designer-43`)}`.execute(
         db,
       );
       expect(owners.rows[0]?.count).toBe(2);

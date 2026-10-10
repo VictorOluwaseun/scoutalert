@@ -2,6 +2,7 @@ import { createRequire } from "node:module";
 import { setTimeout as delay } from "node:timers/promises";
 import { PublicHttpRepository, type PublicResponse } from "./public-http.js";
 import { canonicalDiscoveryUrl } from "../persistence/discovery-identities.js";
+import { feedUrl } from "./document-feeds.js";
 
 const robotsParser = createRequire(import.meta.url)(
   "robots-parser",
@@ -30,6 +31,24 @@ export class PublicPageSession {
   /** Cancels queued and in-flight resources when a capture ends, including browser timeouts. */
   close(): void {
     this.stopped.abort();
+  }
+
+  /** Returns only already-observed, same-origin sitemap advertisements; no extra request or permission is implied. */
+  sitemaps(value: string): { url: string; text: string }[] {
+    const canonical = canonicalDiscoveryUrl(value);
+    if (!canonical) {
+      return [];
+    }
+    const origin = new URL(canonical).origin;
+    const urls = (this.policies.get(origin)?.getSitemaps() ?? [])
+      .map((url) => feedUrl(url, origin))
+      .filter(
+        (url): url is string =>
+          !!url && url !== canonical && new URL(url).origin === origin,
+      );
+    return [...new Set(urls)]
+      .slice(0, 4)
+      .map((url) => ({ url, text: "Site-advertised sitemap" }));
   }
 
   /** Queues requests to prevent parallel browser resources from evading pacing or the 12-request/6-MB bundle ceiling. */
@@ -103,7 +122,8 @@ export class PublicPageSession {
       Math.min(maximumBytes, 6_000_000 - this.bytes),
       this.signal,
     );
-    this.bytes += Buffer.byteLength(response.body, "utf8");
+    this.bytes +=
+      response.accountedBytes ?? Buffer.byteLength(response.body, "utf8");
     return response;
   }
 }

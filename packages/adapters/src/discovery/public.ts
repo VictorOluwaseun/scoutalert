@@ -8,6 +8,7 @@ export { SerperSearchProvider } from "./connectors/serper-search.js";
 export {
   PublicHttpRepository,
   isPublicAddress,
+  type PublicResponse,
 } from "./connectors/public-http.js";
 export {
   documentText,
@@ -46,3 +47,6 @@ export {
 export { documentPagination } from "./connectors/document-pagination.js";
 export { documentFeeds } from "./connectors/document-feeds.js";
 export { parseFeedDocument } from "./connectors/feed-document.js";
+
+export { parseSitemapDocument } from "./connectors/sitemap-document.js";
+export { publicResponseBody } from "./connectors/public-response-body.js";

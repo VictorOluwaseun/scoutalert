@@ -2,7 +2,7 @@ import { randomUUID } from "node:crypto";
 import { sql, type Kysely } from "kysely";
 import {
   LeadReviewRepository,
-  feedDirectoryReview,
+  collectionDirectoryReview,
   mayPublishLead,
   validLeadReview,
   type LeadReviewClaim,
@@ -50,7 +50,7 @@ export class PostgresLeadReviewRepository extends LeadReviewRepository {
     super();
   }
 
-  /** Refreshes each bounded review round; parser-confirmed feeds receive a structural directory review before any AI reservation. */
+  /** Refreshes each bounded review round; parser-confirmed collections receive a structural directory review before any AI reservation. */
   private async freeze(
     tx: Kysely<ScoutAlertDatabase>,
     request: ScoutRunRequest,
@@ -95,7 +95,7 @@ export class PostgresLeadReviewRepository extends LeadReviewRepository {
       await sql`INSERT INTO web_lead_reviews(key,lead_id,configuration,input) VALUES(${record.key},${record.input.id},${configuration},${JSON.stringify(record.input)}::jsonb)
         ON CONFLICT(key) DO UPDATE SET input=excluded.input,state='pending',failure=NULL,attempts=0,retry_at=NULL,posting_id=NULL,posting_version=NULL
         WHERE web_lead_reviews.failure='source_unavailable'`.execute(tx);
-      const directory = feedDirectoryReview(record.input);
+      const directory = collectionDirectoryReview(record.input);
       if (directory) {
         await this.accept(tx, record.key, record.input, directory);
       }

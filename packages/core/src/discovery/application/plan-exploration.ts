@@ -1,3 +1,4 @@
+import { blocksSourceHost } from "../domain/source-access.js";
 import { sourceNextPages } from "./source-pagination.js";
 import { sourceSearchUrls } from "./source-search.js";
 import { publicDestination } from "../domain/public-destination.js";
@@ -85,7 +86,7 @@ function documentCandidates(
   const inaccessibleHosts = new Set(
     snapshot.operations.flatMap(({ result }) =>
       result?.kind === "document" &&
-      result.status !== "fetched" &&
+      blocksSourceHost(result) &&
       publicDestination(result.url)
         ? [new URL(result.url).hostname]
         : [],
@@ -108,6 +109,21 @@ function documentCandidates(
           ),
         });
       }
+    }
+    if (
+      result?.kind === "document" &&
+      operation.depth < snapshot.plan.exploration!.maximumDepth
+    ) {
+      candidates.push(
+        ...(result.sitemaps ?? []).map((sitemap) => ({
+          url: sitemap.url,
+          title: sitemap.text,
+          parentKey: operation.key,
+          depth: operation.depth + 1,
+          reason: "follow_source_link" as const,
+          score: 9,
+        })),
+      );
     }
     if (
       result?.kind === "document" &&
@@ -165,24 +181,26 @@ function documentCandidates(
           depth: operation.depth + 1,
           reason: "follow_source_link",
           score:
-            snapshot.plan.policy === "public-intent-v3" &&
-            /\b(?:apply|application|eligibility|sponsorship|requirements|careers|hiring policy)\b/iu.test(
-              link.text,
-            ) &&
-            snapshot.reviews?.some(
-              ({ url, scope, review }) =>
-                url === result.url &&
-                scope === "source" &&
-                ["job_opening", "client_request"].includes(review.label),
-            )
-              ? 30
-              : linkRelevance(
-                  link.text,
-                  link.url,
-                  result.url,
-                  result.text ?? "",
-                  words,
-                ),
+            result.sitemap?.format === "index"
+              ? 9
+              : snapshot.plan.policy === "public-intent-v3" &&
+                  /\b(?:apply|application|eligibility|sponsorship|requirements|careers|hiring policy)\b/iu.test(
+                    link.text,
+                  ) &&
+                  snapshot.reviews?.some(
+                    ({ url, scope, review }) =>
+                      url === result.url &&
+                      scope === "source" &&
+                      ["job_opening", "client_request"].includes(review.label),
+                  )
+                ? 30
+                : linkRelevance(
+                    link.text,
+                    link.url,
+                    result.url,
+                    result.text ?? "",
+                    words,
+                  ),
         });
       }
     }

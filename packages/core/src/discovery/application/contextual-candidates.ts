@@ -1,3 +1,4 @@
+import { blocksSourceHost } from "../domain/source-access.js";
 import type {
   DiscoveryDecision,
   DiscoveryExploration,
@@ -52,7 +53,7 @@ function allowed(
   const blockedHost = snapshot.operations.some(
     ({ result }) =>
       result?.kind === "document" &&
-      result.status !== "fetched" &&
+      blocksSourceHost(result) &&
       publicDestination(result.url) &&
       new URL(result.url).hostname === new URL(url).hostname,
   );

@@ -2,6 +2,7 @@ import { lookup } from "node:dns/promises";
 import { isIP } from "node:net";
 import { request } from "node:https";
 import { setTimeout as delay } from "node:timers/promises";
+import { publicResponseBody } from "./public-response-body.js";
 import ipaddr from "ipaddr.js";
 import { canonicalDiscoveryUrl } from "../persistence/discovery-identities.js";
 
@@ -9,7 +10,9 @@ export interface PublicResponse {
   status: number;
   contentType: string;
   body: string;
-  /** Response policy headers only; cookies and authentication headers are never propagated. */
+  /** Larger of wire and decoded bytes, for aggregate capture limits. */
+  accountedBytes?: number;
+  /** Selected response policy and redirect headers only; cookies and authentication headers are never propagated. */
   headers?: Record<string, string>;
 }
 
@@ -80,7 +83,7 @@ export class PublicHttpRepository {
           response.once("error", reject);
           const encoding = response.headers["content-encoding"];
 
-          if (encoding && encoding !== "identity") {
+          if (encoding && !["identity", "gzip"].includes(encoding)) {
             response.destroy(new Error("source_encoding_unsupported"));
             reject(new Error("source_encoding_unsupported"));
             return;
@@ -98,24 +101,41 @@ export class PublicHttpRepository {
 
             chunks.push(chunk);
           });
-          response.once("end", () =>
-            resolve({
-              status: response.statusCode ?? 0,
-              contentType: response.headers["content-type"] ?? "",
-              body: Buffer.concat(chunks).toString("utf8"),
-              headers: Object.fromEntries(
-                [
-                  "content-security-policy",
-                  "access-control-allow-origin",
-                  "x-content-type-options",
-                ].flatMap((name) =>
-                  typeof response.headers[name] === "string"
-                    ? [[name, response.headers[name] as string]]
-                    : [],
-                ),
-              ),
-            }),
-          );
+          response.once("end", () => {
+            const contentType = response.headers["content-type"] ?? "";
+            publicResponseBody(
+              Buffer.concat(chunks),
+              encoding,
+              contentType,
+              canonical,
+              maximumBytes,
+            )
+              .then((body) => {
+                signal.throwIfAborted();
+                resolve({
+                  status: response.statusCode ?? 0,
+                  contentType,
+                  body,
+                  accountedBytes: Math.max(
+                    bytes,
+                    Buffer.byteLength(body, "utf8"),
+                  ),
+                  headers: Object.fromEntries(
+                    [
+                      "content-security-policy",
+                      "access-control-allow-origin",
+                      "x-content-type-options",
+                      "location",
+                    ].flatMap((name) =>
+                      typeof response.headers[name] === "string"
+                        ? [[name, response.headers[name] as string]]
+                        : [],
+                    ),
+                  ),
+                });
+              })
+              .catch(reject);
+          });
         },
       );
       req.once("error", reject);

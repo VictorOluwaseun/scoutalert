@@ -7,7 +7,7 @@ import {
   reviewInput,
 } from "@repo/adapters/discovery";
 import {
-  feedDirectoryReview,
+  collectionDirectoryReview,
   mayPublishLead,
   validLeadReview,
   monitorLinks,
@@ -128,7 +128,7 @@ describe("public RSS and Atom discovery", () => {
       document: result,
       last_seen_at: new Date(),
     });
-    const review = feedDirectoryReview(input)!;
+    const review = collectionDirectoryReview(input)!;
     expect(
       monitoringKind(
         {
@@ -205,7 +205,7 @@ describe("public RSS and Atom discovery", () => {
       document,
       last_seen_at: new Date(),
     });
-    const directory = feedDirectoryReview(input)!;
+    const directory = collectionDirectoryReview(input)!;
     expect(input.collection).toBe("feed");
     expect(validLeadReview(input, directory)).toBe(true);
     expect(validLeadReview(input, demandReview(input))).toBe(false);
@@ -213,8 +213,10 @@ describe("public RSS and Atom discovery", () => {
     const inventedPay = structuredClone(directory);
     inventedPay.analysis.pay.minimum = 1000;
     expect(validLeadReview(input, inventedPay)).toBe(false);
-    expect(feedDirectoryReview({ ...input, truncated: true })).toBeNull();
-    expect(feedDirectoryReview({ ...input, collection: undefined })).toBeNull();
+    expect(collectionDirectoryReview({ ...input, truncated: true })).toBeNull();
+    expect(
+      collectionDirectoryReview({ ...input, collection: undefined }),
+    ).toBeNull();
     expect(monitorLinks(document)).toEqual(document.links);
   });
 

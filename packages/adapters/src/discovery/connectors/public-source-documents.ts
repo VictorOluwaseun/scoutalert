@@ -11,6 +11,8 @@ import { documentLinks } from "./document-links.js";
 import { documentSearchForms } from "./document-search-forms.js";
 import { documentFeeds } from "./document-feeds.js";
 import { isFeedDocument, parseFeedDocument } from "./feed-document.js";
+import { isSitemapDocument, parseSitemapDocument } from "./sitemap-document.js";
+import { readSourceResponse, sourceResponseReason } from "./source-response.js";
 import { discoveryKey } from "../persistence/discovery-identities.js";
 
 /** Reads permitted public pages, escalating thin JavaScript shells to an optional bounded browser repository. */
@@ -54,11 +56,22 @@ export class PublicSourceDocumentRepository extends SourceDocumentRepository {
         "source_feed_invalid",
         "source_feed_unsupported",
         "source_feed_limit",
+        "source_sitemap_invalid",
+        "source_sitemap_unsupported",
+        "source_sitemap_limit",
+        "source_redirect_loop",
+        "source_redirect_limit",
+        "source_redirect_invalid",
+        "source_response_too_large",
+        "source_encoding_unsupported",
+        "source_encoding_invalid",
+        "source_dns_timeout",
       ];
       return {
         ...empty,
         status:
           reason === "source_address_blocked" ? "blocked" : "access_limited",
+        sitemaps: session.sitemaps(url),
         reason: known.includes(reason) ? reason : "source_request_failed",
         hostDelaySeconds: session.hostDelaySeconds,
         capture: {
@@ -79,14 +92,20 @@ export class PublicSourceDocumentRepository extends SourceDocumentRepository {
     empty: SourceDocumentResult,
     session: PublicPageSession,
   ): Promise<SourceDocumentResult> {
-    const response = await session.read(url);
-    if (
+    const retrieved = await readSourceResponse(session, url);
+    const response = retrieved.response;
+    url = retrieved.url;
+    empty = { ...empty, retrievedUrl: url, sitemaps: session.sitemaps(url) };
+    const collection =
       response.status === 200 &&
-      isFeedDocument(response.contentType, response.body)
-    ) {
+      (isSitemapDocument(response.body) ||
+        isFeedDocument(response.contentType, response.body));
+    if (collection) {
       return {
         ...empty,
-        ...parseFeedDocument(response.body, url),
+        ...(isSitemapDocument(response.body)
+          ? parseSitemapDocument(response.body, url)
+          : parseFeedDocument(response.body, url)),
         checkedAt: new Date().toISOString(),
         status: "fetched",
         truncated: false,
@@ -108,7 +127,7 @@ export class PublicSourceDocumentRepository extends SourceDocumentRepository {
       return {
         ...empty,
         status: "access_limited",
-        reason: "source_requires_another_access_path",
+        reason: sourceResponseReason(response),
         hostDelaySeconds: session.hostDelaySeconds,
         capture: {
           method: "http",
@@ -156,7 +175,9 @@ export class PublicSourceDocumentRepository extends SourceDocumentRepository {
       text,
       reason,
       fingerprint: discoveryKey([
-        "public-capture-v5",
+        "public-capture-v6",
+        url,
+        empty.sitemaps,
         text,
         links,
         searchForms,

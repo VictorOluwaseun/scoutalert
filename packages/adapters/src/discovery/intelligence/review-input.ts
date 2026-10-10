@@ -13,6 +13,7 @@ export interface ReviewableLead {
   snippet: string | null;
   content_status: string;
   document: {
+    sitemap?: { format: "urlset" | "index" };
     feed?: { format: "rss" | "atom" };
     nativePost?: NativePost;
     nativeContext?: NativeContext;
@@ -45,8 +46,7 @@ export function reviewInput(lead: ReviewableLead): LeadReviewInput {
     (source && lead.document?.truncated === true);
   const nativePost = source ? lead.document?.nativePost : undefined;
   const nativeContext = source ? lead.document?.nativeContext : undefined;
-  const collection =
-    source && lead.document?.feed ? ("feed" as const) : undefined;
+  const collection = source ? collectionKind(lead.document) : undefined;
   const observedAt = source
     ? lead.document!.checkedAt!
     : new Date(lead.last_seen_at).toISOString();
@@ -75,7 +75,17 @@ export function reviewInput(lead: ReviewableLead): LeadReviewInput {
       text,
       source ? lead.document?.fingerprint : null,
       ...(nativePost ? ["native-attribution-v1", nativePost] : []),
-      ...(collection ? ["feed-directory-v1"] : []),
+      ...(collection ? [`${collection}-directory-v1`] : []),
     ]),
   };
+}
+
+/** Marks only parser-confirmed collections; excerpts can never inherit structural trust. */
+function collectionKind(
+  document: ReviewableLead["document"],
+): LeadReviewInput["collection"] {
+  if (document?.sitemap) {
+    return "sitemap";
+  }
+  return document?.feed ? "feed" : undefined;
 }

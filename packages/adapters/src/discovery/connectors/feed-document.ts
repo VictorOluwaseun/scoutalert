@@ -1,8 +1,10 @@
-import { DomUtils, Parser, parseDocument } from "htmlparser2";
+import { DomUtils, parseDocument } from "htmlparser2";
 import type { SourceDocumentResult } from "@repo/core/discovery";
 import { discoveryKey } from "../persistence/discovery-identities.js";
 import { documentText } from "./document-parser.js";
 import { feedUrl } from "./document-feeds.js";
+
+import { checkPublicXml } from "./public-xml.js";
 
 type XmlElement = ReturnType<typeof DomUtils.getElementsByTagName>[number];
 type FeedCapture = Pick<
@@ -21,7 +23,7 @@ export function isFeedDocument(contentType: string, body: string): boolean {
 
 /** Parses a bounded RSS 2.0 or Atom window as link hints; no collection, description, enclosure or GUID becomes a posting. */
 export function parseFeedDocument(body: string, source: string): FeedCapture {
-  checkXml(body);
+  checkPublicXml(body, "feed");
   const tree = parseDocument(body, { xmlMode: true });
   const roots = tree.children.filter(
     (node): node is XmlElement => node.type === "tag",
@@ -87,49 +89,6 @@ export function parseFeedDocument(body: string, source: string): FeedCapture {
     fingerprint: discoveryKey(["public-feed-v1", feed, links, next]),
     pagination: { next, contentFingerprint: discoveryKey(links) },
   };
-}
-
-/** Rejects external-entity declarations, broken nesting and excessive parser work before building a small DOM. */
-function checkXml(body: string): void {
-  if (
-    Buffer.byteLength(body, "utf8") > 2_000_000 ||
-    /<!\s*(?:DOCTYPE|ENTITY)\b/iu.test(body) ||
-    /<\?xml[^?]*encoding\s*=\s*["'](?!utf-8["']|us-ascii["'])/iu.test(body)
-  ) {
-    throw new Error("source_feed_invalid");
-  }
-  let depth = 0;
-  let count = 0;
-  const selfClosing: boolean[] = [];
-  const parser = new Parser(
-    {
-      /** Bounds element count and depth so hostile XML cannot create an unbounded tree or recursive traversal. */
-      onopentag() {
-        depth++;
-        count++;
-        selfClosing.push(body[parser.endIndex - 1] === "/");
-        if (depth > 24 || count > 20_000) {
-          throw new Error("source_feed_limit");
-        }
-      },
-      /** Accepts explicit self-closing syntax; parser repair and end-of-input closures remain incomplete XML. */
-      onclosetag(_name, implied) {
-        depth--;
-        const explicit = selfClosing.pop();
-        if (implied && !explicit) {
-          throw new Error("source_feed_invalid");
-        }
-      },
-      /** Prevents text outside the XML root from being silently ignored. */
-      ontext(text) {
-        if (depth === 0 && text.trim()) {
-          throw new Error("source_feed_invalid");
-        }
-      },
-    },
-    { xmlMode: true },
-  );
-  parser.end(body);
 }
 
 /** Reads only direct children, preventing embedded markup from impersonating entry or feed metadata. */

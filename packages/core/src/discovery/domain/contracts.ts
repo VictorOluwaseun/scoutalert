@@ -61,6 +61,12 @@ export interface SourceDocumentResult {
   links?: { url: string; text: string }[];
   /** Explicit HTML feed advertisements; these are observed destinations, never guessed endpoints. */
   feeds?: { url: string; text: string }[];
+  /** Same-origin sitemap destinations advertised by the fetched robots policy, never guessed paths. */
+  sitemaps?: { url: string; text: string }[];
+  /** Structural XML collection metadata; retained entries are leads, not evidence of availability or fit. */
+  sitemap?: { format: "urlset" | "index"; entries: number; omitted: number };
+  /** Final permitted HTTPS destination after bounded redirects; url remains the requested identity. */
+  retrievedUrl?: string;
   /** A bounded feed window is a directory of unassessed links, never a single opportunity. */
   feed?: {
     format: "rss" | "atom";
