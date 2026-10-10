@@ -21,6 +21,14 @@ export type DiscoveryReasoningInput =
       kind: "choice";
       intent: PublicScoutIntent;
       choices: DiscoveryDecision[];
+      /** Bounded hints for supplied document choices, not proof of relevance, eligibility or availability. */
+      candidates?: {
+        choice: number;
+        origin: "search_result" | "source_link";
+        text: string;
+        parentUrl: string | null;
+        query: string | null;
+      }[];
       evidence: {
         url: string;
         label: string;

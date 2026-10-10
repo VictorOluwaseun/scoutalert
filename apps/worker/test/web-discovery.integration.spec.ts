@@ -24,6 +24,7 @@ import {
   type DiscoveryReasoningInput,
   planDiscovery,
   planExploration,
+  explorationChoices,
   DiscoverWeb,
   ReviewDiscoveryLeads,
   type DiscoveryLimits,
@@ -189,6 +190,84 @@ describe.skipIf(!enabled)(
       }
       throw new Error("adaptive_fixture_did_not_settle");
     }
+
+    it("persists a contextual source choice without admitting forged URLs or duplicate replay", async () => {
+      const request = await fixture();
+      const provider = { ...capability, id: randomUUID() };
+      const baseline = planDiscovery(brief, 1, 4, provider, true);
+      const plan = {
+        ...baseline,
+        policy: "public-intent-v3" as const,
+        exploration: {
+          ...baseline.exploration!,
+          candidatePolicy: "contextual-v1" as const,
+        },
+      };
+      const url = "https://contextual.example.org/open/ux-specialist";
+      await records.open(request, plan, provider);
+      for (let step = 0; step < 12; step++) {
+        const claim = await records.claim(request, limits);
+        if (claim.status === "planning") {
+          break;
+        }
+        if (claim.status === "claimed") {
+          await records.complete(claim.key, claim.token, {
+            ...result(url),
+            observations: [
+              {
+                url,
+                title: "UX specialist",
+                snippet: "Help improve interfaces and interaction flows.",
+                rank: 1,
+              },
+            ],
+          });
+        }
+      }
+      const claim = await records.claim(request, limits);
+      expect(claim.status).toBe("planning");
+      if (claim.status !== "planning") {
+        throw new Error("missing_contextual_snapshot");
+      }
+      expect(planExploration(claim.snapshot).action?.kind).not.toBe("document");
+      const decision = explorationChoices(claim.snapshot).find(
+        (item) => item.action?.kind === "document" && item.action.url === url,
+      )!;
+      expect(decision).toBeDefined();
+      await records.extend(request, claim.snapshot, {
+        ...decision,
+        action: {
+          kind: "document",
+          url: "https://invented.example.org/secret",
+        },
+      });
+      const before = await sql<{
+        count: number;
+      }>`SELECT count(*)::int AS count FROM web_discovery_decisions WHERE case_id=${request.runId}::uuid`.execute(
+        db,
+      );
+      expect(before.rows[0]!.count).toBe(0);
+      await records.extend(request, claim.snapshot, decision);
+      await records.extend(request, claim.snapshot, decision);
+      const after = await sql<{
+        count: number;
+      }>`SELECT count(*)::int AS count FROM web_discovery_decisions WHERE case_id=${request.runId}::uuid`.execute(
+        db,
+      );
+      expect(after.rows[0]!.count).toBe(1);
+      const document = await records.claim(request, limits);
+      expect(document).toMatchObject({
+        status: "claimed",
+        operation: { kind: "document", url },
+      });
+      expect(
+        (await records.preparedPlan(request))?.exploration?.candidatePolicy,
+      ).toBe("contextual-v1");
+      // This fixture proves admission only; leave no live lease for subsequent shared-budget scenarios.
+      if (document.status === "claimed") {
+        await records.fail(document.key, document.token);
+      }
+    });
 
     it("splits alternative goals and uses completed source reviews during the same discovery run", async () => {
       const target = "Product designer or UX designer";
@@ -905,6 +984,114 @@ describe.skipIf(!enabled)(
       );
       return { request, id, document };
     }
+
+    it("hands differently worded reviewed discoveries to private assessment only for the current owning scout", async () => {
+      const { request, id, document } = await reviewFixture();
+      const search = { ...brief, target: "UX interaction specialist" };
+      await sql`UPDATE scouts SET search=${JSON.stringify(search)}::jsonb WHERE id=${request.scoutId}::uuid`.execute(
+        db,
+      );
+      const reviews = new ReviewDiscoveryLeads(
+        new PostgresLeadReviewRepository(db, 1000, 100_000_000),
+        new FixtureLeadProvider(),
+      );
+      await reviews.execute(request);
+      await reviews.execute(request);
+      const row = await sql<{
+        posting_id: string;
+      }>`SELECT posting_id FROM web_discovery_leads WHERE id=${id}`.execute(db);
+      const posting = row.rows[0]!.posting_id;
+      expect(posting).toBeTruthy();
+      const matching = new PostgresScoutingRepository(db);
+      const context = (await matching.begin(request))!;
+      expect(
+        (await matching.candidates(context))?.map((item) => item.id),
+      ).not.toContain(posting);
+      const plan = planDiscovery(search, 1, 4, capability, true);
+      plan.policy = "public-intent-v3";
+      plan.exploration!.candidatePolicy = "contextual-v1";
+      await sql`UPDATE web_discovery_cases SET plan=${JSON.stringify(plan)}::jsonb WHERE id=${request.runId}::uuid`.execute(
+        db,
+      );
+      expect(
+        (await matching.candidates(context))?.map((item) => item.id),
+      ).toContain(posting);
+      await sql`UPDATE web_discovery_leads SET document=jsonb_set(document,'{fingerprint}','"changed"'::jsonb) WHERE id=${id}`.execute(
+        db,
+      );
+      expect(
+        (await matching.candidates(context))?.map((item) => item.id),
+      ).not.toContain(posting);
+      await sql`UPDATE web_discovery_leads SET document=${JSON.stringify(document)}::jsonb WHERE id=${id}`.execute(
+        db,
+      );
+      await sql`UPDATE web_lead_reviews SET input=jsonb_set(input,'{scope}','"search_excerpt"'::jsonb) WHERE posting_id=${posting}`.execute(
+        db,
+      );
+      expect(
+        (await matching.candidates(context))?.map((item) => item.id),
+      ).not.toContain(posting);
+      await sql`UPDATE web_lead_reviews SET input=jsonb_set(input,'{scope}','"source"'::jsonb) WHERE posting_id=${posting}`.execute(
+        db,
+      );
+      const provider = new FixtureWebFitProvider();
+      const evaluator = new EvaluateCandidates(
+        new PostgresIntelligenceRepository(db, 1000, 100_000_000),
+        provider,
+      );
+      const candidates = (await matching.candidates(context))!;
+      expect(await evaluator.evaluate(context, candidates)).toBe("progress");
+      expect(await evaluator.evaluate(context, candidates)).toEqual([
+        expect.objectContaining({
+          posting: expect.objectContaining({ id: posting }),
+          assessment: expect.objectContaining({
+            detail: expect.objectContaining({ assessedBy: "ai" }),
+          }),
+        }),
+      ]);
+      expect(provider.calls).toBe(1);
+      const other = await fixture(search.target);
+      expect(
+        (await matching.candidates((await matching.begin(other))!))?.map(
+          (item) => item.id,
+        ),
+      ).not.toContain(posting);
+      await sql`UPDATE opportunity_postings SET version=version+1 WHERE id=${posting}`.execute(
+        db,
+      );
+      expect(
+        (await matching.candidates(context))?.map((item) => item.id),
+      ).not.toContain(posting);
+      await sql`UPDATE opportunity_postings SET version=version-1,checked_at=now()-interval '31 minutes' WHERE id=${posting}`.execute(
+        db,
+      );
+      expect(
+        (await matching.candidates(context))?.map((item) => item.id),
+      ).not.toContain(posting);
+      await sql`UPDATE opportunity_postings SET checked_at=now() WHERE id=${posting}`.execute(
+        db,
+      );
+      await sql`UPDATE scouts SET version=version+1 WHERE id=${request.scoutId}::uuid`.execute(
+        db,
+      );
+      expect(
+        (await matching.candidates(context))?.map((item) => item.id),
+      ).not.toContain(posting);
+      await sql`UPDATE scouts SET version=version-1 WHERE id=${request.scoutId}::uuid`.execute(
+        db,
+      );
+      await sql`INSERT INTO opportunity_feedback(owner_id,posting_id,value,version,snapshot) VALUES(${request.ownerId}::uuid,${posting},'hidden',1,'{}'::jsonb)`.execute(
+        db,
+      );
+      expect(
+        (await matching.candidates(context))?.map((item) => item.id),
+      ).not.toContain(posting);
+      expect(
+        await new PostgresOpportunityCatalogRepository(db).list(
+          request.ownerId,
+        ),
+      ).toEqual([]);
+    });
 
     it("clears obsolete failure state after a successful retry and preserves both paid attempt receipts", async () => {
       const { request, id } = await reviewFixture();

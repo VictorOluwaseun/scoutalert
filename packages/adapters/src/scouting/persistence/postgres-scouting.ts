@@ -56,7 +56,7 @@ export class PostgresScoutingRepository extends ScoutingRepository {
     });
   }
 
-  /** Uses the shared GIN-indexed search document before private title matching; stale evidence is excluded. */
+  /** Combines GIN retrieval with up to eight recent, source-reviewed discoveries for this scout; both paths still require private assessment. */
   async candidates(context: RunContext): Promise<Posting[] | null> {
     const ready =
       await sql`SELECT id FROM opportunity_sources WHERE kind=${context.search.category === "services" ? "client_request" : "job"} AND checked_at>now()-interval '30 minutes' LIMIT 1`.execute(
@@ -68,14 +68,38 @@ export class PostgresScoutingRepository extends ScoutingRepository {
     }
 
     const query = roleTerms(context.search.target).join(" ");
+    const discovered = await this.discoveredPostingIds(context);
     const found = await sql<Posting>`
       SELECT p.id,p.kind,p.source_id AS source,p.external_id AS "externalId",p.family_id AS "familyId",p.company,p.title,p.location,p.url,p.content AS text,p.source_updated_at::text AS "sourceUpdatedAt",p.fingerprint,p.version
       FROM opportunity_postings p JOIN opportunity_sources s ON s.id=p.source_id
-      WHERE NOT EXISTS(SELECT 1 FROM opportunity_feedback f WHERE f.owner_id=${context.request.ownerId}::uuid AND f.posting_id=p.id AND f.value='hidden') AND p.kind=${context.search.category === "services" ? "client_request" : "job"} AND p.open AND p.checked_at>now()-interval '30 minutes' AND s.checked_at>now()-interval '30 minutes' AND p.search_document @@ plainto_tsquery('english',${query})
-      ORDER BY ts_rank_cd(p.search_document,plainto_tsquery('english',${query})) DESC,p.id LIMIT 200
+      WHERE NOT EXISTS(SELECT 1 FROM opportunity_feedback f WHERE f.owner_id=${context.request.ownerId}::uuid AND f.posting_id=p.id AND f.value='hidden') AND p.kind=${context.search.category === "services" ? "client_request" : "job"} AND p.open AND p.checked_at>now()-interval '30 minutes' AND s.checked_at>now()-interval '30 minutes' AND (p.search_document @@ plainto_tsquery('english',${query}) OR p.id=ANY(${discovered}::text[]))
+      ORDER BY (p.id=ANY(${discovered}::text[])) DESC,ts_rank_cd(p.search_document,plainto_tsquery('english',${query})) DESC,p.id LIMIT 200
     `.execute(this.db);
 
     return found.rows;
+  }
+
+  /** Preserves this revision's recent contextual findings across matching retries; source versions, hiding, ownership and freshness remain mandatory. */
+  private async discoveredPostingIds(context: RunContext): Promise<string[]> {
+    const { request } = context;
+    const result = await sql<{ id: string }>`
+      SELECT p.id FROM web_discovery_cases c
+      JOIN scouts own ON own.id=c.scout_id AND own.owner_id=c.owner_id AND own.version=c.scout_version AND own.status='active'
+      JOIN web_discovery_case_leads cl ON cl.case_id=c.id
+      JOIN web_discovery_leads l ON l.id=cl.lead_id
+      JOIN web_lead_reviews r ON r.key=l.review_key AND r.state='ready' AND r.input->>'scope'='source'
+      JOIN opportunity_postings p ON p.id=l.posting_id AND p.id=r.posting_id AND p.version=r.posting_version
+      JOIN opportunity_sources s ON s.id=p.source_id
+      WHERE c.owner_id=${request.ownerId}::uuid AND c.scout_id=${request.scoutId}::uuid AND c.scout_version=${request.version}
+        AND c.started_at>now()-interval '1 day' AND c.plan->'exploration'->>'candidatePolicy'='contextual-v1'
+        AND l.content_status='fetched' AND r.result->>'label' IN ('job_opening','client_request')
+        AND r.input->>'documentFingerprint'=l.document->>'fingerprint'
+        AND p.kind=${context.search.category === "services" ? "client_request" : "job"}
+        AND p.open AND p.checked_at>now()-interval '30 minutes' AND s.checked_at>now()-interval '30 minutes'
+        AND NOT EXISTS(SELECT 1 FROM opportunity_feedback f WHERE f.owner_id=${request.ownerId}::uuid AND f.posting_id=p.id AND f.value='hidden')
+      GROUP BY p.id ORDER BY max(c.started_at) DESC,p.id LIMIT 8
+    `.execute(this.db);
+    return result.rows.map((row) => row.id);
   }
 
   /** Publishes a bounded result set atomically; changed scout/posting inputs force a fresh assessment. */

@@ -1,5 +1,7 @@
 import { sourceNextPages } from "./source-pagination.js";
 import { sourceSearchUrls } from "./source-search.js";
+import { publicDestination } from "../domain/public-destination.js";
+import { contextualDocumentChoices } from "./contextual-candidates.js";
 import type {
   DiscoveryDecision,
   DiscoveryExploration,
@@ -67,24 +69,6 @@ function linkRelevance(
     relevance(parentText, parentUrl, words) >= 7
     ? 12
     : 0;
-}
-
-/** Discards invalid destinations early; the adapter still canonicalizes URLs and enforces DNS/robots at retrieval. */
-function publicDestination(value: string): boolean {
-  try {
-    const url = new URL(value);
-    return (
-      value.length <= 2048 &&
-      url.protocol === "https:" &&
-      !url.username &&
-      !url.password &&
-      !url.port &&
-      url.hostname.includes(".") &&
-      !/(?:^|\.)(?:localhost|local|internal|test)$/iu.test(url.hostname)
-    );
-  } catch {
-    return false;
-  }
 }
 
 /** Selects observed, relevant anchors and unvisited results; loops and excessive investigation depth are excluded. */
@@ -357,12 +341,55 @@ export function planExploration(
   };
 }
 
+/** Builds unused public-target query alternatives only while the frozen search allowance remains available. */
+function alternativeSearchChoices(
+  snapshot: DiscoveryExploration,
+): DiscoveryDecision[] {
+  const settings = snapshot.plan.exploration!;
+  const searches = snapshot.operations.filter(
+    ({ input }) => input.kind === "search",
+  );
+  if (searches.length >= settings.maximumSearches) {
+    return [];
+  }
+  const choices: DiscoveryDecision[] = [];
+  for (const target of snapshot.plan.strategy?.targets ?? [settings.target]) {
+    const query = `${target}${settings.remote ? " remote" : ""} ${snapshot.plan.category === "employment" ? '"apply"' : '\"project brief\"'}`;
+    if (
+      searches.some(
+        ({ input }) => input.kind === "search" && input.query.query === query,
+      )
+    ) {
+      continue;
+    }
+    choices.push({
+      reason: "refine_demand_query",
+      action: {
+        kind: "search",
+        query: { ...snapshot.plan.queries[0]!, query, page: 1 },
+      },
+      parentKey: searches.at(-1)?.key ?? null,
+      depth: 0,
+      title: null,
+    });
+  }
+  return choices;
+}
+
 /** Supplies bounded alternatives to model routing while keeping URLs, queries, depth and attempt ceilings under deterministic control. */
 export function explorationChoices(
   snapshot: DiscoveryExploration,
 ): DiscoveryDecision[] {
   const first = planExploration(snapshot);
-  if (!first.action || snapshot.plan.policy !== "public-intent-v3") {
+  const contextual =
+    snapshot.plan.exploration?.candidatePolicy === "contextual-v1";
+  if (
+    snapshot.plan.policy !== "public-intent-v3" ||
+    !snapshot.plan.exploration ||
+    snapshot.plan.blockedReason ||
+    snapshot.round >= snapshot.plan.exploration.maximumRounds ||
+    (!first.action && !contextual)
+  ) {
     return [first];
   }
   const settings = snapshot.plan.exploration!;
@@ -384,31 +411,7 @@ export function explorationChoices(
       });
     }
   }
-  const searches = snapshot.operations.filter(
-    ({ input }) => input.kind === "search",
-  );
-  if (searches.length < settings.maximumSearches) {
-    for (const target of snapshot.plan.strategy?.targets ?? [settings.target]) {
-      const query = `${target}${settings.remote ? " remote" : ""} ${snapshot.plan.category === "employment" ? '"apply"' : '\"project brief\"'}`;
-      if (
-        searches.some(
-          ({ input }) => input.kind === "search" && input.query.query === query,
-        )
-      ) {
-        continue;
-      }
-      choices.push({
-        reason: "refine_demand_query",
-        action: {
-          kind: "search",
-          query: { ...snapshot.plan.queries[0]!, query, page: 1 },
-        },
-        parentKey: searches.at(-1)?.key ?? null,
-        depth: 0,
-        title: null,
-      });
-    }
-  }
+  choices.push(...alternativeSearchChoices(snapshot));
   choices.push({
     reason: "no_further_action",
     action: null,
@@ -416,9 +419,27 @@ export function explorationChoices(
     depth: 0,
     title: null,
   });
-  return [
+  const unique = [
     ...new Map(
       choices.map((choice) => [JSON.stringify(choice), choice]),
     ).values(),
   ];
+  if (!contextual) {
+    return unique;
+  }
+  const selected = contextualDocumentChoices(snapshot, unique);
+  const actions = [
+    ...selected,
+    ...unique.filter((choice) => choice.action?.kind === "search"),
+  ];
+  // Keep the model's schema bound and an explicit stop; failed reasoning uses planExploration separately.
+  return [
+    ...new Map(
+      actions
+        .filter((choice) => choice.action)
+        .map((choice) => [JSON.stringify(choice.action), choice]),
+    ).values(),
+  ]
+    .slice(0, 15)
+    .concat(unique.find((choice) => !choice.action)!);
 }

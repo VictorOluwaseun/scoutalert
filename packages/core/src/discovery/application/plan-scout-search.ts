@@ -12,7 +12,8 @@ import {
   type DiscoveryReasoningInput,
   type DiscoveryReasoningOutput,
 } from "../domain/reasoning.js";
-import { explorationChoices } from "./plan-exploration.js";
+import { explorationChoices, planExploration } from "./plan-exploration.js";
+import { contextualCandidateHints } from "./contextual-candidates.js";
 
 /** Adds model understanding and evidence-led action selection without giving the model control over constraints, URLs or budgets. */
 export class PlanScoutSearch {
@@ -60,6 +61,7 @@ export class PlanScoutSearch {
     return {
       ...plan,
       policy: "public-intent-v3",
+      exploration: { ...plan.exploration, candidatePolicy: "contextual-v1" },
       queries,
       strategy: {
         targets,
@@ -71,7 +73,7 @@ export class PlanScoutSearch {
     };
   }
 
-  /** Chooses a finite observed action after reviews settle; failed reasoning uses the deterministic first choice. */
+  /** Chooses a finite observed action after reviews settle; failed reasoning keeps the conservative keyword fallback. */
   async next(
     request: ScoutRunRequest,
     snapshot: DiscoveryExploration,
@@ -89,6 +91,9 @@ export class PlanScoutSearch {
         remote: settings.remote,
       },
       choices,
+      ...(settings.candidatePolicy === "contextual-v1"
+        ? { candidates: contextualCandidateHints(snapshot, choices) }
+        : {}),
       evidence: [
         ...(snapshot.reviews ?? [])
           .slice(0, 12)
@@ -134,7 +139,9 @@ export class PlanScoutSearch {
     if (result === "progress" || result === "waiting") {
       return result;
     }
-    return result?.kind === "choice" ? choices[result.index]! : choices[0]!;
+    return result?.kind === "choice"
+      ? choices[result.index]!
+      : planExploration(snapshot);
   }
 
   /** Performs at most one paid model call per activity; ready results and unavailable attempts never repeat it. */

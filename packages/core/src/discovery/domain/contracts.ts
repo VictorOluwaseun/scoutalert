@@ -106,6 +106,8 @@ export interface DiscoveryPlan {
   blockedReason: "public_intent_required" | null;
   /** Frozen public intent and finite exploration bounds; absent on historical fixed plans. */
   exploration?: {
+    /** Frozen routing version; plans without this field retain their historical keyword shortlist. */
+    candidatePolicy?: "contextual-v1";
     target: string;
     remote: boolean;
     maximumRounds: number;
