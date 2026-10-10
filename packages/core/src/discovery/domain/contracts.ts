@@ -263,6 +263,8 @@ export interface DiscoveryLeadView {
   lastSeenAt: string;
   checkedAt: string | null;
   contentStatus: string;
+  /** Last source access outcome; absent on historical responses. */
+  contentReason?: string | null;
   content: string | null;
   postingId: string | null;
   scouts: string[];

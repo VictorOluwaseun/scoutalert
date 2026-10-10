@@ -1,3 +1,4 @@
+import { sourceAccessMessage } from "./source-access-message";
 import { Icon } from "@repo/ui/components/icon";
 import { buttonVariants } from "@repo/ui/components/button";
 import type { WebDiscoveryLead } from "./discovery-contracts";
@@ -100,7 +101,9 @@ export function LeadCard({ lead }: { lead: WebDiscoveryLead }) {
         <span className="web-lead-check" data-reviewed={sourceReviewed}>
           <Icon name={sourceReviewed ? "check" : "clock"} size={16} />
           {sourceReviewed
-            ? "Source reviewed · Fit needs checking"
+            ? lead.review?.label === "directory"
+              ? "Source reviewed · Links need checking"
+              : "Source reviewed · Fit needs checking"
             : lead.review
               ? "Excerpt review · Source unverified"
               : (contentLabels[lead.contentStatus] ?? "Source status unknown")}
@@ -140,9 +143,7 @@ export function LeadCard({ lead }: { lead: WebDiscoveryLead }) {
           {lead.review && (
             <section className="web-lead-review">
               <h4>
-                {sourceReviewed
-                  ? "AI source review"
-                  : "Tentative excerpt review"}
+                {sourceReviewed ? "Source review" : "Tentative excerpt review"}
               </h4>
               <p>{lead.review.explanation}</p>
               {lead.review.quotes.map((quote, index) => (
@@ -180,6 +181,9 @@ export function LeadCard({ lead }: { lead: WebDiscoveryLead }) {
             A search result alone does not confirm that this opportunity fits
             your brief.
           </p>
+          {sourceAccessMessage(lead.contentReason) && (
+            <p>{sourceAccessMessage(lead.contentReason)}</p>
+          )}
           <p className="web-lead-date">
             Seen {discoveryTimestamp(lead.lastSeenAt)}
             {lead.checkedAt && (

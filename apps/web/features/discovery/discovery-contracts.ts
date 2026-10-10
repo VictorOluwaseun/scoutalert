@@ -51,6 +51,8 @@ export interface WebDiscoveryLead {
   lastSeenAt: string;
   checkedAt: string | null;
   contentStatus: string;
+  /** Last source access outcome; absent on historical responses. */
+  contentReason?: string | null;
   content: string | null;
   postingId: string | null;
   scouts: string[];
@@ -142,6 +144,8 @@ function lead(value: unknown): value is WebDiscoveryLead {
     nullableText(value.title, 1000) &&
     nullableText(value.snippet, 8000) &&
     nullableText(value.content, 16000) &&
+    (value.contentReason === undefined ||
+      nullableText(value.contentReason, 100)) &&
     nullableText(value.postingId, 128) &&
     nullableText(value.checkedAt, 64) &&
     typeof value.firstSeenAt === "string" &&

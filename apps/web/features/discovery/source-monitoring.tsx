@@ -1,3 +1,4 @@
+import { sourceAccessMessage } from "./source-access-message";
 import { Icon } from "@repo/ui/components/icon";
 import type { SourceMonitor } from "./discovery-contracts";
 import { discoveryTimestamp } from "./discovery-presentation";
@@ -54,6 +55,9 @@ export function SourceMonitoring({
               </h3>
               <p>{new URL(source.url).hostname}</p>
               <p>{monitorStatus(source)}</p>
+              {sourceAccessMessage(source.reason) && (
+                <p>{sourceAccessMessage(source.reason)}</p>
+              )}
               <p>{source.scouts.join(", ")}</p>
               <p>
                 {source.checks} checks · {source.changes} changes ·{" "}
