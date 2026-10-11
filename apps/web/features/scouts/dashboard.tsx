@@ -13,13 +13,14 @@ import type { ScoutDashboard } from "./scout-contracts";
 /** Summarizes dated source coverage separately from opportunities; the expanded note explains the limits of those reads. */
 function SearchCoverage({
   discovery,
+  asOf,
 }: {
   discovery: ScoutDashboard["discovery"];
+  asOf: number;
 }) {
   const freshSources = discovery.sources.filter(
     (source) =>
-      source.checkedAt &&
-      Date.now() - Date.parse(source.checkedAt) < 30 * 60_000,
+      source.checkedAt && asOf - Date.parse(source.checkedAt) < 30 * 60_000,
   );
   const refreshFailed = discovery.sources.some((source) => source.failedAt);
 
@@ -69,10 +70,12 @@ export function Dashboard({
   page,
   olderPage,
   updated = false,
+  asOf,
 }: {
   page: ScoutDashboard;
   olderPage: boolean;
   updated?: boolean;
+  asOf: number;
 }) {
   const hasScouts = page.items.length > 0;
   const hasActiveScouts = page.items.some((scout) => scout.status === "active");
@@ -327,7 +330,7 @@ export function Dashboard({
               </span>
               <Icon name="arrowRight" size={17} />
             </Link>
-            <SearchCoverage discovery={page.discovery} />
+            <SearchCoverage discovery={page.discovery} asOf={asOf} />
           </aside>
         </div>
         <footer className="dashboard-footer">

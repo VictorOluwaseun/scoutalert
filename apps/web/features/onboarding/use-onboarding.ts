@@ -39,10 +39,11 @@ export function useOnboarding(contact: {
   const stage = requestedStage ?? "goal";
   const initialRequestedStage = useRef(requestedStage);
   const initialHasStep = useRef(searchParams.has("step"));
+  const initialScoutId = useRef(searchParams.get("scout") ?? undefined);
   const freshStart = useRef(searchParams.get("new") === "1");
-  const searchReviewed = useRef(false);
+  const [searchReviewed, setSearchReviewed] = useState(false);
   const hasPushedStep = useRef(false);
-  const pendingResume = useRef<Stage | null>(null);
+  const [pendingResume, setPendingResume] = useState<Stage | null>(null);
   const [draft, setDraft] = useState(createDraft);
   const [loaded, setLoaded] = useState(false);
   const [storageAvailable, setStorageAvailable] = useState(true);
@@ -60,7 +61,7 @@ export function useOnboarding(contact: {
         return;
       }
 
-      searchReviewed.current = review?.ready === true;
+      setSearchReviewed(review?.ready === true);
       setDraft(restored.draft);
       setStorageAvailable(restored.available);
       setLoaded(true);
@@ -71,19 +72,16 @@ export function useOnboarding(contact: {
       const safeStage = accessibleStage(
         restored.draft,
         initial,
-        searchReviewed.current,
+        review?.ready === true,
         {
           challenge: true,
-          saved: initial === "ready" && Boolean(searchParams.get("scout")),
+          saved: initial === "ready" && Boolean(initialScoutId.current),
         },
       );
-      const safeRoute = routeForStage(
-        safeStage,
-        searchParams.get("scout") ?? undefined,
-      );
+      const safeRoute = routeForStage(safeStage, initialScoutId.current);
 
       if (safeRoute !== window.location.pathname + window.location.search) {
-        pendingResume.current = safeStage;
+        setPendingResume(safeStage);
         router.replace(safeRoute, { scroll: false });
       }
     });
@@ -98,18 +96,20 @@ export function useOnboarding(contact: {
       return;
     }
 
+    if (pendingResume !== null && pendingResume !== stage) {
+      return;
+    }
+
     if (requestedStage === null) {
       router.replace(routeForStage("goal"), { scroll: false });
 
       return;
     }
 
-    const safeStage = accessibleStage(
-      draft,
-      stage,
-      searchReviewed.current,
-      contact,
-    );
+    const safeStage = accessibleStage(draft, stage, searchReviewed, {
+      challenge: contact.challenge,
+      saved: contact.saved,
+    });
 
     if (safeStage === stage) {
       return;
@@ -125,6 +125,8 @@ export function useOnboarding(contact: {
     requestedStage,
     router,
     stage,
+    pendingResume,
+    searchReviewed,
   ]);
 
   useEffect(() => {
@@ -132,14 +134,15 @@ export function useOnboarding(contact: {
       return;
     }
 
-    if (pendingResume.current !== null && pendingResume.current !== stage) {
+    if (pendingResume !== null && pendingResume !== stage) {
       return;
     }
 
-    pendingResume.current = null;
-
     if (
-      accessibleStage(draft, stage, searchReviewed.current, contact) !== stage
+      accessibleStage(draft, stage, searchReviewed, {
+        challenge: contact.challenge,
+        saved: contact.saved,
+      }) !== stage
     ) {
       return;
     }
@@ -148,13 +151,22 @@ export function useOnboarding(contact: {
     void saveDraft(draft, stage).then((available) => {
       if (!cancelled) {
         setStorageAvailable(available);
+        setPendingResume(null);
       }
     });
 
     return () => {
       cancelled = true;
     };
-  }, [draft, stage, loaded, contact.challenge, contact.saved]);
+  }, [
+    draft,
+    stage,
+    loaded,
+    contact.challenge,
+    contact.saved,
+    pendingResume,
+    searchReviewed,
+  ]);
 
   /** Applies user edits locally, preserving unrelated answers and clearing obsolete validation messages. */
   function update(patch: Partial<ScoutDraft>) {
@@ -163,7 +175,7 @@ export function useOnboarding(contact: {
         searchFields.has(field as keyof ScoutDraft),
       )
     ) {
-      searchReviewed.current = false;
+      setSearchReviewed(false);
     }
 
     setDraft((previous) => ({ ...previous, ...patch }));
@@ -173,6 +185,7 @@ export function useOnboarding(contact: {
   /** Adds a same-origin history entry so browser Back and Forward follow the flow. */
   function navigate(next: Stage, scoutId?: string) {
     hasPushedStep.current = true;
+    setPendingResume(null);
     router.push(routeForStage(next, scoutId), { scroll: false });
     setError("");
     window.scrollTo({ top: 0, behavior: "instant" });
@@ -180,6 +193,7 @@ export function useOnboarding(contact: {
 
   /** Uses actual browser history after in-flow navigation, with a logical fallback for direct links. */
   function goBack(fallback: Stage) {
+    setPendingResume(null);
     if (hasPushedStep.current) {
       router.back();
 
@@ -191,7 +205,7 @@ export function useOnboarding(contact: {
 
   /** Trusts only the current session's successful server review for later screens. */
   function markSearchReviewed() {
-    searchReviewed.current = true;
+    setSearchReviewed(true);
   }
 
   /** Validates an opening request and seeds only known example text; this is not AI interpretation. */
@@ -216,7 +230,8 @@ export function useOnboarding(contact: {
   function discard() {
     const empty = createDraft();
     empty.timezone = Intl.DateTimeFormat().resolvedOptions().timeZone ?? "";
-    searchReviewed.current = false;
+    setSearchReviewed(false);
+    setPendingResume(null);
     hasPushedStep.current = false;
     setDraft(empty);
     router.replace(routeForStage("goal"), { scroll: false });
@@ -227,8 +242,8 @@ export function useOnboarding(contact: {
     loaded &&
     contact.loaded &&
     requestedStage !== null &&
-    (pendingResume.current === null || pendingResume.current === stage) &&
-    accessibleStage(draft, stage, searchReviewed.current, contact) === stage;
+    (pendingResume === null || pendingResume === stage) &&
+    accessibleStage(draft, stage, searchReviewed, contact) === stage;
 
   return {
     draft,

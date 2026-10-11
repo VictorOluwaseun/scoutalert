@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { Button, buttonVariants } from "@repo/ui/components/button";
 import { Icon } from "@repo/ui/components/icon";
@@ -76,10 +76,13 @@ export function OnboardingExperience() {
   const [reviewBusy, setReviewBusy] = useState(false);
   const reviewPending = useRef(false);
   const latestDraft = useRef(draft);
-  latestDraft.current = draft;
   const helpDialog = useRef<HTMLDialogElement>(null);
   const discardDialog = useRef<HTMLDialogElement>(null);
   const currentIndex = stageIndex[stage];
+
+  useLayoutEffect(() => {
+    latestDraft.current = draft;
+  }, [draft]);
 
   useEffect(() => {
     if (!routeReady) {

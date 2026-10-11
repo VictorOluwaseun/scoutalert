@@ -29,6 +29,7 @@ export default async function DashboardPage({
         page={result.page}
         olderPage={Boolean(after)}
         updated={query.updated === "1"}
+        asOf={result.readAt}
       />
     );
   }

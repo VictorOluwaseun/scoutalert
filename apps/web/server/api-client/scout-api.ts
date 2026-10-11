@@ -60,7 +60,7 @@ function apiHeaders(
 }
 
 export type DashboardRead =
-  | { status: "ready"; page: ScoutDashboard }
+  | { status: "ready"; page: ScoutDashboard; readAt: number }
   | { status: "signed_out" | "unavailable" | "invalid_cursor" };
 
 /** Reads account-owned scouts directly from Nest for server rendering; cookies and transport keys stay server-only. */
@@ -114,7 +114,9 @@ export async function readScoutDashboard(
 
     const page = parseScoutDashboard(await response.json());
 
-    return page ? { status: "ready", page } : { status: "unavailable" };
+    return page
+      ? { status: "ready", page, readAt: Date.now() }
+      : { status: "unavailable" };
   } catch {
     return { status: "unavailable" };
   }
@@ -392,7 +394,7 @@ export async function finishGmailConnection(
     "/dashboard/connections",
     process.env.SCOUTALERT_WEB_ORIGIN ?? callback.origin,
   );
-  let result = "failed";
+  let result: string;
   try {
     const session = await requestSession();
     const state = callback.searchParams.get("state");
