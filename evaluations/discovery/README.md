@@ -214,3 +214,52 @@ The live diagnostic makes at most four document captures and optionally saves a 
 Core/adapters/API/worker builds, web type checks and architecture checks pass. The existing web ESLint configuration skips TS by default and misinterprets TS/TSX when forced; it is recorded as a tooling limitation, not a passing lint check. Independent relevance, real useful-result yield and global capacity remain unmeasured by this check.
 
 `sitemap-activation-2026-10-10.json` records the subsequent local restart: nine worker pools running, web/API/Mailpit healthy, one new capture with a sitemap advertisement and no sitemap capture yet at the initial snapshot. The worker continues on existing schedules and budgets. This runtime evidence is separate from the isolated fixture and public diagnostic checks.
+
+## Live search quality checks — 12 October
+
+[`live-quality-summary-2026-10-12.json`](live-quality-summary-2026-10-12.json) indexes seven real-provider runs with synthetic accounts and predefined US/remote briefs. Each run has a fresh disposable PostgreSQL schema, at most six searches, six document reads and 36 AI attempts ($0.06 search and $2.70 AI reservation ceilings). They use Serper, the configured assessment model and the normal discovery/review/matching/delivery use cases. SMTP is explicitly local Mailpit. Native X and Freelancer's separate connector loops are outside this diagnostic; no real scout was edited by the runs.
+
+| Scenario/run | Seconds | Leads | Captured pages | Dashboard candidates | Mailpit digests | Estimated AI USD | Search reservation USD |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Jobs, initial | 81.132 | 55 | 5 | 0 | 0 | 0.072089 | 0.06 |
+| Projects, initial | 83.260 | 48 | 3 | 0 | 0 | 0.044428 | 0.05 |
+| Services, initial | 57.170 | 49 | 2 | 0 | 0 | 0.038722 | 0.05 |
+| Jobs, refined | 94.009 | 54 | 6 | 2 before policy correction | 1 | 0.075915 | 0.06 |
+| Projects, refined | 56.844 | 46 | 4 | 0 | 0 | 0.059221 | 0.05 |
+| Services, refined | 44.234 | 42 | 2 | 0 | 0 | 0.032171 | 0.05 |
+| Services, rendering enabled | 66.419 | 32 | 2 (one incomplete) | 0 | 0 | 0.029848 | 0.04 |
+
+These are small sequential development checks, not paired controlled benchmarks. Queries/results and model decisions can vary between runs. The initial three reports retained only the dashboard's 40-lead sample; their source-label totals are incomplete. Later reports retain every case lead. None has independent usefulness labels or a known-positive recall denominator. Zero results means no useful-result cost can be calculated, not that the search was free. Across seven runs, known AI cost estimates total $0.352394 and configured search reservations total $0.36. These exclude unpriced failed attempts, infrastructure and provider billing adjustments; reservations are not invoices.
+
+### Findings and changes
+
+The initial job run spent page capacity on sign-up and automated-application marketing. Candidate selection now filters those destinations using path/anchor context, retains real listings that mention sign-in and reuses observed redirect identity. Project/service queries now explicitly target hiring/freelance demand and can refine toward project budgets. Navigation regressions pass, but these small repeats do not establish a general recall improvement.
+
+The refined job path captured six pages, published four unique open postings and produced two dashboard repository results. [`live-quality-mailpit-2026-10-12.json`](live-quality-mailpit-2026-10-12.json) verifies one captured synthetic digest with both titles/URLs and no retry duplicate. This exercises the real dashboard data repository and SMTP transport; it is not an authenticated browser test of those results.
+
+Evidence review then caught a false positive: Wander's Staff Product Designer posting asked for 10–13+ years of product design experience, while the brief supplied five. The model marked experience as meeting the requirement despite its own explanation admitting the gap. The old domain policy also failed to exclude experience conflicts. Both paths are now corrected under `supported-criteria-v4`: supported experience conflicts exclude the recommendation, and a narrow English numerical comparison corrects explicit same-area tenure contradictions. It does not infer total tenure from overlapping roles, turn preferred criteria into mandatory ones, or claim universal experience verification.
+
+[`live-quality-policy-replay-2026-10-12.json`](live-quality-policy-replay-2026-10-12.json) replays the two accepted candidates against saved evidence with no model/search/email calls: the Staff role is excluded and the Senior Product Designer remains reviewable with skills and authorization still unresolved. The historical two-result Mailpit message is retained as evidence of the defect. Old persisted AI assessments cannot trigger another digest or prompt until reassessed; current domain rules also run over reused model proposals. The provider prompt/cache identity is unchanged because the correction belongs to domain policy.
+
+Project captures were mostly directories or employment postings; services included seller pages and inaccessible social demand. The first six diagnostics inadvertently disabled browser rendering when its environment setting was omitted, although their reader was named `worker`. That diagnostic default is corrected to use validated worker configuration. The seventh run records actual browser use: Contra returned an incomplete capture (`browser_resource_unavailable`), social sources denied crawling, and the only complete reviewed page offered services rather than requesting them. No blocked or incomplete page became a match. Wider access and useful buyer-demand yield remain open work.
+
+### Reproduction and checks
+
+```sh
+pnpm --filter @repo/core build
+pnpm --filter @repo/adapters build
+pnpm --filter worker build
+# Intentional paid diagnostic; output paths must be new. Repeat per desired scenario.
+node scripts/evaluation/check-live-scout-quality.mjs --scenario=services --output=/tmp/new-service-report.json
+# Frozen monotonic policy replay; no external calls or delivery.
+node scripts/evaluation/replay-live-quality.mjs evaluations/discovery/live-quality-jobs-refined-2026-10-12.json /tmp/new-policy-replay.json
+node --test packages/eslint-config/config.test.mjs scripts/evaluation/live-quality-summary.test.mjs
+pnpm --filter web lint
+node scripts/check-onboarding-navigation.mjs
+```
+
+The diagnostic requires the existing local PostgreSQL and Mailpit services, worker configuration and browser runtime. It consumes its own small isolated allowances, separate from the running worker ledger, and removes its generated schema on completion. Source URLs, quotes, pending states and costs stay in the saved report. Model labels are not independent judgments.
+
+The focused discovery pass has 93 passing checks and six opt-in browser skips; the final fit/navigation pass has 41 passing checks. Isolated web persistence checks pass 25 cases, and scouting/intelligence/delivery checks pass 17, including Mailpit retry suppression and withholding v3 assessments. Core/adapters/worker/API builds, web type checking and architecture checks pass. Web lint now passes with real TS/TSX coverage, resolving the 10 October tooling limitation. Three lint-config regressions and two summary-integrity checks pass. The ESLint parser uses its supported tooling-local TypeScript 6.0.2; application compiler versions are unchanged. The browser onboarding regression uses mocked review/identity routes and verifies Back/Forward, restored state and stale-review rejection; it does not send mail or save an account.
+
+[`live-quality-activation-2026-10-12.json`](live-quality-activation-2026-10-12.json) records the updated local API, preview and Mailpit responding with HTTP 200 and all nine worker pools starting. Configured budgets, schedules and transport settings are retained. The first aggregate snapshot still has 51 v3 AI assessments and 85 unversioned provisional assessments; no v4 result had yet been persisted. The old AI assessments await normal scheduled reassessment and cannot trigger new mail under the current gate. Provisional title matches retain their existing digest rules. Startup is not proof that every saved scout has been reassessed.

@@ -239,3 +239,18 @@ DACC-005/010/011/013/017 now also cover same-origin robots-advertised XML sitema
 Controlled database checks pass for index-to-sitemap-to-detail discovery, two-owner reuse and changed-map monitoring. Unit checks cover XML/namespace admission, bounded gzip, redirect policies/loops/hop limits, private-address/credential rejection and page-versus-host access failures. Dashboard details show known access reasons, while historical responses without a reason remain compatible.
 
 The live sample adds 78 URLs relative to a bounded homepage capture, including directory/filter pages; no independently assessed new match is claimed. Large maps, cross-site sitemap submissions, resumable coverage, measured organic yield and deployment-scale evidence remain open. See [implementation and receipts](scoutalert-deeper-source-discovery.md#advertised-sitemaps-and-checked-redirects--10-october). These checks extend the gates; they do not close the full platform's coverage or quality gates.
+
+## Live search and fit correction — 12 October
+
+Seven bounded real-provider runs now cover employment, client projects and service requests using predefined synthetic briefs, isolated PostgreSQL schemas and local Mailpit. The [results and limitations](../../evaluations/discovery/README.md#live-search-quality-checks--12-october) retain unsuccessful runs, source-access failures, token cost estimates and the original false-positive email. They do not establish independent precision, missed-opportunity recall, global capacity or useful-result cost.
+
+The following regression gates pass:
+
+- Account/sign-up and automated-application marketing links are excluded from candidate navigation even when labelled “Apply now”; valid listing pages containing sign-in instructions remain eligible. An observed redirect destination cannot be selected again as a new page in that case.
+- Source-backed experience conflicts exclude a recommendation. A narrowly supported numerical shortfall must override an incorrect positive model verdict; ambiguous tenure, unrelated experience and preferred criteria must not invent a shortfall.
+- Current assessments use `supported-criteria-v4`. Older persisted AI assessments are withheld from digest and prompt delivery until reassessed. Cached extraction/fit proposals are checked against current domain rules without requiring a model call solely for the policy revision.
+- One grouped delivery is captured in Mailpit; retrying does not send a second digest. Isolated delivery tests cover current consent, ownership, freshness and assessment policy. The historical live job digest contained two candidates, including the subsequently rejected experience mismatch; it must not be cited as two useful matches.
+- Live reports count all case leads separately from the dashboard's 40-item sample, preserve missing cost estimates and distinguish complete from incomplete browser captures. Browser diagnostics use the worker's validated rendering default.
+- Web lint checks real TypeScript/TSX and fails on unused values or syntax errors. Browser checks cover onboarding restoration, Back/Forward and rejection of a stale review after editing.
+
+The saved job replay changes two accepted candidates to one reviewable candidate, with unresolved skills and authorization explicitly retained. Both project runs and all service runs produced zero accepted matches. The rendered service case still encountered denied social access, an incomplete portal capture and a seller page. These results keep the organic demand-quality and useful-coverage gates open. Next evidence must include readable client demand, independently judged results and a known-opportunity set for recall; increasing URL counts cannot substitute for those outcomes.

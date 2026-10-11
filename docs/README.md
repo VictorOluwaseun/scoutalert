@@ -2,7 +2,7 @@
 
 **Baseline revision:** 0.3
 
-**Updated:** 4 October 2026
+**Updated:** 12 October 2026
 
 ScoutAlert is a continuously operating opportunity intelligence platform with persistent personal Scouts and internet-wide discovery as a core capability. These documents define the agreed target, implementation boundaries and evidence required for release. Milestones sequence delivery without reducing the product to onboarding or a fixed source list.
 
@@ -59,6 +59,8 @@ The existing local path includes reviewed onboarding, real Mailpit verification,
 The [first web discovery implementation](engineering/scoutalert-web-discovery.md) provides an opt-in Serper adapter, shared query admission, incomplete leads, public evidence and a connected private UI. Live Serper access passed a one-query contract check and is enabled locally; the recorded source-page check remained access-limited. [Native X discovery](engineering/scoutalert-native-social-discovery.md) now has recent-search/lookup adapters and shared durable progress; live recent search, post refresh and bounded parent/quote/conversation context lookup are verified locally. Related authors remain separately attributed; missing context and independent quality measurements remain explicit. Reviewed-page monitoring and a bounded observed-link frontier are implemented. [Measured discovery scheduling](engineering/scoutalert-discovery-scheduling.md) now prioritizes approved queries and source checks, slows repeated low-yield native work, and paces the X allowance across the day. Independent quality and global capacity remain unproven. Broader thread/stream access, source protocols and the full four-role adaptive architecture remain incomplete. Semantic retrieval, independently reviewed broad quality, representative global capacity and production delivery operations remain unverified or unimplemented as recorded in the roadmap.
 
 The [assessment packet](../evaluations/opportunity-quality/README.md) and [marketplace checks](../evaluations/marketplace-discovery/README.md) retain their narrower historical evidence. A completed onboarding or configured-source loop cannot close the broader discovery gates.
+
+The [12 October live checks](../evaluations/discovery/README.md#live-search-quality-checks--12-october) exercise public search through source review, personal fit, dashboard repositories and local Mailpit with synthetic accounts. They exposed navigation waste, poor project/service yield and an incorrect experience match. Navigation filtering and current fit policy now reject those demonstrated errors; a frozen job replay retains one reviewable result, with unresolved requirements. This is partial operating evidence, not independent relevance or recall. Web TypeScript/TSX linting is repaired and the onboarding navigation regression passes.
 
 ## Design provenance
 
