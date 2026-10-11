@@ -1,6 +1,13 @@
 {
   "$schema": "https://turborepo.dev/schema.json",
   "ui": "tui",
+  "globalEnv": [
+    "NODE_ENV",
+    "SCOUTALERT_API_URL",
+    "WEB_API_SECRET",
+    "SCOUTALERT_TRUST_PROXY",
+    "SCOUTALERT_WEB_ORIGIN"
+  ],
   "tasks": {
     "build": {
       "dependsOn": ["^build"],

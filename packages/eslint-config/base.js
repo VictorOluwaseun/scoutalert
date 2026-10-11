@@ -1,46 +1,23 @@
-import { createRequire } from "node:module";
-import babelParser from "@babel/eslint-parser";
 import js from "@eslint/js";
 import eslintConfigPrettier from "eslint-config-prettier";
 import turboPlugin from "eslint-plugin-turbo";
-import onlyWarn from "eslint-plugin-only-warn";
+import tseslint from "typescript-eslint";
+import { defineConfig, globalIgnores } from "eslint/config";
 
-const resolveDependency = createRequire(import.meta.url).resolve;
-
-/**
- * A shared ESLint configuration for the repository.
- *
- * @type {import("eslint").Linter.Config[]}
- * */
-export const config = [
+/** Shared syntax-aware rules; TypeScript uses its own scope analysis while tsc remains responsible for type checking. */
+export const config = defineConfig([
+  globalIgnores(["**/dist/**"]),
   js.configs.recommended,
+  {
+    files: ["**/*.{ts,tsx,mts,cts}"],
+    extends: [tseslint.configs.recommended],
+  },
   eslintConfigPrettier,
   {
-    languageOptions: {
-      parser: babelParser,
-      parserOptions: {
-        requireConfigFile: false,
-        babelOptions: {
-          // Resolve the preset from this package so hoisted dependencies cannot
-          // select a different Babel major version in consuming workspaces.
-          presets: [resolveDependency("@babel/preset-typescript")],
-        },
-      },
-    },
-    plugins: {
-      turbo: turboPlugin,
-    },
+    plugins: { turbo: turboPlugin },
     rules: {
       curly: ["error", "all"],
       "turbo/no-undeclared-env-vars": "warn",
     },
   },
-  {
-    plugins: {
-      onlyWarn,
-    },
-  },
-  {
-    ignores: ["dist/**"],
-  },
-];
+]);
