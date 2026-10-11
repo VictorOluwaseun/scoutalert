@@ -3,6 +3,7 @@ import { sourceNextPages } from "./source-pagination.js";
 import { sourceSearchUrls } from "./source-search.js";
 import { publicDestination } from "../domain/public-destination.js";
 import { contextualDocumentChoices } from "./contextual-candidates.js";
+import { discoveryNavigation } from "./discovery-navigation.js";
 import type {
   DiscoveryDecision,
   DiscoveryExploration,
@@ -78,8 +79,15 @@ function documentCandidates(
   words: string[],
 ): Candidate[] {
   const seen = new Set(
-    snapshot.operations.flatMap(({ input }) =>
-      input.kind === "document" ? [input.url] : [],
+    snapshot.operations.flatMap(({ input, result }) =>
+      input.kind === "document"
+        ? [
+            input.url,
+            ...(result?.kind === "document" && result.retrievedUrl
+              ? [result.retrievedUrl]
+              : []),
+          ]
+        : [],
     ),
   );
   const candidates: Candidate[] = [];
@@ -216,6 +224,7 @@ function documentCandidates(
     .filter(
       (candidate) =>
         !seen.has(candidate.url) &&
+        !discoveryNavigation(candidate.url, candidate.title) &&
         !rejected.has(candidate.url) &&
         publicDestination(candidate.url) &&
         !inaccessibleHosts.has(new URL(candidate.url).hostname) &&
@@ -330,7 +339,7 @@ export function planExploration(
   const suffixes =
     snapshot.plan.category === "employment"
       ? ['"apply"', '"we are hiring"']
-      : ['"project brief"', '"looking for" "budget"'];
+      : ['"hiring" "freelance"', '"project" "budget"'];
   const candidates = hasResults
     ? suffixes
     : snapshot.plan.category === "employment"
@@ -372,7 +381,7 @@ function alternativeSearchChoices(
   }
   const choices: DiscoveryDecision[] = [];
   for (const target of snapshot.plan.strategy?.targets ?? [settings.target]) {
-    const query = `${target}${settings.remote ? " remote" : ""} ${snapshot.plan.category === "employment" ? '"apply"' : '\"project brief\"'}`;
+    const query = `${target}${settings.remote ? " remote" : ""} ${snapshot.plan.category === "employment" ? '"apply"' : '"project" "budget"'}`;
     if (
       searches.some(
         ({ input }) => input.kind === "search" && input.query.query === query,

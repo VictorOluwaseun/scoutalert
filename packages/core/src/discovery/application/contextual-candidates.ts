@@ -5,6 +5,7 @@ import type {
 } from "../domain/contracts.js";
 import type { DiscoveryReasoningInput } from "../domain/reasoning.js";
 import { publicDestination } from "../domain/public-destination.js";
+import { discoveryNavigation } from "./discovery-navigation.js";
 
 type Candidate = {
   decision: DiscoveryDecision & { action: { kind: "document"; url: string } };
@@ -14,14 +15,15 @@ type Hints = NonNullable<
   Extract<DiscoveryReasoningInput, { kind: "choice" }>["candidates"]
 >;
 const negative = new Set(["closed", "service_offer", "discussion"]);
-const navigation =
-  /^(?:log[ -]?in|sign[ -]?in|sign[ -]?up|register|subscribe|privacy(?: policy)?|terms(?: of (?:use|service))?|cookie policy|home|next|previous|back)$/iu;
 
 /** Requires actual observed text but never requires a target-word match; navigation labels cannot fill the recall allowance. */
 function hasContext(candidate: Candidate): boolean {
   return (
     /[\p{L}\p{N}]{3}/u.test(candidate.text) &&
-    !navigation.test(candidate.decision.title?.trim() ?? "")
+    !discoveryNavigation(
+      candidate.decision.action.url,
+      candidate.decision.title,
+    )
   );
 }
 
@@ -32,7 +34,8 @@ function allowed(
 ): boolean {
   if (
     decision.action?.kind !== "document" ||
-    !publicDestination(decision.action.url)
+    !publicDestination(decision.action.url) ||
+    discoveryNavigation(decision.action.url, decision.title)
   ) {
     return false;
   }
@@ -48,7 +51,9 @@ function allowed(
         (parent?.input.kind === "document" && item.url === parent.input.url)),
   );
   const visited = snapshot.operations.some(
-    (item) => item.input.kind === "document" && item.input.url === url,
+    (item) =>
+      (item.input.kind === "document" && item.input.url === url) ||
+      (item.result?.kind === "document" && item.result.retrievedUrl === url),
   );
   const blockedHost = snapshot.operations.some(
     ({ result }) =>

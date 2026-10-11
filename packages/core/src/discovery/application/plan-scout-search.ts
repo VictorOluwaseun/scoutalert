@@ -49,7 +49,7 @@ export class PlanScoutSearch {
         : [input.intent.target];
     const initial = plan.queries[0]!;
     const demand =
-      plan.category === "employment" ? "jobs" : '"looking for" freelance';
+      plan.category === "employment" ? "jobs" : '"hiring" freelance';
     const suffix = input.intent.remote ? " remote" : "";
     const queries = [
       ...targets.map((target) => `${target}${suffix} ${demand}`),

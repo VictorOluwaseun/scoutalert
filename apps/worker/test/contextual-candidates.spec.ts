@@ -146,6 +146,49 @@ const request = {
 } as ScoutRunRequest;
 
 describe("contextual candidate selection", () => {
+  it("rejects account and auto-apply destinations even when their labels look like application evidence", () => {
+    const state = snapshot();
+    const links = [
+      {
+        url: "https://board.example.org/job-seekers/account/register?alert=details",
+        text: "Apply now",
+      },
+      { url: "https://board.example.org/get-started", text: "Apply Now" },
+      {
+        url: "https://board.example.org/career-services/job-copilot",
+        text: "AI Auto-Apply",
+      },
+      { url: "https://employer.example.org/jobs/42/apply", text: "Apply now" },
+    ];
+    const page = directory(state, links);
+    page.text = "Product designer. We are hiring.";
+    page.url = "https://board.example.org/jobs/42";
+    const review = demandReview({
+      id: "fixture",
+      text: page.text,
+      scope: "source",
+    } as Parameters<typeof demandReview>[0]);
+    state.reviews = [{ url: page.url, scope: "source", review }];
+    const choices = urls(explorationChoices(state));
+    expect(choices).toContain(links[3]!.url);
+    expect(choices).not.toContain(links[0]!.url);
+    expect(choices).not.toContain(links[1]!.url);
+    expect(choices).not.toContain(links[2]!.url);
+    expect(planExploration(state).action).toMatchObject({ url: links[3]!.url });
+  });
+
+  it("does not spend another read on the final destination of an observed redirect", () => {
+    const destination = "https://board.example.org/listings/product-designer";
+    const state = snapshot([result("Product designer", destination)]);
+    directory(state, [
+      { url: destination, text: "Product designer" },
+    ]).retrievedUrl = destination;
+    expect(urls(explorationChoices(state))).not.toContain(destination);
+    expect(planExploration(state).action).not.toMatchObject({
+      url: destination,
+    });
+  });
+
   it.each([
     [
       "employment",
