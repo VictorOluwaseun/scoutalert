@@ -21,6 +21,94 @@ function change(
 }
 
 describe("evidence and personal fit policies", () => {
+  it("rejects a numerical experience shortfall even when the model marks partial skills as meeting it", () => {
+    const requirements =
+      "10 to 13+ years of product design experience shipping software products.";
+    const evidence = {
+      ...analysis,
+      facts: {
+        ...analysis.facts,
+        requirements: {
+          status: "stated" as const,
+          value: requirements,
+          quotes: [requirements],
+        },
+      },
+    };
+    const brief = {
+      ...search,
+      background:
+        "Five years of product and UX design for B2B SaaS products, prototyping and design systems",
+    };
+    expect(assessPersonalFit(brief, evidence, fit)).toBeNull();
+    expect(
+      assessPersonalFit(
+        { ...brief, background: "12 years of product design experience" },
+        evidence,
+        fit,
+      ),
+    ).not.toBeNull();
+  });
+
+  it("does not invent a numeric shortfall from lower bounds, multiple roles, unrelated domains or preferred tenure", () => {
+    const requirements = "10 years of product design experience";
+    const evidence = {
+      ...analysis,
+      facts: {
+        ...analysis.facts,
+        requirements: {
+          status: "stated" as const,
+          value: requirements,
+          quotes: [requirements],
+        },
+      },
+    };
+    for (const background of [
+      "5+ years of product design experience",
+      "At least five years of product design experience",
+      "5 years of product design and 12 years of software work",
+      "Five years of customer support experience",
+    ]) {
+      expect(
+        assessPersonalFit({ ...search, background }, evidence, fit),
+      ).not.toBeNull();
+    }
+    for (const quote of [
+      "Preferably 10 years of product design experience",
+      "10 years of product design experience preferred",
+      "Up to 10 years of product design experience",
+      "10 years of product design experience or equivalent practical skills",
+    ]) {
+      expect(
+        assessPersonalFit(
+          { ...search, background: "Five years of product design experience" },
+          {
+            ...evidence,
+            facts: {
+              ...evidence.facts,
+              requirements: { ...evidence.facts.requirements, quotes: [quote] },
+            },
+          },
+          fit,
+        ),
+      ).not.toBeNull();
+    }
+  });
+
+  it("excludes a cited experience conflict while missing experience stays unknown", () => {
+    expect(
+      assessPersonalFit(search, analysis, change("experience", "conflicts")),
+    ).toBeNull();
+    expect(
+      assessPersonalFit(
+        { ...search, background: "" },
+        analysis,
+        change("experience", "conflicts"),
+      )?.detail?.criteria.find((item) => item.criterion === "experience")
+        ?.status,
+    ).toBe("unknown");
+  });
+
   it("rejects invented source evidence, duplicate criteria, and invented profile quotes", () => {
     expect(validAnalysis(posting, analysis)).toBe(true);
     expect(

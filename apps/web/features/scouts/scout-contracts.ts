@@ -94,7 +94,10 @@ export interface Opportunity {
   } | null;
   detail?: {
     assessedBy: "ai";
-    verificationPolicy?: "supported-criteria-v2" | "supported-criteria-v3";
+    verificationPolicy?:
+      | "supported-criteria-v2"
+      | "supported-criteria-v3"
+      | "supported-criteria-v4";
     employerResearch?: {
       checkedAt: string;
       expiresAt: string;

@@ -52,7 +52,8 @@ export interface Assessment {
 /** Evidence-linked personal assessment with explicit unresolved research questions. */
 export interface AssessmentDetail {
   assessedBy: "ai";
-  verificationPolicy?: "supported-criteria-v2" | "supported-criteria-v3";
+  verificationPolicy?:
+    "supported-criteria-v2" | "supported-criteria-v3" | "supported-criteria-v4";
   employerResearch?: Omit<
     import("../research/employer-evidence.js").EmployerResearch,
     "documents"

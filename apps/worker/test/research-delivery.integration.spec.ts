@@ -248,7 +248,7 @@ describe.skipIf(!enabled)(
       const { ownerId } = await fixture();
       await observe();
       const candidates = await ledger.candidates();
-      await sql`UPDATE scout_recommendations SET assessment=jsonb_set(assessment,'{detail,verificationPolicy}','"supported-criteria-v2"')`.execute(
+      await sql`UPDATE scout_recommendations SET assessment=jsonb_set(assessment,'{detail,verificationPolicy}','"supported-criteria-v3"')`.execute(
         db,
       );
       expect(

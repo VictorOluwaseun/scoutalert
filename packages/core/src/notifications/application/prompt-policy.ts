@@ -89,7 +89,7 @@ export function hasUnavailablePosting(
 export function hasOutdatedAssessment(opportunity: OpportunityView): boolean {
   return (
     !!opportunity.detail &&
-    opportunity.detail.verificationPolicy !== "supported-criteria-v3"
+    opportunity.detail.verificationPolicy !== "supported-criteria-v4"
   );
 }
 

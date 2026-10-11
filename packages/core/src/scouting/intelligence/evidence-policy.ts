@@ -1,4 +1,5 @@
 import { arrangementCriterion } from "./arrangement-policy.js";
+import { experienceCriterion } from "./experience-policy.js";
 import { researchText, validResearch } from "../research/employer-evidence.js";
 import type { SearchDraft } from "../../onboarding/domain/search-draft.js";
 import type { Assessment, Posting } from "../domain/discovery.js";
@@ -179,13 +180,8 @@ export function assessPersonalFit(
       return payCriterion(search, analysis, item);
     }
 
-    if (item.criterion === "experience" && !search.background.trim()) {
-      return {
-        ...item,
-        status: "unknown",
-        explanation:
-          "Add your experience before we can assess these requirements.",
-      };
+    if (item.criterion === "experience") {
+      return experienceCriterion(search, analysis, item);
     }
 
     // A positive authorization comparison needs explicit, current user-declared details.
@@ -207,8 +203,7 @@ export function assessPersonalFit(
       };
     }
 
-    const factName =
-      item.criterion === "experience" ? "requirements" : item.criterion;
+    const factName = item.criterion;
 
     if (
       analysis.facts[factName].status !== "stated" &&
@@ -233,7 +228,8 @@ export function assessPersonalFit(
 
   if (
     get("location").status === "conflicts" ||
-    get("authorization").status === "conflicts"
+    get("authorization").status === "conflicts" ||
+    get("experience").status === "conflicts"
   ) {
     return null;
   }
@@ -280,7 +276,7 @@ export function assessPersonalFit(
     detail: {
       criteria,
       assessedBy: "ai",
-      verificationPolicy: "supported-criteria-v3",
+      verificationPolicy: "supported-criteria-v4",
       ...(analysis.research
         ? {
             employerResearch: {
