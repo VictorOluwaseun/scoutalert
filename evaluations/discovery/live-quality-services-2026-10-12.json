@@ -1,0 +1,3498 @@
+{
+  "checkedAt": "2026-10-11T23:27:01.254Z",
+  "scenario": "services",
+  "baseline": false,
+  "status": "measured",
+  "deliveryOutcome": "no_eligible_digest",
+  "reasoning": [
+    {
+      "input": {
+        "kind": "strategy",
+        "intent": {
+          "remote": true,
+          "target": "Website redesign",
+          "category": "services"
+        }
+      },
+      "output": {
+        "kind": "strategy",
+        "strategy": {
+          "targets": [
+            "Website redesign"
+          ],
+          "explanation": "Use the exact service phrase as one focused search target so matching stays precise. The remote preference will be handled separately by the query template, so it is not added here."
+        }
+      },
+      "rejected_output": null,
+      "failure": null,
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 1635,
+        "responseId": "resp_04fade48944e343a016acc1b0cead487d2bd00ea965beb8479",
+        "inputTokens": 217,
+        "outputTokens": 111,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 663
+      }
+    },
+    {
+      "input": {
+        "kind": "choice",
+        "intent": {
+          "remote": true,
+          "target": "Website redesign",
+          "category": "services"
+        },
+        "choices": [
+          {
+            "depth": 0,
+            "title": "Need advice: Juggling web dev freelancing vs. entry-level ...",
+            "action": {
+              "url": "https://www.reddit.com/r/jobs/comments/1wqs5sp/need_advice_juggling_web_dev_freelancing_vs/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "dcd0eee32ccb5b425a1521d15ff14f779c65bf275919331a3a2d5afed7fae123"
+          },
+          {
+            "depth": 0,
+            "title": "hire website redesign consultants - Next Hire Inc",
+            "action": {
+              "url": "https://nexthireinc.com/hire-website-redesign-specialists/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "dcd0eee32ccb5b425a1521d15ff14f779c65bf275919331a3a2d5afed7fae123"
+          },
+          {
+            "depth": 0,
+            "title": "Realizzazione siti web freelance Jobs, Employment",
+            "action": {
+              "url": "https://www.fr.freelancer.com/job-search/realizzazione-siti-web-freelance/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "dcd0eee32ccb5b425a1521d15ff14f779c65bf275919331a3a2d5afed7fae123"
+          },
+          {
+            "depth": 0,
+            "title": "Getting Your First Freelance Client When Nobody Knows You",
+            "action": {
+              "url": "https://www.linkedin.com/posts/adriansticea_how-do-you-get-your-first-freelance-client-activity-7508473993172021248-Fivv",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "b353d01e28194b779a8783c3b6b862e1e2cb07c9859fc10d1b9665ac7771ef52"
+          },
+          {
+            "depth": 0,
+            "title": "We're hiring! 👋🏼 We're on the hunt for a freelance Web Designer ...",
+            "action": {
+              "url": "https://www.facebook.com/quintsdesignco/posts/were-hiring-were-on-the-hunt-for-a-freelance-web-designer-developer-to-join-us-o/1782042740214502/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "dcd0eee32ccb5b425a1521d15ff14f779c65bf275919331a3a2d5afed7fae123"
+          },
+          {
+            "depth": 0,
+            "title": "Job Corner",
+            "action": {
+              "url": "https://x.com/i/status/2099415389125898353",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "285f7b6a3c29367ff0ccb324566bed17ee0d893cb8341e558c69eb8c0b690244"
+          },
+          {
+            "depth": 0,
+            "title": "Design Agencies Often Outsource Web Development",
+            "action": {
+              "url": "https://www.linkedin.com/posts/muhammadarman_most-design-agencies-sell-websites-very-activity-7506744720899964928--jAU",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "b353d01e28194b779a8783c3b6b862e1e2cb07c9859fc10d1b9665ac7771ef52"
+          },
+          {
+            "depth": 0,
+            "title": "We're hiring a Freelance Web Designer. If you know ...",
+            "action": {
+              "url": "https://www.instagram.com/p/Dd3wmgBFf5N/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "dcd0eee32ccb5b425a1521d15ff14f779c65bf275919331a3a2d5afed7fae123"
+          },
+          {
+            "depth": 0,
+            "title": "How to Hire Freelance Web Designers",
+            "action": {
+              "url": "https://www.upwork.com/hire/web-designers/how-to-hire/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "dcd0eee32ccb5b425a1521d15ff14f779c65bf275919331a3a2d5afed7fae123"
+          },
+          {
+            "depth": 0,
+            "title": "The 5 Website Agencies That Actually Understand ...",
+            "action": {
+              "url": "https://www.leanlabs.com/blog/website-redesign-agencies",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "dcd0eee32ccb5b425a1521d15ff14f779c65bf275919331a3a2d5afed7fae123"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "Website redesign remote \"project brief\"",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "b353d01e28194b779a8783c3b6b862e1e2cb07c9859fc10d1b9665ac7771ef52"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": null,
+            "reason": "no_further_action",
+            "parentKey": null
+          }
+        ],
+        "evidence": [
+          {
+            "url": "https://www.facebook.com/quintsdesignco/posts/were-hiring-were-on-the-hunt-for-a-freelance-web-designer-developer-to-join-us-o/1782042740214502/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "We're hiring! 👋🏼 We're on the hunt for a freelance Web Designer ... What We're Looking For: 3+ years of professional web development experience. Strong skills in HTML5, CSS3, JavaScript, and responsive design. Proven ..."
+          },
+          {
+            "url": "https://www.instagram.com/p/Dd3wmgBFf5N/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "We're hiring a Freelance Web Designer. If you know ... Nexus95 is looking for a skilled Website Developer for a remote, project-based opportunity. The ideal candidate should have strong experience in WordPress ..."
+          },
+          {
+            "url": "https://www.upwork.com/hire/web-designers/how-to-hire/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "How to Hire Freelance Web Designers Looking for expert tips on how to hire freelance Web Designers for your next project? Learn more about how to outsource on Upwork, hiring costs, and more."
+          },
+          {
+            "url": "https://nexthireinc.com/hire-website-redesign-specialists/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "hire website redesign consultants - Next Hire Inc Looking for accounting and business support that keeps your finances organized and operations running smoothly? Next Hire connects you with skilled remote ..."
+          },
+          {
+            "url": "https://www.reddit.com/r/jobs/comments/1wqs5sp/need_advice_juggling_web_dev_freelancing_vs/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Need advice: Juggling web dev freelancing vs. entry-level ... Student with UI/UX, web design & marketing experience looking for remote freelance work ... freelancing – offering affordable PowerPoint redesign & business text ..."
+          },
+          {
+            "url": "https://www.fr.freelancer.com/job-search/realizzazione-siti-web-freelance/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Realizzazione siti web freelance Jobs, Employment I'm looking for a commission-based outreach partner who can connect me with genuine businesses that currently need a website or website redesign. What you'll do ..."
+          },
+          {
+            "url": "https://www.leanlabs.com/blog/website-redesign-agencies",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "The 5 Website Agencies That Actually Understand ... A $30M-plus organization with multiple stakeholders and a full-service retainer budget is where they usually land. Founder-led SMBs looking for a small senior ..."
+          },
+          {
+            "url": "https://x.com/i/status/2099415389125898353",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Job Corner 15. Malt Connect with companies looking for independent professionals across technology, marketing, consulting, design and other fields."
+          },
+          {
+            "url": "https://www.linkedin.com/posts/muhammadarman_most-design-agencies-sell-websites-very-activity-7506744720899964928--jAU",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Design Agencies Often Outsource Web Development Retenda is rebuilding its own website. Design and content, from scratch. Looking for one person or a small team who can own both. Not a designer who \"also ..."
+          },
+          {
+            "url": "https://www.linkedin.com/posts/adriansticea_how-do-you-get-your-first-freelance-client-activity-7508473993172021248-Fivv",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Getting Your First Freelance Client When Nobody Knows You ... websites. Whether you're looking for a complete redesign and rebuild or simply need a few updates and improvements, I can tailor the approach to fit your needs."
+          }
+        ],
+        "candidates": [
+          {
+            "text": "Need advice: Juggling web dev freelancing vs. entry-level ... Student with UI/UX, web design & marketing experience looking for remote freelance work ... freelancing – offering affordable PowerPoint redesign & business text ...",
+            "query": "Website redesign remote \"looking for\" freelance",
+            "choice": 0,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "hire website redesign consultants - Next Hire Inc Looking for accounting and business support that keeps your finances organized and operations running smoothly? Next Hire connects you with skilled remote ...",
+            "query": "Website redesign remote \"looking for\" freelance",
+            "choice": 1,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Realizzazione siti web freelance Jobs, Employment I'm looking for a commission-based outreach partner who can connect me with genuine businesses that currently need a website or website redesign. What you'll do ...",
+            "query": "Website redesign remote \"looking for\" freelance",
+            "choice": 2,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Getting Your First Freelance Client When Nobody Knows You ... websites. Whether you're looking for a complete redesign and rebuild or simply need a few updates and improvements, I can tailor the approach to fit your needs.",
+            "query": "site:linkedin.com/posts Website redesign \"looking for\" freelance",
+            "choice": 3,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "We're hiring! 👋🏼 We're on the hunt for a freelance Web Designer ... What We're Looking For: 3+ years of professional web development experience. Strong skills in HTML5, CSS3, JavaScript, and responsive design. Proven ...",
+            "query": "Website redesign remote \"looking for\" freelance",
+            "choice": 4,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Job Corner 15. Malt Connect with companies looking for independent professionals across technology, marketing, consulting, design and other fields.",
+            "query": "site:x.com Website redesign \"looking for\" freelance",
+            "choice": 5,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Design Agencies Often Outsource Web Development Retenda is rebuilding its own website. Design and content, from scratch. Looking for one person or a small team who can own both. Not a designer who \"also ...",
+            "query": "site:linkedin.com/posts Website redesign \"looking for\" freelance",
+            "choice": 6,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "We're hiring a Freelance Web Designer. If you know ... Nexus95 is looking for a skilled Website Developer for a remote, project-based opportunity. The ideal candidate should have strong experience in WordPress ...",
+            "query": "Website redesign remote \"looking for\" freelance",
+            "choice": 7,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "How to Hire Freelance Web Designers Looking for expert tips on how to hire freelance Web Designers for your next project? Learn more about how to outsource on Upwork, hiring costs, and more.",
+            "query": "Website redesign remote \"looking for\" freelance",
+            "choice": 8,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "The 5 Website Agencies That Actually Understand ... A $30M-plus organization with multiple stakeholders and a full-service retainer budget is where they usually land. Founder-led SMBs looking for a small senior ...",
+            "query": "Website redesign remote \"looking for\" freelance",
+            "choice": 9,
+            "origin": "search_result",
+            "parentUrl": null
+          }
+        ]
+      },
+      "output": {
+        "kind": "choice",
+        "index": 4,
+        "explanation": "Best next step: review the freelance Web Designer hiring post, since it appears to be a direct remote website redesign opportunity with concrete skill requirements and likely clearer demand than the service/offer pages."
+      },
+      "rejected_output": null,
+      "failure": null,
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 2082,
+        "responseId": "resp_0a125c7bee0f2d10016acc1b1375c487d2b8f88af1cc522e97",
+        "inputTokens": 3012,
+        "outputTokens": 123,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 2813
+      }
+    },
+    {
+      "input": {
+        "kind": "choice",
+        "intent": {
+          "remote": true,
+          "target": "Website redesign",
+          "category": "services"
+        },
+        "choices": [
+          {
+            "depth": 0,
+            "title": "Need advice: Juggling web dev freelancing vs. entry-level ...",
+            "action": {
+              "url": "https://www.reddit.com/r/jobs/comments/1wqs5sp/need_advice_juggling_web_dev_freelancing_vs/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "dcd0eee32ccb5b425a1521d15ff14f779c65bf275919331a3a2d5afed7fae123"
+          },
+          {
+            "depth": 0,
+            "title": "hire website redesign consultants - Next Hire Inc",
+            "action": {
+              "url": "https://nexthireinc.com/hire-website-redesign-specialists/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "dcd0eee32ccb5b425a1521d15ff14f779c65bf275919331a3a2d5afed7fae123"
+          },
+          {
+            "depth": 0,
+            "title": "Realizzazione siti web freelance Jobs, Employment",
+            "action": {
+              "url": "https://www.fr.freelancer.com/job-search/realizzazione-siti-web-freelance/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "dcd0eee32ccb5b425a1521d15ff14f779c65bf275919331a3a2d5afed7fae123"
+          },
+          {
+            "depth": 0,
+            "title": "Getting Your First Freelance Client When Nobody Knows You",
+            "action": {
+              "url": "https://www.linkedin.com/posts/adriansticea_how-do-you-get-your-first-freelance-client-activity-7508473993172021248-Fivv",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "b353d01e28194b779a8783c3b6b862e1e2cb07c9859fc10d1b9665ac7771ef52"
+          },
+          {
+            "depth": 0,
+            "title": "We're hiring a Freelance Web Designer. If you know ...",
+            "action": {
+              "url": "https://www.instagram.com/p/Dd3wmgBFf5N/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "dcd0eee32ccb5b425a1521d15ff14f779c65bf275919331a3a2d5afed7fae123"
+          },
+          {
+            "depth": 0,
+            "title": "Job Corner",
+            "action": {
+              "url": "https://x.com/i/status/2099415389125898353",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "285f7b6a3c29367ff0ccb324566bed17ee0d893cb8341e558c69eb8c0b690244"
+          },
+          {
+            "depth": 0,
+            "title": "Design Agencies Often Outsource Web Development",
+            "action": {
+              "url": "https://www.linkedin.com/posts/muhammadarman_most-design-agencies-sell-websites-very-activity-7506744720899964928--jAU",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "b353d01e28194b779a8783c3b6b862e1e2cb07c9859fc10d1b9665ac7771ef52"
+          },
+          {
+            "depth": 0,
+            "title": "We're Hiring — Work From Anywhere! Looking for online ...",
+            "action": {
+              "url": "https://www.facebook.com/groups/5122685527800938/posts/28268605756115588/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "dcd0eee32ccb5b425a1521d15ff14f779c65bf275919331a3a2d5afed7fae123"
+          },
+          {
+            "depth": 0,
+            "title": "How to Hire Freelance Web Designers",
+            "action": {
+              "url": "https://www.upwork.com/hire/web-designers/how-to-hire/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "dcd0eee32ccb5b425a1521d15ff14f779c65bf275919331a3a2d5afed7fae123"
+          },
+          {
+            "depth": 0,
+            "title": "The 5 Website Agencies That Actually Understand ...",
+            "action": {
+              "url": "https://www.leanlabs.com/blog/website-redesign-agencies",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "dcd0eee32ccb5b425a1521d15ff14f779c65bf275919331a3a2d5afed7fae123"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "Website redesign remote \"project brief\"",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "b353d01e28194b779a8783c3b6b862e1e2cb07c9859fc10d1b9665ac7771ef52"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": null,
+            "reason": "no_further_action",
+            "parentKey": null
+          }
+        ],
+        "evidence": [
+          {
+            "url": "https://www.instagram.com/p/Dd3wmgBFf5N/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "We're hiring a Freelance Web Designer. If you know ... Nexus95 is looking for a skilled Website Developer for a remote, project-based opportunity. The ideal candidate should have strong experience in WordPress ..."
+          },
+          {
+            "url": "https://www.facebook.com/groups/5122685527800938/posts/28268605756115588/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "We're Hiring — Work From Anywhere! Looking for online ... Work From Anywhere! Looking for online opportunities in Digital Marketing, Graphic Designing, Website Development, or Content Writing? ✨."
+          },
+          {
+            "url": "https://www.upwork.com/hire/web-designers/how-to-hire/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "How to Hire Freelance Web Designers Looking for expert tips on how to hire freelance Web Designers for your next project? Learn more about how to outsource on Upwork, hiring costs, and more."
+          },
+          {
+            "url": "https://nexthireinc.com/hire-website-redesign-specialists/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "hire website redesign consultants - Next Hire Inc Looking for accounting and business support that keeps your finances organized and operations running smoothly? Next Hire connects you with skilled remote ..."
+          },
+          {
+            "url": "https://www.reddit.com/r/jobs/comments/1wqs5sp/need_advice_juggling_web_dev_freelancing_vs/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Need advice: Juggling web dev freelancing vs. entry-level ... Student with UI/UX, web design & marketing experience looking for remote freelance work ... freelancing – offering affordable PowerPoint redesign & business text ..."
+          },
+          {
+            "url": "https://www.fr.freelancer.com/job-search/realizzazione-siti-web-freelance/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Realizzazione siti web freelance Jobs, Employment I'm looking for a commission-based outreach partner who can connect me with genuine businesses that currently need a website or website redesign. What you'll do ..."
+          },
+          {
+            "url": "https://www.leanlabs.com/blog/website-redesign-agencies",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "The 5 Website Agencies That Actually Understand ... A $30M-plus organization with multiple stakeholders and a full-service retainer budget is where they usually land. Founder-led SMBs looking for a small senior ..."
+          },
+          {
+            "url": "https://x.com/i/status/2099415389125898353",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Job Corner 15. Malt Connect with companies looking for independent professionals across technology, marketing, consulting, design and other fields."
+          },
+          {
+            "url": "https://www.linkedin.com/posts/muhammadarman_most-design-agencies-sell-websites-very-activity-7506744720899964928--jAU",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Design Agencies Often Outsource Web Development Retenda is rebuilding its own website. Design and content, from scratch. Looking for one person or a small team who can own both. Not a designer who \"also ..."
+          },
+          {
+            "url": "https://www.linkedin.com/posts/adriansticea_how-do-you-get-your-first-freelance-client-activity-7508473993172021248-Fivv",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Getting Your First Freelance Client When Nobody Knows You ... websites. Whether you're looking for a complete redesign and rebuild or simply need a few updates and improvements, I can tailor the approach to fit your needs."
+          }
+        ],
+        "candidates": [
+          {
+            "text": "Need advice: Juggling web dev freelancing vs. entry-level ... Student with UI/UX, web design & marketing experience looking for remote freelance work ... freelancing – offering affordable PowerPoint redesign & business text ...",
+            "query": "Website redesign remote \"looking for\" freelance",
+            "choice": 0,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "hire website redesign consultants - Next Hire Inc Looking for accounting and business support that keeps your finances organized and operations running smoothly? Next Hire connects you with skilled remote ...",
+            "query": "Website redesign remote \"looking for\" freelance",
+            "choice": 1,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Realizzazione siti web freelance Jobs, Employment I'm looking for a commission-based outreach partner who can connect me with genuine businesses that currently need a website or website redesign. What you'll do ...",
+            "query": "Website redesign remote \"looking for\" freelance",
+            "choice": 2,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Getting Your First Freelance Client When Nobody Knows You ... websites. Whether you're looking for a complete redesign and rebuild or simply need a few updates and improvements, I can tailor the approach to fit your needs.",
+            "query": "site:linkedin.com/posts Website redesign \"looking for\" freelance",
+            "choice": 3,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "We're hiring a Freelance Web Designer. If you know ... Nexus95 is looking for a skilled Website Developer for a remote, project-based opportunity. The ideal candidate should have strong experience in WordPress ...",
+            "query": "Website redesign remote \"looking for\" freelance",
+            "choice": 4,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Job Corner 15. Malt Connect with companies looking for independent professionals across technology, marketing, consulting, design and other fields.",
+            "query": "site:x.com Website redesign \"looking for\" freelance",
+            "choice": 5,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Design Agencies Often Outsource Web Development Retenda is rebuilding its own website. Design and content, from scratch. Looking for one person or a small team who can own both. Not a designer who \"also ...",
+            "query": "site:linkedin.com/posts Website redesign \"looking for\" freelance",
+            "choice": 6,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "We're Hiring — Work From Anywhere! Looking for online ... Work From Anywhere! Looking for online opportunities in Digital Marketing, Graphic Designing, Website Development, or Content Writing? ✨.",
+            "query": "Website redesign remote \"looking for\" freelance",
+            "choice": 7,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "How to Hire Freelance Web Designers Looking for expert tips on how to hire freelance Web Designers for your next project? Learn more about how to outsource on Upwork, hiring costs, and more.",
+            "query": "Website redesign remote \"looking for\" freelance",
+            "choice": 8,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "The 5 Website Agencies That Actually Understand ... A $30M-plus organization with multiple stakeholders and a full-service retainer budget is where they usually land. Founder-led SMBs looking for a small senior ...",
+            "query": "Website redesign remote \"looking for\" freelance",
+            "choice": 9,
+            "origin": "search_result",
+            "parentUrl": null
+          }
+        ]
+      },
+      "output": {
+        "kind": "choice",
+        "index": 4,
+        "explanation": "This looks like the most promising remote service demand: a post saying they’re hiring a freelance web designer/developer for a project-based role. Next step is to inspect it for the actual scope, skills, and contact or application details."
+      },
+      "rejected_output": null,
+      "failure": null,
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 1928,
+        "responseId": "resp_0fad9a995f173d0e016acc1b15a52487d2b3b8b9b245373760",
+        "inputTokens": 2935,
+        "outputTokens": 177,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 2998
+      }
+    },
+    {
+      "input": {
+        "kind": "choice",
+        "intent": {
+          "remote": true,
+          "target": "Website redesign",
+          "category": "services"
+        },
+        "choices": [
+          {
+            "depth": 0,
+            "title": "Need advice: Juggling web dev freelancing vs. entry-level ...",
+            "action": {
+              "url": "https://www.reddit.com/r/jobs/comments/1wqs5sp/need_advice_juggling_web_dev_freelancing_vs/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "dcd0eee32ccb5b425a1521d15ff14f779c65bf275919331a3a2d5afed7fae123"
+          },
+          {
+            "depth": 0,
+            "title": "hire website redesign consultants - Next Hire Inc",
+            "action": {
+              "url": "https://nexthireinc.com/hire-website-redesign-specialists/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "dcd0eee32ccb5b425a1521d15ff14f779c65bf275919331a3a2d5afed7fae123"
+          },
+          {
+            "depth": 0,
+            "title": "Realizzazione siti web freelance Jobs, Employment",
+            "action": {
+              "url": "https://www.fr.freelancer.com/job-search/realizzazione-siti-web-freelance/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "dcd0eee32ccb5b425a1521d15ff14f779c65bf275919331a3a2d5afed7fae123"
+          },
+          {
+            "depth": 0,
+            "title": "Getting Your First Freelance Client When Nobody Knows You",
+            "action": {
+              "url": "https://www.linkedin.com/posts/adriansticea_how-do-you-get-your-first-freelance-client-activity-7508473993172021248-Fivv",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "b353d01e28194b779a8783c3b6b862e1e2cb07c9859fc10d1b9665ac7771ef52"
+          },
+          {
+            "depth": 0,
+            "title": "We're Hiring — Work From Anywhere! Looking for online ...",
+            "action": {
+              "url": "https://www.facebook.com/groups/5122685527800938/posts/28268605756115588/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "dcd0eee32ccb5b425a1521d15ff14f779c65bf275919331a3a2d5afed7fae123"
+          },
+          {
+            "depth": 0,
+            "title": "Job Corner",
+            "action": {
+              "url": "https://x.com/i/status/2099415389125898353",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "285f7b6a3c29367ff0ccb324566bed17ee0d893cb8341e558c69eb8c0b690244"
+          },
+          {
+            "depth": 0,
+            "title": "Design Agencies Often Outsource Web Development",
+            "action": {
+              "url": "https://www.linkedin.com/posts/muhammadarman_most-design-agencies-sell-websites-very-activity-7506744720899964928--jAU",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "b353d01e28194b779a8783c3b6b862e1e2cb07c9859fc10d1b9665ac7771ef52"
+          },
+          {
+            "depth": 0,
+            "title": "How to Hire Freelance Web Designers",
+            "action": {
+              "url": "https://www.upwork.com/hire/web-designers/how-to-hire/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "dcd0eee32ccb5b425a1521d15ff14f779c65bf275919331a3a2d5afed7fae123"
+          },
+          {
+            "depth": 0,
+            "title": "The 5 Website Agencies That Actually Understand ...",
+            "action": {
+              "url": "https://www.leanlabs.com/blog/website-redesign-agencies",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "dcd0eee32ccb5b425a1521d15ff14f779c65bf275919331a3a2d5afed7fae123"
+          },
+          {
+            "depth": 0,
+            "title": "Hire the Top 2% of Remote Squarespace Designers - Arc",
+            "action": {
+              "url": "https://arc.dev/hire-designers/squarespace-designers",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "dcd0eee32ccb5b425a1521d15ff14f779c65bf275919331a3a2d5afed7fae123"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "Website redesign remote \"project brief\"",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "b353d01e28194b779a8783c3b6b862e1e2cb07c9859fc10d1b9665ac7771ef52"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": null,
+            "reason": "no_further_action",
+            "parentKey": null
+          }
+        ],
+        "evidence": [
+          {
+            "url": "https://www.facebook.com/groups/5122685527800938/posts/28268605756115588/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "We're Hiring — Work From Anywhere! Looking for online ... Work From Anywhere! Looking for online opportunities in Digital Marketing, Graphic Designing, Website Development, or Content Writing? ✨."
+          },
+          {
+            "url": "https://www.upwork.com/hire/web-designers/how-to-hire/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "How to Hire Freelance Web Designers Looking for expert tips on how to hire freelance Web Designers for your next project? Learn more about how to outsource on Upwork, hiring costs, and more."
+          },
+          {
+            "url": "https://nexthireinc.com/hire-website-redesign-specialists/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "hire website redesign consultants - Next Hire Inc Looking for accounting and business support that keeps your finances organized and operations running smoothly? Next Hire connects you with skilled remote ..."
+          },
+          {
+            "url": "https://www.reddit.com/r/jobs/comments/1wqs5sp/need_advice_juggling_web_dev_freelancing_vs/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Need advice: Juggling web dev freelancing vs. entry-level ... Student with UI/UX, web design & marketing experience looking for remote freelance work ... freelancing – offering affordable PowerPoint redesign & business text ..."
+          },
+          {
+            "url": "https://www.fr.freelancer.com/job-search/realizzazione-siti-web-freelance/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Realizzazione siti web freelance Jobs, Employment I'm looking for a commission-based outreach partner who can connect me with genuine businesses that currently need a website or website redesign. What you'll do ..."
+          },
+          {
+            "url": "https://www.leanlabs.com/blog/website-redesign-agencies",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "The 5 Website Agencies That Actually Understand ... A $30M-plus organization with multiple stakeholders and a full-service retainer budget is where they usually land. Founder-led SMBs looking for a small senior ..."
+          },
+          {
+            "url": "https://arc.dev/hire-designers/squarespace-designers",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Hire the Top 2% of Remote Squarespace Designers - Arc Currently looking for fully remote, flexible, freelance/contract roles. Squarespace • 6 yrsVisual designUI designFigmaWireframing/prototypingDesign Systems ..."
+          },
+          {
+            "url": "https://x.com/i/status/2099415389125898353",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Job Corner 15. Malt Connect with companies looking for independent professionals across technology, marketing, consulting, design and other fields."
+          },
+          {
+            "url": "https://www.linkedin.com/posts/muhammadarman_most-design-agencies-sell-websites-very-activity-7506744720899964928--jAU",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Design Agencies Often Outsource Web Development Retenda is rebuilding its own website. Design and content, from scratch. Looking for one person or a small team who can own both. Not a designer who \"also ..."
+          },
+          {
+            "url": "https://www.linkedin.com/posts/adriansticea_how-do-you-get-your-first-freelance-client-activity-7508473993172021248-Fivv",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Getting Your First Freelance Client When Nobody Knows You ... websites. Whether you're looking for a complete redesign and rebuild or simply need a few updates and improvements, I can tailor the approach to fit your needs."
+          }
+        ],
+        "candidates": [
+          {
+            "text": "Need advice: Juggling web dev freelancing vs. entry-level ... Student with UI/UX, web design & marketing experience looking for remote freelance work ... freelancing – offering affordable PowerPoint redesign & business text ...",
+            "query": "Website redesign remote \"looking for\" freelance",
+            "choice": 0,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "hire website redesign consultants - Next Hire Inc Looking for accounting and business support that keeps your finances organized and operations running smoothly? Next Hire connects you with skilled remote ...",
+            "query": "Website redesign remote \"looking for\" freelance",
+            "choice": 1,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Realizzazione siti web freelance Jobs, Employment I'm looking for a commission-based outreach partner who can connect me with genuine businesses that currently need a website or website redesign. What you'll do ...",
+            "query": "Website redesign remote \"looking for\" freelance",
+            "choice": 2,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Getting Your First Freelance Client When Nobody Knows You ... websites. Whether you're looking for a complete redesign and rebuild or simply need a few updates and improvements, I can tailor the approach to fit your needs.",
+            "query": "site:linkedin.com/posts Website redesign \"looking for\" freelance",
+            "choice": 3,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "We're Hiring — Work From Anywhere! Looking for online ... Work From Anywhere! Looking for online opportunities in Digital Marketing, Graphic Designing, Website Development, or Content Writing? ✨.",
+            "query": "Website redesign remote \"looking for\" freelance",
+            "choice": 4,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Job Corner 15. Malt Connect with companies looking for independent professionals across technology, marketing, consulting, design and other fields.",
+            "query": "site:x.com Website redesign \"looking for\" freelance",
+            "choice": 5,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Design Agencies Often Outsource Web Development Retenda is rebuilding its own website. Design and content, from scratch. Looking for one person or a small team who can own both. Not a designer who \"also ...",
+            "query": "site:linkedin.com/posts Website redesign \"looking for\" freelance",
+            "choice": 6,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "How to Hire Freelance Web Designers Looking for expert tips on how to hire freelance Web Designers for your next project? Learn more about how to outsource on Upwork, hiring costs, and more.",
+            "query": "Website redesign remote \"looking for\" freelance",
+            "choice": 7,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "The 5 Website Agencies That Actually Understand ... A $30M-plus organization with multiple stakeholders and a full-service retainer budget is where they usually land. Founder-led SMBs looking for a small senior ...",
+            "query": "Website redesign remote \"looking for\" freelance",
+            "choice": 8,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Hire the Top 2% of Remote Squarespace Designers - Arc Currently looking for fully remote, flexible, freelance/contract roles. Squarespace • 6 yrsVisual designUI designFigmaWireframing/prototypingDesign Systems ...",
+            "query": "Website redesign remote \"looking for\" freelance",
+            "choice": 9,
+            "origin": "search_result",
+            "parentUrl": null
+          }
+        ]
+      },
+      "output": {
+        "kind": "choice",
+        "index": 6,
+        "explanation": "Check the LinkedIn post about a company rebuilding its own website and seeking one person or a small team to own design and content. It sounds like direct demand for remote website redesign work, which is more useful than hiring-advice pages or service-offer listings."
+      },
+      "rejected_output": null,
+      "failure": null,
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 1887,
+        "responseId": "resp_03b458237d8ec678016acc1b1808ec87d28fdc8c6d4549a866",
+        "inputTokens": 2946,
+        "outputTokens": 137,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 2826
+      }
+    },
+    {
+      "input": {
+        "kind": "choice",
+        "intent": {
+          "remote": true,
+          "target": "Website redesign",
+          "category": "services"
+        },
+        "choices": [
+          {
+            "depth": 0,
+            "title": "Need advice: Juggling web dev freelancing vs. entry-level ...",
+            "action": {
+              "url": "https://www.reddit.com/r/jobs/comments/1wqs5sp/need_advice_juggling_web_dev_freelancing_vs/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "dcd0eee32ccb5b425a1521d15ff14f779c65bf275919331a3a2d5afed7fae123"
+          },
+          {
+            "depth": 0,
+            "title": "hire website redesign consultants - Next Hire Inc",
+            "action": {
+              "url": "https://nexthireinc.com/hire-website-redesign-specialists/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "dcd0eee32ccb5b425a1521d15ff14f779c65bf275919331a3a2d5afed7fae123"
+          },
+          {
+            "depth": 0,
+            "title": "Realizzazione siti web freelance Jobs, Employment",
+            "action": {
+              "url": "https://www.fr.freelancer.com/job-search/realizzazione-siti-web-freelance/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "dcd0eee32ccb5b425a1521d15ff14f779c65bf275919331a3a2d5afed7fae123"
+          },
+          {
+            "depth": 0,
+            "title": "Getting Your First Freelance Client When Nobody Knows You",
+            "action": {
+              "url": "https://www.linkedin.com/posts/adriansticea_how-do-you-get-your-first-freelance-client-activity-7508473993172021248-Fivv",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "b353d01e28194b779a8783c3b6b862e1e2cb07c9859fc10d1b9665ac7771ef52"
+          },
+          {
+            "depth": 0,
+            "title": "We're Hiring — Work From Anywhere! Looking for online ...",
+            "action": {
+              "url": "https://www.facebook.com/groups/5122685527800938/posts/28268605756115588/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "dcd0eee32ccb5b425a1521d15ff14f779c65bf275919331a3a2d5afed7fae123"
+          },
+          {
+            "depth": 0,
+            "title": "Job Corner",
+            "action": {
+              "url": "https://x.com/i/status/2099415389125898353",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "285f7b6a3c29367ff0ccb324566bed17ee0d893cb8341e558c69eb8c0b690244"
+          },
+          {
+            "depth": 0,
+            "title": "Designing Websites Beyond Aesthetics",
+            "action": {
+              "url": "https://www.linkedin.com/posts/precious-imonikhe_one-thing-freelancing-has-taught-me-you-activity-7507506378618449920-sHIL",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "b353d01e28194b779a8783c3b6b862e1e2cb07c9859fc10d1b9665ac7771ef52"
+          },
+          {
+            "depth": 0,
+            "title": "How to Hire Freelance Web Designers",
+            "action": {
+              "url": "https://www.upwork.com/hire/web-designers/how-to-hire/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "dcd0eee32ccb5b425a1521d15ff14f779c65bf275919331a3a2d5afed7fae123"
+          },
+          {
+            "depth": 0,
+            "title": "The 5 Website Agencies That Actually Understand ...",
+            "action": {
+              "url": "https://www.leanlabs.com/blog/website-redesign-agencies",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "dcd0eee32ccb5b425a1521d15ff14f779c65bf275919331a3a2d5afed7fae123"
+          },
+          {
+            "depth": 0,
+            "title": "Hire the Top 2% of Remote Squarespace Designers - Arc",
+            "action": {
+              "url": "https://arc.dev/hire-designers/squarespace-designers",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "dcd0eee32ccb5b425a1521d15ff14f779c65bf275919331a3a2d5afed7fae123"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "Website redesign remote \"project brief\"",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "b353d01e28194b779a8783c3b6b862e1e2cb07c9859fc10d1b9665ac7771ef52"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": null,
+            "reason": "no_further_action",
+            "parentKey": null
+          }
+        ],
+        "evidence": [
+          {
+            "url": "https://www.facebook.com/groups/5122685527800938/posts/28268605756115588/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "We're Hiring — Work From Anywhere! Looking for online ... Work From Anywhere! Looking for online opportunities in Digital Marketing, Graphic Designing, Website Development, or Content Writing? ✨."
+          },
+          {
+            "url": "https://www.upwork.com/hire/web-designers/how-to-hire/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "How to Hire Freelance Web Designers Looking for expert tips on how to hire freelance Web Designers for your next project? Learn more about how to outsource on Upwork, hiring costs, and more."
+          },
+          {
+            "url": "https://nexthireinc.com/hire-website-redesign-specialists/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "hire website redesign consultants - Next Hire Inc Looking for accounting and business support that keeps your finances organized and operations running smoothly? Next Hire connects you with skilled remote ..."
+          },
+          {
+            "url": "https://www.reddit.com/r/jobs/comments/1wqs5sp/need_advice_juggling_web_dev_freelancing_vs/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Need advice: Juggling web dev freelancing vs. entry-level ... Student with UI/UX, web design & marketing experience looking for remote freelance work ... freelancing – offering affordable PowerPoint redesign & business text ..."
+          },
+          {
+            "url": "https://www.fr.freelancer.com/job-search/realizzazione-siti-web-freelance/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Realizzazione siti web freelance Jobs, Employment I'm looking for a commission-based outreach partner who can connect me with genuine businesses that currently need a website or website redesign. What you'll do ..."
+          },
+          {
+            "url": "https://www.leanlabs.com/blog/website-redesign-agencies",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "The 5 Website Agencies That Actually Understand ... A $30M-plus organization with multiple stakeholders and a full-service retainer budget is where they usually land. Founder-led SMBs looking for a small senior ..."
+          },
+          {
+            "url": "https://arc.dev/hire-designers/squarespace-designers",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Hire the Top 2% of Remote Squarespace Designers - Arc Currently looking for fully remote, flexible, freelance/contract roles. Squarespace • 6 yrsVisual designUI designFigmaWireframing/prototypingDesign Systems ..."
+          },
+          {
+            "url": "https://x.com/i/status/2099415389125898353",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Job Corner 15. Malt Connect with companies looking for independent professionals across technology, marketing, consulting, design and other fields."
+          },
+          {
+            "url": "https://www.linkedin.com/posts/adriansticea_how-do-you-get-your-first-freelance-client-activity-7508473993172021248-Fivv",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Getting Your First Freelance Client When Nobody Knows You ... websites. Whether you're looking for a complete redesign and rebuild or simply need a few updates and improvements, I can tailor the approach to fit your needs."
+          },
+          {
+            "url": "https://www.linkedin.com/posts/precious-imonikhe_one-thing-freelancing-has-taught-me-you-activity-7507506378618449920-sHIL",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Designing Websites Beyond Aesthetics \"Professional, responsive, easy to work with... would recommend him for anyone looking for a dependable and cooperative freelancer.\" Then: \"I've decided to ..."
+          }
+        ],
+        "candidates": [
+          {
+            "text": "Need advice: Juggling web dev freelancing vs. entry-level ... Student with UI/UX, web design & marketing experience looking for remote freelance work ... freelancing – offering affordable PowerPoint redesign & business text ...",
+            "query": "Website redesign remote \"looking for\" freelance",
+            "choice": 0,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "hire website redesign consultants - Next Hire Inc Looking for accounting and business support that keeps your finances organized and operations running smoothly? Next Hire connects you with skilled remote ...",
+            "query": "Website redesign remote \"looking for\" freelance",
+            "choice": 1,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Realizzazione siti web freelance Jobs, Employment I'm looking for a commission-based outreach partner who can connect me with genuine businesses that currently need a website or website redesign. What you'll do ...",
+            "query": "Website redesign remote \"looking for\" freelance",
+            "choice": 2,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Getting Your First Freelance Client When Nobody Knows You ... websites. Whether you're looking for a complete redesign and rebuild or simply need a few updates and improvements, I can tailor the approach to fit your needs.",
+            "query": "site:linkedin.com/posts Website redesign \"looking for\" freelance",
+            "choice": 3,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "We're Hiring — Work From Anywhere! Looking for online ... Work From Anywhere! Looking for online opportunities in Digital Marketing, Graphic Designing, Website Development, or Content Writing? ✨.",
+            "query": "Website redesign remote \"looking for\" freelance",
+            "choice": 4,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Job Corner 15. Malt Connect with companies looking for independent professionals across technology, marketing, consulting, design and other fields.",
+            "query": "site:x.com Website redesign \"looking for\" freelance",
+            "choice": 5,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Designing Websites Beyond Aesthetics \"Professional, responsive, easy to work with... would recommend him for anyone looking for a dependable and cooperative freelancer.\" Then: \"I've decided to ...",
+            "query": "site:linkedin.com/posts Website redesign \"looking for\" freelance",
+            "choice": 6,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "How to Hire Freelance Web Designers Looking for expert tips on how to hire freelance Web Designers for your next project? Learn more about how to outsource on Upwork, hiring costs, and more.",
+            "query": "Website redesign remote \"looking for\" freelance",
+            "choice": 7,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "The 5 Website Agencies That Actually Understand ... A $30M-plus organization with multiple stakeholders and a full-service retainer budget is where they usually land. Founder-led SMBs looking for a small senior ...",
+            "query": "Website redesign remote \"looking for\" freelance",
+            "choice": 8,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Hire the Top 2% of Remote Squarespace Designers - Arc Currently looking for fully remote, flexible, freelance/contract roles. Squarespace • 6 yrsVisual designUI designFigmaWireframing/prototypingDesign Systems ...",
+            "query": "Website redesign remote \"looking for\" freelance",
+            "choice": 9,
+            "origin": "search_result",
+            "parentUrl": null
+          }
+        ]
+      },
+      "output": {
+        "kind": "choice",
+        "index": 2,
+        "explanation": "This is the closest supplied lead to active website-redesign demand: it appears to be a freelance job-search page and mentions businesses currently needing a website or redesign. Checking it could surface actual openings or client requirements, unlike the advisory or hire-a-designer pages."
+      },
+      "rejected_output": null,
+      "failure": null,
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 2685,
+        "responseId": "resp_06b7dcfb64d5eb57016acc1b1bc73887d2b38f6b605a568303",
+        "inputTokens": 2946,
+        "outputTokens": 314,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 3623
+      }
+    },
+    {
+      "input": {
+        "kind": "choice",
+        "intent": {
+          "remote": true,
+          "target": "Website redesign",
+          "category": "services"
+        },
+        "choices": [
+          {
+            "depth": 0,
+            "title": "Need advice: Juggling web dev freelancing vs. entry-level ...",
+            "action": {
+              "url": "https://www.reddit.com/r/jobs/comments/1wqs5sp/need_advice_juggling_web_dev_freelancing_vs/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "dcd0eee32ccb5b425a1521d15ff14f779c65bf275919331a3a2d5afed7fae123"
+          },
+          {
+            "depth": 0,
+            "title": "hire website redesign consultants - Next Hire Inc",
+            "action": {
+              "url": "https://nexthireinc.com/hire-website-redesign-specialists/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "dcd0eee32ccb5b425a1521d15ff14f779c65bf275919331a3a2d5afed7fae123"
+          },
+          {
+            "depth": 0,
+            "title": "Getting Your First Freelance Client When Nobody Knows You",
+            "action": {
+              "url": "https://www.linkedin.com/posts/adriansticea_how-do-you-get-your-first-freelance-client-activity-7508473993172021248-Fivv",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "b353d01e28194b779a8783c3b6b862e1e2cb07c9859fc10d1b9665ac7771ef52"
+          },
+          {
+            "depth": 0,
+            "title": "Freelancer vs Agency vs In-House Website Development ...",
+            "action": {
+              "url": "https://www.linkedin.com/posts/saqib-ahmed-expertwebdeveloper_business-entrepreneurship-marketing-activity-7504650580615954432-Iecy",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "b353d01e28194b779a8783c3b6b862e1e2cb07c9859fc10d1b9665ac7771ef52"
+          },
+          {
+            "depth": 0,
+            "title": "We're Hiring — Work From Anywhere! Looking for online ...",
+            "action": {
+              "url": "https://www.facebook.com/groups/5122685527800938/posts/28268605756115588/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "dcd0eee32ccb5b425a1521d15ff14f779c65bf275919331a3a2d5afed7fae123"
+          },
+          {
+            "depth": 0,
+            "title": "Job Corner",
+            "action": {
+              "url": "https://x.com/i/status/2099415389125898353",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "285f7b6a3c29367ff0ccb324566bed17ee0d893cb8341e558c69eb8c0b690244"
+          },
+          {
+            "depth": 0,
+            "title": "Designing Websites Beyond Aesthetics",
+            "action": {
+              "url": "https://www.linkedin.com/posts/precious-imonikhe_one-thing-freelancing-has-taught-me-you-activity-7507506378618449920-sHIL",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "b353d01e28194b779a8783c3b6b862e1e2cb07c9859fc10d1b9665ac7771ef52"
+          },
+          {
+            "depth": 1,
+            "title": "Création de Portfolio et Stratégie de Prospection pour Traducteur Français-Créole & Créateur de Logos",
+            "action": {
+              "url": "https://www.fr.freelancer.com/projects/business-development/ation-portfolio-strat-gie-prospection",
+              "kind": "document"
+            },
+            "reason": "follow_source_link",
+            "parentKey": "7dbee7ff45672ed0eb5e8a12766ddf79e52b8c4377ef94e51401da79dbe6fe06"
+          },
+          {
+            "depth": 0,
+            "title": "How to Hire Freelance Web Designers",
+            "action": {
+              "url": "https://www.upwork.com/hire/web-designers/how-to-hire/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "dcd0eee32ccb5b425a1521d15ff14f779c65bf275919331a3a2d5afed7fae123"
+          },
+          {
+            "depth": 0,
+            "title": "The 5 Website Agencies That Actually Understand ...",
+            "action": {
+              "url": "https://www.leanlabs.com/blog/website-redesign-agencies",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "dcd0eee32ccb5b425a1521d15ff14f779c65bf275919331a3a2d5afed7fae123"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "Website redesign remote \"project brief\"",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "b353d01e28194b779a8783c3b6b862e1e2cb07c9859fc10d1b9665ac7771ef52"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": null,
+            "reason": "no_further_action",
+            "parentKey": null
+          }
+        ],
+        "evidence": [
+          {
+            "url": "https://www.fr.freelancer.com/job-search/realizzazione-siti-web-freelance/",
+            "label": "directory",
+            "scope": "source",
+            "unknowns": [
+              "role",
+              "category",
+              "location",
+              "arrangement",
+              "sponsorship",
+              "compensation",
+              "requirements",
+              "authorization"
+            ],
+            "explanation": "This is a Freelancer search results page listing many separate missions and filters, not one specific opening. It shows search/navigation UI and multiple listings such as \"1,500 ... missions trouvées\" and many individual project cards."
+          },
+          {
+            "url": "https://www.facebook.com/groups/5122685527800938/posts/28268605756115588/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "We're Hiring — Work From Anywhere! Looking for online ... Work From Anywhere! Looking for online opportunities in Digital Marketing, Graphic Designing, Website Development, or Content Writing? ✨."
+          },
+          {
+            "url": "https://www.upwork.com/hire/web-designers/how-to-hire/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "How to Hire Freelance Web Designers Looking for expert tips on how to hire freelance Web Designers for your next project? Learn more about how to outsource on Upwork, hiring costs, and more."
+          },
+          {
+            "url": "https://nexthireinc.com/hire-website-redesign-specialists/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "hire website redesign consultants - Next Hire Inc Looking for accounting and business support that keeps your finances organized and operations running smoothly? Next Hire connects you with skilled remote ..."
+          },
+          {
+            "url": "https://www.reddit.com/r/jobs/comments/1wqs5sp/need_advice_juggling_web_dev_freelancing_vs/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Need advice: Juggling web dev freelancing vs. entry-level ... Student with UI/UX, web design & marketing experience looking for remote freelance work ... freelancing – offering affordable PowerPoint redesign & business text ..."
+          },
+          {
+            "url": "https://www.leanlabs.com/blog/website-redesign-agencies",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "The 5 Website Agencies That Actually Understand ... A $30M-plus organization with multiple stakeholders and a full-service retainer budget is where they usually land. Founder-led SMBs looking for a small senior ..."
+          },
+          {
+            "url": "https://x.com/i/status/2099415389125898353",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Job Corner 15. Malt Connect with companies looking for independent professionals across technology, marketing, consulting, design and other fields."
+          },
+          {
+            "url": "https://www.linkedin.com/posts/adriansticea_how-do-you-get-your-first-freelance-client-activity-7508473993172021248-Fivv",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Getting Your First Freelance Client When Nobody Knows You ... websites. Whether you're looking for a complete redesign and rebuild or simply need a few updates and improvements, I can tailor the approach to fit your needs."
+          },
+          {
+            "url": "https://www.linkedin.com/posts/precious-imonikhe_one-thing-freelancing-has-taught-me-you-activity-7507506378618449920-sHIL",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Designing Websites Beyond Aesthetics \"Professional, responsive, easy to work with... would recommend him for anyone looking for a dependable and cooperative freelancer.\" Then: \"I've decided to ..."
+          },
+          {
+            "url": "https://www.linkedin.com/posts/saqib-ahmed-expertwebdeveloper_business-entrepreneurship-marketing-activity-7504650580615954432-Iecy",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Freelancer vs Agency vs In-House Website Development ... ... Website Design & Redesign Specialist | Building High-Converting Websites That Drive Growth ... looking for and what pricing for that looks like. The official ..."
+          }
+        ],
+        "candidates": [
+          {
+            "text": "Need advice: Juggling web dev freelancing vs. entry-level ... Student with UI/UX, web design & marketing experience looking for remote freelance work ... freelancing – offering affordable PowerPoint redesign & business text ...",
+            "query": "Website redesign remote \"looking for\" freelance",
+            "choice": 0,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "hire website redesign consultants - Next Hire Inc Looking for accounting and business support that keeps your finances organized and operations running smoothly? Next Hire connects you with skilled remote ...",
+            "query": "Website redesign remote \"looking for\" freelance",
+            "choice": 1,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Getting Your First Freelance Client When Nobody Knows You ... websites. Whether you're looking for a complete redesign and rebuild or simply need a few updates and improvements, I can tailor the approach to fit your needs.",
+            "query": "site:linkedin.com/posts Website redesign \"looking for\" freelance",
+            "choice": 2,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Freelancer vs Agency vs In-House Website Development ... ... Website Design & Redesign Specialist | Building High-Converting Websites That Drive Growth ... looking for and what pricing for that looks like. The official ...",
+            "query": "site:linkedin.com/posts Website redesign \"looking for\" freelance",
+            "choice": 3,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "We're Hiring — Work From Anywhere! Looking for online ... Work From Anywhere! Looking for online opportunities in Digital Marketing, Graphic Designing, Website Development, or Content Writing? ✨.",
+            "query": "Website redesign remote \"looking for\" freelance",
+            "choice": 4,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Job Corner 15. Malt Connect with companies looking for independent professionals across technology, marketing, consulting, design and other fields.",
+            "query": "site:x.com Website redesign \"looking for\" freelance",
+            "choice": 5,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Designing Websites Beyond Aesthetics \"Professional, responsive, easy to work with... would recommend him for anyone looking for a dependable and cooperative freelancer.\" Then: \"I've decided to ...",
+            "query": "site:linkedin.com/posts Website redesign \"looking for\" freelance",
+            "choice": 6,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Création de Portfolio et Stratégie de Prospection pour Traducteur Français-Créole & Créateur de Logos\nParent page context (not child evidence): This is a Freelancer search results page listing many separate missions and filters, not one specific opening. It shows search/navigation UI and multiple listings such as \"1,500 ... missions trouvées\" and many individual project cards.",
+            "query": null,
+            "choice": 7,
+            "origin": "source_link",
+            "parentUrl": "https://www.fr.freelancer.com/job-search/realizzazione-siti-web-freelance/"
+          },
+          {
+            "text": "How to Hire Freelance Web Designers Looking for expert tips on how to hire freelance Web Designers for your next project? Learn more about how to outsource on Upwork, hiring costs, and more.",
+            "query": "Website redesign remote \"looking for\" freelance",
+            "choice": 8,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "The 5 Website Agencies That Actually Understand ... A $30M-plus organization with multiple stakeholders and a full-service retainer budget is where they usually land. Founder-led SMBs looking for a small senior ...",
+            "query": "Website redesign remote \"looking for\" freelance",
+            "choice": 9,
+            "origin": "search_result",
+            "parentUrl": null
+          }
+        ]
+      },
+      "output": {
+        "kind": "choice",
+        "index": 4,
+        "explanation": "This looks like the most plausible live demand signal because it explicitly says they’re hiring and mentions website development/design among remote opportunities. Next step: open it to verify whether it’s a real client opening, the work scope, and any application details."
+      },
+      "rejected_output": null,
+      "failure": null,
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 1697,
+        "responseId": "resp_050e44935163e161016acc1b248bfc87d2bd655666b825354a",
+        "inputTokens": 3075,
+        "outputTokens": 169,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 3067
+      }
+    },
+    {
+      "input": {
+        "kind": "choice",
+        "intent": {
+          "remote": true,
+          "target": "Website redesign",
+          "category": "services"
+        },
+        "choices": [
+          {
+            "depth": 0,
+            "title": "Need advice: Juggling web dev freelancing vs. entry-level ...",
+            "action": {
+              "url": "https://www.reddit.com/r/jobs/comments/1wqs5sp/need_advice_juggling_web_dev_freelancing_vs/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "dcd0eee32ccb5b425a1521d15ff14f779c65bf275919331a3a2d5afed7fae123"
+          },
+          {
+            "depth": 0,
+            "title": "hire website redesign consultants - Next Hire Inc",
+            "action": {
+              "url": "https://nexthireinc.com/hire-website-redesign-specialists/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "dcd0eee32ccb5b425a1521d15ff14f779c65bf275919331a3a2d5afed7fae123"
+          },
+          {
+            "depth": 0,
+            "title": "Getting Your First Freelance Client When Nobody Knows You",
+            "action": {
+              "url": "https://www.linkedin.com/posts/adriansticea_how-do-you-get-your-first-freelance-client-activity-7508473993172021248-Fivv",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "b353d01e28194b779a8783c3b6b862e1e2cb07c9859fc10d1b9665ac7771ef52"
+          },
+          {
+            "depth": 0,
+            "title": "Freelancer vs Agency vs In-House Website Development ...",
+            "action": {
+              "url": "https://www.linkedin.com/posts/saqib-ahmed-expertwebdeveloper_business-entrepreneurship-marketing-activity-7504650580615954432-Iecy",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "b353d01e28194b779a8783c3b6b862e1e2cb07c9859fc10d1b9665ac7771ef52"
+          },
+          {
+            "depth": 0,
+            "title": "How to Hire Freelance Web Designers",
+            "action": {
+              "url": "https://www.upwork.com/hire/web-designers/how-to-hire/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "dcd0eee32ccb5b425a1521d15ff14f779c65bf275919331a3a2d5afed7fae123"
+          },
+          {
+            "depth": 0,
+            "title": "Job Corner",
+            "action": {
+              "url": "https://x.com/i/status/2099415389125898353",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "285f7b6a3c29367ff0ccb324566bed17ee0d893cb8341e558c69eb8c0b690244"
+          },
+          {
+            "depth": 0,
+            "title": "Designing Websites Beyond Aesthetics",
+            "action": {
+              "url": "https://www.linkedin.com/posts/precious-imonikhe_one-thing-freelancing-has-taught-me-you-activity-7507506378618449920-sHIL",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "b353d01e28194b779a8783c3b6b862e1e2cb07c9859fc10d1b9665ac7771ef52"
+          },
+          {
+            "depth": 1,
+            "title": "Création de Portfolio et Stratégie de Prospection pour Traducteur Français-Créole & Créateur de Logos",
+            "action": {
+              "url": "https://www.fr.freelancer.com/projects/business-development/ation-portfolio-strat-gie-prospection",
+              "kind": "document"
+            },
+            "reason": "follow_source_link",
+            "parentKey": "7dbee7ff45672ed0eb5e8a12766ddf79e52b8c4377ef94e51401da79dbe6fe06"
+          },
+          {
+            "depth": 0,
+            "title": "The 5 Website Agencies That Actually Understand ...",
+            "action": {
+              "url": "https://www.leanlabs.com/blog/website-redesign-agencies",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "dcd0eee32ccb5b425a1521d15ff14f779c65bf275919331a3a2d5afed7fae123"
+          },
+          {
+            "depth": 0,
+            "title": "Hire the Top 2% of Remote Squarespace Designers - Arc",
+            "action": {
+              "url": "https://arc.dev/hire-designers/squarespace-designers",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "dcd0eee32ccb5b425a1521d15ff14f779c65bf275919331a3a2d5afed7fae123"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "Website redesign remote \"project brief\"",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "b353d01e28194b779a8783c3b6b862e1e2cb07c9859fc10d1b9665ac7771ef52"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": null,
+            "reason": "no_further_action",
+            "parentKey": null
+          }
+        ],
+        "evidence": [
+          {
+            "url": "https://www.fr.freelancer.com/job-search/realizzazione-siti-web-freelance/",
+            "label": "directory",
+            "scope": "source",
+            "unknowns": [
+              "role",
+              "category",
+              "location",
+              "arrangement",
+              "sponsorship",
+              "compensation",
+              "requirements",
+              "authorization"
+            ],
+            "explanation": "This is a Freelancer search results page listing many separate missions and filters, not one specific opening. It shows search/navigation UI and multiple listings such as \"1,500 ... missions trouvées\" and many individual project cards."
+          },
+          {
+            "url": "https://www.upwork.com/hire/web-designers/how-to-hire/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "How to Hire Freelance Web Designers Looking for expert tips on how to hire freelance Web Designers for your next project? Learn more about how to outsource on Upwork, hiring costs, and more."
+          },
+          {
+            "url": "https://nexthireinc.com/hire-website-redesign-specialists/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "hire website redesign consultants - Next Hire Inc Looking for accounting and business support that keeps your finances organized and operations running smoothly? Next Hire connects you with skilled remote ..."
+          },
+          {
+            "url": "https://www.reddit.com/r/jobs/comments/1wqs5sp/need_advice_juggling_web_dev_freelancing_vs/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Need advice: Juggling web dev freelancing vs. entry-level ... Student with UI/UX, web design & marketing experience looking for remote freelance work ... freelancing – offering affordable PowerPoint redesign & business text ..."
+          },
+          {
+            "url": "https://www.leanlabs.com/blog/website-redesign-agencies",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "The 5 Website Agencies That Actually Understand ... A $30M-plus organization with multiple stakeholders and a full-service retainer budget is where they usually land. Founder-led SMBs looking for a small senior ..."
+          },
+          {
+            "url": "https://arc.dev/hire-designers/squarespace-designers",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Hire the Top 2% of Remote Squarespace Designers - Arc Currently looking for fully remote, flexible, freelance/contract roles. Squarespace • 6 yrsVisual designUI designFigmaWireframing/prototypingDesign Systems ..."
+          },
+          {
+            "url": "https://x.com/i/status/2099415389125898353",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Job Corner 15. Malt Connect with companies looking for independent professionals across technology, marketing, consulting, design and other fields."
+          },
+          {
+            "url": "https://www.linkedin.com/posts/adriansticea_how-do-you-get-your-first-freelance-client-activity-7508473993172021248-Fivv",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Getting Your First Freelance Client When Nobody Knows You ... websites. Whether you're looking for a complete redesign and rebuild or simply need a few updates and improvements, I can tailor the approach to fit your needs."
+          },
+          {
+            "url": "https://www.linkedin.com/posts/precious-imonikhe_one-thing-freelancing-has-taught-me-you-activity-7507506378618449920-sHIL",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Designing Websites Beyond Aesthetics \"Professional, responsive, easy to work with... would recommend him for anyone looking for a dependable and cooperative freelancer.\" Then: \"I've decided to ..."
+          },
+          {
+            "url": "https://www.linkedin.com/posts/saqib-ahmed-expertwebdeveloper_business-entrepreneurship-marketing-activity-7504650580615954432-Iecy",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Freelancer vs Agency vs In-House Website Development ... ... Website Design & Redesign Specialist | Building High-Converting Websites That Drive Growth ... looking for and what pricing for that looks like. The official ..."
+          }
+        ],
+        "candidates": [
+          {
+            "text": "Need advice: Juggling web dev freelancing vs. entry-level ... Student with UI/UX, web design & marketing experience looking for remote freelance work ... freelancing – offering affordable PowerPoint redesign & business text ...",
+            "query": "Website redesign remote \"looking for\" freelance",
+            "choice": 0,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "hire website redesign consultants - Next Hire Inc Looking for accounting and business support that keeps your finances organized and operations running smoothly? Next Hire connects you with skilled remote ...",
+            "query": "Website redesign remote \"looking for\" freelance",
+            "choice": 1,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Getting Your First Freelance Client When Nobody Knows You ... websites. Whether you're looking for a complete redesign and rebuild or simply need a few updates and improvements, I can tailor the approach to fit your needs.",
+            "query": "site:linkedin.com/posts Website redesign \"looking for\" freelance",
+            "choice": 2,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Freelancer vs Agency vs In-House Website Development ... ... Website Design & Redesign Specialist | Building High-Converting Websites That Drive Growth ... looking for and what pricing for that looks like. The official ...",
+            "query": "site:linkedin.com/posts Website redesign \"looking for\" freelance",
+            "choice": 3,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "How to Hire Freelance Web Designers Looking for expert tips on how to hire freelance Web Designers for your next project? Learn more about how to outsource on Upwork, hiring costs, and more.",
+            "query": "Website redesign remote \"looking for\" freelance",
+            "choice": 4,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Job Corner 15. Malt Connect with companies looking for independent professionals across technology, marketing, consulting, design and other fields.",
+            "query": "site:x.com Website redesign \"looking for\" freelance",
+            "choice": 5,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Designing Websites Beyond Aesthetics \"Professional, responsive, easy to work with... would recommend him for anyone looking for a dependable and cooperative freelancer.\" Then: \"I've decided to ...",
+            "query": "site:linkedin.com/posts Website redesign \"looking for\" freelance",
+            "choice": 6,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Création de Portfolio et Stratégie de Prospection pour Traducteur Français-Créole & Créateur de Logos\nParent page context (not child evidence): This is a Freelancer search results page listing many separate missions and filters, not one specific opening. It shows search/navigation UI and multiple listings such as \"1,500 ... missions trouvées\" and many individual project cards.",
+            "query": null,
+            "choice": 7,
+            "origin": "source_link",
+            "parentUrl": "https://www.fr.freelancer.com/job-search/realizzazione-siti-web-freelance/"
+          },
+          {
+            "text": "The 5 Website Agencies That Actually Understand ... A $30M-plus organization with multiple stakeholders and a full-service retainer budget is where they usually land. Founder-led SMBs looking for a small senior ...",
+            "query": "Website redesign remote \"looking for\" freelance",
+            "choice": 8,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Hire the Top 2% of Remote Squarespace Designers - Arc Currently looking for fully remote, flexible, freelance/contract roles. Squarespace • 6 yrsVisual designUI designFigmaWireframing/prototypingDesign Systems ...",
+            "query": "Website redesign remote \"looking for\" freelance",
+            "choice": 9,
+            "origin": "search_result",
+            "parentUrl": null
+          }
+        ]
+      },
+      "output": {
+        "kind": "choice",
+        "index": 1,
+        "explanation": "This looks like the most relevant path to a real service demand page about hiring website redesign specialists, so checking it next could reveal the client’s needs, scope, and contact or application details."
+      },
+      "rejected_output": null,
+      "failure": null,
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 2206,
+        "responseId": "resp_0796223dcbc559bb016acc1b26947887d2b6163ebcb1b99e82",
+        "inputTokens": 3085,
+        "outputTokens": 210,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 3259
+      }
+    },
+    {
+      "input": {
+        "kind": "choice",
+        "intent": {
+          "remote": true,
+          "target": "Website redesign",
+          "category": "services"
+        },
+        "choices": [
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 2,
+                "limit": 10,
+                "query": "Website redesign remote \"looking for\" freelance",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "continue_result_page",
+            "parentKey": "dcd0eee32ccb5b425a1521d15ff14f779c65bf275919331a3a2d5afed7fae123"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "Website redesign remote \"project brief\"",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "b353d01e28194b779a8783c3b6b862e1e2cb07c9859fc10d1b9665ac7771ef52"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": null,
+            "reason": "no_further_action",
+            "parentKey": null
+          }
+        ],
+        "evidence": [
+          {
+            "url": "https://nexthireinc.com/hire-website-redesign-specialists/",
+            "label": "service_offer",
+            "scope": "source",
+            "unknowns": [
+              "location",
+              "sponsorship",
+              "authorization"
+            ],
+            "explanation": "This page is advertising website redesign services and specialists for hire, not presenting a specific open role or a buyer request. It repeatedly says things like \"Hire Website Redesign Specialists\" and describes NextHire’s offerings, pricing, and contact form."
+          },
+          {
+            "url": "https://www.fr.freelancer.com/job-search/realizzazione-siti-web-freelance/",
+            "label": "directory",
+            "scope": "source",
+            "unknowns": [
+              "role",
+              "category",
+              "location",
+              "arrangement",
+              "sponsorship",
+              "compensation",
+              "requirements",
+              "authorization"
+            ],
+            "explanation": "This is a Freelancer search results page listing many separate missions and filters, not one specific opening. It shows search/navigation UI and multiple listings such as \"1,500 ... missions trouvées\" and many individual project cards."
+          }
+        ],
+        "candidates": []
+      },
+      "output": {
+        "kind": "choice",
+        "index": 1,
+        "explanation": "Refining the search toward a buyer-side project brief is the most likely way to surface a real website redesign demand with requirements and scope, which is more useful than continuing a broad results page."
+      },
+      "rejected_output": null,
+      "failure": null,
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 1640,
+        "responseId": "resp_09855b8abaed8b20016acc1b3c1ad087d289d112fc28e9e3e5",
+        "inputTokens": 740,
+        "outputTokens": 147,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 1217
+      }
+    },
+    {
+      "input": {
+        "kind": "choice",
+        "intent": {
+          "remote": true,
+          "target": "Website redesign",
+          "category": "services"
+        },
+        "choices": [
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 2,
+                "limit": 10,
+                "query": "Website redesign remote \"looking for\" freelance",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "continue_result_page",
+            "parentKey": "dcd0eee32ccb5b425a1521d15ff14f779c65bf275919331a3a2d5afed7fae123"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": null,
+            "reason": "no_further_action",
+            "parentKey": null
+          }
+        ],
+        "evidence": [
+          {
+            "url": "https://nexthireinc.com/hire-website-redesign-specialists/",
+            "label": "service_offer",
+            "scope": "source",
+            "unknowns": [
+              "location",
+              "sponsorship",
+              "authorization"
+            ],
+            "explanation": "This page is advertising website redesign services and specialists for hire, not presenting a specific open role or a buyer request. It repeatedly says things like \"Hire Website Redesign Specialists\" and describes NextHire’s offerings, pricing, and contact form."
+          },
+          {
+            "url": "https://www.fr.freelancer.com/job-search/realizzazione-siti-web-freelance/",
+            "label": "directory",
+            "scope": "source",
+            "unknowns": [
+              "role",
+              "category",
+              "location",
+              "arrangement",
+              "sponsorship",
+              "compensation",
+              "requirements",
+              "authorization"
+            ],
+            "explanation": "This is a Freelancer search results page listing many separate missions and filters, not one specific opening. It shows search/navigation UI and multiple listings such as \"1,500 ... missions trouvées\" and many individual project cards."
+          }
+        ],
+        "candidates": []
+      },
+      "output": {
+        "kind": "choice",
+        "index": 0,
+        "explanation": "Continue to the next results page to see whether it surfaces a specific website redesign opportunity or buyer request, since the current evidence is only a service offer and a directory page."
+      },
+      "rejected_output": null,
+      "failure": null,
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 2072,
+        "responseId": "resp_08f606c57eb600f7016acc1b423fc487d2b8075134d677843d",
+        "inputTokens": 641,
+        "outputTokens": 153,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 1170
+      }
+    }
+  ],
+  "sourceReviewsCompleted": 0,
+  "intelligence": [],
+  "reviewAttempts": [
+    {
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 2668,
+        "responseId": "resp_0b0337b14dce5bea016acc1b21d52087d2aed96cdd0e220ffb",
+        "inputTokens": 12145,
+        "outputTokens": 388,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 10855
+      }
+    },
+    {
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 4839,
+        "responseId": "resp_0861c246781f75cf016acc1b37bd1887d28f138d2789dad8d7",
+        "inputTokens": 4905,
+        "outputTokens": 567,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 6231
+      }
+    }
+  ],
+  "opportunities": [],
+  "deliveries": [],
+  "durationMs": 57170,
+  "search": {
+    "goal": "Find clients requesting website redesign services",
+    "category": "services",
+    "target": "Website redesign",
+    "name": "Synthetic service-request scout",
+    "arrangement": "remote",
+    "arrangementRequired": true,
+    "residence": "New York, United States",
+    "workLocations": "United States or remote worldwide",
+    "background": "Five years delivering website redesign, responsive layouts, WordPress and accessible user interfaces for small businesses",
+    "minimumPay": "",
+    "currency": "USD",
+    "payPeriod": "project",
+    "unknownEligibility": "review",
+    "undisclosedPay": "include",
+    "authorizationLocations": "United States",
+    "authorizationConfirmed": true,
+    "sponsorshipNeed": "not_needed"
+  },
+  "operations": [
+    {
+      "key": "dcd0eee32ccb5b425a1521d15ff14f779c65bf275919331a3a2d5afed7fae123",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "Website redesign remote \"looking for\" freelance",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "285f7b6a3c29367ff0ccb324566bed17ee0d893cb8341e558c69eb8c0b690244",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "site:x.com Website redesign \"looking for\" freelance",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "b353d01e28194b779a8783c3b6b862e1e2cb07c9859fc10d1b9665ac7771ef52",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "site:linkedin.com/posts Website redesign \"looking for\" freelance",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "d9a23d95f76f461a1c69d5af21c58c6056ce460350e30416a6993d594ad75a2b",
+      "kind": "document",
+      "input": {
+        "url": "https://www.facebook.com/quintsdesignco/posts/were-hiring-were-on-the-hunt-for-a-freelance-web-designer-developer-to-join-us-o/1782042740214502/",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": [
+        {
+          "url": "https://www.facebook.com/sitemap/cpg_offplat_future_public_events_sitemap.xml.gz",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.facebook.com/sitemap/public_active_groups_sitemap.xml.gz",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.facebook.com/sitemap/groups_popular_posts_sitemap_qe.xml.gz",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.facebook.com/sitemap/groups_latest_posts_0.xml.gz",
+          "text": "Site-advertised sitemap"
+        }
+      ],
+      "captured_text": null,
+      "source_status": "access_limited",
+      "source_reason": "crawl_policy_denied",
+      "observed_links": 0
+    },
+    {
+      "key": "fe7c78e76094a7fdb09fe908e563ec5665abd79da1802855e744e8085e0d8da7",
+      "kind": "document",
+      "input": {
+        "url": "https://www.instagram.com/p/Dd3wmgBFf5N/",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": [
+        {
+          "url": "https://www.instagram.com/sitemap/ig_places_sitemap.xml.gz",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.instagram.com/sitemap/ig_seo_profile_sitemap.xml.gz",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.instagram.com/sitemap/ig_seo_profile_sitemap_non_media_eligible.xml.gz",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.instagram.com/sitemap/dim_ig_logged_out_web_keyword_ent.xml.gz",
+          "text": "Site-advertised sitemap"
+        }
+      ],
+      "captured_text": null,
+      "source_status": "access_limited",
+      "source_reason": "crawl_policy_denied",
+      "observed_links": 0
+    },
+    {
+      "key": "a621e4db95e6929ef1653ee997202c64f631a0a9f27d196faf9241b98e407f16",
+      "kind": "document",
+      "input": {
+        "url": "https://www.linkedin.com/posts/muhammadarman_most-design-agencies-sell-websites-very-activity-7506744720899964928--jAU",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": [],
+      "captured_text": null,
+      "source_status": "access_limited",
+      "source_reason": "crawl_policy_denied",
+      "observed_links": 0
+    },
+    {
+      "key": "7dbee7ff45672ed0eb5e8a12766ddf79e52b8c4377ef94e51401da79dbe6fe06",
+      "kind": "document",
+      "input": {
+        "url": "https://www.fr.freelancer.com/job-search/realizzazione-siti-web-freelance/",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": [
+        {
+          "url": "https://www.fr.freelancer.com/projects/business-development/ation-portfolio-strat-gie-prospection",
+          "text": "Création de Portfolio et Stratégie de Prospection pour Traducteur Français-Créole & Créateur de Logos"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/jobs/business-development/",
+          "text": "Développement commercial"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/jobs/content-creation/",
+          "text": "Création de contenu"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/jobs/graphic-design/",
+          "text": "Conception graphique"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/jobs/illustrator/",
+          "text": "Illustrator"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/jobs/logo-design/",
+          "text": "Design de logo"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/jobs/marketing-strategy/",
+          "text": "Stratégie marketing"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/jobs/photoshop/",
+          "text": "Photoshop"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/jobs/translation/",
+          "text": "Traduction"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/projects/automotive/recherche-monteur-monteuse-vid-mission",
+          "text": "Recherche monteur / monteuse vidéo – Émission Vintage Cars"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/jobs/automotive/",
+          "text": "Automobile"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/jobs/automotive-engineering/",
+          "text": "Génie automobile"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/jobs/content-writing/",
+          "text": "Rédaction de contenu"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/jobs/video-editing/",
+          "text": "Édition de vidéos"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/jobs/video-post-editing/",
+          "text": "Post-édition vidéo"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/jobs/video-production/",
+          "text": "Production de vidéos"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/jobs/video-services/",
+          "text": "Services Vidéo"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/projects/video-production/freelance-video-editor-for-reels",
+          "text": "Freelance Video Editor for Reels and YouTube"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/jobs/adobe-premiere-pro/",
+          "text": "Adobe Premiere Pro"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/jobs/after-effects/",
+          "text": "After Effects"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/jobs/animation/",
+          "text": "Animation"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/jobs/final-cut-pro/",
+          "text": "Final Cut Pro"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/jobs/sound-design/",
+          "text": "Conception sonore"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/projects/account-management/gestionnaire-commerces-freelance",
+          "text": "Gestionnaire Commerces Freelance Immobilier"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/jobs/account-management/",
+          "text": "Gestion de comptes"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/jobs/administrative-support/",
+          "text": "Support administratif"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/jobs/business-consultant/",
+          "text": "Conseil en entreprise"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/jobs/business-management/",
+          "text": "Gestion d'entreprise"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/jobs/customer-service/",
+          "text": "Service client"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/jobs/data-management/",
+          "text": "Gestion des données"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/jobs/project-management/",
+          "text": "Gestion de Projet"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/jobs/real-estate-management/",
+          "text": "Gestion immobilière"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/projects/ai-video-editing/animation-publicitaire-dynamique",
+          "text": "Animation publicitaire IA dynamique"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/jobs/3d-animation/",
+          "text": "Animation 3D"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/jobs/ai-content-creation/",
+          "text": "Création de contenu par IA"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/jobs/ai-video/",
+          "text": "AI Video"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/jobs/ai-video-editing/",
+          "text": "AI Video Editing"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/projects/digital-marketing/vendre-mes-produits-num-riques",
+          "text": "Vendre mes produits numériques"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/jobs/amazon/",
+          "text": "Amazon"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/jobs/digital-marketing/",
+          "text": "Marketing digital"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/jobs/internet-marketing/",
+          "text": "Marketing Internet"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/jobs/link-building/",
+          "text": "Création de Liens"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/jobs/marketing/",
+          "text": "Marketing"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/jobs/product-management/",
+          "text": "Gestion de Produits"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/jobs/seo/",
+          "text": "SEO"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/projects/branding/lancement-vitalsprint-identit-visuelle",
+          "text": "Lancement de VitalSprint : Identité visuelle et stratégie digitale pour spécialiste en nutrition sportive"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/jobs/branding/",
+          "text": "Branding"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/jobs/social-media-marketing/",
+          "text": "Marketing sur les médias sociaux"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/jobs/web-design/",
+          "text": "Conception web"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/jobs/website-design/",
+          "text": "Design de site internet"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/projects/advertisement-design/velopper-sence-digitale",
+          "text": "Développer ma présence digitale"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/jobs/advertisement-design/",
+          "text": "Design publicitaire"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/jobs/brochure-design/",
+          "text": "Design de brochures"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/projects/ai-video/ation-vid-pour-campagnes-publicitaires",
+          "text": "Création Vidéos IA pour Campagnes Publicitaires"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/jobs/ai-animation/",
+          "text": "Animation IA"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/jobs/ai-art-creation/",
+          "text": "Création d'art par IA"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/jobs/ai-chatbot-development/",
+          "text": "Développement de chatbot par IA"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/jobs/ai-design/",
+          "text": "Design assisté par IA"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/jobs/ai-development/",
+          "text": "Développement IA"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/projects/visual-design/sentation-visuelle-miro-pour-vid",
+          "text": "Présentation Visuelle Miro pour Vidéo YouTube"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/jobs/article-writing/",
+          "text": "Rédaction d'articles"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/jobs/french-translator/",
+          "text": "Traducteur en français"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/jobs/visual-design/",
+          "text": "Conception visuelle"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/jobs/youtube-video-editing/",
+          "text": "Montage vidéo YouTube"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/projects/blog-writing/the-knowledge",
+          "text": "the knowledge"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/jobs/blog/",
+          "text": "Blog"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/jobs/blog-writing/",
+          "text": "Rédaction de blogs"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/jobs/seo-writing/",
+          "text": "Rédaction SEO"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/jobs/wordpress/",
+          "text": "WordPress"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/projects/recruitment/recherche-recruteur-freelance-flexible",
+          "text": "Recherche recruteur freelance flexible"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/jobs/bpo/",
+          "text": "BPO"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/jobs/data-entry/",
+          "text": "Saisie de Données"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/jobs/recruitment/",
+          "text": "Recrutement"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/projects/health/daction-fiches-produits-pour-site",
+          "text": "Rédaction de 5 fiches produits pour site web"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/jobs/health/",
+          "text": "Santé"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/projects/ai-video-editing/vid-produit-professionnelle",
+          "text": "Vidéo produit IA professionnelle"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/projects/branding/boutique-shopify-dropshipping-tements",
+          "text": "Boutique Shopify de Dropshipping Vêtements - 18/09/2026 14:19 EDT"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/jobs/dropshipping/",
+          "text": "Dropshipping"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/jobs/ecommerce/",
+          "text": "e-Commerce"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/jobs/shopify-site/",
+          "text": "Shopify"
+        }
+      ],
+      "feeds": [
+        {
+          "url": "https://www.fr.freelancer.com/rss.xml",
+          "text": "Derniers projets"
+        }
+      ],
+      "sitemaps": [
+        {
+          "url": "https://www.fr.freelancer.com/sitemap_index_fr_s3.xml",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/sitemap_index_fr_job-search_s3.xml",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/sitemap_index_fr_projects_s3.xml",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.fr.freelancer.com/sitemap_index_fr_contests_s3.xml",
+          "text": "Site-advertised sitemap"
+        }
+      ],
+      "captured_text": "REALIZZAZIONE SITI WEB FREELANCEEMPLOIS\n\nEmbauchez un freelance Gagner de l'argent en freelance\nChercher le mot clef\nOù ?\nRechercher\n\n\nFILTRER\n\nMES RECHERCHES RÉCENTES\n\n\n\nFILTRER PAR :\n\nBUDGET\n\nProjets à prix fixe\nà\n\n\nProjets horaires\nà\n\n\nDurée Toutes les durées Moins d'une semaine De 1 à 4 semaines De 1 à 3 mois De 3 à 6 mois Plus de 6 mois / en cours Non spécifié\n\nConcours\nà\n\n\n\nTYPE\n\n * Travaux locaux\n * Emplois à la une\n * Emplois recruteur\n * Emplois à temps plein\n\nCOMPÉTENCES\n\nsaisir les compétences\n\nLANGUES\n\nentrer les langues\n\nÉTAT DU TRAVAIL\n\nTous les travaux ouverts Tous les travaux ouverts et fermés\nAppliquer le filtre\nLes plus récents en premier Les budgets les plus bas en premier Les budgets les plus hauts en premier Offres/propositions les moins chères Offres/propositions les plus élevées\n1,500 realizzazione siti web freelance missions trouvées\n\nFirst 1 2 3 4 Next Last\nCréation de Portfolio et Stratégie de Prospection pour Traducteur Français-Créole & Créateur de Logos\n5 jours left\n\nJe lance mon activité en tant que traducteur français-créole et créateur de logos. J’ai besoin d’aide pour : - Concevoir un portfolio professionnel, incluant des exemples de traductions et de logos pour divers secteurs - Recevoir des conseils sur la prése...mon activité en tant que traducteur français-créole et créateur de logos. J’ai besoin d’aide pour : - Concevoir un portfolio professionnel, incluant des exemples de traductions et de logos pour divers secteurs - Recevoir des conseils sur la présentation de mon travail et ma polyvalence - Mettre en place une stratégie efficace pour trouver des clients particuliers et entreprises Idéalement, le freelance doit avoir de l&rsquo...\n\nDéveloppement commercial Création de contenu Conception graphique Illustrator Design de logo Stratégie marketing Photoshop Traduction\n€17 / hr Average bid\n€17 / hr Offre moyenne\n23 offres\nFaire une offre maintenant\nRecherche monteur / monteuse vidéo – Émission Vintage Cars\n5 jours left\n\nNous recher",
+      "source_status": "fetched",
+      "source_reason": null,
+      "observed_links": 80
+    },
+    {
+      "key": "cbb44b86270ea2299e6f699a12ef8ed8d51229372d6e38e2fbdc40502aff0726",
+      "kind": "document",
+      "input": {
+        "url": "https://www.facebook.com/groups/5122685527800938/posts/28268605756115588/",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": [
+        {
+          "url": "https://www.facebook.com/sitemap/cpg_offplat_future_public_events_sitemap.xml.gz",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.facebook.com/sitemap/public_active_groups_sitemap.xml.gz",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.facebook.com/sitemap/groups_popular_posts_sitemap_qe.xml.gz",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.facebook.com/sitemap/groups_latest_posts_0.xml.gz",
+          "text": "Site-advertised sitemap"
+        }
+      ],
+      "captured_text": null,
+      "source_status": "access_limited",
+      "source_reason": "crawl_policy_denied",
+      "observed_links": 0
+    },
+    {
+      "key": "c7668aec03a78bff604f7110e2aacfcf3d7791d5d675f7e62db46d590fbaf45a",
+      "kind": "document",
+      "input": {
+        "url": "https://nexthireinc.com/hire-website-redesign-specialists/",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": [
+        {
+          "url": "https://nexthireinc.com/book-a-call/",
+          "text": "Book a Meeting"
+        },
+        {
+          "url": "https://nexthireinc.com/",
+          "text": ""
+        },
+        {
+          "url": "https://nexthireinc.com/book-a-call",
+          "text": "Get Started"
+        },
+        {
+          "url": "https://nexthireinc.com/lets-discuss/",
+          "text": "arrow-primary Hire Website Redesign Specialists"
+        },
+        {
+          "url": "https://nexthireinc.com/how-to-give-developer-access-to-shopify/",
+          "text": "How to Give a Shopify Developer Access to Your Store Safely"
+        },
+        {
+          "url": "https://nexthireinc.com/shopify-hydrogen-developer/",
+          "text": "Shopify Hydrogen Developer: When Does Headless Shopify Make Sense?"
+        },
+        {
+          "url": "https://nexthireinc.com/shopify-store-redesign/",
+          "text": "Shopify Store Redesign: When to Refresh, Rebuild, or Hire a Developer"
+        },
+        {
+          "url": "https://www.facebook.com/profile.php?id=61582754057422",
+          "text": ""
+        },
+        {
+          "url": "https://www.instagram.com/team_nexthire/",
+          "text": ""
+        },
+        {
+          "url": "https://x.com/team_nexthire",
+          "text": ""
+        },
+        {
+          "url": "https://nexthireinc.com/about",
+          "text": "About Our Company"
+        },
+        {
+          "url": "https://nexthireinc.com/hire/",
+          "text": "Services"
+        },
+        {
+          "url": "https://nexthireinc.com/lets-discuss",
+          "text": "Book A Call"
+        },
+        {
+          "url": "https://nexthireinc.com/contact-us/",
+          "text": "Contact Us"
+        },
+        {
+          "url": "https://nexthireinc.com/pricing/",
+          "text": "Pricing"
+        },
+        {
+          "url": "https://nexthireinc.com/testimonials/",
+          "text": "Testimonials"
+        },
+        {
+          "url": "https://nexthireinc.com/insights/",
+          "text": "Insights"
+        },
+        {
+          "url": "https://nexthireinc.com/industries/",
+          "text": "Industries We Serve"
+        },
+        {
+          "url": "https://nexthireinc.com/faq/",
+          "text": "FAQs"
+        },
+        {
+          "url": "https://nexthireinc.com/privacy-commitment/",
+          "text": "Privacy Commitment"
+        },
+        {
+          "url": "https://nexthireinc.com/cookie-preferences/",
+          "text": "Cookie Preferences"
+        },
+        {
+          "url": "https://nexthireinc.com/terms-of-use/",
+          "text": "Terms of Use"
+        }
+      ],
+      "feeds": [
+        {
+          "url": "https://nexthireinc.com/feed/",
+          "text": "Next Hire » Feed"
+        },
+        {
+          "url": "https://nexthireinc.com/comments/feed/",
+          "text": "Next Hire » Comments Feed"
+        }
+      ],
+      "sitemaps": [
+        {
+          "url": "https://nexthireinc.com/sitemap_index.xml",
+          "text": "Site-advertised sitemap"
+        }
+      ],
+      "captured_text": "×\n\n\nWant to start building your team?\n\nLet us help you\n\nBook a Meeting\nSkip to content\n * \n * \n\n * Facebook\n * LinkedIn\n * Twitter\n\nGet Started\n\n\nHIRE WEBSITE REDESIGN SPECIALISTS WHO TRANSFORM OUTDATED SITES INTO HIGH-PERFORMING DIGITAL EXPERIENCES\n\nModernize your website with strategic redesign that drives engagement, conversions, and growth\n\nWhen you hire website redesign consultants from NextHire, you work with specialists who deliver comprehensive website redesign services that transform outdated websites into modern, conversion-focused digital experiences. Our dedicated web redesign experts combine strategic planning, user research, visual design, and technical optimization to create websites that engage visitors and drive business results. When you hire website redesign specialist professionals, you get:\n\n * Strategic redesign approach based on user data, business goals, and competitive analysis\n * Modern, responsive design optimized for all devices and current web standards\n * Improved user experience through intuitive navigation and conversion-focused layouts\n\n * Enhanced performance with faster loading speeds and technical optimization\n * SEO preservation maintaining search rankings while improving site architecture\n * Flexible engagement models including remote website redesign specialists and on-demand website redesign professionals\n\narrow-primary Hire Website Redesign Specialists\n * Trusted by businesses across industries to modernize websites and deliver measurable improvements in traffic, engagement, and conversions\n\nWork Requirement Form\n\nName\nEmail\nPhone\nCountry\nWork Requirement\nWebsite/Company\nSubmit\n\n\nCOMPREHENSIVE WEBSITE REDESIGN SERVICES OFFERED BY OUR EXPERTS\n\nEnd-to-end execution, from strategic planning and UX research to design implementation and post-launch optimization\n\n\nFULL WEBSITE REDESIGN SERVICES\n\nOur website redesign services deliver complete site transformations including strategy, information architecture, UX/UI design, content op",
+      "source_status": "fetched",
+      "source_reason": null,
+      "observed_links": 22
+    },
+    {
+      "key": "432f647adfce3a4b200a57b0b277e8ba8d63de28a1adbf3ac771719c4083303f",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "Website redesign remote \"project brief\"",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "48e8eadeab7257c2b8d5f06b71f658e6b6008db124c1c44b62abe6448375141a",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 2,
+          "limit": 10,
+          "query": "Website redesign remote \"looking for\" freelance",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    }
+  ],
+  "decisions": [
+    {
+      "round": 0,
+      "reason": "check_promising_result",
+      "action": {
+        "url": "https://www.facebook.com/quintsdesignco/posts/were-hiring-were-on-the-hunt-for-a-freelance-web-designer-developer-to-join-us-o/1782042740214502/",
+        "kind": "document"
+      },
+      "depth": 0,
+      "parent_key": "dcd0eee32ccb5b425a1521d15ff14f779c65bf275919331a3a2d5afed7fae123"
+    },
+    {
+      "round": 1,
+      "reason": "check_promising_result",
+      "action": {
+        "url": "https://www.instagram.com/p/Dd3wmgBFf5N/",
+        "kind": "document"
+      },
+      "depth": 0,
+      "parent_key": "dcd0eee32ccb5b425a1521d15ff14f779c65bf275919331a3a2d5afed7fae123"
+    },
+    {
+      "round": 2,
+      "reason": "check_promising_result",
+      "action": {
+        "url": "https://www.linkedin.com/posts/muhammadarman_most-design-agencies-sell-websites-very-activity-7506744720899964928--jAU",
+        "kind": "document"
+      },
+      "depth": 0,
+      "parent_key": "b353d01e28194b779a8783c3b6b862e1e2cb07c9859fc10d1b9665ac7771ef52"
+    },
+    {
+      "round": 3,
+      "reason": "check_promising_result",
+      "action": {
+        "url": "https://www.fr.freelancer.com/job-search/realizzazione-siti-web-freelance/",
+        "kind": "document"
+      },
+      "depth": 0,
+      "parent_key": "dcd0eee32ccb5b425a1521d15ff14f779c65bf275919331a3a2d5afed7fae123"
+    },
+    {
+      "round": 4,
+      "reason": "check_promising_result",
+      "action": {
+        "url": "https://www.facebook.com/groups/5122685527800938/posts/28268605756115588/",
+        "kind": "document"
+      },
+      "depth": 0,
+      "parent_key": "dcd0eee32ccb5b425a1521d15ff14f779c65bf275919331a3a2d5afed7fae123"
+    },
+    {
+      "round": 5,
+      "reason": "check_promising_result",
+      "action": {
+        "url": "https://nexthireinc.com/hire-website-redesign-specialists/",
+        "kind": "document"
+      },
+      "depth": 0,
+      "parent_key": "dcd0eee32ccb5b425a1521d15ff14f779c65bf275919331a3a2d5afed7fae123"
+    },
+    {
+      "round": 6,
+      "reason": "refine_demand_query",
+      "action": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "Website redesign remote \"project brief\"",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "depth": 0,
+      "parent_key": "b353d01e28194b779a8783c3b6b862e1e2cb07c9859fc10d1b9665ac7771ef52"
+    },
+    {
+      "round": 7,
+      "reason": "continue_result_page",
+      "action": {
+        "kind": "search",
+        "query": {
+          "page": 2,
+          "limit": 10,
+          "query": "Website redesign remote \"looking for\" freelance",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "depth": 0,
+      "parent_key": "dcd0eee32ccb5b425a1521d15ff14f779c65bf275919331a3a2d5afed7fae123"
+    },
+    {
+      "round": 8,
+      "reason": "exploration_limit",
+      "action": null,
+      "depth": 0,
+      "parent_key": null
+    }
+  ],
+  "case": {
+    "id": "ff2691a4-fe44-47ea-ac4e-776c6a93836e",
+    "scoutId": "543bf545-a660-46a8-9d70-9701cc8e5b93",
+    "scoutName": "Synthetic service-request scout",
+    "scoutVersion": 1,
+    "provider": "serper",
+    "strategy": {
+      "targets": [
+        "Website redesign"
+      ],
+      "explanation": "Use the exact service phrase as one focused search target so matching stays precise. The remote preference will be handled separately by the query template, so it is not added here."
+    },
+    "exploration": [
+      {
+        "kind": "document",
+        "reason": "check_promising_result",
+        "target": "https://www.facebook.com/quintsdesignco/posts/were-hiring-were-on-the-hunt-for-a-freelance-web-designer-developer-to-join-us-o/1782042740214502/"
+      },
+      {
+        "kind": "document",
+        "reason": "check_promising_result",
+        "target": "https://www.instagram.com/p/Dd3wmgBFf5N/"
+      },
+      {
+        "kind": "document",
+        "reason": "check_promising_result",
+        "target": "https://www.linkedin.com/posts/muhammadarman_most-design-agencies-sell-websites-very-activity-7506744720899964928--jAU"
+      },
+      {
+        "kind": "document",
+        "reason": "check_promising_result",
+        "target": "https://www.fr.freelancer.com/job-search/realizzazione-siti-web-freelance/"
+      },
+      {
+        "kind": "document",
+        "reason": "check_promising_result",
+        "target": "https://www.facebook.com/groups/5122685527800938/posts/28268605756115588/"
+      },
+      {
+        "kind": "document",
+        "reason": "check_promising_result",
+        "target": "https://nexthireinc.com/hire-website-redesign-specialists/"
+      },
+      {
+        "kind": "search",
+        "reason": "refine_demand_query",
+        "target": "Website redesign remote \"project brief\""
+      },
+      {
+        "kind": "search",
+        "reason": "continue_result_page",
+        "target": "Website redesign remote \"looking for\" freelance"
+      },
+      {
+        "kind": null,
+        "reason": "exploration_limit",
+        "target": null
+      }
+    ],
+    "reviewStatus": "complete",
+    "reviewReason": "source_reviews_complete",
+    "status": "partial",
+    "reason": "some_sources_unavailable",
+    "startedAt": "2026-10-11 23:26:05.958379+00",
+    "finishedAt": "2026-10-11 23:27:01.201929+00",
+    "searchesCompleted": 5,
+    "documentsChecked": 6,
+    "leadCount": 49
+  },
+  "usage": [
+    {
+      "provider": "public-documents",
+      "requests": 6,
+      "reserved_micros": "0"
+    },
+    {
+      "provider": "serper",
+      "requests": 5,
+      "reserved_micros": "50000"
+    }
+  ],
+  "aiBudget": [
+    {
+      "requests": 11,
+      "reserved_microusd": "825000"
+    }
+  ],
+  "leads": [
+    {
+      "url": "https://www.vollna.com/freelance-programming-jobs",
+      "title": "Top freelance computer programming jobs online",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.facebook.com/groups/335277303517509/posts/2704445213267361/",
+      "title": "🚀 Available for Freelance & Remote Work Hi everyone! I'm a ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.toptal.com/designers/graphic",
+      "title": "11 Best Freelance Graphic Designers for Hire ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.peopleperhour.com/freelance-jobs/design/web-design/final-15-of-our-new-website-4526014",
+      "title": "Final 15% of Our New Website",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.threads.com/@remotikojobs/post/DeRQ75-CAwg/apply-here/",
+      "title": "Apply Here: https://remotiko.com/job/web-designer/",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.upwork.com/freelance-jobs/apply/Wix-Website-Designer-Needed-for-Website-Redesign_~022105836029095123257/",
+      "title": "Wix Website Designer Needed for Website Redesign",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://dailyremote.com/remote-job/freelance-power-point-designer-and-microsoft-copilot-specialist-must-currently-reside-in-south-africa-5623178",
+      "title": "Freelance PowerPoint Designer and Microsoft Copilot ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.facebook.com/groups/328987027143040/posts/38617446181203646/",
+      "title": "Web/SEO job opportunities for Calgary, AB freelancers?",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://jobs.wordpress.net/",
+      "title": "WordPress Jobs | WordPress related Job Postings",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.remoterocketship.com/us/company/the-redesign-group/",
+      "title": "Remote Jobs at The Redesign Group",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://everycode.net/how-to-write-a-website-project-brief/",
+      "title": "Website Project Brief: How to Write One + Template - EveryCode",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.kiwistic.com/web-design-project/",
+      "title": "Web Design Services for Businesses",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.universalwebstudio.co.za/website-design-brief-generator/",
+      "title": "Free Website Design Brief Generator - Universal Web Studio",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.facebook.com/aestheticpixelstudio/posts/seeking-a-long-term-web-development-partner-agency-for-aesthetic-eurasia-group-/122199184862861033/",
+      "title": "What long-term web development partner for Aesthetic ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://zaprojektowani.com/en/web-design-katowice/",
+      "title": "Web design Katowice — designing and building websites",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://timelinedigi.com/services/website-design-development",
+      "title": "Custom Website Design and Development Services",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://blasterrdesign.hu/en/gyik",
+      "title": "Web design and branding FAQ - Blasterr Design",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.rock.so/blog/project-brief-template",
+      "title": "Project Brief Template: Example and Word Download - Rock",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.freelancer.com/projects/elementor/modern-page-corporate-webpage-redesign",
+      "title": "Modern 12-Page Corporate webpage Redesign",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.linkedin.com/posts/topical-technology_projectmanagement-teamcommunication-technologyprojects-activity-7506359236814303232-Oo5M",
+      "title": "5-Point Project Update Template for Clear Decision Making",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.linkedin.com/posts/bradlefeld_if-youre-in-college-for-graphic-design-activity-7506006792850632705-Hq9y",
+      "title": "Graphic Designers: Why a Business Class Matters",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.linkedin.com/posts/ramseyrhett-lovell-b22a08405_need-a-modern-professional-and-responsive-activity-7513619082735190016-FE9b",
+      "title": "RamseyRhett Lovell's Post",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.linkedin.com/posts/dhriti-jain02_looking-for-a-freelance-website-developer-activity-7514304334944223232-RjD4",
+      "title": "Dhriti Jain posted this",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.linkedin.com/posts/vidhi-panchal-670b28285_freelancedeveloper-webdeveloper-wordpress-activity-7510579273213181952-0pd7",
+      "title": "Freelance Web Developer Services UK WordPress Design",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.linkedin.com/posts/gurvinder-kaur-37220b96_hi-connections-looking-for-recommendations-activity-7506591641512857600-b3mM",
+      "title": "Gurvinder Kaur posted this",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.linkedin.com/posts/precious-imonikhe_one-thing-freelancing-has-taught-me-you-activity-7507506378618449920-sHIL",
+      "title": "Designing Websites Beyond Aesthetics",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.linkedin.com/posts/saqib-ahmed-expertwebdeveloper_business-entrepreneurship-marketing-activity-7504650580615954432-Iecy",
+      "title": "Freelancer vs Agency vs In-House Website Development ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.linkedin.com/posts/muhammadarman_most-design-agencies-sell-websites-very-activity-7506744720899964928--jAU",
+      "title": "Design Agencies Often Outsource Web Development",
+      "contentStatus": "access_limited",
+      "contentReason": "crawl_policy_denied",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.linkedin.com/posts/adriansticea_how-do-you-get-your-first-freelance-client-activity-7508473993172021248-Fivv",
+      "title": "Getting Your First Freelance Client When Nobody Knows You",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.linkedin.com/posts/freelance-self-employed-official_freelance-freelancers-selfemployed-activity-7505294376747786241-YepH",
+      "title": "Freelance | Self-Employed's Post",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://x.com/jamesm/reposts",
+      "title": "Reposts by James McDonald (@jamesm) ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://x.com/FFOpps",
+      "title": "Freelance Football Opps (@FFOpps) / ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://x.com/i/status/2104269009105354860",
+      "title": "Post",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://x.com/NehaGunnoo/all",
+      "title": "Neha Gunnoo (@NehaGunnoo) / ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://x.com/caicardenas?lang=da",
+      "title": "Cai Cardenas (@caicardenas) / X",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://x.com/i/status/2099415389125898353",
+      "title": "Job Corner",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://x.com/i/status/2099030774146097203",
+      "title": "remote job with tessy",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://x.com/JonECopywriter",
+      "title": "Jon Evans (@JonECopywriter) / X",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://x.com/i/status/2106041034555920519",
+      "title": "Priyank Ahuja",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://x.com/i/status/2107147209749790771",
+      "title": "Lukee - illustrator 🏳️‍🌈 on X",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "review": null,
+      "promoted": false
+    }
+  ],
+  "checks": [
+    "live adaptive decisions",
+    "bounded provider and model admission",
+    "observed parent provenance",
+    "current owner isolation",
+    "terminal replay without new spending"
+  ],
+  "emailsSent": 0,
+  "realAccountsUsed": 0,
+  "scopeNote": "One live synthetic case from model-guided web discovery through cited source review, linked-page research, private assessment and eligible local Mailpit delivery. Uses production use cases and admission boundaries. Labels are model judgments, not independent ground truth. Comparative precision/recall and global throughput remain unproven."
+}

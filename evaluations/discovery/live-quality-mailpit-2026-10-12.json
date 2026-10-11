@@ -1,0 +1,19 @@
+{
+  "checkedAt": "2026-10-11T23:33:11.833Z",
+  "messageId": "d3f5b666-60a4-4a12-872d-cf65940ba641@scoutalert.test",
+  "mailpitCopies": 1,
+  "subject": "ScoutAlert: 2 opportunities to review",
+  "included": [
+    {
+      "title": "Staff Product Designer",
+      "url": "https://uiuxjobsboard.com/job/1626126-remote-united-states-staff-product-designer",
+      "included": true
+    },
+    {
+      "title": "Senior Product Designer",
+      "url": "https://weworkremotely.com/remote-jobs/cribl-sr-ux-designer-security",
+      "included": true
+    }
+  ],
+  "scope": "Synthetic recipient only; confirms local SMTP capture, not production deliverability."
+}

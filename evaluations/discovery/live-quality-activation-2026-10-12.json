@@ -1,0 +1,41 @@
+{
+  "checkedAt": "2026-10-11T23:49:19.508Z",
+  "http": [
+    {
+      "name": "api",
+      "status": 200
+    },
+    {
+      "name": "web",
+      "status": 200
+    },
+    {
+      "name": "mailpit",
+      "status": 200
+    }
+  ],
+  "workerQueues": [
+    "scout-workflows-v1",
+    "scout-sources-v1",
+    "scout-web-discovery-v1",
+    "scout-source-monitoring-v1",
+    "scout-social-discovery-v1",
+    "scout-matching-v1",
+    "scout-research-v1",
+    "scout-delivery-v1",
+    "scout-private-mail-v1"
+  ],
+  "policies": [
+    {
+      "policy": "supported-criteria-v3",
+      "count": 51
+    },
+    {
+      "policy": "unversioned",
+      "count": 85
+    }
+  ],
+  "policy": "supported-criteria-v4",
+  "scope": "Local API and worker startup plus aggregate persisted assessment versions. Existing schedules, budgets and Mailpit configuration retained. Does not establish independent relevance, complete reassessment or production readiness.",
+  "reassessment": "No v4 recommendations observed at this snapshot; prior AI assessments await normal scheduled reassessment. Unversioned provisional matches retain existing rules."
+}

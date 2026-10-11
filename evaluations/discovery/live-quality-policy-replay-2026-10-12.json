@@ -1,0 +1,207 @@
+{
+  "checkedAt": "2026-10-11T23:40:08.542Z",
+  "input": "evaluations/discovery/live-quality-jobs-refined-2026-10-12.json",
+  "evaluationPolicy": "supported-criteria-v4",
+  "before": 2,
+  "after": 1,
+  "results": [
+    {
+      "url": "https://uiuxjobsboard.com/job/1626126-remote-united-states-staff-product-designer",
+      "title": "Staff Product Designer",
+      "before": true,
+      "after": false,
+      "assessment": null
+    },
+    {
+      "url": "https://weworkremotely.com/remote-jobs/cribl-sr-ux-designer-security",
+      "title": "Senior Product Designer",
+      "before": true,
+      "after": true,
+      "assessment": {
+        "policy": "personal-fit-v1",
+        "reasons": [
+          "The job is for a Senior Product Designer, which matches the brief target of product designer or UX designer.",
+          "The posting is for full-time employment, matching the brief category of employment.",
+          "The role is explicitly remote-first, which matches the brief’s remote requirement.",
+          "The job is geolocked to the United States, and the brief allows United States work locations."
+        ],
+        "uncertainties": [
+          "The posting requires 5+ years plus security, AI, Figma, and design systems experience, while the brief only confirms 5 years of B2B SaaS product/UX work with research, prototyping, and design systems. That supports part of the requirement but does not confirm all required experience.",
+          "The posting does not provide clear, consistent evidence for this requirement.",
+          "The posting states salary of $100,000 or more USD, but the brief does not provide a minimum pay floor to compare against."
+        ],
+        "rank": 28,
+        "detail": {
+          "criteria": [
+            {
+              "quotes": [
+                "Senior Product Designer",
+                "We are looking for a Senior Product Designer to help define and deliver Cribl security product experience. You will design for security practitioners across detection, alerting, investigation, triage, search, threat coverage, telemetry, and AI-assisted workflows."
+              ],
+              "status": "meets",
+              "criterion": "role",
+              "briefQuotes": [
+                "Product designer or UX designer"
+              ],
+              "explanation": "The job is for a Senior Product Designer, which matches the brief target of product designer or UX designer."
+            },
+            {
+              "quotes": [
+                " * Job type Full-Time"
+              ],
+              "status": "meets",
+              "criterion": "category",
+              "briefQuotes": [
+                "employment"
+              ],
+              "explanation": "The posting is for full-time employment, matching the brief category of employment."
+            },
+            {
+              "quotes": [
+                "With Cribl, IT and Security teams have choice, control, and flexibility to adapt to data needs that are always changing. Fortune 1000 companies around the world depend on Cribl’s innovative and proven product suite. Cribl Stream is the industry’s leading observability pipeline. Cribl Edge is an intelligent, vendor-neutral agent. And Cribl Search is the industry’s first search-in-place solution. Founded in 2018, Cribl is a remote-first workforce with headquarters in San Francisco, California.",
+                "We’re one of the fastest‑growing private companies and a leading player in a massive, fast‑moving market. With a global workforce, we’re remote‑first and grounded in a simple idea: software is a people business. Cribl is the place where curious, collaborative people can do their best work, grow fast, and bring their full selves to the herd.",
+                " * We are a remote-first company and work happens across many time-zones - you may be required to occasionally perform duties outside your standard working hours."
+              ],
+              "status": "meets",
+              "criterion": "arrangement",
+              "briefQuotes": [
+                "remote"
+              ],
+              "explanation": "The role is explicitly remote-first, which matches the brief’s remote requirement."
+            },
+            {
+              "quotes": [
+                "(THIS JOB IS GEOLOCKED)",
+                "   (This job is GeoLocked)",
+                "   🇺🇸 United States of America"
+              ],
+              "status": "meets",
+              "criterion": "location",
+              "briefQuotes": [
+                "United States or remote worldwide",
+                "United States"
+              ],
+              "explanation": "The job is geolocked to the United States, and the brief allows United States work locations."
+            },
+            {
+              "quotes": [
+                "   * 5+ years experience designing complex B2B software, enterprise platforms, or products for technical users.",
+                "   * A security background, such as security product design, security operations, threat detection, incident response, threat hunting, detection engineering, SOC workflows, SIEM, EDR, SOAR, or a related discipline.",
+                "   * Experience designing AI-assisted, agentic, conversational, or other emerging interaction models.",
+                "   * Expert Figma skills, including advanced prototyping and design documentation."
+              ],
+              "status": "unknown",
+              "criterion": "experience",
+              "briefQuotes": [
+                "Five years of product and UX design for B2B SaaS products, user research, prototyping and design systems"
+              ],
+              "explanation": "The posting requires 5+ years plus security, AI, Figma, and design systems experience, while the brief only confirms 5 years of B2B SaaS product/UX work with research, prototyping, and design systems. That supports part of the requirement but does not confirm all required experience."
+            },
+            {
+              "quotes": [
+                "(THIS JOB IS GEOLOCKED)",
+                "   (This job is GeoLocked)",
+                "   🇺🇸 United States of America"
+              ],
+              "status": "unknown",
+              "criterion": "authorization",
+              "briefQuotes": [
+                "not_needed",
+                "United States"
+              ],
+              "explanation": "The posting does not provide clear, consistent evidence for this requirement."
+            },
+            {
+              "quotes": [
+                " * Salary $100,000 or more USD"
+              ],
+              "status": "unknown",
+              "criterion": "compensation",
+              "briefQuotes": [
+                "USD",
+                "year",
+                "include"
+              ],
+              "explanation": "The posting states salary of $100,000 or more USD, but the brief does not provide a minimum pay floor to compare against."
+            }
+          ],
+          "assessedBy": "ai",
+          "verificationPolicy": "supported-criteria-v4",
+          "employerResearch": {
+            "findings": [
+              {
+                "fact": "location",
+                "value": "",
+                "quotes": [],
+                "status": "unresolved",
+                "sourceUrl": null,
+                "explanation": "Approved employer sources did not provide usable evidence for this question.",
+                "applicability": "unclear"
+              },
+              {
+                "fact": "authorization",
+                "value": "",
+                "quotes": [],
+                "status": "unresolved",
+                "sourceUrl": null,
+                "explanation": "Approved employer sources did not provide usable evidence for this question.",
+                "applicability": "unclear"
+              },
+              {
+                "fact": "sponsorship",
+                "value": "",
+                "quotes": [],
+                "status": "unresolved",
+                "sourceUrl": null,
+                "explanation": "Approved employer sources did not provide usable evidence for this question.",
+                "applicability": "unclear"
+              },
+              {
+                "fact": "requirements",
+                "value": "",
+                "quotes": [],
+                "status": "unresolved",
+                "sourceUrl": null,
+                "explanation": "Approved employer sources did not provide usable evidence for this question.",
+                "applicability": "unclear"
+              },
+              {
+                "fact": "deadline",
+                "value": "",
+                "quotes": [],
+                "status": "unresolved",
+                "sourceUrl": null,
+                "explanation": "Approved employer sources did not provide usable evidence for this question.",
+                "applicability": "unclear"
+              }
+            ],
+            "checkedAt": "2026-10-11T23:31:05.335Z",
+            "documents": [],
+            "expiresAt": "2026-10-11T23:46:05.335Z"
+          },
+          "research": [
+            {
+              "criterion": "experience",
+              "question": "The posting requires 5+ years plus security, AI, Figma, and design systems experience, while the brief only confirms 5 years of B2B SaaS product/UX work with research, prototyping, and design systems. That supports part of the requirement but does not confirm all required experience.",
+              "status": "unresolved"
+            },
+            {
+              "criterion": "authorization",
+              "question": "The posting does not provide clear, consistent evidence for this requirement.",
+              "status": "unresolved"
+            },
+            {
+              "criterion": "compensation",
+              "question": "The posting states salary of $100,000 or more USD, but the brief does not provide a minimum pay floor to compare against.",
+              "status": "unresolved"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "modelRequests": 0,
+  "searchRequests": 0,
+  "emailsSent": 0,
+  "scope": "Monotonic replay of previously accepted results using their frozen public analysis and displayed criteria. Does not revive rejected results, establish independent relevance, refresh source availability or retract the historical synthetic Mailpit message. Previous-policy assessments require reassessment before another email."
+}

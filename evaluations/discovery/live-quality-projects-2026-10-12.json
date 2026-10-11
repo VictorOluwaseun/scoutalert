@@ -1,0 +1,3699 @@
+{
+  "checkedAt": "2026-10-11T23:21:47.697Z",
+  "scenario": "projects",
+  "baseline": false,
+  "status": "measured",
+  "deliveryOutcome": "no_eligible_digest",
+  "reasoning": [
+    {
+      "input": {
+        "kind": "strategy",
+        "intent": {
+          "remote": true,
+          "target": "React TypeScript web development",
+          "category": "services"
+        }
+      },
+      "output": {
+        "kind": "strategy",
+        "strategy": {
+          "targets": [
+            "React TypeScript web development"
+          ],
+          "explanation": "This is a single coherent service target, so I kept it intact rather than splitting it into separate searches. The search template will handle the remote preference separately, and this keeps the public search focused on the exact brief."
+        }
+      },
+      "rejected_output": null,
+      "failure": null,
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 1808,
+        "responseId": "resp_0ad7ea218e339a9c016acc19b947ac87d28f8ddb4ffb61b98e",
+        "inputTokens": 220,
+        "outputTokens": 156,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 867
+      }
+    },
+    {
+      "input": {
+        "kind": "choice",
+        "intent": {
+          "remote": true,
+          "target": "React TypeScript web development",
+          "category": "services"
+        },
+        "choices": [
+          {
+            "depth": 0,
+            "title": "Freelance Web Dev Skills Beyond Coding",
+            "action": {
+              "url": "https://www.linkedin.com/posts/aramayis-mirzoyan_the-main-things-freelance-web-developers-activity-7504916709800132608-rj23",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "67b6955f98a03c226e077fc4b17e5238aab9cc3ca6936e5e71e1a0132143b459"
+          },
+          {
+            "depth": 0,
+            "title": "**[FOR HIRE] Web Developer | React / Node.js / Next. ...",
+            "action": {
+              "url": "https://www.reddit.com/r/WebDeveloperJobs/comments/1wusxaa/for_hire_web_developer_react_nodejs_nextjs_nestjs/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "a2da35c777e40bd96063042fe5771094b7a4ebb392113d5f89be64bdf86ba5be"
+          },
+          {
+            "depth": 0,
+            "title": "Remote frontend or full stack developer job opportunities ...",
+            "action": {
+              "url": "https://www.facebook.com/groups/4478714448882966/posts/28484703571190718/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "a2da35c777e40bd96063042fe5771094b7a4ebb392113d5f89be64bdf86ba5be"
+          },
+          {
+            "depth": 0,
+            "title": "Senior Front-End Developer (React + TypeScript) | Fulltime",
+            "action": {
+              "url": "https://dailyremote.com/remote-job/senior-front-end-developer-react-type-script-fulltime-remote-est-5657609",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "a2da35c777e40bd96063042fe5771094b7a4ebb392113d5f89be64bdf86ba5be"
+          },
+          {
+            "depth": 0,
+            "title": "Experienced Next.js developer seeking remote freelance ...",
+            "action": {
+              "url": "https://www.facebook.com/groups/274791304282884/posts/1618107529951248/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "a2da35c777e40bd96063042fe5771094b7a4ebb392113d5f89be64bdf86ba5be"
+          },
+          {
+            "depth": 0,
+            "title": "Freelance / Contract | 🧑‍💻 React / TypeScript / Node. ...",
+            "action": {
+              "url": "https://x.com/i/status/2106390640074318276",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "2cdd7a3f4c25cf21bbf053c6b3608e5e1219ccfb10ba037870cfd6f2aa96134d"
+          },
+          {
+            "depth": 0,
+            "title": "React Native Freelance Developer Remote Work",
+            "action": {
+              "url": "https://www.linkedin.com/posts/role-sense_hiring-react-remotejobs-activity-7505309390187540480-kgi6",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "67b6955f98a03c226e077fc4b17e5238aab9cc3ca6936e5e71e1a0132143b459"
+          },
+          {
+            "depth": 0,
+            "title": "Flexible Remote Frontend Developer Jobs",
+            "action": {
+              "url": "https://www.indeed.com/q-remote-frontend-developer-jobs.html",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "a2da35c777e40bd96063042fe5771094b7a4ebb392113d5f89be64bdf86ba5be"
+          },
+          {
+            "depth": 0,
+            "title": "Front-End Developer (React / TypeScript) for a Creative ...",
+            "action": {
+              "url": "https://www.upwork.com/freelance-jobs/apply/Front-End-Developer-React-TypeScript-for-Creative-Sharing-Platform_~022108015263357496857/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "a2da35c777e40bd96063042fe5771094b7a4ebb392113d5f89be64bdf86ba5be"
+          },
+          {
+            "depth": 0,
+            "title": "Hire Top Freelance Front-End Developers in Poland (Sep 2026)",
+            "action": {
+              "url": "https://arc.dev/en-pl/hire-developers/front-end",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "a2da35c777e40bd96063042fe5771094b7a4ebb392113d5f89be64bdf86ba5be"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "React TypeScript web development remote \"project brief\"",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "67b6955f98a03c226e077fc4b17e5238aab9cc3ca6936e5e71e1a0132143b459"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": null,
+            "reason": "no_further_action",
+            "parentKey": null
+          }
+        ],
+        "evidence": [
+          {
+            "url": "https://www.facebook.com/groups/274791304282884/posts/1618107529951248/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Experienced Next.js developer seeking remote freelance ... Hi everyone, I'm a Full-Stack Developer with 20+ years of software development experience, currently looking for remote freelance and long-term opportunities."
+          },
+          {
+            "url": "https://www.reddit.com/r/WebDeveloperJobs/comments/1wusxaa/for_hire_web_developer_react_nodejs_nextjs_nestjs/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "**[FOR HIRE] Web Developer | React / Node.js / Next. ... I'm currently looking for web development / full-stack opportunities, including freelance work, internships, contract work, or a full-time role. I've worked ..."
+          },
+          {
+            "url": "https://www.indeed.com/q-remote-frontend-developer-jobs.html",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Flexible Remote Frontend Developer Jobs We are looking for developer with real passion for javascript, microservices and software development. ... 3+ years of frontend development with React and ..."
+          },
+          {
+            "url": "https://www.upwork.com/freelance-jobs/apply/Front-End-Developer-React-TypeScript-for-Creative-Sharing-Platform_~022108015263357496857/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Front-End Developer (React / TypeScript) for a Creative ... We're looking for talented Front-End Developers with a sharp eye for detail, a passion for clean code, and the technical expertise to build exceptional digital ..."
+          },
+          {
+            "url": "https://arc.dev/en-pl/hire-developers/front-end",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Hire Top Freelance Front-End Developers in Poland (Sep 2026) View remote developers in other technologies. If you're looking for immediate online assistance, you can get programming help within 6 minutes on Codementor ..."
+          },
+          {
+            "url": "https://www.facebook.com/groups/4478714448882966/posts/28484703571190718/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Remote frontend or full stack developer job opportunities ... I'm Joshua, a web developer from Tagum City, and I'm looking for a remote job as a frontend or full stack developer. I mostly work with React and TypeScript ..."
+          },
+          {
+            "url": "https://dailyremote.com/remote-job/senior-front-end-developer-react-type-script-fulltime-remote-est-5657609",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Senior Front-End Developer (React + TypeScript) | Fulltime We are looking for a hands-on Senior Front-End Developer who can immediately contribute to building, optimizing, and owning enterprise-grade web applications."
+          },
+          {
+            "url": "https://x.com/i/status/2106390640074318276",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Freelance / Contract | 🧑‍💻 React / TypeScript / Node. ... ... looking for a Senior Full-Stack Developer to collaborate on ... #Hiring #FullStack #React #TypeScript #NodeJS #WebSockets #FinTech #Trading #RemoteJobs ..."
+          },
+          {
+            "url": "https://www.linkedin.com/posts/role-sense_hiring-react-remotejobs-activity-7505309390187540480-kgi6",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "React Native Freelance Developer Remote Work Looking for agencies that have more client projects than developers available Especially the ones quietly saying: “We can deliver it, but not right now…"
+          },
+          {
+            "url": "https://www.linkedin.com/posts/aramayis-mirzoyan_the-main-things-freelance-web-developers-activity-7504916709800132608-rj23",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Freelance Web Dev Skills Beyond Coding Frontend Engineer | React.js • Next.js • TypeScript ... Computer Science | Knows Python, Front End Development | Looking for internships | currently learning full ..."
+          }
+        ],
+        "candidates": [
+          {
+            "text": "Freelance Web Dev Skills Beyond Coding Frontend Engineer | React.js • Next.js • TypeScript ... Computer Science | Knows Python, Front End Development | Looking for internships | currently learning full ...",
+            "query": "site:linkedin.com/posts React TypeScript web development \"looking for\" freelance",
+            "choice": 0,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "**[FOR HIRE] Web Developer | React / Node.js / Next. ... I'm currently looking for web development / full-stack opportunities, including freelance work, internships, contract work, or a full-time role. I've worked ...",
+            "query": "React TypeScript web development remote \"looking for\" freelance",
+            "choice": 1,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Remote frontend or full stack developer job opportunities ... I'm Joshua, a web developer from Tagum City, and I'm looking for a remote job as a frontend or full stack developer. I mostly work with React and TypeScript ...",
+            "query": "React TypeScript web development remote \"looking for\" freelance",
+            "choice": 2,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Senior Front-End Developer (React + TypeScript) | Fulltime We are looking for a hands-on Senior Front-End Developer who can immediately contribute to building, optimizing, and owning enterprise-grade web applications.",
+            "query": "React TypeScript web development remote \"looking for\" freelance",
+            "choice": 3,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Experienced Next.js developer seeking remote freelance ... Hi everyone, I'm a Full-Stack Developer with 20+ years of software development experience, currently looking for remote freelance and long-term opportunities.",
+            "query": "React TypeScript web development remote \"looking for\" freelance",
+            "choice": 4,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Freelance / Contract | 🧑‍💻 React / TypeScript / Node. ... ... looking for a Senior Full-Stack Developer to collaborate on ... #Hiring #FullStack #React #TypeScript #NodeJS #WebSockets #FinTech #Trading #RemoteJobs ...",
+            "query": "site:x.com React TypeScript web development \"looking for\" freelance",
+            "choice": 5,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "React Native Freelance Developer Remote Work Looking for agencies that have more client projects than developers available Especially the ones quietly saying: “We can deliver it, but not right now…",
+            "query": "site:linkedin.com/posts React TypeScript web development \"looking for\" freelance",
+            "choice": 6,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Flexible Remote Frontend Developer Jobs We are looking for developer with real passion for javascript, microservices and software development. ... 3+ years of frontend development with React and ...",
+            "query": "React TypeScript web development remote \"looking for\" freelance",
+            "choice": 7,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Front-End Developer (React / TypeScript) for a Creative ... We're looking for talented Front-End Developers with a sharp eye for detail, a passion for clean code, and the technical expertise to build exceptional digital ...",
+            "query": "React TypeScript web development remote \"looking for\" freelance",
+            "choice": 8,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Hire Top Freelance Front-End Developers in Poland (Sep 2026) View remote developers in other technologies. If you're looking for immediate online assistance, you can get programming help within 6 minutes on Codementor ...",
+            "query": "React TypeScript web development remote \"looking for\" freelance",
+            "choice": 9,
+            "origin": "search_result",
+            "parentUrl": null
+          }
+        ]
+      },
+      "output": {
+        "kind": "choice",
+        "index": 8,
+        "explanation": "This looks like a direct remote client demand for React/TypeScript front-end work, which is the most useful next step to inspect for scope, eligibility, and deadline details."
+      },
+      "rejected_output": null,
+      "failure": null,
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 1625,
+        "responseId": "resp_055ab7f4d7121d1c016acc19c0511887d2b530ab2bc30d40ab",
+        "inputTokens": 3168,
+        "outputTokens": 108,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 2862
+      }
+    },
+    {
+      "input": {
+        "kind": "choice",
+        "intent": {
+          "remote": true,
+          "target": "React TypeScript web development",
+          "category": "services"
+        },
+        "choices": [
+          {
+            "depth": 0,
+            "title": "Freelance Web Dev Skills Beyond Coding",
+            "action": {
+              "url": "https://www.linkedin.com/posts/aramayis-mirzoyan_the-main-things-freelance-web-developers-activity-7504916709800132608-rj23",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "67b6955f98a03c226e077fc4b17e5238aab9cc3ca6936e5e71e1a0132143b459"
+          },
+          {
+            "depth": 0,
+            "title": "**[FOR HIRE] Web Developer | React / Node.js / Next. ...",
+            "action": {
+              "url": "https://www.reddit.com/r/WebDeveloperJobs/comments/1wusxaa/for_hire_web_developer_react_nodejs_nextjs_nestjs/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "a2da35c777e40bd96063042fe5771094b7a4ebb392113d5f89be64bdf86ba5be"
+          },
+          {
+            "depth": 0,
+            "title": "Remote frontend or full stack developer job opportunities ...",
+            "action": {
+              "url": "https://www.facebook.com/groups/4478714448882966/posts/28484703571190718/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "a2da35c777e40bd96063042fe5771094b7a4ebb392113d5f89be64bdf86ba5be"
+          },
+          {
+            "depth": 0,
+            "title": "Senior Front-End Developer (React + TypeScript) | Fulltime",
+            "action": {
+              "url": "https://dailyremote.com/remote-job/senior-front-end-developer-react-type-script-fulltime-remote-est-5657609",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "a2da35c777e40bd96063042fe5771094b7a4ebb392113d5f89be64bdf86ba5be"
+          },
+          {
+            "depth": 0,
+            "title": "Experienced Next.js developer seeking remote freelance ...",
+            "action": {
+              "url": "https://www.facebook.com/groups/274791304282884/posts/1618107529951248/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "a2da35c777e40bd96063042fe5771094b7a4ebb392113d5f89be64bdf86ba5be"
+          },
+          {
+            "depth": 0,
+            "title": "Freelance / Contract | 🧑‍💻 React / TypeScript / Node. ...",
+            "action": {
+              "url": "https://x.com/i/status/2106390640074318276",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "2cdd7a3f4c25cf21bbf053c6b3608e5e1219ccfb10ba037870cfd6f2aa96134d"
+          },
+          {
+            "depth": 0,
+            "title": "React Native Freelance Developer Remote Work",
+            "action": {
+              "url": "https://www.linkedin.com/posts/role-sense_hiring-react-remotejobs-activity-7505309390187540480-kgi6",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "67b6955f98a03c226e077fc4b17e5238aab9cc3ca6936e5e71e1a0132143b459"
+          },
+          {
+            "depth": 0,
+            "title": "Flexible Remote Frontend Developer Jobs",
+            "action": {
+              "url": "https://www.indeed.com/q-remote-frontend-developer-jobs.html",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "a2da35c777e40bd96063042fe5771094b7a4ebb392113d5f89be64bdf86ba5be"
+          },
+          {
+            "depth": 0,
+            "title": "Hire Top Freelance Front-End Developers in Poland (Sep 2026)",
+            "action": {
+              "url": "https://arc.dev/en-pl/hire-developers/front-end",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "a2da35c777e40bd96063042fe5771094b7a4ebb392113d5f89be64bdf86ba5be"
+          },
+          {
+            "depth": 0,
+            "title": "11 Best Freelance Front-end Developers for Hire ...",
+            "action": {
+              "url": "https://www.toptal.com/developers/front-end",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "a2da35c777e40bd96063042fe5771094b7a4ebb392113d5f89be64bdf86ba5be"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "React TypeScript web development remote \"project brief\"",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "67b6955f98a03c226e077fc4b17e5238aab9cc3ca6936e5e71e1a0132143b459"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": null,
+            "reason": "no_further_action",
+            "parentKey": null
+          }
+        ],
+        "evidence": [
+          {
+            "url": "https://www.facebook.com/groups/274791304282884/posts/1618107529951248/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Experienced Next.js developer seeking remote freelance ... Hi everyone, I'm a Full-Stack Developer with 20+ years of software development experience, currently looking for remote freelance and long-term opportunities."
+          },
+          {
+            "url": "https://www.reddit.com/r/WebDeveloperJobs/comments/1wusxaa/for_hire_web_developer_react_nodejs_nextjs_nestjs/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "**[FOR HIRE] Web Developer | React / Node.js / Next. ... I'm currently looking for web development / full-stack opportunities, including freelance work, internships, contract work, or a full-time role. I've worked ..."
+          },
+          {
+            "url": "https://www.indeed.com/q-remote-frontend-developer-jobs.html",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Flexible Remote Frontend Developer Jobs We are looking for developer with real passion for javascript, microservices and software development. ... 3+ years of frontend development with React and ..."
+          },
+          {
+            "url": "https://arc.dev/en-pl/hire-developers/front-end",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Hire Top Freelance Front-End Developers in Poland (Sep 2026) View remote developers in other technologies. If you're looking for immediate online assistance, you can get programming help within 6 minutes on Codementor ..."
+          },
+          {
+            "url": "https://www.facebook.com/groups/4478714448882966/posts/28484703571190718/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Remote frontend or full stack developer job opportunities ... I'm Joshua, a web developer from Tagum City, and I'm looking for a remote job as a frontend or full stack developer. I mostly work with React and TypeScript ..."
+          },
+          {
+            "url": "https://www.toptal.com/developers/front-end",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "11 Best Freelance Front-end Developers for Hire ... Looking for an end-to-end business solution? Browse Toptal's portfolio of services. Front-end Development ServicesReactJS Development ServicesFull-stack ..."
+          },
+          {
+            "url": "https://dailyremote.com/remote-job/senior-front-end-developer-react-type-script-fulltime-remote-est-5657609",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Senior Front-End Developer (React + TypeScript) | Fulltime We are looking for a hands-on Senior Front-End Developer who can immediately contribute to building, optimizing, and owning enterprise-grade web applications."
+          },
+          {
+            "url": "https://x.com/i/status/2106390640074318276",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Freelance / Contract | 🧑‍💻 React / TypeScript / Node. ... ... looking for a Senior Full-Stack Developer to collaborate on ... #Hiring #FullStack #React #TypeScript #NodeJS #WebSockets #FinTech #Trading #RemoteJobs ..."
+          },
+          {
+            "url": "https://www.linkedin.com/posts/role-sense_hiring-react-remotejobs-activity-7505309390187540480-kgi6",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "React Native Freelance Developer Remote Work Looking for agencies that have more client projects than developers available Especially the ones quietly saying: “We can deliver it, but not right now…"
+          },
+          {
+            "url": "https://www.linkedin.com/posts/aramayis-mirzoyan_the-main-things-freelance-web-developers-activity-7504916709800132608-rj23",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Freelance Web Dev Skills Beyond Coding Frontend Engineer | React.js • Next.js • TypeScript ... Computer Science | Knows Python, Front End Development | Looking for internships | currently learning full ..."
+          }
+        ],
+        "candidates": [
+          {
+            "text": "Freelance Web Dev Skills Beyond Coding Frontend Engineer | React.js • Next.js • TypeScript ... Computer Science | Knows Python, Front End Development | Looking for internships | currently learning full ...",
+            "query": "site:linkedin.com/posts React TypeScript web development \"looking for\" freelance",
+            "choice": 0,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "**[FOR HIRE] Web Developer | React / Node.js / Next. ... I'm currently looking for web development / full-stack opportunities, including freelance work, internships, contract work, or a full-time role. I've worked ...",
+            "query": "React TypeScript web development remote \"looking for\" freelance",
+            "choice": 1,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Remote frontend or full stack developer job opportunities ... I'm Joshua, a web developer from Tagum City, and I'm looking for a remote job as a frontend or full stack developer. I mostly work with React and TypeScript ...",
+            "query": "React TypeScript web development remote \"looking for\" freelance",
+            "choice": 2,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Senior Front-End Developer (React + TypeScript) | Fulltime We are looking for a hands-on Senior Front-End Developer who can immediately contribute to building, optimizing, and owning enterprise-grade web applications.",
+            "query": "React TypeScript web development remote \"looking for\" freelance",
+            "choice": 3,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Experienced Next.js developer seeking remote freelance ... Hi everyone, I'm a Full-Stack Developer with 20+ years of software development experience, currently looking for remote freelance and long-term opportunities.",
+            "query": "React TypeScript web development remote \"looking for\" freelance",
+            "choice": 4,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Freelance / Contract | 🧑‍💻 React / TypeScript / Node. ... ... looking for a Senior Full-Stack Developer to collaborate on ... #Hiring #FullStack #React #TypeScript #NodeJS #WebSockets #FinTech #Trading #RemoteJobs ...",
+            "query": "site:x.com React TypeScript web development \"looking for\" freelance",
+            "choice": 5,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "React Native Freelance Developer Remote Work Looking for agencies that have more client projects than developers available Especially the ones quietly saying: “We can deliver it, but not right now…",
+            "query": "site:linkedin.com/posts React TypeScript web development \"looking for\" freelance",
+            "choice": 6,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Flexible Remote Frontend Developer Jobs We are looking for developer with real passion for javascript, microservices and software development. ... 3+ years of frontend development with React and ...",
+            "query": "React TypeScript web development remote \"looking for\" freelance",
+            "choice": 7,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Hire Top Freelance Front-End Developers in Poland (Sep 2026) View remote developers in other technologies. If you're looking for immediate online assistance, you can get programming help within 6 minutes on Codementor ...",
+            "query": "React TypeScript web development remote \"looking for\" freelance",
+            "choice": 8,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "11 Best Freelance Front-end Developers for Hire ... Looking for an end-to-end business solution? Browse Toptal's portfolio of services. Front-end Development ServicesReactJS Development ServicesFull-stack ...",
+            "query": "React TypeScript web development remote \"looking for\" freelance",
+            "choice": 9,
+            "origin": "search_result",
+            "parentUrl": null
+          }
+        ]
+      },
+      "output": {
+        "kind": "choice",
+        "index": 3,
+        "explanation": "Direct remote opening for React + TypeScript work from an employer page, so it can clarify role requirements, eligibility, and fit faster than the seller-style or directory results."
+      },
+      "rejected_output": null,
+      "failure": null,
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 2243,
+        "responseId": "resp_0ac787551e7c255c016acc19c4aa6887d2941aaebd55327340",
+        "inputTokens": 3101,
+        "outputTokens": 207,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 3258
+      }
+    },
+    {
+      "input": {
+        "kind": "choice",
+        "intent": {
+          "remote": true,
+          "target": "React TypeScript web development",
+          "category": "services"
+        },
+        "choices": [
+          {
+            "depth": 1,
+            "title": "Apply Now",
+            "action": {
+              "url": "https://dailyremote.com/get-started",
+              "kind": "document"
+            },
+            "reason": "follow_source_link",
+            "parentKey": "3d2e071cf16612c1ad0400149a3e01038d92ec181c33a7169fdc2cf80951d8c1"
+          },
+          {
+            "depth": 0,
+            "title": "Freelance Web Dev Skills Beyond Coding",
+            "action": {
+              "url": "https://www.linkedin.com/posts/aramayis-mirzoyan_the-main-things-freelance-web-developers-activity-7504916709800132608-rj23",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "67b6955f98a03c226e077fc4b17e5238aab9cc3ca6936e5e71e1a0132143b459"
+          },
+          {
+            "depth": 0,
+            "title": "**[FOR HIRE] Web Developer | React / Node.js / Next. ...",
+            "action": {
+              "url": "https://www.reddit.com/r/WebDeveloperJobs/comments/1wusxaa/for_hire_web_developer_react_nodejs_nextjs_nestjs/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "a2da35c777e40bd96063042fe5771094b7a4ebb392113d5f89be64bdf86ba5be"
+          },
+          {
+            "depth": 0,
+            "title": "Remote frontend or full stack developer job opportunities ...",
+            "action": {
+              "url": "https://www.facebook.com/groups/4478714448882966/posts/28484703571190718/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "a2da35c777e40bd96063042fe5771094b7a4ebb392113d5f89be64bdf86ba5be"
+          },
+          {
+            "depth": 0,
+            "title": "Experienced Next.js developer seeking remote freelance ...",
+            "action": {
+              "url": "https://www.facebook.com/groups/274791304282884/posts/1618107529951248/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "a2da35c777e40bd96063042fe5771094b7a4ebb392113d5f89be64bdf86ba5be"
+          },
+          {
+            "depth": 0,
+            "title": "Freelance / Contract | 🧑‍💻 React / TypeScript / Node. ...",
+            "action": {
+              "url": "https://x.com/i/status/2106390640074318276",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "2cdd7a3f4c25cf21bbf053c6b3608e5e1219ccfb10ba037870cfd6f2aa96134d"
+          },
+          {
+            "depth": 0,
+            "title": "React Native Freelance Developer Remote Work",
+            "action": {
+              "url": "https://www.linkedin.com/posts/role-sense_hiring-react-remotejobs-activity-7505309390187540480-kgi6",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "67b6955f98a03c226e077fc4b17e5238aab9cc3ca6936e5e71e1a0132143b459"
+          },
+          {
+            "depth": 1,
+            "title": "United States",
+            "action": {
+              "url": "https://dailyremote.com/remote-software-development-jobs-in-united-states",
+              "kind": "document"
+            },
+            "reason": "follow_source_link",
+            "parentKey": "3d2e071cf16612c1ad0400149a3e01038d92ec181c33a7169fdc2cf80951d8c1"
+          },
+          {
+            "depth": 0,
+            "title": "Flexible Remote Frontend Developer Jobs",
+            "action": {
+              "url": "https://www.indeed.com/q-remote-frontend-developer-jobs.html",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "a2da35c777e40bd96063042fe5771094b7a4ebb392113d5f89be64bdf86ba5be"
+          },
+          {
+            "depth": 0,
+            "title": "Hire Top Freelance Front-End Developers in Poland (Sep 2026)",
+            "action": {
+              "url": "https://arc.dev/en-pl/hire-developers/front-end",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "a2da35c777e40bd96063042fe5771094b7a4ebb392113d5f89be64bdf86ba5be"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "React TypeScript web development remote \"project brief\"",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "67b6955f98a03c226e077fc4b17e5238aab9cc3ca6936e5e71e1a0132143b459"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": null,
+            "reason": "no_further_action",
+            "parentKey": null
+          }
+        ],
+        "evidence": [
+          {
+            "url": "https://dailyremote.com/remote-job/senior-front-end-developer-react-type-script-fulltime-remote-est-5657609",
+            "label": "job_opening",
+            "scope": "source",
+            "unknowns": [
+              "sponsorship",
+              "compensation",
+              "authorization"
+            ],
+            "explanation": "This is a specific advertised role, not just a directory page: the page names one position and provides an apply action. The title states the role and work mode, and the page includes application instructions."
+          },
+          {
+            "url": "https://www.facebook.com/groups/274791304282884/posts/1618107529951248/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Experienced Next.js developer seeking remote freelance ... Hi everyone, I'm a Full-Stack Developer with 20+ years of software development experience, currently looking for remote freelance and long-term opportunities."
+          },
+          {
+            "url": "https://www.reddit.com/r/WebDeveloperJobs/comments/1wusxaa/for_hire_web_developer_react_nodejs_nextjs_nestjs/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "**[FOR HIRE] Web Developer | React / Node.js / Next. ... I'm currently looking for web development / full-stack opportunities, including freelance work, internships, contract work, or a full-time role. I've worked ..."
+          },
+          {
+            "url": "https://www.indeed.com/q-remote-frontend-developer-jobs.html",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Flexible Remote Frontend Developer Jobs We are looking for developer with real passion for javascript, microservices and software development. ... 3+ years of frontend development with React and ..."
+          },
+          {
+            "url": "https://arc.dev/en-pl/hire-developers/front-end",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Hire Top Freelance Front-End Developers in Poland (Sep 2026) View remote developers in other technologies. If you're looking for immediate online assistance, you can get programming help within 6 minutes on Codementor ..."
+          },
+          {
+            "url": "https://www.facebook.com/groups/4478714448882966/posts/28484703571190718/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Remote frontend or full stack developer job opportunities ... I'm Joshua, a web developer from Tagum City, and I'm looking for a remote job as a frontend or full stack developer. I mostly work with React and TypeScript ..."
+          },
+          {
+            "url": "https://x.com/i/status/2106390640074318276",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Freelance / Contract | 🧑‍💻 React / TypeScript / Node. ... ... looking for a Senior Full-Stack Developer to collaborate on ... #Hiring #FullStack #React #TypeScript #NodeJS #WebSockets #FinTech #Trading #RemoteJobs ..."
+          },
+          {
+            "url": "https://www.linkedin.com/posts/role-sense_hiring-react-remotejobs-activity-7505309390187540480-kgi6",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "React Native Freelance Developer Remote Work Looking for agencies that have more client projects than developers available Especially the ones quietly saying: “We can deliver it, but not right now…"
+          },
+          {
+            "url": "https://www.linkedin.com/posts/aramayis-mirzoyan_the-main-things-freelance-web-developers-activity-7504916709800132608-rj23",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Freelance Web Dev Skills Beyond Coding Frontend Engineer | React.js • Next.js • TypeScript ... Computer Science | Knows Python, Front End Development | Looking for internships | currently learning full ..."
+          }
+        ],
+        "candidates": [
+          {
+            "text": "Apply Now\nParent page context (not child evidence): This is a specific advertised role, not just a directory page: the page names one position and provides an apply action. The title states the role and work mode, and the page includes application instructions.",
+            "query": null,
+            "choice": 0,
+            "origin": "source_link",
+            "parentUrl": "https://dailyremote.com/remote-job/senior-front-end-developer-react-type-script-fulltime-remote-est-5657609"
+          },
+          {
+            "text": "Freelance Web Dev Skills Beyond Coding Frontend Engineer | React.js • Next.js • TypeScript ... Computer Science | Knows Python, Front End Development | Looking for internships | currently learning full ...",
+            "query": "site:linkedin.com/posts React TypeScript web development \"looking for\" freelance",
+            "choice": 1,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "**[FOR HIRE] Web Developer | React / Node.js / Next. ... I'm currently looking for web development / full-stack opportunities, including freelance work, internships, contract work, or a full-time role. I've worked ...",
+            "query": "React TypeScript web development remote \"looking for\" freelance",
+            "choice": 2,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Remote frontend or full stack developer job opportunities ... I'm Joshua, a web developer from Tagum City, and I'm looking for a remote job as a frontend or full stack developer. I mostly work with React and TypeScript ...",
+            "query": "React TypeScript web development remote \"looking for\" freelance",
+            "choice": 3,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Experienced Next.js developer seeking remote freelance ... Hi everyone, I'm a Full-Stack Developer with 20+ years of software development experience, currently looking for remote freelance and long-term opportunities.",
+            "query": "React TypeScript web development remote \"looking for\" freelance",
+            "choice": 4,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Freelance / Contract | 🧑‍💻 React / TypeScript / Node. ... ... looking for a Senior Full-Stack Developer to collaborate on ... #Hiring #FullStack #React #TypeScript #NodeJS #WebSockets #FinTech #Trading #RemoteJobs ...",
+            "query": "site:x.com React TypeScript web development \"looking for\" freelance",
+            "choice": 5,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "React Native Freelance Developer Remote Work Looking for agencies that have more client projects than developers available Especially the ones quietly saying: “We can deliver it, but not right now…",
+            "query": "site:linkedin.com/posts React TypeScript web development \"looking for\" freelance",
+            "choice": 6,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "United States\nParent page context (not child evidence): This is a specific advertised role, not just a directory page: the page names one position and provides an apply action. The title states the role and work mode, and the page includes application instructions.",
+            "query": null,
+            "choice": 7,
+            "origin": "source_link",
+            "parentUrl": "https://dailyremote.com/remote-job/senior-front-end-developer-react-type-script-fulltime-remote-est-5657609"
+          },
+          {
+            "text": "Flexible Remote Frontend Developer Jobs We are looking for developer with real passion for javascript, microservices and software development. ... 3+ years of frontend development with React and ...",
+            "query": "React TypeScript web development remote \"looking for\" freelance",
+            "choice": 8,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Hire Top Freelance Front-End Developers in Poland (Sep 2026) View remote developers in other technologies. If you're looking for immediate online assistance, you can get programming help within 6 minutes on Codementor ...",
+            "query": "React TypeScript web development remote \"looking for\" freelance",
+            "choice": 9,
+            "origin": "search_result",
+            "parentUrl": null
+          }
+        ]
+      },
+      "output": {
+        "kind": "choice",
+        "index": 0,
+        "explanation": "This is the most useful next step because it’s an actual advertised remote front-end role with an apply action, so it can clarify the key fit details (required React/TypeScript stack, eligibility, and application process) better than profile posts or directories."
+      },
+      "rejected_output": null,
+      "failure": null,
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 1444,
+        "responseId": "resp_0486ea3006d4ef8b016acc19cdd5bc87d283d17483f0d02c1b",
+        "inputTokens": 3049,
+        "outputTokens": 118,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 2818
+      }
+    },
+    {
+      "input": {
+        "kind": "choice",
+        "intent": {
+          "remote": true,
+          "target": "React TypeScript web development",
+          "category": "services"
+        },
+        "choices": [
+          {
+            "depth": 0,
+            "title": "Freelance Web Dev Skills Beyond Coding",
+            "action": {
+              "url": "https://www.linkedin.com/posts/aramayis-mirzoyan_the-main-things-freelance-web-developers-activity-7504916709800132608-rj23",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "67b6955f98a03c226e077fc4b17e5238aab9cc3ca6936e5e71e1a0132143b459"
+          },
+          {
+            "depth": 0,
+            "title": "**[FOR HIRE] Web Developer | React / Node.js / Next. ...",
+            "action": {
+              "url": "https://www.reddit.com/r/WebDeveloperJobs/comments/1wusxaa/for_hire_web_developer_react_nodejs_nextjs_nestjs/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "a2da35c777e40bd96063042fe5771094b7a4ebb392113d5f89be64bdf86ba5be"
+          },
+          {
+            "depth": 0,
+            "title": "Remote frontend or full stack developer job opportunities ...",
+            "action": {
+              "url": "https://www.facebook.com/groups/4478714448882966/posts/28484703571190718/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "a2da35c777e40bd96063042fe5771094b7a4ebb392113d5f89be64bdf86ba5be"
+          },
+          {
+            "depth": 0,
+            "title": "Freelance / Contract | 🧑‍💻 React / TypeScript / Node. ...",
+            "action": {
+              "url": "https://x.com/i/status/2106390640074318276",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "2cdd7a3f4c25cf21bbf053c6b3608e5e1219ccfb10ba037870cfd6f2aa96134d"
+          },
+          {
+            "depth": 0,
+            "title": "Experienced Next.js developer seeking remote freelance ...",
+            "action": {
+              "url": "https://www.facebook.com/groups/274791304282884/posts/1618107529951248/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "a2da35c777e40bd96063042fe5771094b7a4ebb392113d5f89be64bdf86ba5be"
+          },
+          {
+            "depth": 0,
+            "title": "Prashant (@Dev_Prashant_K) / X",
+            "action": {
+              "url": "https://x.com/Dev_Prashant_K",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "2cdd7a3f4c25cf21bbf053c6b3608e5e1219ccfb10ba037870cfd6f2aa96134d"
+          },
+          {
+            "depth": 0,
+            "title": "React Native Freelance Developer Remote Work",
+            "action": {
+              "url": "https://www.linkedin.com/posts/role-sense_hiring-react-remotejobs-activity-7505309390187540480-kgi6",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "67b6955f98a03c226e077fc4b17e5238aab9cc3ca6936e5e71e1a0132143b459"
+          },
+          {
+            "depth": 1,
+            "title": "United States",
+            "action": {
+              "url": "https://dailyremote.com/remote-software-development-jobs-in-united-states",
+              "kind": "document"
+            },
+            "reason": "follow_source_link",
+            "parentKey": "3d2e071cf16612c1ad0400149a3e01038d92ec181c33a7169fdc2cf80951d8c1"
+          },
+          {
+            "depth": 0,
+            "title": "Flexible Remote Frontend Developer Jobs",
+            "action": {
+              "url": "https://www.indeed.com/q-remote-frontend-developer-jobs.html",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "a2da35c777e40bd96063042fe5771094b7a4ebb392113d5f89be64bdf86ba5be"
+          },
+          {
+            "depth": 0,
+            "title": "Hire Top Freelance Front-End Developers in Poland (Sep 2026)",
+            "action": {
+              "url": "https://arc.dev/en-pl/hire-developers/front-end",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "a2da35c777e40bd96063042fe5771094b7a4ebb392113d5f89be64bdf86ba5be"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "React TypeScript web development remote \"project brief\"",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "67b6955f98a03c226e077fc4b17e5238aab9cc3ca6936e5e71e1a0132143b459"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": null,
+            "reason": "no_further_action",
+            "parentKey": null
+          }
+        ],
+        "evidence": [
+          {
+            "url": "https://dailyremote.com/get-started",
+            "label": "directory",
+            "scope": "source",
+            "unknowns": [
+              "role",
+              "category",
+              "location",
+              "arrangement",
+              "sponsorship",
+              "compensation",
+              "requirements",
+              "authorization"
+            ],
+            "explanation": "This is a job-search service / job board landing page, not a specific opening. It describes finding and sending users remote jobs from many company career pages, plus subscription pricing, rather than a single role to apply for."
+          },
+          {
+            "url": "https://dailyremote.com/remote-job/senior-front-end-developer-react-type-script-fulltime-remote-est-5657609",
+            "label": "job_opening",
+            "scope": "source",
+            "unknowns": [
+              "sponsorship",
+              "compensation",
+              "authorization"
+            ],
+            "explanation": "This is a specific advertised role, not just a directory page: the page names one position and provides an apply action. The title states the role and work mode, and the page includes application instructions."
+          },
+          {
+            "url": "https://www.facebook.com/groups/274791304282884/posts/1618107529951248/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Experienced Next.js developer seeking remote freelance ... Hi everyone, I'm a Full-Stack Developer with 20+ years of software development experience, currently looking for remote freelance and long-term opportunities."
+          },
+          {
+            "url": "https://www.reddit.com/r/WebDeveloperJobs/comments/1wusxaa/for_hire_web_developer_react_nodejs_nextjs_nestjs/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "**[FOR HIRE] Web Developer | React / Node.js / Next. ... I'm currently looking for web development / full-stack opportunities, including freelance work, internships, contract work, or a full-time role. I've worked ..."
+          },
+          {
+            "url": "https://www.indeed.com/q-remote-frontend-developer-jobs.html",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Flexible Remote Frontend Developer Jobs We are looking for developer with real passion for javascript, microservices and software development. ... 3+ years of frontend development with React and ..."
+          },
+          {
+            "url": "https://arc.dev/en-pl/hire-developers/front-end",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Hire Top Freelance Front-End Developers in Poland (Sep 2026) View remote developers in other technologies. If you're looking for immediate online assistance, you can get programming help within 6 minutes on Codementor ..."
+          },
+          {
+            "url": "https://www.facebook.com/groups/4478714448882966/posts/28484703571190718/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Remote frontend or full stack developer job opportunities ... I'm Joshua, a web developer from Tagum City, and I'm looking for a remote job as a frontend or full stack developer. I mostly work with React and TypeScript ..."
+          },
+          {
+            "url": "https://x.com/i/status/2106390640074318276",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Freelance / Contract | 🧑‍💻 React / TypeScript / Node. ... ... looking for a Senior Full-Stack Developer to collaborate on ... #Hiring #FullStack #React #TypeScript #NodeJS #WebSockets #FinTech #Trading #RemoteJobs ..."
+          },
+          {
+            "url": "https://x.com/Dev_Prashant_K",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Prashant (@Dev_Prashant_K) / X People looking for their next opportunity. You don't need to have it all figured out. If you're learning, building, and trying — say hi. Let's connect ..."
+          },
+          {
+            "url": "https://www.linkedin.com/posts/role-sense_hiring-react-remotejobs-activity-7505309390187540480-kgi6",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "React Native Freelance Developer Remote Work Looking for agencies that have more client projects than developers available Especially the ones quietly saying: “We can deliver it, but not right now…"
+          },
+          {
+            "url": "https://www.linkedin.com/posts/aramayis-mirzoyan_the-main-things-freelance-web-developers-activity-7504916709800132608-rj23",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Freelance Web Dev Skills Beyond Coding Frontend Engineer | React.js • Next.js • TypeScript ... Computer Science | Knows Python, Front End Development | Looking for internships | currently learning full ..."
+          }
+        ],
+        "candidates": [
+          {
+            "text": "Freelance Web Dev Skills Beyond Coding Frontend Engineer | React.js • Next.js • TypeScript ... Computer Science | Knows Python, Front End Development | Looking for internships | currently learning full ...",
+            "query": "site:linkedin.com/posts React TypeScript web development \"looking for\" freelance",
+            "choice": 0,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "**[FOR HIRE] Web Developer | React / Node.js / Next. ... I'm currently looking for web development / full-stack opportunities, including freelance work, internships, contract work, or a full-time role. I've worked ...",
+            "query": "React TypeScript web development remote \"looking for\" freelance",
+            "choice": 1,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Remote frontend or full stack developer job opportunities ... I'm Joshua, a web developer from Tagum City, and I'm looking for a remote job as a frontend or full stack developer. I mostly work with React and TypeScript ...",
+            "query": "React TypeScript web development remote \"looking for\" freelance",
+            "choice": 2,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Freelance / Contract | 🧑‍💻 React / TypeScript / Node. ... ... looking for a Senior Full-Stack Developer to collaborate on ... #Hiring #FullStack #React #TypeScript #NodeJS #WebSockets #FinTech #Trading #RemoteJobs ...",
+            "query": "site:x.com React TypeScript web development \"looking for\" freelance",
+            "choice": 3,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Experienced Next.js developer seeking remote freelance ... Hi everyone, I'm a Full-Stack Developer with 20+ years of software development experience, currently looking for remote freelance and long-term opportunities.",
+            "query": "React TypeScript web development remote \"looking for\" freelance",
+            "choice": 4,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Prashant (@Dev_Prashant_K) / X People looking for their next opportunity. You don't need to have it all figured out. If you're learning, building, and trying — say hi. Let's connect ...",
+            "query": "site:x.com React TypeScript web development \"looking for\" freelance",
+            "choice": 5,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "React Native Freelance Developer Remote Work Looking for agencies that have more client projects than developers available Especially the ones quietly saying: “We can deliver it, but not right now…",
+            "query": "site:linkedin.com/posts React TypeScript web development \"looking for\" freelance",
+            "choice": 6,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "United States\nParent page context (not child evidence): This is a specific advertised role, not just a directory page: the page names one position and provides an apply action. The title states the role and work mode, and the page includes application instructions.",
+            "query": null,
+            "choice": 7,
+            "origin": "source_link",
+            "parentUrl": "https://dailyremote.com/remote-job/senior-front-end-developer-react-type-script-fulltime-remote-est-5657609"
+          },
+          {
+            "text": "Flexible Remote Frontend Developer Jobs We are looking for developer with real passion for javascript, microservices and software development. ... 3+ years of frontend development with React and ...",
+            "query": "React TypeScript web development remote \"looking for\" freelance",
+            "choice": 8,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Hire Top Freelance Front-End Developers in Poland (Sep 2026) View remote developers in other technologies. If you're looking for immediate online assistance, you can get programming help within 6 minutes on Codementor ...",
+            "query": "React TypeScript web development remote \"looking for\" freelance",
+            "choice": 9,
+            "origin": "search_result",
+            "parentUrl": null
+          }
+        ]
+      },
+      "output": {
+        "kind": "choice",
+        "index": 7,
+        "explanation": "This looks like the strongest demand-side lead: a specific remote front-end role with an apply action, which can quickly confirm requirements, location constraints, and whether React/TypeScript work is actually being sought. Next step: inspect the job page details rather than directory listings or self-promotion posts."
+      },
+      "rejected_output": null,
+      "failure": null,
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 1560,
+        "responseId": "resp_0ea910540508b7ed016acc19d4dc3c87d2acd33cbe2c413055",
+        "inputTokens": 3216,
+        "outputTokens": 128,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 2988
+      }
+    },
+    {
+      "input": {
+        "kind": "choice",
+        "intent": {
+          "remote": true,
+          "target": "React TypeScript web development",
+          "category": "services"
+        },
+        "choices": [
+          {
+            "depth": 0,
+            "title": "Freelance Web Dev Skills Beyond Coding",
+            "action": {
+              "url": "https://www.linkedin.com/posts/aramayis-mirzoyan_the-main-things-freelance-web-developers-activity-7504916709800132608-rj23",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "67b6955f98a03c226e077fc4b17e5238aab9cc3ca6936e5e71e1a0132143b459"
+          },
+          {
+            "depth": 0,
+            "title": "**[FOR HIRE] Web Developer | React / Node.js / Next. ...",
+            "action": {
+              "url": "https://www.reddit.com/r/WebDeveloperJobs/comments/1wusxaa/for_hire_web_developer_react_nodejs_nextjs_nestjs/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "a2da35c777e40bd96063042fe5771094b7a4ebb392113d5f89be64bdf86ba5be"
+          },
+          {
+            "depth": 0,
+            "title": "Remote frontend or full stack developer job opportunities ...",
+            "action": {
+              "url": "https://www.facebook.com/groups/4478714448882966/posts/28484703571190718/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "a2da35c777e40bd96063042fe5771094b7a4ebb392113d5f89be64bdf86ba5be"
+          },
+          {
+            "depth": 0,
+            "title": "Freelance / Contract | 🧑‍💻 React / TypeScript / Node. ...",
+            "action": {
+              "url": "https://x.com/i/status/2106390640074318276",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "2cdd7a3f4c25cf21bbf053c6b3608e5e1219ccfb10ba037870cfd6f2aa96134d"
+          },
+          {
+            "depth": 0,
+            "title": "Experienced Next.js developer seeking remote freelance ...",
+            "action": {
+              "url": "https://www.facebook.com/groups/274791304282884/posts/1618107529951248/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "a2da35c777e40bd96063042fe5771094b7a4ebb392113d5f89be64bdf86ba5be"
+          },
+          {
+            "depth": 0,
+            "title": "Prashant (@Dev_Prashant_K) / X",
+            "action": {
+              "url": "https://x.com/Dev_Prashant_K",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "2cdd7a3f4c25cf21bbf053c6b3608e5e1219ccfb10ba037870cfd6f2aa96134d"
+          },
+          {
+            "depth": 0,
+            "title": "React Native Freelance Developer Remote Work",
+            "action": {
+              "url": "https://www.linkedin.com/posts/role-sense_hiring-react-remotejobs-activity-7505309390187540480-kgi6",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "67b6955f98a03c226e077fc4b17e5238aab9cc3ca6936e5e71e1a0132143b459"
+          },
+          {
+            "depth": 1,
+            "title": "security",
+            "action": {
+              "url": "https://dailyremote.com/remote-security-jobs",
+              "kind": "document"
+            },
+            "reason": "follow_source_link",
+            "parentKey": "3d2e071cf16612c1ad0400149a3e01038d92ec181c33a7169fdc2cf80951d8c1"
+          },
+          {
+            "depth": 0,
+            "title": "Flexible Remote Frontend Developer Jobs",
+            "action": {
+              "url": "https://www.indeed.com/q-remote-frontend-developer-jobs.html",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "a2da35c777e40bd96063042fe5771094b7a4ebb392113d5f89be64bdf86ba5be"
+          },
+          {
+            "depth": 0,
+            "title": "Hire Top Freelance Front-End Developers in Poland (Sep 2026)",
+            "action": {
+              "url": "https://arc.dev/en-pl/hire-developers/front-end",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "a2da35c777e40bd96063042fe5771094b7a4ebb392113d5f89be64bdf86ba5be"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "React TypeScript web development remote \"project brief\"",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "67b6955f98a03c226e077fc4b17e5238aab9cc3ca6936e5e71e1a0132143b459"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": null,
+            "reason": "no_further_action",
+            "parentKey": null
+          }
+        ],
+        "evidence": [
+          {
+            "url": "https://dailyremote.com/get-started",
+            "label": "directory",
+            "scope": "source",
+            "unknowns": [
+              "role",
+              "category",
+              "location",
+              "arrangement",
+              "sponsorship",
+              "compensation",
+              "requirements",
+              "authorization"
+            ],
+            "explanation": "This is a job-search service / job board landing page, not a specific opening. It describes finding and sending users remote jobs from many company career pages, plus subscription pricing, rather than a single role to apply for."
+          },
+          {
+            "url": "https://dailyremote.com/remote-job/senior-front-end-developer-react-type-script-fulltime-remote-est-5657609",
+            "label": "job_opening",
+            "scope": "source",
+            "unknowns": [
+              "sponsorship",
+              "compensation",
+              "authorization"
+            ],
+            "explanation": "This is a specific advertised role, not just a directory page: the page names one position and provides an apply action. The title states the role and work mode, and the page includes application instructions."
+          },
+          {
+            "url": "https://dailyremote.com/remote-software-development-jobs-in-united-states",
+            "label": "directory",
+            "scope": "source",
+            "unknowns": [
+              "role",
+              "arrangement",
+              "sponsorship",
+              "compensation",
+              "requirements",
+              "authorization"
+            ],
+            "explanation": "This is a job board/search results page aggregating many openings, not a single actionable opportunity. It explicitly says “REMOTE SOFTWARE DEVELOPMENT JOBS IN UNITED STATES” and shows numerous separate listings plus filters and category navigation."
+          },
+          {
+            "url": "https://www.facebook.com/groups/274791304282884/posts/1618107529951248/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Experienced Next.js developer seeking remote freelance ... Hi everyone, I'm a Full-Stack Developer with 20+ years of software development experience, currently looking for remote freelance and long-term opportunities."
+          },
+          {
+            "url": "https://www.reddit.com/r/WebDeveloperJobs/comments/1wusxaa/for_hire_web_developer_react_nodejs_nextjs_nestjs/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "**[FOR HIRE] Web Developer | React / Node.js / Next. ... I'm currently looking for web development / full-stack opportunities, including freelance work, internships, contract work, or a full-time role. I've worked ..."
+          },
+          {
+            "url": "https://www.indeed.com/q-remote-frontend-developer-jobs.html",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Flexible Remote Frontend Developer Jobs We are looking for developer with real passion for javascript, microservices and software development. ... 3+ years of frontend development with React and ..."
+          },
+          {
+            "url": "https://arc.dev/en-pl/hire-developers/front-end",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Hire Top Freelance Front-End Developers in Poland (Sep 2026) View remote developers in other technologies. If you're looking for immediate online assistance, you can get programming help within 6 minutes on Codementor ..."
+          },
+          {
+            "url": "https://www.facebook.com/groups/4478714448882966/posts/28484703571190718/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Remote frontend or full stack developer job opportunities ... I'm Joshua, a web developer from Tagum City, and I'm looking for a remote job as a frontend or full stack developer. I mostly work with React and TypeScript ..."
+          },
+          {
+            "url": "https://x.com/i/status/2106390640074318276",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Freelance / Contract | 🧑‍💻 React / TypeScript / Node. ... ... looking for a Senior Full-Stack Developer to collaborate on ... #Hiring #FullStack #React #TypeScript #NodeJS #WebSockets #FinTech #Trading #RemoteJobs ..."
+          },
+          {
+            "url": "https://x.com/Dev_Prashant_K",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Prashant (@Dev_Prashant_K) / X People looking for their next opportunity. You don't need to have it all figured out. If you're learning, building, and trying — say hi. Let's connect ..."
+          },
+          {
+            "url": "https://www.linkedin.com/posts/role-sense_hiring-react-remotejobs-activity-7505309390187540480-kgi6",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "React Native Freelance Developer Remote Work Looking for agencies that have more client projects than developers available Especially the ones quietly saying: “We can deliver it, but not right now…"
+          },
+          {
+            "url": "https://www.linkedin.com/posts/aramayis-mirzoyan_the-main-things-freelance-web-developers-activity-7504916709800132608-rj23",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Freelance Web Dev Skills Beyond Coding Frontend Engineer | React.js • Next.js • TypeScript ... Computer Science | Knows Python, Front End Development | Looking for internships | currently learning full ..."
+          }
+        ],
+        "candidates": [
+          {
+            "text": "Freelance Web Dev Skills Beyond Coding Frontend Engineer | React.js • Next.js • TypeScript ... Computer Science | Knows Python, Front End Development | Looking for internships | currently learning full ...",
+            "query": "site:linkedin.com/posts React TypeScript web development \"looking for\" freelance",
+            "choice": 0,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "**[FOR HIRE] Web Developer | React / Node.js / Next. ... I'm currently looking for web development / full-stack opportunities, including freelance work, internships, contract work, or a full-time role. I've worked ...",
+            "query": "React TypeScript web development remote \"looking for\" freelance",
+            "choice": 1,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Remote frontend or full stack developer job opportunities ... I'm Joshua, a web developer from Tagum City, and I'm looking for a remote job as a frontend or full stack developer. I mostly work with React and TypeScript ...",
+            "query": "React TypeScript web development remote \"looking for\" freelance",
+            "choice": 2,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Freelance / Contract | 🧑‍💻 React / TypeScript / Node. ... ... looking for a Senior Full-Stack Developer to collaborate on ... #Hiring #FullStack #React #TypeScript #NodeJS #WebSockets #FinTech #Trading #RemoteJobs ...",
+            "query": "site:x.com React TypeScript web development \"looking for\" freelance",
+            "choice": 3,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Experienced Next.js developer seeking remote freelance ... Hi everyone, I'm a Full-Stack Developer with 20+ years of software development experience, currently looking for remote freelance and long-term opportunities.",
+            "query": "React TypeScript web development remote \"looking for\" freelance",
+            "choice": 4,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Prashant (@Dev_Prashant_K) / X People looking for their next opportunity. You don't need to have it all figured out. If you're learning, building, and trying — say hi. Let's connect ...",
+            "query": "site:x.com React TypeScript web development \"looking for\" freelance",
+            "choice": 5,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "React Native Freelance Developer Remote Work Looking for agencies that have more client projects than developers available Especially the ones quietly saying: “We can deliver it, but not right now…",
+            "query": "site:linkedin.com/posts React TypeScript web development \"looking for\" freelance",
+            "choice": 6,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "security\nParent page context (not child evidence): This is a specific advertised role, not just a directory page: the page names one position and provides an apply action. The title states the role and work mode, and the page includes application instructions.",
+            "query": null,
+            "choice": 7,
+            "origin": "source_link",
+            "parentUrl": "https://dailyremote.com/remote-job/senior-front-end-developer-react-type-script-fulltime-remote-est-5657609"
+          },
+          {
+            "text": "Flexible Remote Frontend Developer Jobs We are looking for developer with real passion for javascript, microservices and software development. ... 3+ years of frontend development with React and ...",
+            "query": "React TypeScript web development remote \"looking for\" freelance",
+            "choice": 8,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Hire Top Freelance Front-End Developers in Poland (Sep 2026) View remote developers in other technologies. If you're looking for immediate online assistance, you can get programming help within 6 minutes on Codementor ...",
+            "query": "React TypeScript web development remote \"looking for\" freelance",
+            "choice": 9,
+            "origin": "search_result",
+            "parentUrl": null
+          }
+        ]
+      },
+      "output": {
+        "kind": "choice",
+        "index": 8,
+        "explanation": "Check the remote frontend developer jobs listing next; it is the only supplied option that could surface current React/TypeScript openings rather than another for-hire post or an unrelated page."
+      },
+      "rejected_output": null,
+      "failure": null,
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 2746,
+        "responseId": "resp_02b22e9be897cef8016acc19dc921887d2906be65dc965cdbb",
+        "inputTokens": 3301,
+        "outputTokens": 339,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 4002
+      }
+    },
+    {
+      "input": {
+        "kind": "choice",
+        "intent": {
+          "remote": true,
+          "target": "React TypeScript web development",
+          "category": "services"
+        },
+        "choices": [
+          {
+            "depth": 0,
+            "title": "Freelance Web Dev Skills Beyond Coding",
+            "action": {
+              "url": "https://www.linkedin.com/posts/aramayis-mirzoyan_the-main-things-freelance-web-developers-activity-7504916709800132608-rj23",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "67b6955f98a03c226e077fc4b17e5238aab9cc3ca6936e5e71e1a0132143b459"
+          },
+          {
+            "depth": 0,
+            "title": "**[FOR HIRE] Web Developer | React / Node.js / Next. ...",
+            "action": {
+              "url": "https://www.reddit.com/r/WebDeveloperJobs/comments/1wusxaa/for_hire_web_developer_react_nodejs_nextjs_nestjs/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "a2da35c777e40bd96063042fe5771094b7a4ebb392113d5f89be64bdf86ba5be"
+          },
+          {
+            "depth": 0,
+            "title": "Remote frontend or full stack developer job opportunities ...",
+            "action": {
+              "url": "https://www.facebook.com/groups/4478714448882966/posts/28484703571190718/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "a2da35c777e40bd96063042fe5771094b7a4ebb392113d5f89be64bdf86ba5be"
+          },
+          {
+            "depth": 0,
+            "title": "Freelance / Contract | 🧑‍💻 React / TypeScript / Node. ...",
+            "action": {
+              "url": "https://x.com/i/status/2106390640074318276",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "2cdd7a3f4c25cf21bbf053c6b3608e5e1219ccfb10ba037870cfd6f2aa96134d"
+          },
+          {
+            "depth": 0,
+            "title": "Experienced Next.js developer seeking remote freelance ...",
+            "action": {
+              "url": "https://www.facebook.com/groups/274791304282884/posts/1618107529951248/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "a2da35c777e40bd96063042fe5771094b7a4ebb392113d5f89be64bdf86ba5be"
+          },
+          {
+            "depth": 0,
+            "title": "Prashant (@Dev_Prashant_K) / X",
+            "action": {
+              "url": "https://x.com/Dev_Prashant_K",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "2cdd7a3f4c25cf21bbf053c6b3608e5e1219ccfb10ba037870cfd6f2aa96134d"
+          },
+          {
+            "depth": 0,
+            "title": "React Native Freelance Developer Remote Work",
+            "action": {
+              "url": "https://www.linkedin.com/posts/role-sense_hiring-react-remotejobs-activity-7505309390187540480-kgi6",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "67b6955f98a03c226e077fc4b17e5238aab9cc3ca6936e5e71e1a0132143b459"
+          },
+          {
+            "depth": 1,
+            "title": "security",
+            "action": {
+              "url": "https://dailyremote.com/remote-security-jobs",
+              "kind": "document"
+            },
+            "reason": "follow_source_link",
+            "parentKey": "3d2e071cf16612c1ad0400149a3e01038d92ec181c33a7169fdc2cf80951d8c1"
+          },
+          {
+            "depth": 0,
+            "title": "Hire Top Freelance Front-End Developers in Poland (Sep 2026)",
+            "action": {
+              "url": "https://arc.dev/en-pl/hire-developers/front-end",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "a2da35c777e40bd96063042fe5771094b7a4ebb392113d5f89be64bdf86ba5be"
+          },
+          {
+            "depth": 0,
+            "title": "11 Best Freelance Front-end Developers for Hire ...",
+            "action": {
+              "url": "https://www.toptal.com/developers/front-end",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "a2da35c777e40bd96063042fe5771094b7a4ebb392113d5f89be64bdf86ba5be"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "React TypeScript web development remote \"project brief\"",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "67b6955f98a03c226e077fc4b17e5238aab9cc3ca6936e5e71e1a0132143b459"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": null,
+            "reason": "no_further_action",
+            "parentKey": null
+          }
+        ],
+        "evidence": [
+          {
+            "url": "https://dailyremote.com/get-started",
+            "label": "directory",
+            "scope": "source",
+            "unknowns": [
+              "role",
+              "category",
+              "location",
+              "arrangement",
+              "sponsorship",
+              "compensation",
+              "requirements",
+              "authorization"
+            ],
+            "explanation": "This is a job-search service / job board landing page, not a specific opening. It describes finding and sending users remote jobs from many company career pages, plus subscription pricing, rather than a single role to apply for."
+          },
+          {
+            "url": "https://dailyremote.com/remote-job/senior-front-end-developer-react-type-script-fulltime-remote-est-5657609",
+            "label": "job_opening",
+            "scope": "source",
+            "unknowns": [
+              "sponsorship",
+              "compensation",
+              "authorization"
+            ],
+            "explanation": "This is a specific advertised role, not just a directory page: the page names one position and provides an apply action. The title states the role and work mode, and the page includes application instructions."
+          },
+          {
+            "url": "https://dailyremote.com/remote-software-development-jobs-in-united-states",
+            "label": "directory",
+            "scope": "source",
+            "unknowns": [
+              "role",
+              "arrangement",
+              "sponsorship",
+              "compensation",
+              "requirements",
+              "authorization"
+            ],
+            "explanation": "This is a job board/search results page aggregating many openings, not a single actionable opportunity. It explicitly says “REMOTE SOFTWARE DEVELOPMENT JOBS IN UNITED STATES” and shows numerous separate listings plus filters and category navigation."
+          },
+          {
+            "url": "https://www.facebook.com/groups/274791304282884/posts/1618107529951248/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Experienced Next.js developer seeking remote freelance ... Hi everyone, I'm a Full-Stack Developer with 20+ years of software development experience, currently looking for remote freelance and long-term opportunities."
+          },
+          {
+            "url": "https://www.reddit.com/r/WebDeveloperJobs/comments/1wusxaa/for_hire_web_developer_react_nodejs_nextjs_nestjs/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "**[FOR HIRE] Web Developer | React / Node.js / Next. ... I'm currently looking for web development / full-stack opportunities, including freelance work, internships, contract work, or a full-time role. I've worked ..."
+          },
+          {
+            "url": "https://arc.dev/en-pl/hire-developers/front-end",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Hire Top Freelance Front-End Developers in Poland (Sep 2026) View remote developers in other technologies. If you're looking for immediate online assistance, you can get programming help within 6 minutes on Codementor ..."
+          },
+          {
+            "url": "https://www.facebook.com/groups/4478714448882966/posts/28484703571190718/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Remote frontend or full stack developer job opportunities ... I'm Joshua, a web developer from Tagum City, and I'm looking for a remote job as a frontend or full stack developer. I mostly work with React and TypeScript ..."
+          },
+          {
+            "url": "https://www.toptal.com/developers/front-end",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "11 Best Freelance Front-end Developers for Hire ... Looking for an end-to-end business solution? Browse Toptal's portfolio of services. Front-end Development ServicesReactJS Development ServicesFull-stack ..."
+          },
+          {
+            "url": "https://x.com/i/status/2106390640074318276",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Freelance / Contract | 🧑‍💻 React / TypeScript / Node. ... ... looking for a Senior Full-Stack Developer to collaborate on ... #Hiring #FullStack #React #TypeScript #NodeJS #WebSockets #FinTech #Trading #RemoteJobs ..."
+          },
+          {
+            "url": "https://x.com/Dev_Prashant_K",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Prashant (@Dev_Prashant_K) / X People looking for their next opportunity. You don't need to have it all figured out. If you're learning, building, and trying — say hi. Let's connect ..."
+          },
+          {
+            "url": "https://www.linkedin.com/posts/role-sense_hiring-react-remotejobs-activity-7505309390187540480-kgi6",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "React Native Freelance Developer Remote Work Looking for agencies that have more client projects than developers available Especially the ones quietly saying: “We can deliver it, but not right now…"
+          },
+          {
+            "url": "https://www.linkedin.com/posts/aramayis-mirzoyan_the-main-things-freelance-web-developers-activity-7504916709800132608-rj23",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Freelance Web Dev Skills Beyond Coding Frontend Engineer | React.js • Next.js • TypeScript ... Computer Science | Knows Python, Front End Development | Looking for internships | currently learning full ..."
+          }
+        ],
+        "candidates": [
+          {
+            "text": "Freelance Web Dev Skills Beyond Coding Frontend Engineer | React.js • Next.js • TypeScript ... Computer Science | Knows Python, Front End Development | Looking for internships | currently learning full ...",
+            "query": "site:linkedin.com/posts React TypeScript web development \"looking for\" freelance",
+            "choice": 0,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "**[FOR HIRE] Web Developer | React / Node.js / Next. ... I'm currently looking for web development / full-stack opportunities, including freelance work, internships, contract work, or a full-time role. I've worked ...",
+            "query": "React TypeScript web development remote \"looking for\" freelance",
+            "choice": 1,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Remote frontend or full stack developer job opportunities ... I'm Joshua, a web developer from Tagum City, and I'm looking for a remote job as a frontend or full stack developer. I mostly work with React and TypeScript ...",
+            "query": "React TypeScript web development remote \"looking for\" freelance",
+            "choice": 2,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Freelance / Contract | 🧑‍💻 React / TypeScript / Node. ... ... looking for a Senior Full-Stack Developer to collaborate on ... #Hiring #FullStack #React #TypeScript #NodeJS #WebSockets #FinTech #Trading #RemoteJobs ...",
+            "query": "site:x.com React TypeScript web development \"looking for\" freelance",
+            "choice": 3,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Experienced Next.js developer seeking remote freelance ... Hi everyone, I'm a Full-Stack Developer with 20+ years of software development experience, currently looking for remote freelance and long-term opportunities.",
+            "query": "React TypeScript web development remote \"looking for\" freelance",
+            "choice": 4,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Prashant (@Dev_Prashant_K) / X People looking for their next opportunity. You don't need to have it all figured out. If you're learning, building, and trying — say hi. Let's connect ...",
+            "query": "site:x.com React TypeScript web development \"looking for\" freelance",
+            "choice": 5,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "React Native Freelance Developer Remote Work Looking for agencies that have more client projects than developers available Especially the ones quietly saying: “We can deliver it, but not right now…",
+            "query": "site:linkedin.com/posts React TypeScript web development \"looking for\" freelance",
+            "choice": 6,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "security\nParent page context (not child evidence): This is a specific advertised role, not just a directory page: the page names one position and provides an apply action. The title states the role and work mode, and the page includes application instructions.",
+            "query": null,
+            "choice": 7,
+            "origin": "source_link",
+            "parentUrl": "https://dailyremote.com/remote-job/senior-front-end-developer-react-type-script-fulltime-remote-est-5657609"
+          },
+          {
+            "text": "Hire Top Freelance Front-End Developers in Poland (Sep 2026) View remote developers in other technologies. If you're looking for immediate online assistance, you can get programming help within 6 minutes on Codementor ...",
+            "query": "React TypeScript web development remote \"looking for\" freelance",
+            "choice": 8,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "11 Best Freelance Front-end Developers for Hire ... Looking for an end-to-end business solution? Browse Toptal's portfolio of services. Front-end Development ServicesReactJS Development ServicesFull-stack ...",
+            "query": "React TypeScript web development remote \"looking for\" freelance",
+            "choice": 9,
+            "origin": "search_result",
+            "parentUrl": null
+          }
+        ]
+      },
+      "output": {
+        "kind": "choice",
+        "index": 3,
+        "explanation": "This looks like a likely remote hiring post for a React/TypeScript/Node role, so checking it should quickly confirm whether it’s a real opportunity, the scope, and any application details."
+      },
+      "rejected_output": null,
+      "failure": null,
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 2429,
+        "responseId": "resp_03735acf91b91638016acc19e23ca887d2974f656628352425",
+        "inputTokens": 3303,
+        "outputTokens": 245,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 3580
+      }
+    },
+    {
+      "input": {
+        "kind": "choice",
+        "intent": {
+          "remote": true,
+          "target": "React TypeScript web development",
+          "category": "services"
+        },
+        "choices": [
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 2,
+                "limit": 10,
+                "query": "React TypeScript web development remote \"looking for\" freelance",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "continue_result_page",
+            "parentKey": "a2da35c777e40bd96063042fe5771094b7a4ebb392113d5f89be64bdf86ba5be"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "React TypeScript web development remote \"project brief\"",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "67b6955f98a03c226e077fc4b17e5238aab9cc3ca6936e5e71e1a0132143b459"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": null,
+            "reason": "no_further_action",
+            "parentKey": null
+          }
+        ],
+        "evidence": [
+          {
+            "url": "https://dailyremote.com/get-started",
+            "label": "directory",
+            "scope": "source",
+            "unknowns": [
+              "role",
+              "category",
+              "location",
+              "arrangement",
+              "sponsorship",
+              "compensation",
+              "requirements",
+              "authorization"
+            ],
+            "explanation": "This is a job-search service / job board landing page, not a specific opening. It describes finding and sending users remote jobs from many company career pages, plus subscription pricing, rather than a single role to apply for."
+          },
+          {
+            "url": "https://dailyremote.com/remote-job/senior-front-end-developer-react-type-script-fulltime-remote-est-5657609",
+            "label": "job_opening",
+            "scope": "source",
+            "unknowns": [
+              "sponsorship",
+              "compensation",
+              "authorization"
+            ],
+            "explanation": "This is a specific advertised role, not just a directory page: the page names one position and provides an apply action. The title states the role and work mode, and the page includes application instructions."
+          },
+          {
+            "url": "https://dailyremote.com/remote-software-development-jobs-in-united-states",
+            "label": "directory",
+            "scope": "source",
+            "unknowns": [
+              "role",
+              "arrangement",
+              "sponsorship",
+              "compensation",
+              "requirements",
+              "authorization"
+            ],
+            "explanation": "This is a job board/search results page aggregating many openings, not a single actionable opportunity. It explicitly says “REMOTE SOFTWARE DEVELOPMENT JOBS IN UNITED STATES” and shows numerous separate listings plus filters and category navigation."
+          }
+        ],
+        "candidates": []
+      },
+      "output": {
+        "kind": "choice",
+        "index": 1,
+        "explanation": "Use the refined demand query to look for a client/project brief that matches remote React + TypeScript web development work; that’s more likely to surface a real service opportunity than paging a broad results list."
+      },
+      "rejected_output": null,
+      "failure": null,
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 1902,
+        "responseId": "resp_05613b72f0464839016acc19e545d087d2acc15ac387cd8f5d",
+        "inputTokens": 833,
+        "outputTokens": 215,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 1593
+      }
+    },
+    {
+      "input": {
+        "kind": "choice",
+        "intent": {
+          "remote": true,
+          "target": "React TypeScript web development",
+          "category": "services"
+        },
+        "choices": [
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 2,
+                "limit": 10,
+                "query": "React TypeScript web development remote \"looking for\" freelance",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "continue_result_page",
+            "parentKey": "a2da35c777e40bd96063042fe5771094b7a4ebb392113d5f89be64bdf86ba5be"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": null,
+            "reason": "no_further_action",
+            "parentKey": null
+          }
+        ],
+        "evidence": [
+          {
+            "url": "https://dailyremote.com/get-started",
+            "label": "directory",
+            "scope": "source",
+            "unknowns": [
+              "role",
+              "category",
+              "location",
+              "arrangement",
+              "sponsorship",
+              "compensation",
+              "requirements",
+              "authorization"
+            ],
+            "explanation": "This is a job-search service / job board landing page, not a specific opening. It describes finding and sending users remote jobs from many company career pages, plus subscription pricing, rather than a single role to apply for."
+          },
+          {
+            "url": "https://dailyremote.com/remote-job/senior-front-end-developer-react-type-script-fulltime-remote-est-5657609",
+            "label": "job_opening",
+            "scope": "source",
+            "unknowns": [
+              "sponsorship",
+              "compensation",
+              "authorization"
+            ],
+            "explanation": "This is a specific advertised role, not just a directory page: the page names one position and provides an apply action. The title states the role and work mode, and the page includes application instructions."
+          },
+          {
+            "url": "https://dailyremote.com/remote-software-development-jobs-in-united-states",
+            "label": "directory",
+            "scope": "source",
+            "unknowns": [
+              "role",
+              "arrangement",
+              "sponsorship",
+              "compensation",
+              "requirements",
+              "authorization"
+            ],
+            "explanation": "This is a job board/search results page aggregating many openings, not a single actionable opportunity. It explicitly says “REMOTE SOFTWARE DEVELOPMENT JOBS IN UNITED STATES” and shows numerous separate listings plus filters and category navigation."
+          }
+        ],
+        "candidates": []
+      },
+      "output": {
+        "kind": "choice",
+        "index": 0,
+        "explanation": "Continue to the next search results page to look for a remote React/TypeScript web development opening, since the current evidence already shows at least one relevant advertised role on the same site."
+      },
+      "rejected_output": null,
+      "failure": null,
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 1502,
+        "responseId": "resp_09d413b146481c97016acc19e88ad887d2b3dd60f9b6e8725a",
+        "inputTokens": 731,
+        "outputTokens": 141,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 1183
+      }
+    }
+  ],
+  "sourceReviewsCompleted": 2,
+  "intelligence": [],
+  "reviewAttempts": [
+    {
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 3185,
+        "responseId": "resp_055332fdab086661016acc19ca9ed887d284e31f70457a9c5d",
+        "inputTokens": 3462,
+        "outputTokens": 511,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 4896
+      }
+    },
+    {
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 2637,
+        "responseId": "resp_025a2aa42c5f3bd9016acc19d234c887d2b635a81faf56e7e5",
+        "inputTokens": 4358,
+        "outputTokens": 362,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 4898
+      }
+    },
+    {
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 2819,
+        "responseId": "resp_0e4a5e4b05710378016acc19d99a6c87d29f8fad066fccb9e6",
+        "inputTokens": 13006,
+        "outputTokens": 384,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 11483
+      }
+    }
+  ],
+  "opportunities": [],
+  "deliveries": [],
+  "durationMs": 83260,
+  "search": {
+    "goal": "Find remote freelance React development projects",
+    "category": "services",
+    "target": "React TypeScript web development",
+    "name": "Synthetic client-project scout",
+    "arrangement": "remote",
+    "arrangementRequired": true,
+    "residence": "New York, United States",
+    "workLocations": "United States or remote worldwide",
+    "background": "Five years delivering React and TypeScript web applications, API integrations and dashboards for clients",
+    "minimumPay": "",
+    "currency": "USD",
+    "payPeriod": "project",
+    "unknownEligibility": "review",
+    "undisclosedPay": "include",
+    "authorizationLocations": "United States",
+    "authorizationConfirmed": true,
+    "sponsorshipNeed": "not_needed"
+  },
+  "operations": [
+    {
+      "key": "a2da35c777e40bd96063042fe5771094b7a4ebb392113d5f89be64bdf86ba5be",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "React TypeScript web development remote \"looking for\" freelance",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "2cdd7a3f4c25cf21bbf053c6b3608e5e1219ccfb10ba037870cfd6f2aa96134d",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "site:x.com React TypeScript web development \"looking for\" freelance",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "67b6955f98a03c226e077fc4b17e5238aab9cc3ca6936e5e71e1a0132143b459",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "site:linkedin.com/posts React TypeScript web development \"looking for\" freelance",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "8b852816143cd50ff890e94c64a97ea510469b4519bc1692838cd6509d84190a",
+      "kind": "document",
+      "input": {
+        "url": "https://www.upwork.com/freelance-jobs/apply/Front-End-Developer-React-TypeScript-for-Creative-Sharing-Platform_~022108015263357496857/",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": [
+        {
+          "url": "https://www.upwork.com/sitemap.xml",
+          "text": "Site-advertised sitemap"
+        }
+      ],
+      "captured_text": null,
+      "source_status": "access_limited",
+      "source_reason": "source_access_denied",
+      "observed_links": 0
+    },
+    {
+      "key": "3d2e071cf16612c1ad0400149a3e01038d92ec181c33a7169fdc2cf80951d8c1",
+      "kind": "document",
+      "input": {
+        "url": "https://dailyremote.com/remote-job/senior-front-end-developer-react-type-script-fulltime-remote-est-5657609",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": [
+        {
+          "url": "https://dailyremote.com/remote-software-development-jobs-in-united-states",
+          "text": "United States"
+        },
+        {
+          "url": "https://dailyremote.com/remote-security-jobs",
+          "text": "security"
+        },
+        {
+          "url": "https://dailyremote.com/remote-architecture-jobs",
+          "text": "architecture"
+        },
+        {
+          "url": "https://dailyremote.com/remote-saas-jobs",
+          "text": "saas"
+        },
+        {
+          "url": "https://dailyremote.com/remote-react-jobs",
+          "text": "react"
+        },
+        {
+          "url": "https://dailyremote.com/remote-agile-jobs",
+          "text": "agile"
+        },
+        {
+          "url": "https://dailyremote.com/remote-communication-jobs",
+          "text": "communication"
+        },
+        {
+          "url": "https://dailyremote.com/remote-testing-jobs",
+          "text": "testing"
+        },
+        {
+          "url": "https://dailyremote.com/get-started",
+          "text": "Apply Now"
+        },
+        {
+          "url": "https://dailyremote.com/resume-review",
+          "text": "Get professional review"
+        },
+        {
+          "url": "https://dailyremote.com/sign_in?redirect_to=%2Fremote-job%2Fsenior-front-end-developer-react-type-script-fulltime-remote-est-5657609",
+          "text": "Sign in"
+        },
+        {
+          "url": "https://dailyremote.com/ai-apply",
+          "text": "Try it Now"
+        },
+        {
+          "url": "https://dailyremote.com/remote-company/hidden-company",
+          "text": "View More Jobs From [Hidden Company]"
+        },
+        {
+          "url": "https://dailyremote.com/remote-software-development-jobs",
+          "text": "See all Remote Software Development jobs →"
+        },
+        {
+          "url": "https://dailyremote.com/remote-job/architecte-de-solutions-sap-sd-sap-sd-solution-architect-5752646",
+          "text": "Architecte de solutions SAP SD / SAP SD Solution Architect Full Time Canada 160K - 195K per year"
+        },
+        {
+          "url": "https://dailyremote.com/remote-job/estimator-project-engineer-wfh-morning-shift-5752643",
+          "text": "Estimator & Project Engineer | WFH | Morning Shift Full Time Worldwide 15 per hour Softwa"
+        },
+        {
+          "url": "https://dailyremote.com/remote-job/senior-fullstack-engineer-growth-5752641",
+          "text": "Senior Fullstack Engineer, Growth Full Time United States $200K - $280K per year Software"
+        },
+        {
+          "url": "https://dailyremote.com/remote-job/senior-ai-ml-engineer-5752642",
+          "text": "Senior AI/ML Engineer Full Time United States Software Development"
+        },
+        {
+          "url": "https://dailyremote.com/remote-job/software-engineer-ii-5752639",
+          "text": "Software Engineer II Full Time Canada 92900 - 116K per year Software Development"
+        },
+        {
+          "url": "https://dailyremote.com/remote-job/qa-lead-engineer-5752623",
+          "text": "QA Lead Engineer Full Time Worldwide Software Development"
+        },
+        {
+          "url": "https://dailyremote.com/premium/success-stories",
+          "text": "Read more success stories →"
+        },
+        {
+          "url": "https://dailyremote.com/premium",
+          "text": "Get Access Now"
+        },
+        {
+          "url": "https://dailyremote.com/sign_in",
+          "text": "Already have an account?"
+        }
+      ],
+      "feeds": [],
+      "sitemaps": [
+        {
+          "url": "https://dailyremote.com/sitemap.xml",
+          "text": "Site-advertised sitemap"
+        }
+      ],
+      "captured_text": "DailyRemote Jobs For Employers Open menu\nLog in Get Premium Hire Remote Talent\nClose menu\nRemote Jobs Browse latest roles\n\nJobs by Location Filter by country/timezone\n\nJob Categories\nSoftware Development Design Support Sales Writing Product Legal Finance Marketing Data Entry Healthcare Recruitment Teaching Virtual Assistant Others\n\nMore\nATS Resume Checker AI Cover Letter Generator AI Mock Interviews Career Advice Remote Work Blog Newsletter Facebook Group Facebook Page\n\nLog in\n\nGet Premium\nContact us Twitter\nFor Employers\n\n\nSENIOR FRONT-END DEVELOPER (REACT + TYPESCRIPT) | FULLTIME | REMOTE (EST)\n\nPosted 18 days ago\nUnited States\nsecurity architecture saas react agile communication testing\nApply Now Save\n\nPlease mention DailyRemote when applying\n\n×\nResume match Interview prep\n?\nResume Match Score\n\nSee how much of this job your resume covers, and what’s missing.\n\nCheck my match\n\n\nWant a recruiter to go through it line by line?\n\nGet professional review\n\nQuestions interviewers often ask for this role, with sample answers.\n\n\n×\n\n\nPellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus\n\n\nHTML IPSUM PRESENTS\n\nPellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit am",
+      "source_status": "fetched",
+      "source_reason": null,
+      "observed_links": 23
+    },
+    {
+      "key": "a3f12ffeea1ded0f640620883bcbcd13ae3ecbe5bded93690f35a44f6eee6acc",
+      "kind": "document",
+      "input": {
+        "url": "https://dailyremote.com/get-started",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 1,
+      "links": [
+        {
+          "url": "https://dailyremote.com/auth/google?redirect_to=/get-started&flow=sign_up",
+          "text": "Continue with Google"
+        },
+        {
+          "url": "https://dailyremote.com/auth/google?redirect_to=/get-started&flow=sign_in",
+          "text": "Continue with Google"
+        },
+        {
+          "url": "https://dailyremote.com/sign_in?redirect_to=/get-started",
+          "text": "Sign in with email"
+        },
+        {
+          "url": "https://dailyremote.com/premium/checkout?p=premium_2990_recurring_quarterly&source=get-started",
+          "text": "Claim Offer"
+        },
+        {
+          "url": "https://dailyremote.com/premium/checkout?p=premium_6995_recurring_yearly&source=get-started",
+          "text": "Claim Offer"
+        },
+        {
+          "url": "https://dailyremote.com/refund-policy",
+          "text": "Full refund"
+        },
+        {
+          "url": "https://dailyremote.com/premium/billing",
+          "text": "in one click"
+        },
+        {
+          "url": "https://dailyremote.com/premium/success-stories",
+          "text": "300,000+"
+        },
+        {
+          "url": "https://dailyremote.com/premium/checkout?p=premium_1495_recurring_monthly&source=get-started",
+          "text": "Get Your Dream Remote Job"
+        }
+      ],
+      "feeds": [],
+      "sitemaps": [
+        {
+          "url": "https://dailyremote.com/sitemap.xml",
+          "text": "Site-advertised sitemap"
+        }
+      ],
+      "captured_text": "Back DailyRemote Jobs\n\n0%\n\nStart over\n\n\nWHERE DO YOU DO YOUR BEST WORK?\n\n100% Remote Work from anywhere Remote, office optional An office exists, going in is your call Hybrid Some days at home, some in the office In-office Every day on site\n\n\nWHAT’S THE MOST FRUSTRATING PART OF YOUR JOB SEARCH?\n\nApplying and never hearing back \"Ghost jobs\" that aren't hiring 1,000+ applicants on every listing Can't find high-quality remote jobs\n\n\nIT’S NOT YOU.\nIT'S HIRING THAT'S BROKEN.\n\nYou aren't imagining it.\n\nHalf the jobs you see aren't even real. Companies leave them up for months to look successful. It's a facade. And it's wasting your time.\n\nSilence.\n\nYou spend hours tailoring your resume, send it into the void, and nothing comes back. You aren't unqualified. You are just invisible.\n\n1,200 applicants. In three days.\n\nIt doesn't matter how brilliant you are when you are buried at the bottom of a stack that high.\n\nThe jobs exist.\n\nThey just aren't where you're looking. You are searching in the exact same crowded room as millions of other people.\n\nRemote jobs get 10x the traffic of office roles. The window of opportunity closes in 48 hours. By the time a job hits LinkedIn, it’s already too late.\n\nYou are playing a game\ndesigned for you to lose.\n\n\nLAND INTERVIEWS WITH YOUR DREAM COMPANIES\n\n 1. The switch\n    \n    We completely re-engineered how you find remote work.\n\n 2. How\n    \n    Instead of applying to stale listings on crowded job boards, we go straight to the source. Our robots scan over 500,000+ company career pages every single hour!\n\n 3. Result\n    \n    When a job opens, it’s in your inbox within minutes.\n    \n    * Scams filtered out.\n    * Ghost jobs removed daily.\n    * Salary shown up front.\n    * 73% never reach LinkedIn.\n    * 3,000+ fresh jobs a day.\n    * Career pages checked hourly.\n    * Filter by pay and country.\n    * Apply on the company's site.\n\nReal jobs only. We remove listings the exact day the company pulls them. No ghosts. Just open roles.\n\nStop being",
+      "source_status": "fetched",
+      "source_reason": null,
+      "observed_links": 9
+    },
+    {
+      "key": "813b053e78ce86c57307574d429b693c02378ce9040b81342c741d77b4d0eb99",
+      "kind": "document",
+      "input": {
+        "url": "https://dailyremote.com/remote-software-development-jobs-in-united-states",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 1,
+      "links": [
+        {
+          "url": "https://dailyremote.com/remote-job/senior-ai-ml-engineer-5752642",
+          "text": "Senior AI/ML Engineer"
+        },
+        {
+          "url": "https://dailyremote.com/remote-software-development-jobs",
+          "text": "Software Development"
+        },
+        {
+          "url": "https://dailyremote.com/remote-aws-jobs",
+          "text": "aws"
+        },
+        {
+          "url": "https://dailyremote.com/remote-trading-jobs",
+          "text": "trading"
+        },
+        {
+          "url": "https://dailyremote.com/remote-graphql-jobs",
+          "text": "graphql"
+        },
+        {
+          "url": "https://dailyremote.com/remote-saas-jobs",
+          "text": "saas"
+        },
+        {
+          "url": "https://dailyremote.com/remote-postgresql-jobs",
+          "text": "postgresql"
+        },
+        {
+          "url": "https://dailyremote.com/remote-training-jobs",
+          "text": "training"
+        },
+        {
+          "url": "https://dailyremote.com/remote-hiring-jobs",
+          "text": "hiring"
+        },
+        {
+          "url": "https://dailyremote.com/remote-testing-jobs",
+          "text": "testing"
+        },
+        {
+          "url": "https://dailyremote.com/remote-job/senior-fullstack-engineer-growth-5752641",
+          "text": "Senior Fullstack Engineer, Growth"
+        },
+        {
+          "url": "https://dailyremote.com/remote-full-stack-developer-jobs",
+          "text": "Full Stack Developer"
+        },
+        {
+          "url": "https://dailyremote.com/remote-sql-jobs",
+          "text": "sql"
+        },
+        {
+          "url": "https://dailyremote.com/remote-onboarding-jobs",
+          "text": "onboarding"
+        },
+        {
+          "url": "https://dailyremote.com/remote-fintech-jobs",
+          "text": "fintech"
+        },
+        {
+          "url": "https://dailyremote.com/remote-job/sr-director-analyst-analytics-ai-5752620",
+          "text": "Sr Director Analyst- Analytics & AI"
+        },
+        {
+          "url": "https://dailyremote.com/remote-artificial-intelligence-jobs",
+          "text": "artificial-intelligence"
+        },
+        {
+          "url": "https://dailyremote.com/remote-agile-jobs",
+          "text": "agile"
+        },
+        {
+          "url": "https://dailyremote.com/remote-leadership-jobs",
+          "text": "leadership"
+        },
+        {
+          "url": "https://dailyremote.com/remote-talent-acquisition-jobs",
+          "text": "talent-acquisition"
+        },
+        {
+          "url": "https://dailyremote.com/remote-sales-support-jobs",
+          "text": "sales-support"
+        },
+        {
+          "url": "https://dailyremote.com/remote-human-resources-jobs",
+          "text": "human-resources"
+        },
+        {
+          "url": "https://dailyremote.com/remote-job/sr-ai-data-scientist-5752616",
+          "text": "Sr. AI & Data Scientist"
+        },
+        {
+          "url": "https://dailyremote.com/remote-data-scientist-jobs",
+          "text": "Data Scientist"
+        },
+        {
+          "url": "https://dailyremote.com/remote-git-jobs",
+          "text": "git"
+        },
+        {
+          "url": "https://dailyremote.com/remote-machine-learning-jobs",
+          "text": "machine-learning"
+        },
+        {
+          "url": "https://dailyremote.com/remote-nosql-jobs",
+          "text": "nosql"
+        },
+        {
+          "url": "https://dailyremote.com/remote-cloud-jobs",
+          "text": "cloud"
+        },
+        {
+          "url": "https://dailyremote.com/remote-architecture-jobs",
+          "text": "architecture"
+        },
+        {
+          "url": "https://dailyremote.com/remote-data-science-jobs",
+          "text": "data-science"
+        },
+        {
+          "url": "https://dailyremote.com/remote-publishing-jobs",
+          "text": "publishing"
+        },
+        {
+          "url": "https://dailyremote.com/remote-communication-jobs",
+          "text": "communication"
+        },
+        {
+          "url": "https://dailyremote.com/remote-feedback-jobs",
+          "text": "feedback"
+        },
+        {
+          "url": "https://dailyremote.com/remote-science-jobs",
+          "text": "science"
+        },
+        {
+          "url": "https://dailyremote.com/remote-unity-jobs",
+          "text": "unity"
+        },
+        {
+          "url": "https://dailyremote.com/remote-software-engineering-jobs",
+          "text": "software-engineering"
+        },
+        {
+          "url": "https://dailyremote.com/remote-mentoring-jobs",
+          "text": "mentoring"
+        },
+        {
+          "url": "https://dailyremote.com/remote-compliance-jobs",
+          "text": "compliance"
+        },
+        {
+          "url": "https://dailyremote.com/remote-job/web-application-firewall-engineer-5752610",
+          "text": "Web Application Firewall Engineer"
+        },
+        {
+          "url": "https://dailyremote.com/remote-firewall-engineer-jobs",
+          "text": "Firewall Engineer"
+        },
+        {
+          "url": "https://dailyremote.com/remote-editing-jobs",
+          "text": "editing"
+        },
+        {
+          "url": "https://dailyremote.com/remote-creative-jobs",
+          "text": "creative"
+        },
+        {
+          "url": "https://dailyremote.com/remote-security-jobs",
+          "text": "security"
+        },
+        {
+          "url": "https://dailyremote.com/remote-medical-jobs",
+          "text": "medical"
+        },
+        {
+          "url": "https://dailyremote.com/remote-operations-jobs",
+          "text": "operations"
+        },
+        {
+          "url": "https://dailyremote.com/sign_up?redirect_to=%2Fmanage-alerts%3Fprefill_token%3DL3JlbW90ZS1zb2Z0d2FyZS1kZXZlbG9wbWVudC1qb2JzLWluLXVuaXRlZC1zdGF0ZXM",
+          "text": "Get free alerts"
+        },
+        {
+          "url": "https://dailyremote.com/get-started",
+          "text": "Get instant access"
+        },
+        {
+          "url": "https://dailyremote.com/remote-job/senior-dev-ops-engineer-hub-remote-dc-or-philly-metro-5752607",
+          "text": "Senior DevOps Engineer (Hub-Remote: DC or Philly Metro)"
+        },
+        {
+          "url": "https://dailyremote.com/remote-devops-engineer-jobs",
+          "text": "DevOps Engineer"
+        },
+        {
+          "url": "https://dailyremote.com/remote-linux-jobs",
+          "text": "linux"
+        },
+        {
+          "url": "https://dailyremote.com/remote-azure-jobs",
+          "text": "azure"
+        },
+        {
+          "url": "https://dailyremote.com/remote-kubernetes-jobs",
+          "text": "kubernetes"
+        },
+        {
+          "url": "https://dailyremote.com/remote-agile-development-jobs",
+          "text": "agile-development"
+        },
+        {
+          "url": "https://dailyremote.com/remote-data-engineering-jobs",
+          "text": "data-engineering"
+        },
+        {
+          "url": "https://dailyremote.com/remote-devops-jobs",
+          "text": "devops"
+        },
+        {
+          "url": "https://dailyremote.com/remote-serverless-jobs",
+          "text": "serverless"
+        },
+        {
+          "url": "https://dailyremote.com/remote-job/senior-software-engineer-ai-applications-5752593",
+          "text": "Senior Software Engineer (AI Applications)"
+        },
+        {
+          "url": "https://dailyremote.com/remote-software-engineer-jobs",
+          "text": "Software Engineer"
+        },
+        {
+          "url": "https://dailyremote.com/remote-recruiting-jobs",
+          "text": "recruiting"
+        },
+        {
+          "url": "https://dailyremote.com/remote-product-development-jobs",
+          "text": "product-development"
+        },
+        {
+          "url": "https://dailyremote.com/remote-organization-jobs",
+          "text": "organization"
+        },
+        {
+          "url": "https://dailyremote.com/remote-full-stack-jobs",
+          "text": "full-stack"
+        },
+        {
+          "url": "https://dailyremote.com/remote-job/principal-product-manager-ai-platform-5752590",
+          "text": "Principal Product Manager, AI Platform"
+        },
+        {
+          "url": "https://dailyremote.com/remote-product-manager-jobs",
+          "text": "Product Manager"
+        },
+        {
+          "url": "https://dailyremote.com/remote-reporting-jobs",
+          "text": "reporting"
+        },
+        {
+          "url": "https://dailyremote.com/remote-job/founding-recruiter-robotics-and-ai-5752575",
+          "text": "Founding Recruiter (Robotics and AI)"
+        },
+        {
+          "url": "https://dailyremote.com/remote-recruiter-jobs",
+          "text": "Recruiter"
+        },
+        {
+          "url": "https://dailyremote.com/remote-payroll-jobs",
+          "text": "payroll"
+        },
+        {
+          "url": "https://dailyremote.com/remote-sourcing-jobs",
+          "text": "sourcing"
+        },
+        {
+          "url": "https://dailyremote.com/remote-job/ai-first-i-os-software-engineer-remote-5752570",
+          "text": "AI First iOS Software Engineer (Remote)"
+        },
+        {
+          "url": "https://dailyremote.com/remote-swift-jobs",
+          "text": "swift"
+        },
+        {
+          "url": "https://dailyremote.com/remote-ios-jobs",
+          "text": "ios"
+        },
+        {
+          "url": "https://dailyremote.com/remote-android-jobs",
+          "text": "android"
+        },
+        {
+          "url": "https://dailyremote.com/remote-computer-science-jobs",
+          "text": "computer-science"
+        },
+        {
+          "url": "https://dailyremote.com/remote-documentation-jobs",
+          "text": "documentation"
+        },
+        {
+          "url": "https://dailyremote.com/remote-engineering-manager-jobs",
+          "text": "engineering-manager"
+        },
+        {
+          "url": "https://dailyremote.com/remote-job/ai-first-sr-android-developer-5752569",
+          "text": "AI First Sr. Android Developer"
+        },
+        {
+          "url": "https://dailyremote.com/remote-android-developer-jobs",
+          "text": "Android Developer"
+        },
+        {
+          "url": "https://dailyremote.com/remote-media-jobs",
+          "text": "media"
+        },
+        {
+          "url": "https://dailyremote.com/remote-job/ai-first-sr-i-os-engineer-remote-5752568",
+          "text": "AI First Sr. iOS Engineer (Remote)"
+        }
+      ],
+      "feeds": [],
+      "sitemaps": [
+        {
+          "url": "https://dailyremote.com/sitemap.xml",
+          "text": "Site-advertised sitemap"
+        }
+      ],
+      "captured_text": "DailyRemote Jobs For Employers Open menu\nLog in Get Premium Hire Remote Talent\nClose menu\nRemote Jobs Browse latest roles\n\nJobs by Location Filter by country/timezone\n\nJob Categories\nSoftware Development Design Support Sales Writing Product Legal Finance Marketing Data Entry Healthcare Recruitment Teaching Virtual Assistant Others\n\nMore\nATS Resume Checker AI Cover Letter Generator AI Mock Interviews Career Advice Remote Work Blog Newsletter Facebook Group Facebook Page\n\nLog in\n\nGet Premium\nContact us Twitter\nFor Employers\n\n\nREMOTE SOFTWARE DEVELOPMENT JOBS IN UNITED STATES\n\nFind remote programming jobs in Frontend, Backend, DevOps, QA, or as a FullStack or Data engineer. We curate the best remote software development jobs to match your area of expertise. Software Developers design, specify, create, and maintain web and native apps. Remote Software Engineer jobs where people telecommute (work remotely) are on the rise and we can help you to stay ahead of the curve.\n\nTrusted by 300,000+ remote workers worldwide.\n\n\n/ Search\n\n\n\nREMOTE SOFTWARE DEVELOPMENT JOBS IN UNITED STATES (26,268)\n\nFilter by resume Software Development ✕ United States ✕ Advanced search Role Salary Benefits Job type Experience Work mode\nSort: Relevance\n\nSort by\n\nRelevance\nLatest jobs\n\nCategory\n\nAll categories\nSoftware Development\nDesign\nSupport\nSales\nWriting\nProduct\nLegal\nFinance\nMarketing\nData Entry\nHealthcare\nRecruitment\nTeaching\nVirtual Assistant\nOthers\n\nRole\n\n2D Artist\n3D Animator\n3D Artist\nAccount Director\nAccount Executive\nAccount Manager\nAccountant\nAccounting Manager\nAccounts Payable Specialist\nAccounts Receivable Specialist\nActuary\nAddiction Counselor\nAdministrative Assistant\nAffiliate Manager\nAgile Project Manager\nAI Engineer\nAI Ethics Specialist\nAI Product Manager\nAI Research Scientist\nAlliance Manager\nAnalytics Engineer\nAnalytics Manager\nAndroid Developer\nAnimator\nAPI Technical Writer\nApplication Security Engineer\nArchitect\nArt Director\nArticle Writer\nAttorney\nAudio Producer\nAudit Manager",
+      "source_status": "fetched",
+      "source_reason": null,
+      "observed_links": 80
+    },
+    {
+      "key": "a2c67a072b152fda537cb83e068b02dda32cdac19fa5625e61359b9544c0f888",
+      "kind": "document",
+      "input": {
+        "url": "https://www.indeed.com/q-remote-frontend-developer-jobs.html",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": [],
+      "captured_text": null,
+      "source_status": "access_limited",
+      "source_reason": "source_access_denied",
+      "observed_links": 0
+    },
+    {
+      "key": "16e51b0a5182b0e5f18a2c89e5877dd2c58bf575725e40e2f6aaa0605d198382",
+      "kind": "document",
+      "input": {
+        "url": "https://x.com/i/status/2106390640074318276",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": [
+        {
+          "url": "https://x.com/sitemap.xml",
+          "text": "Site-advertised sitemap"
+        }
+      ],
+      "captured_text": null,
+      "source_status": "access_limited",
+      "source_reason": "crawl_policy_denied",
+      "observed_links": 0
+    },
+    {
+      "key": "cc14ae70e06ceb4d405f545995af40d999d7d96f92b48e7614c57a3fe45e7f12",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "React TypeScript web development remote \"project brief\"",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "d3f06ad74e6ee7d69d74f1a60d393a6a8b6f43fb22cdb9b8a2f345eec0efdd0d",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 2,
+          "limit": 10,
+          "query": "React TypeScript web development remote \"looking for\" freelance",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    }
+  ],
+  "decisions": [
+    {
+      "round": 0,
+      "reason": "check_promising_result",
+      "action": {
+        "url": "https://www.upwork.com/freelance-jobs/apply/Front-End-Developer-React-TypeScript-for-Creative-Sharing-Platform_~022108015263357496857/",
+        "kind": "document"
+      },
+      "depth": 0,
+      "parent_key": "a2da35c777e40bd96063042fe5771094b7a4ebb392113d5f89be64bdf86ba5be"
+    },
+    {
+      "round": 1,
+      "reason": "check_promising_result",
+      "action": {
+        "url": "https://dailyremote.com/remote-job/senior-front-end-developer-react-type-script-fulltime-remote-est-5657609",
+        "kind": "document"
+      },
+      "depth": 0,
+      "parent_key": "a2da35c777e40bd96063042fe5771094b7a4ebb392113d5f89be64bdf86ba5be"
+    },
+    {
+      "round": 2,
+      "reason": "follow_source_link",
+      "action": {
+        "url": "https://dailyremote.com/get-started",
+        "kind": "document"
+      },
+      "depth": 1,
+      "parent_key": "3d2e071cf16612c1ad0400149a3e01038d92ec181c33a7169fdc2cf80951d8c1"
+    },
+    {
+      "round": 3,
+      "reason": "follow_source_link",
+      "action": {
+        "url": "https://dailyremote.com/remote-software-development-jobs-in-united-states",
+        "kind": "document"
+      },
+      "depth": 1,
+      "parent_key": "3d2e071cf16612c1ad0400149a3e01038d92ec181c33a7169fdc2cf80951d8c1"
+    },
+    {
+      "round": 4,
+      "reason": "check_promising_result",
+      "action": {
+        "url": "https://www.indeed.com/q-remote-frontend-developer-jobs.html",
+        "kind": "document"
+      },
+      "depth": 0,
+      "parent_key": "a2da35c777e40bd96063042fe5771094b7a4ebb392113d5f89be64bdf86ba5be"
+    },
+    {
+      "round": 5,
+      "reason": "check_promising_result",
+      "action": {
+        "url": "https://x.com/i/status/2106390640074318276",
+        "kind": "document"
+      },
+      "depth": 0,
+      "parent_key": "2cdd7a3f4c25cf21bbf053c6b3608e5e1219ccfb10ba037870cfd6f2aa96134d"
+    },
+    {
+      "round": 6,
+      "reason": "refine_demand_query",
+      "action": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "React TypeScript web development remote \"project brief\"",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "depth": 0,
+      "parent_key": "67b6955f98a03c226e077fc4b17e5238aab9cc3ca6936e5e71e1a0132143b459"
+    },
+    {
+      "round": 7,
+      "reason": "continue_result_page",
+      "action": {
+        "kind": "search",
+        "query": {
+          "page": 2,
+          "limit": 10,
+          "query": "React TypeScript web development remote \"looking for\" freelance",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "depth": 0,
+      "parent_key": "a2da35c777e40bd96063042fe5771094b7a4ebb392113d5f89be64bdf86ba5be"
+    },
+    {
+      "round": 8,
+      "reason": "exploration_limit",
+      "action": null,
+      "depth": 0,
+      "parent_key": null
+    }
+  ],
+  "case": {
+    "id": "566add51-b360-4e70-9c7b-3685ec3f0899",
+    "scoutId": "f89b574e-2fc5-4276-8645-863cf8f187ba",
+    "scoutName": "Synthetic client-project scout",
+    "scoutVersion": 1,
+    "provider": "serper",
+    "strategy": {
+      "targets": [
+        "React TypeScript web development"
+      ],
+      "explanation": "This is a single coherent service target, so I kept it intact rather than splitting it into separate searches. The search template will handle the remote preference separately, and this keeps the public search focused on the exact brief."
+    },
+    "exploration": [
+      {
+        "kind": "document",
+        "reason": "check_promising_result",
+        "target": "https://www.upwork.com/freelance-jobs/apply/Front-End-Developer-React-TypeScript-for-Creative-Sharing-Platform_~022108015263357496857/"
+      },
+      {
+        "kind": "document",
+        "reason": "check_promising_result",
+        "target": "https://dailyremote.com/remote-job/senior-front-end-developer-react-type-script-fulltime-remote-est-5657609"
+      },
+      {
+        "kind": "document",
+        "reason": "follow_source_link",
+        "target": "https://dailyremote.com/get-started"
+      },
+      {
+        "kind": "document",
+        "reason": "follow_source_link",
+        "target": "https://dailyremote.com/remote-software-development-jobs-in-united-states"
+      },
+      {
+        "kind": "document",
+        "reason": "check_promising_result",
+        "target": "https://www.indeed.com/q-remote-frontend-developer-jobs.html"
+      },
+      {
+        "kind": "document",
+        "reason": "check_promising_result",
+        "target": "https://x.com/i/status/2106390640074318276"
+      },
+      {
+        "kind": "search",
+        "reason": "refine_demand_query",
+        "target": "React TypeScript web development remote \"project brief\""
+      },
+      {
+        "kind": "search",
+        "reason": "continue_result_page",
+        "target": "React TypeScript web development remote \"looking for\" freelance"
+      },
+      {
+        "kind": null,
+        "reason": "exploration_limit",
+        "target": null
+      }
+    ],
+    "reviewStatus": "complete",
+    "reviewReason": "source_reviews_complete",
+    "status": "partial",
+    "reason": "some_sources_unavailable",
+    "startedAt": "2026-10-11 23:20:26.450155+00",
+    "finishedAt": "2026-10-11 23:21:15.144184+00",
+    "searchesCompleted": 5,
+    "documentsChecked": 6,
+    "leadCount": 48
+  },
+  "usage": [
+    {
+      "provider": "public-documents",
+      "requests": 6,
+      "reserved_micros": "0"
+    },
+    {
+      "provider": "serper",
+      "requests": 5,
+      "reserved_micros": "50000"
+    }
+  ],
+  "aiBudget": [
+    {
+      "requests": 12,
+      "reserved_microusd": "900000"
+    }
+  ],
+  "leads": [
+    {
+      "url": "https://justjoin.it/job-offer/cerebre-senior-fullstack-engineer---react-poznan-javascript",
+      "title": "Senior Fullstack Engineer - React - cerebre",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.shine.com/jobs/freelance-full-stack-web-app-developer-kolkata-metropolitan-area/mindrift/19417545",
+      "title": "Freelance Full-Stack Web App Developer (Kolkata ... - Shine",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.giggrabbers.com/freelance-jobs",
+      "title": "Freelance Jobs in 2026 — Find Remote & Online Work",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://euremotejobs.com/job/lemon-io-europe-latam-canada-the-u-s-apac-contractor-flexible-schedule-freelance-full-time-senior-react-full-stack-developer/",
+      "title": "Senior React Full-stack Developer",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.freelancermap.com/project/full-stack-developer-react-node-js-remote",
+      "title": "Full-Stack Developer (React / Node.js) — Remote",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.instagram.com/p/DddfDJ2FNou/",
+      "title": "🚀 We're #Hiring: Sr. Full-Stack Software Engineer ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://us.remotejobs.dedyn.io/job/3295779",
+      "title": "Senior Frontend Software Engineer - Typescript | React",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://softwarebiz.co/careers/full-stack-developer/",
+      "title": "Full Stack Developer (Freelance, Remote)",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.twine.net/jobs/front-end-developers",
+      "title": "Freelance and remote Front-end developers jobs - Twine",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://dynamitejobs.com/company/nexorlio/remote-job/junior-full-stack-developer",
+      "title": "🧨 Junior Full-Stack Developer, Remote Job, October 2026",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.facebook.com/sayonetech/posts/need-experienced-developers-without-the-long-hiring-cyclessayone-helps-businesse/1715472480583558/",
+      "title": "SayOne",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.instagram.com/p/Dd6eOfsjkip/",
+      "title": "BUILD WITH JEV. Have an integration idea? Give it a clear ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.fr.freelancer.com/job-search/realizzazione-siti-web-freelance/",
+      "title": "Realizzazione siti web freelance Jobs, Employment",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.linkedin.com/posts/ahmed-naeem-352b26175_techfounders-freelance-webdevelopment-activity-7505298073691209729-Dluq",
+      "title": "Developers Who Say No to Bad Requirements",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://mobilions.com/hire/dedicated-team/",
+      "title": "Hire a Dedicated Development Team | Mobilions",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.facebook.com/groups/1203250850698031/posts/1820580245631752/",
+      "title": "HTML5 * CSS3 * JavaScript * Tailwind CSS * Bootstrap 5 * React ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.netsetsoftware.com/hire-react-developers-in-boston",
+      "title": "Hire Expert React Developers in Boston",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.instagram.com/reel/Dd6qzLZuIxG/",
+      "title": "When your to-do list gets a little too satisfying ✅💥 Made ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://pixel2html.com/services/mobile-app-development/react-native-development",
+      "title": "React Native Development",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.facebook.com/faizan801699/posts/your-business-has-an-ideabut-whos-going-to-build-ityou-have-the-conceptyou-know-/1448800247110175/",
+      "title": "MERN stack developer for modern web applications",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://dailyremote.com/remote-software-development-jobs-in-united-states",
+      "title": "United States",
+      "contentStatus": "fetched",
+      "contentReason": null,
+      "review": {
+        "facts": {
+          "role": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "category": {
+            "value": "employment",
+            "quotes": [
+              "Company hidden · Full Time · 20 mins ago",
+              "Company hidden · Full Time · 20 mins ago",
+              "Company hidden · Full Time · 1 hour ago",
+              "Company hidden · Full Time · 1 hour ago"
+            ],
+            "status": "stated"
+          },
+          "location": {
+            "value": "United States",
+            "quotes": [
+              "REMOTE SOFTWARE DEVELOPMENT JOBS IN UNITED STATES",
+              "REMOTE SOFTWARE DEVELOPMENT JOBS IN UNITED STATES (26,268)",
+              "United States 5-10 yrs exp Software Development",
+              "United States $200K - $280K per year 5-10 yrs exp Software Development Full Stack Developer"
+            ],
+            "status": "stated"
+          },
+          "arrangement": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "sponsorship": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "compensation": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "requirements": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "authorization": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          }
+        },
+        "label": "directory",
+        "scope": "source",
+        "quotes": [
+          "REMOTE SOFTWARE DEVELOPMENT JOBS IN UNITED STATES",
+          "REMOTE SOFTWARE DEVELOPMENT JOBS IN UNITED STATES (26,268)",
+          "Filter by resume Software Development ✕ United States ✕ Advanced search Role Salary Benefits Job type Experience Work mode",
+          "SENIOR AI/ML ENGINEER"
+        ],
+        "reviewedAt": "2026-10-11 23:21:00.108076+00",
+        "explanation": "This is a job board/search results page aggregating many openings, not a single actionable opportunity. It explicitly says “REMOTE SOFTWARE DEVELOPMENT JOBS IN UNITED STATES” and shows numerous separate listings plus filters and category navigation."
+      },
+      "promoted": false
+    },
+    {
+      "url": "https://dailyremote.com/get-started",
+      "title": "Apply Now",
+      "contentStatus": "fetched",
+      "contentReason": null,
+      "review": {
+        "facts": {
+          "role": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "category": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "location": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "arrangement": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "sponsorship": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "compensation": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "requirements": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "authorization": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          }
+        },
+        "label": "directory",
+        "scope": "source",
+        "quotes": [
+          "    Instead of applying to stale listings on crowded job boards, we go straight to the source. Our robots scan over 500,000+ company career pages every single hour!",
+          "    When a job opens, it’s in your inbox within minutes.",
+          "Real jobs only. We remove listings the exact day the company pulls them. No ghosts. Just open roles.",
+          "We found 215,591+ exclusive remote jobs matching your profile. 73% aren't on LinkedIn or Indeed — unlock them before other candidates get there first."
+        ],
+        "reviewedAt": "2026-10-11 23:20:52.512143+00",
+        "explanation": "This is a job-search service / job board landing page, not a specific opening. It describes finding and sending users remote jobs from many company career pages, plus subscription pricing, rather than a single role to apply for."
+      },
+      "promoted": false
+    },
+    {
+      "url": "https://www.linkedin.com/posts/aramayis-mirzoyan_the-main-things-freelance-web-developers-activity-7504916709800132608-rj23",
+      "title": "Freelance Web Dev Skills Beyond Coding",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.linkedin.com/posts/786-ameer-hamza_how-to-hire-a-freelance-full-stack-developer-activity-7507836911869407233-t_px",
+      "title": "7 Red Flags in Hiring a Developer Before Writing a Line of ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.linkedin.com/posts/rahul-dey-developer_a-quick-note-since-ive-received-quite-a-activity-7506353271251480578-Bmvk",
+      "title": "Rahul Dey posted on the topic",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.linkedin.com/posts/tarik-begic_the-easiest-way-to-land-a-job-in-the-it-industry-activity-7508857273423724544-w2-4",
+      "title": "Get IT projects from top Upwork developers in your country",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.linkedin.com/posts/priti-parmar-shakti-digital_we-need-your-help-looking-for-reactjs-developer-activity-7514620328392900608-zhdh",
+      "title": "Priti Parmar's Post",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.linkedin.com/posts/arslanyousafsheikh_i-do-everything-is-why-youre-not-getting-activity-7505166275921461248-oaM1",
+      "title": "Niche Down on Upwork to Get Hired | Arslan Yousaf ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.linkedin.com/posts/codinglimits-pvt-ltd_hiring-frontenddeveloper-nextjs-activity-7508031043971776513-_xQp",
+      "title": "codinglimits' Post",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.linkedin.com/posts/pawanesh-raghaw_freelancing-itfreelancer-freelancejobs-activity-7508116743840665601-6g9X",
+      "title": "IT Freelance Jobs: Build Portfolio and Get Hired",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.linkedin.com/posts/sakshi-sehrawat-a485b3351_hiring-react-developer-freelance-contract-activity-7510209370861928448-Jwe0",
+      "title": "Sakshi Sehrawat's Post",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.linkedin.com/posts/role-sense_hiring-react-remotejobs-activity-7505309390187540480-kgi6",
+      "title": "React Native Freelance Developer Remote Work",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://x.com/tahrar101?lang=it",
+      "title": "Talha Saeed Ahrar (@tahrar101) / X",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://x.com/SloanCam?lang=ca",
+      "title": "Cam Sloan (@SloanCam) / X",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://x.com/richard_iyama?lang=cs",
+      "title": "Richard O. Iyama (@richard_iyama) / ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://x.com/sharelokerr?lang=ca",
+      "title": "Bagi Loker (@sharelokerr) / X",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://x.com/Dev_Prashant_K",
+      "title": "Prashant (@Dev_Prashant_K) / X",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://x.com/i/status/2106390640074318276",
+      "title": "Freelance / Contract | 🧑‍💻 React / TypeScript / Node. ...",
+      "contentStatus": "access_limited",
+      "contentReason": "crawl_policy_denied",
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://x.com/triforceOP/with_replies?lang=de",
+      "title": "Adem Hodzic - triforceOP",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "review": null,
+      "promoted": false
+    },
+    {
+      "url": "https://www.upwork.com/freelance-jobs/apply/Front-End-Developer-React-TypeScript-for-Creative-Sharing-Platform_~022108015263357496857/",
+      "title": "Front-End Developer (React / TypeScript) for a Creative ...",
+      "contentStatus": "access_limited",
+      "contentReason": "source_access_denied",
+      "review": null,
+      "promoted": false
+    }
+  ],
+  "checks": [
+    "live adaptive decisions",
+    "bounded provider and model admission",
+    "observed parent provenance",
+    "current owner isolation",
+    "terminal replay without new spending"
+  ],
+  "emailsSent": 0,
+  "realAccountsUsed": 0,
+  "scopeNote": "One live synthetic case from model-guided web discovery through cited source review, linked-page research, private assessment and eligible local Mailpit delivery. Uses production use cases and admission boundaries. Labels are model judgments, not independent ground truth. Comparative precision/recall and global throughput remain unproven."
+}

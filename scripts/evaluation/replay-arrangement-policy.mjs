@@ -23,7 +23,7 @@ assert.ok(
 );
 const now = new Date(baseline.measuredAt);
 const results = baseline.results.map((result) => {
-  // The only changed acceptance rule downgrades unsupported arrangement meets; it cannot revive rejected pairs.
+  // Replay current acceptance rules only over earlier accepts; never revive rejected pairs.
   if (!result.assessment) {
     return result;
   }
@@ -65,11 +65,11 @@ const report = {
   ...baseline,
   kind: "deterministic-policy-replay",
   replayedAt: new Date().toISOString(),
-  evaluationPolicy: "supported-criteria-v3",
+  evaluationPolicy: "supported-criteria-v4",
   baselineReport: reportPath,
   modelConfigurationEvaluated: baseline.configuration,
   scope:
-    "Monotonic arrangement-policy replay over frozen v2 model judgments. Rejections cannot become accepted. This is not a full run of the new v7 model prompts; see the separate focused live regression.",
+    "Monotonic current-policy replay over frozen v2 model judgments, including arrangement and experience guards. Rejections cannot become accepted. No model prompts are rerun; historical v3 reports retain their original meaning.",
   baselineEstimatedUsd: baseline.estimatedUsd,
   requests: 0,
   providerCalls: 0,

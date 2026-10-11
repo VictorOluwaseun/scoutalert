@@ -1,0 +1,3287 @@
+{
+  "checkedAt": "2026-10-11T23:46:25.247Z",
+  "scenario": "services",
+  "baseline": false,
+  "reader": "worker",
+  "renderingEnabled": true,
+  "status": "measured",
+  "deliveryOutcome": "no_eligible_digest",
+  "reasoning": [
+    {
+      "input": {
+        "kind": "strategy",
+        "intent": {
+          "remote": true,
+          "target": "Website redesign",
+          "category": "services"
+        }
+      },
+      "output": {
+        "kind": "strategy",
+        "strategy": {
+          "targets": [
+            "Website redesign"
+          ],
+          "explanation": "I kept the search focused on the exact service phrase and did not add remote to the target, since that preference is handled separately by the query template."
+        }
+      },
+      "rejected_output": null,
+      "failure": null,
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 2220,
+        "responseId": "resp_0bb1290e2571eac4016acc1f8fb62887d28c1c5807a67e3bb9",
+        "inputTokens": 217,
+        "outputTokens": 114,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 676
+      }
+    },
+    {
+      "input": {
+        "kind": "choice",
+        "intent": {
+          "remote": true,
+          "target": "Website redesign",
+          "category": "services"
+        },
+        "choices": [
+          {
+            "depth": 0,
+            "title": "hire website redesign consultants - Next Hire Inc",
+            "action": {
+              "url": "https://nexthireinc.com/hire-website-redesign-specialists/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "c49bc22f8e4aff646719256b8bbef8686a7ced807021ab66e96e186d547b7a47"
+          },
+          {
+            "depth": 0,
+            "title": "Jobs hiring Framer experts",
+            "action": {
+              "url": "https://contra.com/framer/jobs",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "c49bc22f8e4aff646719256b8bbef8686a7ced807021ab66e96e186d547b7a47"
+          },
+          {
+            "depth": 0,
+            "title": "Nisarahmad Nasseri's Post",
+            "action": {
+              "url": "https://www.linkedin.com/posts/nisarahmad-nasseri-21339b28a_webdesigner-webdesign-uiux-activity-7511361670527635457-orY5",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "0f4c3d72377e9a7c467f7e35909d0aa79f60a8f8b79c8ab4ff989f81ad8338bb"
+          },
+          {
+            "depth": 0,
+            "title": "Freelancer vs Agency vs In-House Website Development ...",
+            "action": {
+              "url": "https://www.linkedin.com/posts/saqib-ahmed-expertwebdeveloper_business-entrepreneurship-marketing-activity-7504650580615954432-Iecy",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "0f4c3d72377e9a7c467f7e35909d0aa79f60a8f8b79c8ab4ff989f81ad8338bb"
+          },
+          {
+            "depth": 0,
+            "title": "We're hiring a Freelance Web Designer. If you know ...",
+            "action": {
+              "url": "https://www.instagram.com/p/Dd3wmgBFf5N/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "c49bc22f8e4aff646719256b8bbef8686a7ced807021ab66e96e186d547b7a47"
+          },
+          {
+            "depth": 0,
+            "title": "Cai Cardenas (@caicardenas) / X",
+            "action": {
+              "url": "https://x.com/caicardenas?lang=da",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "314ad311018a4f9c307f79e10d9eb8488c2ce00335064414880be8d8a8a36359"
+          },
+          {
+            "depth": 0,
+            "title": "Design Agencies Often Outsource Web Development",
+            "action": {
+              "url": "https://www.linkedin.com/posts/muhammadarman_most-design-agencies-sell-websites-very-activity-7506744720899964928--jAU",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "0f4c3d72377e9a7c467f7e35909d0aa79f60a8f8b79c8ab4ff989f81ad8338bb"
+          },
+          {
+            "depth": 0,
+            "title": "We're hiring! 👋🏼 We're on the hunt for a freelance Web Designer ...",
+            "action": {
+              "url": "https://www.facebook.com/quintsdesignco/posts/were-hiring-were-on-the-hunt-for-a-freelance-web-designer-developer-to-join-us-o/1782042740214502/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "c49bc22f8e4aff646719256b8bbef8686a7ced807021ab66e96e186d547b7a47"
+          },
+          {
+            "depth": 0,
+            "title": "How to Hire Freelance Web Designers",
+            "action": {
+              "url": "https://www.upwork.com/hire/web-designers/how-to-hire/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "c49bc22f8e4aff646719256b8bbef8686a7ced807021ab66e96e186d547b7a47"
+          },
+          {
+            "depth": 0,
+            "title": "How to Become a Freelance Web Designer and Developer",
+            "action": {
+              "url": "https://remotecareerguide.com/freelance-web-design-development-guide/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "c49bc22f8e4aff646719256b8bbef8686a7ced807021ab66e96e186d547b7a47"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "Website redesign remote \"project\" \"budget\"",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "0f4c3d72377e9a7c467f7e35909d0aa79f60a8f8b79c8ab4ff989f81ad8338bb"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": null,
+            "reason": "no_further_action",
+            "parentKey": null
+          }
+        ],
+        "evidence": [
+          {
+            "url": "https://www.instagram.com/p/Dd3wmgBFf5N/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "We're hiring a Freelance Web Designer. If you know ... We're hiring a Freelance Web Designer. If you know WordPress inside out and enjoy making websites look sharper and work better, we'd like to hear from you."
+          },
+          {
+            "url": "https://www.facebook.com/quintsdesignco/posts/were-hiring-were-on-the-hunt-for-a-freelance-web-designer-developer-to-join-us-o/1782042740214502/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "We're hiring! 👋🏼 We're on the hunt for a freelance Web Designer ... We're hiring! We're on the hunt for a freelance Web Designer & Developer to join us on an ongoing basis, someone creative, organised and reliable,..."
+          },
+          {
+            "url": "https://nexthireinc.com/hire-website-redesign-specialists/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "hire website redesign consultants - Next Hire Inc Hiring remote website redesign specialists gave us access to top talent. Our redesigned site now reflects our brand perfectly and user engagement doubled."
+          },
+          {
+            "url": "https://www.upwork.com/hire/web-designers/how-to-hire/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "How to Hire Freelance Web Designers Upwork gives you multiple tools for finding and hiring web designers whose skills match your aesthetic and technical needs. Draft a job post; review portfolios ..."
+          },
+          {
+            "url": "https://contra.com/framer/jobs",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Jobs hiring Framer experts Freelance Web Designer & Framer/Webflow Developer | VUBO Website Redesign ... Hiring as an individual. 20d ago. Front End Designer (Website Design Expert)."
+          },
+          {
+            "url": "https://remotecareerguide.com/freelance-web-design-development-guide/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "How to Become a Freelance Web Designer and Developer Remote Project Management Jobs: Industries Hiring · Remote Finance and ... A website redesign concept for a nonprofit organization. Clearly label ..."
+          },
+          {
+            "url": "https://x.com/caicardenas?lang=da",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Cai Cardenas (@caicardenas) / X I've reflected on some of the things I've learned about hiring your first designer, being that initial hire myself, and wanted to share some insights from my ..."
+          },
+          {
+            "url": "https://www.linkedin.com/posts/muhammadarman_most-design-agencies-sell-websites-very-activity-7506744720899964928--jAU",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Design Agencies Often Outsource Web Development Hiring for the peak means paying through the quiet months. So you keep a freelancer, or a network, and most agencies say so openly on their own site. The risk ..."
+          },
+          {
+            "url": "https://www.linkedin.com/posts/nisarahmad-nasseri-21339b28a_webdesigner-webdesign-uiux-activity-7511361670527635457-orY5",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Nisarahmad Nasseri's Post ... WebsiteRedesign #Freelancer #WebDevelopment #Hiring | 13 comments on LinkedIn. ... We can help redesign your website with modern UI/UX, responsive design ..."
+          },
+          {
+            "url": "https://www.linkedin.com/posts/saqib-ahmed-expertwebdeveloper_business-entrepreneurship-marketing-activity-7504650580615954432-Iecy",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Freelancer vs Agency vs In-House Website Development ... ... Website Design & Redesign Specialist | Building High-Converting Websites ... hiring freelancers instead, for everything from websites to SEO to marketing."
+          }
+        ],
+        "candidates": [
+          {
+            "text": "hire website redesign consultants - Next Hire Inc Hiring remote website redesign specialists gave us access to top talent. Our redesigned site now reflects our brand perfectly and user engagement doubled.",
+            "query": "Website redesign remote \"hiring\" freelance",
+            "choice": 0,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Jobs hiring Framer experts Freelance Web Designer & Framer/Webflow Developer | VUBO Website Redesign ... Hiring as an individual. 20d ago. Front End Designer (Website Design Expert).",
+            "query": "Website redesign remote \"hiring\" freelance",
+            "choice": 1,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Nisarahmad Nasseri's Post ... WebsiteRedesign #Freelancer #WebDevelopment #Hiring | 13 comments on LinkedIn. ... We can help redesign your website with modern UI/UX, responsive design ...",
+            "query": "site:linkedin.com/posts Website redesign \"hiring\" freelance",
+            "choice": 2,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Freelancer vs Agency vs In-House Website Development ... ... Website Design & Redesign Specialist | Building High-Converting Websites ... hiring freelancers instead, for everything from websites to SEO to marketing.",
+            "query": "site:linkedin.com/posts Website redesign \"hiring\" freelance",
+            "choice": 3,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "We're hiring a Freelance Web Designer. If you know ... We're hiring a Freelance Web Designer. If you know WordPress inside out and enjoy making websites look sharper and work better, we'd like to hear from you.",
+            "query": "Website redesign remote \"hiring\" freelance",
+            "choice": 4,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Cai Cardenas (@caicardenas) / X I've reflected on some of the things I've learned about hiring your first designer, being that initial hire myself, and wanted to share some insights from my ...",
+            "query": "site:x.com Website redesign \"hiring\" freelance",
+            "choice": 5,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Design Agencies Often Outsource Web Development Hiring for the peak means paying through the quiet months. So you keep a freelancer, or a network, and most agencies say so openly on their own site. The risk ...",
+            "query": "site:linkedin.com/posts Website redesign \"hiring\" freelance",
+            "choice": 6,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "We're hiring! 👋🏼 We're on the hunt for a freelance Web Designer ... We're hiring! We're on the hunt for a freelance Web Designer & Developer to join us on an ongoing basis, someone creative, organised and reliable,...",
+            "query": "Website redesign remote \"hiring\" freelance",
+            "choice": 7,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "How to Hire Freelance Web Designers Upwork gives you multiple tools for finding and hiring web designers whose skills match your aesthetic and technical needs. Draft a job post; review portfolios ...",
+            "query": "Website redesign remote \"hiring\" freelance",
+            "choice": 8,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "How to Become a Freelance Web Designer and Developer Remote Project Management Jobs: Industries Hiring · Remote Finance and ... A website redesign concept for a nonprofit organization. Clearly label ...",
+            "query": "Website redesign remote \"hiring\" freelance",
+            "choice": 9,
+            "origin": "search_result",
+            "parentUrl": null
+          }
+        ]
+      },
+      "output": {
+        "kind": "choice",
+        "index": 7,
+        "explanation": "This looks like a direct hiring post for a freelance web designer/developer on an ongoing remote basis, which is the most practical next step for a website redesign services lead."
+      },
+      "rejected_output": null,
+      "failure": null,
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 2549,
+        "responseId": "resp_04a23b554eaf7a4a016acc1f96f57c87d2b649ec523d067043",
+        "inputTokens": 3060,
+        "outputTokens": 165,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 3038
+      }
+    },
+    {
+      "input": {
+        "kind": "choice",
+        "intent": {
+          "remote": true,
+          "target": "Website redesign",
+          "category": "services"
+        },
+        "choices": [
+          {
+            "depth": 0,
+            "title": "hire website redesign consultants - Next Hire Inc",
+            "action": {
+              "url": "https://nexthireinc.com/hire-website-redesign-specialists/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "c49bc22f8e4aff646719256b8bbef8686a7ced807021ab66e96e186d547b7a47"
+          },
+          {
+            "depth": 0,
+            "title": "Jobs hiring Framer experts",
+            "action": {
+              "url": "https://contra.com/framer/jobs",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "c49bc22f8e4aff646719256b8bbef8686a7ced807021ab66e96e186d547b7a47"
+          },
+          {
+            "depth": 0,
+            "title": "Nisarahmad Nasseri's Post",
+            "action": {
+              "url": "https://www.linkedin.com/posts/nisarahmad-nasseri-21339b28a_webdesigner-webdesign-uiux-activity-7511361670527635457-orY5",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "0f4c3d72377e9a7c467f7e35909d0aa79f60a8f8b79c8ab4ff989f81ad8338bb"
+          },
+          {
+            "depth": 0,
+            "title": "Freelancer vs Agency vs In-House Website Development ...",
+            "action": {
+              "url": "https://www.linkedin.com/posts/saqib-ahmed-expertwebdeveloper_business-entrepreneurship-marketing-activity-7504650580615954432-Iecy",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "0f4c3d72377e9a7c467f7e35909d0aa79f60a8f8b79c8ab4ff989f81ad8338bb"
+          },
+          {
+            "depth": 0,
+            "title": "We're hiring a Freelance Web Designer. If you know ...",
+            "action": {
+              "url": "https://www.instagram.com/p/Dd3wmgBFf5N/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "c49bc22f8e4aff646719256b8bbef8686a7ced807021ab66e96e186d547b7a47"
+          },
+          {
+            "depth": 0,
+            "title": "Cai Cardenas (@caicardenas) / X",
+            "action": {
+              "url": "https://x.com/caicardenas?lang=da",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "314ad311018a4f9c307f79e10d9eb8488c2ce00335064414880be8d8a8a36359"
+          },
+          {
+            "depth": 0,
+            "title": "Design Agencies Often Outsource Web Development",
+            "action": {
+              "url": "https://www.linkedin.com/posts/muhammadarman_most-design-agencies-sell-websites-very-activity-7506744720899964928--jAU",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "0f4c3d72377e9a7c467f7e35909d0aa79f60a8f8b79c8ab4ff989f81ad8338bb"
+          },
+          {
+            "depth": 0,
+            "title": "How to Hire Freelance Web Designers",
+            "action": {
+              "url": "https://www.upwork.com/hire/web-designers/how-to-hire/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "c49bc22f8e4aff646719256b8bbef8686a7ced807021ab66e96e186d547b7a47"
+          },
+          {
+            "depth": 0,
+            "title": "How to Become a Freelance Web Designer and Developer",
+            "action": {
+              "url": "https://remotecareerguide.com/freelance-web-design-development-guide/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "c49bc22f8e4aff646719256b8bbef8686a7ced807021ab66e96e186d547b7a47"
+          },
+          {
+            "depth": 0,
+            "title": "🚀 **What can I help your business with?** I'm **Justin ...",
+            "action": {
+              "url": "https://www.facebook.com/groups/vaworkersph/posts/1434317058632333/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "c49bc22f8e4aff646719256b8bbef8686a7ced807021ab66e96e186d547b7a47"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "Website redesign remote \"project\" \"budget\"",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "0f4c3d72377e9a7c467f7e35909d0aa79f60a8f8b79c8ab4ff989f81ad8338bb"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": null,
+            "reason": "no_further_action",
+            "parentKey": null
+          }
+        ],
+        "evidence": [
+          {
+            "url": "https://www.instagram.com/p/Dd3wmgBFf5N/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "We're hiring a Freelance Web Designer. If you know ... We're hiring a Freelance Web Designer. If you know WordPress inside out and enjoy making websites look sharper and work better, we'd like to hear from you."
+          },
+          {
+            "url": "https://nexthireinc.com/hire-website-redesign-specialists/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "hire website redesign consultants - Next Hire Inc Hiring remote website redesign specialists gave us access to top talent. Our redesigned site now reflects our brand perfectly and user engagement doubled."
+          },
+          {
+            "url": "https://www.upwork.com/hire/web-designers/how-to-hire/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "How to Hire Freelance Web Designers Upwork gives you multiple tools for finding and hiring web designers whose skills match your aesthetic and technical needs. Draft a job post; review portfolios ..."
+          },
+          {
+            "url": "https://contra.com/framer/jobs",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Jobs hiring Framer experts Freelance Web Designer & Framer/Webflow Developer | VUBO Website Redesign ... Hiring as an individual. 20d ago. Front End Designer (Website Design Expert)."
+          },
+          {
+            "url": "https://remotecareerguide.com/freelance-web-design-development-guide/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "How to Become a Freelance Web Designer and Developer Remote Project Management Jobs: Industries Hiring · Remote Finance and ... A website redesign concept for a nonprofit organization. Clearly label ..."
+          },
+          {
+            "url": "https://www.facebook.com/groups/vaworkersph/posts/1434317058632333/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "🚀 **What can I help your business with?** I'm **Justin ... VA Workers PH (Virtual Assistant Jobs Hiring, Freelance Online Remote Work) ... Website Designing Services Website design refers to the aesthetic layout ..."
+          },
+          {
+            "url": "https://x.com/caicardenas?lang=da",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Cai Cardenas (@caicardenas) / X I've reflected on some of the things I've learned about hiring your first designer, being that initial hire myself, and wanted to share some insights from my ..."
+          },
+          {
+            "url": "https://www.linkedin.com/posts/muhammadarman_most-design-agencies-sell-websites-very-activity-7506744720899964928--jAU",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Design Agencies Often Outsource Web Development Hiring for the peak means paying through the quiet months. So you keep a freelancer, or a network, and most agencies say so openly on their own site. The risk ..."
+          },
+          {
+            "url": "https://www.linkedin.com/posts/nisarahmad-nasseri-21339b28a_webdesigner-webdesign-uiux-activity-7511361670527635457-orY5",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Nisarahmad Nasseri's Post ... WebsiteRedesign #Freelancer #WebDevelopment #Hiring | 13 comments on LinkedIn. ... We can help redesign your website with modern UI/UX, responsive design ..."
+          },
+          {
+            "url": "https://www.linkedin.com/posts/saqib-ahmed-expertwebdeveloper_business-entrepreneurship-marketing-activity-7504650580615954432-Iecy",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Freelancer vs Agency vs In-House Website Development ... ... Website Design & Redesign Specialist | Building High-Converting Websites ... hiring freelancers instead, for everything from websites to SEO to marketing."
+          }
+        ],
+        "candidates": [
+          {
+            "text": "hire website redesign consultants - Next Hire Inc Hiring remote website redesign specialists gave us access to top talent. Our redesigned site now reflects our brand perfectly and user engagement doubled.",
+            "query": "Website redesign remote \"hiring\" freelance",
+            "choice": 0,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Jobs hiring Framer experts Freelance Web Designer & Framer/Webflow Developer | VUBO Website Redesign ... Hiring as an individual. 20d ago. Front End Designer (Website Design Expert).",
+            "query": "Website redesign remote \"hiring\" freelance",
+            "choice": 1,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Nisarahmad Nasseri's Post ... WebsiteRedesign #Freelancer #WebDevelopment #Hiring | 13 comments on LinkedIn. ... We can help redesign your website with modern UI/UX, responsive design ...",
+            "query": "site:linkedin.com/posts Website redesign \"hiring\" freelance",
+            "choice": 2,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Freelancer vs Agency vs In-House Website Development ... ... Website Design & Redesign Specialist | Building High-Converting Websites ... hiring freelancers instead, for everything from websites to SEO to marketing.",
+            "query": "site:linkedin.com/posts Website redesign \"hiring\" freelance",
+            "choice": 3,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "We're hiring a Freelance Web Designer. If you know ... We're hiring a Freelance Web Designer. If you know WordPress inside out and enjoy making websites look sharper and work better, we'd like to hear from you.",
+            "query": "Website redesign remote \"hiring\" freelance",
+            "choice": 4,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Cai Cardenas (@caicardenas) / X I've reflected on some of the things I've learned about hiring your first designer, being that initial hire myself, and wanted to share some insights from my ...",
+            "query": "site:x.com Website redesign \"hiring\" freelance",
+            "choice": 5,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Design Agencies Often Outsource Web Development Hiring for the peak means paying through the quiet months. So you keep a freelancer, or a network, and most agencies say so openly on their own site. The risk ...",
+            "query": "site:linkedin.com/posts Website redesign \"hiring\" freelance",
+            "choice": 6,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "How to Hire Freelance Web Designers Upwork gives you multiple tools for finding and hiring web designers whose skills match your aesthetic and technical needs. Draft a job post; review portfolios ...",
+            "query": "Website redesign remote \"hiring\" freelance",
+            "choice": 7,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "How to Become a Freelance Web Designer and Developer Remote Project Management Jobs: Industries Hiring · Remote Finance and ... A website redesign concept for a nonprofit organization. Clearly label ...",
+            "query": "Website redesign remote \"hiring\" freelance",
+            "choice": 8,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "🚀 **What can I help your business with?** I'm **Justin ... VA Workers PH (Virtual Assistant Jobs Hiring, Freelance Online Remote Work) ... Website Designing Services Website design refers to the aesthetic layout ...",
+            "query": "Website redesign remote \"hiring\" freelance",
+            "choice": 9,
+            "origin": "search_result",
+            "parentUrl": null
+          }
+        ]
+      },
+      "output": {
+        "kind": "choice",
+        "index": 1,
+        "explanation": "This is the most likely actual remote hiring lead: a job board page for Framer experts, which can surface specific website redesign openings and requirements. Next step: inspect the listings for current remote roles and client needs."
+      },
+      "rejected_output": null,
+      "failure": null,
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 2359,
+        "responseId": "resp_090442386ee0d07a016acc1f99715487d28b52d10c0283fce0",
+        "inputTokens": 3008,
+        "outputTokens": 117,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 2783
+      }
+    },
+    {
+      "input": {
+        "kind": "choice",
+        "intent": {
+          "remote": true,
+          "target": "Website redesign",
+          "category": "services"
+        },
+        "choices": [
+          {
+            "depth": 0,
+            "title": "hire website redesign consultants - Next Hire Inc",
+            "action": {
+              "url": "https://nexthireinc.com/hire-website-redesign-specialists/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "c49bc22f8e4aff646719256b8bbef8686a7ced807021ab66e96e186d547b7a47"
+          },
+          {
+            "depth": 0,
+            "title": "Nisarahmad Nasseri's Post",
+            "action": {
+              "url": "https://www.linkedin.com/posts/nisarahmad-nasseri-21339b28a_webdesigner-webdesign-uiux-activity-7511361670527635457-orY5",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "0f4c3d72377e9a7c467f7e35909d0aa79f60a8f8b79c8ab4ff989f81ad8338bb"
+          },
+          {
+            "depth": 0,
+            "title": "Freelancer vs Agency vs In-House Website Development ...",
+            "action": {
+              "url": "https://www.linkedin.com/posts/saqib-ahmed-expertwebdeveloper_business-entrepreneurship-marketing-activity-7504650580615954432-Iecy",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "0f4c3d72377e9a7c467f7e35909d0aa79f60a8f8b79c8ab4ff989f81ad8338bb"
+          },
+          {
+            "depth": 0,
+            "title": "AbdulAziz Faisal Tungekar's Post",
+            "action": {
+              "url": "https://www.linkedin.com/posts/aaftungekar_hiring-website-designerdeveloper-skincare-activity-7511113611293995008-ZqvI",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "0f4c3d72377e9a7c467f7e35909d0aa79f60a8f8b79c8ab4ff989f81ad8338bb"
+          },
+          {
+            "depth": 0,
+            "title": "We're hiring a Freelance Web Designer. If you know ...",
+            "action": {
+              "url": "https://www.instagram.com/p/Dd3wmgBFf5N/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "c49bc22f8e4aff646719256b8bbef8686a7ced807021ab66e96e186d547b7a47"
+          },
+          {
+            "depth": 0,
+            "title": "Cai Cardenas (@caicardenas) / X",
+            "action": {
+              "url": "https://x.com/caicardenas?lang=da",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "314ad311018a4f9c307f79e10d9eb8488c2ce00335064414880be8d8a8a36359"
+          },
+          {
+            "depth": 0,
+            "title": "Design Agencies Often Outsource Web Development",
+            "action": {
+              "url": "https://www.linkedin.com/posts/muhammadarman_most-design-agencies-sell-websites-very-activity-7506744720899964928--jAU",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "0f4c3d72377e9a7c467f7e35909d0aa79f60a8f8b79c8ab4ff989f81ad8338bb"
+          },
+          {
+            "depth": 0,
+            "title": "How to Hire Freelance Web Designers",
+            "action": {
+              "url": "https://www.upwork.com/hire/web-designers/how-to-hire/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "c49bc22f8e4aff646719256b8bbef8686a7ced807021ab66e96e186d547b7a47"
+          },
+          {
+            "depth": 0,
+            "title": "How to Become a Freelance Web Designer and Developer",
+            "action": {
+              "url": "https://remotecareerguide.com/freelance-web-design-development-guide/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "c49bc22f8e4aff646719256b8bbef8686a7ced807021ab66e96e186d547b7a47"
+          },
+          {
+            "depth": 0,
+            "title": "🚀 **What can I help your business with?** I'm **Justin ...",
+            "action": {
+              "url": "https://www.facebook.com/groups/vaworkersph/posts/1434317058632333/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "c49bc22f8e4aff646719256b8bbef8686a7ced807021ab66e96e186d547b7a47"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "Website redesign remote \"project\" \"budget\"",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "0f4c3d72377e9a7c467f7e35909d0aa79f60a8f8b79c8ab4ff989f81ad8338bb"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": null,
+            "reason": "no_further_action",
+            "parentKey": null
+          }
+        ],
+        "evidence": [
+          {
+            "url": "https://contra.com/framer/jobs",
+            "label": "directory",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "role",
+              "category",
+              "location",
+              "arrangement",
+              "sponsorship",
+              "compensation",
+              "requirements",
+              "authorization"
+            ],
+            "explanation": "This is a collection/search page listing multiple opportunities rather than a single specific opening. The passage says \"Jobs hiring Framer experts\" and shows more than one listing snippet."
+          },
+          {
+            "url": "https://www.instagram.com/p/Dd3wmgBFf5N/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "We're hiring a Freelance Web Designer. If you know ... We're hiring a Freelance Web Designer. If you know WordPress inside out and enjoy making websites look sharper and work better, we'd like to hear from you."
+          },
+          {
+            "url": "https://nexthireinc.com/hire-website-redesign-specialists/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "hire website redesign consultants - Next Hire Inc Hiring remote website redesign specialists gave us access to top talent. Our redesigned site now reflects our brand perfectly and user engagement doubled."
+          },
+          {
+            "url": "https://www.upwork.com/hire/web-designers/how-to-hire/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "How to Hire Freelance Web Designers Upwork gives you multiple tools for finding and hiring web designers whose skills match your aesthetic and technical needs. Draft a job post; review portfolios ..."
+          },
+          {
+            "url": "https://remotecareerguide.com/freelance-web-design-development-guide/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "How to Become a Freelance Web Designer and Developer Remote Project Management Jobs: Industries Hiring · Remote Finance and ... A website redesign concept for a nonprofit organization. Clearly label ..."
+          },
+          {
+            "url": "https://www.facebook.com/groups/vaworkersph/posts/1434317058632333/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "🚀 **What can I help your business with?** I'm **Justin ... VA Workers PH (Virtual Assistant Jobs Hiring, Freelance Online Remote Work) ... Website Designing Services Website design refers to the aesthetic layout ..."
+          },
+          {
+            "url": "https://x.com/caicardenas?lang=da",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Cai Cardenas (@caicardenas) / X I've reflected on some of the things I've learned about hiring your first designer, being that initial hire myself, and wanted to share some insights from my ..."
+          },
+          {
+            "url": "https://www.linkedin.com/posts/muhammadarman_most-design-agencies-sell-websites-very-activity-7506744720899964928--jAU",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Design Agencies Often Outsource Web Development Hiring for the peak means paying through the quiet months. So you keep a freelancer, or a network, and most agencies say so openly on their own site. The risk ..."
+          },
+          {
+            "url": "https://www.linkedin.com/posts/nisarahmad-nasseri-21339b28a_webdesigner-webdesign-uiux-activity-7511361670527635457-orY5",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Nisarahmad Nasseri's Post ... WebsiteRedesign #Freelancer #WebDevelopment #Hiring | 13 comments on LinkedIn. ... We can help redesign your website with modern UI/UX, responsive design ..."
+          },
+          {
+            "url": "https://www.linkedin.com/posts/saqib-ahmed-expertwebdeveloper_business-entrepreneurship-marketing-activity-7504650580615954432-Iecy",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Freelancer vs Agency vs In-House Website Development ... ... Website Design & Redesign Specialist | Building High-Converting Websites ... hiring freelancers instead, for everything from websites to SEO to marketing."
+          },
+          {
+            "url": "https://www.linkedin.com/posts/aaftungekar_hiring-website-designerdeveloper-skincare-activity-7511113611293995008-ZqvI",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "AbdulAziz Faisal Tungekar's Post Hiring: Website Designer/Developer – Skincare Brand* We're looking for a *Website Designer/Developer* to redesign our existing *WordPress skincare ..."
+          }
+        ],
+        "candidates": [
+          {
+            "text": "hire website redesign consultants - Next Hire Inc Hiring remote website redesign specialists gave us access to top talent. Our redesigned site now reflects our brand perfectly and user engagement doubled.",
+            "query": "Website redesign remote \"hiring\" freelance",
+            "choice": 0,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Nisarahmad Nasseri's Post ... WebsiteRedesign #Freelancer #WebDevelopment #Hiring | 13 comments on LinkedIn. ... We can help redesign your website with modern UI/UX, responsive design ...",
+            "query": "site:linkedin.com/posts Website redesign \"hiring\" freelance",
+            "choice": 1,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Freelancer vs Agency vs In-House Website Development ... ... Website Design & Redesign Specialist | Building High-Converting Websites ... hiring freelancers instead, for everything from websites to SEO to marketing.",
+            "query": "site:linkedin.com/posts Website redesign \"hiring\" freelance",
+            "choice": 2,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "AbdulAziz Faisal Tungekar's Post Hiring: Website Designer/Developer – Skincare Brand* We're looking for a *Website Designer/Developer* to redesign our existing *WordPress skincare ...",
+            "query": "site:linkedin.com/posts Website redesign \"hiring\" freelance",
+            "choice": 3,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "We're hiring a Freelance Web Designer. If you know ... We're hiring a Freelance Web Designer. If you know WordPress inside out and enjoy making websites look sharper and work better, we'd like to hear from you.",
+            "query": "Website redesign remote \"hiring\" freelance",
+            "choice": 4,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Cai Cardenas (@caicardenas) / X I've reflected on some of the things I've learned about hiring your first designer, being that initial hire myself, and wanted to share some insights from my ...",
+            "query": "site:x.com Website redesign \"hiring\" freelance",
+            "choice": 5,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Design Agencies Often Outsource Web Development Hiring for the peak means paying through the quiet months. So you keep a freelancer, or a network, and most agencies say so openly on their own site. The risk ...",
+            "query": "site:linkedin.com/posts Website redesign \"hiring\" freelance",
+            "choice": 6,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "How to Hire Freelance Web Designers Upwork gives you multiple tools for finding and hiring web designers whose skills match your aesthetic and technical needs. Draft a job post; review portfolios ...",
+            "query": "Website redesign remote \"hiring\" freelance",
+            "choice": 7,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "How to Become a Freelance Web Designer and Developer Remote Project Management Jobs: Industries Hiring · Remote Finance and ... A website redesign concept for a nonprofit organization. Clearly label ...",
+            "query": "Website redesign remote \"hiring\" freelance",
+            "choice": 8,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "🚀 **What can I help your business with?** I'm **Justin ... VA Workers PH (Virtual Assistant Jobs Hiring, Freelance Online Remote Work) ... Website Designing Services Website design refers to the aesthetic layout ...",
+            "query": "Website redesign remote \"hiring\" freelance",
+            "choice": 9,
+            "origin": "search_result",
+            "parentUrl": null
+          }
+        ]
+      },
+      "output": {
+        "kind": "choice",
+        "index": 3,
+        "explanation": "This looks like the most useful likely opening: a specific post about hiring a Website Designer/Developer to redesign an existing site, which is directly relevant to remote website redesign work. Next step is to inspect it for scope, requirements, and contact or application details."
+      },
+      "rejected_output": null,
+      "failure": null,
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 2450,
+        "responseId": "resp_00e46e3f46079063016acc1fb74ba487d28313a6114e6b3d69",
+        "inputTokens": 3160,
+        "outputTokens": 172,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 3144
+      }
+    },
+    {
+      "input": {
+        "kind": "choice",
+        "intent": {
+          "remote": true,
+          "target": "Website redesign",
+          "category": "services"
+        },
+        "choices": [
+          {
+            "depth": 0,
+            "title": "hire website redesign consultants - Next Hire Inc",
+            "action": {
+              "url": "https://nexthireinc.com/hire-website-redesign-specialists/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "c49bc22f8e4aff646719256b8bbef8686a7ced807021ab66e96e186d547b7a47"
+          },
+          {
+            "depth": 0,
+            "title": "Nisarahmad Nasseri's Post",
+            "action": {
+              "url": "https://www.linkedin.com/posts/nisarahmad-nasseri-21339b28a_webdesigner-webdesign-uiux-activity-7511361670527635457-orY5",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "0f4c3d72377e9a7c467f7e35909d0aa79f60a8f8b79c8ab4ff989f81ad8338bb"
+          },
+          {
+            "depth": 0,
+            "title": "Freelancer vs Agency vs In-House Website Development ...",
+            "action": {
+              "url": "https://www.linkedin.com/posts/saqib-ahmed-expertwebdeveloper_business-entrepreneurship-marketing-activity-7504650580615954432-Iecy",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "0f4c3d72377e9a7c467f7e35909d0aa79f60a8f8b79c8ab4ff989f81ad8338bb"
+          },
+          {
+            "depth": 1,
+            "title": "Site-advertised sitemap",
+            "action": {
+              "url": "https://www.facebook.com/sitemap/cpg_offplat_future_public_events_sitemap.xml.gz",
+              "kind": "document"
+            },
+            "reason": "follow_source_link",
+            "parentKey": "0b26af4a1f1e83fbccae29e925bd6c5ef50912a5172961fc79d04b89628b8034"
+          },
+          {
+            "depth": 0,
+            "title": "We're hiring a Freelance Web Designer. If you know ...",
+            "action": {
+              "url": "https://www.instagram.com/p/Dd3wmgBFf5N/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "c49bc22f8e4aff646719256b8bbef8686a7ced807021ab66e96e186d547b7a47"
+          },
+          {
+            "depth": 0,
+            "title": "Cai Cardenas (@caicardenas) / X",
+            "action": {
+              "url": "https://x.com/caicardenas?lang=da",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "314ad311018a4f9c307f79e10d9eb8488c2ce00335064414880be8d8a8a36359"
+          },
+          {
+            "depth": 0,
+            "title": "Design Agencies Often Outsource Web Development",
+            "action": {
+              "url": "https://www.linkedin.com/posts/muhammadarman_most-design-agencies-sell-websites-very-activity-7506744720899964928--jAU",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "0f4c3d72377e9a7c467f7e35909d0aa79f60a8f8b79c8ab4ff989f81ad8338bb"
+          },
+          {
+            "depth": 0,
+            "title": "How to Hire Freelance Web Designers",
+            "action": {
+              "url": "https://www.upwork.com/hire/web-designers/how-to-hire/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "c49bc22f8e4aff646719256b8bbef8686a7ced807021ab66e96e186d547b7a47"
+          },
+          {
+            "depth": 0,
+            "title": "How to Become a Freelance Web Designer and Developer",
+            "action": {
+              "url": "https://remotecareerguide.com/freelance-web-design-development-guide/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "c49bc22f8e4aff646719256b8bbef8686a7ced807021ab66e96e186d547b7a47"
+          },
+          {
+            "depth": 0,
+            "title": "🚀 **What can I help your business with?** I'm **Justin ...",
+            "action": {
+              "url": "https://www.facebook.com/groups/vaworkersph/posts/1434317058632333/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "c49bc22f8e4aff646719256b8bbef8686a7ced807021ab66e96e186d547b7a47"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "Website redesign remote \"project\" \"budget\"",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "0f4c3d72377e9a7c467f7e35909d0aa79f60a8f8b79c8ab4ff989f81ad8338bb"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": null,
+            "reason": "no_further_action",
+            "parentKey": null
+          }
+        ],
+        "evidence": [
+          {
+            "url": "https://contra.com/framer/jobs",
+            "label": "directory",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "role",
+              "category",
+              "location",
+              "arrangement",
+              "sponsorship",
+              "compensation",
+              "requirements",
+              "authorization"
+            ],
+            "explanation": "This is a collection/search page listing multiple opportunities rather than a single specific opening. The passage says \"Jobs hiring Framer experts\" and shows more than one listing snippet."
+          },
+          {
+            "url": "https://www.instagram.com/p/Dd3wmgBFf5N/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "We're hiring a Freelance Web Designer. If you know ... We're hiring a Freelance Web Designer. If you know WordPress inside out and enjoy making websites look sharper and work better, we'd like to hear from you."
+          },
+          {
+            "url": "https://nexthireinc.com/hire-website-redesign-specialists/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "hire website redesign consultants - Next Hire Inc Hiring remote website redesign specialists gave us access to top talent. Our redesigned site now reflects our brand perfectly and user engagement doubled."
+          },
+          {
+            "url": "https://www.upwork.com/hire/web-designers/how-to-hire/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "How to Hire Freelance Web Designers Upwork gives you multiple tools for finding and hiring web designers whose skills match your aesthetic and technical needs. Draft a job post; review portfolios ..."
+          },
+          {
+            "url": "https://remotecareerguide.com/freelance-web-design-development-guide/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "How to Become a Freelance Web Designer and Developer Remote Project Management Jobs: Industries Hiring · Remote Finance and ... A website redesign concept for a nonprofit organization. Clearly label ..."
+          },
+          {
+            "url": "https://www.facebook.com/groups/vaworkersph/posts/1434317058632333/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "🚀 **What can I help your business with?** I'm **Justin ... VA Workers PH (Virtual Assistant Jobs Hiring, Freelance Online Remote Work) ... Website Designing Services Website design refers to the aesthetic layout ..."
+          },
+          {
+            "url": "https://x.com/caicardenas?lang=da",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Cai Cardenas (@caicardenas) / X I've reflected on some of the things I've learned about hiring your first designer, being that initial hire myself, and wanted to share some insights from my ..."
+          },
+          {
+            "url": "https://www.linkedin.com/posts/muhammadarman_most-design-agencies-sell-websites-very-activity-7506744720899964928--jAU",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Design Agencies Often Outsource Web Development Hiring for the peak means paying through the quiet months. So you keep a freelancer, or a network, and most agencies say so openly on their own site. The risk ..."
+          },
+          {
+            "url": "https://www.linkedin.com/posts/nisarahmad-nasseri-21339b28a_webdesigner-webdesign-uiux-activity-7511361670527635457-orY5",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Nisarahmad Nasseri's Post ... WebsiteRedesign #Freelancer #WebDevelopment #Hiring | 13 comments on LinkedIn. ... We can help redesign your website with modern UI/UX, responsive design ..."
+          },
+          {
+            "url": "https://www.linkedin.com/posts/saqib-ahmed-expertwebdeveloper_business-entrepreneurship-marketing-activity-7504650580615954432-Iecy",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Freelancer vs Agency vs In-House Website Development ... ... Website Design & Redesign Specialist | Building High-Converting Websites ... hiring freelancers instead, for everything from websites to SEO to marketing."
+          }
+        ],
+        "candidates": [
+          {
+            "text": "hire website redesign consultants - Next Hire Inc Hiring remote website redesign specialists gave us access to top talent. Our redesigned site now reflects our brand perfectly and user engagement doubled.",
+            "query": "Website redesign remote \"hiring\" freelance",
+            "choice": 0,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Nisarahmad Nasseri's Post ... WebsiteRedesign #Freelancer #WebDevelopment #Hiring | 13 comments on LinkedIn. ... We can help redesign your website with modern UI/UX, responsive design ...",
+            "query": "site:linkedin.com/posts Website redesign \"hiring\" freelance",
+            "choice": 1,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Freelancer vs Agency vs In-House Website Development ... ... Website Design & Redesign Specialist | Building High-Converting Websites ... hiring freelancers instead, for everything from websites to SEO to marketing.",
+            "query": "site:linkedin.com/posts Website redesign \"hiring\" freelance",
+            "choice": 2,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Site-advertised sitemap\nParent page context (not child evidence): ",
+            "query": null,
+            "choice": 3,
+            "origin": "source_link",
+            "parentUrl": "https://www.facebook.com/quintsdesignco/posts/were-hiring-were-on-the-hunt-for-a-freelance-web-designer-developer-to-join-us-o/1782042740214502/"
+          },
+          {
+            "text": "We're hiring a Freelance Web Designer. If you know ... We're hiring a Freelance Web Designer. If you know WordPress inside out and enjoy making websites look sharper and work better, we'd like to hear from you.",
+            "query": "Website redesign remote \"hiring\" freelance",
+            "choice": 4,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Cai Cardenas (@caicardenas) / X I've reflected on some of the things I've learned about hiring your first designer, being that initial hire myself, and wanted to share some insights from my ...",
+            "query": "site:x.com Website redesign \"hiring\" freelance",
+            "choice": 5,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Design Agencies Often Outsource Web Development Hiring for the peak means paying through the quiet months. So you keep a freelancer, or a network, and most agencies say so openly on their own site. The risk ...",
+            "query": "site:linkedin.com/posts Website redesign \"hiring\" freelance",
+            "choice": 6,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "How to Hire Freelance Web Designers Upwork gives you multiple tools for finding and hiring web designers whose skills match your aesthetic and technical needs. Draft a job post; review portfolios ...",
+            "query": "Website redesign remote \"hiring\" freelance",
+            "choice": 7,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "How to Become a Freelance Web Designer and Developer Remote Project Management Jobs: Industries Hiring · Remote Finance and ... A website redesign concept for a nonprofit organization. Clearly label ...",
+            "query": "Website redesign remote \"hiring\" freelance",
+            "choice": 8,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "🚀 **What can I help your business with?** I'm **Justin ... VA Workers PH (Virtual Assistant Jobs Hiring, Freelance Online Remote Work) ... Website Designing Services Website design refers to the aesthetic layout ...",
+            "query": "Website redesign remote \"hiring\" freelance",
+            "choice": 9,
+            "origin": "search_result",
+            "parentUrl": null
+          }
+        ]
+      },
+      "output": {
+        "kind": "choice",
+        "index": 4,
+        "explanation": "Best fit for a real remote website-redesign demand: it explicitly says they’re hiring a Freelance Web Designer and mentions improving websites, so checking it should clarify the opening and requirements."
+      },
+      "rejected_output": null,
+      "failure": null,
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 1557,
+        "responseId": "resp_03a12a82b5887b7a016acc1fbb220887d28a4690e0bf7f470f",
+        "inputTokens": 3034,
+        "outputTokens": 116,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 2798
+      }
+    },
+    {
+      "input": {
+        "kind": "choice",
+        "intent": {
+          "remote": true,
+          "target": "Website redesign",
+          "category": "services"
+        },
+        "choices": [
+          {
+            "depth": 0,
+            "title": "hire website redesign consultants - Next Hire Inc",
+            "action": {
+              "url": "https://nexthireinc.com/hire-website-redesign-specialists/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "c49bc22f8e4aff646719256b8bbef8686a7ced807021ab66e96e186d547b7a47"
+          },
+          {
+            "depth": 0,
+            "title": "Nisarahmad Nasseri's Post",
+            "action": {
+              "url": "https://www.linkedin.com/posts/nisarahmad-nasseri-21339b28a_webdesigner-webdesign-uiux-activity-7511361670527635457-orY5",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "0f4c3d72377e9a7c467f7e35909d0aa79f60a8f8b79c8ab4ff989f81ad8338bb"
+          },
+          {
+            "depth": 0,
+            "title": "Freelancer vs Agency vs In-House Website Development ...",
+            "action": {
+              "url": "https://www.linkedin.com/posts/saqib-ahmed-expertwebdeveloper_business-entrepreneurship-marketing-activity-7504650580615954432-Iecy",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "0f4c3d72377e9a7c467f7e35909d0aa79f60a8f8b79c8ab4ff989f81ad8338bb"
+          },
+          {
+            "depth": 1,
+            "title": "Site-advertised sitemap",
+            "action": {
+              "url": "https://www.facebook.com/sitemap/cpg_offplat_future_public_events_sitemap.xml.gz",
+              "kind": "document"
+            },
+            "reason": "follow_source_link",
+            "parentKey": "0b26af4a1f1e83fbccae29e925bd6c5ef50912a5172961fc79d04b89628b8034"
+          },
+          {
+            "depth": 0,
+            "title": "How to Hire Freelance Web Designers",
+            "action": {
+              "url": "https://www.upwork.com/hire/web-designers/how-to-hire/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "c49bc22f8e4aff646719256b8bbef8686a7ced807021ab66e96e186d547b7a47"
+          },
+          {
+            "depth": 0,
+            "title": "Cai Cardenas (@caicardenas) / X",
+            "action": {
+              "url": "https://x.com/caicardenas?lang=da",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "314ad311018a4f9c307f79e10d9eb8488c2ce00335064414880be8d8a8a36359"
+          },
+          {
+            "depth": 0,
+            "title": "Design Agencies Often Outsource Web Development",
+            "action": {
+              "url": "https://www.linkedin.com/posts/muhammadarman_most-design-agencies-sell-websites-very-activity-7506744720899964928--jAU",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "0f4c3d72377e9a7c467f7e35909d0aa79f60a8f8b79c8ab4ff989f81ad8338bb"
+          },
+          {
+            "depth": 0,
+            "title": "How to Become a Freelance Web Designer and Developer",
+            "action": {
+              "url": "https://remotecareerguide.com/freelance-web-design-development-guide/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "c49bc22f8e4aff646719256b8bbef8686a7ced807021ab66e96e186d547b7a47"
+          },
+          {
+            "depth": 0,
+            "title": "🚀 **What can I help your business with?** I'm **Justin ...",
+            "action": {
+              "url": "https://www.facebook.com/groups/vaworkersph/posts/1434317058632333/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "c49bc22f8e4aff646719256b8bbef8686a7ced807021ab66e96e186d547b7a47"
+          },
+          {
+            "depth": 0,
+            "title": "Hire the Top 2% of Remote Squarespace Designers - Arc",
+            "action": {
+              "url": "https://arc.dev/hire-designers/squarespace-designers",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "c49bc22f8e4aff646719256b8bbef8686a7ced807021ab66e96e186d547b7a47"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "Website redesign remote \"project\" \"budget\"",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "0f4c3d72377e9a7c467f7e35909d0aa79f60a8f8b79c8ab4ff989f81ad8338bb"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": null,
+            "reason": "no_further_action",
+            "parentKey": null
+          }
+        ],
+        "evidence": [
+          {
+            "url": "https://contra.com/framer/jobs",
+            "label": "directory",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "role",
+              "category",
+              "location",
+              "arrangement",
+              "sponsorship",
+              "compensation",
+              "requirements",
+              "authorization"
+            ],
+            "explanation": "This is a collection/search page listing multiple opportunities rather than a single specific opening. The passage says \"Jobs hiring Framer experts\" and shows more than one listing snippet."
+          },
+          {
+            "url": "https://nexthireinc.com/hire-website-redesign-specialists/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "hire website redesign consultants - Next Hire Inc Hiring remote website redesign specialists gave us access to top talent. Our redesigned site now reflects our brand perfectly and user engagement doubled."
+          },
+          {
+            "url": "https://www.upwork.com/hire/web-designers/how-to-hire/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "How to Hire Freelance Web Designers Upwork gives you multiple tools for finding and hiring web designers whose skills match your aesthetic and technical needs. Draft a job post; review portfolios ..."
+          },
+          {
+            "url": "https://remotecareerguide.com/freelance-web-design-development-guide/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "How to Become a Freelance Web Designer and Developer Remote Project Management Jobs: Industries Hiring · Remote Finance and ... A website redesign concept for a nonprofit organization. Clearly label ..."
+          },
+          {
+            "url": "https://www.facebook.com/groups/vaworkersph/posts/1434317058632333/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "🚀 **What can I help your business with?** I'm **Justin ... VA Workers PH (Virtual Assistant Jobs Hiring, Freelance Online Remote Work) ... Website Designing Services Website design refers to the aesthetic layout ..."
+          },
+          {
+            "url": "https://arc.dev/hire-designers/squarespace-designers",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Hire the Top 2% of Remote Squarespace Designers - Arc Get access to 450,000 talent in 190 countries, saving up to 58% vs traditional hiring. Get real human support. Feel confident hiring Squarespace designers with ..."
+          },
+          {
+            "url": "https://x.com/caicardenas?lang=da",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Cai Cardenas (@caicardenas) / X I've reflected on some of the things I've learned about hiring your first designer, being that initial hire myself, and wanted to share some insights from my ..."
+          },
+          {
+            "url": "https://www.linkedin.com/posts/muhammadarman_most-design-agencies-sell-websites-very-activity-7506744720899964928--jAU",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Design Agencies Often Outsource Web Development Hiring for the peak means paying through the quiet months. So you keep a freelancer, or a network, and most agencies say so openly on their own site. The risk ..."
+          },
+          {
+            "url": "https://www.linkedin.com/posts/nisarahmad-nasseri-21339b28a_webdesigner-webdesign-uiux-activity-7511361670527635457-orY5",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Nisarahmad Nasseri's Post ... WebsiteRedesign #Freelancer #WebDevelopment #Hiring | 13 comments on LinkedIn. ... We can help redesign your website with modern UI/UX, responsive design ..."
+          },
+          {
+            "url": "https://www.linkedin.com/posts/saqib-ahmed-expertwebdeveloper_business-entrepreneurship-marketing-activity-7504650580615954432-Iecy",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Freelancer vs Agency vs In-House Website Development ... ... Website Design & Redesign Specialist | Building High-Converting Websites ... hiring freelancers instead, for everything from websites to SEO to marketing."
+          }
+        ],
+        "candidates": [
+          {
+            "text": "hire website redesign consultants - Next Hire Inc Hiring remote website redesign specialists gave us access to top talent. Our redesigned site now reflects our brand perfectly and user engagement doubled.",
+            "query": "Website redesign remote \"hiring\" freelance",
+            "choice": 0,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Nisarahmad Nasseri's Post ... WebsiteRedesign #Freelancer #WebDevelopment #Hiring | 13 comments on LinkedIn. ... We can help redesign your website with modern UI/UX, responsive design ...",
+            "query": "site:linkedin.com/posts Website redesign \"hiring\" freelance",
+            "choice": 1,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Freelancer vs Agency vs In-House Website Development ... ... Website Design & Redesign Specialist | Building High-Converting Websites ... hiring freelancers instead, for everything from websites to SEO to marketing.",
+            "query": "site:linkedin.com/posts Website redesign \"hiring\" freelance",
+            "choice": 2,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Site-advertised sitemap\nParent page context (not child evidence): ",
+            "query": null,
+            "choice": 3,
+            "origin": "source_link",
+            "parentUrl": "https://www.facebook.com/quintsdesignco/posts/were-hiring-were-on-the-hunt-for-a-freelance-web-designer-developer-to-join-us-o/1782042740214502/"
+          },
+          {
+            "text": "How to Hire Freelance Web Designers Upwork gives you multiple tools for finding and hiring web designers whose skills match your aesthetic and technical needs. Draft a job post; review portfolios ...",
+            "query": "Website redesign remote \"hiring\" freelance",
+            "choice": 4,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Cai Cardenas (@caicardenas) / X I've reflected on some of the things I've learned about hiring your first designer, being that initial hire myself, and wanted to share some insights from my ...",
+            "query": "site:x.com Website redesign \"hiring\" freelance",
+            "choice": 5,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Design Agencies Often Outsource Web Development Hiring for the peak means paying through the quiet months. So you keep a freelancer, or a network, and most agencies say so openly on their own site. The risk ...",
+            "query": "site:linkedin.com/posts Website redesign \"hiring\" freelance",
+            "choice": 6,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "How to Become a Freelance Web Designer and Developer Remote Project Management Jobs: Industries Hiring · Remote Finance and ... A website redesign concept for a nonprofit organization. Clearly label ...",
+            "query": "Website redesign remote \"hiring\" freelance",
+            "choice": 7,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "🚀 **What can I help your business with?** I'm **Justin ... VA Workers PH (Virtual Assistant Jobs Hiring, Freelance Online Remote Work) ... Website Designing Services Website design refers to the aesthetic layout ...",
+            "query": "Website redesign remote \"hiring\" freelance",
+            "choice": 8,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Hire the Top 2% of Remote Squarespace Designers - Arc Get access to 450,000 talent in 190 countries, saving up to 58% vs traditional hiring. Get real human support. Feel confident hiring Squarespace designers with ...",
+            "query": "Website redesign remote \"hiring\" freelance",
+            "choice": 9,
+            "origin": "search_result",
+            "parentUrl": null
+          }
+        ]
+      },
+      "output": {
+        "kind": "choice",
+        "index": 3,
+        "explanation": "This looks like the most useful next check because the parent context suggests a direct hiring post for a freelance web designer/developer, which is closer to an actual opportunity than how-to or portfolio-style pages. Inspecting it could confirm the role, remote status, and whether it matches website redesign work."
+      },
+      "rejected_output": null,
+      "failure": null,
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 4256,
+        "responseId": "resp_0fca666084d17f5f016acc1fbd453087d2b05528fbcec984de",
+        "inputTokens": 3041,
+        "outputTokens": 419,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 4167
+      }
+    },
+    {
+      "input": {
+        "kind": "choice",
+        "intent": {
+          "remote": true,
+          "target": "Website redesign",
+          "category": "services"
+        },
+        "choices": [
+          {
+            "depth": 0,
+            "title": "hire website redesign consultants - Next Hire Inc",
+            "action": {
+              "url": "https://nexthireinc.com/hire-website-redesign-specialists/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "c49bc22f8e4aff646719256b8bbef8686a7ced807021ab66e96e186d547b7a47"
+          },
+          {
+            "depth": 0,
+            "title": "Nisarahmad Nasseri's Post",
+            "action": {
+              "url": "https://www.linkedin.com/posts/nisarahmad-nasseri-21339b28a_webdesigner-webdesign-uiux-activity-7511361670527635457-orY5",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "0f4c3d72377e9a7c467f7e35909d0aa79f60a8f8b79c8ab4ff989f81ad8338bb"
+          },
+          {
+            "depth": 0,
+            "title": "Freelancer vs Agency vs In-House Website Development ...",
+            "action": {
+              "url": "https://www.linkedin.com/posts/saqib-ahmed-expertwebdeveloper_business-entrepreneurship-marketing-activity-7504650580615954432-Iecy",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "0f4c3d72377e9a7c467f7e35909d0aa79f60a8f8b79c8ab4ff989f81ad8338bb"
+          },
+          {
+            "depth": 1,
+            "title": "Site-advertised sitemap",
+            "action": {
+              "url": "https://www.facebook.com/sitemap/public_active_groups_sitemap.xml.gz",
+              "kind": "document"
+            },
+            "reason": "follow_source_link",
+            "parentKey": "0b26af4a1f1e83fbccae29e925bd6c5ef50912a5172961fc79d04b89628b8034"
+          },
+          {
+            "depth": 0,
+            "title": "How to Hire Freelance Web Designers",
+            "action": {
+              "url": "https://www.upwork.com/hire/web-designers/how-to-hire/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "c49bc22f8e4aff646719256b8bbef8686a7ced807021ab66e96e186d547b7a47"
+          },
+          {
+            "depth": 0,
+            "title": "Cai Cardenas (@caicardenas) / X",
+            "action": {
+              "url": "https://x.com/caicardenas?lang=da",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "314ad311018a4f9c307f79e10d9eb8488c2ce00335064414880be8d8a8a36359"
+          },
+          {
+            "depth": 0,
+            "title": "Design Agencies Often Outsource Web Development",
+            "action": {
+              "url": "https://www.linkedin.com/posts/muhammadarman_most-design-agencies-sell-websites-very-activity-7506744720899964928--jAU",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "0f4c3d72377e9a7c467f7e35909d0aa79f60a8f8b79c8ab4ff989f81ad8338bb"
+          },
+          {
+            "depth": 0,
+            "title": "How to Become a Freelance Web Designer and Developer",
+            "action": {
+              "url": "https://remotecareerguide.com/freelance-web-design-development-guide/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "c49bc22f8e4aff646719256b8bbef8686a7ced807021ab66e96e186d547b7a47"
+          },
+          {
+            "depth": 0,
+            "title": "🚀 **What can I help your business with?** I'm **Justin ...",
+            "action": {
+              "url": "https://www.facebook.com/groups/vaworkersph/posts/1434317058632333/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "c49bc22f8e4aff646719256b8bbef8686a7ced807021ab66e96e186d547b7a47"
+          },
+          {
+            "depth": 0,
+            "title": "Hire the Top 2% of Remote Squarespace Designers - Arc",
+            "action": {
+              "url": "https://arc.dev/hire-designers/squarespace-designers",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "c49bc22f8e4aff646719256b8bbef8686a7ced807021ab66e96e186d547b7a47"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "Website redesign remote \"project\" \"budget\"",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "0f4c3d72377e9a7c467f7e35909d0aa79f60a8f8b79c8ab4ff989f81ad8338bb"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": null,
+            "reason": "no_further_action",
+            "parentKey": null
+          }
+        ],
+        "evidence": [
+          {
+            "url": "https://contra.com/framer/jobs",
+            "label": "directory",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "role",
+              "category",
+              "location",
+              "arrangement",
+              "sponsorship",
+              "compensation",
+              "requirements",
+              "authorization"
+            ],
+            "explanation": "This is a collection/search page listing multiple opportunities rather than a single specific opening. The passage says \"Jobs hiring Framer experts\" and shows more than one listing snippet."
+          },
+          {
+            "url": "https://nexthireinc.com/hire-website-redesign-specialists/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "hire website redesign consultants - Next Hire Inc Hiring remote website redesign specialists gave us access to top talent. Our redesigned site now reflects our brand perfectly and user engagement doubled."
+          },
+          {
+            "url": "https://www.upwork.com/hire/web-designers/how-to-hire/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "How to Hire Freelance Web Designers Upwork gives you multiple tools for finding and hiring web designers whose skills match your aesthetic and technical needs. Draft a job post; review portfolios ..."
+          },
+          {
+            "url": "https://remotecareerguide.com/freelance-web-design-development-guide/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "How to Become a Freelance Web Designer and Developer Remote Project Management Jobs: Industries Hiring · Remote Finance and ... A website redesign concept for a nonprofit organization. Clearly label ..."
+          },
+          {
+            "url": "https://www.facebook.com/groups/vaworkersph/posts/1434317058632333/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "🚀 **What can I help your business with?** I'm **Justin ... VA Workers PH (Virtual Assistant Jobs Hiring, Freelance Online Remote Work) ... Website Designing Services Website design refers to the aesthetic layout ..."
+          },
+          {
+            "url": "https://arc.dev/hire-designers/squarespace-designers",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Hire the Top 2% of Remote Squarespace Designers - Arc Get access to 450,000 talent in 190 countries, saving up to 58% vs traditional hiring. Get real human support. Feel confident hiring Squarespace designers with ..."
+          },
+          {
+            "url": "https://x.com/caicardenas?lang=da",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Cai Cardenas (@caicardenas) / X I've reflected on some of the things I've learned about hiring your first designer, being that initial hire myself, and wanted to share some insights from my ..."
+          },
+          {
+            "url": "https://www.linkedin.com/posts/muhammadarman_most-design-agencies-sell-websites-very-activity-7506744720899964928--jAU",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Design Agencies Often Outsource Web Development Hiring for the peak means paying through the quiet months. So you keep a freelancer, or a network, and most agencies say so openly on their own site. The risk ..."
+          },
+          {
+            "url": "https://www.linkedin.com/posts/nisarahmad-nasseri-21339b28a_webdesigner-webdesign-uiux-activity-7511361670527635457-orY5",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Nisarahmad Nasseri's Post ... WebsiteRedesign #Freelancer #WebDevelopment #Hiring | 13 comments on LinkedIn. ... We can help redesign your website with modern UI/UX, responsive design ..."
+          },
+          {
+            "url": "https://www.linkedin.com/posts/saqib-ahmed-expertwebdeveloper_business-entrepreneurship-marketing-activity-7504650580615954432-Iecy",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Freelancer vs Agency vs In-House Website Development ... ... Website Design & Redesign Specialist | Building High-Converting Websites ... hiring freelancers instead, for everything from websites to SEO to marketing."
+          }
+        ],
+        "candidates": [
+          {
+            "text": "hire website redesign consultants - Next Hire Inc Hiring remote website redesign specialists gave us access to top talent. Our redesigned site now reflects our brand perfectly and user engagement doubled.",
+            "query": "Website redesign remote \"hiring\" freelance",
+            "choice": 0,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Nisarahmad Nasseri's Post ... WebsiteRedesign #Freelancer #WebDevelopment #Hiring | 13 comments on LinkedIn. ... We can help redesign your website with modern UI/UX, responsive design ...",
+            "query": "site:linkedin.com/posts Website redesign \"hiring\" freelance",
+            "choice": 1,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Freelancer vs Agency vs In-House Website Development ... ... Website Design & Redesign Specialist | Building High-Converting Websites ... hiring freelancers instead, for everything from websites to SEO to marketing.",
+            "query": "site:linkedin.com/posts Website redesign \"hiring\" freelance",
+            "choice": 2,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Site-advertised sitemap\nParent page context (not child evidence): ",
+            "query": null,
+            "choice": 3,
+            "origin": "source_link",
+            "parentUrl": "https://www.facebook.com/quintsdesignco/posts/were-hiring-were-on-the-hunt-for-a-freelance-web-designer-developer-to-join-us-o/1782042740214502/"
+          },
+          {
+            "text": "How to Hire Freelance Web Designers Upwork gives you multiple tools for finding and hiring web designers whose skills match your aesthetic and technical needs. Draft a job post; review portfolios ...",
+            "query": "Website redesign remote \"hiring\" freelance",
+            "choice": 4,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Cai Cardenas (@caicardenas) / X I've reflected on some of the things I've learned about hiring your first designer, being that initial hire myself, and wanted to share some insights from my ...",
+            "query": "site:x.com Website redesign \"hiring\" freelance",
+            "choice": 5,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Design Agencies Often Outsource Web Development Hiring for the peak means paying through the quiet months. So you keep a freelancer, or a network, and most agencies say so openly on their own site. The risk ...",
+            "query": "site:linkedin.com/posts Website redesign \"hiring\" freelance",
+            "choice": 6,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "How to Become a Freelance Web Designer and Developer Remote Project Management Jobs: Industries Hiring · Remote Finance and ... A website redesign concept for a nonprofit organization. Clearly label ...",
+            "query": "Website redesign remote \"hiring\" freelance",
+            "choice": 7,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "🚀 **What can I help your business with?** I'm **Justin ... VA Workers PH (Virtual Assistant Jobs Hiring, Freelance Online Remote Work) ... Website Designing Services Website design refers to the aesthetic layout ...",
+            "query": "Website redesign remote \"hiring\" freelance",
+            "choice": 8,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Hire the Top 2% of Remote Squarespace Designers - Arc Get access to 450,000 talent in 190 countries, saving up to 58% vs traditional hiring. Get real human support. Feel confident hiring Squarespace designers with ...",
+            "query": "Website redesign remote \"hiring\" freelance",
+            "choice": 9,
+            "origin": "search_result",
+            "parentUrl": null
+          }
+        ]
+      },
+      "output": {
+        "kind": "choice",
+        "index": 0,
+        "explanation": "This is the most likely employer-side page tied directly to remote website redesign work, so it can quickly clarify whether there is an actual opening, scope, and requirements. Next step: inspect the page for current hiring details, not just marketing copy."
+      },
+      "rejected_output": null,
+      "failure": null,
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 1883,
+        "responseId": "resp_00a106d5a2618da0016acc1fc1bd2487d2a77fb61da11ed688",
+        "inputTokens": 3037,
+        "outputTokens": 147,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 2940
+      }
+    },
+    {
+      "input": {
+        "kind": "choice",
+        "intent": {
+          "remote": true,
+          "target": "Website redesign",
+          "category": "services"
+        },
+        "choices": [
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 2,
+                "limit": 10,
+                "query": "Website redesign remote \"hiring\" freelance",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "continue_result_page",
+            "parentKey": "c49bc22f8e4aff646719256b8bbef8686a7ced807021ab66e96e186d547b7a47"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "Website redesign remote \"project\" \"budget\"",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "0f4c3d72377e9a7c467f7e35909d0aa79f60a8f8b79c8ab4ff989f81ad8338bb"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": null,
+            "reason": "no_further_action",
+            "parentKey": null
+          }
+        ],
+        "evidence": [
+          {
+            "url": "https://contra.com/framer/jobs",
+            "label": "directory",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "role",
+              "category",
+              "location",
+              "arrangement",
+              "sponsorship",
+              "compensation",
+              "requirements",
+              "authorization"
+            ],
+            "explanation": "This is a collection/search page listing multiple opportunities rather than a single specific opening. The passage says \"Jobs hiring Framer experts\" and shows more than one listing snippet."
+          },
+          {
+            "url": "https://nexthireinc.com/hire-website-redesign-specialists/",
+            "label": "service_offer",
+            "scope": "source",
+            "unknowns": [
+              "location",
+              "sponsorship",
+              "authorization"
+            ],
+            "explanation": "This is a company marketing website redesign services and staffing, not a specific job or client request. It repeatedly frames the page as hiring specialists through NextHire and lists pricing/models and contact forms for businesses seeking services."
+          }
+        ],
+        "candidates": []
+      },
+      "output": {
+        "kind": "choice",
+        "index": 1,
+        "explanation": "The best next step is to refine toward client-side demand for remote website redesign projects with budget details, which is more likely to surface a real opening than the current directory/service page results."
+      },
+      "rejected_output": null,
+      "failure": null,
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 1872,
+        "responseId": "resp_085ad6a63cf9262c016acc1fcc1b3087d28b0b7ec54ac120b4",
+        "inputTokens": 716,
+        "outputTokens": 159,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 1253
+      }
+    },
+    {
+      "input": {
+        "kind": "choice",
+        "intent": {
+          "remote": true,
+          "target": "Website redesign",
+          "category": "services"
+        },
+        "choices": [
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 2,
+                "limit": 10,
+                "query": "Website redesign remote \"hiring\" freelance",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "continue_result_page",
+            "parentKey": "c49bc22f8e4aff646719256b8bbef8686a7ced807021ab66e96e186d547b7a47"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": null,
+            "reason": "no_further_action",
+            "parentKey": null
+          }
+        ],
+        "evidence": [
+          {
+            "url": "https://contra.com/framer/jobs",
+            "label": "directory",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "role",
+              "category",
+              "location",
+              "arrangement",
+              "sponsorship",
+              "compensation",
+              "requirements",
+              "authorization"
+            ],
+            "explanation": "This is a collection/search page listing multiple opportunities rather than a single specific opening. The passage says \"Jobs hiring Framer experts\" and shows more than one listing snippet."
+          },
+          {
+            "url": "https://nexthireinc.com/hire-website-redesign-specialists/",
+            "label": "service_offer",
+            "scope": "source",
+            "unknowns": [
+              "location",
+              "sponsorship",
+              "authorization"
+            ],
+            "explanation": "This is a company marketing website redesign services and staffing, not a specific job or client request. It repeatedly frames the page as hiring specialists through NextHire and lists pricing/models and contact forms for businesses seeking services."
+          }
+        ],
+        "candidates": []
+      },
+      "output": {
+        "kind": "choice",
+        "index": 1,
+        "explanation": "No supplied option appears to be a specific remote website redesign opening; the visible pages are a directory and a service-offer page, so the safest next step is to stop here."
+      },
+      "rejected_output": null,
+      "failure": null,
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 1735,
+        "responseId": "resp_0d3ec76ddbc52deb016acc1fcfc94887d2b09b6b0799dcffbf",
+        "inputTokens": 611,
+        "outputTokens": 92,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 873
+      }
+    }
+  ],
+  "sourceReviewsCompleted": 1,
+  "intelligence": [],
+  "matchingState": {
+    "status": "not_started_no_source_demand",
+    "match_count": 0
+  },
+  "taskStates": [],
+  "eligiblePostings": [],
+  "reviewAttempts": [
+    {
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 2942,
+        "responseId": "resp_0cf6ee3fd8454cd4016acc1fb4991887d2971c7fbaea58e99a",
+        "inputTokens": 1501,
+        "outputTokens": 295,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 2454
+      }
+    },
+    {
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 4102,
+        "responseId": "resp_0156b2ec5c79b853016acc1fc86c0887d29ed3a86bce1b3c74",
+        "inputTokens": 4905,
+        "outputTokens": 454,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 5722
+      }
+    }
+  ],
+  "opportunities": [],
+  "deliveries": [],
+  "durationMs": 66419,
+  "search": {
+    "goal": "Find clients requesting website redesign services",
+    "category": "services",
+    "target": "Website redesign",
+    "name": "Synthetic service-request scout",
+    "arrangement": "remote",
+    "arrangementRequired": true,
+    "residence": "New York, United States",
+    "workLocations": "United States or remote worldwide",
+    "background": "Five years delivering website redesign, responsive layouts, WordPress and accessible user interfaces for small businesses",
+    "minimumPay": "",
+    "currency": "USD",
+    "payPeriod": "project",
+    "unknownEligibility": "review",
+    "undisclosedPay": "include",
+    "authorizationLocations": "United States",
+    "authorizationConfirmed": true,
+    "sponsorshipNeed": "not_needed"
+  },
+  "operations": [
+    {
+      "key": "c49bc22f8e4aff646719256b8bbef8686a7ced807021ab66e96e186d547b7a47",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "Website redesign remote \"hiring\" freelance",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "retrieved_url": null,
+      "capture": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "314ad311018a4f9c307f79e10d9eb8488c2ce00335064414880be8d8a8a36359",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "site:x.com Website redesign \"hiring\" freelance",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "retrieved_url": null,
+      "capture": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "0f4c3d72377e9a7c467f7e35909d0aa79f60a8f8b79c8ab4ff989f81ad8338bb",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "site:linkedin.com/posts Website redesign \"hiring\" freelance",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "retrieved_url": null,
+      "capture": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "0b26af4a1f1e83fbccae29e925bd6c5ef50912a5172961fc79d04b89628b8034",
+      "kind": "document",
+      "input": {
+        "url": "https://www.facebook.com/quintsdesignco/posts/were-hiring-were-on-the-hunt-for-a-freelance-web-designer-developer-to-join-us-o/1782042740214502/",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": [
+        {
+          "url": "https://www.facebook.com/sitemap/cpg_offplat_future_public_events_sitemap.xml.gz",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.facebook.com/sitemap/public_active_groups_sitemap.xml.gz",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.facebook.com/sitemap/groups_popular_posts_sitemap_qe.xml.gz",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.facebook.com/sitemap/groups_latest_posts_0.xml.gz",
+          "text": "Site-advertised sitemap"
+        }
+      ],
+      "retrieved_url": null,
+      "capture": {
+        "bytes": 49992,
+        "method": "http",
+        "complete": false,
+        "requests": 1
+      },
+      "captured_text": null,
+      "source_status": "access_limited",
+      "source_reason": "crawl_policy_denied",
+      "observed_links": 0
+    },
+    {
+      "key": "df203e24a03e284622ac4919383e07c804d3f02921f179ffc6068d69dce11155",
+      "kind": "document",
+      "input": {
+        "url": "https://contra.com/framer/jobs",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": [],
+      "feeds": [],
+      "sitemaps": [
+        {
+          "url": "https://contra.com/sitemap.xml",
+          "text": "Site-advertised sitemap"
+        }
+      ],
+      "retrieved_url": "https://contra.com/framer/jobs",
+      "capture": {
+        "bytes": 1342288,
+        "method": "browser",
+        "complete": false,
+        "requests": 12
+      },
+      "captured_text": "",
+      "source_status": "fetched",
+      "source_reason": "browser_resource_unavailable",
+      "observed_links": 0
+    },
+    {
+      "key": "dfb29fd6e8c00c2b2fc009a1c54ead2253a8efb4ad08458be65c17d4944ce105",
+      "kind": "document",
+      "input": {
+        "url": "https://www.linkedin.com/posts/aaftungekar_hiring-website-designerdeveloper-skincare-activity-7511113611293995008-ZqvI",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": [],
+      "retrieved_url": null,
+      "capture": {
+        "bytes": 120190,
+        "method": "http",
+        "complete": false,
+        "requests": 1
+      },
+      "captured_text": null,
+      "source_status": "access_limited",
+      "source_reason": "crawl_policy_denied",
+      "observed_links": 0
+    },
+    {
+      "key": "d1a1243f941399bbf2cdf8ba7da3999e7cc419748a302262bc0e72ccb1026012",
+      "kind": "document",
+      "input": {
+        "url": "https://www.instagram.com/p/Dd3wmgBFf5N/",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": [
+        {
+          "url": "https://www.instagram.com/sitemap/ig_places_sitemap.xml.gz",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.instagram.com/sitemap/ig_seo_profile_sitemap.xml.gz",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.instagram.com/sitemap/ig_seo_profile_sitemap_non_media_eligible.xml.gz",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.instagram.com/sitemap/dim_ig_logged_out_web_keyword_ent.xml.gz",
+          "text": "Site-advertised sitemap"
+        }
+      ],
+      "retrieved_url": null,
+      "capture": {
+        "bytes": 7528,
+        "method": "http",
+        "complete": false,
+        "requests": 1
+      },
+      "captured_text": null,
+      "source_status": "access_limited",
+      "source_reason": "crawl_policy_denied",
+      "observed_links": 0
+    },
+    {
+      "key": "284bc3eda21f2f79d219fc36cb3dc83aaef645bab8aae6260dc2bc82e9bbc0f9",
+      "kind": "document",
+      "input": {
+        "url": "https://www.facebook.com/sitemap/cpg_offplat_future_public_events_sitemap.xml.gz",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 1,
+      "links": null,
+      "feeds": null,
+      "sitemaps": [
+        {
+          "url": "https://www.facebook.com/sitemap/public_active_groups_sitemap.xml.gz",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.facebook.com/sitemap/groups_popular_posts_sitemap_qe.xml.gz",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.facebook.com/sitemap/groups_latest_posts_0.xml.gz",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.facebook.com/sitemap/groups_latest_posts_1.xml.gz",
+          "text": "Site-advertised sitemap"
+        }
+      ],
+      "retrieved_url": null,
+      "capture": {
+        "bytes": 49992,
+        "method": "http",
+        "complete": false,
+        "requests": 1
+      },
+      "captured_text": null,
+      "source_status": "access_limited",
+      "source_reason": "crawl_policy_denied",
+      "observed_links": 0
+    },
+    {
+      "key": "8f94fc3ece5723f0cbeda401a20ac9d25dcc0b182d4fad515792d1a06e0195cb",
+      "kind": "document",
+      "input": {
+        "url": "https://nexthireinc.com/hire-website-redesign-specialists/",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": [
+        {
+          "url": "https://nexthireinc.com/book-a-call/",
+          "text": "Book a Meeting"
+        },
+        {
+          "url": "https://nexthireinc.com/",
+          "text": ""
+        },
+        {
+          "url": "https://nexthireinc.com/book-a-call",
+          "text": "Get Started"
+        },
+        {
+          "url": "https://nexthireinc.com/lets-discuss/",
+          "text": "arrow-primary Hire Website Redesign Specialists"
+        },
+        {
+          "url": "https://nexthireinc.com/how-to-give-developer-access-to-shopify/",
+          "text": "How to Give a Shopify Developer Access to Your Store Safely"
+        },
+        {
+          "url": "https://nexthireinc.com/shopify-hydrogen-developer/",
+          "text": "Shopify Hydrogen Developer: When Does Headless Shopify Make Sense?"
+        },
+        {
+          "url": "https://nexthireinc.com/shopify-store-redesign/",
+          "text": "Shopify Store Redesign: When to Refresh, Rebuild, or Hire a Developer"
+        },
+        {
+          "url": "https://www.facebook.com/profile.php?id=61582754057422",
+          "text": ""
+        },
+        {
+          "url": "https://www.instagram.com/team_nexthire/",
+          "text": ""
+        },
+        {
+          "url": "https://x.com/team_nexthire",
+          "text": ""
+        },
+        {
+          "url": "https://nexthireinc.com/about",
+          "text": "About Our Company"
+        },
+        {
+          "url": "https://nexthireinc.com/hire/",
+          "text": "Services"
+        },
+        {
+          "url": "https://nexthireinc.com/lets-discuss",
+          "text": "Book A Call"
+        },
+        {
+          "url": "https://nexthireinc.com/contact-us/",
+          "text": "Contact Us"
+        },
+        {
+          "url": "https://nexthireinc.com/pricing/",
+          "text": "Pricing"
+        },
+        {
+          "url": "https://nexthireinc.com/testimonials/",
+          "text": "Testimonials"
+        },
+        {
+          "url": "https://nexthireinc.com/insights/",
+          "text": "Insights"
+        },
+        {
+          "url": "https://nexthireinc.com/industries/",
+          "text": "Industries We Serve"
+        },
+        {
+          "url": "https://nexthireinc.com/faq/",
+          "text": "FAQs"
+        },
+        {
+          "url": "https://nexthireinc.com/privacy-commitment/",
+          "text": "Privacy Commitment"
+        },
+        {
+          "url": "https://nexthireinc.com/cookie-preferences/",
+          "text": "Cookie Preferences"
+        },
+        {
+          "url": "https://nexthireinc.com/terms-of-use/",
+          "text": "Terms of Use"
+        }
+      ],
+      "feeds": [
+        {
+          "url": "https://nexthireinc.com/feed/",
+          "text": "Next Hire » Feed"
+        },
+        {
+          "url": "https://nexthireinc.com/comments/feed/",
+          "text": "Next Hire » Comments Feed"
+        }
+      ],
+      "sitemaps": [
+        {
+          "url": "https://nexthireinc.com/sitemap_index.xml",
+          "text": "Site-advertised sitemap"
+        }
+      ],
+      "retrieved_url": "https://nexthireinc.com/hire-website-redesign-specialists/",
+      "capture": {
+        "bytes": 451400,
+        "method": "http",
+        "complete": true,
+        "requests": 2
+      },
+      "captured_text": "×\n\n\nWant to start building your team?\n\nLet us help you\n\nBook a Meeting\nSkip to content\n * \n * \n\n * Facebook\n * LinkedIn\n * Twitter\n\nGet Started\n\n\nHIRE WEBSITE REDESIGN SPECIALISTS WHO TRANSFORM OUTDATED SITES INTO HIGH-PERFORMING DIGITAL EXPERIENCES\n\nModernize your website with strategic redesign that drives engagement, conversions, and growth\n\nWhen you hire website redesign consultants from NextHire, you work with specialists who deliver comprehensive website redesign services that transform outdated websites into modern, conversion-focused digital experiences. Our dedicated web redesign experts combine strategic planning, user research, visual design, and technical optimization to create websites that engage visitors and drive business results. When you hire website redesign specialist professionals, you get:\n\n * Strategic redesign approach based on user data, business goals, and competitive analysis\n * Modern, responsive design optimized for all devices and current web standards\n * Improved user experience through intuitive navigation and conversion-focused layouts\n\n * Enhanced performance with faster loading speeds and technical optimization\n * SEO preservation maintaining search rankings while improving site architecture\n * Flexible engagement models including remote website redesign specialists and on-demand website redesign professionals\n\narrow-primary Hire Website Redesign Specialists\n * Trusted by businesses across industries to modernize websites and deliver measurable improvements in traffic, engagement, and conversions\n\nWork Requirement Form\n\nName\nEmail\nPhone\nCountry\nWork Requirement\nWebsite/Company\nSubmit\n\n\nCOMPREHENSIVE WEBSITE REDESIGN SERVICES OFFERED BY OUR EXPERTS\n\nEnd-to-end execution, from strategic planning and UX research to design implementation and post-launch optimization\n\n\nFULL WEBSITE REDESIGN SERVICES\n\nOur website redesign services deliver complete site transformations including strategy, information architecture, UX/UI design, content optimization, technical implementation, and launch support.\n\n\nSTRATEGIC REDESIGN CONSULTING\n\nWebsite redesign consultants provide strategic guidance analyzing your current site, identifying improvement opportunities, defining goals, and creating data-driven redesign roadmaps aligned with business objectives.\n\n\nUX/UI REDESIGN\n\nComprehensive user experience and interface redesign improving navigation, visual hierarchy, content organization, and conversion paths based on user research and usability testing.\n\n\nRESPONSIVE WEBSITE REDESIGN\n\nMobile-first redesign ensuring flawless experiences across desktop, tablet, and smartphone devices with adaptive layouts and touch-optimized interactions.\n\n\nE-COMMERCE WEBSITE REDESIGN\n\nSpecialized e-commerce redesign optimizing product pages, checkout flows, search and filtering, shopping cart experiences, and conversion funnels for increased sales.\n\n\nCORPORATE WEBSITE REDESIGN\n\nProfessional redesign for corporate websites modernizing brand presence, improving stakeholder communication, and enhancing credibility through updated design and content.\n\n\nSAAS WEBSITE REDESIGN\n\nProduct-focused SaaS redesign communicating value propositions, showcasing features, optimizing trial sign-ups, and improving customer journey from awareness to conversion.\n\n\nLANDING PAGE REDESIGN\n\nHigh-converting landing page redesign for campaigns, product launches, and lead generation focused on conversion rate optimization and A/B testing.\n\n\nBLOG & CONTENT HUB REDESIGN\n\nContent-focused redesign improving readability, engagement, content discoverability, and SEO performance for blogs, resource centers, and knowledge bases.\n\n\nPERFORMANCE & SPEED OPTIMIZATION\n\nTechnical redesign addressing site speed, core web vitals, image optimization, code efficiency, and performance issues impacting user experience and SEO.\n\n\nSEO-FRIENDLY REDESIGN\n\nSearch-optimized redesign preserving rankings while improving site architecture, internal linking, content structure, and technical SEO elements during transformation.\n\n\nACCESSIBILITY-FOCUSED REDESIGN\n\nInclusive redesign ensuring WCAG compliance with improved keyboard navigation, screen reader compatibility, color contrast, and accessible interaction patterns.\n\nHire Website Redesign Specialists\n\n\nBENEFITS OF HIRING WEBSITE REDESIGN SPECIALISTS FROM NEXTHIRE\n\nMake the right hiring choice by understanding the difference between hiring dedicated Website Redesign Specialists and independent freelancers.\n\n\nPROS OF HIRING WEBSITE REDESIGN SPECIALISTS FROM NEXTHIRE\n\n * Pre-vetted dedicated web redesign experts with proven redesign portfolios and measurable results\n * Access to website redesign consultants with strategic planning and UX research expertise\n * Remote website redesign specialists available globally with consistent communication\n * Structured redesign processes minimizing risk and ensuring successful launches\n * Easy replacement if the resource is not the right fit\n * Scalable hiring models from single projects to ongoing optimization\n * On-demand website redesign professionals ready to start immediately\n * Transparent project management and regular milestone updates\n\n\nCONS OF HIRING AN INDEPENDENT WEBSITE REDESIGN FREELANCER\n\n * Limited expertise beyond visual design without strategic or technical depth\n * High dependency on a single individual for complex, multi-phase projects\n * Inconsistent availability during critical redesign and launch phases\n * No backup or replacement if the freelancer disengages mid-project\n * Limited access to premium design tools, testing platforms, and development resources\n * Difficult to manage large-scale redesigns requiring multiple skill sets\n * Higher risk of incomplete projects or missed deadlines\n * Less accountability for post-launch performance and business outcomes\n\n\nREADY TO HIRE WEBSITE REDESIGN SPECIALISTS FOR YOUR BUSINESS?\n\nStart in days. Scale easily. Replace risk-free.\n\narrow-primary Hire Website Redesign Specialists\n\nStay Flexible & Adapt Quickly to Business Needs\n\n\nFLEXIBLE PRICING TO HIRE WEBSITE REDESIGN SPECIALISTS\n\nChoose a pricing model that fits your website redesign services needs without long-term commitments.\n\nHourly Hiring\n\nStarting from $5/Hour\n\n\n\nPerfect for short-term tasks, quick fixes, or on-demand project support.\n\nHire Full-time\n * Pay only for the hours you use\n * Choose from trained professionals across web development, design, and marketing\n * Ideal for startups testing new ideas or small businesses managing budgets\n\n\n\nExample:\nHire a remote web developer or graphic designer for 10 hours/week to get tasks done quickly and efficiently.\n\nMonthly Hiring\n\nStarting from $799/Month\n\n\n\nFor consistent, long-term work – your own dedicated virtual employee.\n\nHire Part-time\n * Full-time resource (160 hours/month)\n * Managed by your account coordinator for seamless performance\n * Choose roles like developer, designer, SEO specialist, or marketer\n * Includes backup resource support and 3-day free trial\n\n\n\nExample:\nHire a remote SEO specialist for your small business in the USA or an offshore marketing expert for your UK campaigns – at one-fifth the local hiring cost.\n\nProject-Based Hiring\n\nStarting from $1,000/Project\n\n\n\nFor businesses that need end-to-end project delivery – from concept to completion.\n\nHire Hourly\n * One-time payment based on scope\n * Fixed timelines, clear deliverables\n * Ideal for website redesigns, app development, or marketing campaigns\n\n\n\nExample:\nBuild a fully functional business website or launch a digital marketing campaign with a fixed budget – no surprises.\n\n\nWEBSITE REDESIGN TOOLS & PLATFORMS OUR EXPERTS WORK WITH\n\nOur website redesign specialists have extensive expertise in design, development, and optimization tools.\n\n\n\nOur Process\n\n\nTHE PROVEN WEBSITE REDESIGN PROCESS OUR EXPERTS FOLLOW\n\nA structured approach to transform outdated websites into high-performing digital experiences.\n\narrow-primary Hire Website Redesign Specialists\n\n\n1\n\n\nDISCOVERY & STRATEGIC PLANNING\n\nOur website redesign consultants begin with comprehensive audits analyzing your current site, user behavior data, business goals, competitive landscape, and technical infrastructure—defining redesign strategy and success metrics.\n\n\n2\n\n\nUSER RESEARCH & INFORMATION ARCHITECTURE\n\nConducting user research, analyzing analytics, mapping user journeys, and restructuring information architecture ensuring the redesigned site meets user needs and business objectives.\n\n\n3\n\n\nUX/UI DESIGN & PROTOTYPING\n\nDedicated web redesign experts create wireframes, high-fidelity mockups, and interactive prototypes demonstrating new layouts, navigation, visual design, and user flows for stakeholder review.\n\n\n4\n\n\nCONTENT STRATEGY & OPTIMIZATION\n\nAuditing existing content, optimizing messaging, improving SEO elements, and creating content guidelines ensuring redesigned pages communicate effectively and rank well.\n\n\n5\n\n\nDEVELOPMENT & TECHNICAL IMPLEMENTATION\n\nBuilding the redesigned site with responsive code, performance optimization, SEO preservation through proper redirects, accessibility standards, and quality assurance testing.\n\n\n6\n\n\nLAUNCH, MIGRATION & POST-LAUNCH OPTIMIZATION\n\nManaging smooth launches with minimal downtime, implementing 301 redirects, monitoring analytics, gathering user feedback, and optimizing based on real-world performance data.\n\n\nWHAT CLIENTS SAY ABOUT HIRING WEBSITE REDESIGN SPECIALISTS FROM NEXTHIRE\n\nReal results from businesses that transformed their web presence with our website redesign services.\n\nSarah K. Marketing Director, B2B SaaS Company\n * \n * \n * \n * \n * \n\nThe website redesign consultants we hired transformed our outdated site into a modern, conversion-focused experience. Lead generation increased 68% in the first quarter post-launch.\n\nMichael T. CEO, E-Commerce Business\n * \n * \n * \n * \n * \n\nWe decided to outsource website redesign services to NextHire and it was the best decision. Our new site is beautiful, fast, and conversions improved by 42%.\n\nPriya R. VP of Digital, Enterprise Company\n * \n * \n * \n * \n * \n\nThe dedicated web redesign experts managed our complex multi-site redesign flawlessly. The strategic approach and execution were exceptional.\n\nDavid K. Founder, Professional Services Firm\n * \n * \n * \n * \n * \n\nHiring remote website redesign specialists gave us access to top talent. Our redesigned site now reflects our brand perfectly and user engagement doubled.\n\nJennifer M. Marketing Manager, Healthcare Organization\n * \n * \n * \n * \n * \n\nThe on-demand website redesign professionals delivered exactly when we needed them. The redesign improved accessibility, performance, and user satisfaction significantly.\n\n\n\n\n\nREADY TO TRANSFORM YOUR WEBSITE WITH EXPERT REDESIGN SPECIALISTS?\n\nModernize your site. Improve conversions. Drive measurable growth.\n\narrow-primary Hire Website Redesign Specialists\n\n\nRESOURCES TO HELP YOU HIRE THE BEST WEBSITE REDESIGN SPECIALISTS\n\nExpert guides and insights to help you plan successful redesigns and maximize ROI from website transformations.\n\n\nHOW TO GIVE A SHOPIFY DEVELOPER ACCESS TO YOUR STORE SAFELY\n\nOctober 8, 2026\n\nIf you are wondering how to give developer access to Shopify without handing over your\n\n\nSHOPIFY HYDROGEN DEVELOPER: WHEN DOES HEADLESS SHOPIFY MAKE SENSE?\n\nOctober 6, 2026\n\nA Shopify store can outgrow its theme, but that does not mean every growing store\n\n\nSHOPIFY STORE REDESIGN: WHEN TO REFRESH, REBUILD, OR HIRE A DEVELOPER\n\nOctober 1, 2026\n\nA Shopify store can look acceptable and still make buying harder than it should be.\n\n\nFAQS ABOUT HIRING WEBSITE REDESIGN SPECIALISTS\n\nAnswers to common questions about website redesign services and hiring specialists.\n\nWhat do website redesign consultants do?\n\nWebsite redesign consultants provide strategic guidance for site transformations including current site audits, user research, competitive analysis, goal definition, redesign strategy development, and success metric establishment—ensuring redesigns are data-driven and aligned",
+      "source_status": "fetched",
+      "source_reason": null,
+      "observed_links": 22
+    },
+    {
+      "key": "6859da735577187991b040c8da6e5d44d3b50fbd3fc3f9bcb650d00df7807efa",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "Website redesign remote \"project\" \"budget\"",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "retrieved_url": null,
+      "capture": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    }
+  ],
+  "decisions": [
+    {
+      "round": 0,
+      "reason": "check_promising_result",
+      "action": {
+        "url": "https://www.facebook.com/quintsdesignco/posts/were-hiring-were-on-the-hunt-for-a-freelance-web-designer-developer-to-join-us-o/1782042740214502/",
+        "kind": "document"
+      },
+      "depth": 0,
+      "parent_key": "c49bc22f8e4aff646719256b8bbef8686a7ced807021ab66e96e186d547b7a47"
+    },
+    {
+      "round": 1,
+      "reason": "check_promising_result",
+      "action": {
+        "url": "https://contra.com/framer/jobs",
+        "kind": "document"
+      },
+      "depth": 0,
+      "parent_key": "c49bc22f8e4aff646719256b8bbef8686a7ced807021ab66e96e186d547b7a47"
+    },
+    {
+      "round": 2,
+      "reason": "check_promising_result",
+      "action": {
+        "url": "https://www.linkedin.com/posts/aaftungekar_hiring-website-designerdeveloper-skincare-activity-7511113611293995008-ZqvI",
+        "kind": "document"
+      },
+      "depth": 0,
+      "parent_key": "0f4c3d72377e9a7c467f7e35909d0aa79f60a8f8b79c8ab4ff989f81ad8338bb"
+    },
+    {
+      "round": 3,
+      "reason": "check_promising_result",
+      "action": {
+        "url": "https://www.instagram.com/p/Dd3wmgBFf5N/",
+        "kind": "document"
+      },
+      "depth": 0,
+      "parent_key": "c49bc22f8e4aff646719256b8bbef8686a7ced807021ab66e96e186d547b7a47"
+    },
+    {
+      "round": 4,
+      "reason": "follow_source_link",
+      "action": {
+        "url": "https://www.facebook.com/sitemap/cpg_offplat_future_public_events_sitemap.xml.gz",
+        "kind": "document"
+      },
+      "depth": 1,
+      "parent_key": "0b26af4a1f1e83fbccae29e925bd6c5ef50912a5172961fc79d04b89628b8034"
+    },
+    {
+      "round": 5,
+      "reason": "check_promising_result",
+      "action": {
+        "url": "https://nexthireinc.com/hire-website-redesign-specialists/",
+        "kind": "document"
+      },
+      "depth": 0,
+      "parent_key": "c49bc22f8e4aff646719256b8bbef8686a7ced807021ab66e96e186d547b7a47"
+    },
+    {
+      "round": 6,
+      "reason": "refine_demand_query",
+      "action": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "Website redesign remote \"project\" \"budget\"",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "depth": 0,
+      "parent_key": "0f4c3d72377e9a7c467f7e35909d0aa79f60a8f8b79c8ab4ff989f81ad8338bb"
+    },
+    {
+      "round": 7,
+      "reason": "no_further_action",
+      "action": null,
+      "depth": 0,
+      "parent_key": null
+    }
+  ],
+  "case": {
+    "id": "fbe64c8d-b1ab-47e6-a291-3d5ac398e033",
+    "scoutId": "ce246094-544b-4f3b-a21e-27829397aaf7",
+    "scoutName": "Synthetic service-request scout",
+    "scoutVersion": 1,
+    "provider": "serper",
+    "strategy": {
+      "targets": [
+        "Website redesign"
+      ],
+      "explanation": "I kept the search focused on the exact service phrase and did not add remote to the target, since that preference is handled separately by the query template."
+    },
+    "exploration": [
+      {
+        "kind": "document",
+        "reason": "check_promising_result",
+        "target": "https://www.facebook.com/quintsdesignco/posts/were-hiring-were-on-the-hunt-for-a-freelance-web-designer-developer-to-join-us-o/1782042740214502/"
+      },
+      {
+        "kind": "document",
+        "reason": "check_promising_result",
+        "target": "https://contra.com/framer/jobs"
+      },
+      {
+        "kind": "document",
+        "reason": "check_promising_result",
+        "target": "https://www.linkedin.com/posts/aaftungekar_hiring-website-designerdeveloper-skincare-activity-7511113611293995008-ZqvI"
+      },
+      {
+        "kind": "document",
+        "reason": "check_promising_result",
+        "target": "https://www.instagram.com/p/Dd3wmgBFf5N/"
+      },
+      {
+        "kind": "document",
+        "reason": "follow_source_link",
+        "target": "https://www.facebook.com/sitemap/cpg_offplat_future_public_events_sitemap.xml.gz"
+      },
+      {
+        "kind": "document",
+        "reason": "check_promising_result",
+        "target": "https://nexthireinc.com/hire-website-redesign-specialists/"
+      },
+      {
+        "kind": "search",
+        "reason": "refine_demand_query",
+        "target": "Website redesign remote \"project\" \"budget\""
+      },
+      {
+        "kind": null,
+        "reason": "no_further_action",
+        "target": null
+      }
+    ],
+    "reviewStatus": "complete",
+    "reviewReason": "source_reviews_complete",
+    "status": "partial",
+    "reason": "some_sources_unavailable",
+    "startedAt": "2026-10-11 23:45:21.333538+00",
+    "finishedAt": "2026-10-11 23:46:25.178054+00",
+    "searchesCompleted": 4,
+    "documentsChecked": 6,
+    "leadCount": 32
+  },
+  "usage": [
+    {
+      "provider": "public-documents",
+      "requests": 6,
+      "reserved_micros": "0"
+    },
+    {
+      "provider": "serper",
+      "requests": 4,
+      "reserved_micros": "40000"
+    }
+  ],
+  "aiBudget": [
+    {
+      "requests": 11,
+      "reserved_microusd": "825000"
+    }
+  ],
+  "dashboardLeadSampleSize": 32,
+  "leads": [
+    {
+      "url": "https://app.joinhandshake.com/public/jobs/11614910",
+      "title": "Website Redesign & SEO Intern | Resident Pet Care Services",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://arc.dev/hire-designers/squarespace-designers",
+      "title": "Hire the Top 2% of Remote Squarespace Designers - Arc",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://contra.com/framer/jobs",
+      "title": "Jobs hiring Framer experts",
+      "contentStatus": "fetched",
+      "contentReason": "browser_resource_unavailable",
+      "postingId": null,
+      "promoted": false,
+      "review": {
+        "facts": {
+          "role": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "category": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "location": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "arrangement": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "sponsorship": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "compensation": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "requirements": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "authorization": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          }
+        },
+        "label": "directory",
+        "scope": "search_excerpt",
+        "quotes": [
+          "Jobs hiring Framer experts",
+          "Freelance Web Designer & Framer/Webflow Developer | VUBO Website Redesign ... Hiring as an individual. 20d ago. Front End Designer (Website Design Expert)."
+        ],
+        "explanation": "This is a collection/search page listing multiple opportunities rather than a single specific opening. The passage says \"Jobs hiring Framer experts\" and shows more than one listing snippet."
+      }
+    },
+    {
+      "url": "https://liftedlogic.com/locations/lincoln/lincoln-web-design/",
+      "title": "Custom Web Design Near Lincoln",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://nexalitservices.com/affordable-web-design-services",
+      "title": "Affordable Web Design Services In US | Starting From 350$",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://nexthireinc.com/hire-website-redesign-specialists/",
+      "title": "hire website redesign consultants - Next Hire Inc",
+      "contentStatus": "fetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": {
+        "facts": {
+          "role": {
+            "value": "website redesign specialists",
+            "quotes": [
+              "HIRE WEBSITE REDESIGN SPECIALISTS WHO TRANSFORM OUTDATED SITES INTO HIGH-PERFORMING DIGITAL EXPERIENCES",
+              "arrow-primary Hire Website Redesign Specialists",
+              "Hire Website Redesign Specialists"
+            ],
+            "status": "stated"
+          },
+          "category": {
+            "value": "contract",
+            "quotes": [
+              " * Flexible engagement models including remote website redesign specialists and on-demand website redesign professionals",
+              " * Scalable hiring models from single projects to ongoing optimization",
+              "FLEXIBLE PRICING TO HIRE WEBSITE REDESIGN SPECIALISTS",
+              "Project-Based Hiring"
+            ],
+            "status": "stated"
+          },
+          "location": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "arrangement": {
+            "value": "remote",
+            "quotes": [
+              " * Flexible engagement models including remote website redesign specialists and on-demand website redesign professionals",
+              " * Remote website redesign specialists available globally with consistent communication",
+              " * On-demand website redesign professionals ready to start immediately"
+            ],
+            "status": "stated"
+          },
+          "sponsorship": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "compensation": {
+            "value": "Starting from $5/Hour; Starting from $799/Month; Starting from $1,000/Project",
+            "quotes": [
+              "Starting from $5/Hour",
+              "Starting from $799/Month",
+              "Starting from $1,000/Project"
+            ],
+            "status": "stated"
+          },
+          "requirements": {
+            "value": "Name, Email, Phone, Country, Work Requirement, Website/Company",
+            "quotes": [
+              "Work Requirement Form",
+              "Name",
+              "Email",
+              "Phone"
+            ],
+            "status": "stated"
+          },
+          "authorization": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          }
+        },
+        "label": "service_offer",
+        "scope": "source",
+        "quotes": [
+          "HIRE WEBSITE REDESIGN SPECIALISTS WHO TRANSFORM OUTDATED SITES INTO HIGH-PERFORMING DIGITAL EXPERIENCES",
+          "When you hire website redesign consultants from NextHire, you work with specialists who deliver comprehensive website redesign services that transform outdated websites into modern, conversion-focused digital experiences. Our dedicated web redesign experts combine strategic planning, user research, visual design, and technical optimization to create websites that engage visitors and drive business results. When you hire website redesign specialist professionals, you get:",
+          " * Flexible engagement models including remote website redesign specialists and on-demand website redesign professionals",
+          "COMPREHENSIVE WEBSITE REDESIGN SERVICES OFFERED BY OUR EXPERTS"
+        ],
+        "explanation": "This is a company marketing website redesign services and staffing, not a specific job or client request. It repeatedly frames the page as hiring specialists through NextHire and lists pricing/models and contact forms for businesses seeking services."
+      }
+    },
+    {
+      "url": "https://rango.design/capabilities/b2b-website-design",
+      "title": "B2B Website Design Agency for SaaS and Fintech",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://remotecareerguide.com/freelance-web-design-development-guide/",
+      "title": "How to Become a Freelance Web Designer and Developer",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://timelinedigi.com/services/website-design-development",
+      "title": "Custom Website Design and Development Services",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.facebook.com/groups/vaworkersph/posts/1434317058632333/",
+      "title": "🚀 **What can I help your business with?** I'm **Justin ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.facebook.com/quintsdesignco/posts/were-hiring-were-on-the-hunt-for-a-freelance-web-designer-developer-to-join-us-o/1782042740214502/",
+      "title": "We're hiring! 👋🏼 We're on the hunt for a freelance Web Designer ...",
+      "contentStatus": "access_limited",
+      "contentReason": "crawl_policy_denied",
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.facebook.com/sitemap/cpg_offplat_future_public_events_sitemap.xml.gz",
+      "title": "Site-advertised sitemap",
+      "contentStatus": "access_limited",
+      "contentReason": "crawl_policy_denied",
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.facebook.com/WorldWise.net/posts/what-should-a-website-redesign-cost-in-2026-the-answer-depends-on-the-scope-stra/1726520502811426/",
+      "title": "What should a website redesign cost in 2026? The answer ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.forbes.com/advisor/business/software/how-much-does-a-website-cost/",
+      "title": "How Much Does a Website Cost? (2026 Guide)",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.instagram.com/p/Dd3wmgBFf5N/",
+      "title": "We're hiring a Freelance Web Designer. If you know ...",
+      "contentStatus": "access_limited",
+      "contentReason": "crawl_policy_denied",
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.linkedin.com/posts/aaftungekar_hiring-website-designerdeveloper-skincare-activity-7511113611293995008-ZqvI",
+      "title": "AbdulAziz Faisal Tungekar's Post",
+      "contentStatus": "access_limited",
+      "contentReason": "crawl_policy_denied",
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.linkedin.com/posts/asktheegghead_webdesign-wordpress-smallbusiness-activity-7506008335469445120-IAQl",
+      "title": "5 Things to Know Before Hiring a Web Designer",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.linkedin.com/posts/digitalategy_freelancer-vs-agency-which-should-you-choose-activity-7504869783457214464-3xHr",
+      "title": "Freelancer vs Agency: Key Differences",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.linkedin.com/posts/hirebestfreelance_how-much-does-it-cost-to-hire-a-websitedeveloper-activity-7507469696833732609-oioF",
+      "title": "Website Developer Cost: Freelancer to ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.linkedin.com/posts/muhammadarman_most-design-agencies-sell-websites-very-activity-7506744720899964928--jAU",
+      "title": "Design Agencies Often Outsource Web Development",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.linkedin.com/posts/nisarahmad-nasseri-21339b28a_webdesigner-webdesign-uiux-activity-7511361670527635457-orY5",
+      "title": "Nisarahmad Nasseri's Post",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.linkedin.com/posts/pratyush-nanda-2387151aa_a-few-years-ago-when-someone-told-me-theyd-activity-7508459669363998720-82Ez",
+      "title": "Freelancing on the Rise: Why Knowledge Workers Are ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.linkedin.com/posts/saqib-ahmed-expertwebdeveloper_business-entrepreneurship-marketing-activity-7504650580615954432-Iecy",
+      "title": "Freelancer vs Agency vs In-House Website Development ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.linkedin.com/posts/scaleup-wsi_webagency-whitelabel-wordpress-activity-7509908136888090624-vYeG",
+      "title": "ScaleUp Fills Agency Gaps with White Label WordPress ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.linkedin.com/posts/shayaberman_whenever-a-contractor-asks-me-how-much-activity-7506019530700234754-g2UC",
+      "title": "Home Service Website Costs and Features in 2026",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.linkedin.com/posts/smm-expert-in-usa_the-web-agency-hosting-reseller-business-activity-7507884306728476673-O5jS",
+      "title": "Scaling Web Design Agencies: Essential Operational ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.remoterocketship.com/us/company/the-redesign-group/",
+      "title": "Remote Jobs at The Redesign Group",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.threads.com/@remotikojobs/post/DeRQ75-CAwg/apply-here/",
+      "title": "Apply Here: https://remotiko.com/job/web-designer/",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.upwork.com/hire/web-designers/how-to-hire/",
+      "title": "How to Hire Freelance Web Designers",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.upwork.com/resources/how-much-does-it-cost-to-build-website",
+      "title": "How Much Does It Cost To Build a Website in 2026?",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://x.com/caicardenas?lang=da",
+      "title": "Cai Cardenas (@caicardenas) / X",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://x.com/jasonvanlue?lang=es",
+      "title": "Jason VanLue (@jasonvanlue) / X",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    }
+  ],
+  "checks": [
+    "live adaptive decisions",
+    "bounded provider and model admission",
+    "observed parent provenance",
+    "current owner isolation",
+    "terminal replay without new spending"
+  ],
+  "emailsSent": 0,
+  "realAccountsUsed": 0,
+  "scopeNote": "Bounded live synthetic case using production discovery, review, assessment and delivery use cases. Worker reader includes configured browser fallback and Ashby routing without shared Redis caching; HTTP reader is a controlled reduced-access path. Native X and marketplace connector loops are not exercised. All lead rows are measured separately from the dashboard's bounded sample. Matching can remain incomplete if retries exceed the check window. Model labels are not independent ground truth; precision, recall and global throughput remain unproven."
+}
