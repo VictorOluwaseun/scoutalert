@@ -2,7 +2,7 @@
 
 **Baseline revision:** 0.3
 
-**Updated:** 12 October 2026
+**Updated:** 15 October 2026
 
 ScoutAlert is a continuously operating opportunity intelligence platform with persistent personal Scouts and internet-wide discovery as a core capability. These documents define the agreed target, implementation boundaries and evidence required for release. Milestones sequence delivery without reducing the product to onboarding or a fixed source list.
 
@@ -15,6 +15,8 @@ ScoutAlert is a continuously operating opportunity intelligence platform with pe
 | [Monitoring and audit architecture](architecture/scoutalert-observability-and-auditing.md) | Platform-wide monitoring, durable auditing, decision history, coverage, cost, operational investigation and implementation phases |
 | [Monitoring and audit acceptance gates](engineering/scoutalert-observability-acceptance.md) | OACC-001–024, fault scenarios, evidence requirements and operational readiness gates |
 | [Internet discovery architecture](architecture/scoutalert-discovery-architecture.md) | Four agent responsibilities, plans, leads, provider capabilities, source expansion, crawl/monitoring, reuse and recovery |
+| [Crawling and deep discovery architecture](architecture/scoutalert-crawling-and-deep-discovery.md) | Proposed owned crawler design, deeper access paths, efficient collection, opportunity indexing, recovery, evaluation and delivery phases |
+| [Crawling implementation plan](engineering/scoutalert-crawling-implementation-plan.md) | Six phases with ordered work items, dependencies, repository ownership, deliverables, acceptance references and completion evidence |
 | [Discovery acceptance gates](engineering/scoutalert-discovery-acceptance.md)         | DACC-001–020, cross-component pass/fail behavior, required evidence and release gates                                    |
 | [Delivery roadmap](engineering/scoutalert-delivery-roadmap.md)                       | Current implementation, remaining increments, dependencies and completion boundaries                                     |
 | [Platform user stories](user-stories/scoutalert-platform-user-stories-v0.1.md)       | Stable story IDs, feature requirements and acceptance criteria                                                           |
@@ -27,6 +29,7 @@ ScoutAlert is a continuously operating opportunity intelligence platform with pe
 | [Onboarding stories](user-stories/scoutalert-onboarding-user-stories-v0.1.md)        | Feature-specific acceptance, including truthful coverage and preserved intent                                            |
 | [Connected onboarding and scouting](engineering/scoutalert-connected-onboarding.md)  | Existing local setup, implemented behavior, commands, historical checks and limitations                                  |
 | [Local email](engineering/scoutalert-local-email.md)                                 | Mailpit transport configuration and verification                                                                         |
+| [Provider access](engineering/scoutalert-provider-access.md)                         | Supported PDF/social reads, provider application steps and unresolved commercial-access limits                            |
 
 The PRD owns scope; the platform/discovery architecture owns design; the monitoring and audit architecture owns cross-platform observability and audit guarantees; acceptance gates own proof; the roadmap owns implementation status. Operational guides describe actual code and historical measurements. Onboarding cannot narrow platform scope. `AGENTS.md` and explicit user instructions govern working agreements.
 
@@ -52,6 +55,8 @@ PostgreSQL remains authoritative for business records, consent, budgets and dura
 
 ## Current implementation boundary
 
+The [12 October client-request capture repair](engineering/scoutalert-deeper-source-discovery.md#client-request-capture-repair--12-october) separates buyer briefs from bids, avoids unnecessary rendering, distinguishes sign-in-gated details and corrects relative-deadline handling. A seeded live assessment reached local Mailpit; full gated access and independently measured match quality remain open.
+
 The [monitoring and audit design](architecture/scoutalert-observability-and-auditing.md) records the 4 October target for complete consequential-operation accounting, including deferred work, rejected findings and suppressed notifications. Existing consent, provider, usage and delivery records are foundations; a unified audit journal, central operational deployment and complete coverage remain implementation work. Its [acceptance gates](engineering/scoutalert-observability-acceptance.md) are specified, not passed.
 
 The existing local path includes reviewed onboarding, real Mailpit verification, sessions, transactional activation, saved Scouts, dashboard reads, edit/pause/resume and opportunity feedback. Live sources are Figma and Remote's Greenhouse boards and bounded Freelancer buyer requests for fixed-price projects and hourly services. Evidence extraction/private fit, bounded availability and employer-policy research, Temporal execution and local digests/prompt controls are implemented.
@@ -61,6 +66,10 @@ The [first web discovery implementation](engineering/scoutalert-web-discovery.md
 The [assessment packet](../evaluations/opportunity-quality/README.md) and [marketplace checks](../evaluations/marketplace-discovery/README.md) retain their narrower historical evidence. A completed onboarding or configured-source loop cannot close the broader discovery gates.
 
 The [12 October live checks](../evaluations/discovery/README.md#live-search-quality-checks--12-october) exercise public search through source review, personal fit, dashboard repositories and local Mailpit with synthetic accounts. They exposed navigation waste, poor project/service yield and an incorrect experience match. Navigation filtering and current fit policy now reject those demonstrated errors; a frozen job replay retains one reviewable result, with unresolved requirements. This is partial operating evidence, not independent relevance or recall. Web TypeScript/TSX linting is repaired and the onboarding navigation regression passes.
+
+The [client-demand refinement](../evaluations/discovery/README.md#client-demand-search-refinement--12-october) adds buyer-specific queries, relevant directory-child routing, source/query diversity and bounded access-failure recovery. Live checks now reach specific website requests; incomplete captures and mismatched skills still prevent alerts. Six development routing cases pass with the final planner, while independent usefulness and recall remain open.
+
+The [12 October project/service flow repair](../evaluations/discovery/README.md#project-and-service-flow-repair--12-october) adds versioned buyer-brief queries, broader service index retrieval and correction of unstated pay restrictions. The [funded 15 October repeat](../evaluations/discovery/README.md#funded-project-and-service-validation--15-october) also repairs access-failure recovery, buyer/category preservation and misleading child-link context. Final fresh runs produce one project and two service recommendations, with one local Mailpit digest per scenario and no duplicate on replay. These synthetic cases establish the working flow; independent usefulness, recall and broader source access remain unproven.
 
 ## Design provenance
 

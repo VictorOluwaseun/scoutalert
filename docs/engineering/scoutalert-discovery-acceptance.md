@@ -254,3 +254,25 @@ The following regression gates pass:
 - Web lint checks real TypeScript/TSX and fails on unused values or syntax errors. Browser checks cover onboarding restoration, Back/Forward and rejection of a stale review after editing.
 
 The saved job replay changes two accepted candidates to one reviewable candidate, with unresolved skills and authorization explicitly retained. Both project runs and all service runs produced zero accepted matches. The rendered service case still encountered denied social access, an incomplete portal capture and a seller page. These results keep the organic demand-quality and useful-coverage gates open. Next evidence must include readable client demand, independently judged results and a known-opportunity set for recall; increasing URL counts cannot substitute for those outcomes.
+
+
+## Buyer-request routing increment — 12 October
+
+New client-project/service plans now use distinct buyer-demand query families and a bounded, diverse candidate menu. The [implementation and six-run record](../../evaluations/discovery/README.md#client-demand-search-refinement--12-october) preserve failures as well as improvements. The discovery, source-expansion and contextual-routing gates gain these regression requirements:
+
+- Buyer queries use only approved public target words. Splitting a skill stack or omitting “remote” from retrieval must never alter the confirmed private brief or weaken required fit criteria.
+- Specific relevant client requests survive a crowd of employee vacancies, seller pages and unrelated tenders. Observed directory children carry parent context as a hint, never as verified child evidence. Alternative wording remains eligible for semantic inspection.
+- Generic previous/next listing navigation cannot consume a demand investigation. Descriptively labelled related opportunities remain eligible.
+- Failed access must influence the next action. Repeated crawl-denied siblings pause only that route within the case; another path or native connector is not prohibited by inference.
+- No refined search is admitted after all document reads are consumed. Search/page/depth/model ceilings, durable admission and current ownership remain authoritative.
+- Buyer/source classification remains separate from personal relevance and delivery. Closed notices, incomplete captures, unresolved mandatory requirements and supported conflicts cannot be promoted merely to produce a successful-looking result.
+
+The final full-path project run reached a specific website-services tender and matching rejected its Drupal-versus-React/TypeScript conflict. The service run found a concrete website buyer brief with an incomplete capture. Neither produced an accepted match or email. Final planner v7 passes the six-case development routing packet after a retained v6 buyer/seller error; this is not a held-out or independent quality score. Readable matching client requests, independently reviewed usefulness, missed-opportunity recall and global operating gates remain open.
+
+### Primary buyer captures and relative deadlines — 12 October
+
+DACC-005/010/014 now require primary buyer attribution when a page also contains supplier proposals or related requests. A full server-rendered client brief may use HTTP without rendering optional scripts, but completeness requires source identity and the expected closed primary sections. A broken layout, oversized brief or required-resource browser failure must not publish buyer demand. Sign-in-gated RFP summaries remain incomplete even if the summary itself loads successfully; sign-in to apply does not invalidate a readable brief.
+
+A relative closing counter must not become an invented absolute deadline or automatically reject an otherwise open request. Normalization follows citation validation, leaves explicit calendar/conflicting evidence unchanged, versions reused reviews and preserves the original source text. New review policy versions must be admitted within the same budget and retry rules.
+
+The [capture repair evidence](scoutalert-deeper-source-discovery.md#client-request-capture-repair--12-october) records two repaired marketplace captures, four withheld gated summaries and a seeded current-planner → private assessment → local Mailpit run. One reviewable recommendation is pipeline evidence; independent fit quality, currency interpretation and missed-opportunity measurements remain open.

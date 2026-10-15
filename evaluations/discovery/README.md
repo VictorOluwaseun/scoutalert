@@ -219,15 +219,15 @@ Core/adapters/API/worker builds, web type checks and architecture checks pass. T
 
 [`live-quality-summary-2026-10-12.json`](live-quality-summary-2026-10-12.json) indexes seven real-provider runs with synthetic accounts and predefined US/remote briefs. Each run has a fresh disposable PostgreSQL schema, at most six searches, six document reads and 36 AI attempts ($0.06 search and $2.70 AI reservation ceilings). They use Serper, the configured assessment model and the normal discovery/review/matching/delivery use cases. SMTP is explicitly local Mailpit. Native X and Freelancer's separate connector loops are outside this diagnostic; no real scout was edited by the runs.
 
-| Scenario/run | Seconds | Leads | Captured pages | Dashboard candidates | Mailpit digests | Estimated AI USD | Search reservation USD |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| Jobs, initial | 81.132 | 55 | 5 | 0 | 0 | 0.072089 | 0.06 |
-| Projects, initial | 83.260 | 48 | 3 | 0 | 0 | 0.044428 | 0.05 |
-| Services, initial | 57.170 | 49 | 2 | 0 | 0 | 0.038722 | 0.05 |
-| Jobs, refined | 94.009 | 54 | 6 | 2 before policy correction | 1 | 0.075915 | 0.06 |
-| Projects, refined | 56.844 | 46 | 4 | 0 | 0 | 0.059221 | 0.05 |
-| Services, refined | 44.234 | 42 | 2 | 0 | 0 | 0.032171 | 0.05 |
-| Services, rendering enabled | 66.419 | 32 | 2 (one incomplete) | 0 | 0 | 0.029848 | 0.04 |
+| Scenario/run                | Seconds | Leads |     Captured pages |       Dashboard candidates | Mailpit digests | Estimated AI USD | Search reservation USD |
+| --------------------------- | ------: | ----: | -----------------: | -------------------------: | --------------: | ---------------: | ---------------------: |
+| Jobs, initial               |  81.132 |    55 |                  5 |                          0 |               0 |         0.072089 |                   0.06 |
+| Projects, initial           |  83.260 |    48 |                  3 |                          0 |               0 |         0.044428 |                   0.05 |
+| Services, initial           |  57.170 |    49 |                  2 |                          0 |               0 |         0.038722 |                   0.05 |
+| Jobs, refined               |  94.009 |    54 |                  6 | 2 before policy correction |               1 |         0.075915 |                   0.06 |
+| Projects, refined           |  56.844 |    46 |                  4 |                          0 |               0 |         0.059221 |                   0.05 |
+| Services, refined           |  44.234 |    42 |                  2 |                          0 |               0 |         0.032171 |                   0.05 |
+| Services, rendering enabled |  66.419 |    32 | 2 (one incomplete) |                          0 |               0 |         0.029848 |                   0.04 |
 
 These are small sequential development checks, not paired controlled benchmarks. Queries/results and model decisions can vary between runs. The initial three reports retained only the dashboard's 40-lead sample; their source-label totals are incomplete. Later reports retain every case lead. None has independent usefulness labels or a known-positive recall denominator. Zero results means no useful-result cost can be calculated, not that the search was free. Across seven runs, known AI cost estimates total $0.352394 and configured search reservations total $0.36. These exclude unpriced failed attempts, infrastructure and provider billing adjustments; reservations are not invoices.
 
@@ -263,3 +263,182 @@ The diagnostic requires the existing local PostgreSQL and Mailpit services, work
 The focused discovery pass has 93 passing checks and six opt-in browser skips; the final fit/navigation pass has 41 passing checks. Isolated web persistence checks pass 25 cases, and scouting/intelligence/delivery checks pass 17, including Mailpit retry suppression and withholding v3 assessments. Core/adapters/worker/API builds, web type checking and architecture checks pass. Web lint now passes with real TS/TSX coverage, resolving the 10 October tooling limitation. Three lint-config regressions and two summary-integrity checks pass. The ESLint parser uses its supported tooling-local TypeScript 6.0.2; application compiler versions are unchanged. The browser onboarding regression uses mocked review/identity routes and verifies Back/Forward, restored state and stale-review rejection; it does not send mail or save an account.
 
 [`live-quality-activation-2026-10-12.json`](live-quality-activation-2026-10-12.json) records the updated local API, preview and Mailpit responding with HTTP 200 and all nine worker pools starting. Configured budgets, schedules and transport settings are retained. The first aggregate snapshot still has 51 v3 AI assessments and 85 unversioned provisional assessments; no v4 result had yet been persisted. The old AI assessments await normal scheduled reassessment and cannot trigger new mail under the current gate. Provisional title matches retain their existing digest rules. Startup is not proof that every saved scout has been reassessed.
+
+## Client-demand search refinement — 12 October
+
+The [development summary](client-demand-summary-2026-10-12.json) preserves six additional full-path runs and four planner comparisons, including failures. The same synthetic project/service briefs and per-run ceilings from the earlier checks are retained. The first full-path experiments used planner v4, the corrected pair used v5, and the final pair used v6. Current code uses `scout-planning-v7`; its final change has the saved six-case routing check, rather than another full-path sample.
+
+### Implemented behavior
+
+- New adaptive service plans freeze `client-demand-v1`. Client-project and service-request briefs share this product category. Four initial query families cover scope/budget, buyer requests for a freelancer/contractor, RFPs/RFQs, and bids/proposals. X and LinkedIn remain bounded alternatives; no marketplace whitelist is introduced.
+- Public skill stacks can be separated into short retrieval concepts. Remote wording is no longer mandatory in every service query. The complete confirmed brief, required arrangement, eligibility, consent and current fit policy still govern private matching and alerts. Employment and contract query behavior is retained.
+- Candidate selection prioritises buyer language, relevant deliverables and budgets. Seller/advice hints and employee-vacancy hints lower priority without becoming semantic exclusion rules. Host and originating-query diversity prevent one technology query from filling the entire menu. Two additional diverse choices preserve exploration beyond those English hints. The menu remains capped at ten document options.
+- Observed directory anchors carry nearby parent text as an explicitly unverified routing hint. The child must still be captured and reviewed itself. Generic previous/next job links are excluded; descriptive related-project links remain eligible.
+- The planner sees failed access, actual source subjects and review quotes. Two crawl-denied sibling paths pause that exact origin/path family for the current case, without banning the host, losing leads, changing access policy or affecting native connectors. Other observed paths remain eligible.
+- Query refinement stops once the case has no remaining document reads. Initial and fallback queries use the same approved public-target templates. No spending ceiling, source access rule or saved scout brief was relaxed.
+
+### Observations, not release-quality scores
+
+| Run         | Search requests | Document reads | Observed outcome                                                                          | Dashboard matches / emails | Estimated AI USD | Search reservation USD |
+| ----------- | --------------: | -------------: | ----------------------------------------------------------------------------------------- | -------------------------: | ---------------: | ---------------------: |
+| Projects v4 |               6 |              6 | Two unrelated housing/construction requests; no personal fit                              |                      0 / 0 |         0.069836 |                   0.06 |
+| Services v4 |               6 |              6 | Closed notice, directories and seller page                                                |                      0 / 0 |         0.052937 |                   0.06 |
+| Projects v5 |               6 |              4 | Repeated denied X routes; no captured source                                              |                      0 / 0 |         0.030449 |                   0.06 |
+| Services v5 |               4 |              6 | Three relevant website/portal request summaries, incomplete/gated details                 |                      0 / 0 |         0.041281 |                   0.04 |
+| Projects v6 |               4 |              6 | Two website tenders; one complete capture entered matching                                |                      0 / 0 |         0.041338 |                   0.04 |
+| Services v6 |               5 |              6 | Client website brief found; incomplete capture; unrelated previous-job navigation exposed |                      0 / 0 |         0.047203 |                   0.05 |
+
+The final project path followed an observed tender directory into a specific 511.org website-service request. The source specified Drupal/Pantheon, while the synthetic scout requested React/TypeScript; private fit rejected it and remote arrangement remained unknown. This demonstrates discovery of buyer demand and downstream withholding, not a useful personal match or independently verified procurement opportunity. The service path found Freelancer's “I need a website” request, but its browser capture was incomplete and was not published. The unrelated screenwriting page reached via “Previous job” is retained in the receipt; the final navigation regression excludes that route.
+
+The [routing packet](client-demand-routing-cases.json) mixes authored examples with captured failed routes and records provenance per case. It is a development set with implementation-authored expected actions. The v6 check passed 5/6 contextual cases: it wrongly treated a client building an AI recruitment website as a seller. The corrected [v7 check](client-demand-routing-v7-2026-10-12.json) passed 6/6, including that request, unrelated construction, an advice guide and Spanish bookkeeping demand. The keyword menu passed 5/6 under the same current prompt. This is one-step routing evidence, not independent precision or multilingual/global recall. All earlier receipts remain unchanged.
+
+Across these six full-path checks and four twelve-call planner checks, known model estimates total **$0.356449**; configured search reservations total **$0.31**. Reservations are not invoices. No recommendation or email was produced. Usefulness, missed-opportunity recall and cost per useful result remain unmeasured. Native X and the separate Freelancer collection loop are outside this web-path diagnostic. Gated procurement documents, incomplete marketplace captures and broader organic quality remain open work.
+
+### Verification and reproduction
+
+The discovery regression pass contains 135 passing tests across nine suites, including 25 isolated PostgreSQL checks. After the final navigation/prompt edits, the four affected planning/navigation suites pass 63 tests, including the new previous/next-link case. Core/adapters/worker compilation, API type checking, architecture and report-integrity checks pass.
+
+```sh
+# No provider calls: confirm candidate inclusion on the saved development packet.
+node scripts/evaluation/check-candidate-selection.mjs --corpus=evaluations/discovery/client-demand-routing-cases.json
+# Intentional paid check: at most 12 model calls / $0.90 reserved, using a new output path.
+node scripts/evaluation/check-candidate-selection.mjs --live --corpus=evaluations/discovery/client-demand-routing-cases.json --output=/tmp/new-client-routing.json
+# Six searches, six document reads, 36 AI attempts maximum; synthetic owner, isolated database and local Mailpit.
+node scripts/evaluation/check-live-scout-quality.mjs --scenario=projects --output=/tmp/new-client-projects.json
+node scripts/evaluation/check-live-scout-quality.mjs --scenario=services --output=/tmp/new-client-services.json
+```
+
+The [local activation receipt](client-demand-activation-2026-10-12.json) records all nine worker queues running with planner v7. The startup aggregate has one newly created discovery case and no new `client-demand-v1` case yet; existing scouts adopt the new plan on their normal future search runs. No account result backfill or forced rescheduling is implied.
+
+## Client-request capture repair — 12 October
+
+The [measured summary](client-request-capture-summary-2026-10-12.json) indexes three runs and verifies the exact synthetic Mailpit message. The [source packet](client-request-capture-cases.json) references URLs already observed in earlier reports; it supplies no fabricated source content. Two initial runs used a fixed diagnostic plan to recapture all six URLs, exposing a relative-deadline publication error. The [saved review replay](client-request-deadline-replay-2026-10-12.json) checks the correction without more model calls.
+
+The [final run](client-request-assessment-2026-10-12.json) uses the current adaptive planner against those recorded search observations, live page reads and observed-link navigation. It makes no paid search request and does not measure fresh organic retrieval or recall. It captured six pages, reviewed two complete website buyer requests and four gated tender summaries, and assessed the two publishable requests. One reviewable recommendation reached the dashboard repository and one synthetic digest reached Mailpit; retry sent no duplicate. The original new-build request was excluded against a redesign brief, and its model assessment also introduced an unsupported currency restriction. These judgments are not independent labels or a completed quality gate.
+
+Freelancer captures now contain primary buyer text, stated skills, budget and status without bidder proposals. In the fixed recapture comparison, each marketplace page needed two HTTP requests rather than five browser-bundle requests. Each of three short gated tenders needed two requests rather than twelve; the fourth tender remains an HTTP summary but is now correctly marked incomplete. Across all six URLs, requests fell from 48 to 12. Browser failures, hidden/missing primary sections, oversized text and sign-in-gated evidence still withhold matching.
+
+Review policy `deadline-evidence-v1` treats recognized relative closing counters as unknown dates after citation validation. Explicit calendar evidence and conflicts remain unchanged. Policy upgrades refreeze the current review round; old receipts and attempt reservations remain intact. The source-reader identity is `public-document-v7` and primary parser is `freelancer-public-html-v1`.
+
+```sh
+# Paid AI, no paid search: current planner reviews recorded search observations and fetches live sources.
+# Six reads, 36 admitted AI attempts / $2.70 reservation ceiling, synthetic owner and local Mailpit only.
+node scripts/evaluation/check-live-scout-quality.mjs --scenario=services --recapture-cases=evaluations/discovery/client-request-capture-cases.json --output=/tmp/new-client-capture-check.json
+```
+
+Three saved diagnostics total an estimated **$0.081693** in model usage. This excludes infrastructure and is not an invoice or cost per independently useful result. The final five regression suites pass 91 checks; nine Chromium checks pass separately with browser launch access. Core/adapters/worker builds, API/web type checks, touched web lint, architecture checks and two report-integrity checks pass. No real account, budget, schedule or SMTP setting was changed by the diagnostics. The [local activation receipt](client-request-capture-activation-2026-10-12.json) confirms nine worker queues and the existing web/API/Mailpit routes responding. Two source observations had run since restart, with no new primary buyer capture yet. Saved scouts receive the new reader and review policy on normal future work; no full backfill is claimed.
+
+## Project and service flow repair — 12 October
+
+The [repair summary](client-flow-repair-summary-2026-10-12.json) separates the historical quality failures, new code changes, controlled flow checks and provider-access failures. The historical project run reached a Drupal/Pantheon tender and correctly rejected it against a React/TypeScript brief. The service run lost buyer requests before matching because captures were incomplete. The existing primary buyer parser and relative-deadline repair are retained; their earlier seeded recapture is not evidence of fresh discovery.
+
+New cases freeze `client-demand-v2` under planner `scout-planning-v8`. The initial portfolio includes buyer-brief/project-detail language and first-person requests, with quoted supplied topic terms to reduce generic budget/RFP drift. Formal tenders, general budget/bid searches and social alternatives remain available within the original limits. Resumed `client-demand-v1` cases keep their prior query vocabulary. No private profile details enter queries, and no source or spending limits were relaxed. Fresh yield from this revised vocabulary remains unverified.
+
+Service index retrieval now offers partial target vocabulary to assessment, preserving exact-match priority and the 200-candidate ceiling. The existing eight-new-assessments allowance, owner hiding, source freshness, opportunity kinds and fit rules are unchanged. A PostgreSQL regression covers a React/TypeScript dashboard that lacks generic `web development` wording, exact-match ordering, stale evidence and hiding. This is a separate index recall defect; it does not explain every historical web-path loss. PostgreSQL 18.6 is installed; query behavior follows its [text-search documentation](https://www.postgresql.org/docs/18/textsearch-controls.html).
+
+The saved recapture also contained a model-generated currency conflict when `minimumPay` was empty. That conflict could penalize rank and mislead the user, although it was not the sole rejection reason. Fit prompt `evidence-prompts-v8` and the deterministic policy now prevent default currency/payment-period fields from becoming an unstated pay restriction. Explicit minimum-pay comparisons, undisclosed-pay policy, location, experience and mandatory arrangement checks still apply.
+
+The [complete fixture receipt](client-flow-fixture-2026-10-12.json) runs project and service scenarios through production discovery admission, the primary page parser, source review, PostgreSQL indexing, personal fit, availability, dashboard reads and local Mailpit. Each produces one recommendation and one digest; on-site work and seller advertising are withheld, owner isolation holds and repeated delivery sends zero duplicates. Search responses, HTTP bodies and model judgments are authored fixtures. This verifies integration, not organic usefulness or model accuracy. The first fixture attempt withheld delivery because its authored application evidence was missing; correcting the fixture's cited proposal path passed the existing delivery gate.
+
+Two attempted fresh baselines, [projects](client-flow-projects-baseline-2026-10-12.json) and [services](client-flow-services-baseline-2026-10-12.json), failed every search and model request. Separate minimal provider checks returned Serper `400 / Not enough credits` and model `429 / credit_balance_exhausted`; no useful-result comparison can be made. Reports now include successful/failed search counts and completed fit counts, and identify total search-provider failure separately from an empty successful search. No further complete paid runs were attempted while access remained unavailable.
+
+Validation: 93 focused unit checks, 48 isolated database checks, three report-summary checks and both complete fixture flows pass. Core/adapters/worker builds, API/worker type checks, architecture checks and diff whitespace pass. No runtime restart, saved-account edits or configuration/budget changes are attributed to this increment. A funded live repeat and independent relevance labels remain required.
+
+```sh
+# Authored search/HTTP/model fixtures; isolated PostgreSQL and local Mailpit only.
+node scripts/evaluation/check-client-flow-fixture.mjs /tmp/new-client-flow-fixture.json
+# Fresh paid runs after restoring both provider balances; use new output paths.
+node scripts/evaluation/check-live-scout-quality.mjs --scenario=projects --output=/tmp/new-client-projects-live.json
+node scripts/evaluation/check-live-scout-quality.mjs --scenario=services --output=/tmp/new-client-services-live.json
+```
+
+## Funded project and service validation — 15 October
+
+The [funded validation summary](client-flow-repair-summary-2026-10-15.json) preserves all six fresh runs, including the failures that motivated further changes. Search and model access are working again. These runs use synthetic US-based profiles, the production discovery/review/matching/availability/delivery use cases, isolated PostgreSQL schemas, and local Mailpit.
+
+| Run                                                          | Leads | Complete captures | Completed fit assessments | Recommendations | Digests |
+| ------------------------------------------------------------ | ----: | ----------------: | ------------------------: | --------------: | ------: |
+| Initial projects                                             |    40 |                 0 |                         0 |               0 |       0 |
+| Initial services                                             |    43 |                 4 |                         1 |               1 |       1 |
+| Intermediate projects                                        |    48 |                 4 |                         1 |               0 |       0 |
+| Intermediate services                                        |    36 |                 3 |                         1 |               1 |       1 |
+| [Final projects](client-flow-projects-final-2026-10-15.json) |    58 |                 2 |                         2 |               1 |       1 |
+| [Final services](client-flow-services-final-2026-10-15.json) |    30 |                 3 |                         2 |               2 |       1 |
+
+The first project run spent all six reads on inaccessible or missing pages. New cases now freeze `client-demand-v3`: project-route and open-bidding queries lead the portfolio, coherent deliverables such as “Website redesign” stay intact, and two consecutive inaccessible reads trigger an unused query while capacity remains. Both final project recovery queries occurred within the original six-search, six-document and eight-round limits. Frozen v1/v2 query vocabularies remain available.
+
+The intermediate service run incorrectly classified two complete freelance buyer briefs as jobs/contracts, removing them from service matching. Review inputs now preserve parser-confirmed primary buyer provenance. After citation validation, `buyer-category-v1` keeps positive buyer demand in `client_request`; negative verdicts, incomplete captures and unresolved facts remain unchanged. Review prompt `lead-evidence-v3` reinforces that distinction. Review identities change so earlier classifications are not silently reused.
+
+The intermediate project planner also described generic React.js and Enterprise links as though they were their parent buyer brief. Planner `scout-planning-v10` no longer transfers an individual posting's demand into unread child-link hints. Observed collection context remains available, and destinations still require their own permitted capture and review. Synthetic diagnostic receipts now retain rejected review/fit output to make validation failures inspectable; neither final run contains rejected output.
+
+Final recommendations were a flexible-stack collaborative screenwriting web app, a minimalist website redesign, and a dog-grooming website redesign. All three captured briefs explicitly stated remote delivery and open bidding. Location and authorization remain unknown under the confirmed review-unknowns preference. The final project run excluded a generic JavaScript role; the service run withheld a completed historical project. The intermediate Australia-only project was excluded against the US test profile. These are inspected development examples, not independent relevance labels or a recall benchmark. Seven of twelve final source reads remained inaccessible, and all final recommendations came from public Freelancer pages. Native X and the separate marketplace feed loop were not exercised by this diagnostic.
+
+Validation passes 117 focused unit checks, 48 isolated database checks and three report checks. Both [complete fixture flows](client-flow-fixture-final-2026-10-15.json) also pass with deliberately misclassified buyer demand, on-site and seller exclusions, owner isolation, one digest each and zero duplicate delivery. All four workspace builds, API/worker type checks, architecture and whitespace checks pass. Final live replay adds no spending or duplicate digests. The six live runs total $0.242423 in known model estimates and $0.28 in configured search reservations; failed-attempt costs, infrastructure and ordinary worker activity are excluded, and reservations are not invoices.
+
+The [activation receipt](client-flow-activation-2026-10-15.json) confirms the verified worker started at 14:05:57 UTC because the prior worker was stopped. All nine queues are running; Temporal and Mailpit respond successfully, and 37 new planner tasks plus 20 new review tasks use the updated policies. No startup errors were observed. Existing settings, budgets and schedules were retained; no saved-user backfill was forced.
+
+## Source expansion beyond Freelancer — 15 October
+
+The [source-expansion summary](source-expansion-summary-2026-10-15.json) preserves the full live experiments and their failure diagnoses. New source coverage includes PeoplePerHour, Workana and direct organizational RFPs. All end-to-end runs use the same synthetic remote-work briefs, production use cases, disposable PostgreSQL schemas and local Mailpit; they do not modify saved-user scouts or contact buyers.
+
+The early runs exposed several distinct losses: bidder-profile contamination on PeoplePerHour, a 5-second crawl-delay ceiling rejecting permitted RFP pages, a missing Chromium runtime, sparse Workana indexing under a monthly date filter, separate-word queries missing an intact deliverable phrase, navigation inheriting unrelated parent demand, and model countdown/country-code citations failing strict validation. The [capture audit](source-expansion-capture-verification-2026-10-15.json) records actual 30-second and 20-second waits followed by successful HTTP captures. The removed Dayton notice remains negative evidence. [Workana query probes](source-expansion-workana-undated-search-2026-10-15.json) document the difference between dated/tokenized searches and an undated coherent phrase.
+
+Current versions are `client-demand-v6`, `google-search-v2`, `scout-planning-v13`, `peopleperhour-public-html-v2`, `public-document-v9`, `lead-evidence-v5:deadline-evidence-v2:buyer-category-v1`, and `evidence-prompts-v9`. Only Workana discovery queries omit the date filter; availability is still determined from current source evidence. Remote requirements and supplier-eligibility uncertainty remain in private matching. Relative countdown normalization validates every quote against the source before retaining an unknown absolute deadline. The [recorded-output replay](source-expansion-deadline-replay-2026-10-15.json) shows both observed countdown failures repaired while fabricated quotations remain rejected.
+
+Upwork returned source HTTP 403; Guru's robots policy returned HTTP 403. These sources remain inaccessible through the public reader. C40's PDF request was denied; PDF extraction was not added. Social robots denials remain enforced. Workana pages and direct RFPs can establish buyer demand without establishing remote delivery; such requests must not become recommendations for a mandatory-remote brief merely because their deliverables are digital.
+
+The browser failure was environmental: Playwright 1.61.1 had no matching local Chromium binary. Installing its supported headless shell restored all nine real-browser checks. Source bundles remain capped at 12 requests/6 MB, with a 45-second deadline, 30-second maximum crawl delay, 60-second worker activity and 75-second shared operation/host lease.
+
+| Run                                                                     | Leads | Complete captures | Completed fit assessments | Recommendations | Digests |
+| ----------------------------------------------------------------------- | ----: | ----------------: | ------------------------: | --------------: | ------: |
+| Initial projects                                                        |    30 |                 4 |                         2 |               0 |       0 |
+| Initial services                                                        |    26 |                 5 |                         0 |               0 |       0 |
+| Revised projects                                                        |    40 |                 1 |                         1 |               1 |       1 |
+| Revised services                                                        |    26 |                 5 |                         1 |               0 |       0 |
+| Pre-verification projects                                               |    30 |                 3 |                         1 |               0 |       0 |
+| Pre-verification services                                               |    31 |                 4 |                         4 |               1 |       1 |
+| [Verified projects](source-expansion-projects-verified-2026-10-15.json) |    40 |                 2 |                         2 |               1 |       1 |
+| [Verified services](source-expansion-services-verified-2026-10-15.json) |    32 |                 5 |                         4 |               1 |       1 |
+
+The latest verified reports are the canonical results. Earlier files containing `final` preserve the pre-verification experiment: the project run exposed another genuine countdown quotation rejected by the model-output schema. Both verified runs now have zero rejected reviews, zero rejected fits and zero review failures. Replay adds no spending or duplicate delivery.
+
+The project recommendation is a PeoplePerHour React.js/Node.js management-system request; the service recommendation is a PeoplePerHour catering-business website redesign. Both explicitly state remote work and open proposals. Two Workana requests and the Achievement First RFP reached assessment but were withheld because mandatory remote delivery was unconfirmed. A React Native mobile request was excluded against the web-development target, and the removed Dayton notice was classified closed. These are inspected development examples; independent usefulness, precision and recall remain unmeasured. Undated Workana searches can return older listings, and five of twelve final reads remained inaccessible.
+
+Validation passes **182 checks**: 130 focused unit checks, 40 isolated database checks, nine real Chromium checks and three report-summary checks. Core, adapters, workflows and worker builds pass, alongside API/workspace type checks, architecture and whitespace checks. Across the eight full live runs, known model estimates total **$0.382076** and configured search reservations total **$0.34**. Separate source/query/model audit calls, seven attempts without cost estimates, infrastructure and ordinary worker activity are excluded; reservations are not invoices.
+
+The [activation receipt](source-expansion-activation-2026-10-15.json) confirms a graceful worker restart at 15:06:54 UTC and all nine queues running, with Temporal and Mailpit returning HTTP 200. Budgets, schedules and provider settings were retained. A pre-existing Remote.com Greenhouse employment-feed failure remains visible in ordinary worker activity; it is separate from the verified project/service flows. No saved-user backfill or forced rescheduling was performed.
+
+## Supported access and model outage — 15 October
+
+The [supported-access summary](supported-access-summary-2026-10-15.json) records this subsequent increment and preserves incomplete attempts. It supersedes the earlier PDF limitation: permitted PDFs now have binary-safe transport and bounded text extraction. Query policy is `client-demand-v7`, shared document/capture identity is v10, and dedicated parsers are `public-pdf-v1` and `bluesky-public-v1`. The [implementation notes](../../docs/engineering/scoutalert-deeper-source-discovery.md#supported-pdf-and-public-post-access--15-october) describe the boundaries.
+
+The model provider returned `credit_balance_exhausted`. The user requested completion of available checks and a report of blocked AI tests. The final live web runs therefore explicitly disabled AI planning, source review and matching; assertions confirm no reasoning tasks, review attempts, fit attempts or AI budget reservations. Zero recommendations in these runs is **not** a measured rejection rate or a successful recommendation-quality test.
+
+| Final capture-only run | Search calls | Leads | Complete source captures / reads | Model calls |
+| --- | ---: | ---: | ---: | ---: |
+| [Projects](supported-access-projects-capture-only-2026-10-15.json) | 4 | 11 | 2 / 6 | 0 |
+| [Services](supported-access-services-capture-only-2026-10-15.json) | 4 | 33 | 5 / 6 | 0 |
+
+Both cases terminate, preserve owner isolation and replay without extra spending. The service captures include PeoplePerHour briefs, a Workana request and a removed notice. The project captures include a directory and templates page; useful project demand is unproven. Classification, current availability and private fit still require fresh review. The two runs reserve $0.08 for Serper and zero for AI; this excludes earlier diagnostics and ordinary worker activity and is not a billing total.
+
+The [revised source audit](supported-access-source-audit-revised-2026-10-15.json) extracted all six pages from each of two real public PDFs: 11,887 and 9,972 characters. These historical RFP documents demonstrate parsing, not open opportunities. The [initial audit](supported-access-source-audit-2026-10-15.json) is retained: it exposed inherited Node CLI flags preventing the PDF worker from starting. The revised worker clears those flags. Guru's robots request returned HTTP 403 and remains restricted.
+
+The [final Bluesky read](supported-access-bluesky-final-2026-10-15.json) captured an exact observed post through the official unauthenticated API in one request. External preview copy was excluded; primary text and its observed link were retained. Another post with unread attachment/context remains incomplete. The [direct search probe](supported-access-bluesky-search-2026-10-15.json) returned HTTP 403, so this establishes supported post reading, not native search or useful demand.
+
+The existing native X integration successfully executed both [project](supported-access-native-projects-2026-10-15.json) and [service](supported-access-native-services-2026-10-15.json) queries. Each returned zero posts. Their generic recorded check labels name downstream components, but no source review, fit or delivered recommendation was exercised. Their saved reservations total $0.10; an earlier project diagnostic failed while writing its report and is excluded from this subtotal.
+
+The [model-outage diagnostic](supported-access-services-diagnostic-2026-10-15.json) retained four successful searches, 33 leads and no document actions after a fallback stall. Duplicated URLs had different parent/title provenance between the conservative fallback and contextual menu; persistence repeatedly refused the decision. The planner now returns the matching current menu entry. The [controlled-outage full-flow fixture](supported-access-fallback-fixture-2026-10-15.json) finishes both scenarios through real PostgreSQL and local Mailpit, with one recommendation/digest each, seller/on-site exclusions, owner isolation and no duplicates. Search, HTTP and review/fit responses in that fixture are authored; it proves orchestration and failure recovery, not live model quality.
+
+Verification passed the standard worker suite (322 tests; opt-in checks skipped), 56 isolated database checks, and the 27-test browser/capture suite including nine actual Chromium checks. The final PDF suite passes all ten checks, including redirect access boundaries; three report-summary checks pass. Counts overlap and must not be added as unique tests. Core/adapters/worker builds, API/web/worker types, architecture and whitespace checks pass. A stale review-policy integration fixture and an incorrectly shaped redirect fixture were corrected before their successful reruns.
+
+Upwork needs explicit permission for ScoutAlert's commercial use; its standard API program does not grant that. Guru API scope is unconfirmed, and Facebook/LinkedIn approval remains absent. The [provider access guide](../../docs/engineering/scoutalert-provider-access.md) links current application information and distinguishes documented capabilities from unavailable or unverified routes. Fresh AI planning, source classification, fit and live recommendation validation remain blocked by credits. No provider application or external support message was submitted.
+
+The [activation receipt](supported-access-activation-2026-10-15.json) records the worker restart after these available checks. It verifies process/queue startup, not completion of the blocked AI tests.
+
+```sh
+# Complete pipeline with authored source/review/fit fixtures and an unavailable planner.
+node scripts/evaluation/check-client-flow-fixture.mjs /tmp/new-outage-fixture.json --planning-unavailable
+# Bounded paid search and public capture only; zero model calls.
+node scripts/evaluation/check-live-scout-quality.mjs --scenario=projects --without-ai --output=/tmp/new-project-capture.json
+node scripts/evaluation/check-live-scout-quality.mjs --scenario=services --without-ai --output=/tmp/new-service-capture.json
+```
