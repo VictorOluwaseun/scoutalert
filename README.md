@@ -40,6 +40,14 @@ The foundation is TypeScript, Next.js, NestJS, PostgreSQL with Kysely/pg, Redis,
 
 ## Local development and verification
 
-Use the repository's declared Node.js and pnpm versions from `package.json`. Follow [connected onboarding and scouting](docs/engineering/scoutalert-connected-onboarding.md) for environment files, migrations, web/API startup and separate worker startup. Follow [local email](docs/engineering/scoutalert-local-email.md) for Mailpit. No secrets belong in committed documentation.
+Use the repository's declared Node.js and pnpm versions from `package.json`. After configuring environment files and running migrations, start the full local stack with:
+
+```sh
+pnpm dev:start
+```
+
+This starts the existing PostgreSQL, Redis and Mailpit containers, waits for them and Temporal to be ready, then starts web, API and the worker. The worker and its workspace dependencies build before it starts. Ctrl+C stops the application processes; Docker services remain running with their data intact.
+
+Follow [connected onboarding and scouting](docs/engineering/scoutalert-connected-onboarding.md) for environment files, container names, migrations and individual commands. Follow [local email](docs/engineering/scoutalert-local-email.md) for Mailpit. No secrets belong in committed documentation.
 
 Package READMEs describe their actual commands and boundaries. Architecture checks, relevant package tests and the [discovery acceptance gates](docs/engineering/scoutalert-discovery-acceptance.md) have different scopes; a passing local integration test is not a completed product milestone. Read [AGENTS.md](AGENTS.md) before changing code or Git state.

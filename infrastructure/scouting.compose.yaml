@@ -8,7 +8,15 @@ services:
       - temporal-development:/var/lib/temporal
   temporal:
     image: temporalio/temporal:1.9.1
-    command: ["server", "start-dev", "--ip", "0.0.0.0", "--db-filename", "/var/lib/temporal/scoutalert.db"]
+    command:
+      [
+        "server",
+        "start-dev",
+        "--ip",
+        "0.0.0.0",
+        "--db-filename",
+        "/var/lib/temporal/scoutalert.db",
+      ]
     ports:
       - "127.0.0.1:7233:7233"
       - "127.0.0.1:8233:8233"
@@ -17,6 +25,11 @@ services:
     depends_on:
       temporal-state:
         condition: service_completed_successfully
+    healthcheck:
+      test: ["CMD", "temporal", "operator", "cluster", "health"]
+      interval: 2s
+      timeout: 5s
+      retries: 30
     restart: unless-stopped
 volumes:
   temporal-development:

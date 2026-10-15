@@ -30,9 +30,14 @@ The current machine reuses `infrastructure-postgres-1` on port 5432, `immureg-lo
 Copy `apps/api/.env.example` to `.env` and `apps/web/.env.example` to `.env.local` when configuring another machine. Set a PostgreSQL connection URL and Redis URL. Generate independent 32-byte private keys for `IDENTITY_SECRET` and `WEB_API_SECRET`; the latter must match between web and API. These files are ignored. Keys have no default. API environment values supplied by the process take precedence over its local file.
 
 ```sh
+pnpm dev:services
 pnpm --filter api db:migrate
 pnpm dev:start
 ```
+
+`pnpm dev:start` starts the existing PostgreSQL, Redis and Mailpit containers, checks their native readiness commands, and starts Temporal through the `scoutalert-execution` Compose project with a health check. Only after services are ready does Turborepo start web, API and the worker. The worker's build and workspace dependency builds complete before it starts. Repeated startup reuses the same containers and persistent data. Ctrl+C stops the application processes and leaves Docker services running.
+
+`pnpm dev:services` starts only these dependencies, which is useful before the first migration or when restarting stopped containers. Docker must already be running. Startup reuses the container names listed above; on another machine, set `SCOUTALERT_POSTGRES_CONTAINER`, `SCOUTALERT_REDIS_CONTAINER` and `SCOUTALERT_MAILPIT_CONTAINER` in the invoking shell to existing container names. Their published ports and credentials must match the application environment. Missing containers or a readiness timeout stop startup with an error; the script does not provision replacement databases.
 
 Migrations use the installed Kysely Migrator and its PostgreSQL locking. Startup does not silently migrate. Native `pg` pooling, Kysely transactions and Redis lifecycle are composed once by NestJS. Services depend only on inward contracts. The live execution milestone adds pinned Temporal SDK 1.24.0 packages and maintained HTML normalization libraries.
 
@@ -89,10 +94,10 @@ This section records the configured-source implementation. Broader source suppor
 
 Connected sources are the **Figma** and **Remote** public Greenhouse job boards, plus **Freelancer** public buyer requests for fixed-price client projects and hourly services. Collection is shared across scouts and runs every five minutes. Freelancer coverage prioritises international remote work, excludes local-only/private/direct-hire requests and is a bounded rolling window, not the whole marketplace. Marketplace presence does not establish remote delivery or worldwide eligibility. The `services` scout category now retrieves buyer requests and participates in normal reconciliation; employment and contract-role scouts retain job-board retrieval. See [marketplace discovery](../../evaluations/marketplace-discovery/README.md) for limits and verification.
 
-Start the isolated, persistent local execution service and worker in addition to web/API:
+`pnpm dev:start` includes the isolated, persistent local execution service and worker. To start them individually:
 
 ```sh
-docker compose -p scoutalert-execution -f infrastructure/scouting.compose.yaml up -d
+pnpm dev:services
 pnpm --filter @repo/core build
 pnpm --filter @repo/adapters build
 pnpm --filter @repo/workflows build
