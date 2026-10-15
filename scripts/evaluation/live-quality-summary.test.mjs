@@ -51,3 +51,18 @@ test("a delivered model recommendation does not become human ground truth", () =
   );
   assert.equal(summary.independentlyUsefulResults, null);
 });
+
+test("provider failures are not reported as successful searches with no demand", () => {
+  const summary = summarizeLiveQuality({
+    ...report(),
+    operations: [{ kind: "search", state: "failed" }],
+    intelligence: [
+      { posting_id: "p1", kind: "fit", outcome: "ready", cost: null },
+      { posting_id: "p1", kind: "fit", outcome: "ready", cost: null },
+    ],
+  });
+  assert.equal(summary.executionStatus, "search_provider_unavailable");
+  assert.equal(summary.successfulSearches, 0);
+  assert.equal(summary.failedSearches, 1);
+  assert.equal(summary.completedFitAssessments, 1);
+});

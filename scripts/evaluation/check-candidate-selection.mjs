@@ -17,11 +17,15 @@ import {
 // Standalone development evaluation: at most twelve model calls/$0.90 conservative reservation.
 // Uses captured public text and fictional goals. No application database, search, SMTP or private account is accessed.
 const live = process.argv.includes("--live");
+const suppliedCorpus = process.argv
+  .find((value) => value.startsWith("--corpus="))
+  ?.slice(9);
 const corpusText = await readFile(
-  new URL(
-    "../../evaluations/discovery/candidate-selection-cases.json",
-    import.meta.url,
-  ),
+  suppliedCorpus ??
+    new URL(
+      "../../evaluations/discovery/candidate-selection-cases.json",
+      import.meta.url,
+    ),
   "utf8",
 );
 const corpus = JSON.parse(corpusText);
@@ -172,6 +176,8 @@ const report = {
   recordedAt: new Date().toISOString(),
   corpusHash: createHash("sha256").update(corpusText).digest("hex"),
   configuration: provider?.configuration ?? null,
+  corpus:
+    suppliedCorpus ?? "evaluations/discovery/candidate-selection-cases.json",
   eligibleExamples: positive.length,
   baselineOffered: positive.filter((item) => item.baseline.offered).length,
   contextualOffered: positive.filter((item) => item.contextual.offered).length,
@@ -193,7 +199,7 @@ const report = {
   usage,
   results,
   limitations:
-    "Six implementation-authored development cases; two use previously captured public job text and four are synthetic. Both policies use the same current model prompt. Expected routes are not independent human labels. This measures shortlist inclusion and single-step routing, not discovery recall, personal fit, whole-internet coverage, delivery or global scale. Live model calls are bounded separately from the worker ledger; the production planner retains its shared admission policy.",
+    "Six development cases; each records its provenance. Both routing menus use the same current model prompt and current query templates. Expected routes are implementation-authored, not independent human labels. This measures shortlist inclusion and single-step routing, not discovery recall, personal fit, whole-internet coverage, delivery or global scale. Live model calls are bounded separately from the worker ledger; the production planner retains its shared admission policy.",
 };
 const output = process.argv
   .find((value) => value.startsWith("--output="))

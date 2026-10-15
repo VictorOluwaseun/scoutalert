@@ -1,5 +1,6 @@
 /** Separates observed throughput and estimated spending from usefulness, which requires independent judgments. */
 export function summarizeLiveQuality(report) {
+  const searches = report.operations.filter((item) => item.kind === "search");
   const documents = report.operations.filter(
     (item) => item.kind === "document",
   );
@@ -31,6 +32,13 @@ export function summarizeLiveQuality(report) {
   const completeLeadSet = report.dashboardLeadSampleSize !== undefined;
   return {
     scenario: report.scenario,
+    executionStatus:
+      searches.length > 0 && searches.every((item) => item.state === "failed")
+        ? "search_provider_unavailable"
+        : (report.status ?? "not_recorded"),
+    successfulSearches: searches.filter((item) => item.state === "succeeded")
+      .length,
+    failedSearches: searches.filter((item) => item.state === "failed").length,
     renderingEnabled: report.renderingEnabled ?? null,
     durationSeconds: report.durationMs / 1000,
     uniqueLeads: report.case.leadCount,
@@ -61,6 +69,11 @@ export function summarizeLiveQuality(report) {
     sourceReviewCountsAreComplete: completeLeadSet,
     promotedPostings: report.eligiblePostings?.length ?? null,
     matching: report.matchingState?.status ?? "not_recorded",
+    completedFitAssessments: new Set(
+      report.intelligence
+        .filter((item) => item.kind === "fit" && item.outcome === "ready")
+        .map((item) => item.posting_id),
+    ).size,
     dashboardRecommendations: report.opportunities.length,
     acceptedEmails: report.emailsSent,
     aiEstimatedUsd,

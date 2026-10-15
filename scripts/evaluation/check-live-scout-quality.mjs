@@ -1,9 +1,10 @@
 import assert from "node:assert/strict";
 import { randomUUID } from "node:crypto";
 import { loadEnvFile } from "node:process";
-import { writeFile } from "node:fs/promises";
+import { readFile, writeFile } from "node:fs/promises";
 import { setTimeout as delay } from "node:timers/promises";
 import { withEvaluationDatabase, sql } from "./database.mjs";
+import { summarizeLiveQuality } from "./live-quality-summary.mjs";
 import { readWorkerConfiguration } from "../../apps/worker/dist/config.js";
 import {
   ActivateScout,
@@ -13,6 +14,9 @@ import {
   DiscoverWeb,
   ReviewDiscoveryLeads,
   PlanScoutSearch,
+  mayPublishLead,
+  validLeadReview,
+  normalizeReviewDeadline,
 } from "../../packages/core/dist/discovery/public.js";
 import {
   PostgresScoutActivationUnitOfWork,
@@ -27,6 +31,7 @@ import {
   PublicHttpRepository,
   BrowserDocumentRepository,
   AshbySourceDocumentRepository,
+  BlueskySourceDocumentRepository,
   SerperSearchProvider,
   PostgresWebDiscoveryRepository,
   PostgresWebDiscoveryCatalogRepository,
@@ -47,6 +52,7 @@ import {
   ScoutOpportunities,
   EvaluateCandidates,
   ResearchAvailability,
+  validFit,
 } from "../../packages/core/dist/scouting/public.js";
 import { DeliverOpportunityDigests } from "../../packages/core/dist/notifications/public.js";
 import {
@@ -58,9 +64,10 @@ import {
 // Per scenario: six searches ($0.06 reserved), six documents and at most 36 AI attempts ($2.70 reserved).
 // Disposable database, synthetic brief and one local Mailpit recipient only. Does not change any real scout.
 loadEnvFile(new URL("../../apps/worker/.env", import.meta.url));
+const withoutAi = process.argv.includes("--without-ai");
 assert.ok(
-  process.env.SERPER_API_KEY && process.env.OPENAI_API_KEY,
-  "Configure local search and AI keys first",
+  withoutAi || process.env.OPENAI_API_KEY,
+  "Configure a local AI key first",
 );
 const started = performance.now();
 const search = {
@@ -117,11 +124,44 @@ if (scenario === "services") {
     payPeriod: "project",
   });
 }
-const provider = new SerperSearchProvider(process.env.SERPER_API_KEY, {
-  language: "en",
-  country: "us",
-  requestCostMicros: 10_000,
-});
+const recapturePath = process.argv
+  .find((value) => value.startsWith("--recapture-cases="))
+  ?.slice(18);
+const recaptures = recapturePath ? await captureCases(recapturePath) : null;
+assert.ok(
+  recaptures || process.env.SERPER_API_KEY,
+  "Configure a local search key first",
+);
+const provider = recaptures
+  ? {
+      capability: {
+        id: "recorded-capture-check",
+        configuration: "recorded-capture-v1",
+        access: "public_index",
+        language: "en",
+        country: "us",
+        requestCostMicros: 0,
+      },
+      /** Seeds only previously recorded source URLs; this makes no live search call and measures no discovery recall. */
+      async search(query) {
+        return {
+          kind: "search",
+          query,
+          checkedAt: new Date().toISOString(),
+          observations: recaptures.map((item, index) => ({
+            url: item.url,
+            title: item.title,
+            snippet: item.snippet,
+            rank: index + 1,
+          })),
+        };
+      },
+    }
+  : new SerperSearchProvider(process.env.SERPER_API_KEY, {
+      language: "en",
+      country: "us",
+      requestCostMicros: 10_000,
+    });
 const limits = {
   dailySearchRequests: 6,
   dailySearchMicros: 60_000,
@@ -166,16 +206,48 @@ const report = await withEvaluationDatabase(async (db) => {
     version: 1,
     runId: randomUUID(),
   };
-  const client = createIntelligenceClient(process.env.OPENAI_API_KEY);
+  const client = createIntelligenceClient(
+    process.env.OPENAI_API_KEY ?? "disabled",
+  );
   const model =
     process.env.SCOUT_AI_EXTRACTION_MODEL ?? "gpt-5.4-mini-2026-03-17";
+  const reviewProvider = new OpenAILeadReviewProvider(client, model);
+  const rejectedReviews = [];
+  const reviewFailures = [];
   const reviews = new ReviewDiscoveryLeads(
     new PostgresLeadReviewRepository(db, 36, 2_700_000),
-    new OpenAILeadReviewProvider(client, model),
+    {
+      configuration: reviewProvider.configuration,
+      /** Saves invalid synthetic source evidence for diagnosis without changing production validation or retry admission. */
+      async review(inputs) {
+        const result = await reviewProvider.review(inputs).catch((error) => {
+          reviewFailures.push({
+            urls: inputs.map((input) => input.url),
+            name: error.name,
+            message: String(error.message).slice(0, 2000),
+          });
+          throw error;
+        });
+        for (const input of inputs) {
+          const output = result.reviews.find((item) => item.id === input.id);
+          if (
+            !output ||
+            !validLeadReview(
+              input,
+              normalizeReviewDeadline(output.review, input.text),
+            )
+          ) {
+            rejectedReviews.push({ input, output });
+          }
+        }
+        return result;
+      },
+    },
   );
+  const reasoningProvider = new OpenAIDiscoveryReasoningProvider(client, model);
   const planner = new PlanScoutSearch(
     new PostgresDiscoveryReasoningRepository(db, 36, 2_700_000),
-    new OpenAIDiscoveryReasoningProvider(client, model),
+    reasoningProvider,
   );
   const http = new PublicHttpRepository();
   const renderingEnabled =
@@ -189,14 +261,15 @@ const report = await withEvaluationDatabase(async (db) => {
             renderingEnabled ? new BrowserDocumentRepository() : null,
           ),
           new AshbySourceDocumentRepository(http),
+          new BlueskySourceDocumentRepository(http),
         );
   const discovery = new DiscoverWeb(
     new PostgresWebDiscoveryRepository(db),
     sourceDocuments,
     provider,
     limits,
-    planner,
-    reviews,
+    withoutAi ? undefined : planner,
+    withoutAi ? undefined : reviews,
   );
   for (let step = 0; step < 120; step++) {
     const state = await discovery.execute(request);
@@ -208,7 +281,7 @@ const report = await withEvaluationDatabase(async (db) => {
       await delay(2100);
     }
   }
-  for (let step = 0; step < 24; step++) {
+  for (let step = 0; !withoutAi && step < 24; step++) {
     const state = await reviews.execute(request);
     if (state === "done") {
       break;
@@ -217,11 +290,33 @@ const report = await withEvaluationDatabase(async (db) => {
       await delay(1000);
     }
   }
+  const intelligenceProvider = new OpenAIIntelligenceProvider(
+    client,
+    model,
+    model,
+  );
+  const rejectedFits = [];
   const matching = new ScoutOpportunities(
     new PostgresScoutingRepository(db),
     new EvaluateCandidates(
       new PostgresIntelligenceRepository(db, 36, 2_700_000),
-      new OpenAIIntelligenceProvider(client, model, model),
+      {
+        configuration: intelligenceProvider.configuration,
+        /** Uses the production extractor unchanged; diagnostic capture must not affect admission. */
+        extract: (posting) => intelligenceProvider.extract(posting),
+        /** Retains rejected output only for this synthetic receipt so evidence failures can be investigated without accepting them. */
+        async assess(posting, brief, analysis) {
+          const result = await intelligenceProvider.assess(
+            posting,
+            brief,
+            analysis,
+          );
+          if (!validFit(posting, brief, result.fit, analysis)) {
+            rejectedFits.push({ posting, analysis, result });
+          }
+          return result;
+        },
+      },
       new OpenAIEmployerResearchProvider(
         client,
         model,
@@ -234,7 +329,11 @@ const report = await withEvaluationDatabase(async (db) => {
     await sql`SELECT id FROM opportunity_postings WHERE open AND kind=${search.category === "services" ? "client_request" : "job"} LIMIT 1`.execute(
       db,
     );
-  for (let step = 0; step < 32 && accepted.rows.length > 0; step++) {
+  for (
+    let step = 0;
+    !withoutAi && step < 32 && accepted.rows.length > 0;
+    step++
+  ) {
     const state = await matching.execute(request);
     console.log(JSON.stringify({ phase: "matching", step, state }));
     if (state === "done") {
@@ -309,6 +408,20 @@ const report = await withEvaluationDatabase(async (db) => {
     CASE WHEN r.state='ready' THEN jsonb_build_object('label',r.result->>'label','scope',r.input->>'scope','explanation',r.result->>'explanation','quotes',r.result->'quotes','facts',r.result->'analysis'->'facts') ELSE NULL END AS review
     FROM web_discovery_case_leads cl JOIN web_discovery_leads l ON l.id=cl.lead_id LEFT JOIN web_lead_reviews r ON r.key=l.review_key
     WHERE cl.case_id=${request.runId}::uuid ORDER BY l.url`.execute(db);
+  const publicationRows =
+    await sql`SELECT l.url,l.posting_id AS linked_posting_id,r.posting_id AS reviewed_posting_id,r.input,r.result
+    FROM web_discovery_case_leads cl JOIN web_discovery_leads l ON l.id=cl.lead_id JOIN web_lead_reviews r ON r.key=l.review_key
+    WHERE cl.case_id=${request.runId}::uuid AND r.state='ready' ORDER BY l.url`.execute(
+      db,
+    );
+  const publication = publicationRows.rows.map((row) => ({
+    url: row.url,
+    linkedPostingId: row.linked_posting_id,
+    reviewedPostingId: row.reviewed_posting_id,
+    publishable: mayPublishLead(row.input, row.result, new Date()),
+    input: row.input,
+    review: row.result,
+  }));
   const matchingState =
     await sql`SELECT status,match_count FROM discovery_runs WHERE id=${request.runId}::uuid`.execute(
       db,
@@ -325,6 +438,28 @@ const report = await withEvaluationDatabase(async (db) => {
     await sql`SELECT round,reason,action,depth,parent_key FROM web_discovery_decisions WHERE case_id=${request.runId}::uuid ORDER BY round`.execute(
       db,
     );
+  if (view.cases.length !== 1 || view.cases[0].status === "searching") {
+    await writeFile(
+      output,
+      JSON.stringify(
+        {
+          checkedAt: new Date().toISOString(),
+          status: "incomplete",
+          scenario,
+          cases: view.cases,
+          reasoning: reasoning.rows,
+          reviewAttempts: reviewsUsage.rows,
+          operations: operations.rows,
+          decisions: decisions.rows,
+          usage: usage.rows,
+          aiBudget: ai.rows,
+        },
+        null,
+        2,
+      ),
+      { flag: "wx" },
+    );
+  }
   assert.ok(view.cases.length === 1 && view.cases[0].status !== "searching");
   assert.ok(
     decisions.rows.length > 0,
@@ -367,13 +502,27 @@ const report = await withEvaluationDatabase(async (db) => {
     ).rows,
     usage.rows,
   );
+  if (withoutAi) {
+    assert.equal(reasoning.rows.length, 0, "AI planning must remain disabled");
+    assert.equal(reviewsUsage.rows.length, 0, "AI review must remain disabled");
+    assert.equal(
+      intelligence.rows.length,
+      0,
+      "AI matching must remain disabled",
+    );
+    assert.equal(ai.rows.length, 0, "Capture checks must reserve no AI budget");
+  }
   return {
     checkedAt: new Date().toISOString(),
     scenario,
+    recaptureCases: recaptures,
     baseline: false,
+    reasoningConfiguration: reasoningProvider.configuration,
+    plan: await new PostgresWebDiscoveryRepository(db).preparedPlan(request),
     reader,
     renderingEnabled: reader === "worker" && renderingEnabled,
-    status: "measured",
+    status: withoutAi ? "captured_without_ai" : "measured",
+    aiEnabled: !withoutAi,
     deliveryOutcome:
       submitted > 0 ? "submitted_to_mailpit" : "no_eligible_digest",
     reasoning: reasoning.rows,
@@ -381,8 +530,13 @@ const report = await withEvaluationDatabase(async (db) => {
       (lead) => lead.review?.scope === "source",
     ).length,
     intelligence: intelligence.rows,
+    rejectedFits,
+    rejectedReviews,
+    reviewFailures,
     matchingState: matchingState.rows[0] ?? {
-      status: "not_started_no_source_demand",
+      status: withoutAi
+        ? "not_tested_ai_disabled"
+        : "not_started_no_source_demand",
       match_count: 0,
     },
     taskStates: taskStates.rows,
@@ -399,8 +553,13 @@ const report = await withEvaluationDatabase(async (db) => {
     aiBudget: ai.rows,
     dashboardLeadSampleSize: view.leads.length,
     leads: allLeads.rows,
+    publication,
     checks: [
-      "live adaptive decisions",
+      withoutAi
+        ? "deterministic live capture; AI review and recommendations not tested"
+        : recaptures
+          ? "recorded URLs recaptured and reassessed, no new discovery search"
+          : "live adaptive decisions",
       "bounded provider and model admission",
       "observed parent provenance",
       "current owner isolation",
@@ -409,15 +568,24 @@ const report = await withEvaluationDatabase(async (db) => {
     emailsSent: submitted,
     realAccountsUsed: 0,
     scopeNote:
+      (withoutAi
+        ? "AI is explicitly disabled: this measures live source discovery and capture, not source interpretation or recommendation quality. "
+        : "") +
+      (recaptures
+        ? "Seeded recapture regression: search observations replay previously recorded URLs; no search-provider request or new discovery/recall measurement. "
+        : "") +
       "Bounded live synthetic case using production discovery, review, assessment and delivery use cases. Worker reader includes configured browser fallback and Ashby routing without shared Redis caching; HTTP reader is a controlled reduced-access path. Native X and marketplace connector loops are not exercised. All lead rows are measured separately from the dashboard's bounded sample. Matching can remain incomplete if retries exceed the check window. Model labels are not independent ground truth; precision, recall and global throughput remain unproven.",
   };
 });
-await writeFile(output, JSON.stringify(report, null, 2) + "\n", { flag: "wx" });
+const stages = summarizeLiveQuality(report);
+await writeFile(output, JSON.stringify({ ...report, stages }, null, 2) + "\n", {
+  flag: "wx",
+});
 console.log(
   JSON.stringify(
     {
       scenario,
-      status: report.status,
+      status: stages.executionStatus,
       durationMs: report.durationMs,
       leads: report.leads.length,
       sourceReviews: report.sourceReviewsCompleted,
@@ -431,3 +599,31 @@ console.log(
     2,
   ),
 );
+
+/** Validates a small regression packet against recorded operations so source URLs and previous capture states are auditable. */
+async function captureCases(path) {
+  const cases = JSON.parse(await readFile(path, "utf8"));
+  assert.ok(Array.isArray(cases) && cases.length > 0 && cases.length <= 6);
+  assert.equal(new Set(cases.map((item) => item.url)).size, cases.length);
+  return Promise.all(
+    cases.map(async (item) => {
+      const prior = JSON.parse(await readFile(item.sourceReport, "utf8"));
+      const operation = prior.operations.find(
+        (entry) => entry.kind === "document" && entry.input.url === item.url,
+      );
+      assert.ok(
+        operation,
+        "Recapture URL must have a recorded source operation",
+      );
+      const lead = prior.leads.find((entry) => entry.url === item.url);
+      return {
+        url: item.url,
+        sourceReport: item.sourceReport,
+        priorReason: operation.source_reason,
+        priorCapture: operation.capture,
+        title: lead?.title ?? null,
+        snippet: null,
+      };
+    }),
+  );
+}
