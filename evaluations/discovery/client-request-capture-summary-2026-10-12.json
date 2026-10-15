@@ -1,0 +1,222 @@
+{
+  "recordedAt": "2026-10-12T00:37:12.250Z",
+  "reports": [
+    {
+      "file": "client-request-recapture-2026-10-12.json",
+      "scenario": "services",
+      "renderingEnabled": true,
+      "durationSeconds": 47.248,
+      "uniqueLeads": 6,
+      "recordedLeads": 6,
+      "completeLeadSet": true,
+      "searchRequests": 0,
+      "documentRequests": 6,
+      "capturedDocuments": 6,
+      "completeCaptures": 2,
+      "inaccessibleDocuments": 0,
+      "repeatedDestinations": 0,
+      "sourceReviewLabels": {
+        "client_request": 6
+      },
+      "sourceReviewCountsAreComplete": true,
+      "promotedPostings": 1,
+      "matching": "completed",
+      "dashboardRecommendations": 0,
+      "acceptedEmails": 0,
+      "aiEstimatedUsd": 0.020954,
+      "attemptsWithoutCostEstimate": 0,
+      "searchReservedUsd": 0,
+      "aiReservedUsd": 0.45,
+      "estimatedAiPlusSearchReservationPerRecommendationUsd": null,
+      "independentlyUsefulResults": null,
+      "costPerIndependentlyUsefulResultUsd": null,
+      "precision": null,
+      "recall": null,
+      "limitations": "AI estimates exclude unpriced/failed attempts, infrastructure and billing adjustments. Search reservations are configured upper allowances, not invoices. Source labels and dashboard acceptance are not independent usefulness judgments. Distinct URLs may still describe the same opportunity; repeatedDestinations detects only observed redirect identity. Initial reports recorded a dashboard sample, not every source review."
+    },
+    {
+      "file": "client-request-recapture-audit-2026-10-12.json",
+      "scenario": "services",
+      "renderingEnabled": true,
+      "durationSeconds": 46.546,
+      "uniqueLeads": 6,
+      "recordedLeads": 6,
+      "completeLeadSet": true,
+      "searchRequests": 0,
+      "documentRequests": 6,
+      "capturedDocuments": 6,
+      "completeCaptures": 2,
+      "inaccessibleDocuments": 0,
+      "repeatedDestinations": 0,
+      "sourceReviewLabels": {
+        "client_request": 6
+      },
+      "sourceReviewCountsAreComplete": true,
+      "promotedPostings": 1,
+      "matching": "completed",
+      "dashboardRecommendations": 0,
+      "acceptedEmails": 0,
+      "aiEstimatedUsd": 0.015958,
+      "attemptsWithoutCostEstimate": 0,
+      "searchReservedUsd": 0,
+      "aiReservedUsd": 0.45,
+      "estimatedAiPlusSearchReservationPerRecommendationUsd": null,
+      "independentlyUsefulResults": null,
+      "costPerIndependentlyUsefulResultUsd": null,
+      "precision": null,
+      "recall": null,
+      "limitations": "AI estimates exclude unpriced/failed attempts, infrastructure and billing adjustments. Search reservations are configured upper allowances, not invoices. Source labels and dashboard acceptance are not independent usefulness judgments. Distinct URLs may still describe the same opportunity; repeatedDestinations detects only observed redirect identity. Initial reports recorded a dashboard sample, not every source review."
+    },
+    {
+      "file": "client-request-assessment-2026-10-12.json",
+      "scenario": "services",
+      "renderingEnabled": true,
+      "durationSeconds": 68.699,
+      "uniqueLeads": 7,
+      "recordedLeads": 7,
+      "completeLeadSet": true,
+      "searchRequests": 0,
+      "documentRequests": 6,
+      "capturedDocuments": 6,
+      "completeCaptures": 2,
+      "inaccessibleDocuments": 0,
+      "repeatedDestinations": 0,
+      "sourceReviewLabels": {
+        "client_request": 6
+      },
+      "sourceReviewCountsAreComplete": true,
+      "promotedPostings": 2,
+      "matching": "completed",
+      "dashboardRecommendations": 1,
+      "acceptedEmails": 1,
+      "aiEstimatedUsd": 0.044781,
+      "attemptsWithoutCostEstimate": 0,
+      "searchReservedUsd": 0,
+      "aiReservedUsd": 1.275,
+      "estimatedAiPlusSearchReservationPerRecommendationUsd": 0.044781,
+      "independentlyUsefulResults": null,
+      "costPerIndependentlyUsefulResultUsd": null,
+      "precision": null,
+      "recall": null,
+      "limitations": "AI estimates exclude unpriced/failed attempts, infrastructure and billing adjustments. Search reservations are configured upper allowances, not invoices. Source labels and dashboard acceptance are not independent usefulness judgments. Distinct URLs may still describe the same opportunity; repeatedDestinations detects only observed redirect identity. Initial reports recorded a dashboard sample, not every source review."
+    }
+  ],
+  "captureComparison": [
+    {
+      "url": "https://www.freelancer.com/projects/website-development/need-website",
+      "previous": {
+        "bytes": 1472221,
+        "method": "browser",
+        "complete": false,
+        "requests": 5
+      },
+      "current": {
+        "bytes": 1341978,
+        "scope": "buyer_brief",
+        "method": "http",
+        "parser": "freelancer-public-html-v1",
+        "complete": true,
+        "requests": 2
+      },
+      "reason": null
+    },
+    {
+      "url": "https://www.freelancer.com/projects/creative-writing/psychological-horror-screenwriting-for",
+      "previous": {
+        "bytes": 1460148,
+        "method": "browser",
+        "complete": false,
+        "requests": 5
+      },
+      "current": {
+        "bytes": 1329905,
+        "scope": "buyer_brief",
+        "method": "http",
+        "parser": "freelancer-public-html-v1",
+        "complete": true,
+        "requests": 2
+      },
+      "reason": null
+    },
+    {
+      "url": "https://www.dcoe.org/opportunities/rfp-tenders/modernize-its-public-sex-offender-registry-website-enhancing-public",
+      "previous": {
+        "bytes": 610655,
+        "method": "browser",
+        "complete": false,
+        "requests": 12
+      },
+      "current": {
+        "bytes": 29114,
+        "method": "http",
+        "complete": false,
+        "requests": 2
+      },
+      "reason": "source_details_require_sign_in"
+    },
+    {
+      "url": "https://www.dcoe.org/opportunities/rfp-tenders/develop-statewide-workforce-portal",
+      "previous": {
+        "bytes": 610016,
+        "method": "browser",
+        "complete": false,
+        "requests": 12
+      },
+      "current": {
+        "bytes": 28475,
+        "method": "http",
+        "complete": false,
+        "requests": 2
+      },
+      "reason": "source_details_require_sign_in"
+    },
+    {
+      "url": "https://www.dcoe.org/opportunities/rfp-tenders/design-develop-host-and-support-modern-secure-accessible-and-user",
+      "previous": {
+        "bytes": 610607,
+        "method": "browser",
+        "complete": false,
+        "requests": 12
+      },
+      "current": {
+        "bytes": 29066,
+        "method": "http",
+        "complete": false,
+        "requests": 2
+      },
+      "reason": "source_details_require_sign_in"
+    },
+    {
+      "url": "https://www.dcoe.org/opportunities/rfp-tenders/website-design-development-hosting-operations-maintenance-and-support",
+      "previous": {
+        "bytes": 29757,
+        "method": "http",
+        "complete": true,
+        "requests": 2
+      },
+      "current": {
+        "bytes": 29757,
+        "method": "http",
+        "complete": false,
+        "requests": 2
+      },
+      "reason": "source_details_require_sign_in"
+    }
+  ],
+  "totalEstimatedAiUsd": 0.081693,
+  "paidSearchRequests": 0,
+  "independentQualityJudgments": 0,
+  "mailpit": {
+    "messageId": "692a8324-465d-4e3f-aafc-956b01030a07@scoutalert.test",
+    "id": "0O2WGx3hezBbbXTwT8x3pE",
+    "opportunityUrlIncluded": true,
+    "messagesForSubmission": 1,
+    "duplicateRetrySubmissions": 0
+  },
+  "notes": [
+    "First two runs recapture all six recorded URLs with a fixed diagnostic plan. The final run uses the current adaptive planner, recorded search observations and live source navigation, review, private fit and local delivery.",
+    "Four tender summaries require sign-in and remain withheld. Two marketplace briefs become complete.",
+    "The final model accepted a related website-design request with uncertainties and rejected the original new-build request against a redesign brief. It also claimed an INR/USD conflict despite no minimum pay; interpretation quality requires separate review. This is not independent relevance validation.",
+    "No real user account or email recipient was used. Reservations are not invoices."
+  ]
+}

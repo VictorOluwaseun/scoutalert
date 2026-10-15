@@ -1,0 +1,120 @@
+{
+  "kind": "development-regression",
+  "independentLabels": false,
+  "cases": [
+    {
+      "id": "client-storefront",
+      "category": "services",
+      "target": "Web developer",
+      "provenance": "Authored regression, not an organic discovery sample",
+      "observations": [
+        {
+          "url": "https://buyers.example.org/request/42",
+          "title": "Our shop needs an online checkout",
+          "snippet": "We need someone to build an online store for our bakery. Please share your estimate and past ecommerce work. Paid remote project.",
+          "rank": 1
+        }
+      ],
+      "expectedUrl": "https://buyers.example.org/request/42"
+    },
+    {
+      "id": "spanish-bookkeeping",
+      "category": "services",
+      "target": "Bookkeeper",
+      "provenance": "Authored multilingual regression, not language-wide validation",
+      "observations": [
+        {
+          "url": "https://buyers.example.org/solicitud/19",
+          "title": "Ayuda con la contabilidad de nuestra tienda",
+          "snippet": "Buscamos una persona que lleve los libros, concilie cuentas y prepare los informes mensuales. Servicio remunerado a distancia.",
+          "rank": 1
+        }
+      ],
+      "expectedUrl": "https://buyers.example.org/solicitud/19"
+    },
+    {
+      "id": "seller-and-advice",
+      "category": "services",
+      "target": "Product designer",
+      "provenance": "Authored negative regression; offering work is not buying work",
+      "observations": [
+        {
+          "url": "https://sellers.example.org/portfolio",
+          "title": "Product designer for hire",
+          "snippet": "Hire me. I offer my services to clients. See my portfolio and pricing.",
+          "rank": 1
+        },
+        {
+          "url": "https://guides.example.org/salary",
+          "title": "Product designer salary guide",
+          "snippet": "Career advice and salary statistics, not a vacancy or buyer request.",
+          "rank": 2
+        }
+      ],
+      "expectedUrl": null
+    },
+    {
+      "id": "captured-construction-is-not-software",
+      "category": "services",
+      "target": "React TypeScript web development",
+      "provenance": "Captured LAHD pages from client-demand-projects-2026-10-12.json; expected non-selection authored after observing a routing failure.",
+      "observations": [
+        {
+          "url": "https://housing.lacity.gov/all-announcement/site-design-analysis-request-for-proposals-rfp",
+          "title": "Site Design Analysis Request for Proposals (RFP) - LAHD",
+          "snippet": "This RFP seeks to solicit Proposals from qualified Proposers to provide site design analysis and planning, and assist in the evaluation of site RFP submissions and selected housing projects on City-owned land. While LAHD anticipates selecting and funding only one (1) Proposer to provide the services described in the Scope of Work below, LAHD reserves the right to select more than (1) Proposer for any category of service listed in this RFP, which ",
+          "rank": 1
+        },
+        {
+          "url": "https://housing.lacity.gov/partners/urgent-repair-program-urp-construction-services-request-for-proposals-rfp-2",
+          "title": "Urgent Repair Program (URP) Construction Services Request for Proposals (RFP)",
+          "snippet": "This RFP seeks to solicit Proposals from qualified Proposers to\n\nRead More About this Article »\n\n\nURGENT REPAIR PROGRAM (URP) CONSTRUCTION SERVICES REQUEST FOR PROPOSALS (RFP)\n\nLAHD is seeking proposals for the provision of Urgent Repair\n\nRead More About this Article »\n\n\nFINANCIAL ADVISOR SERVICES REQUEST FOR PROPOSALS (RFP)\n\nLAHD is seeking proposals for the provision of financial advisor\n\nRead More About this Article »\nAll Announcement\n\n\n\nNON-P",
+          "rank": 2
+        }
+      ],
+      "expectedUrl": null
+    },
+    {
+      "id": "captured-rfp-guide-is-not-demand",
+      "category": "services",
+      "target": "React TypeScript web development",
+      "provenance": "Captured source review from client-demand-projects-2026-10-12.json; implementation-authored development regression.",
+      "observations": [
+        {
+          "url": "https://www.inventive.ai/blog-posts/rfp-software-development-guide",
+          "title": "Writing an RFP for Software Development: Step-by- ...",
+          "snippet": "This is an informational blog post explaining how to write an RFP for software development, not a specific job, contract, or buyer request. It describes general guidance and templates rather than a live actionable opening.",
+          "rank": 1
+        }
+      ],
+      "expectedUrl": null
+    },
+    {
+      "id": "captured-website-client-vs-construction",
+      "category": "services",
+      "target": "Website redesign",
+      "provenance": "Captured Freelancer directory anchor and nearby text from client-demand-services-2026-10-12.json, contrasted with observed LAHD pages. Routing only; child still needs source verification.",
+      "observations": [
+        {
+          "url": "https://housing.lacity.gov/all-announcement/site-design-analysis-request-for-proposals-rfp",
+          "title": "Site Design Analysis Request for Proposals (RFP) - LAHD",
+          "snippet": "This RFP seeks to solicit Proposals from qualified Proposers to provide site design analysis and planning, and assist in the evaluation of site RFP submissions and selected housing projects on City-owned land. While LAHD anticipates selecting and funding only one (1) Proposer to provide the services described in the Scope of Work below, LAHD reserves the right to select more than (1) Proposer for any category of service listed in this RFP, which ",
+          "rank": 1
+        },
+        {
+          "url": "https://housing.lacity.gov/partners/urgent-repair-program-urp-construction-services-request-for-proposals-rfp-2",
+          "title": "Urgent Repair Program (URP) Construction Services Request for Proposals (RFP)",
+          "snippet": "This RFP seeks to solicit Proposals from qualified Proposers to\n\nRead More About this Article »\n\n\nURGENT REPAIR PROGRAM (URP) CONSTRUCTION SERVICES REQUEST FOR PROPOSALS (RFP)\n\nLAHD is seeking proposals for the provision of Urgent Repair\n\nRead More About this Article »\n\n\nFINANCIAL ADVISOR SERVICES REQUEST FOR PROPOSALS (RFP)\n\nLAHD is seeking proposals for the provision of financial advisor\n\nRead More About this Article »\nAll Announcement\n\n\n\nNON-P",
+          "rank": 2
+        },
+        {
+          "url": "https://www.freelancer.com/projects/web-development/premium-website-developer-for",
+          "title": "Premium Sr Website Developer for Recruitment AI",
+          "snippet": "Premium Sr Website Developer for Recruitment AI\n6 days left\nVerified\n\nSr Website Developer Build the digital experience behind the future of recruitment Experience: 3+ years The opportunity We are building Elegant AI Recruitment, a new AI-powered recruitment platform connecting exceptional talent with ambitious companies. We are looking for a talented Website Developer to turn our vision into a beautiful, fast and highly polished digital experience. This is not a project for a conventional corporate recruitment website. We want something elegant, intelligent, modern and memorable—a website that feels closer to a premium technology brand than ",
+          "rank": 3
+        }
+      ],
+      "expectedUrl": "https://www.freelancer.com/projects/web-development/premium-website-developer-for"
+    }
+  ]
+}

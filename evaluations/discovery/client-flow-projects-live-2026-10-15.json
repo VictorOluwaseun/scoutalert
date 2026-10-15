@@ -1,0 +1,3477 @@
+{
+  "checkedAt": "2026-10-15T13:52:54.023Z",
+  "scenario": "projects",
+  "recaptureCases": null,
+  "baseline": false,
+  "reasoningConfiguration": "openai:gpt-5.4-mini-2026-03-17:scout-planning-v8",
+  "plan": {
+    "policy": "public-intent-v3",
+    "queries": [
+      {
+        "page": 1,
+        "limit": 10,
+        "query": "\"React\" (\"project details\" OR \"project description\" OR \"open for bidding\")",
+        "country": "us",
+        "language": "en",
+        "freshness": "month"
+      },
+      {
+        "page": 1,
+        "limit": 10,
+        "query": "\"TypeScript\" (\"I need\" OR \"we need\" OR \"looking for\") (\"freelancer\" OR \"budget\")",
+        "country": "us",
+        "language": "en",
+        "freshness": "month"
+      },
+      {
+        "page": 1,
+        "limit": 10,
+        "query": "\"web\" \"development\" (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+        "country": "us",
+        "language": "en",
+        "freshness": "month"
+      },
+      {
+        "page": 1,
+        "limit": 10,
+        "query": "\"React\" (\"seeking\" OR \"hiring\") (\"freelance\" OR \"contractor\")",
+        "country": "us",
+        "language": "en",
+        "freshness": "month"
+      }
+    ],
+    "category": "services",
+    "strategy": {
+      "targets": [
+        "React",
+        "TypeScript",
+        "web development"
+      ],
+      "explanation": "I split the service into three focused search concepts using only the words provided: React, TypeScript, and web development. This keeps each search broad enough to find matches while preserving the full skill stack for later filtering."
+    },
+    "exploration": {
+      "remote": true,
+      "target": "React TypeScript web development",
+      "queryPolicy": "client-demand-v2",
+      "maximumDepth": 3,
+      "maximumRounds": 8,
+      "candidatePolicy": "contextual-v1",
+      "maximumSearches": 6,
+      "maximumSourcePages": 2
+    },
+    "continuation": "explore_on_next_run",
+    "scoutVersion": 1,
+    "blockedReason": null,
+    "deadlineSeconds": 240,
+    "maximumDocuments": 6
+  },
+  "reader": "worker",
+  "renderingEnabled": true,
+  "status": "measured",
+  "deliveryOutcome": "no_eligible_digest",
+  "reasoning": [
+    {
+      "input": {
+        "kind": "strategy",
+        "intent": {
+          "remote": true,
+          "target": "React TypeScript web development",
+          "category": "services"
+        }
+      },
+      "output": {
+        "kind": "strategy",
+        "strategy": {
+          "targets": [
+            "React",
+            "TypeScript",
+            "web development"
+          ],
+          "explanation": "I split the service into three focused search concepts using only the words provided: React, TypeScript, and web development. This keeps each search broad enough to find matches while preserving the full skill stack for later filtering."
+        }
+      },
+      "rejected_output": null,
+      "failure": null,
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 2316,
+        "responseId": "resp_08f77b8cc40a15e4016ad0da782f0087d2ab39ec68e18c1835",
+        "inputTokens": 318,
+        "outputTokens": 147,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 900
+      }
+    },
+    {
+      "input": {
+        "kind": "choice",
+        "intent": {
+          "remote": true,
+          "target": "React TypeScript web development",
+          "category": "services"
+        },
+        "choices": [
+          {
+            "depth": 0,
+            "title": "React TypeScript Full-Stack Web App",
+            "action": {
+              "url": "https://www.freelancer.com/projects/typescript/react-typescript-full-stack-web",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "379809354ec3d4dfbad3d80b810a2a6faf60f0e02881a4817fc6c421cc65a49a"
+          },
+          {
+            "depth": 0,
+            "title": "Kenneth Lynard - MSc, EMBA's Post",
+            "action": {
+              "url": "https://www.linkedin.com/posts/kenneth-lynard_looking-for-a-web-designer-developer-activity-7507942655935324160-FW0m",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "379809354ec3d4dfbad3d80b810a2a6faf60f0e02881a4817fc6c421cc65a49a"
+          },
+          {
+            "depth": 0,
+            "title": "Active City RFPs, RFQs, RFIs, and Bids",
+            "action": {
+              "url": "https://www.stlouis-mo.gov/government/procurement/index.cfm",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "3ce3fe913f8a09c9a4ac5a4c6f3324237ebd20447c7b743c60881aa71acd5caf"
+          },
+          {
+            "depth": 0,
+            "title": "Request for Proposal (RfP)",
+            "action": {
+              "url": "https://www.c40.org/wp-content/uploads/2026/10/2-RfP-GCoM-Website-Development-Maintenance.pdf",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "3ce3fe913f8a09c9a4ac5a4c6f3324237ebd20447c7b743c60881aa71acd5caf"
+          },
+          {
+            "depth": 0,
+            "title": "𝐇𝐢𝐫𝐞 𝐍𝐞𝐱𝐭.𝐣𝐬 𝐃𝐞𝐯𝐞𝐥𝐨𝐩𝐞𝐫𝐬 to build fast, scalable, ...",
+            "action": {
+              "url": "https://www.instagram.com/p/DeHVvf1Fx9l/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "60ca7a24680776cc5d8e5c9ae306c14832b557f4e3125faba7672c36bec1a7a7"
+          },
+          {
+            "depth": 0,
+            "title": "WE'RE HIRING | FREELANCE WEBSITE DEVELOPER Hi ...",
+            "action": {
+              "url": "https://www.facebook.com/groups/361717460552082/posts/28527848616845589/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "882551918cc418d9dfb7f0db3e7de88e440a1e9e4e1db2f3138c323d3b2a279b"
+          },
+          {
+            "depth": 0,
+            "title": "Senior React Native dev needed for WebRTC screen share ...",
+            "action": {
+              "url": "https://www.facebook.com/groups/AppDevelopersBd/posts/3932481206901611/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "60ca7a24680776cc5d8e5c9ae306c14832b557f4e3125faba7672c36bec1a7a7"
+          },
+          {
+            "depth": 0,
+            "title": "Freelance React Web Developer at Praxis Design Studio",
+            "action": {
+              "url": "https://www.linkedin.com/jobs/view/freelance-react-web-developer-at-praxis-design-studio-4478823063",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "882551918cc418d9dfb7f0db3e7de88e440a1e9e4e1db2f3138c323d3b2a279b"
+          },
+          {
+            "depth": 0,
+            "title": "Enhancing Project Details Page in Developer Portfolio",
+            "action": {
+              "url": "https://www.linkedin.com/posts/anupam-katiyar-461760280_reactjs-webdevelopment-portfolio-activity-7508840087154032640-NQnw",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "60ca7a24680776cc5d8e5c9ae306c14832b557f4e3125faba7672c36bec1a7a7"
+          },
+          {
+            "depth": 0,
+            "title": "Hire TypeScript Developers",
+            "action": {
+              "url": "https://infoloop.co/hire-typescript-developers",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "379809354ec3d4dfbad3d80b810a2a6faf60f0e02881a4817fc6c421cc65a49a"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"TypeScript\" (\"project\" OR \"brief\") (\"budget\" OR \"fixed price\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "882551918cc418d9dfb7f0db3e7de88e440a1e9e4e1db2f3138c323d3b2a279b"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"web\" \"development\" (\"project\" OR \"brief\") (\"proposals\" OR \"bids\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "882551918cc418d9dfb7f0db3e7de88e440a1e9e4e1db2f3138c323d3b2a279b"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"React\" site:x.com (\"hiring\" OR \"need\") (\"project\" OR \"freelance\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "882551918cc418d9dfb7f0db3e7de88e440a1e9e4e1db2f3138c323d3b2a279b"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"TypeScript\" site:linkedin.com/posts (\"hiring\" OR \"need\") (\"project\" OR \"freelance\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "882551918cc418d9dfb7f0db3e7de88e440a1e9e4e1db2f3138c323d3b2a279b"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"TypeScript\" (\"project details\" OR \"project description\" OR \"open for bidding\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "882551918cc418d9dfb7f0db3e7de88e440a1e9e4e1db2f3138c323d3b2a279b"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": null,
+            "reason": "no_further_action",
+            "parentKey": null
+          }
+        ],
+        "evidence": [
+          {
+            "url": "https://www.linkedin.com/posts/anupam-katiyar-461760280_reactjs-webdevelopment-portfolio-activity-7508840087154032640-NQnw",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Enhancing Project Details Page in Developer Portfolio Enhancing Project Details Page in Developer Portfolio. View profile for ... React. What I plan to implement: Patient dashboard to upload & manage ..."
+          },
+          {
+            "url": "https://www.instagram.com/p/DeHVvf1Fx9l/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "𝐇𝐢𝐫𝐞 𝐍𝐞𝐱𝐭.𝐣𝐬 𝐃𝐞𝐯𝐞𝐥𝐨𝐩𝐞𝐫𝐬 to build fast, scalable, ... Our team will contact you with the complete project details. ... js is a powerful React framework for building fast, scalable, and production-ready web ..."
+          },
+          {
+            "url": "https://www.facebook.com/groups/AppDevelopersBd/posts/3932481206901611/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Senior React Native dev needed for WebRTC screen share ... Senior React Native dev needed for WebRTC screen share bug [Hiring: Senior React ... Project Details: • Work Type: Fixed-price milestone (Freelance / Remote) ..."
+          },
+          {
+            "url": "https://www.freelancer.com/projects/typescript/react-typescript-full-stack-web",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "React TypeScript Full-Stack Web App Looking for a freelancer with a specific skill? Start here. By location ... Freelancer Jobs Typescript · React TypeScript Full-Stack Web App. React ..."
+          },
+          {
+            "url": "https://infoloop.co/hire-typescript-developers",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Hire TypeScript Developers Looking for*. Select, Custom applications ... PDF, Word, Excel, PowerPoint, text or images; up to 5 files, 10 MB in total. Project budget (in USD)*."
+          },
+          {
+            "url": "https://www.linkedin.com/posts/kenneth-lynard_looking-for-a-web-designer-developer-activity-7507942655935324160-FW0m",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Kenneth Lynard - MSc, EMBA's Post Looking for a Web Designer / Developer Looking for a talented freelancer ... Daniel Albino. Senior React & React Native Engineer | TypeScript, Next.js ..."
+          },
+          {
+            "url": "https://www.stlouis-mo.gov/government/procurement/index.cfm",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Active City RFPs, RFQs, RFIs, and Bids RFP Parking Facilities Garage Repair Design Services Office of the Treasurer ... Built by the ITSA Web Development Team. © 2011 - 2026 City of St. Louis."
+          },
+          {
+            "url": "https://www.c40.org/wp-content/uploads/2026/10/2-RfP-GCoM-Website-Development-Maintenance.pdf",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Request for Proposal (RfP) Request for Proposal (RfP). GCoM Website Maintenance ... provide comprehensive web development, technical maintenance, and strategic design-led."
+          },
+          {
+            "url": "https://www.linkedin.com/jobs/view/freelance-react-web-developer-at-praxis-design-studio-4478823063",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Freelance React Web Developer at Praxis Design Studio Freelance React Web Developer. Praxis Design Studio St Louis, MO. 19 minutes ago ... Seeking a freelance web developer to assist with ongoing updates and ..."
+          },
+          {
+            "url": "https://www.facebook.com/groups/361717460552082/posts/28527848616845589/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "WE'RE HIRING | FREELANCE WEBSITE DEVELOPER Hi ... Hiring Freelance React.js and Next.js Developer for Front-end Development. Amit Sharma ▻ Reactjs Developers. 1y · Public · Looking for a talented freelancer ..."
+          }
+        ],
+        "candidates": [
+          {
+            "text": "React TypeScript Full-Stack Web App Looking for a freelancer with a specific skill? Start here. By location ... Freelancer Jobs Typescript · React TypeScript Full-Stack Web App. React ...",
+            "query": "\"TypeScript\" (\"I need\" OR \"we need\" OR \"looking for\") (\"freelancer\" OR \"budget\")",
+            "choice": 0,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Kenneth Lynard - MSc, EMBA's Post Looking for a Web Designer / Developer Looking for a talented freelancer ... Daniel Albino. Senior React & React Native Engineer | TypeScript, Next.js ...",
+            "query": "\"TypeScript\" (\"I need\" OR \"we need\" OR \"looking for\") (\"freelancer\" OR \"budget\")",
+            "choice": 1,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Active City RFPs, RFQs, RFIs, and Bids RFP Parking Facilities Garage Repair Design Services Office of the Treasurer ... Built by the ITSA Web Development Team. © 2011 - 2026 City of St. Louis.",
+            "query": "\"web\" \"development\" (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 2,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Request for Proposal (RfP) Request for Proposal (RfP). GCoM Website Maintenance ... provide comprehensive web development, technical maintenance, and strategic design-led.",
+            "query": "\"web\" \"development\" (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 3,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "𝐇𝐢𝐫𝐞 𝐍𝐞𝐱𝐭.𝐣𝐬 𝐃𝐞𝐯𝐞𝐥𝐨𝐩𝐞𝐫𝐬 to build fast, scalable, ... Our team will contact you with the complete project details. ... js is a powerful React framework for building fast, scalable, and production-ready web ...",
+            "query": "\"React\" (\"project details\" OR \"project description\" OR \"open for bidding\")",
+            "choice": 4,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "WE'RE HIRING | FREELANCE WEBSITE DEVELOPER Hi ... Hiring Freelance React.js and Next.js Developer for Front-end Development. Amit Sharma ▻ Reactjs Developers. 1y · Public · Looking for a talented freelancer ...",
+            "query": "\"React\" (\"seeking\" OR \"hiring\") (\"freelance\" OR \"contractor\")",
+            "choice": 5,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Senior React Native dev needed for WebRTC screen share ... Senior React Native dev needed for WebRTC screen share bug [Hiring: Senior React ... Project Details: • Work Type: Fixed-price milestone (Freelance / Remote) ...",
+            "query": "\"React\" (\"project details\" OR \"project description\" OR \"open for bidding\")",
+            "choice": 6,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Freelance React Web Developer at Praxis Design Studio Freelance React Web Developer. Praxis Design Studio St Louis, MO. 19 minutes ago ... Seeking a freelance web developer to assist with ongoing updates and ...",
+            "query": "\"React\" (\"seeking\" OR \"hiring\") (\"freelance\" OR \"contractor\")",
+            "choice": 7,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Enhancing Project Details Page in Developer Portfolio Enhancing Project Details Page in Developer Portfolio. View profile for ... React. What I plan to implement: Patient dashboard to upload & manage ...",
+            "query": "\"React\" (\"project details\" OR \"project description\" OR \"open for bidding\")",
+            "choice": 8,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Hire TypeScript Developers Looking for*. Select, Custom applications ... PDF, Word, Excel, PowerPoint, text or images; up to 5 files, 10 MB in total. Project budget (in USD)*.",
+            "query": "\"TypeScript\" (\"I need\" OR \"we need\" OR \"looking for\") (\"freelancer\" OR \"budget\")",
+            "choice": 9,
+            "origin": "search_result",
+            "parentUrl": null
+          }
+        ]
+      },
+      "output": {
+        "kind": "choice",
+        "index": 3,
+        "explanation": "Concrete buyer RFP for website development/maintenance is the strongest relevant demand to inspect next for scope, eligibility, and deadlines."
+      },
+      "rejected_output": null,
+      "failure": null,
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 2933,
+        "responseId": "resp_0b13c332afd20fa8016ad0da83294087d2a9bd5cca10ee6b09",
+        "inputTokens": 4203,
+        "outputTokens": 136,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 3765
+      }
+    },
+    {
+      "input": {
+        "kind": "choice",
+        "intent": {
+          "remote": true,
+          "target": "React TypeScript web development",
+          "category": "services"
+        },
+        "choices": [
+          {
+            "depth": 0,
+            "title": "React TypeScript Full-Stack Web App",
+            "action": {
+              "url": "https://www.freelancer.com/projects/typescript/react-typescript-full-stack-web",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "379809354ec3d4dfbad3d80b810a2a6faf60f0e02881a4817fc6c421cc65a49a"
+          },
+          {
+            "depth": 0,
+            "title": "Kenneth Lynard - MSc, EMBA's Post",
+            "action": {
+              "url": "https://www.linkedin.com/posts/kenneth-lynard_looking-for-a-web-designer-developer-activity-7507942655935324160-FW0m",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "379809354ec3d4dfbad3d80b810a2a6faf60f0e02881a4817fc6c421cc65a49a"
+          },
+          {
+            "depth": 0,
+            "title": "Active City RFPs, RFQs, RFIs, and Bids",
+            "action": {
+              "url": "https://www.stlouis-mo.gov/government/procurement/index.cfm",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "3ce3fe913f8a09c9a4ac5a4c6f3324237ebd20447c7b743c60881aa71acd5caf"
+          },
+          {
+            "depth": 0,
+            "title": "📢 Request for Proposal (RFP) - Website Development We ...",
+            "action": {
+              "url": "https://www.instagram.com/p/DeZUIC5BGCm/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "3ce3fe913f8a09c9a4ac5a4c6f3324237ebd20447c7b743c60881aa71acd5caf"
+          },
+          {
+            "depth": 0,
+            "title": "Senior React Native dev needed for WebRTC screen share ...",
+            "action": {
+              "url": "https://www.facebook.com/groups/AppDevelopersBd/posts/3932481206901611/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "60ca7a24680776cc5d8e5c9ae306c14832b557f4e3125faba7672c36bec1a7a7"
+          },
+          {
+            "depth": 0,
+            "title": "WE'RE HIRING | FREELANCE WEBSITE DEVELOPER Hi ...",
+            "action": {
+              "url": "https://www.facebook.com/groups/361717460552082/posts/28527848616845589/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "882551918cc418d9dfb7f0db3e7de88e440a1e9e4e1db2f3138c323d3b2a279b"
+          },
+          {
+            "depth": 0,
+            "title": "𝐇𝐢𝐫𝐞 𝐍𝐞𝐱𝐭.𝐣𝐬 𝐃𝐞𝐯𝐞𝐥𝐨𝐩𝐞𝐫𝐬 to build fast, scalable, ...",
+            "action": {
+              "url": "https://www.instagram.com/p/DeHVvf1Fx9l/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "60ca7a24680776cc5d8e5c9ae306c14832b557f4e3125faba7672c36bec1a7a7"
+          },
+          {
+            "depth": 0,
+            "title": "Freelance React Web Developer at Praxis Design Studio",
+            "action": {
+              "url": "https://www.linkedin.com/jobs/view/freelance-react-web-developer-at-praxis-design-studio-4478823063",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "882551918cc418d9dfb7f0db3e7de88e440a1e9e4e1db2f3138c323d3b2a279b"
+          },
+          {
+            "depth": 0,
+            "title": "Enhancing Project Details Page in Developer Portfolio",
+            "action": {
+              "url": "https://www.linkedin.com/posts/anupam-katiyar-461760280_reactjs-webdevelopment-portfolio-activity-7508840087154032640-NQnw",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "60ca7a24680776cc5d8e5c9ae306c14832b557f4e3125faba7672c36bec1a7a7"
+          },
+          {
+            "depth": 0,
+            "title": "Hire TypeScript Developers",
+            "action": {
+              "url": "https://infoloop.co/hire-typescript-developers",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "379809354ec3d4dfbad3d80b810a2a6faf60f0e02881a4817fc6c421cc65a49a"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"TypeScript\" (\"project\" OR \"brief\") (\"budget\" OR \"fixed price\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "882551918cc418d9dfb7f0db3e7de88e440a1e9e4e1db2f3138c323d3b2a279b"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"web\" \"development\" (\"project\" OR \"brief\") (\"proposals\" OR \"bids\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "882551918cc418d9dfb7f0db3e7de88e440a1e9e4e1db2f3138c323d3b2a279b"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"React\" site:x.com (\"hiring\" OR \"need\") (\"project\" OR \"freelance\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "882551918cc418d9dfb7f0db3e7de88e440a1e9e4e1db2f3138c323d3b2a279b"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"TypeScript\" site:linkedin.com/posts (\"hiring\" OR \"need\") (\"project\" OR \"freelance\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "882551918cc418d9dfb7f0db3e7de88e440a1e9e4e1db2f3138c323d3b2a279b"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"TypeScript\" (\"project details\" OR \"project description\" OR \"open for bidding\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "882551918cc418d9dfb7f0db3e7de88e440a1e9e4e1db2f3138c323d3b2a279b"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": null,
+            "reason": "no_further_action",
+            "parentKey": null
+          }
+        ],
+        "evidence": [
+          {
+            "url": "https://www.c40.org/wp-content/uploads/2026/10/2-RfP-GCoM-Website-Development-Maintenance.pdf",
+            "label": "access_limited",
+            "scope": "source_access",
+            "unknowns": [
+              "demand and availability remain unverified"
+            ],
+            "explanation": "Source capture could not provide complete evidence: source_access_denied."
+          },
+          {
+            "url": "https://www.linkedin.com/posts/anupam-katiyar-461760280_reactjs-webdevelopment-portfolio-activity-7508840087154032640-NQnw",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Enhancing Project Details Page in Developer Portfolio Enhancing Project Details Page in Developer Portfolio. View profile for ... React. What I plan to implement: Patient dashboard to upload & manage ..."
+          },
+          {
+            "url": "https://www.instagram.com/p/DeHVvf1Fx9l/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "𝐇𝐢𝐫𝐞 𝐍𝐞𝐱𝐭.𝐣𝐬 𝐃𝐞𝐯𝐞𝐥𝐨𝐩𝐞𝐫𝐬 to build fast, scalable, ... Our team will contact you with the complete project details. ... js is a powerful React framework for building fast, scalable, and production-ready web ..."
+          },
+          {
+            "url": "https://www.facebook.com/groups/AppDevelopersBd/posts/3932481206901611/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Senior React Native dev needed for WebRTC screen share ... Senior React Native dev needed for WebRTC screen share bug [Hiring: Senior React ... Project Details: • Work Type: Fixed-price milestone (Freelance / Remote) ..."
+          },
+          {
+            "url": "https://www.freelancer.com/projects/typescript/react-typescript-full-stack-web",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "React TypeScript Full-Stack Web App Looking for a freelancer with a specific skill? Start here. By location ... Freelancer Jobs Typescript · React TypeScript Full-Stack Web App. React ..."
+          },
+          {
+            "url": "https://infoloop.co/hire-typescript-developers",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Hire TypeScript Developers Looking for*. Select, Custom applications ... PDF, Word, Excel, PowerPoint, text or images; up to 5 files, 10 MB in total. Project budget (in USD)*."
+          },
+          {
+            "url": "https://www.linkedin.com/posts/kenneth-lynard_looking-for-a-web-designer-developer-activity-7507942655935324160-FW0m",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Kenneth Lynard - MSc, EMBA's Post Looking for a Web Designer / Developer Looking for a talented freelancer ... Daniel Albino. Senior React & React Native Engineer | TypeScript, Next.js ..."
+          },
+          {
+            "url": "https://www.stlouis-mo.gov/government/procurement/index.cfm",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Active City RFPs, RFQs, RFIs, and Bids RFP Parking Facilities Garage Repair Design Services Office of the Treasurer ... Built by the ITSA Web Development Team. © 2011 - 2026 City of St. Louis."
+          },
+          {
+            "url": "https://www.instagram.com/p/DeZUIC5BGCm/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "📢 Request for Proposal (RFP) - Website Development We ... Request for Proposal (RFP) - Website Development · Hiring a web development team? · We're giving our website a fresh look — and we need your help! ·"
+          },
+          {
+            "url": "https://www.linkedin.com/jobs/view/freelance-react-web-developer-at-praxis-design-studio-4478823063",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Freelance React Web Developer at Praxis Design Studio Freelance React Web Developer. Praxis Design Studio St Louis, MO. 19 minutes ago ... Seeking a freelance web developer to assist with ongoing updates and ..."
+          },
+          {
+            "url": "https://www.facebook.com/groups/361717460552082/posts/28527848616845589/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "WE'RE HIRING | FREELANCE WEBSITE DEVELOPER Hi ... Hiring Freelance React.js and Next.js Developer for Front-end Development. Amit Sharma ▻ Reactjs Developers. 1y · Public · Looking for a talented freelancer ..."
+          }
+        ],
+        "candidates": [
+          {
+            "text": "React TypeScript Full-Stack Web App Looking for a freelancer with a specific skill? Start here. By location ... Freelancer Jobs Typescript · React TypeScript Full-Stack Web App. React ...",
+            "query": "\"TypeScript\" (\"I need\" OR \"we need\" OR \"looking for\") (\"freelancer\" OR \"budget\")",
+            "choice": 0,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Kenneth Lynard - MSc, EMBA's Post Looking for a Web Designer / Developer Looking for a talented freelancer ... Daniel Albino. Senior React & React Native Engineer | TypeScript, Next.js ...",
+            "query": "\"TypeScript\" (\"I need\" OR \"we need\" OR \"looking for\") (\"freelancer\" OR \"budget\")",
+            "choice": 1,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Active City RFPs, RFQs, RFIs, and Bids RFP Parking Facilities Garage Repair Design Services Office of the Treasurer ... Built by the ITSA Web Development Team. © 2011 - 2026 City of St. Louis.",
+            "query": "\"web\" \"development\" (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 2,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "📢 Request for Proposal (RFP) - Website Development We ... Request for Proposal (RFP) - Website Development · Hiring a web development team? · We're giving our website a fresh look — and we need your help! ·",
+            "query": "\"web\" \"development\" (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 3,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Senior React Native dev needed for WebRTC screen share ... Senior React Native dev needed for WebRTC screen share bug [Hiring: Senior React ... Project Details: • Work Type: Fixed-price milestone (Freelance / Remote) ...",
+            "query": "\"React\" (\"project details\" OR \"project description\" OR \"open for bidding\")",
+            "choice": 4,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "WE'RE HIRING | FREELANCE WEBSITE DEVELOPER Hi ... Hiring Freelance React.js and Next.js Developer for Front-end Development. Amit Sharma ▻ Reactjs Developers. 1y · Public · Looking for a talented freelancer ...",
+            "query": "\"React\" (\"seeking\" OR \"hiring\") (\"freelance\" OR \"contractor\")",
+            "choice": 5,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "𝐇𝐢𝐫𝐞 𝐍𝐞𝐱𝐭.𝐣𝐬 𝐃𝐞𝐯𝐞𝐥𝐨𝐩𝐞𝐫𝐬 to build fast, scalable, ... Our team will contact you with the complete project details. ... js is a powerful React framework for building fast, scalable, and production-ready web ...",
+            "query": "\"React\" (\"project details\" OR \"project description\" OR \"open for bidding\")",
+            "choice": 6,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Freelance React Web Developer at Praxis Design Studio Freelance React Web Developer. Praxis Design Studio St Louis, MO. 19 minutes ago ... Seeking a freelance web developer to assist with ongoing updates and ...",
+            "query": "\"React\" (\"seeking\" OR \"hiring\") (\"freelance\" OR \"contractor\")",
+            "choice": 7,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Enhancing Project Details Page in Developer Portfolio Enhancing Project Details Page in Developer Portfolio. View profile for ... React. What I plan to implement: Patient dashboard to upload & manage ...",
+            "query": "\"React\" (\"project details\" OR \"project description\" OR \"open for bidding\")",
+            "choice": 8,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Hire TypeScript Developers Looking for*. Select, Custom applications ... PDF, Word, Excel, PowerPoint, text or images; up to 5 files, 10 MB in total. Project budget (in USD)*.",
+            "query": "\"TypeScript\" (\"I need\" OR \"we need\" OR \"looking for\") (\"freelancer\" OR \"budget\")",
+            "choice": 9,
+            "origin": "search_result",
+            "parentUrl": null
+          }
+        ]
+      },
+      "output": {
+        "kind": "choice",
+        "index": 0,
+        "explanation": "A Freelancer project brief is a concrete buyer request for React/TypeScript web work, which is the most relevant evidence to inspect first."
+      },
+      "rejected_output": null,
+      "failure": null,
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 2218,
+        "responseId": "resp_0a8d773d40b897ca016ad0da8809f087d296f18d98022c4434",
+        "inputTokens": 4282,
+        "outputTokens": 154,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 3905
+      }
+    },
+    {
+      "input": {
+        "kind": "choice",
+        "intent": {
+          "remote": true,
+          "target": "React TypeScript web development",
+          "category": "services"
+        },
+        "choices": [
+          {
+            "depth": 0,
+            "title": "Kenneth Lynard - MSc, EMBA's Post",
+            "action": {
+              "url": "https://www.linkedin.com/posts/kenneth-lynard_looking-for-a-web-designer-developer-activity-7507942655935324160-FW0m",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "379809354ec3d4dfbad3d80b810a2a6faf60f0e02881a4817fc6c421cc65a49a"
+          },
+          {
+            "depth": 0,
+            "title": "Remote frontend or full stack developer job opportunities ...",
+            "action": {
+              "url": "https://www.facebook.com/groups/4478714448882966/posts/28484703571190718/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "379809354ec3d4dfbad3d80b810a2a6faf60f0e02881a4817fc6c421cc65a49a"
+          },
+          {
+            "depth": 0,
+            "title": "Active City RFPs, RFQs, RFIs, and Bids",
+            "action": {
+              "url": "https://www.stlouis-mo.gov/government/procurement/index.cfm",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "3ce3fe913f8a09c9a4ac5a4c6f3324237ebd20447c7b743c60881aa71acd5caf"
+          },
+          {
+            "depth": 0,
+            "title": "📢 Request for Proposal (RFP) - Website Development We ...",
+            "action": {
+              "url": "https://www.instagram.com/p/DeZUIC5BGCm/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "3ce3fe913f8a09c9a4ac5a4c6f3324237ebd20447c7b743c60881aa71acd5caf"
+          },
+          {
+            "depth": 0,
+            "title": "𝐇𝐢𝐫𝐞 𝐍𝐞𝐱𝐭.𝐣𝐬 𝐃𝐞𝐯𝐞𝐥𝐨𝐩𝐞𝐫𝐬 to build fast, scalable, ...",
+            "action": {
+              "url": "https://www.instagram.com/p/DeHVvf1Fx9l/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "60ca7a24680776cc5d8e5c9ae306c14832b557f4e3125faba7672c36bec1a7a7"
+          },
+          {
+            "depth": 0,
+            "title": "WE'RE HIRING | FREELANCE WEBSITE DEVELOPER Hi ...",
+            "action": {
+              "url": "https://www.facebook.com/groups/361717460552082/posts/28527848616845589/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "882551918cc418d9dfb7f0db3e7de88e440a1e9e4e1db2f3138c323d3b2a279b"
+          },
+          {
+            "depth": 0,
+            "title": "Freelance React Web Developer at Praxis Design Studio",
+            "action": {
+              "url": "https://www.linkedin.com/jobs/view/freelance-react-web-developer-at-praxis-design-studio-4478823063",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "882551918cc418d9dfb7f0db3e7de88e440a1e9e4e1db2f3138c323d3b2a279b"
+          },
+          {
+            "depth": 0,
+            "title": "bevy-react: A library to create bevy_ui interfaces in React",
+            "action": {
+              "url": "https://www.reddit.com/r/bevy/comments/1x65rje/bevyreact_a_library_to_create_bevy_ui_interfaces/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "60ca7a24680776cc5d8e5c9ae306c14832b557f4e3125faba7672c36bec1a7a7"
+          },
+          {
+            "depth": 0,
+            "title": "Enhancing Project Details Page in Developer Portfolio",
+            "action": {
+              "url": "https://www.linkedin.com/posts/anupam-katiyar-461760280_reactjs-webdevelopment-portfolio-activity-7508840087154032640-NQnw",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "60ca7a24680776cc5d8e5c9ae306c14832b557f4e3125faba7672c36bec1a7a7"
+          },
+          {
+            "depth": 0,
+            "title": "Hire TypeScript Developers",
+            "action": {
+              "url": "https://infoloop.co/hire-typescript-developers",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "379809354ec3d4dfbad3d80b810a2a6faf60f0e02881a4817fc6c421cc65a49a"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"TypeScript\" (\"project\" OR \"brief\") (\"budget\" OR \"fixed price\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "882551918cc418d9dfb7f0db3e7de88e440a1e9e4e1db2f3138c323d3b2a279b"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"web\" \"development\" (\"project\" OR \"brief\") (\"proposals\" OR \"bids\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "882551918cc418d9dfb7f0db3e7de88e440a1e9e4e1db2f3138c323d3b2a279b"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"React\" site:x.com (\"hiring\" OR \"need\") (\"project\" OR \"freelance\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "882551918cc418d9dfb7f0db3e7de88e440a1e9e4e1db2f3138c323d3b2a279b"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"TypeScript\" site:linkedin.com/posts (\"hiring\" OR \"need\") (\"project\" OR \"freelance\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "882551918cc418d9dfb7f0db3e7de88e440a1e9e4e1db2f3138c323d3b2a279b"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"TypeScript\" (\"project details\" OR \"project description\" OR \"open for bidding\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "882551918cc418d9dfb7f0db3e7de88e440a1e9e4e1db2f3138c323d3b2a279b"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": null,
+            "reason": "no_further_action",
+            "parentKey": null
+          }
+        ],
+        "evidence": [
+          {
+            "url": "https://www.c40.org/wp-content/uploads/2026/10/2-RfP-GCoM-Website-Development-Maintenance.pdf",
+            "label": "access_limited",
+            "scope": "source_access",
+            "unknowns": [
+              "demand and availability remain unverified"
+            ],
+            "explanation": "Source capture could not provide complete evidence: source_access_denied."
+          },
+          {
+            "url": "https://www.freelancer.com/projects/typescript/react-typescript-full-stack-web",
+            "label": "access_limited",
+            "scope": "source_access",
+            "unknowns": [
+              "demand and availability remain unverified"
+            ],
+            "explanation": "Source capture could not provide complete evidence: source_not_found."
+          },
+          {
+            "url": "https://www.linkedin.com/posts/anupam-katiyar-461760280_reactjs-webdevelopment-portfolio-activity-7508840087154032640-NQnw",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Enhancing Project Details Page in Developer Portfolio Enhancing Project Details Page in Developer Portfolio. View profile for ... React. What I plan to implement: Patient dashboard to upload & manage ..."
+          },
+          {
+            "url": "https://www.reddit.com/r/bevy/comments/1x65rje/bevyreact_a_library_to_create_bevy_ui_interfaces/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "bevy-react: A library to create bevy_ui interfaces in React bevy-react: A library to create bevy_ui interfaces in React ... Showing a few more features + project description in the body · r/bevy ..."
+          },
+          {
+            "url": "https://www.instagram.com/p/DeHVvf1Fx9l/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "𝐇𝐢𝐫𝐞 𝐍𝐞𝐱𝐭.𝐣𝐬 𝐃𝐞𝐯𝐞𝐥𝐨𝐩𝐞𝐫𝐬 to build fast, scalable, ... Our team will contact you with the complete project details. ... js is a powerful React framework for building fast, scalable, and production-ready web ..."
+          },
+          {
+            "url": "https://infoloop.co/hire-typescript-developers",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Hire TypeScript Developers Looking for*. Select, Custom applications ... PDF, Word, Excel, PowerPoint, text or images; up to 5 files, 10 MB in total. Project budget (in USD)*."
+          },
+          {
+            "url": "https://www.facebook.com/groups/4478714448882966/posts/28484703571190718/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Remote frontend or full stack developer job opportunities ... Minh Hien ▻ REMOTE, Freelancer IT Vietnam. 1y · Public · Hiring: Frontend ... Job Title: Frontend Developer (React/Typescript) We are looking for an ..."
+          },
+          {
+            "url": "https://www.linkedin.com/posts/kenneth-lynard_looking-for-a-web-designer-developer-activity-7507942655935324160-FW0m",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Kenneth Lynard - MSc, EMBA's Post Looking for a Web Designer / Developer Looking for a talented freelancer ... Daniel Albino. Senior React & React Native Engineer | TypeScript, Next.js ..."
+          },
+          {
+            "url": "https://www.stlouis-mo.gov/government/procurement/index.cfm",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Active City RFPs, RFQs, RFIs, and Bids RFP Parking Facilities Garage Repair Design Services Office of the Treasurer ... Built by the ITSA Web Development Team. © 2011 - 2026 City of St. Louis."
+          },
+          {
+            "url": "https://www.instagram.com/p/DeZUIC5BGCm/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "📢 Request for Proposal (RFP) - Website Development We ... Request for Proposal (RFP) - Website Development · Hiring a web development team? · We're giving our website a fresh look — and we need your help! ·"
+          },
+          {
+            "url": "https://www.linkedin.com/jobs/view/freelance-react-web-developer-at-praxis-design-studio-4478823063",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Freelance React Web Developer at Praxis Design Studio Freelance React Web Developer. Praxis Design Studio St Louis, MO. 19 minutes ago ... Seeking a freelance web developer to assist with ongoing updates and ..."
+          },
+          {
+            "url": "https://www.facebook.com/groups/361717460552082/posts/28527848616845589/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "WE'RE HIRING | FREELANCE WEBSITE DEVELOPER Hi ... Hiring Freelance React.js and Next.js Developer for Front-end Development. Amit Sharma ▻ Reactjs Developers. 1y · Public · Looking for a talented freelancer ..."
+          }
+        ],
+        "candidates": [
+          {
+            "text": "Kenneth Lynard - MSc, EMBA's Post Looking for a Web Designer / Developer Looking for a talented freelancer ... Daniel Albino. Senior React & React Native Engineer | TypeScript, Next.js ...",
+            "query": "\"TypeScript\" (\"I need\" OR \"we need\" OR \"looking for\") (\"freelancer\" OR \"budget\")",
+            "choice": 0,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Remote frontend or full stack developer job opportunities ... Minh Hien ▻ REMOTE, Freelancer IT Vietnam. 1y · Public · Hiring: Frontend ... Job Title: Frontend Developer (React/Typescript) We are looking for an ...",
+            "query": "\"TypeScript\" (\"I need\" OR \"we need\" OR \"looking for\") (\"freelancer\" OR \"budget\")",
+            "choice": 1,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Active City RFPs, RFQs, RFIs, and Bids RFP Parking Facilities Garage Repair Design Services Office of the Treasurer ... Built by the ITSA Web Development Team. © 2011 - 2026 City of St. Louis.",
+            "query": "\"web\" \"development\" (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 2,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "📢 Request for Proposal (RFP) - Website Development We ... Request for Proposal (RFP) - Website Development · Hiring a web development team? · We're giving our website a fresh look — and we need your help! ·",
+            "query": "\"web\" \"development\" (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 3,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "𝐇𝐢𝐫𝐞 𝐍𝐞𝐱𝐭.𝐣𝐬 𝐃𝐞𝐯𝐞𝐥𝐨𝐩𝐞𝐫𝐬 to build fast, scalable, ... Our team will contact you with the complete project details. ... js is a powerful React framework for building fast, scalable, and production-ready web ...",
+            "query": "\"React\" (\"project details\" OR \"project description\" OR \"open for bidding\")",
+            "choice": 4,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "WE'RE HIRING | FREELANCE WEBSITE DEVELOPER Hi ... Hiring Freelance React.js and Next.js Developer for Front-end Development. Amit Sharma ▻ Reactjs Developers. 1y · Public · Looking for a talented freelancer ...",
+            "query": "\"React\" (\"seeking\" OR \"hiring\") (\"freelance\" OR \"contractor\")",
+            "choice": 5,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Freelance React Web Developer at Praxis Design Studio Freelance React Web Developer. Praxis Design Studio St Louis, MO. 19 minutes ago ... Seeking a freelance web developer to assist with ongoing updates and ...",
+            "query": "\"React\" (\"seeking\" OR \"hiring\") (\"freelance\" OR \"contractor\")",
+            "choice": 6,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "bevy-react: A library to create bevy_ui interfaces in React bevy-react: A library to create bevy_ui interfaces in React ... Showing a few more features + project description in the body · r/bevy ...",
+            "query": "\"React\" (\"project details\" OR \"project description\" OR \"open for bidding\")",
+            "choice": 7,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Enhancing Project Details Page in Developer Portfolio Enhancing Project Details Page in Developer Portfolio. View profile for ... React. What I plan to implement: Patient dashboard to upload & manage ...",
+            "query": "\"React\" (\"project details\" OR \"project description\" OR \"open for bidding\")",
+            "choice": 8,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Hire TypeScript Developers Looking for*. Select, Custom applications ... PDF, Word, Excel, PowerPoint, text or images; up to 5 files, 10 MB in total. Project budget (in USD)*.",
+            "query": "\"TypeScript\" (\"I need\" OR \"we need\" OR \"looking for\") (\"freelancer\" OR \"budget\")",
+            "choice": 9,
+            "origin": "search_result",
+            "parentUrl": null
+          }
+        ]
+      },
+      "output": {
+        "kind": "choice",
+        "index": 3,
+        "explanation": "The Instagram RFP post looks like a concrete buyer request for website development, which is closer to the target services work than employer listings or seller pages. It’s the most useful next read to verify scope and eligibility."
+      },
+      "rejected_output": null,
+      "failure": null,
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 2882,
+        "responseId": "resp_07e0c208f5a6af20016ad0da90e48887d2a5f8252b9e8f8b26",
+        "inputTokens": 4393,
+        "outputTokens": 166,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 4042
+      }
+    },
+    {
+      "input": {
+        "kind": "choice",
+        "intent": {
+          "remote": true,
+          "target": "React TypeScript web development",
+          "category": "services"
+        },
+        "choices": [
+          {
+            "depth": 0,
+            "title": "Kenneth Lynard - MSc, EMBA's Post",
+            "action": {
+              "url": "https://www.linkedin.com/posts/kenneth-lynard_looking-for-a-web-designer-developer-activity-7507942655935324160-FW0m",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "379809354ec3d4dfbad3d80b810a2a6faf60f0e02881a4817fc6c421cc65a49a"
+          },
+          {
+            "depth": 0,
+            "title": "Remote frontend or full stack developer job opportunities ...",
+            "action": {
+              "url": "https://www.facebook.com/groups/4478714448882966/posts/28484703571190718/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "379809354ec3d4dfbad3d80b810a2a6faf60f0e02881a4817fc6c421cc65a49a"
+          },
+          {
+            "depth": 0,
+            "title": "Active City RFPs, RFQs, RFIs, and Bids",
+            "action": {
+              "url": "https://www.stlouis-mo.gov/government/procurement/index.cfm",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "3ce3fe913f8a09c9a4ac5a4c6f3324237ebd20447c7b743c60881aa71acd5caf"
+          },
+          {
+            "depth": 0,
+            "title": "𝐇𝐢𝐫𝐞 𝐍𝐞𝐱𝐭.𝐣𝐬 𝐃𝐞𝐯𝐞𝐥𝐨𝐩𝐞𝐫𝐬 to build fast, scalable, ...",
+            "action": {
+              "url": "https://www.instagram.com/p/DeHVvf1Fx9l/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "60ca7a24680776cc5d8e5c9ae306c14832b557f4e3125faba7672c36bec1a7a7"
+          },
+          {
+            "depth": 0,
+            "title": "Asset Based Community Development (ABCD) ...",
+            "action": {
+              "url": "https://www.cscbroward.org/news/abcd-rfp-2026/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "3ce3fe913f8a09c9a4ac5a4c6f3324237ebd20447c7b743c60881aa71acd5caf"
+          },
+          {
+            "depth": 0,
+            "title": "WE'RE HIRING | FREELANCE WEBSITE DEVELOPER Hi ...",
+            "action": {
+              "url": "https://www.facebook.com/groups/361717460552082/posts/28527848616845589/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "882551918cc418d9dfb7f0db3e7de88e440a1e9e4e1db2f3138c323d3b2a279b"
+          },
+          {
+            "depth": 0,
+            "title": "Freelance React Web Developer at Praxis Design Studio",
+            "action": {
+              "url": "https://www.linkedin.com/jobs/view/freelance-react-web-developer-at-praxis-design-studio-4478823063",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "882551918cc418d9dfb7f0db3e7de88e440a1e9e4e1db2f3138c323d3b2a279b"
+          },
+          {
+            "depth": 0,
+            "title": "bevy-react: A library to create bevy_ui interfaces in React",
+            "action": {
+              "url": "https://www.reddit.com/r/bevy/comments/1x65rje/bevyreact_a_library_to_create_bevy_ui_interfaces/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "60ca7a24680776cc5d8e5c9ae306c14832b557f4e3125faba7672c36bec1a7a7"
+          },
+          {
+            "depth": 0,
+            "title": "Enhancing Project Details Page in Developer Portfolio",
+            "action": {
+              "url": "https://www.linkedin.com/posts/anupam-katiyar-461760280_reactjs-webdevelopment-portfolio-activity-7508840087154032640-NQnw",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "60ca7a24680776cc5d8e5c9ae306c14832b557f4e3125faba7672c36bec1a7a7"
+          },
+          {
+            "depth": 0,
+            "title": "Hire TypeScript Developers",
+            "action": {
+              "url": "https://infoloop.co/hire-typescript-developers",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "379809354ec3d4dfbad3d80b810a2a6faf60f0e02881a4817fc6c421cc65a49a"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"TypeScript\" (\"project\" OR \"brief\") (\"budget\" OR \"fixed price\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "882551918cc418d9dfb7f0db3e7de88e440a1e9e4e1db2f3138c323d3b2a279b"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"web\" \"development\" (\"project\" OR \"brief\") (\"proposals\" OR \"bids\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "882551918cc418d9dfb7f0db3e7de88e440a1e9e4e1db2f3138c323d3b2a279b"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"React\" site:x.com (\"hiring\" OR \"need\") (\"project\" OR \"freelance\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "882551918cc418d9dfb7f0db3e7de88e440a1e9e4e1db2f3138c323d3b2a279b"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"TypeScript\" site:linkedin.com/posts (\"hiring\" OR \"need\") (\"project\" OR \"freelance\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "882551918cc418d9dfb7f0db3e7de88e440a1e9e4e1db2f3138c323d3b2a279b"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"TypeScript\" (\"project details\" OR \"project description\" OR \"open for bidding\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "882551918cc418d9dfb7f0db3e7de88e440a1e9e4e1db2f3138c323d3b2a279b"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": null,
+            "reason": "no_further_action",
+            "parentKey": null
+          }
+        ],
+        "evidence": [
+          {
+            "url": "https://www.c40.org/wp-content/uploads/2026/10/2-RfP-GCoM-Website-Development-Maintenance.pdf",
+            "label": "access_limited",
+            "scope": "source_access",
+            "unknowns": [
+              "demand and availability remain unverified"
+            ],
+            "explanation": "Source capture could not provide complete evidence: source_access_denied."
+          },
+          {
+            "url": "https://www.freelancer.com/projects/typescript/react-typescript-full-stack-web",
+            "label": "access_limited",
+            "scope": "source_access",
+            "unknowns": [
+              "demand and availability remain unverified"
+            ],
+            "explanation": "Source capture could not provide complete evidence: source_not_found."
+          },
+          {
+            "url": "https://www.instagram.com/p/DeZUIC5BGCm/",
+            "label": "access_limited",
+            "scope": "source_access",
+            "unknowns": [
+              "demand and availability remain unverified"
+            ],
+            "explanation": "Source capture could not provide complete evidence: crawl_policy_denied."
+          },
+          {
+            "url": "https://www.linkedin.com/posts/anupam-katiyar-461760280_reactjs-webdevelopment-portfolio-activity-7508840087154032640-NQnw",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Enhancing Project Details Page in Developer Portfolio Enhancing Project Details Page in Developer Portfolio. View profile for ... React. What I plan to implement: Patient dashboard to upload & manage ..."
+          },
+          {
+            "url": "https://www.reddit.com/r/bevy/comments/1x65rje/bevyreact_a_library_to_create_bevy_ui_interfaces/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "bevy-react: A library to create bevy_ui interfaces in React bevy-react: A library to create bevy_ui interfaces in React ... Showing a few more features + project description in the body · r/bevy ..."
+          },
+          {
+            "url": "https://www.instagram.com/p/DeHVvf1Fx9l/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "𝐇𝐢𝐫𝐞 𝐍𝐞𝐱𝐭.𝐣𝐬 𝐃𝐞𝐯𝐞𝐥𝐨𝐩𝐞𝐫𝐬 to build fast, scalable, ... Our team will contact you with the complete project details. ... js is a powerful React framework for building fast, scalable, and production-ready web ..."
+          },
+          {
+            "url": "https://infoloop.co/hire-typescript-developers",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Hire TypeScript Developers Looking for*. Select, Custom applications ... PDF, Word, Excel, PowerPoint, text or images; up to 5 files, 10 MB in total. Project budget (in USD)*."
+          },
+          {
+            "url": "https://www.facebook.com/groups/4478714448882966/posts/28484703571190718/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Remote frontend or full stack developer job opportunities ... Minh Hien ▻ REMOTE, Freelancer IT Vietnam. 1y · Public · Hiring: Frontend ... Job Title: Frontend Developer (React/Typescript) We are looking for an ..."
+          },
+          {
+            "url": "https://www.linkedin.com/posts/kenneth-lynard_looking-for-a-web-designer-developer-activity-7507942655935324160-FW0m",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Kenneth Lynard - MSc, EMBA's Post Looking for a Web Designer / Developer Looking for a talented freelancer ... Daniel Albino. Senior React & React Native Engineer | TypeScript, Next.js ..."
+          },
+          {
+            "url": "https://www.cscbroward.org/news/abcd-rfp-2026/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Asset Based Community Development (ABCD) ... Asset Based Community Development (ABCD) Administrative Support Organization RFP ... This procurement will be available on September 28, 2026, through CSC's web ..."
+          },
+          {
+            "url": "https://www.stlouis-mo.gov/government/procurement/index.cfm",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Active City RFPs, RFQs, RFIs, and Bids RFP Parking Facilities Garage Repair Design Services Office of the Treasurer ... Built by the ITSA Web Development Team. © 2011 - 2026 City of St. Louis."
+          },
+          {
+            "url": "https://www.linkedin.com/jobs/view/freelance-react-web-developer-at-praxis-design-studio-4478823063",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Freelance React Web Developer at Praxis Design Studio Freelance React Web Developer. Praxis Design Studio St Louis, MO. 19 minutes ago ... Seeking a freelance web developer to assist with ongoing updates and ..."
+          },
+          {
+            "url": "https://www.facebook.com/groups/361717460552082/posts/28527848616845589/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "WE'RE HIRING | FREELANCE WEBSITE DEVELOPER Hi ... Hiring Freelance React.js and Next.js Developer for Front-end Development. Amit Sharma ▻ Reactjs Developers. 1y · Public · Looking for a talented freelancer ..."
+          }
+        ],
+        "candidates": [
+          {
+            "text": "Kenneth Lynard - MSc, EMBA's Post Looking for a Web Designer / Developer Looking for a talented freelancer ... Daniel Albino. Senior React & React Native Engineer | TypeScript, Next.js ...",
+            "query": "\"TypeScript\" (\"I need\" OR \"we need\" OR \"looking for\") (\"freelancer\" OR \"budget\")",
+            "choice": 0,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Remote frontend or full stack developer job opportunities ... Minh Hien ▻ REMOTE, Freelancer IT Vietnam. 1y · Public · Hiring: Frontend ... Job Title: Frontend Developer (React/Typescript) We are looking for an ...",
+            "query": "\"TypeScript\" (\"I need\" OR \"we need\" OR \"looking for\") (\"freelancer\" OR \"budget\")",
+            "choice": 1,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Active City RFPs, RFQs, RFIs, and Bids RFP Parking Facilities Garage Repair Design Services Office of the Treasurer ... Built by the ITSA Web Development Team. © 2011 - 2026 City of St. Louis.",
+            "query": "\"web\" \"development\" (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 2,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "𝐇𝐢𝐫𝐞 𝐍𝐞𝐱𝐭.𝐣𝐬 𝐃𝐞𝐯𝐞𝐥𝐨𝐩𝐞𝐫𝐬 to build fast, scalable, ... Our team will contact you with the complete project details. ... js is a powerful React framework for building fast, scalable, and production-ready web ...",
+            "query": "\"React\" (\"project details\" OR \"project description\" OR \"open for bidding\")",
+            "choice": 3,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Asset Based Community Development (ABCD) ... Asset Based Community Development (ABCD) Administrative Support Organization RFP ... This procurement will be available on September 28, 2026, through CSC's web ...",
+            "query": "\"web\" \"development\" (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 4,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "WE'RE HIRING | FREELANCE WEBSITE DEVELOPER Hi ... Hiring Freelance React.js and Next.js Developer for Front-end Development. Amit Sharma ▻ Reactjs Developers. 1y · Public · Looking for a talented freelancer ...",
+            "query": "\"React\" (\"seeking\" OR \"hiring\") (\"freelance\" OR \"contractor\")",
+            "choice": 5,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Freelance React Web Developer at Praxis Design Studio Freelance React Web Developer. Praxis Design Studio St Louis, MO. 19 minutes ago ... Seeking a freelance web developer to assist with ongoing updates and ...",
+            "query": "\"React\" (\"seeking\" OR \"hiring\") (\"freelance\" OR \"contractor\")",
+            "choice": 6,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "bevy-react: A library to create bevy_ui interfaces in React bevy-react: A library to create bevy_ui interfaces in React ... Showing a few more features + project description in the body · r/bevy ...",
+            "query": "\"React\" (\"project details\" OR \"project description\" OR \"open for bidding\")",
+            "choice": 7,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Enhancing Project Details Page in Developer Portfolio Enhancing Project Details Page in Developer Portfolio. View profile for ... React. What I plan to implement: Patient dashboard to upload & manage ...",
+            "query": "\"React\" (\"project details\" OR \"project description\" OR \"open for bidding\")",
+            "choice": 8,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Hire TypeScript Developers Looking for*. Select, Custom applications ... PDF, Word, Excel, PowerPoint, text or images; up to 5 files, 10 MB in total. Project budget (in USD)*.",
+            "query": "\"TypeScript\" (\"I need\" OR \"we need\" OR \"looking for\") (\"freelancer\" OR \"budget\")",
+            "choice": 9,
+            "origin": "search_result",
+            "parentUrl": null
+          }
+        ]
+      },
+      "output": {
+        "kind": "choice",
+        "index": 2,
+        "explanation": "This is a buyer-side procurement directory with active RFPs, RFQs, RFIs, and bids, which is the most useful next step for finding a concrete web-development demand opportunity."
+      },
+      "rejected_output": null,
+      "failure": null,
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 1500,
+        "responseId": "resp_0c2c8d3f0334c375016ad0da93fd7487d290dd5a73268c2376",
+        "inputTokens": 4441,
+        "outputTokens": 114,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 3844
+      }
+    },
+    {
+      "input": {
+        "kind": "choice",
+        "intent": {
+          "remote": true,
+          "target": "React TypeScript web development",
+          "category": "services"
+        },
+        "choices": [
+          {
+            "depth": 0,
+            "title": "Kenneth Lynard - MSc, EMBA's Post",
+            "action": {
+              "url": "https://www.linkedin.com/posts/kenneth-lynard_looking-for-a-web-designer-developer-activity-7507942655935324160-FW0m",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "379809354ec3d4dfbad3d80b810a2a6faf60f0e02881a4817fc6c421cc65a49a"
+          },
+          {
+            "depth": 0,
+            "title": "Remote frontend or full stack developer job opportunities ...",
+            "action": {
+              "url": "https://www.facebook.com/groups/4478714448882966/posts/28484703571190718/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "379809354ec3d4dfbad3d80b810a2a6faf60f0e02881a4817fc6c421cc65a49a"
+          },
+          {
+            "depth": 0,
+            "title": "𝐇𝐢𝐫𝐞 𝐍𝐞𝐱𝐭.𝐣𝐬 𝐃𝐞𝐯𝐞𝐥𝐨𝐩𝐞𝐫𝐬 to build fast, scalable, ...",
+            "action": {
+              "url": "https://www.instagram.com/p/DeHVvf1Fx9l/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "60ca7a24680776cc5d8e5c9ae306c14832b557f4e3125faba7672c36bec1a7a7"
+          },
+          {
+            "depth": 0,
+            "title": "Asset Based Community Development (ABCD) ...",
+            "action": {
+              "url": "https://www.cscbroward.org/news/abcd-rfp-2026/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "3ce3fe913f8a09c9a4ac5a4c6f3324237ebd20447c7b743c60881aa71acd5caf"
+          },
+          {
+            "depth": 0,
+            "title": "Submit an RFP, RFQ or RFI",
+            "action": {
+              "url": "https://eseospace.com/submit-an-rfp/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "3ce3fe913f8a09c9a4ac5a4c6f3324237ebd20447c7b743c60881aa71acd5caf"
+          },
+          {
+            "depth": 0,
+            "title": "WE'RE HIRING | FREELANCE WEBSITE DEVELOPER Hi ...",
+            "action": {
+              "url": "https://www.facebook.com/groups/361717460552082/posts/28527848616845589/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "882551918cc418d9dfb7f0db3e7de88e440a1e9e4e1db2f3138c323d3b2a279b"
+          },
+          {
+            "depth": 0,
+            "title": "Freelance React Web Developer at Praxis Design Studio",
+            "action": {
+              "url": "https://www.linkedin.com/jobs/view/freelance-react-web-developer-at-praxis-design-studio-4478823063",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "882551918cc418d9dfb7f0db3e7de88e440a1e9e4e1db2f3138c323d3b2a279b"
+          },
+          {
+            "depth": 0,
+            "title": "bevy-react: A library to create bevy_ui interfaces in React",
+            "action": {
+              "url": "https://www.reddit.com/r/bevy/comments/1x65rje/bevyreact_a_library_to_create_bevy_ui_interfaces/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "60ca7a24680776cc5d8e5c9ae306c14832b557f4e3125faba7672c36bec1a7a7"
+          },
+          {
+            "depth": 0,
+            "title": "Enhancing Project Details Page in Developer Portfolio",
+            "action": {
+              "url": "https://www.linkedin.com/posts/anupam-katiyar-461760280_reactjs-webdevelopment-portfolio-activity-7508840087154032640-NQnw",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "60ca7a24680776cc5d8e5c9ae306c14832b557f4e3125faba7672c36bec1a7a7"
+          },
+          {
+            "depth": 0,
+            "title": "Hire TypeScript Developers",
+            "action": {
+              "url": "https://infoloop.co/hire-typescript-developers",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "379809354ec3d4dfbad3d80b810a2a6faf60f0e02881a4817fc6c421cc65a49a"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"TypeScript\" (\"project\" OR \"brief\") (\"budget\" OR \"fixed price\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "882551918cc418d9dfb7f0db3e7de88e440a1e9e4e1db2f3138c323d3b2a279b"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"web\" \"development\" (\"project\" OR \"brief\") (\"proposals\" OR \"bids\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "882551918cc418d9dfb7f0db3e7de88e440a1e9e4e1db2f3138c323d3b2a279b"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"React\" site:x.com (\"hiring\" OR \"need\") (\"project\" OR \"freelance\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "882551918cc418d9dfb7f0db3e7de88e440a1e9e4e1db2f3138c323d3b2a279b"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"TypeScript\" site:linkedin.com/posts (\"hiring\" OR \"need\") (\"project\" OR \"freelance\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "882551918cc418d9dfb7f0db3e7de88e440a1e9e4e1db2f3138c323d3b2a279b"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"TypeScript\" (\"project details\" OR \"project description\" OR \"open for bidding\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "882551918cc418d9dfb7f0db3e7de88e440a1e9e4e1db2f3138c323d3b2a279b"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": null,
+            "reason": "no_further_action",
+            "parentKey": null
+          }
+        ],
+        "evidence": [
+          {
+            "url": "https://www.c40.org/wp-content/uploads/2026/10/2-RfP-GCoM-Website-Development-Maintenance.pdf",
+            "label": "access_limited",
+            "scope": "source_access",
+            "unknowns": [
+              "demand and availability remain unverified"
+            ],
+            "explanation": "Source capture could not provide complete evidence: source_access_denied."
+          },
+          {
+            "url": "https://www.freelancer.com/projects/typescript/react-typescript-full-stack-web",
+            "label": "access_limited",
+            "scope": "source_access",
+            "unknowns": [
+              "demand and availability remain unverified"
+            ],
+            "explanation": "Source capture could not provide complete evidence: source_not_found."
+          },
+          {
+            "url": "https://www.instagram.com/p/DeZUIC5BGCm/",
+            "label": "access_limited",
+            "scope": "source_access",
+            "unknowns": [
+              "demand and availability remain unverified"
+            ],
+            "explanation": "Source capture could not provide complete evidence: crawl_policy_denied."
+          },
+          {
+            "url": "https://www.stlouis-mo.gov/government/procurement/index.cfm",
+            "label": "access_limited",
+            "scope": "source_access",
+            "unknowns": [
+              "demand and availability remain unverified"
+            ],
+            "explanation": "Source capture could not provide complete evidence: source_request_failed."
+          },
+          {
+            "url": "https://www.linkedin.com/posts/anupam-katiyar-461760280_reactjs-webdevelopment-portfolio-activity-7508840087154032640-NQnw",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Enhancing Project Details Page in Developer Portfolio Enhancing Project Details Page in Developer Portfolio. View profile for ... React. What I plan to implement: Patient dashboard to upload & manage ..."
+          },
+          {
+            "url": "https://www.reddit.com/r/bevy/comments/1x65rje/bevyreact_a_library_to_create_bevy_ui_interfaces/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "bevy-react: A library to create bevy_ui interfaces in React bevy-react: A library to create bevy_ui interfaces in React ... Showing a few more features + project description in the body · r/bevy ..."
+          },
+          {
+            "url": "https://www.instagram.com/p/DeHVvf1Fx9l/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "𝐇𝐢𝐫𝐞 𝐍𝐞𝐱𝐭.𝐣𝐬 𝐃𝐞𝐯𝐞𝐥𝐨𝐩𝐞𝐫𝐬 to build fast, scalable, ... Our team will contact you with the complete project details. ... js is a powerful React framework for building fast, scalable, and production-ready web ..."
+          },
+          {
+            "url": "https://infoloop.co/hire-typescript-developers",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Hire TypeScript Developers Looking for*. Select, Custom applications ... PDF, Word, Excel, PowerPoint, text or images; up to 5 files, 10 MB in total. Project budget (in USD)*."
+          },
+          {
+            "url": "https://www.facebook.com/groups/4478714448882966/posts/28484703571190718/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Remote frontend or full stack developer job opportunities ... Minh Hien ▻ REMOTE, Freelancer IT Vietnam. 1y · Public · Hiring: Frontend ... Job Title: Frontend Developer (React/Typescript) We are looking for an ..."
+          },
+          {
+            "url": "https://www.linkedin.com/posts/kenneth-lynard_looking-for-a-web-designer-developer-activity-7507942655935324160-FW0m",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Kenneth Lynard - MSc, EMBA's Post Looking for a Web Designer / Developer Looking for a talented freelancer ... Daniel Albino. Senior React & React Native Engineer | TypeScript, Next.js ..."
+          },
+          {
+            "url": "https://www.cscbroward.org/news/abcd-rfp-2026/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Asset Based Community Development (ABCD) ... Asset Based Community Development (ABCD) Administrative Support Organization RFP ... This procurement will be available on September 28, 2026, through CSC's web ..."
+          },
+          {
+            "url": "https://eseospace.com/submit-an-rfp/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Submit an RFP, RFQ or RFI How to Create a Website RFP: A Template for Hiring a Web Design or Dev Partner ... Website Development · WordPress Development · eCommerce Development · Custom ..."
+          },
+          {
+            "url": "https://www.linkedin.com/jobs/view/freelance-react-web-developer-at-praxis-design-studio-4478823063",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Freelance React Web Developer at Praxis Design Studio Freelance React Web Developer. Praxis Design Studio St Louis, MO. 19 minutes ago ... Seeking a freelance web developer to assist with ongoing updates and ..."
+          },
+          {
+            "url": "https://www.facebook.com/groups/361717460552082/posts/28527848616845589/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "WE'RE HIRING | FREELANCE WEBSITE DEVELOPER Hi ... Hiring Freelance React.js and Next.js Developer for Front-end Development. Amit Sharma ▻ Reactjs Developers. 1y · Public · Looking for a talented freelancer ..."
+          }
+        ],
+        "candidates": [
+          {
+            "text": "Kenneth Lynard - MSc, EMBA's Post Looking for a Web Designer / Developer Looking for a talented freelancer ... Daniel Albino. Senior React & React Native Engineer | TypeScript, Next.js ...",
+            "query": "\"TypeScript\" (\"I need\" OR \"we need\" OR \"looking for\") (\"freelancer\" OR \"budget\")",
+            "choice": 0,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Remote frontend or full stack developer job opportunities ... Minh Hien ▻ REMOTE, Freelancer IT Vietnam. 1y · Public · Hiring: Frontend ... Job Title: Frontend Developer (React/Typescript) We are looking for an ...",
+            "query": "\"TypeScript\" (\"I need\" OR \"we need\" OR \"looking for\") (\"freelancer\" OR \"budget\")",
+            "choice": 1,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "𝐇𝐢𝐫𝐞 𝐍𝐞𝐱𝐭.𝐣𝐬 𝐃𝐞𝐯𝐞𝐥𝐨𝐩𝐞𝐫𝐬 to build fast, scalable, ... Our team will contact you with the complete project details. ... js is a powerful React framework for building fast, scalable, and production-ready web ...",
+            "query": "\"React\" (\"project details\" OR \"project description\" OR \"open for bidding\")",
+            "choice": 2,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Asset Based Community Development (ABCD) ... Asset Based Community Development (ABCD) Administrative Support Organization RFP ... This procurement will be available on September 28, 2026, through CSC's web ...",
+            "query": "\"web\" \"development\" (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 3,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Submit an RFP, RFQ or RFI How to Create a Website RFP: A Template for Hiring a Web Design or Dev Partner ... Website Development · WordPress Development · eCommerce Development · Custom ...",
+            "query": "\"web\" \"development\" (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 4,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "WE'RE HIRING | FREELANCE WEBSITE DEVELOPER Hi ... Hiring Freelance React.js and Next.js Developer for Front-end Development. Amit Sharma ▻ Reactjs Developers. 1y · Public · Looking for a talented freelancer ...",
+            "query": "\"React\" (\"seeking\" OR \"hiring\") (\"freelance\" OR \"contractor\")",
+            "choice": 5,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Freelance React Web Developer at Praxis Design Studio Freelance React Web Developer. Praxis Design Studio St Louis, MO. 19 minutes ago ... Seeking a freelance web developer to assist with ongoing updates and ...",
+            "query": "\"React\" (\"seeking\" OR \"hiring\") (\"freelance\" OR \"contractor\")",
+            "choice": 6,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "bevy-react: A library to create bevy_ui interfaces in React bevy-react: A library to create bevy_ui interfaces in React ... Showing a few more features + project description in the body · r/bevy ...",
+            "query": "\"React\" (\"project details\" OR \"project description\" OR \"open for bidding\")",
+            "choice": 7,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Enhancing Project Details Page in Developer Portfolio Enhancing Project Details Page in Developer Portfolio. View profile for ... React. What I plan to implement: Patient dashboard to upload & manage ...",
+            "query": "\"React\" (\"project details\" OR \"project description\" OR \"open for bidding\")",
+            "choice": 8,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Hire TypeScript Developers Looking for*. Select, Custom applications ... PDF, Word, Excel, PowerPoint, text or images; up to 5 files, 10 MB in total. Project budget (in USD)*.",
+            "query": "\"TypeScript\" (\"I need\" OR \"we need\" OR \"looking for\") (\"freelancer\" OR \"budget\")",
+            "choice": 9,
+            "origin": "search_result",
+            "parentUrl": null
+          }
+        ]
+      },
+      "output": {
+        "kind": "choice",
+        "index": 6,
+        "explanation": "Likely a concrete freelance buyer brief for React web work, so reading it is the best next step to verify scope, remote status, and whether TypeScript is relevant."
+      },
+      "rejected_output": null,
+      "failure": null,
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 2637,
+        "responseId": "resp_0294257e4f9bb257016ad0daaf165487d298bae16e3721962f",
+        "inputTokens": 4469,
+        "outputTokens": 147,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 4014
+      }
+    },
+    {
+      "input": {
+        "kind": "choice",
+        "intent": {
+          "remote": true,
+          "target": "React TypeScript web development",
+          "category": "services"
+        },
+        "choices": [
+          {
+            "depth": 0,
+            "title": "Kenneth Lynard - MSc, EMBA's Post",
+            "action": {
+              "url": "https://www.linkedin.com/posts/kenneth-lynard_looking-for-a-web-designer-developer-activity-7507942655935324160-FW0m",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "379809354ec3d4dfbad3d80b810a2a6faf60f0e02881a4817fc6c421cc65a49a"
+          },
+          {
+            "depth": 0,
+            "title": "Remote frontend or full stack developer job opportunities ...",
+            "action": {
+              "url": "https://www.facebook.com/groups/4478714448882966/posts/28484703571190718/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "379809354ec3d4dfbad3d80b810a2a6faf60f0e02881a4817fc6c421cc65a49a"
+          },
+          {
+            "depth": 0,
+            "title": "𝐇𝐢𝐫𝐞 𝐍𝐞𝐱𝐭.𝐣𝐬 𝐃𝐞𝐯𝐞𝐥𝐨𝐩𝐞𝐫𝐬 to build fast, scalable, ...",
+            "action": {
+              "url": "https://www.instagram.com/p/DeHVvf1Fx9l/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "60ca7a24680776cc5d8e5c9ae306c14832b557f4e3125faba7672c36bec1a7a7"
+          },
+          {
+            "depth": 0,
+            "title": "Asset Based Community Development (ABCD) ...",
+            "action": {
+              "url": "https://www.cscbroward.org/news/abcd-rfp-2026/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "3ce3fe913f8a09c9a4ac5a4c6f3324237ebd20447c7b743c60881aa71acd5caf"
+          },
+          {
+            "depth": 0,
+            "title": "Submit an RFP, RFQ or RFI",
+            "action": {
+              "url": "https://eseospace.com/submit-an-rfp/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "3ce3fe913f8a09c9a4ac5a4c6f3324237ebd20447c7b743c60881aa71acd5caf"
+          },
+          {
+            "depth": 0,
+            "title": "WE'RE HIRING | FREELANCE WEBSITE DEVELOPER Hi ...",
+            "action": {
+              "url": "https://www.facebook.com/groups/361717460552082/posts/28527848616845589/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "882551918cc418d9dfb7f0db3e7de88e440a1e9e4e1db2f3138c323d3b2a279b"
+          },
+          {
+            "depth": 0,
+            "title": "Flexible React Developer Remote Jobs",
+            "action": {
+              "url": "https://www.indeed.com/q-react-developer-remote-jobs.html",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "882551918cc418d9dfb7f0db3e7de88e440a1e9e4e1db2f3138c323d3b2a279b"
+          },
+          {
+            "depth": 0,
+            "title": "bevy-react: A library to create bevy_ui interfaces in React",
+            "action": {
+              "url": "https://www.reddit.com/r/bevy/comments/1x65rje/bevyreact_a_library_to_create_bevy_ui_interfaces/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "60ca7a24680776cc5d8e5c9ae306c14832b557f4e3125faba7672c36bec1a7a7"
+          },
+          {
+            "depth": 0,
+            "title": "Enhancing Project Details Page in Developer Portfolio",
+            "action": {
+              "url": "https://www.linkedin.com/posts/anupam-katiyar-461760280_reactjs-webdevelopment-portfolio-activity-7508840087154032640-NQnw",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "60ca7a24680776cc5d8e5c9ae306c14832b557f4e3125faba7672c36bec1a7a7"
+          },
+          {
+            "depth": 0,
+            "title": "Hire TypeScript Developers",
+            "action": {
+              "url": "https://infoloop.co/hire-typescript-developers",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "379809354ec3d4dfbad3d80b810a2a6faf60f0e02881a4817fc6c421cc65a49a"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"TypeScript\" (\"project\" OR \"brief\") (\"budget\" OR \"fixed price\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "882551918cc418d9dfb7f0db3e7de88e440a1e9e4e1db2f3138c323d3b2a279b"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"web\" \"development\" (\"project\" OR \"brief\") (\"proposals\" OR \"bids\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "882551918cc418d9dfb7f0db3e7de88e440a1e9e4e1db2f3138c323d3b2a279b"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"React\" site:x.com (\"hiring\" OR \"need\") (\"project\" OR \"freelance\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "882551918cc418d9dfb7f0db3e7de88e440a1e9e4e1db2f3138c323d3b2a279b"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"TypeScript\" site:linkedin.com/posts (\"hiring\" OR \"need\") (\"project\" OR \"freelance\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "882551918cc418d9dfb7f0db3e7de88e440a1e9e4e1db2f3138c323d3b2a279b"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"TypeScript\" (\"project details\" OR \"project description\" OR \"open for bidding\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "882551918cc418d9dfb7f0db3e7de88e440a1e9e4e1db2f3138c323d3b2a279b"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": null,
+            "reason": "no_further_action",
+            "parentKey": null
+          }
+        ],
+        "evidence": [
+          {
+            "url": "https://www.c40.org/wp-content/uploads/2026/10/2-RfP-GCoM-Website-Development-Maintenance.pdf",
+            "label": "access_limited",
+            "scope": "source_access",
+            "unknowns": [
+              "demand and availability remain unverified"
+            ],
+            "explanation": "Source capture could not provide complete evidence: source_access_denied."
+          },
+          {
+            "url": "https://www.freelancer.com/projects/typescript/react-typescript-full-stack-web",
+            "label": "access_limited",
+            "scope": "source_access",
+            "unknowns": [
+              "demand and availability remain unverified"
+            ],
+            "explanation": "Source capture could not provide complete evidence: source_not_found."
+          },
+          {
+            "url": "https://www.instagram.com/p/DeZUIC5BGCm/",
+            "label": "access_limited",
+            "scope": "source_access",
+            "unknowns": [
+              "demand and availability remain unverified"
+            ],
+            "explanation": "Source capture could not provide complete evidence: crawl_policy_denied."
+          },
+          {
+            "url": "https://www.stlouis-mo.gov/government/procurement/index.cfm",
+            "label": "access_limited",
+            "scope": "source_access",
+            "unknowns": [
+              "demand and availability remain unverified"
+            ],
+            "explanation": "Source capture could not provide complete evidence: source_request_failed."
+          },
+          {
+            "url": "https://www.linkedin.com/jobs/view/freelance-react-web-developer-at-praxis-design-studio-4478823063",
+            "label": "access_limited",
+            "scope": "source_access",
+            "unknowns": [
+              "demand and availability remain unverified"
+            ],
+            "explanation": "Source capture could not provide complete evidence: crawl_policy_denied."
+          },
+          {
+            "url": "https://www.linkedin.com/posts/anupam-katiyar-461760280_reactjs-webdevelopment-portfolio-activity-7508840087154032640-NQnw",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Enhancing Project Details Page in Developer Portfolio Enhancing Project Details Page in Developer Portfolio. View profile for ... React. What I plan to implement: Patient dashboard to upload & manage ..."
+          },
+          {
+            "url": "https://www.reddit.com/r/bevy/comments/1x65rje/bevyreact_a_library_to_create_bevy_ui_interfaces/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "bevy-react: A library to create bevy_ui interfaces in React bevy-react: A library to create bevy_ui interfaces in React ... Showing a few more features + project description in the body · r/bevy ..."
+          },
+          {
+            "url": "https://www.instagram.com/p/DeHVvf1Fx9l/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "𝐇𝐢𝐫𝐞 𝐍𝐞𝐱𝐭.𝐣𝐬 𝐃𝐞𝐯𝐞𝐥𝐨𝐩𝐞𝐫𝐬 to build fast, scalable, ... Our team will contact you with the complete project details. ... js is a powerful React framework for building fast, scalable, and production-ready web ..."
+          },
+          {
+            "url": "https://infoloop.co/hire-typescript-developers",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Hire TypeScript Developers Looking for*. Select, Custom applications ... PDF, Word, Excel, PowerPoint, text or images; up to 5 files, 10 MB in total. Project budget (in USD)*."
+          },
+          {
+            "url": "https://www.facebook.com/groups/4478714448882966/posts/28484703571190718/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Remote frontend or full stack developer job opportunities ... Minh Hien ▻ REMOTE, Freelancer IT Vietnam. 1y · Public · Hiring: Frontend ... Job Title: Frontend Developer (React/Typescript) We are looking for an ..."
+          },
+          {
+            "url": "https://www.linkedin.com/posts/kenneth-lynard_looking-for-a-web-designer-developer-activity-7507942655935324160-FW0m",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Kenneth Lynard - MSc, EMBA's Post Looking for a Web Designer / Developer Looking for a talented freelancer ... Daniel Albino. Senior React & React Native Engineer | TypeScript, Next.js ..."
+          },
+          {
+            "url": "https://www.cscbroward.org/news/abcd-rfp-2026/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Asset Based Community Development (ABCD) ... Asset Based Community Development (ABCD) Administrative Support Organization RFP ... This procurement will be available on September 28, 2026, through CSC's web ..."
+          },
+          {
+            "url": "https://eseospace.com/submit-an-rfp/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Submit an RFP, RFQ or RFI How to Create a Website RFP: A Template for Hiring a Web Design or Dev Partner ... Website Development · WordPress Development · eCommerce Development · Custom ..."
+          },
+          {
+            "url": "https://www.indeed.com/q-react-developer-remote-jobs.html",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Flexible React Developer Remote Jobs Mid Level. Full-time. Senior Level. Temporary. Part-time. Permanent. Freelance. Internship. Military encouraged. No degree. Fair chance. React developer remote ..."
+          },
+          {
+            "url": "https://www.facebook.com/groups/361717460552082/posts/28527848616845589/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "WE'RE HIRING | FREELANCE WEBSITE DEVELOPER Hi ... Hiring Freelance React.js and Next.js Developer for Front-end Development. Amit Sharma ▻ Reactjs Developers. 1y · Public · Looking for a talented freelancer ..."
+          }
+        ],
+        "candidates": [
+          {
+            "text": "Kenneth Lynard - MSc, EMBA's Post Looking for a Web Designer / Developer Looking for a talented freelancer ... Daniel Albino. Senior React & React Native Engineer | TypeScript, Next.js ...",
+            "query": "\"TypeScript\" (\"I need\" OR \"we need\" OR \"looking for\") (\"freelancer\" OR \"budget\")",
+            "choice": 0,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Remote frontend or full stack developer job opportunities ... Minh Hien ▻ REMOTE, Freelancer IT Vietnam. 1y · Public · Hiring: Frontend ... Job Title: Frontend Developer (React/Typescript) We are looking for an ...",
+            "query": "\"TypeScript\" (\"I need\" OR \"we need\" OR \"looking for\") (\"freelancer\" OR \"budget\")",
+            "choice": 1,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "𝐇𝐢𝐫𝐞 𝐍𝐞𝐱𝐭.𝐣𝐬 𝐃𝐞𝐯𝐞𝐥𝐨𝐩𝐞𝐫𝐬 to build fast, scalable, ... Our team will contact you with the complete project details. ... js is a powerful React framework for building fast, scalable, and production-ready web ...",
+            "query": "\"React\" (\"project details\" OR \"project description\" OR \"open for bidding\")",
+            "choice": 2,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Asset Based Community Development (ABCD) ... Asset Based Community Development (ABCD) Administrative Support Organization RFP ... This procurement will be available on September 28, 2026, through CSC's web ...",
+            "query": "\"web\" \"development\" (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 3,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Submit an RFP, RFQ or RFI How to Create a Website RFP: A Template for Hiring a Web Design or Dev Partner ... Website Development · WordPress Development · eCommerce Development · Custom ...",
+            "query": "\"web\" \"development\" (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 4,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "WE'RE HIRING | FREELANCE WEBSITE DEVELOPER Hi ... Hiring Freelance React.js and Next.js Developer for Front-end Development. Amit Sharma ▻ Reactjs Developers. 1y · Public · Looking for a talented freelancer ...",
+            "query": "\"React\" (\"seeking\" OR \"hiring\") (\"freelance\" OR \"contractor\")",
+            "choice": 5,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Flexible React Developer Remote Jobs Mid Level. Full-time. Senior Level. Temporary. Part-time. Permanent. Freelance. Internship. Military encouraged. No degree. Fair chance. React developer remote ...",
+            "query": "\"React\" (\"seeking\" OR \"hiring\") (\"freelance\" OR \"contractor\")",
+            "choice": 6,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "bevy-react: A library to create bevy_ui interfaces in React bevy-react: A library to create bevy_ui interfaces in React ... Showing a few more features + project description in the body · r/bevy ...",
+            "query": "\"React\" (\"project details\" OR \"project description\" OR \"open for bidding\")",
+            "choice": 7,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Enhancing Project Details Page in Developer Portfolio Enhancing Project Details Page in Developer Portfolio. View profile for ... React. What I plan to implement: Patient dashboard to upload & manage ...",
+            "query": "\"React\" (\"project details\" OR \"project description\" OR \"open for bidding\")",
+            "choice": 8,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Hire TypeScript Developers Looking for*. Select, Custom applications ... PDF, Word, Excel, PowerPoint, text or images; up to 5 files, 10 MB in total. Project budget (in USD)*.",
+            "query": "\"TypeScript\" (\"I need\" OR \"we need\" OR \"looking for\") (\"freelancer\" OR \"budget\")",
+            "choice": 9,
+            "origin": "search_result",
+            "parentUrl": null
+          }
+        ]
+      },
+      "output": {
+        "kind": "choice",
+        "index": 0,
+        "explanation": "This looks like a direct buyer request for a web designer/developer and is more likely to clarify the actual project scope than the hiring/service pages or job listings. "
+      },
+      "rejected_output": null,
+      "failure": null,
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 3167,
+        "responseId": "resp_0abf617e5ed07179016ad0dab2422487d2ac930f5cd6117ef0",
+        "inputTokens": 4507,
+        "outputTokens": 173,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 4159
+      }
+    }
+  ],
+  "sourceReviewsCompleted": 0,
+  "intelligence": [],
+  "matchingState": {
+    "status": "not_started_no_source_demand",
+    "match_count": 0
+  },
+  "taskStates": [],
+  "eligiblePostings": [],
+  "reviewAttempts": [],
+  "opportunities": [],
+  "deliveries": [],
+  "durationMs": 62914,
+  "search": {
+    "goal": "Find remote freelance React development projects",
+    "category": "services",
+    "target": "React TypeScript web development",
+    "name": "Synthetic client-project scout",
+    "arrangement": "remote",
+    "arrangementRequired": true,
+    "residence": "New York, United States",
+    "workLocations": "United States or remote worldwide",
+    "authorizationLocations": "United States",
+    "authorizationConfirmed": true,
+    "sponsorshipNeed": "not_needed",
+    "background": "Five years delivering React and TypeScript web applications, API integrations and dashboards for clients",
+    "minimumPay": "",
+    "currency": "USD",
+    "payPeriod": "project",
+    "unknownEligibility": "review",
+    "undisclosedPay": "include"
+  },
+  "operations": [
+    {
+      "key": "60ca7a24680776cc5d8e5c9ae306c14832b557f4e3125faba7672c36bec1a7a7",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "\"React\" (\"project details\" OR \"project description\" OR \"open for bidding\")",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "retrieved_url": null,
+      "capture": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "379809354ec3d4dfbad3d80b810a2a6faf60f0e02881a4817fc6c421cc65a49a",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "\"TypeScript\" (\"I need\" OR \"we need\" OR \"looking for\") (\"freelancer\" OR \"budget\")",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "retrieved_url": null,
+      "capture": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "3ce3fe913f8a09c9a4ac5a4c6f3324237ebd20447c7b743c60881aa71acd5caf",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "\"web\" \"development\" (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "retrieved_url": null,
+      "capture": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "882551918cc418d9dfb7f0db3e7de88e440a1e9e4e1db2f3138c323d3b2a279b",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "\"React\" (\"seeking\" OR \"hiring\") (\"freelance\" OR \"contractor\")",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "retrieved_url": null,
+      "capture": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "016a880793eb14774b5a83632127b2c405d4aa8a42cd877537e399e6ac22a308",
+      "kind": "document",
+      "input": {
+        "url": "https://www.c40.org/wp-content/uploads/2026/10/2-RfP-GCoM-Website-Development-Maintenance.pdf",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": [
+        {
+          "url": "https://www.c40.org/sitemap_index.xml",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.c40.org/women4climate/sitemap_index.xml",
+          "text": "Site-advertised sitemap"
+        }
+      ],
+      "retrieved_url": "https://www.c40.org/wp-content/uploads/2026/10/2-RfP-GCoM-Website-Development-Maintenance.pdf",
+      "capture": {
+        "bytes": 1900,
+        "method": "http",
+        "complete": false,
+        "requests": 2
+      },
+      "captured_text": null,
+      "source_status": "access_limited",
+      "source_reason": "source_access_denied",
+      "observed_links": 0
+    },
+    {
+      "key": "6b368cc744cdc84cb6bb634747c879393a54d515eecf64d0634b6aaca3b8071e",
+      "kind": "document",
+      "input": {
+        "url": "https://www.freelancer.com/projects/typescript/react-typescript-full-stack-web",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": [
+        {
+          "url": "https://www.freelancer.com/sitemap_index_default_s3.xml",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.freelancer.com/sitemap_index_default_job-search_s3.xml",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.freelancer.com/sitemap_index_default_projects_s3.xml",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.freelancer.com/sitemap_index_default_contests_s3.xml",
+          "text": "Site-advertised sitemap"
+        }
+      ],
+      "retrieved_url": "https://www.freelancer.com/projects/typescript/react-typescript-full-stack-web",
+      "capture": {
+        "bytes": 803184,
+        "method": "http",
+        "complete": false,
+        "requests": 2
+      },
+      "captured_text": null,
+      "source_status": "access_limited",
+      "source_reason": "source_not_found",
+      "observed_links": 0
+    },
+    {
+      "key": "6fd7a56834c8f00ecaaa62ea0944712f2134c6ca002d574c1185ddf35faef414",
+      "kind": "document",
+      "input": {
+        "url": "https://www.instagram.com/p/DeZUIC5BGCm/",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": [
+        {
+          "url": "https://www.instagram.com/sitemap/ig_places_sitemap.xml.gz",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.instagram.com/sitemap/ig_seo_profile_sitemap.xml.gz",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.instagram.com/sitemap/ig_seo_profile_sitemap_non_media_eligible.xml.gz",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.instagram.com/sitemap/dim_ig_logged_out_web_keyword_ent.xml.gz",
+          "text": "Site-advertised sitemap"
+        }
+      ],
+      "retrieved_url": null,
+      "capture": {
+        "bytes": 7336,
+        "method": "http",
+        "complete": false,
+        "requests": 1
+      },
+      "captured_text": null,
+      "source_status": "access_limited",
+      "source_reason": "crawl_policy_denied",
+      "observed_links": 0
+    },
+    {
+      "key": "cae663d19e2578433242d09851b391e7b8884c230f38e150d1cf290d23472cfd",
+      "kind": "document",
+      "input": {
+        "url": "https://www.stlouis-mo.gov/government/procurement/index.cfm",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": [],
+      "retrieved_url": null,
+      "capture": {
+        "bytes": 0,
+        "method": "http",
+        "complete": false,
+        "requests": 1
+      },
+      "captured_text": null,
+      "source_status": "access_limited",
+      "source_reason": "source_request_failed",
+      "observed_links": 0
+    },
+    {
+      "key": "e49aa29143140d5916524bed889ac86bb2f8f33452950bcd51735b18a7468f0e",
+      "kind": "document",
+      "input": {
+        "url": "https://www.linkedin.com/jobs/view/freelance-react-web-developer-at-praxis-design-studio-4478823063",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": [],
+      "retrieved_url": null,
+      "capture": {
+        "bytes": 120190,
+        "method": "http",
+        "complete": false,
+        "requests": 1
+      },
+      "captured_text": null,
+      "source_status": "access_limited",
+      "source_reason": "crawl_policy_denied",
+      "observed_links": 0
+    },
+    {
+      "key": "ddbfa9d3697ca8e11e0bd32c3c8f3f8f16fa44db2d3ddbac0397ec723714184a",
+      "kind": "document",
+      "input": {
+        "url": "https://www.linkedin.com/posts/kenneth-lynard_looking-for-a-web-designer-developer-activity-7507942655935324160-FW0m",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": [],
+      "retrieved_url": null,
+      "capture": {
+        "bytes": 120190,
+        "method": "http",
+        "complete": false,
+        "requests": 1
+      },
+      "captured_text": null,
+      "source_status": "access_limited",
+      "source_reason": "crawl_policy_denied",
+      "observed_links": 0
+    }
+  ],
+  "decisions": [
+    {
+      "round": 0,
+      "reason": "check_promising_result",
+      "action": {
+        "url": "https://www.c40.org/wp-content/uploads/2026/10/2-RfP-GCoM-Website-Development-Maintenance.pdf",
+        "kind": "document"
+      },
+      "depth": 0,
+      "parent_key": "3ce3fe913f8a09c9a4ac5a4c6f3324237ebd20447c7b743c60881aa71acd5caf"
+    },
+    {
+      "round": 1,
+      "reason": "check_promising_result",
+      "action": {
+        "url": "https://www.freelancer.com/projects/typescript/react-typescript-full-stack-web",
+        "kind": "document"
+      },
+      "depth": 0,
+      "parent_key": "379809354ec3d4dfbad3d80b810a2a6faf60f0e02881a4817fc6c421cc65a49a"
+    },
+    {
+      "round": 2,
+      "reason": "check_promising_result",
+      "action": {
+        "url": "https://www.instagram.com/p/DeZUIC5BGCm/",
+        "kind": "document"
+      },
+      "depth": 0,
+      "parent_key": "3ce3fe913f8a09c9a4ac5a4c6f3324237ebd20447c7b743c60881aa71acd5caf"
+    },
+    {
+      "round": 3,
+      "reason": "check_promising_result",
+      "action": {
+        "url": "https://www.stlouis-mo.gov/government/procurement/index.cfm",
+        "kind": "document"
+      },
+      "depth": 0,
+      "parent_key": "3ce3fe913f8a09c9a4ac5a4c6f3324237ebd20447c7b743c60881aa71acd5caf"
+    },
+    {
+      "round": 4,
+      "reason": "check_promising_result",
+      "action": {
+        "url": "https://www.linkedin.com/jobs/view/freelance-react-web-developer-at-praxis-design-studio-4478823063",
+        "kind": "document"
+      },
+      "depth": 0,
+      "parent_key": "882551918cc418d9dfb7f0db3e7de88e440a1e9e4e1db2f3138c323d3b2a279b"
+    },
+    {
+      "round": 5,
+      "reason": "check_promising_result",
+      "action": {
+        "url": "https://www.linkedin.com/posts/kenneth-lynard_looking-for-a-web-designer-developer-activity-7507942655935324160-FW0m",
+        "kind": "document"
+      },
+      "depth": 0,
+      "parent_key": "379809354ec3d4dfbad3d80b810a2a6faf60f0e02881a4817fc6c421cc65a49a"
+    },
+    {
+      "round": 6,
+      "reason": "exploration_limit",
+      "action": null,
+      "depth": 0,
+      "parent_key": null
+    }
+  ],
+  "case": {
+    "id": "e0e1ad40-b08c-43f5-9d3a-7b0555ad41f0",
+    "scoutId": "00484341-dce4-4c20-9b73-7de50e5c70d6",
+    "scoutName": "Synthetic client-project scout",
+    "scoutVersion": 1,
+    "provider": "serper",
+    "strategy": {
+      "targets": [
+        "React",
+        "TypeScript",
+        "web development"
+      ],
+      "explanation": "I split the service into three focused search concepts using only the words provided: React, TypeScript, and web development. This keeps each search broad enough to find matches while preserving the full skill stack for later filtering."
+    },
+    "exploration": [
+      {
+        "kind": "document",
+        "reason": "check_promising_result",
+        "target": "https://www.c40.org/wp-content/uploads/2026/10/2-RfP-GCoM-Website-Development-Maintenance.pdf"
+      },
+      {
+        "kind": "document",
+        "reason": "check_promising_result",
+        "target": "https://www.freelancer.com/projects/typescript/react-typescript-full-stack-web"
+      },
+      {
+        "kind": "document",
+        "reason": "check_promising_result",
+        "target": "https://www.instagram.com/p/DeZUIC5BGCm/"
+      },
+      {
+        "kind": "document",
+        "reason": "check_promising_result",
+        "target": "https://www.stlouis-mo.gov/government/procurement/index.cfm"
+      },
+      {
+        "kind": "document",
+        "reason": "check_promising_result",
+        "target": "https://www.linkedin.com/jobs/view/freelance-react-web-developer-at-praxis-design-studio-4478823063"
+      },
+      {
+        "kind": "document",
+        "reason": "check_promising_result",
+        "target": "https://www.linkedin.com/posts/kenneth-lynard_looking-for-a-web-designer-developer-activity-7507942655935324160-FW0m"
+      },
+      {
+        "kind": null,
+        "reason": "exploration_limit",
+        "target": null
+      }
+    ],
+    "reviewStatus": "complete",
+    "reviewReason": "source_reviews_complete",
+    "status": "partial",
+    "reason": "some_sources_unavailable",
+    "startedAt": "2026-10-15 13:51:53.795451+00",
+    "finishedAt": "2026-10-15 13:52:53.958287+00",
+    "searchesCompleted": 4,
+    "documentsChecked": 6,
+    "leadCount": 40
+  },
+  "usage": [
+    {
+      "provider": "public-documents",
+      "requests": 6,
+      "reserved_micros": "0"
+    },
+    {
+      "provider": "serper",
+      "requests": 4,
+      "reserved_micros": "40000"
+    }
+  ],
+  "aiBudget": [
+    {
+      "requests": 7,
+      "reserved_microusd": "525000"
+    }
+  ],
+  "dashboardLeadSampleSize": 40,
+  "leads": [
+    {
+      "url": "https://arc.dev/hire-developers/g2",
+      "title": "The Best Freelance G2 Developers for Hire in Oct 2026 - Arc",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://codeandcore.com/blog/dedicated-developer-vs-freelancer-vs-agency/",
+      "title": "Dedicated Developer vs Freelancer vs Agency: 2026 Cost ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://codemyfyp.com/projects",
+      "title": "Project Ideas & Learning Builds",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://eseospace.com/submit-an-rfp/",
+      "title": "Submit an RFP, RFQ or RFI",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://eslint-react.xyz/docs/changelog",
+      "title": "Changelog",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://ezappsolution.us/work/hire-remote-react-developer/",
+      "title": "Hire Remote React Developer",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://infoloop.co/hire-typescript-developers",
+      "title": "Hire TypeScript Developers",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://jobs.gusto.com/postings/us-federal-contractor-registration-full-stack-software-engineer-node-js-react-95b5cb3d-ec6a-496f-84c7-e862dd76c381",
+      "title": "Full Stack Software Engineer (Node.js / React) at US ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://loxala.com/jobs/full-stack-engineer",
+      "title": "Senior Full-Stack Engineer — React + Node",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://nexthireinc.com/hire-typescript-developers/",
+      "title": "Hire TypeScript Developers | Type-Safe App Development ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://reactcm.com/contact/",
+      "title": "Contact Us",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://reactsystemsmw.com/company/portfolio/Mtakataka-Innovation",
+      "title": "Mtakataka Innovations Case Study",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://sociallinker.pro/tools/web-development-rfp-template",
+      "title": "Website RFP Template + Generator & Scoring Sheet",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://viithiisys.com/blog/how-to-write-an-rfp-for-custom-software-with-a-template",
+      "title": "Software Development RFP Template and Guide",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.assistant-ui.com/docs/cloud/settings/general",
+      "title": "General · assistant-cloud",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.c40.org/wp-content/uploads/2026/10/2-RfP-GCoM-Website-Development-Maintenance.pdf",
+      "title": "Request for Proposal (RfP)",
+      "contentStatus": "access_limited",
+      "contentReason": "source_access_denied",
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.cscbroward.org/news/abcd-rfp-2026/",
+      "title": "Asset Based Community Development (ABCD) ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.facebook.com/groups/361717460552082/posts/28527848616845589/",
+      "title": "WE'RE HIRING | FREELANCE WEBSITE DEVELOPER Hi ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.facebook.com/groups/4478714448882966/posts/28484703571190718/",
+      "title": "Remote frontend or full stack developer job opportunities ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.facebook.com/groups/AppDevelopersBd/posts/3932481206901611/",
+      "title": "Senior React Native dev needed for WebRTC screen share ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.freelancer.com/projects/typescript/react-typescript-full-stack-web",
+      "title": "React TypeScript Full-Stack Web App",
+      "contentStatus": "access_limited",
+      "contentReason": "source_not_found",
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.hiring.co/for-contractors",
+      "title": "Contractor Partners — Staff Client Work",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.indeed.com/q-react-developer-remote-jobs.html",
+      "title": "Flexible React Developer Remote Jobs",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.instagram.com/p/Dd0oou5GlDa/",
+      "title": "We're Hiring: Full Stack Developer",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.instagram.com/p/DdjGJ4LFlrY/",
+      "title": "🔔#Hiring | Senior Software Engineer – React Location ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.instagram.com/p/DeHVvf1Fx9l/",
+      "title": "𝐇𝐢𝐫𝐞 𝐍𝐞𝐱𝐭.𝐣𝐬 𝐃𝐞𝐯𝐞𝐥𝐨𝐩𝐞𝐫𝐬 to build fast, scalable, ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.instagram.com/p/DeZUIC5BGCm/",
+      "title": "📢 Request for Proposal (RFP) - Website Development We ...",
+      "contentStatus": "access_limited",
+      "contentReason": "crawl_policy_denied",
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.instagram.com/reel/DedTQzIAbHU/",
+      "title": "🖤💛 Can a diode laser really create this beautiful GOLD ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.inventive.ai/blog-posts/rfp-software-development-guide",
+      "title": "Writing an RFP for Software Development: Step-by- ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.linkedin.com/jobs/view/freelance-react-web-developer-at-praxis-design-studio-4478823063",
+      "title": "Freelance React Web Developer at Praxis Design Studio",
+      "contentStatus": "access_limited",
+      "contentReason": "crawl_policy_denied",
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.linkedin.com/posts/anupam-katiyar-461760280_reactjs-webdevelopment-portfolio-activity-7508840087154032640-NQnw",
+      "title": "Enhancing Project Details Page in Developer Portfolio",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.linkedin.com/posts/clanxai_hiring-a-senior-sdetpune-looking-for-5-activity-7507651922351456256-J6RA",
+      "title": "Hiring a Senior SDET📍Pune Looking for 5+ years of SDET ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.linkedin.com/posts/kenneth-lynard_looking-for-a-web-designer-developer-activity-7507942655935324160-FW0m",
+      "title": "Kenneth Lynard - MSc, EMBA's Post",
+      "contentStatus": "access_limited",
+      "contentReason": "crawl_policy_denied",
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.linkedin.com/posts/start-designs_websitedevelopment-rfp-webdevelopment-activity-7506988772400496640-UUs3",
+      "title": "Website Development RFP Best Practices for Clear Projects",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.reddit.com/r/bevy/comments/1x65rje/bevyreact_a_library_to_create_bevy_ui_interfaces/",
+      "title": "bevy-react: A library to create bevy_ui interfaces in React",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.reddit.com/r/hiredev/comments/1x0qalo/for_hire_remote_frontend_developer_react_nextjs/",
+      "title": "[For Hire] [Remote] Frontend developer (React, Next.js), ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.reddit.com/r/INAT/comments/1x3rpj5/paid_looking_for_a_developer_for_outlands_600/",
+      "title": "[Paid] Looking for a developer for Outlands — $600 budget ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.startdesigns.com/blog/website-development-rfp-guide/",
+      "title": "Website Development RFP Guide & Checklist",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.stlouis-mo.gov/government/procurement/index.cfm",
+      "title": "Active City RFPs, RFQs, RFIs, and Bids",
+      "contentStatus": "access_limited",
+      "contentReason": "source_request_failed",
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.upwork.com/resources/jobs-hiring-immediately",
+      "title": "Jobs Hiring Immediately: Roles To Start Now",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    }
+  ],
+  "publication": [],
+  "checks": [
+    "live adaptive decisions",
+    "bounded provider and model admission",
+    "observed parent provenance",
+    "current owner isolation",
+    "terminal replay without new spending"
+  ],
+  "emailsSent": 0,
+  "realAccountsUsed": 0,
+  "scopeNote": "Bounded live synthetic case using production discovery, review, assessment and delivery use cases. Worker reader includes configured browser fallback and Ashby routing without shared Redis caching; HTTP reader is a controlled reduced-access path. Native X and marketplace connector loops are not exercised. All lead rows are measured separately from the dashboard's bounded sample. Matching can remain incomplete if retries exceed the check window. Model labels are not independent ground truth; precision, recall and global throughput remain unproven.",
+  "stages": {
+    "scenario": "projects",
+    "executionStatus": "measured",
+    "successfulSearches": 4,
+    "failedSearches": 0,
+    "renderingEnabled": true,
+    "durationSeconds": 62.914,
+    "uniqueLeads": 40,
+    "recordedLeads": 40,
+    "completeLeadSet": true,
+    "searchRequests": 4,
+    "documentRequests": 6,
+    "capturedDocuments": 0,
+    "completeCaptures": 0,
+    "inaccessibleDocuments": 6,
+    "repeatedDestinations": 0,
+    "sourceReviewLabels": {},
+    "sourceReviewCountsAreComplete": true,
+    "promotedPostings": 0,
+    "matching": "not_started_no_source_demand",
+    "completedFitAssessments": 0,
+    "dashboardRecommendations": 0,
+    "acceptedEmails": 0,
+    "aiEstimatedUsd": 0.024629,
+    "attemptsWithoutCostEstimate": 0,
+    "searchReservedUsd": 0.04,
+    "aiReservedUsd": 0.525,
+    "estimatedAiPlusSearchReservationPerRecommendationUsd": null,
+    "independentlyUsefulResults": null,
+    "costPerIndependentlyUsefulResultUsd": null,
+    "precision": null,
+    "recall": null,
+    "limitations": "AI estimates exclude unpriced/failed attempts, infrastructure and billing adjustments. Search reservations are configured upper allowances, not invoices. Source labels and dashboard acceptance are not independent usefulness judgments. Distinct URLs may still describe the same opportunity; repeatedDestinations detects only observed redirect identity. Initial reports recorded a dashboard sample, not every source review."
+  }
+}

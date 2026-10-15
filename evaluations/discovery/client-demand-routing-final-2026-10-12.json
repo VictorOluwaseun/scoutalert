@@ -1,0 +1,359 @@
+{
+  "kind": "paired-candidate-selection-development-regression",
+  "recordedAt": "2026-10-12T00:09:30.428Z",
+  "corpusHash": "b01529e124da9e236b67d673e71255d470be83e4c31a45cf33b0d13a1e20c84e",
+  "configuration": "openai:gpt-5.4-mini-2026-03-17:scout-planning-v6",
+  "corpus": "evaluations/discovery/client-demand-routing-cases.json",
+  "eligibleExamples": 3,
+  "baselineOffered": 2,
+  "contextualOffered": 3,
+  "baselineSelectionsPassed": 4,
+  "contextualSelectionsPassed": 5,
+  "providerCalls": 12,
+  "maximumReservedUsd": 0.9,
+  "estimatedUsd": 0.019618,
+  "usage": [
+    {
+      "model": "gpt-5.4-mini-2026-03-17",
+      "inputTokens": 1131,
+      "cachedInputTokens": 0,
+      "outputTokens": 71,
+      "durationMs": 1465,
+      "responseId": "resp_0c8d9e8d08347cd9016acc252900e887d2b7067324c6c40e73"
+    },
+    {
+      "model": "gpt-5.4-mini-2026-03-17",
+      "inputTokens": 1205,
+      "cachedInputTokens": 0,
+      "outputTokens": 76,
+      "durationMs": 1071,
+      "responseId": "resp_045c241b5df6499d016acc252a270c87d28afcec6a58162887"
+    },
+    {
+      "model": "gpt-5.4-mini-2026-03-17",
+      "inputTokens": 1021,
+      "cachedInputTokens": 0,
+      "outputTokens": 170,
+      "durationMs": 1611,
+      "responseId": "resp_0ad581d24c70d11c016acc252b43d887d2b32f0c72a4dc9ab6"
+    },
+    {
+      "model": "gpt-5.4-mini-2026-03-17",
+      "inputTokens": 1224,
+      "cachedInputTokens": 0,
+      "outputTokens": 93,
+      "durationMs": 1180,
+      "responseId": "resp_0e7ec9988924f39c016acc252cdbe087d2a4f3f98b54f496d2"
+    },
+    {
+      "model": "gpt-5.4-mini-2026-03-17",
+      "inputTokens": 1021,
+      "cachedInputTokens": 0,
+      "outputTokens": 102,
+      "durationMs": 1224,
+      "responseId": "resp_0965b7750df41060016acc252e074487d2833d6b74cfad59b8"
+    },
+    {
+      "model": "gpt-5.4-mini-2026-03-17",
+      "inputTokens": 1329,
+      "cachedInputTokens": 0,
+      "outputTokens": 218,
+      "durationMs": 1699,
+      "responseId": "resp_0d6feff14004cb51016acc252f3f8887d2b354b64cbd19fc6c"
+    },
+    {
+      "model": "gpt-5.4-mini-2026-03-17",
+      "inputTokens": 1519,
+      "cachedInputTokens": 0,
+      "outputTokens": 137,
+      "durationMs": 1508,
+      "responseId": "resp_08c1b75f5c57b6d3016acc2530f8d887d287fda2a3177c1ee2"
+    },
+    {
+      "model": "gpt-5.4-mini-2026-03-17",
+      "inputTokens": 1853,
+      "cachedInputTokens": 0,
+      "outputTokens": 191,
+      "durationMs": 1809,
+      "responseId": "resp_0f41dcf5bf62c486016acc253279b887d2a2754a37612a0526"
+    },
+    {
+      "model": "gpt-5.4-mini-2026-03-17",
+      "inputTokens": 1039,
+      "cachedInputTokens": 0,
+      "outputTokens": 124,
+      "durationMs": 1823,
+      "responseId": "resp_00fdfcc084cd6233016acc253449b487d2914304b981f4e4a3"
+    },
+    {
+      "model": "gpt-5.4-mini-2026-03-17",
+      "inputTokens": 1292,
+      "cachedInputTokens": 0,
+      "outputTokens": 150,
+      "durationMs": 1382,
+      "responseId": "resp_0a1bf530f8512bec016acc253619a087d28c19b5ba4e0bcf64"
+    },
+    {
+      "model": "gpt-5.4-mini-2026-03-17",
+      "inputTokens": 1701,
+      "cachedInputTokens": 0,
+      "outputTokens": 117,
+      "durationMs": 1297,
+      "responseId": "resp_0306970c8cb4ea2a016acc2537826487d29b1468fcb80ff802"
+    },
+    {
+      "model": "gpt-5.4-mini-2026-03-17",
+      "inputTokens": 2186,
+      "cachedInputTokens": 0,
+      "outputTokens": 156,
+      "durationMs": 2036,
+      "responseId": "resp_02f00a3d2c65a09d016acc2538cd5087d2854b4bb85d82813d"
+    }
+  ],
+  "results": [
+    {
+      "id": "client-storefront",
+      "provenance": "Authored regression, not an organic discovery sample",
+      "baseline": {
+        "offered": true,
+        "choices": 7,
+        "documentChoices": 1,
+        "inputBytes": 2100,
+        "selected": {
+          "kind": "document",
+          "url": "https://buyers.example.org/request/42"
+        },
+        "explanation": "This is a concrete buyer request for ecommerce/web development and appears more directly relevant than the broader query refinements, so it is the best next page to inspect.",
+        "passed": true,
+        "latencyMs": 1464
+      },
+      "contextual": {
+        "offered": true,
+        "choices": 7,
+        "documentChoices": 1,
+        "inputBytes": 2426,
+        "selected": {
+          "kind": "document",
+          "url": "https://buyers.example.org/request/42"
+        },
+        "explanation": "A concrete buyer request for building an online store with ecommerce work and an estimate request is directly relevant to web development services, so it’s the best next evidence source.",
+        "passed": true,
+        "latencyMs": 1071
+      }
+    },
+    {
+      "id": "spanish-bookkeeping",
+      "provenance": "Authored multilingual regression, not language-wide validation",
+      "baseline": {
+        "offered": false,
+        "choices": 6,
+        "documentChoices": 0,
+        "inputBytes": 1576,
+        "selected": {
+          "kind": "search",
+          "query": {
+            "query": "Bookkeeper (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "language": "en",
+            "country": null,
+            "freshness": "month",
+            "page": 1,
+            "limit": 10
+          }
+        },
+        "explanation": "Best next step is a broad buyer-intent search for bookkeeper requests; it is more likely to surface concrete client needs than the narrower social or proposal-format queries.",
+        "passed": false,
+        "latencyMs": 1611
+      },
+      "contextual": {
+        "offered": true,
+        "choices": 7,
+        "documentChoices": 1,
+        "inputBytes": 2433,
+        "selected": {
+          "kind": "document",
+          "url": "https://buyers.example.org/solicitud/19"
+        },
+        "explanation": "Relevant buyer request for bookkeeping work: it asks for someone to handle the books, reconcile accounts, and prepare monthly reports, with remote paid service noted. Checking it can resolve the exact scope and requirements.",
+        "passed": true,
+        "latencyMs": 1180
+      }
+    },
+    {
+      "id": "seller-and-advice",
+      "provenance": "Authored negative regression; offering work is not buying work",
+      "baseline": {
+        "offered": null,
+        "choices": 6,
+        "documentChoices": 0,
+        "inputBytes": 1612,
+        "selected": {
+          "kind": "search",
+          "query": {
+            "query": "Product designer (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "language": "en",
+            "country": null,
+            "freshness": "month",
+            "page": 1,
+            "limit": 10
+          }
+        },
+        "explanation": "This is the most direct buyer-intent query for product design work and should surface actual requests from clients looking for a freelancer or contractor.",
+        "passed": true,
+        "latencyMs": 1224
+      },
+      "contextual": {
+        "offered": null,
+        "choices": 8,
+        "documentChoices": 2,
+        "inputBytes": 2984,
+        "selected": {
+          "kind": "search",
+          "query": {
+            "query": "Product designer (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "language": "en",
+            "country": null,
+            "freshness": "month",
+            "page": 1,
+            "limit": 10
+          }
+        },
+        "explanation": "The current evidence is a seller page and a guide, so the next useful step is a buyer-focused search. The broad “looking for / seeking / need” query is likely to surface actual client requests for product design work.",
+        "passed": true,
+        "latencyMs": 1699
+      }
+    },
+    {
+      "id": "captured-construction-is-not-software",
+      "provenance": "Captured LAHD pages from client-demand-projects-2026-10-12.json; expected non-selection authored after observing a routing failure.",
+      "baseline": {
+        "offered": null,
+        "choices": 8,
+        "documentChoices": 2,
+        "inputBytes": 3773,
+        "selected": {
+          "kind": "search",
+          "query": {
+            "query": "React TypeScript web development (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "language": "en",
+            "country": null,
+            "freshness": "month",
+            "page": 1,
+            "limit": 10
+          }
+        },
+        "explanation": "The current document results are construction/planning services, not React/TypeScript web work. The most efficient next step is to refine toward explicit RFP-style buyer demand for web development rather than broader hiring posts or unrelated projects.",
+        "passed": true,
+        "latencyMs": 1508
+      },
+      "contextual": {
+        "offered": null,
+        "choices": 8,
+        "documentChoices": 2,
+        "inputBytes": 5180,
+        "selected": {
+          "kind": "search",
+          "query": {
+            "query": "React TypeScript web development (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "language": "en",
+            "country": null,
+            "freshness": "month",
+            "page": 1,
+            "limit": 10
+          }
+        },
+        "explanation": "The current results are unrelated construction/site-planning RFPs, so the most useful next step is a tighter buyer-demand search for actual web development projects using RFP language.",
+        "passed": true,
+        "latencyMs": 1809
+      }
+    },
+    {
+      "id": "captured-rfp-guide-is-not-demand",
+      "provenance": "Captured source review from client-demand-projects-2026-10-12.json; implementation-authored development regression.",
+      "baseline": {
+        "offered": null,
+        "choices": 6,
+        "documentChoices": 0,
+        "inputBytes": 1708,
+        "selected": {
+          "kind": "search",
+          "query": {
+            "query": "React TypeScript web development (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "language": "en",
+            "country": null,
+            "freshness": "month",
+            "page": 1,
+            "limit": 10
+          }
+        },
+        "explanation": "This is the most concrete buyer-demand search among the options, focusing on RFPs for React/TypeScript web development rather than broad hiring or social posts. It has the best chance of surfacing specific project briefs or tenders.",
+        "passed": true,
+        "latencyMs": 1824
+      },
+      "contextual": {
+        "offered": null,
+        "choices": 7,
+        "documentChoices": 1,
+        "inputBytes": 2863,
+        "selected": {
+          "kind": "search",
+          "query": {
+            "query": "React TypeScript web development (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "language": "en",
+            "country": null,
+            "freshness": "month",
+            "page": 1,
+            "limit": 10
+          }
+        },
+        "explanation": "The current result is just an informational RFP guide, not a live buyer request. A broader demand-focused search for people seeking a freelancer or contractor is the most useful next step to surface an actual React/TypeScript web development brief.",
+        "passed": true,
+        "latencyMs": 1382
+      }
+    },
+    {
+      "id": "captured-website-client-vs-construction",
+      "provenance": "Captured Freelancer directory anchor and nearby text from client-demand-services-2026-10-12.json, contrasted with observed LAHD pages. Routing only; child still needs source verification.",
+      "baseline": {
+        "offered": true,
+        "choices": 9,
+        "documentChoices": 3,
+        "inputBytes": 4727,
+        "selected": {
+          "kind": "search",
+          "query": {
+            "query": "Website redesign (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "language": "en",
+            "country": null,
+            "freshness": "month",
+            "page": 1,
+            "limit": 10
+          }
+        },
+        "explanation": "The current results are either a seller offer or unrelated/non-web-design RFPs. A refined query targeting website redesign requests for proposals is the most useful next step.",
+        "passed": false,
+        "latencyMs": 1297
+      },
+      "contextual": {
+        "offered": true,
+        "choices": 9,
+        "documentChoices": 3,
+        "inputBytes": 6957,
+        "selected": {
+          "kind": "search",
+          "query": {
+            "query": "Website redesign (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "language": "en",
+            "country": null,
+            "freshness": "month",
+            "page": 1,
+            "limit": 10
+          }
+        },
+        "explanation": "The current results are mostly seller postings or unrelated construction RFPS. A focused RFP query is the most practical next step to surface actual buyer briefs for website redesign work.",
+        "passed": false,
+        "latencyMs": 2036
+      }
+    }
+  ],
+  "limitations": "Six development cases; each records its provenance. Both routing menus use the same current model prompt and current query templates. Expected routes are implementation-authored, not independent human labels. This measures shortlist inclusion and single-step routing, not discovery recall, personal fit, whole-internet coverage, delivery or global scale. Live model calls are bounded separately from the worker ledger; the production planner retains its shared admission policy."
+}

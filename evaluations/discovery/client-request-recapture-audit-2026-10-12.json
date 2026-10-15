@@ -1,0 +1,2252 @@
+{
+  "checkedAt": "2026-10-12T00:30:49.585Z",
+  "scenario": "services",
+  "recaptureCases": [
+    {
+      "url": "https://www.freelancer.com/projects/website-development/need-website",
+      "sourceReport": "evaluations/discovery/client-demand-services-final-2026-10-12.json",
+      "priorReason": "browser_resource_unavailable",
+      "priorCapture": {
+        "bytes": 1472221,
+        "method": "browser",
+        "complete": false,
+        "requests": 5
+      },
+      "title": "I need a website",
+      "snippet": null
+    },
+    {
+      "url": "https://www.freelancer.com/projects/creative-writing/psychological-horror-screenwriting-for",
+      "sourceReport": "evaluations/discovery/client-demand-services-final-2026-10-12.json",
+      "priorReason": "browser_resource_unavailable",
+      "priorCapture": {
+        "bytes": 1460148,
+        "method": "browser",
+        "complete": false,
+        "requests": 5
+      },
+      "title": "Previous job",
+      "snippet": null
+    },
+    {
+      "url": "https://www.dcoe.org/opportunities/rfp-tenders/modernize-its-public-sex-offender-registry-website-enhancing-public",
+      "sourceReport": "evaluations/discovery/client-demand-services-corrected-2026-10-12.json",
+      "priorReason": "browser_resource_unavailable",
+      "priorCapture": {
+        "bytes": 610655,
+        "method": "browser",
+        "complete": false,
+        "requests": 12
+      },
+      "title": "Modernize its public Sex Offender Registry website, enhancing public access to registry information through a mobile-responsive, searchable, and",
+      "snippet": null
+    },
+    {
+      "url": "https://www.dcoe.org/opportunities/rfp-tenders/develop-statewide-workforce-portal",
+      "sourceReport": "evaluations/discovery/client-demand-services-corrected-2026-10-12.json",
+      "priorReason": "browser_resource_unavailable",
+      "priorCapture": {
+        "bytes": 610016,
+        "method": "browser",
+        "complete": false,
+        "requests": 12
+      },
+      "title": "Develop a statewide workforce portal",
+      "snippet": null
+    },
+    {
+      "url": "https://www.dcoe.org/opportunities/rfp-tenders/design-develop-host-and-support-modern-secure-accessible-and-user",
+      "sourceReport": "evaluations/discovery/client-demand-services-corrected-2026-10-12.json",
+      "priorReason": "browser_resource_unavailable",
+      "priorCapture": {
+        "bytes": 610607,
+        "method": "browser",
+        "complete": false,
+        "requests": 12
+      },
+      "title": "Design, develop, host, and support a modern, secure, accessible, and user-friendly County website using a content management system",
+      "snippet": null
+    },
+    {
+      "url": "https://www.dcoe.org/opportunities/rfp-tenders/website-design-development-hosting-operations-maintenance-and-support",
+      "sourceReport": "evaluations/discovery/client-demand-projects-final-2026-10-12.json",
+      "priorReason": null,
+      "priorCapture": {
+        "bytes": 29757,
+        "method": "http",
+        "complete": true,
+        "requests": 2
+      },
+      "title": "Website design, development, hosting, operations, maintenance, and support services using the Drupal content management system for the 511.org website (Pantheon)",
+      "snippet": null
+    }
+  ],
+  "baseline": false,
+  "reasoningConfiguration": null,
+  "plan": {
+    "policy": "public-intent-v1",
+    "queries": [
+      "Previously observed client-request capture check"
+    ],
+    "category": "services",
+    "continuation": "explore_on_next_run",
+    "scoutVersion": 1,
+    "blockedReason": null,
+    "deadlineSeconds": 240,
+    "maximumDocuments": 6
+  },
+  "reader": "worker",
+  "renderingEnabled": true,
+  "status": "measured",
+  "deliveryOutcome": "no_eligible_digest",
+  "reasoning": [],
+  "sourceReviewsCompleted": 6,
+  "intelligence": [],
+  "matchingState": {
+    "status": "completed",
+    "match_count": 0
+  },
+  "taskStates": [],
+  "eligiblePostings": [
+    {
+      "id": "web:8f103b90d26e1fc3c45971ade15e923f0a23aa0d05a2787c17e96d2a6edf2eeb",
+      "kind": "client_request",
+      "title": "screenwriter/co-writer",
+      "url": "https://www.freelancer.com/projects/creative-writing/psychological-horror-screenwriting-for"
+    }
+  ],
+  "reviewAttempts": [
+    {
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 3632,
+        "responseId": "resp_098e7bc0ec899ef8016acc2a25e02c87d2b9517178d1131f4c",
+        "inputTokens": 1763,
+        "outputTokens": 381,
+        "cachedInputTokens": 1280
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 2173
+      }
+    },
+    {
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 3595,
+        "responseId": "resp_08a788fa980c0e49016acc2a29359487d2ba94ece1053460f7",
+        "inputTokens": 1709,
+        "outputTokens": 460,
+        "cachedInputTokens": 1280
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 2488
+      }
+    },
+    {
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 2916,
+        "responseId": "resp_03a18f1458a3178e016acc2a2cd7f887d2a068117d738fdda4",
+        "inputTokens": 1678,
+        "outputTokens": 400,
+        "cachedInputTokens": 1280
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 2195
+      }
+    },
+    {
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 3429,
+        "responseId": "resp_08e947b65a00e22a016acc2a2fcd9087d2bacd60f1acd257c0",
+        "inputTokens": 1726,
+        "outputTokens": 520,
+        "cachedInputTokens": 1280
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 2771
+      }
+    },
+    {
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 3546,
+        "responseId": "resp_005a4269d0f94af4016acc2a334a9087d2ab3bfb818839627f",
+        "inputTokens": 1729,
+        "outputTokens": 537,
+        "cachedInputTokens": 1280
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 2850
+      }
+    },
+    {
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 3000,
+        "responseId": "resp_0cf191ff886d70f5016acc2a36e33087d28fe1c5ae0b90e3de",
+        "inputTokens": 2043,
+        "outputTokens": 433,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 3481
+      }
+    }
+  ],
+  "opportunities": [],
+  "deliveries": [],
+  "durationMs": 46546,
+  "search": {
+    "goal": "Find clients requesting website redesign services",
+    "category": "services",
+    "target": "Website redesign",
+    "name": "Synthetic service-request scout",
+    "arrangement": "remote",
+    "arrangementRequired": true,
+    "residence": "New York, United States",
+    "workLocations": "United States or remote worldwide",
+    "authorizationLocations": "United States",
+    "authorizationConfirmed": true,
+    "sponsorshipNeed": "not_needed",
+    "background": "Five years delivering website redesign, responsive layouts, WordPress and accessible user interfaces for small businesses",
+    "minimumPay": "",
+    "currency": "USD",
+    "payPeriod": "project",
+    "unknownEligibility": "review",
+    "undisclosedPay": "include"
+  },
+  "operations": [
+    {
+      "key": "57e365b67e3359961d371fa9a82fed307ca70785898c0a4611b44104d07c1758",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": "Previously observed client-request capture check"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "retrieved_url": null,
+      "capture": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "b4f76394dd73c64ecaa2cefb6741168fc1818fd39b7b5a8bb6a56d58b7bcbb75",
+      "kind": "document",
+      "input": {
+        "url": "https://www.freelancer.com/projects/website-development/need-website",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": [
+        {
+          "url": "https://www.freelancer.com/",
+          "text": "Freelancer"
+        },
+        {
+          "url": "https://www.freelancer.com/login?next=%2Fprojects%2Fwebsite-development%2Fneed-website",
+          "text": "Log In"
+        },
+        {
+          "url": "https://www.freelancer.com/signup?next=%2Fprojects%2Fwebsite-development%2Fneed-website",
+          "text": "Sign Up"
+        },
+        {
+          "url": "https://www.freelancer.com/post-project",
+          "text": "Post a Project"
+        },
+        {
+          "url": "https://www.freelancer.com/job",
+          "text": "Jobs"
+        },
+        {
+          "url": "https://www.freelancer.com/jobs/website-development",
+          "text": "Website Development"
+        },
+        {
+          "url": "https://www.freelancer.com/jobs/web-development",
+          "text": "Web Development"
+        },
+        {
+          "url": "https://www.freelancer.com/u/crtvecode",
+          "text": "@crtvecode"
+        },
+        {
+          "url": "https://www.freelancer.com/u/uzeetech",
+          "text": "@UzeeTech"
+        },
+        {
+          "url": "https://www.freelancer.com/u/jayantkumar314",
+          "text": "@jayantkumar314"
+        },
+        {
+          "url": "https://www.freelancer.com/u/seo4quality",
+          "text": "@seo4quality"
+        },
+        {
+          "url": "https://www.freelancer.com/u/sohailzk",
+          "text": "@Sohailzk"
+        },
+        {
+          "url": "https://www.freelancer.com/u/web1devloper",
+          "text": "@Web1devloper"
+        },
+        {
+          "url": "https://www.freelancer.com/u/riteshn48",
+          "text": "@Riteshn48"
+        },
+        {
+          "url": "https://www.freelancer.com/u/shobha2891",
+          "text": "@shobha2891"
+        },
+        {
+          "url": "https://www.freelancer.com/u/braing2",
+          "text": "@braing2"
+        },
+        {
+          "url": "https://www.freelancer.com/u/hieronymoss",
+          "text": "@hieronymoss"
+        },
+        {
+          "url": "https://www.freelancer.com/u/oldrich333",
+          "text": "@Oldrich333"
+        },
+        {
+          "url": "https://www.freelancer.com/u/stevenl624",
+          "text": "@stevenl624"
+        },
+        {
+          "url": "https://www.freelancer.com/u/xirrete0707",
+          "text": "@xirrete0707"
+        },
+        {
+          "url": "https://www.freelancer.com/u/humakiai",
+          "text": "@humakiai"
+        },
+        {
+          "url": "https://www.freelancer.com/u/denisbintang23",
+          "text": "@denisbintang23"
+        },
+        {
+          "url": "https://www.freelancer.com/u/jayakumarp15",
+          "text": "@jayakumarp15"
+        },
+        {
+          "url": "https://www.freelancer.com/u/lokesh1058",
+          "text": "@lokesh1058"
+        },
+        {
+          "url": "https://www.freelancer.com/u/gouravk242",
+          "text": "@gouravk242"
+        },
+        {
+          "url": "https://www.freelancer.com/u/bibekl8",
+          "text": "@bibekl8"
+        },
+        {
+          "url": "https://www.freelancer.com/u/shafqatismllc",
+          "text": "@ShafqatismLLC"
+        },
+        {
+          "url": "https://www.freelancer.com/buyers/repost.php?id=40761392",
+          "text": "Post a project like this"
+        },
+        {
+          "url": "https://www.freelancer.com/projects/creative-writing/psychological-horror-screenwriting-for",
+          "text": "Previous job"
+        },
+        {
+          "url": "https://www.freelancer.com/projects/conversion-rate-optimization/meta-pixel-meta-ads-shopify",
+          "text": "Next job"
+        },
+        {
+          "url": "https://www.freelancer.com/projects/web-design/modern-wordpress-peptide-sales-site",
+          "text": "Modern WordPress Peptide Sales Site £750-1500 GBP"
+        },
+        {
+          "url": "https://www.freelancer.com/projects/backend-development/registration-backend-development-have",
+          "text": "Registration Backend Development, I Have Frontend ₹600-1500 INR"
+        },
+        {
+          "url": "https://www.freelancer.com/projects/woocommerce/commerce-catalog-website",
+          "text": "E-Commerce Catalog Website $250-750 USD"
+        },
+        {
+          "url": "https://www.freelancer.com/projects/web-design/creative-page-website-build",
+          "text": "Creative 4-Page Website Build $250-750 USD"
+        },
+        {
+          "url": "https://www.freelancer.com/projects/website-design/modern-global-travel-community-website",
+          "text": "Modern Global Travel Community Website ₹12500-37500 INR"
+        },
+        {
+          "url": "https://www.freelancer.com/projects/payment-gateway-integration/woocommerce-software-store-setup",
+          "text": "WooCommerce Software Store Setup $250-750 USD"
+        },
+        {
+          "url": "https://www.freelancer.com/projects/woocommerce/set-managed-woocommerce-site",
+          "text": "Set Up Managed WooCommerce Site $30-250 USD"
+        },
+        {
+          "url": "https://www.freelancer.com/projects/video-editing/kids-playcenter-event-app",
+          "text": "Kids Playcenter Event App €1000-3000 EUR"
+        },
+        {
+          "url": "https://www.freelancer.com/projects/web-development/create-multi-category-commerce-website",
+          "text": "Create Multi-Category E-commerce Website $30-250 USD"
+        },
+        {
+          "url": "https://www.freelancer.com/projects/full-stack-development/multi-feature-trading-platform",
+          "text": "Multi-Feature Trading Platform Development $500-2000 USD"
+        },
+        {
+          "url": "https://www.freelancer.com/contest/solar-brand-website-creation-2794768",
+          "text": "Solar Brand Website Creation $200 NZD"
+        },
+        {
+          "url": "https://www.freelancer.com/projects/web-development/customized-cognito-form-development",
+          "text": "Customized Cognito Form Development $30-250 AUD"
+        },
+        {
+          "url": "https://www.freelancer.com/projects/web-development/commerce-website-with-product-reviews",
+          "text": "E-commerce Website with Product Reviews ₹750-1250 INR / hour"
+        },
+        {
+          "url": "https://www.freelancer.com/projects/web-design/modern-business-website-design-needed",
+          "text": "Modern Business Website Design Needed $250-750 USD"
+        },
+        {
+          "url": "https://www.freelancer.com/projects/blog-design/creative-multi-section-blog-shop",
+          "text": "Creative Multi-Section Blog and Shop - 09/10/2026 04:24 EDT £750-1500 GBP"
+        },
+        {
+          "url": "https://www.freelancer.com/projects/lead-generation/lead-generation-specialist-for-digital-40757105",
+          "text": "Lead Generation Specialist for Digital Agency ₹600-1500 INR"
+        },
+        {
+          "url": "https://www.freelancer.com/projects/full-stack-development/powered-services-marketplace-development",
+          "text": "AI-Powered Services Marketplace Development $250-750 USD"
+        },
+        {
+          "url": "https://www.freelancer.com/projects/web-development/design-develop-professional-mobile",
+          "text": "Design and develop a professional, mobile-friendly website for holiday apartments ₹10000-40000 INR"
+        },
+        {
+          "url": "https://www.freelancer.com/projects/web-design/dog-breeding-products-website-design",
+          "text": "Dog Breeding and Products Website Design $25-50 USD / hour"
+        },
+        {
+          "url": "https://www.freelancer.com/projects/wordpress-design/wordpress-navigation-functionality",
+          "text": "WordPress Navigation Functionality Upgrade ₹600-1500 INR"
+        },
+        {
+          "url": "https://www.freelancer.com/choose-your-country",
+          "text": "US (International) / English"
+        },
+        {
+          "url": "https://www.freelancer.com/support",
+          "text": "Help & Support"
+        },
+        {
+          "url": "https://www.freelancer.com/jobs",
+          "text": "Projects"
+        },
+        {
+          "url": "https://www.freelancer.com/contest",
+          "text": "Contests"
+        },
+        {
+          "url": "https://www.freelancer.com/freelancers",
+          "text": "Freelancers"
+        },
+        {
+          "url": "https://www.freelancer.com/enterprise",
+          "text": "Enterprise"
+        },
+        {
+          "url": "https://www.freelancer.com/innovation",
+          "text": "Innovation Challenges"
+        },
+        {
+          "url": "https://www.freelancer.com/ai",
+          "text": "AI Development"
+        },
+        {
+          "url": "https://www.freelancer.com/membership",
+          "text": "Membership"
+        },
+        {
+          "url": "https://www.freelancer.com/preferred-freelancer-program",
+          "text": "Preferred Freelancer Program"
+        },
+        {
+          "url": "https://www.freelancer.com/project-management",
+          "text": "Project Management"
+        },
+        {
+          "url": "https://www.freelancer.com/local",
+          "text": "Local Jobs"
+        },
+        {
+          "url": "https://www.photoanywhere.com/",
+          "text": "Photo Anywhere"
+        },
+        {
+          "url": "https://www.freelancer.com/showcase",
+          "text": "Showcase"
+        },
+        {
+          "url": "https://developers.freelancer.com/",
+          "text": "API for Developers"
+        },
+        {
+          "url": "https://www.freelancer.com/verified",
+          "text": "Get Verified"
+        },
+        {
+          "url": "https://www.freelancer.com/about",
+          "text": "About us"
+        },
+        {
+          "url": "https://www.freelancer.com/info/how-it-works",
+          "text": "How it Works"
+        },
+        {
+          "url": "https://www.freelancer.com/about/security",
+          "text": "Security"
+        },
+        {
+          "url": "https://www.freelancer.com/investor",
+          "text": "Investor"
+        },
+        {
+          "url": "https://www.freelancer.com/sitemap",
+          "text": "Sitemap"
+        },
+        {
+          "url": "https://www.freelancer.com/about/stories",
+          "text": "Stories"
+        },
+        {
+          "url": "https://www.freelancer.com/about/media",
+          "text": "News"
+        },
+        {
+          "url": "https://www.freelancer.com/about/management",
+          "text": "Team"
+        },
+        {
+          "url": "https://www.freelancer.com/about/awards",
+          "text": "Awards"
+        },
+        {
+          "url": "https://www.freelancer.com/about/press",
+          "text": "Press Releases"
+        },
+        {
+          "url": "https://www.freelancer.com/careers",
+          "text": "Careers"
+        },
+        {
+          "url": "https://www.freelancer.com/about/privacy",
+          "text": "Privacy Policy"
+        },
+        {
+          "url": "https://www.freelancer.com/about/terms",
+          "text": "Terms and Conditions"
+        },
+        {
+          "url": "https://www.freelancer.com/dmca",
+          "text": "Copyright Policy"
+        }
+      ],
+      "feeds": [],
+      "sitemaps": [
+        {
+          "url": "https://www.freelancer.com/sitemap_index_default_s3.xml",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.freelancer.com/sitemap_index_default_job-search_s3.xml",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.freelancer.com/sitemap_index_default_projects_s3.xml",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.freelancer.com/sitemap_index_default_contests_s3.xml",
+          "text": "Site-advertised sitemap"
+        }
+      ],
+      "retrieved_url": "https://www.freelancer.com/projects/website-development/need-website",
+      "capture": {
+        "bytes": 1341978,
+        "scope": "buyer_brief",
+        "method": "http",
+        "parser": "freelancer-public-html-v1",
+        "complete": true,
+        "requests": 2
+      },
+      "captured_text": "I NEED A WEBSITE\n\n\n₹1500-12500 INR\n\nOpen\n\nPosted about 14 hours ago\n\n•\n\nEnds in 6 days\n\n\n₹1500-12500 INR\n\nPaid on delivery\n\nHello, I am looking for an experienced website developer to build a professional, modern, and mobile-friendly website for me. The website should have an attractive design, smooth navigation, fast loading speed, and a user-friendly interface that works well on both mobile phones and computers. I want the website to look professional, be easy to manage, and include all the necessary features according to my requirements. Please share your previous work, estimated cost, delivery time, and the technologies you will use to build the website. I am looking for someone reliable who can deliver high-quality work within my budget. Thank you!\n\nListed skills: Website Development\nWeb Development\n\nProject ID: 40761392\n\nABOUT THE PROJECT\n\n64 proposals\n\nOpen for bidding\n\nRemote project\n\nActive 2 hours ago",
+      "source_status": "fetched",
+      "source_reason": null,
+      "observed_links": 80
+    },
+    {
+      "key": "fb6e64f86f97a67ce454cc6bc86a453c12f8c5f8058723ba3db1de20e092f6ac",
+      "kind": "document",
+      "input": {
+        "url": "https://www.freelancer.com/projects/creative-writing/psychological-horror-screenwriting-for",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": [
+        {
+          "url": "https://www.freelancer.com/",
+          "text": "Freelancer"
+        },
+        {
+          "url": "https://www.freelancer.com/login?next=%2Fprojects%2Fcreative-writing%2Fpsychological-horror-screenwriting-for",
+          "text": "Log In"
+        },
+        {
+          "url": "https://www.freelancer.com/signup?next=%2Fprojects%2Fcreative-writing%2Fpsychological-horror-screenwriting-for",
+          "text": "Sign Up"
+        },
+        {
+          "url": "https://www.freelancer.com/post-project",
+          "text": "Post a Project"
+        },
+        {
+          "url": "https://www.freelancer.com/job",
+          "text": "Jobs"
+        },
+        {
+          "url": "https://www.freelancer.com/jobs/creative-writing",
+          "text": "Creative Writing"
+        },
+        {
+          "url": "https://www.freelancer.com/jobs/fiction",
+          "text": "Fiction"
+        },
+        {
+          "url": "https://www.freelancer.com/jobs/screenwriting",
+          "text": "Screenwriting"
+        },
+        {
+          "url": "https://www.freelancer.com/jobs/script-writing",
+          "text": "Script Writing"
+        },
+        {
+          "url": "https://www.freelancer.com/jobs/short-stories",
+          "text": "Short Stories"
+        },
+        {
+          "url": "https://www.freelancer.com/u/solutionmart",
+          "text": "@SolutionMart"
+        },
+        {
+          "url": "https://www.freelancer.com/u/helpinghut",
+          "text": "@HelpingHut"
+        },
+        {
+          "url": "https://www.freelancer.com/u/writerlanguage",
+          "text": "@writerLanguage"
+        },
+        {
+          "url": "https://www.freelancer.com/u/gameofwords",
+          "text": "@GameOfWords"
+        },
+        {
+          "url": "https://www.freelancer.com/u/qualityxenter",
+          "text": "@qualityxenter"
+        },
+        {
+          "url": "https://www.freelancer.com/u/webgraphics4you",
+          "text": "@WebGraphics4You"
+        },
+        {
+          "url": "https://www.freelancer.com/u/knafa42",
+          "text": "@knafa42"
+        },
+        {
+          "url": "https://www.freelancer.com/u/saniyagulzar1231",
+          "text": "@saniyagulzar1231"
+        },
+        {
+          "url": "https://www.freelancer.com/u/textelite",
+          "text": "@TextElite"
+        },
+        {
+          "url": "https://www.freelancer.com/u/nabiladf98",
+          "text": "@nabiladf98"
+        },
+        {
+          "url": "https://www.freelancer.com/u/lovensonp5",
+          "text": "@lovensonp5"
+        },
+        {
+          "url": "https://www.freelancer.com/u/theblaze4",
+          "text": "@theblaze4"
+        },
+        {
+          "url": "https://www.freelancer.com/u/maityworks",
+          "text": "@MaityWorks"
+        },
+        {
+          "url": "https://www.freelancer.com/u/honey73776",
+          "text": "@Honey73776"
+        },
+        {
+          "url": "https://www.freelancer.com/u/prajwaljos",
+          "text": "@PrajwalJos"
+        },
+        {
+          "url": "https://www.freelancer.com/u/mobasherreza10",
+          "text": "@mobasherreza10"
+        },
+        {
+          "url": "https://www.freelancer.com/u/kavyav295",
+          "text": "@kavyav295"
+        },
+        {
+          "url": "https://www.freelancer.com/u/bettya65",
+          "text": "@bettya65"
+        },
+        {
+          "url": "https://www.freelancer.com/u/bishesht3",
+          "text": "@bishesht3"
+        },
+        {
+          "url": "https://www.freelancer.com/buyers/repost.php?id=40761391",
+          "text": "Post a project like this"
+        },
+        {
+          "url": "https://www.freelancer.com/projects/audio-editing/second-youtube-intro",
+          "text": "Previous job"
+        },
+        {
+          "url": "https://www.freelancer.com/projects/website-development/need-website",
+          "text": "Next job"
+        },
+        {
+          "url": "https://www.freelancer.com/projects/content-writing/scriptwriter-infotainment-for-doctor",
+          "text": "Scriptwriter Infotainment for Doctor's Channel ₹600-1500 INR"
+        },
+        {
+          "url": "https://www.freelancer.com/projects/video-editing/expert-podcast-reels-clipper-editor",
+          "text": "Expert Podcast Reels Clipper & Editor (Tier-1 Trends Research + Editing) ₹10000-22000 INR"
+        },
+        {
+          "url": "https://www.freelancer.com/projects/editing/write-european-fantasy-kids-book",
+          "text": "Write European Fantasy Kids Book $250-750 USD"
+        },
+        {
+          "url": "https://www.freelancer.com/projects/ai-content-creation/fruit-drama-shorts",
+          "text": "AI Fruit Drama Shorts $30-250 USD"
+        },
+        {
+          "url": "https://www.freelancer.com/projects/script-writing/promotional-video-for-online-tutoring",
+          "text": "Promotional Video for Online Tutoring $10-30 USD"
+        },
+        {
+          "url": "https://www.freelancer.com/projects/copy-editing/epic-fantasy-novel-copyedit",
+          "text": "Epic Fantasy Novel Copyedit ₹12500-37500 INR"
+        },
+        {
+          "url": "https://www.freelancer.com/projects/script-writing/prehistoric-documentary-scriptwriting",
+          "text": "Prehistoric Documentary Scriptwriting Needed ₹1500-12500 INR"
+        },
+        {
+          "url": "https://www.freelancer.com/projects/after-effects/freight-shield-secure-handoff-cinematic",
+          "text": "Freight Shield Secure Handoff Cinematic Explainer Video $250-300 USD"
+        },
+        {
+          "url": "https://www.freelancer.com/projects/content-creation/passionate-instagram-love-triangle-story",
+          "text": "Passionate Instagram Love Triangle Story $30-250 USD"
+        },
+        {
+          "url": "https://www.freelancer.com/projects/film-production/surreal-experimental-film-script",
+          "text": "Surreal Experimental Film Script Development $250-750 AUD"
+        },
+        {
+          "url": "https://www.freelancer.com/projects/script-writing/scriptwriting-for-animated-youtube",
+          "text": "Scriptwriting for Animated YouTube Adventure Series ₹1500-12500 INR"
+        },
+        {
+          "url": "https://www.freelancer.com/projects/creative-writing/thriller-script-writer-needed",
+          "text": "Thriller Script Writer Needed ₹12500-37500 INR"
+        },
+        {
+          "url": "https://www.freelancer.com/projects/voice-over/aussie-voiced-animated-videos",
+          "text": "Aussie-Voiced animated videos $100-150 AUD"
+        },
+        {
+          "url": "https://www.freelancer.com/projects/2d-animation/minimalist-explainer-motion-graphic",
+          "text": "Minimalist Explainer Motion Graphic Video ₹600-1500 INR"
+        },
+        {
+          "url": "https://www.freelancer.com/projects/creative-writing/urban-fantasy-romance-ebook",
+          "text": "Urban Fantasy Romance eBook ₹600-1500 INR"
+        },
+        {
+          "url": "https://www.freelancer.com/projects/screenwriting/banshee-wrath-horror-film",
+          "text": "Banshee's Wrath Horror Film $750-1500 USD"
+        },
+        {
+          "url": "https://www.freelancer.com/projects/content-creation/mafiya-bhai-youtube-content",
+          "text": "Mafiya Bhai YouTube Content ₹12500-37500 INR"
+        },
+        {
+          "url": "https://www.freelancer.com/projects/book-review/comprehensive-fiction-review",
+          "text": "Comprehensive YA Fiction Review ₹750-1250 INR / hour"
+        },
+        {
+          "url": "https://www.freelancer.com/projects/ai-video-editing/malayalam-birthday-video",
+          "text": "Malayalam AI Birthday Video $10-30 USD"
+        },
+        {
+          "url": "https://www.freelancer.com/projects/creative-writing/navrasa-experimental-film-screenplay",
+          "text": "Navrasa Experimental Film Screenplay ₹37500-75000 INR"
+        },
+        {
+          "url": "https://www.freelancer.com/choose-your-country",
+          "text": "US (International) / English"
+        },
+        {
+          "url": "https://www.freelancer.com/support",
+          "text": "Help & Support"
+        },
+        {
+          "url": "https://www.freelancer.com/jobs",
+          "text": "Projects"
+        },
+        {
+          "url": "https://www.freelancer.com/contest",
+          "text": "Contests"
+        },
+        {
+          "url": "https://www.freelancer.com/freelancers",
+          "text": "Freelancers"
+        },
+        {
+          "url": "https://www.freelancer.com/enterprise",
+          "text": "Enterprise"
+        },
+        {
+          "url": "https://www.freelancer.com/innovation",
+          "text": "Innovation Challenges"
+        },
+        {
+          "url": "https://www.freelancer.com/ai",
+          "text": "AI Development"
+        },
+        {
+          "url": "https://www.freelancer.com/membership",
+          "text": "Membership"
+        },
+        {
+          "url": "https://www.freelancer.com/preferred-freelancer-program",
+          "text": "Preferred Freelancer Program"
+        },
+        {
+          "url": "https://www.freelancer.com/project-management",
+          "text": "Project Management"
+        },
+        {
+          "url": "https://www.freelancer.com/local",
+          "text": "Local Jobs"
+        },
+        {
+          "url": "https://www.photoanywhere.com/",
+          "text": "Photo Anywhere"
+        },
+        {
+          "url": "https://www.freelancer.com/showcase",
+          "text": "Showcase"
+        },
+        {
+          "url": "https://developers.freelancer.com/",
+          "text": "API for Developers"
+        },
+        {
+          "url": "https://www.freelancer.com/verified",
+          "text": "Get Verified"
+        },
+        {
+          "url": "https://www.freelancer.com/about",
+          "text": "About us"
+        },
+        {
+          "url": "https://www.freelancer.com/info/how-it-works",
+          "text": "How it Works"
+        },
+        {
+          "url": "https://www.freelancer.com/about/security",
+          "text": "Security"
+        },
+        {
+          "url": "https://www.freelancer.com/investor",
+          "text": "Investor"
+        },
+        {
+          "url": "https://www.freelancer.com/sitemap",
+          "text": "Sitemap"
+        },
+        {
+          "url": "https://www.freelancer.com/about/stories",
+          "text": "Stories"
+        },
+        {
+          "url": "https://www.freelancer.com/about/media",
+          "text": "News"
+        },
+        {
+          "url": "https://www.freelancer.com/about/management",
+          "text": "Team"
+        },
+        {
+          "url": "https://www.freelancer.com/about/awards",
+          "text": "Awards"
+        },
+        {
+          "url": "https://www.freelancer.com/about/press",
+          "text": "Press Releases"
+        },
+        {
+          "url": "https://www.freelancer.com/careers",
+          "text": "Careers"
+        },
+        {
+          "url": "https://www.freelancer.com/about/privacy",
+          "text": "Privacy Policy"
+        }
+      ],
+      "feeds": [],
+      "sitemaps": [
+        {
+          "url": "https://www.freelancer.com/sitemap_index_default_s3.xml",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.freelancer.com/sitemap_index_default_job-search_s3.xml",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.freelancer.com/sitemap_index_default_projects_s3.xml",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.freelancer.com/sitemap_index_default_contests_s3.xml",
+          "text": "Site-advertised sitemap"
+        }
+      ],
+      "retrieved_url": "https://www.freelancer.com/projects/creative-writing/psychological-horror-screenwriting-for",
+      "capture": {
+        "bytes": 1329905,
+        "scope": "buyer_brief",
+        "method": "http",
+        "parser": "freelancer-public-html-v1",
+        "complete": true,
+        "requests": 2
+      },
+      "captured_text": "PSYCHOLOGICAL HORROR SCREENWRITING FOR SHORT FILM\n\n\n$30-100 USD\n\nOpen\n\nPosted about 15 hours ago\n\n•\n\nEnds in 6 days\n\n\n$30-100 USD\n\nPaid on delivery\n\nI’m looking for a screenwriter/co-writer to help turn a fairly developed psychological horror short into a polished, production-ready screenplay of approximately 18–22 pages. I’m a film student/indie filmmaker in Kentucky, and this short is being produced for a competition later this month, so I need someone who can work quickly and communicate reliably. The basic story, characters, themes, and visual concepts, are already developed. I mainly need a strong writer to help turn my existing material into an effective screenplay, especially the dialogue. The film is grounded relationship horror about Alex and Robin, a couple whose relationship gradually becomes emotionally and physically unsafe. Alex sometimes dissociates, which is represented visually through a glamorous, decaying cabaret/variety-show world in his mind. The external story remains realistic; the performance sequences are subjective cinematic imagery rather than a supernatural plot device. Tonal influences include The Invisible Man (2020), Run, The Act, Obsession, and the visual/theatrical atmosphere of American Horror Story: Freak Show. What I’m looking for: * Strong, naturalistic dialogue * Psychological horror and tension * Complicated, believable relationship dynamics * Characters who are flawed without becoming caricatures * Proper screenplay formatting * Approximately 18–22 pages * One completed draft plus one light revision pass Budget: $100 USD fixed (up to $150 if quality requires it). This is my absolute budget ceiling, so I want to be upfront about that from the beginning. Credit: “Written by Jett & [Writer]” The finished short is genuinely being produced, so this would be a produced screenplay credit rather than a speculative script. Important: No generative AI may be used to write, rewrite, or generate any portion of the screenplay. Additional Detail: Recorded covers of the actor set to play Alex singing “I Wanna Be Loved by You,” “Dream a Little Dream of Me,” “Sing You Sinners,” “Button Up Your Overcoat,” and “I’m Always Chasing Rainbows” are available for use in the film.\n\nListed skills: Creative Writing\nFiction\nScreenwriting\nScript Writing\nShort Stories\n\nProject ID: 40761391\n\nABOUT THE PROJECT\n\n30 proposals\n\nOpen for bidding\n\nRemote project\n\nActive 3 hours ago",
+      "source_status": "fetched",
+      "source_reason": null,
+      "observed_links": 80
+    },
+    {
+      "key": "80af85df011158498905b84c8354386f1bd6716fd21007d1ffecc83f522c6864",
+      "kind": "document",
+      "input": {
+        "url": "https://www.dcoe.org/opportunities/rfp-tenders/modernize-its-public-sex-offender-registry-website-enhancing-public",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": [
+        {
+          "url": "https://www.dcoe.org/user/login?destination=/opportunities/rfp-tenders/modernize-its-public-sex-offender-registry-website-enhancing-public",
+          "text": "Log in"
+        },
+        {
+          "url": "https://www.dcoe.org/user/register",
+          "text": "Register"
+        }
+      ],
+      "feeds": [],
+      "sitemaps": [],
+      "retrieved_url": "https://www.dcoe.org/opportunities/rfp-tenders/modernize-its-public-sex-offender-registry-website-enhancing-public",
+      "capture": {
+        "bytes": 29114,
+        "method": "http",
+        "complete": false,
+        "requests": 2
+      },
+      "captured_text": "Skip to main content\nLog in\n\n\n\nMODERNIZE ITS PUBLIC SEX OFFENDER REGISTRY WEBSITE, ENHANCING PUBLIC ACCESS TO REGISTRY INFORMATION THROUGH A MOBILE-RESPONSIVE, SEARCHABLE, AND\n\nLoading navigation...\n\n\nSUMMARY\n\nDue Date 2026-12-16T19:00:00 Country USA State New Hampshire\n\nThe State of New Hampshire is seeking a vendor to modernize its public Sex Offender Registry website, enhancing public access to registry information through a mobile-responsive, searchable, and map-enabled platform. The project aims to automate data publication, improve administrative oversight, and support statutory compliance processes.\n\nLog in or Register to view this RFP and download solicitation documents.\n\nImage\n\n\n \n\nThe Digital Center of Excellence (DCoE) is a global marketplace connecting digital professionals, agencies, tech companies, consultants, and site owners. We strive to help digital agencies and tech companies find and win contracts they didn’t know existed. This site is sponsored by Blake Newman and Agileana, a DC-based digital agency. If you have any questions or issues with the website, please email [email protected].",
+      "source_status": "fetched",
+      "source_reason": "source_details_require_sign_in",
+      "observed_links": 2
+    },
+    {
+      "key": "27017ddda4e142343272e282c68e8d627b096d4ed8d28527766e361cd2020a3b",
+      "kind": "document",
+      "input": {
+        "url": "https://www.dcoe.org/opportunities/rfp-tenders/develop-statewide-workforce-portal",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": [
+        {
+          "url": "https://www.dcoe.org/user/login?destination=/opportunities/rfp-tenders/develop-statewide-workforce-portal",
+          "text": "Log in"
+        },
+        {
+          "url": "https://www.dcoe.org/user/register",
+          "text": "Register"
+        }
+      ],
+      "feeds": [],
+      "sitemaps": [],
+      "retrieved_url": "https://www.dcoe.org/opportunities/rfp-tenders/develop-statewide-workforce-portal",
+      "capture": {
+        "bytes": 28475,
+        "method": "http",
+        "complete": false,
+        "requests": 2
+      },
+      "captured_text": "Skip to main content\nLog in\n\n\n\nDEVELOP A STATEWIDE WORKFORCE PORTAL\n\nLoading navigation...\n\n\nSUMMARY\n\nDue Date 2026-11-13T16:00:00 Country USA State South Carolina\n\nThe SC Department of Employment and Workforce seeks a vendor to develop a statewide workforce portal. This portal will serve as a coordination layer to help various stakeholders navigate education and employment pathways while preserving existing systems of record.\n\nLog in or Register to view this RFP and download solicitation documents.\n\nImage\n\n\n \n\nThe Digital Center of Excellence (DCoE) is a global marketplace connecting digital professionals, agencies, tech companies, consultants, and site owners. We strive to help digital agencies and tech companies find and win contracts they didn’t know existed. This site is sponsored by Blake Newman and Agileana, a DC-based digital agency. If you have any questions or issues with the website, please email [email protected].",
+      "source_status": "fetched",
+      "source_reason": "source_details_require_sign_in",
+      "observed_links": 2
+    },
+    {
+      "key": "1539d00f1f7d5598dca1973d331344681393cda8cebbe1a9027b7ddeee725491",
+      "kind": "document",
+      "input": {
+        "url": "https://www.dcoe.org/opportunities/rfp-tenders/design-develop-host-and-support-modern-secure-accessible-and-user",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": [
+        {
+          "url": "https://www.dcoe.org/user/login?destination=/opportunities/rfp-tenders/design-develop-host-and-support-modern-secure-accessible-and-user",
+          "text": "Log in"
+        },
+        {
+          "url": "https://www.dcoe.org/user/register",
+          "text": "Register"
+        }
+      ],
+      "feeds": [],
+      "sitemaps": [],
+      "retrieved_url": "https://www.dcoe.org/opportunities/rfp-tenders/design-develop-host-and-support-modern-secure-accessible-and-user",
+      "capture": {
+        "bytes": 29066,
+        "method": "http",
+        "complete": false,
+        "requests": 2
+      },
+      "captured_text": "Skip to main content\nLog in\n\n\n\nDESIGN, DEVELOP, HOST, AND SUPPORT A MODERN, SECURE, ACCESSIBLE, AND USER-FRIENDLY COUNTY WEBSITE USING A CONTENT MANAGEMENT SYSTEM\n\nLoading navigation...\n\n\nSUMMARY\n\nDue Date 2026-11-12T16:00:00 Country USA State Missouri\n\nNewton County, Missouri is seeking a qualified vendor to design, develop, host, and support a modern, secure, accessible, and user-friendly County website using a content management system. The project aims to replace the current public website with a responsive, reliable, and easy-to-manage platform that improves access to county information and services.\n\nLog in or Register to view this RFP and download solicitation documents.\n\nImage\n\n\n \n\nThe Digital Center of Excellence (DCoE) is a global marketplace connecting digital professionals, agencies, tech companies, consultants, and site owners. We strive to help digital agencies and tech companies find and win contracts they didn’t know existed. This site is sponsored by Blake Newman and Agileana, a DC-based digital agency. If you have any questions or issues with the website, please email [email protected].",
+      "source_status": "fetched",
+      "source_reason": "source_details_require_sign_in",
+      "observed_links": 2
+    },
+    {
+      "key": "17aa8b03650f1d08eb9fe80eecadd5607b02b4924ce3e46acb2953966b2c6e68",
+      "kind": "document",
+      "input": {
+        "url": "https://www.dcoe.org/opportunities/rfp-tenders/website-design-development-hosting-operations-maintenance-and-support",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": [
+        {
+          "url": "https://www.dcoe.org/user/login?destination=/opportunities/rfp-tenders/website-design-development-hosting-operations-maintenance-and-support",
+          "text": "Log in"
+        },
+        {
+          "url": "https://www.dcoe.org/user/register",
+          "text": "Register"
+        }
+      ],
+      "feeds": [],
+      "sitemaps": [],
+      "retrieved_url": "https://www.dcoe.org/opportunities/rfp-tenders/website-design-development-hosting-operations-maintenance-and-support",
+      "capture": {
+        "bytes": 29757,
+        "method": "http",
+        "complete": false,
+        "requests": 2
+      },
+      "captured_text": "Skip to main content\nLog in\n\n\n\nWEBSITE DESIGN, DEVELOPMENT, HOSTING, OPERATIONS, MAINTENANCE, AND SUPPORT SERVICES USING THE DRUPAL CONTENT MANAGEMENT SYSTEM FOR THE 511.ORG WEBSITE (PANTHEON)\n\nLoading navigation...\n\n\nSUMMARY\n\nDue Date 2027-07-01T00:00:00 Country USA State California\n\nThe Metropolitan Transportation Commission (MTC) is seeking a vendor for website design, development, hosting, operations, maintenance, and support services using the Drupal content management system for the 511.org website. The project aims to enhance the website's functionality, including real-time traveler alerts and interactive maps, and transition from Google Maps to OpenStreetMap.\n\nKey Requirements\nDrupal Pantheon OpenStreetMap SAAS API Gateway Real-time data integration\n\nLog in or Register to view this RFP and download solicitation documents.\n\nImage\n\n\n \n\nThe Digital Center of Excellence (DCoE) is a global marketplace connecting digital professionals, agencies, tech companies, consultants, and site owners. We strive to help digital agencies and tech companies find and win contracts they didn’t know existed. This site is sponsored by Blake Newman and Agileana, a DC-based digital agency. If you have any questions or issues with the website, please email [email protected].",
+      "source_status": "fetched",
+      "source_reason": "source_details_require_sign_in",
+      "observed_links": 2
+    }
+  ],
+  "decisions": [],
+  "case": {
+    "id": "312a1363-d97c-4e52-8d7b-a7ad274e074d",
+    "scoutId": "994f0ab2-a421-4483-b9f5-adf7a861b5e8",
+    "scoutName": "Synthetic service-request scout",
+    "scoutVersion": 1,
+    "provider": "recorded-capture-check",
+    "strategy": null,
+    "exploration": [],
+    "reviewStatus": "complete",
+    "reviewReason": null,
+    "status": "partial",
+    "reason": "some_sources_unavailable",
+    "startedAt": "2026-10-12 00:30:03.241953+00",
+    "finishedAt": "2026-10-12 00:30:29.119068+00",
+    "searchesCompleted": 1,
+    "documentsChecked": 6,
+    "leadCount": 6
+  },
+  "usage": [
+    {
+      "provider": "public-documents",
+      "requests": 6,
+      "reserved_micros": "0"
+    },
+    {
+      "provider": "recorded-capture-check",
+      "requests": 1,
+      "reserved_micros": "0"
+    }
+  ],
+  "aiBudget": [
+    {
+      "requests": 6,
+      "reserved_microusd": "450000"
+    }
+  ],
+  "dashboardLeadSampleSize": 6,
+  "leads": [
+    {
+      "url": "https://www.dcoe.org/opportunities/rfp-tenders/design-develop-host-and-support-modern-secure-accessible-and-user",
+      "title": "Design, develop, host, and support a modern, secure, accessible, and user-friendly County website using a content management system",
+      "contentStatus": "fetched",
+      "contentReason": "source_details_require_sign_in",
+      "postingId": null,
+      "promoted": false,
+      "review": {
+        "facts": {
+          "role": {
+            "value": "design, develop, host, and support a modern, secure, accessible, and user-friendly County website using a content management system",
+            "quotes": [
+              "DESIGN, DEVELOP, HOST, AND SUPPORT A MODERN, SECURE, ACCESSIBLE, AND USER-FRIENDLY COUNTY WEBSITE USING A CONTENT MANAGEMENT SYSTEM",
+              "Newton County, Missouri is seeking a qualified vendor to design, develop, host, and support a modern, secure, accessible, and user-friendly County website using a content management system. The project aims to replace the current public website with a responsive, reliable, and easy-to-manage platform that improves access to county information and services."
+            ],
+            "status": "stated"
+          },
+          "category": {
+            "value": "contract",
+            "quotes": [
+              "Newton County, Missouri is seeking a qualified vendor to design, develop, host, and support a modern, secure, accessible, and user-friendly County website using a content management system. The project aims to replace the current public website with a responsive, reliable, and easy-to-manage platform that improves access to county information and services."
+            ],
+            "status": "stated"
+          },
+          "location": {
+            "value": "Newton County, Missouri",
+            "quotes": [
+              "Due Date 2026-11-12T16:00:00 Country USA State Missouri",
+              "Newton County, Missouri is seeking a qualified vendor to design, develop, host, and support a modern, secure, accessible, and user-friendly County website using a content management system. The project aims to replace the current public website with a responsive, reliable, and easy-to-manage platform that improves access to county information and services."
+            ],
+            "status": "stated"
+          },
+          "arrangement": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "sponsorship": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "compensation": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "requirements": {
+            "value": "qualified vendor; use a content management system; responsive, reliable, and easy-to-manage platform",
+            "quotes": [
+              "Newton County, Missouri is seeking a qualified vendor to design, develop, host, and support a modern, secure, accessible, and user-friendly County website using a content management system. The project aims to replace the current public website with a responsive, reliable, and easy-to-manage platform that improves access to county information and services."
+            ],
+            "status": "stated"
+          },
+          "authorization": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          }
+        },
+        "label": "client_request",
+        "scope": "source",
+        "quotes": [
+          "Newton County, Missouri is seeking a qualified vendor to design, develop, host, and support a modern, secure, accessible, and user-friendly County website using a content management system. The project aims to replace the current public website with a responsive, reliable, and easy-to-manage platform that improves access to county information and services.",
+          "Due Date 2026-11-12T16:00:00 Country USA State Missouri",
+          "Log in or Register to view this RFP and download solicitation documents."
+        ],
+        "explanation": "Newton County, Missouri is seeking a vendor for a specific website project, so this is a concrete buyer request rather than a job opening or discussion."
+      }
+    },
+    {
+      "url": "https://www.dcoe.org/opportunities/rfp-tenders/develop-statewide-workforce-portal",
+      "title": "Develop a statewide workforce portal",
+      "contentStatus": "fetched",
+      "contentReason": "source_details_require_sign_in",
+      "postingId": null,
+      "promoted": false,
+      "review": {
+        "facts": {
+          "role": {
+            "value": "develop a statewide workforce portal",
+            "quotes": [
+              "DEVELOP A STATEWIDE WORKFORCE PORTAL",
+              "The SC Department of Employment and Workforce seeks a vendor to develop a statewide workforce portal. This portal will serve as a coordination layer to help various stakeholders navigate education and employment pathways while preserving existing systems of record."
+            ],
+            "status": "stated"
+          },
+          "category": {
+            "value": "client_request",
+            "quotes": [
+              "The SC Department of Employment and Workforce seeks a vendor to develop a statewide workforce portal. This portal will serve as a coordination layer to help various stakeholders navigate education and employment pathways while preserving existing systems of record."
+            ],
+            "status": "stated"
+          },
+          "location": {
+            "value": "South Carolina, USA",
+            "quotes": [
+              "Due Date 2026-11-13T16:00:00 Country USA State South Carolina"
+            ],
+            "status": "stated"
+          },
+          "arrangement": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "sponsorship": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "compensation": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "requirements": {
+            "value": "a vendor to develop a statewide workforce portal that will serve as a coordination layer to help various stakeholders navigate education and employment pathways while preserving existing systems of record",
+            "quotes": [
+              "The SC Department of Employment and Workforce seeks a vendor to develop a statewide workforce portal. This portal will serve as a coordination layer to help various stakeholders navigate education and employment pathways while preserving existing systems of record."
+            ],
+            "status": "stated"
+          },
+          "authorization": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          }
+        },
+        "label": "client_request",
+        "scope": "source",
+        "quotes": [
+          "The SC Department of Employment and Workforce seeks a vendor to develop a statewide workforce portal. This portal will serve as a coordination layer to help various stakeholders navigate education and employment pathways while preserving existing systems of record.",
+          "Due Date 2026-11-13T16:00:00 Country USA State South Carolina"
+        ],
+        "explanation": "This is an RFP where a government agency is seeking a vendor to build a portal, so it is a concrete buyer request for services rather than a job opening."
+      }
+    },
+    {
+      "url": "https://www.dcoe.org/opportunities/rfp-tenders/modernize-its-public-sex-offender-registry-website-enhancing-public",
+      "title": "Modernize its public Sex Offender Registry website, enhancing public access to registry information through a mobile-responsive, searchable, and",
+      "contentStatus": "fetched",
+      "contentReason": "source_details_require_sign_in",
+      "postingId": null,
+      "promoted": false,
+      "review": {
+        "facts": {
+          "role": {
+            "value": "modernize its public Sex Offender Registry website",
+            "quotes": [
+              "MODERNIZE ITS PUBLIC SEX OFFENDER REGISTRY WEBSITE, ENHANCING PUBLIC ACCESS TO REGISTRY INFORMATION THROUGH A MOBILE-RESPONSIVE, SEARCHABLE, AND",
+              "The State of New Hampshire is seeking a vendor to modernize its public Sex Offender Registry website, enhancing public access to registry information through a mobile-responsive, searchable, and map-enabled platform. The project aims to automate data publication, improve administrative oversight, and support statutory compliance processes."
+            ],
+            "status": "stated"
+          },
+          "category": {
+            "value": "client_request",
+            "quotes": [
+              "The State of New Hampshire is seeking a vendor to modernize its public Sex Offender Registry website, enhancing public access to registry information through a mobile-responsive, searchable, and map-enabled platform. The project aims to automate data publication, improve administrative oversight, and support statutory compliance processes."
+            ],
+            "status": "stated"
+          },
+          "location": {
+            "value": "USA, New Hampshire",
+            "quotes": [
+              "Due Date 2026-12-16T19:00:00 Country USA State New Hampshire"
+            ],
+            "status": "stated"
+          },
+          "arrangement": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "sponsorship": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "compensation": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "requirements": {
+            "value": "mobile-responsive, searchable, and map-enabled platform; automate data publication; improve administrative oversight; support statutory compliance processes",
+            "quotes": [
+              "The State of New Hampshire is seeking a vendor to modernize its public Sex Offender Registry website, enhancing public access to registry information through a mobile-responsive, searchable, and map-enabled platform. The project aims to automate data publication, improve administrative oversight, and support statutory compliance processes.",
+              "MODERNIZE ITS PUBLIC SEX OFFENDER REGISTRY WEBSITE, ENHANCING PUBLIC ACCESS TO REGISTRY INFORMATION THROUGH A MOBILE-RESPONSIVE, SEARCHABLE, AND"
+            ],
+            "status": "stated"
+          },
+          "authorization": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          }
+        },
+        "label": "client_request",
+        "scope": "source",
+        "quotes": [
+          "The State of New Hampshire is seeking a vendor to modernize its public Sex Offender Registry website, enhancing public access to registry information through a mobile-responsive, searchable, and map-enabled platform. The project aims to automate data publication, improve administrative oversight, and support statutory compliance processes.",
+          "Due Date 2026-12-16T19:00:00 Country USA State New Hampshire",
+          "Log in or Register to view this RFP and download solicitation documents."
+        ],
+        "explanation": "A government buyer is seeking a vendor for a specific RFP to modernize a public website, so this is a concrete client request rather than a job opening."
+      }
+    },
+    {
+      "url": "https://www.dcoe.org/opportunities/rfp-tenders/website-design-development-hosting-operations-maintenance-and-support",
+      "title": "Website design, development, hosting, operations, maintenance, and support services using the Drupal content management system for the 511.org website (Pantheon)",
+      "contentStatus": "fetched",
+      "contentReason": "source_details_require_sign_in",
+      "postingId": null,
+      "promoted": false,
+      "review": {
+        "facts": {
+          "role": {
+            "value": "website design, development, hosting, operations, maintenance, and support services",
+            "quotes": [
+              "WEBSITE DESIGN, DEVELOPMENT, HOSTING, OPERATIONS, MAINTENANCE, AND SUPPORT SERVICES USING THE DRUPAL CONTENT MANAGEMENT SYSTEM FOR THE 511.ORG WEBSITE (PANTHEON)",
+              "The Metropolitan Transportation Commission (MTC) is seeking a vendor for website design, development, hosting, operations, maintenance, and support services using the Drupal content management system for the 511.org website. The project aims to enhance the website's functionality, including real-time traveler alerts and interactive maps, and transition from Google Maps to OpenStreetMap."
+            ],
+            "status": "stated"
+          },
+          "category": {
+            "value": "client_request",
+            "quotes": [
+              "The Metropolitan Transportation Commission (MTC) is seeking a vendor for website design, development, hosting, operations, maintenance, and support services using the Drupal content management system for the 511.org website. The project aims to enhance the website's functionality, including real-time traveler alerts and interactive maps, and transition from Google Maps to OpenStreetMap."
+            ],
+            "status": "stated"
+          },
+          "location": {
+            "value": "USA, California",
+            "quotes": [
+              "Due Date 2027-07-01T00:00:00 Country USA State California"
+            ],
+            "status": "stated"
+          },
+          "arrangement": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "sponsorship": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "compensation": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "requirements": {
+            "value": "Drupal Pantheon OpenStreetMap SAAS API Gateway Real-time data integration",
+            "quotes": [
+              "Drupal Pantheon OpenStreetMap SAAS API Gateway Real-time data integration"
+            ],
+            "status": "stated"
+          },
+          "authorization": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          }
+        },
+        "label": "client_request",
+        "scope": "source",
+        "quotes": [
+          "The Metropolitan Transportation Commission (MTC) is seeking a vendor for website design, development, hosting, operations, maintenance, and support services using the Drupal content management system for the 511.org website. The project aims to enhance the website's functionality, including real-time traveler alerts and interactive maps, and transition from Google Maps to OpenStreetMap.",
+          "Due Date 2027-07-01T00:00:00 Country USA State California"
+        ],
+        "explanation": "This is a concrete procurement request for vendor services, not a job opening. It asks for website design, development, hosting, operations, maintenance, and support for a named website, with a stated due date."
+      }
+    },
+    {
+      "url": "https://www.freelancer.com/projects/creative-writing/psychological-horror-screenwriting-for",
+      "title": "Previous job",
+      "contentStatus": "fetched",
+      "contentReason": null,
+      "postingId": "web:8f103b90d26e1fc3c45971ade15e923f0a23aa0d05a2787c17e96d2a6edf2eeb",
+      "promoted": true,
+      "review": {
+        "facts": {
+          "role": {
+            "value": "screenwriter/co-writer",
+            "quotes": [
+              "I’m looking for a screenwriter/co-writer to help turn a fairly developed psychological horror short into a polished, production-ready screenplay of approximately 18–22 pages. I’m a film student/indie filmmaker in Kentucky, and this short is being produced for a competition later this month, so I need someone who can work quickly and communicate reliably. The basic story, characters, themes, and visual concepts, are already developed. I mainly need a strong writer to help turn my existing material into an effective screenplay, especially the dialogue. The film is grounded relationship horror about Alex and Robin, a couple whose relationship gradually becomes emotionally and physically unsafe. Alex sometimes dissociates, which is represented visually through a glamorous, decaying cabaret/variety-show world in his mind. The external story remains realistic; the performance sequences are subjective cinematic imagery rather than a supernatural plot device. Tonal influences include The Invis"
+            ],
+            "status": "stated"
+          },
+          "category": {
+            "value": "contract",
+            "quotes": [
+              "Paid on delivery",
+              "ible Man (2020), Run, The Act, Obsession, and the visual/theatrical atmosphere of American Horror Story: Freak Show. What I’m looking for: * Strong, naturalistic dialogue * Psychological horror and tension * Complicated, believable relationship dynamics * Characters who are flawed without becoming caricatures * Proper screenplay formatting * Approximately 18–22 pages * One completed draft plus one light revision pass Budget: $100 USD fixed (up to $150 if quality requires it). This is my absolute budget ceiling, so I want to be upfront about that from the beginning. Credit: “Written by Jett & [Writer]” The finished short is genuinely being produced, so this would be a produced screenplay credit rather than a speculative script. Important: No generative AI may be used to write, rewrite, or generate any portion of the screenplay. Additional Detail: Recorded covers of the actor set to play Alex singing “I Wanna Be Loved by You,” “Dream a Little Dream of Me,” “Sing You Sinners,” “Button Up "
+            ],
+            "status": "stated"
+          },
+          "location": {
+            "value": "Kentucky",
+            "quotes": [
+              "I’m looking for a screenwriter/co-writer to help turn a fairly developed psychological horror short into a polished, production-ready screenplay of approximately 18–22 pages. I’m a film student/indie filmmaker in Kentucky, and this short is being produced for a competition later this month, so I need someone who can work quickly and communicate reliably. The basic story, characters, themes, and visual concepts, are already developed. I mainly need a strong writer to help turn my existing material into an effective screenplay, especially the dialogue. The film is grounded relationship horror about Alex and Robin, a couple whose relationship gradually becomes emotionally and physically unsafe. Alex sometimes dissociates, which is represented visually through a glamorous, decaying cabaret/variety-show world in his mind. The external story remains realistic; the performance sequences are subjective cinematic imagery rather than a supernatural plot device. Tonal influences include The Invis"
+            ],
+            "status": "stated"
+          },
+          "arrangement": {
+            "value": "remote",
+            "quotes": [
+              "Remote project"
+            ],
+            "status": "stated"
+          },
+          "sponsorship": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "compensation": {
+            "value": "$100 USD fixed, up to $150 if quality requires it",
+            "quotes": [
+              "ible Man (2020), Run, The Act, Obsession, and the visual/theatrical atmosphere of American Horror Story: Freak Show. What I’m looking for: * Strong, naturalistic dialogue * Psychological horror and tension * Complicated, believable relationship dynamics * Characters who are flawed without becoming caricatures * Proper screenplay formatting * Approximately 18–22 pages * One completed draft plus one light revision pass Budget: $100 USD fixed (up to $150 if quality requires it). This is my absolute budget ceiling, so I want to be upfront about that from the beginning. Credit: “Written by Jett & [Writer]” The finished short is genuinely being produced, so this would be a produced screenplay credit rather than a speculative script. Important: No generative AI may be used to write, rewrite, or generate any portion of the screenplay. Additional Detail: Recorded covers of the actor set to play Alex singing “I Wanna Be Loved by You,” “Dream a Little Dream of Me,” “Sing You Sinners,” “Button Up ",
+              "$30-100 USD",
+              "$30-100 USD"
+            ],
+            "status": "stated"
+          },
+          "requirements": {
+            "value": "Strong, naturalistic dialogue; psychological horror and tension; complicated, believable relationship dynamics; flawed characters; proper screenplay formatting; approximately 18–22 pages; one completed draft plus one light revision pass; no generative AI",
+            "quotes": [
+              "ible Man (2020), Run, The Act, Obsession, and the visual/theatrical atmosphere of American Horror Story: Freak Show. What I’m looking for: * Strong, naturalistic dialogue * Psychological horror and tension * Complicated, believable relationship dynamics * Characters who are flawed without becoming caricatures * Proper screenplay formatting * Approximately 18–22 pages * One completed draft plus one light revision pass Budget: $100 USD fixed (up to $150 if quality requires it). This is my absolute budget ceiling, so I want to be upfront about that from the beginning. Credit: “Written by Jett & [Writer]” The finished short is genuinely being produced, so this would be a produced screenplay credit rather than a speculative script. Important: No generative AI may be used to write, rewrite, or generate any portion of the screenplay. Additional Detail: Recorded covers of the actor set to play Alex singing “I Wanna Be Loved by You,” “Dream a Little Dream of Me,” “Sing You Sinners,” “Button Up "
+            ],
+            "status": "stated"
+          },
+          "authorization": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          }
+        },
+        "label": "client_request",
+        "scope": "source",
+        "quotes": [
+          "I’m looking for a screenwriter/co-writer to help turn a fairly developed psychological horror short into a polished, production-ready screenplay of approximately 18–22 pages. I’m a film student/indie filmmaker in Kentucky, and this short is being produced for a competition later this month, so I need someone who can work quickly and communicate reliably. The basic story, characters, themes, and visual concepts, are already developed. I mainly need a strong writer to help turn my existing material into an effective screenplay, especially the dialogue. The film is grounded relationship horror about Alex and Robin, a couple whose relationship gradually becomes emotionally and physically unsafe. Alex sometimes dissociates, which is represented visually through a glamorous, decaying cabaret/variety-show world in his mind. The external story remains realistic; the performance sequences are subjective cinematic imagery rather than a supernatural plot device. Tonal influences include The Invis",
+          "ible Man (2020), Run, The Act, Obsession, and the visual/theatrical atmosphere of American Horror Story: Freak Show. What I’m looking for: * Strong, naturalistic dialogue * Psychological horror and tension * Complicated, believable relationship dynamics * Characters who are flawed without becoming caricatures * Proper screenplay formatting * Approximately 18–22 pages * One completed draft plus one light revision pass Budget: $100 USD fixed (up to $150 if quality requires it). This is my absolute budget ceiling, so I want to be upfront about that from the beginning. Credit: “Written by Jett & [Writer]” The finished short is genuinely being produced, so this would be a produced screenplay credit rather than a speculative script. Important: No generative AI may be used to write, rewrite, or generate any portion of the screenplay. Additional Detail: Recorded covers of the actor set to play Alex singing “I Wanna Be Loved by You,” “Dream a Little Dream of Me,” “Sing You Sinners,” “Button Up ",
+          "Ends in 6 days",
+          "Open for bidding"
+        ],
+        "explanation": "The poster is asking for a screenwriter/co-writer to complete a specific screenplay for payment, with a defined budget, deliverables, and deadline-sensitive production context."
+      }
+    },
+    {
+      "url": "https://www.freelancer.com/projects/website-development/need-website",
+      "title": "I need a website",
+      "contentStatus": "fetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": {
+        "facts": {
+          "role": {
+            "value": "website developer",
+            "quotes": [
+              "Hello, I am looking for an experienced website developer to build a professional, modern, and mobile-friendly website for me. The website should have an attractive design, smooth navigation, fast loading speed, and a user-friendly interface that works well on both mobile phones and computers. I want the website to look professional, be easy to manage, and include all the necessary features according to my requirements. Please share your previous work, estimated cost, delivery time, and the technologies you will use to build the website. I am looking for someone reliable who can deliver high-quality work within my budget. Thank you!"
+            ],
+            "status": "stated"
+          },
+          "category": {
+            "value": "client_request",
+            "quotes": [
+              "Hello, I am looking for an experienced website developer to build a professional, modern, and mobile-friendly website for me. The website should have an attractive design, smooth navigation, fast loading speed, and a user-friendly interface that works well on both mobile phones and computers. I want the website to look professional, be easy to manage, and include all the necessary features according to my requirements. Please share your previous work, estimated cost, delivery time, and the technologies you will use to build the website. I am looking for someone reliable who can deliver high-quality work within my budget. Thank you!",
+              "Open for bidding"
+            ],
+            "status": "stated"
+          },
+          "location": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "arrangement": {
+            "value": "remote",
+            "quotes": [
+              "Remote project"
+            ],
+            "status": "stated"
+          },
+          "sponsorship": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "compensation": {
+            "value": "₹1500-12500 INR, paid on delivery",
+            "quotes": [
+              "₹1500-12500 INR",
+              "₹1500-12500 INR",
+              "Paid on delivery"
+            ],
+            "status": "stated"
+          },
+          "requirements": {
+            "value": "experienced, professional, modern, mobile-friendly website; attractive design, smooth navigation, fast loading speed, user-friendly interface, works on mobile phones and computers",
+            "quotes": [
+              "Hello, I am looking for an experienced website developer to build a professional, modern, and mobile-friendly website for me. The website should have an attractive design, smooth navigation, fast loading speed, and a user-friendly interface that works well on both mobile phones and computers. I want the website to look professional, be easy to manage, and include all the necessary features according to my requirements. Please share your previous work, estimated cost, delivery time, and the technologies you will use to build the website. I am looking for someone reliable who can deliver high-quality work within my budget. Thank you!"
+            ],
+            "status": "stated"
+          },
+          "authorization": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          }
+        },
+        "label": "client_request",
+        "scope": "source",
+        "quotes": [
+          "I NEED A WEBSITE",
+          "Hello, I am looking for an experienced website developer to build a professional, modern, and mobile-friendly website for me. The website should have an attractive design, smooth navigation, fast loading speed, and a user-friendly interface that works well on both mobile phones and computers. I want the website to look professional, be easy to manage, and include all the necessary features according to my requirements. Please share your previous work, estimated cost, delivery time, and the technologies you will use to build the website. I am looking for someone reliable who can deliver high-quality work within my budget. Thank you!",
+          "₹1500-12500 INR",
+          "Ends in 6 days"
+        ],
+        "explanation": "A buyer is asking for a website developer to complete a specific project, with budget and delivery details stated, so this is a concrete client request rather than a job opening."
+      }
+    }
+  ],
+  "publication": [
+    {
+      "url": "https://www.dcoe.org/opportunities/rfp-tenders/design-develop-host-and-support-modern-secure-accessible-and-user",
+      "linkedPostingId": null,
+      "reviewedPostingId": null,
+      "publishable": false,
+      "input": {
+        "id": "97a3949f7e5cb12e43505c1196be406fa27aecdad8bf703470c2081ae27a910a",
+        "url": "https://www.dcoe.org/opportunities/rfp-tenders/design-develop-host-and-support-modern-secure-accessible-and-user",
+        "text": "Skip to main content\nLog in\n\n\n\nDESIGN, DEVELOP, HOST, AND SUPPORT A MODERN, SECURE, ACCESSIBLE, AND USER-FRIENDLY COUNTY WEBSITE USING A CONTENT MANAGEMENT SYSTEM\n\nLoading navigation...\n\n\nSUMMARY\n\nDue Date 2026-11-12T16:00:00 Country USA State Missouri\n\nNewton County, Missouri is seeking a qualified vendor to design, develop, host, and support a modern, secure, accessible, and user-friendly County website using a content management system. The project aims to replace the current public website with a responsive, reliable, and easy-to-manage platform that improves access to county information and services.\n\nLog in or Register to view this RFP and download solicitation documents.\n\nImage\n\n\n \n\nThe Digital Center of Excellence (DCoE) is a global marketplace connecting digital professionals, agencies, tech companies, consultants, and site owners. We strive to help digital agencies and tech companies find and win contracts they didn’t know existed. This site is sponsored by Blake Newman and Agileana, a DC-based digital agency. If you have any questions or issues with the website, please email [email protected].",
+        "scope": "source",
+        "truncated": true,
+        "observedAt": "2026-10-12T00:30:24.259Z",
+        "fingerprint": "19495bf255311237458753ff53f9346047a35394778e10c6dcb8fac00d580472",
+        "documentFingerprint": "4a8dc25455974722cddb01552baa0319ff8e1ca4ec26be5e7460a931ba0b8c8d"
+      },
+      "review": {
+        "label": "client_request",
+        "quotes": [
+          "Newton County, Missouri is seeking a qualified vendor to design, develop, host, and support a modern, secure, accessible, and user-friendly County website using a content management system. The project aims to replace the current public website with a responsive, reliable, and easy-to-manage platform that improves access to county information and services.",
+          "Due Date 2026-11-12T16:00:00 Country USA State Missouri",
+          "Log in or Register to view this RFP and download solicitation documents."
+        ],
+        "company": {
+          "value": "Newton County, Missouri",
+          "quotes": [
+            "Newton County, Missouri is seeking a qualified vendor to design, develop, host, and support a modern, secure, accessible, and user-friendly County website using a content management system. The project aims to replace the current public website with a responsive, reliable, and easy-to-manage platform that improves access to county information and services."
+          ],
+          "status": "stated"
+        },
+        "analysis": {
+          "pay": {
+            "period": null,
+            "maximum": null,
+            "minimum": null,
+            "currency": null
+          },
+          "facts": {
+            "role": {
+              "value": "design, develop, host, and support a modern, secure, accessible, and user-friendly County website using a content management system",
+              "quotes": [
+                "DESIGN, DEVELOP, HOST, AND SUPPORT A MODERN, SECURE, ACCESSIBLE, AND USER-FRIENDLY COUNTY WEBSITE USING A CONTENT MANAGEMENT SYSTEM",
+                "Newton County, Missouri is seeking a qualified vendor to design, develop, host, and support a modern, secure, accessible, and user-friendly County website using a content management system. The project aims to replace the current public website with a responsive, reliable, and easy-to-manage platform that improves access to county information and services."
+              ],
+              "status": "stated"
+            },
+            "category": {
+              "value": "contract",
+              "quotes": [
+                "Newton County, Missouri is seeking a qualified vendor to design, develop, host, and support a modern, secure, accessible, and user-friendly County website using a content management system. The project aims to replace the current public website with a responsive, reliable, and easy-to-manage platform that improves access to county information and services."
+              ],
+              "status": "stated"
+            },
+            "location": {
+              "value": "Newton County, Missouri",
+              "quotes": [
+                "Due Date 2026-11-12T16:00:00 Country USA State Missouri",
+                "Newton County, Missouri is seeking a qualified vendor to design, develop, host, and support a modern, secure, accessible, and user-friendly County website using a content management system. The project aims to replace the current public website with a responsive, reliable, and easy-to-manage platform that improves access to county information and services."
+              ],
+              "status": "stated"
+            },
+            "arrangement": {
+              "value": "",
+              "quotes": [],
+              "status": "unknown"
+            },
+            "sponsorship": {
+              "value": "",
+              "quotes": [],
+              "status": "unknown"
+            },
+            "compensation": {
+              "value": "",
+              "quotes": [],
+              "status": "unknown"
+            },
+            "requirements": {
+              "value": "qualified vendor; use a content management system; responsive, reliable, and easy-to-manage platform",
+              "quotes": [
+                "Newton County, Missouri is seeking a qualified vendor to design, develop, host, and support a modern, secure, accessible, and user-friendly County website using a content management system. The project aims to replace the current public website with a responsive, reliable, and easy-to-manage platform that improves access to county information and services."
+              ],
+              "status": "stated"
+            },
+            "authorization": {
+              "value": "",
+              "quotes": [],
+              "status": "unknown"
+            }
+          }
+        },
+        "deadline": {
+          "value": "2026-11-12",
+          "quotes": [
+            "Due Date 2026-11-12T16:00:00 Country USA State Missouri"
+          ],
+          "status": "stated"
+        },
+        "application": {
+          "value": "Log in or Register to view this RFP and download solicitation documents.",
+          "quotes": [
+            "Log in or Register to view this RFP and download solicitation documents."
+          ],
+          "status": "stated"
+        },
+        "explanation": "Newton County, Missouri is seeking a vendor for a specific website project, so this is a concrete buyer request rather than a job opening or discussion."
+      }
+    },
+    {
+      "url": "https://www.dcoe.org/opportunities/rfp-tenders/develop-statewide-workforce-portal",
+      "linkedPostingId": null,
+      "reviewedPostingId": null,
+      "publishable": false,
+      "input": {
+        "id": "94bf764c8f35dab4986dd2bfad7d18c38890a9521867026a097ef18e4b312c80",
+        "url": "https://www.dcoe.org/opportunities/rfp-tenders/develop-statewide-workforce-portal",
+        "text": "Skip to main content\nLog in\n\n\n\nDEVELOP A STATEWIDE WORKFORCE PORTAL\n\nLoading navigation...\n\n\nSUMMARY\n\nDue Date 2026-11-13T16:00:00 Country USA State South Carolina\n\nThe SC Department of Employment and Workforce seeks a vendor to develop a statewide workforce portal. This portal will serve as a coordination layer to help various stakeholders navigate education and employment pathways while preserving existing systems of record.\n\nLog in or Register to view this RFP and download solicitation documents.\n\nImage\n\n\n \n\nThe Digital Center of Excellence (DCoE) is a global marketplace connecting digital professionals, agencies, tech companies, consultants, and site owners. We strive to help digital agencies and tech companies find and win contracts they didn’t know existed. This site is sponsored by Blake Newman and Agileana, a DC-based digital agency. If you have any questions or issues with the website, please email [email protected].",
+        "scope": "source",
+        "truncated": true,
+        "observedAt": "2026-10-12T00:30:19.449Z",
+        "fingerprint": "9ccfcf7755cef1d6601e57afbe399d4a4d86d324d7912b7527e6e9630e158abf",
+        "documentFingerprint": "4ec5dc4d1900a3bf75dad9cfb46a64bb4a38d27dbadb6ecb06ec00e228003ac1"
+      },
+      "review": {
+        "label": "client_request",
+        "quotes": [
+          "The SC Department of Employment and Workforce seeks a vendor to develop a statewide workforce portal. This portal will serve as a coordination layer to help various stakeholders navigate education and employment pathways while preserving existing systems of record.",
+          "Due Date 2026-11-13T16:00:00 Country USA State South Carolina"
+        ],
+        "company": {
+          "value": "SC Department of Employment and Workforce",
+          "quotes": [
+            "The SC Department of Employment and Workforce seeks a vendor to develop a statewide workforce portal. This portal will serve as a coordination layer to help various stakeholders navigate education and employment pathways while preserving existing systems of record."
+          ],
+          "status": "stated"
+        },
+        "analysis": {
+          "pay": {
+            "period": null,
+            "maximum": null,
+            "minimum": null,
+            "currency": null
+          },
+          "facts": {
+            "role": {
+              "value": "develop a statewide workforce portal",
+              "quotes": [
+                "DEVELOP A STATEWIDE WORKFORCE PORTAL",
+                "The SC Department of Employment and Workforce seeks a vendor to develop a statewide workforce portal. This portal will serve as a coordination layer to help various stakeholders navigate education and employment pathways while preserving existing systems of record."
+              ],
+              "status": "stated"
+            },
+            "category": {
+              "value": "client_request",
+              "quotes": [
+                "The SC Department of Employment and Workforce seeks a vendor to develop a statewide workforce portal. This portal will serve as a coordination layer to help various stakeholders navigate education and employment pathways while preserving existing systems of record."
+              ],
+              "status": "stated"
+            },
+            "location": {
+              "value": "South Carolina, USA",
+              "quotes": [
+                "Due Date 2026-11-13T16:00:00 Country USA State South Carolina"
+              ],
+              "status": "stated"
+            },
+            "arrangement": {
+              "value": "",
+              "quotes": [],
+              "status": "unknown"
+            },
+            "sponsorship": {
+              "value": "",
+              "quotes": [],
+              "status": "unknown"
+            },
+            "compensation": {
+              "value": "",
+              "quotes": [],
+              "status": "unknown"
+            },
+            "requirements": {
+              "value": "a vendor to develop a statewide workforce portal that will serve as a coordination layer to help various stakeholders navigate education and employment pathways while preserving existing systems of record",
+              "quotes": [
+                "The SC Department of Employment and Workforce seeks a vendor to develop a statewide workforce portal. This portal will serve as a coordination layer to help various stakeholders navigate education and employment pathways while preserving existing systems of record."
+              ],
+              "status": "stated"
+            },
+            "authorization": {
+              "value": "",
+              "quotes": [],
+              "status": "unknown"
+            }
+          }
+        },
+        "deadline": {
+          "value": "2026-11-13T16:00:00",
+          "quotes": [
+            "Due Date 2026-11-13T16:00:00 Country USA State South Carolina"
+          ],
+          "status": "stated"
+        },
+        "application": {
+          "value": "Log in or Register to view this RFP and download solicitation documents.",
+          "quotes": [
+            "Log in or Register to view this RFP and download solicitation documents."
+          ],
+          "status": "stated"
+        },
+        "explanation": "This is an RFP where a government agency is seeking a vendor to build a portal, so it is a concrete buyer request for services rather than a job opening."
+      }
+    },
+    {
+      "url": "https://www.dcoe.org/opportunities/rfp-tenders/modernize-its-public-sex-offender-registry-website-enhancing-public",
+      "linkedPostingId": null,
+      "reviewedPostingId": null,
+      "publishable": false,
+      "input": {
+        "id": "956a7f187c48b9105c4d02381e61a9f9642ce15bc9a9e9ee14534eabb9677d0a",
+        "url": "https://www.dcoe.org/opportunities/rfp-tenders/modernize-its-public-sex-offender-registry-website-enhancing-public",
+        "text": "Skip to main content\nLog in\n\n\n\nMODERNIZE ITS PUBLIC SEX OFFENDER REGISTRY WEBSITE, ENHANCING PUBLIC ACCESS TO REGISTRY INFORMATION THROUGH A MOBILE-RESPONSIVE, SEARCHABLE, AND\n\nLoading navigation...\n\n\nSUMMARY\n\nDue Date 2026-12-16T19:00:00 Country USA State New Hampshire\n\nThe State of New Hampshire is seeking a vendor to modernize its public Sex Offender Registry website, enhancing public access to registry information through a mobile-responsive, searchable, and map-enabled platform. The project aims to automate data publication, improve administrative oversight, and support statutory compliance processes.\n\nLog in or Register to view this RFP and download solicitation documents.\n\nImage\n\n\n \n\nThe Digital Center of Excellence (DCoE) is a global marketplace connecting digital professionals, agencies, tech companies, consultants, and site owners. We strive to help digital agencies and tech companies find and win contracts they didn’t know existed. This site is sponsored by Blake Newman and Agileana, a DC-based digital agency. If you have any questions or issues with the website, please email [email protected].",
+        "scope": "source",
+        "truncated": true,
+        "observedAt": "2026-10-12T00:30:14.361Z",
+        "fingerprint": "39292aa46c2b2d7f50b807c52bf7e6a596b92090ca80067e8a29e27620079de2",
+        "documentFingerprint": "73af48b28ed2c730fe8ec1f39feab7a04c741ab7fec33aff2b4ed828587828a8"
+      },
+      "review": {
+        "label": "client_request",
+        "quotes": [
+          "The State of New Hampshire is seeking a vendor to modernize its public Sex Offender Registry website, enhancing public access to registry information through a mobile-responsive, searchable, and map-enabled platform. The project aims to automate data publication, improve administrative oversight, and support statutory compliance processes.",
+          "Due Date 2026-12-16T19:00:00 Country USA State New Hampshire",
+          "Log in or Register to view this RFP and download solicitation documents."
+        ],
+        "company": {
+          "value": "State of New Hampshire",
+          "quotes": [
+            "The State of New Hampshire is seeking a vendor to modernize its public Sex Offender Registry website, enhancing public access to registry information through a mobile-responsive, searchable, and map-enabled platform. The project aims to automate data publication, improve administrative oversight, and support statutory compliance processes."
+          ],
+          "status": "stated"
+        },
+        "analysis": {
+          "pay": {
+            "period": null,
+            "maximum": null,
+            "minimum": null,
+            "currency": null
+          },
+          "facts": {
+            "role": {
+              "value": "modernize its public Sex Offender Registry website",
+              "quotes": [
+                "MODERNIZE ITS PUBLIC SEX OFFENDER REGISTRY WEBSITE, ENHANCING PUBLIC ACCESS TO REGISTRY INFORMATION THROUGH A MOBILE-RESPONSIVE, SEARCHABLE, AND",
+                "The State of New Hampshire is seeking a vendor to modernize its public Sex Offender Registry website, enhancing public access to registry information through a mobile-responsive, searchable, and map-enabled platform. The project aims to automate data publication, improve administrative oversight, and support statutory compliance processes."
+              ],
+              "status": "stated"
+            },
+            "category": {
+              "value": "client_request",
+              "quotes": [
+                "The State of New Hampshire is seeking a vendor to modernize its public Sex Offender Registry website, enhancing public access to registry information through a mobile-responsive, searchable, and map-enabled platform. The project aims to automate data publication, improve administrative oversight, and support statutory compliance processes."
+              ],
+              "status": "stated"
+            },
+            "location": {
+              "value": "USA, New Hampshire",
+              "quotes": [
+                "Due Date 2026-12-16T19:00:00 Country USA State New Hampshire"
+              ],
+              "status": "stated"
+            },
+            "arrangement": {
+              "value": "",
+              "quotes": [],
+              "status": "unknown"
+            },
+            "sponsorship": {
+              "value": "",
+              "quotes": [],
+              "status": "unknown"
+            },
+            "compensation": {
+              "value": "",
+              "quotes": [],
+              "status": "unknown"
+            },
+            "requirements": {
+              "value": "mobile-responsive, searchable, and map-enabled platform; automate data publication; improve administrative oversight; support statutory compliance processes",
+              "quotes": [
+                "The State of New Hampshire is seeking a vendor to modernize its public Sex Offender Registry website, enhancing public access to registry information through a mobile-responsive, searchable, and map-enabled platform. The project aims to automate data publication, improve administrative oversight, and support statutory compliance processes.",
+                "MODERNIZE ITS PUBLIC SEX OFFENDER REGISTRY WEBSITE, ENHANCING PUBLIC ACCESS TO REGISTRY INFORMATION THROUGH A MOBILE-RESPONSIVE, SEARCHABLE, AND"
+              ],
+              "status": "stated"
+            },
+            "authorization": {
+              "value": "",
+              "quotes": [],
+              "status": "unknown"
+            }
+          }
+        },
+        "deadline": {
+          "value": "2026-12-16T19:00:00",
+          "quotes": [
+            "Due Date 2026-12-16T19:00:00 Country USA State New Hampshire"
+          ],
+          "status": "stated"
+        },
+        "application": {
+          "value": "Log in or Register to view this RFP and download solicitation documents.",
+          "quotes": [
+            "Log in or Register to view this RFP and download solicitation documents."
+          ],
+          "status": "stated"
+        },
+        "explanation": "A government buyer is seeking a vendor for a specific RFP to modernize a public website, so this is a concrete client request rather than a job opening."
+      }
+    },
+    {
+      "url": "https://www.dcoe.org/opportunities/rfp-tenders/website-design-development-hosting-operations-maintenance-and-support",
+      "linkedPostingId": null,
+      "reviewedPostingId": null,
+      "publishable": false,
+      "input": {
+        "id": "35303072b79f33ff9caf993e717020bd073a0744fca8761f46c77b9fd3e57b06",
+        "url": "https://www.dcoe.org/opportunities/rfp-tenders/website-design-development-hosting-operations-maintenance-and-support",
+        "text": "Skip to main content\nLog in\n\n\n\nWEBSITE DESIGN, DEVELOPMENT, HOSTING, OPERATIONS, MAINTENANCE, AND SUPPORT SERVICES USING THE DRUPAL CONTENT MANAGEMENT SYSTEM FOR THE 511.ORG WEBSITE (PANTHEON)\n\nLoading navigation...\n\n\nSUMMARY\n\nDue Date 2027-07-01T00:00:00 Country USA State California\n\nThe Metropolitan Transportation Commission (MTC) is seeking a vendor for website design, development, hosting, operations, maintenance, and support services using the Drupal content management system for the 511.org website. The project aims to enhance the website's functionality, including real-time traveler alerts and interactive maps, and transition from Google Maps to OpenStreetMap.\n\nKey Requirements\nDrupal Pantheon OpenStreetMap SAAS API Gateway Real-time data integration\n\nLog in or Register to view this RFP and download solicitation documents.\n\nImage\n\n\n \n\nThe Digital Center of Excellence (DCoE) is a global marketplace connecting digital professionals, agencies, tech companies, consultants, and site owners. We strive to help digital agencies and tech companies find and win contracts they didn’t know existed. This site is sponsored by Blake Newman and Agileana, a DC-based digital agency. If you have any questions or issues with the website, please email [email protected].",
+        "scope": "source",
+        "truncated": true,
+        "observedAt": "2026-10-12T00:30:29.097Z",
+        "fingerprint": "ae52b0a47dfa6069d8c02ec9bf4c36b9a6fad82781ab2e68517b62f83a5434d1",
+        "documentFingerprint": "6aaf7a9ec48d8bcd4628752ebf726bfaf0270510c94cd0ce2979432d50530896"
+      },
+      "review": {
+        "label": "client_request",
+        "quotes": [
+          "The Metropolitan Transportation Commission (MTC) is seeking a vendor for website design, development, hosting, operations, maintenance, and support services using the Drupal content management system for the 511.org website. The project aims to enhance the website's functionality, including real-time traveler alerts and interactive maps, and transition from Google Maps to OpenStreetMap.",
+          "Due Date 2027-07-01T00:00:00 Country USA State California"
+        ],
+        "company": {
+          "value": "The Metropolitan Transportation Commission (MTC)",
+          "quotes": [
+            "The Metropolitan Transportation Commission (MTC) is seeking a vendor for website design, development, hosting, operations, maintenance, and support services using the Drupal content management system for the 511.org website. The project aims to enhance the website's functionality, including real-time traveler alerts and interactive maps, and transition from Google Maps to OpenStreetMap."
+          ],
+          "status": "stated"
+        },
+        "analysis": {
+          "pay": {
+            "period": null,
+            "maximum": null,
+            "minimum": null,
+            "currency": null
+          },
+          "facts": {
+            "role": {
+              "value": "website design, development, hosting, operations, maintenance, and support services",
+              "quotes": [
+                "WEBSITE DESIGN, DEVELOPMENT, HOSTING, OPERATIONS, MAINTENANCE, AND SUPPORT SERVICES USING THE DRUPAL CONTENT MANAGEMENT SYSTEM FOR THE 511.ORG WEBSITE (PANTHEON)",
+                "The Metropolitan Transportation Commission (MTC) is seeking a vendor for website design, development, hosting, operations, maintenance, and support services using the Drupal content management system for the 511.org website. The project aims to enhance the website's functionality, including real-time traveler alerts and interactive maps, and transition from Google Maps to OpenStreetMap."
+              ],
+              "status": "stated"
+            },
+            "category": {
+              "value": "client_request",
+              "quotes": [
+                "The Metropolitan Transportation Commission (MTC) is seeking a vendor for website design, development, hosting, operations, maintenance, and support services using the Drupal content management system for the 511.org website. The project aims to enhance the website's functionality, including real-time traveler alerts and interactive maps, and transition from Google Maps to OpenStreetMap."
+              ],
+              "status": "stated"
+            },
+            "location": {
+              "value": "USA, California",
+              "quotes": [
+                "Due Date 2027-07-01T00:00:00 Country USA State California"
+              ],
+              "status": "stated"
+            },
+            "arrangement": {
+              "value": "",
+              "quotes": [],
+              "status": "unknown"
+            },
+            "sponsorship": {
+              "value": "",
+              "quotes": [],
+              "status": "unknown"
+            },
+            "compensation": {
+              "value": "",
+              "quotes": [],
+              "status": "unknown"
+            },
+            "requirements": {
+              "value": "Drupal Pantheon OpenStreetMap SAAS API Gateway Real-time data integration",
+              "quotes": [
+                "Drupal Pantheon OpenStreetMap SAAS API Gateway Real-time data integration"
+              ],
+              "status": "stated"
+            },
+            "authorization": {
+              "value": "",
+              "quotes": [],
+              "status": "unknown"
+            }
+          }
+        },
+        "deadline": {
+          "value": "2027-07-01",
+          "quotes": [
+            "Due Date 2027-07-01T00:00:00 Country USA State California"
+          ],
+          "status": "stated"
+        },
+        "application": {
+          "value": "Log in or Register to view this RFP and download solicitation documents.",
+          "quotes": [
+            "Log in or Register to view this RFP and download solicitation documents."
+          ],
+          "status": "stated"
+        },
+        "explanation": "This is a concrete procurement request for vendor services, not a job opening. It asks for website design, development, hosting, operations, maintenance, and support for a named website, with a stated due date."
+      }
+    },
+    {
+      "url": "https://www.freelancer.com/projects/creative-writing/psychological-horror-screenwriting-for",
+      "linkedPostingId": "web:8f103b90d26e1fc3c45971ade15e923f0a23aa0d05a2787c17e96d2a6edf2eeb",
+      "reviewedPostingId": "web:8f103b90d26e1fc3c45971ade15e923f0a23aa0d05a2787c17e96d2a6edf2eeb",
+      "publishable": true,
+      "input": {
+        "id": "8f103b90d26e1fc3c45971ade15e923f0a23aa0d05a2787c17e96d2a6edf2eeb",
+        "url": "https://www.freelancer.com/projects/creative-writing/psychological-horror-screenwriting-for",
+        "text": "PSYCHOLOGICAL HORROR SCREENWRITING FOR SHORT FILM\n\n\n$30-100 USD\n\nOpen\n\nPosted about 15 hours ago\n\n•\n\nEnds in 6 days\n\n\n$30-100 USD\n\nPaid on delivery\n\nI’m looking for a screenwriter/co-writer to help turn a fairly developed psychological horror short into a polished, production-ready screenplay of approximately 18–22 pages. I’m a film student/indie filmmaker in Kentucky, and this short is being produced for a competition later this month, so I need someone who can work quickly and communicate reliably. The basic story, characters, themes, and visual concepts, are already developed. I mainly need a strong writer to help turn my existing material into an effective screenplay, especially the dialogue. The film is grounded relationship horror about Alex and Robin, a couple whose relationship gradually becomes emotionally and physically unsafe. Alex sometimes dissociates, which is represented visually through a glamorous, decaying cabaret/variety-show world in his mind. The external story remains realistic; the performance sequences are subjective cinematic imagery rather than a supernatural plot device. Tonal influences include The Invisible Man (2020), Run, The Act, Obsession, and the visual/theatrical atmosphere of American Horror Story: Freak Show. What I’m looking for: * Strong, naturalistic dialogue * Psychological horror and tension * Complicated, believable relationship dynamics * Characters who are flawed without becoming caricatures * Proper screenplay formatting * Approximately 18–22 pages * One completed draft plus one light revision pass Budget: $100 USD fixed (up to $150 if quality requires it). This is my absolute budget ceiling, so I want to be upfront about that from the beginning. Credit: “Written by Jett & [Writer]” The finished short is genuinely being produced, so this would be a produced screenplay credit rather than a speculative script. Important: No generative AI may be used to write, rewrite, or generate any portion of the screenplay. Additional Detail: Recorded covers of the actor set to play Alex singing “I Wanna Be Loved by You,” “Dream a Little Dream of Me,” “Sing You Sinners,” “Button Up Your Overcoat,” and “I’m Always Chasing Rainbows” are available for use in the film.\n\nListed skills: Creative Writing\nFiction\nScreenwriting\nScript Writing\nShort Stories\n\nProject ID: 40761391\n\nABOUT THE PROJECT\n\n30 proposals\n\nOpen for bidding\n\nRemote project\n\nActive 3 hours ago",
+        "scope": "source",
+        "truncated": false,
+        "observedAt": "2026-10-12T00:30:11.638Z",
+        "fingerprint": "75f2150a8e675790311fa506d361301b537e0f467b2f3f7db97ac7339d10a89e",
+        "documentFingerprint": "6293b22459cddc711de1bf596b3a6c05c29fc39474d5390bbd9cb1159fbaf5ef"
+      },
+      "review": {
+        "label": "client_request",
+        "quotes": [
+          "I’m looking for a screenwriter/co-writer to help turn a fairly developed psychological horror short into a polished, production-ready screenplay of approximately 18–22 pages. I’m a film student/indie filmmaker in Kentucky, and this short is being produced for a competition later this month, so I need someone who can work quickly and communicate reliably. The basic story, characters, themes, and visual concepts, are already developed. I mainly need a strong writer to help turn my existing material into an effective screenplay, especially the dialogue. The film is grounded relationship horror about Alex and Robin, a couple whose relationship gradually becomes emotionally and physically unsafe. Alex sometimes dissociates, which is represented visually through a glamorous, decaying cabaret/variety-show world in his mind. The external story remains realistic; the performance sequences are subjective cinematic imagery rather than a supernatural plot device. Tonal influences include The Invis",
+          "ible Man (2020), Run, The Act, Obsession, and the visual/theatrical atmosphere of American Horror Story: Freak Show. What I’m looking for: * Strong, naturalistic dialogue * Psychological horror and tension * Complicated, believable relationship dynamics * Characters who are flawed without becoming caricatures * Proper screenplay formatting * Approximately 18–22 pages * One completed draft plus one light revision pass Budget: $100 USD fixed (up to $150 if quality requires it). This is my absolute budget ceiling, so I want to be upfront about that from the beginning. Credit: “Written by Jett & [Writer]” The finished short is genuinely being produced, so this would be a produced screenplay credit rather than a speculative script. Important: No generative AI may be used to write, rewrite, or generate any portion of the screenplay. Additional Detail: Recorded covers of the actor set to play Alex singing “I Wanna Be Loved by You,” “Dream a Little Dream of Me,” “Sing You Sinners,” “Button Up ",
+          "Ends in 6 days",
+          "Open for bidding"
+        ],
+        "company": {
+          "value": "Jett",
+          "quotes": [
+            "ible Man (2020), Run, The Act, Obsession, and the visual/theatrical atmosphere of American Horror Story: Freak Show. What I’m looking for: * Strong, naturalistic dialogue * Psychological horror and tension * Complicated, believable relationship dynamics * Characters who are flawed without becoming caricatures * Proper screenplay formatting * Approximately 18–22 pages * One completed draft plus one light revision pass Budget: $100 USD fixed (up to $150 if quality requires it). This is my absolute budget ceiling, so I want to be upfront about that from the beginning. Credit: “Written by Jett & [Writer]” The finished short is genuinely being produced, so this would be a produced screenplay credit rather than a speculative script. Important: No generative AI may be used to write, rewrite, or generate any portion of the screenplay. Additional Detail: Recorded covers of the actor set to play Alex singing “I Wanna Be Loved by You,” “Dream a Little Dream of Me,” “Sing You Sinners,” “Button Up "
+          ],
+          "status": "stated"
+        },
+        "analysis": {
+          "pay": {
+            "period": null,
+            "maximum": null,
+            "minimum": null,
+            "currency": null
+          },
+          "facts": {
+            "role": {
+              "value": "screenwriter/co-writer",
+              "quotes": [
+                "I’m looking for a screenwriter/co-writer to help turn a fairly developed psychological horror short into a polished, production-ready screenplay of approximately 18–22 pages. I’m a film student/indie filmmaker in Kentucky, and this short is being produced for a competition later this month, so I need someone who can work quickly and communicate reliably. The basic story, characters, themes, and visual concepts, are already developed. I mainly need a strong writer to help turn my existing material into an effective screenplay, especially the dialogue. The film is grounded relationship horror about Alex and Robin, a couple whose relationship gradually becomes emotionally and physically unsafe. Alex sometimes dissociates, which is represented visually through a glamorous, decaying cabaret/variety-show world in his mind. The external story remains realistic; the performance sequences are subjective cinematic imagery rather than a supernatural plot device. Tonal influences include The Invis"
+              ],
+              "status": "stated"
+            },
+            "category": {
+              "value": "contract",
+              "quotes": [
+                "Paid on delivery",
+                "ible Man (2020), Run, The Act, Obsession, and the visual/theatrical atmosphere of American Horror Story: Freak Show. What I’m looking for: * Strong, naturalistic dialogue * Psychological horror and tension * Complicated, believable relationship dynamics * Characters who are flawed without becoming caricatures * Proper screenplay formatting * Approximately 18–22 pages * One completed draft plus one light revision pass Budget: $100 USD fixed (up to $150 if quality requires it). This is my absolute budget ceiling, so I want to be upfront about that from the beginning. Credit: “Written by Jett & [Writer]” The finished short is genuinely being produced, so this would be a produced screenplay credit rather than a speculative script. Important: No generative AI may be used to write, rewrite, or generate any portion of the screenplay. Additional Detail: Recorded covers of the actor set to play Alex singing “I Wanna Be Loved by You,” “Dream a Little Dream of Me,” “Sing You Sinners,” “Button Up "
+              ],
+              "status": "stated"
+            },
+            "location": {
+              "value": "Kentucky",
+              "quotes": [
+                "I’m looking for a screenwriter/co-writer to help turn a fairly developed psychological horror short into a polished, production-ready screenplay of approximately 18–22 pages. I’m a film student/indie filmmaker in Kentucky, and this short is being produced for a competition later this month, so I need someone who can work quickly and communicate reliably. The basic story, characters, themes, and visual concepts, are already developed. I mainly need a strong writer to help turn my existing material into an effective screenplay, especially the dialogue. The film is grounded relationship horror about Alex and Robin, a couple whose relationship gradually becomes emotionally and physically unsafe. Alex sometimes dissociates, which is represented visually through a glamorous, decaying cabaret/variety-show world in his mind. The external story remains realistic; the performance sequences are subjective cinematic imagery rather than a supernatural plot device. Tonal influences include The Invis"
+              ],
+              "status": "stated"
+            },
+            "arrangement": {
+              "value": "remote",
+              "quotes": [
+                "Remote project"
+              ],
+              "status": "stated"
+            },
+            "sponsorship": {
+              "value": "",
+              "quotes": [],
+              "status": "unknown"
+            },
+            "compensation": {
+              "value": "$100 USD fixed, up to $150 if quality requires it",
+              "quotes": [
+                "ible Man (2020), Run, The Act, Obsession, and the visual/theatrical atmosphere of American Horror Story: Freak Show. What I’m looking for: * Strong, naturalistic dialogue * Psychological horror and tension * Complicated, believable relationship dynamics * Characters who are flawed without becoming caricatures * Proper screenplay formatting * Approximately 18–22 pages * One completed draft plus one light revision pass Budget: $100 USD fixed (up to $150 if quality requires it). This is my absolute budget ceiling, so I want to be upfront about that from the beginning. Credit: “Written by Jett & [Writer]” The finished short is genuinely being produced, so this would be a produced screenplay credit rather than a speculative script. Important: No generative AI may be used to write, rewrite, or generate any portion of the screenplay. Additional Detail: Recorded covers of the actor set to play Alex singing “I Wanna Be Loved by You,” “Dream a Little Dream of Me,” “Sing You Sinners,” “Button Up ",
+                "$30-100 USD",
+                "$30-100 USD"
+              ],
+              "status": "stated"
+            },
+            "requirements": {
+              "value": "Strong, naturalistic dialogue; psychological horror and tension; complicated, believable relationship dynamics; flawed characters; proper screenplay formatting; approximately 18–22 pages; one completed draft plus one light revision pass; no generative AI",
+              "quotes": [
+                "ible Man (2020), Run, The Act, Obsession, and the visual/theatrical atmosphere of American Horror Story: Freak Show. What I’m looking for: * Strong, naturalistic dialogue * Psychological horror and tension * Complicated, believable relationship dynamics * Characters who are flawed without becoming caricatures * Proper screenplay formatting * Approximately 18–22 pages * One completed draft plus one light revision pass Budget: $100 USD fixed (up to $150 if quality requires it). This is my absolute budget ceiling, so I want to be upfront about that from the beginning. Credit: “Written by Jett & [Writer]” The finished short is genuinely being produced, so this would be a produced screenplay credit rather than a speculative script. Important: No generative AI may be used to write, rewrite, or generate any portion of the screenplay. Additional Detail: Recorded covers of the actor set to play Alex singing “I Wanna Be Loved by You,” “Dream a Little Dream of Me,” “Sing You Sinners,” “Button Up "
+              ],
+              "status": "stated"
+            },
+            "authorization": {
+              "value": "",
+              "quotes": [],
+              "status": "unknown"
+            }
+          }
+        },
+        "deadline": {
+          "value": "2026-10-18",
+          "quotes": [
+            "Ends in 6 days",
+            "I’m looking for a screenwriter/co-writer to help turn a fairly developed psychological horror short into a polished, production-ready screenplay of approximately 18–22 pages. I’m a film student/indie filmmaker in Kentucky, and this short is being produced for a competition later this month, so I need someone who can work quickly and communicate reliably. The basic story, characters, themes, and visual concepts, are already developed. I mainly need a strong writer to help turn my existing material into an effective screenplay, especially the dialogue. The film is grounded relationship horror about Alex and Robin, a couple whose relationship gradually becomes emotionally and physically unsafe. Alex sometimes dissociates, which is represented visually through a glamorous, decaying cabaret/variety-show world in his mind. The external story remains realistic; the performance sequences are subjective cinematic imagery rather than a supernatural plot device. Tonal influences include The Invis"
+          ],
+          "status": "stated"
+        },
+        "application": {
+          "value": "Open for bidding; 30 proposals",
+          "quotes": [
+            "30 proposals",
+            "Open for bidding"
+          ],
+          "status": "stated"
+        },
+        "explanation": "The poster is asking for a screenwriter/co-writer to complete a specific screenplay for payment, with a defined budget, deliverables, and deadline-sensitive production context."
+      }
+    },
+    {
+      "url": "https://www.freelancer.com/projects/website-development/need-website",
+      "linkedPostingId": null,
+      "reviewedPostingId": null,
+      "publishable": false,
+      "input": {
+        "id": "51af23d7e786dfd6c3a7c934a89e587ece146ca769fc5d68a4f289e51f0ed948",
+        "url": "https://www.freelancer.com/projects/website-development/need-website",
+        "text": "I NEED A WEBSITE\n\n\n₹1500-12500 INR\n\nOpen\n\nPosted about 14 hours ago\n\n•\n\nEnds in 6 days\n\n\n₹1500-12500 INR\n\nPaid on delivery\n\nHello, I am looking for an experienced website developer to build a professional, modern, and mobile-friendly website for me. The website should have an attractive design, smooth navigation, fast loading speed, and a user-friendly interface that works well on both mobile phones and computers. I want the website to look professional, be easy to manage, and include all the necessary features according to my requirements. Please share your previous work, estimated cost, delivery time, and the technologies you will use to build the website. I am looking for someone reliable who can deliver high-quality work within my budget. Thank you!\n\nListed skills: Website Development\nWeb Development\n\nProject ID: 40761392\n\nABOUT THE PROJECT\n\n64 proposals\n\nOpen for bidding\n\nRemote project\n\nActive 2 hours ago",
+        "scope": "source",
+        "truncated": false,
+        "observedAt": "2026-10-12T00:30:06.526Z",
+        "fingerprint": "de788a5970dc6ec3091689904161162c37dbc0aea59f3f2dbb96d81fc2a62ed0",
+        "documentFingerprint": "4c8213b5e1a6634b7b20465f29bce60599019c97d89e1630178d31f155f8e48c"
+      },
+      "review": {
+        "label": "client_request",
+        "quotes": [
+          "I NEED A WEBSITE",
+          "Hello, I am looking for an experienced website developer to build a professional, modern, and mobile-friendly website for me. The website should have an attractive design, smooth navigation, fast loading speed, and a user-friendly interface that works well on both mobile phones and computers. I want the website to look professional, be easy to manage, and include all the necessary features according to my requirements. Please share your previous work, estimated cost, delivery time, and the technologies you will use to build the website. I am looking for someone reliable who can deliver high-quality work within my budget. Thank you!",
+          "₹1500-12500 INR",
+          "Ends in 6 days"
+        ],
+        "company": {
+          "value": "",
+          "quotes": [],
+          "status": "unknown"
+        },
+        "analysis": {
+          "pay": {
+            "period": null,
+            "maximum": null,
+            "minimum": null,
+            "currency": null
+          },
+          "facts": {
+            "role": {
+              "value": "website developer",
+              "quotes": [
+                "Hello, I am looking for an experienced website developer to build a professional, modern, and mobile-friendly website for me. The website should have an attractive design, smooth navigation, fast loading speed, and a user-friendly interface that works well on both mobile phones and computers. I want the website to look professional, be easy to manage, and include all the necessary features according to my requirements. Please share your previous work, estimated cost, delivery time, and the technologies you will use to build the website. I am looking for someone reliable who can deliver high-quality work within my budget. Thank you!"
+              ],
+              "status": "stated"
+            },
+            "category": {
+              "value": "client_request",
+              "quotes": [
+                "Hello, I am looking for an experienced website developer to build a professional, modern, and mobile-friendly website for me. The website should have an attractive design, smooth navigation, fast loading speed, and a user-friendly interface that works well on both mobile phones and computers. I want the website to look professional, be easy to manage, and include all the necessary features according to my requirements. Please share your previous work, estimated cost, delivery time, and the technologies you will use to build the website. I am looking for someone reliable who can deliver high-quality work within my budget. Thank you!",
+                "Open for bidding"
+              ],
+              "status": "stated"
+            },
+            "location": {
+              "value": "",
+              "quotes": [],
+              "status": "unknown"
+            },
+            "arrangement": {
+              "value": "remote",
+              "quotes": [
+                "Remote project"
+              ],
+              "status": "stated"
+            },
+            "sponsorship": {
+              "value": "",
+              "quotes": [],
+              "status": "unknown"
+            },
+            "compensation": {
+              "value": "₹1500-12500 INR, paid on delivery",
+              "quotes": [
+                "₹1500-12500 INR",
+                "₹1500-12500 INR",
+                "Paid on delivery"
+              ],
+              "status": "stated"
+            },
+            "requirements": {
+              "value": "experienced, professional, modern, mobile-friendly website; attractive design, smooth navigation, fast loading speed, user-friendly interface, works on mobile phones and computers",
+              "quotes": [
+                "Hello, I am looking for an experienced website developer to build a professional, modern, and mobile-friendly website for me. The website should have an attractive design, smooth navigation, fast loading speed, and a user-friendly interface that works well on both mobile phones and computers. I want the website to look professional, be easy to manage, and include all the necessary features according to my requirements. Please share your previous work, estimated cost, delivery time, and the technologies you will use to build the website. I am looking for someone reliable who can deliver high-quality work within my budget. Thank you!"
+              ],
+              "status": "stated"
+            },
+            "authorization": {
+              "value": "",
+              "quotes": [],
+              "status": "unknown"
+            }
+          }
+        },
+        "deadline": {
+          "value": "Ends in 6 days",
+          "quotes": [
+            "Ends in 6 days"
+          ],
+          "status": "stated"
+        },
+        "application": {
+          "value": "Share previous work, estimated cost, delivery time, and technologies used.",
+          "quotes": [
+            "Hello, I am looking for an experienced website developer to build a professional, modern, and mobile-friendly website for me. The website should have an attractive design, smooth navigation, fast loading speed, and a user-friendly interface that works well on both mobile phones and computers. I want the website to look professional, be easy to manage, and include all the necessary features according to my requirements. Please share your previous work, estimated cost, delivery time, and the technologies you will use to build the website. I am looking for someone reliable who can deliver high-quality work within my budget. Thank you!"
+          ],
+          "status": "stated"
+        },
+        "explanation": "A buyer is asking for a website developer to complete a specific project, with budget and delivery details stated, so this is a concrete client request rather than a job opening."
+      }
+    }
+  ],
+  "checks": [
+    "recorded URLs recaptured and reassessed, no new discovery search",
+    "bounded provider and model admission",
+    "observed parent provenance",
+    "current owner isolation",
+    "terminal replay without new spending"
+  ],
+  "emailsSent": 0,
+  "realAccountsUsed": 0,
+  "scopeNote": "Seeded recapture regression: search observations replay previously recorded URLs; no search-provider request or new discovery/recall measurement. Bounded live synthetic case using production discovery, review, assessment and delivery use cases. Worker reader includes configured browser fallback and Ashby routing without shared Redis caching; HTTP reader is a controlled reduced-access path. Native X and marketplace connector loops are not exercised. All lead rows are measured separately from the dashboard's bounded sample. Matching can remain incomplete if retries exceed the check window. Model labels are not independent ground truth; precision, recall and global throughput remain unproven."
+}

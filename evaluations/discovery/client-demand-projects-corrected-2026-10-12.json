@@ -1,0 +1,3912 @@
+{
+  "checkedAt": "2026-10-12T00:06:20.897Z",
+  "scenario": "projects",
+  "baseline": false,
+  "reasoningConfiguration": "openai:gpt-5.4-mini-2026-03-17:scout-planning-v5",
+  "plan": {
+    "policy": "public-intent-v3",
+    "queries": [
+      {
+        "page": 1,
+        "limit": 10,
+        "query": "React (\"project\" OR \"brief\") (\"budget\" OR \"fixed price\")",
+        "country": "us",
+        "language": "en",
+        "freshness": "month"
+      },
+      {
+        "page": 1,
+        "limit": 10,
+        "query": "TypeScript (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+        "country": "us",
+        "language": "en",
+        "freshness": "month"
+      },
+      {
+        "page": 1,
+        "limit": 10,
+        "query": "web development (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+        "country": "us",
+        "language": "en",
+        "freshness": "month"
+      },
+      {
+        "page": 1,
+        "limit": 10,
+        "query": "React (\"project\" OR \"brief\") (\"proposals\" OR \"bids\")",
+        "country": "us",
+        "language": "en",
+        "freshness": "month"
+      }
+    ],
+    "category": "services",
+    "strategy": {
+      "targets": [
+        "React",
+        "TypeScript",
+        "web development"
+      ],
+      "explanation": "I split the service brief into three focused search concepts so results can surface by core frontend stack terms without over-constraining any single query. The remote preference is handled separately."
+    },
+    "exploration": {
+      "remote": true,
+      "target": "React TypeScript web development",
+      "queryPolicy": "client-demand-v1",
+      "maximumDepth": 3,
+      "maximumRounds": 8,
+      "candidatePolicy": "contextual-v1",
+      "maximumSearches": 6,
+      "maximumSourcePages": 2
+    },
+    "continuation": "explore_on_next_run",
+    "scoutVersion": 1,
+    "blockedReason": null,
+    "deadlineSeconds": 240,
+    "maximumDocuments": 6
+  },
+  "reader": "worker",
+  "renderingEnabled": true,
+  "status": "measured",
+  "deliveryOutcome": "no_eligible_digest",
+  "reasoning": [
+    {
+      "input": {
+        "kind": "strategy",
+        "intent": {
+          "remote": true,
+          "target": "React TypeScript web development",
+          "category": "services"
+        }
+      },
+      "output": {
+        "kind": "strategy",
+        "strategy": {
+          "targets": [
+            "React",
+            "TypeScript",
+            "web development"
+          ],
+          "explanation": "I split the service brief into three focused search concepts so results can surface by core frontend stack terms without over-constraining any single query. The remote preference is handled separately."
+        }
+      },
+      "rejected_output": null,
+      "failure": null,
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 1773,
+        "responseId": "resp_0f1618451d2c7276016acc2454fc2087d2ae7a2d952d5a21ff",
+        "inputTokens": 308,
+        "outputTokens": 116,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 753
+      }
+    },
+    {
+      "input": {
+        "kind": "choice",
+        "intent": {
+          "remote": true,
+          "target": "React TypeScript web development",
+          "category": "services"
+        },
+        "choices": [
+          {
+            "depth": 0,
+            "title": "Senior Software Engineer (Golang/TypeScript/React)",
+            "action": {
+              "url": "https://www.linkedin.com/jobs/view/senior-software-engineer-golang-typescript-react-independent-contractor-at-jobgether-4474690408",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "ceb572a46e37a85c361bd1e444a709f539a0f2e041dd47f084581dcdcad20baa"
+          },
+          {
+            "depth": 0,
+            "title": "Senior Software Engineer (Golang/TypeScript/React)",
+            "action": {
+              "url": "https://dailyremote.com/remote-job/senior-software-engineer-golang-type-script-react-independent-contractor-5718896",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "ceb572a46e37a85c361bd1e444a709f539a0f2e041dd47f084581dcdcad20baa"
+          },
+          {
+            "depth": 0,
+            "title": "Senior Software Engineer (Golang/TypeScript/React)",
+            "action": {
+              "url": "https://fr.jooble.org/jdp/4162442505344838789",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "ceb572a46e37a85c361bd1e444a709f539a0f2e041dd47f084581dcdcad20baa"
+          },
+          {
+            "depth": 0,
+            "title": "Writing an RFP for Software Development: Step-by- ...",
+            "action": {
+              "url": "https://www.inventive.ai/blog-posts/rfp-software-development-guide",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "e904f88fd99709bf0fa34e7c0327609b786368b1d2e2e202090e1d3b85cd4ec7"
+          },
+          {
+            "depth": 0,
+            "title": "Staff Backend Engineer (Node.js/TypeScript)",
+            "action": {
+              "url": "https://devsdata.com/he/careers/job/staff-backend-engineer-node-js-typescript-662619/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "ceb572a46e37a85c361bd1e444a709f539a0f2e041dd47f084581dcdcad20baa"
+          },
+          {
+            "depth": 0,
+            "title": "Typescript Engineer - TURING ENTERPRISES, INC.",
+            "action": {
+              "url": "https://www.dice.com/job-detail/001da4d0-cfbc-4a81-ad1c-eee7a61afb29",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "ceb572a46e37a85c361bd1e444a709f539a0f2e041dd47f084581dcdcad20baa"
+          },
+          {
+            "depth": 0,
+            "title": "Hire TypeScript Developers in India",
+            "action": {
+              "url": "https://www.kaam.work/hire-talents/hire-typescript-developers-india",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "ceb572a46e37a85c361bd1e444a709f539a0f2e041dd47f084581dcdcad20baa"
+          },
+          {
+            "depth": 0,
+            "title": "How Much Does React Native App Development Cost?",
+            "action": {
+              "url": "https://ripenapps.com/blog/react-native-app-development-cost/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "24b670e3de6cef6b80d77d43eed77d77c3c6ef825d7a92c2a099ba9c4c723cf0"
+          },
+          {
+            "depth": 0,
+            "title": "React Expense Tracker Mini Project with Complete Code",
+            "action": {
+              "url": "https://www.facebook.com/100094225972294/videos/-build-a-real-react-project-i-just-built-a-react-expense-tracker-mini-project-fr/1821232602369719/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "24b670e3de6cef6b80d77d43eed77d77c3c6ef825d7a92c2a099ba9c4c723cf0"
+          },
+          {
+            "depth": 0,
+            "title": "HIRING NOW Sr. Full-Stack Software Engineer $50–$100 ...",
+            "action": {
+              "url": "https://www.instagram.com/p/DdVsEbfiFWV/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "ceb572a46e37a85c361bd1e444a709f539a0f2e041dd47f084581dcdcad20baa"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "TypeScript site:x.com (\"hiring\" OR \"need\") (\"project\" OR \"freelance\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "7c941b11793059eb775de3a43f2fd9d68f300a0efcf4fc1fe41ceba5f08545ce"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "web development site:linkedin.com/posts (\"hiring\" OR \"need\") (\"project\" OR \"freelance\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "7c941b11793059eb775de3a43f2fd9d68f300a0efcf4fc1fe41ceba5f08545ce"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "TypeScript (\"project\" OR \"brief\") (\"budget\" OR \"fixed price\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "7c941b11793059eb775de3a43f2fd9d68f300a0efcf4fc1fe41ceba5f08545ce"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "web development (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "7c941b11793059eb775de3a43f2fd9d68f300a0efcf4fc1fe41ceba5f08545ce"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "React (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "7c941b11793059eb775de3a43f2fd9d68f300a0efcf4fc1fe41ceba5f08545ce"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": null,
+            "reason": "no_further_action",
+            "parentKey": null
+          }
+        ],
+        "evidence": [
+          {
+            "url": "https://www.facebook.com/100094225972294/videos/-build-a-real-react-project-i-just-built-a-react-expense-tracker-mini-project-fr/1821232602369719/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "React Expense Tracker Mini Project with Complete Code Build a React Budget Tracking App: Income, Expenses & Balance. React Project 1 — Task Manager I built my first React Task Manager using reusable. 00:05 ..."
+          },
+          {
+            "url": "https://ripenapps.com/blog/react-native-app-development-cost/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "How Much Does React Native App Development Cost? As a business owner, if you have the understanding to evaluate the cost, you can make a budget for your project and allocate resources effectively. Moreover, it ..."
+          },
+          {
+            "url": "https://www.linkedin.com/jobs/view/senior-software-engineer-golang-typescript-react-independent-contractor-at-jobgether-4474690408",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Senior Software Engineer (Golang/TypeScript/React) Our partner is looking for a Senior Software Engineer (Golang/TypeScript/React) - Independent Contractor based in United States. This is a senior ..."
+          },
+          {
+            "url": "https://dailyremote.com/remote-job/senior-software-engineer-golang-type-script-react-independent-contractor-5718896",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Senior Software Engineer (Golang/TypeScript/React) Senior Software Engineer (Golang/TypeScript/React)- Independent Contractor ... We are looking for a Senior Software Engineer to join our team, responsible ..."
+          },
+          {
+            "url": "https://www.instagram.com/p/DdVsEbfiFWV/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "HIRING NOW Sr. Full-Stack Software Engineer $50–$100 ... $90–$140/hr. Remote Contractor 10 Openings SourceBridge Co. is looking for experienced Software Engineers to evaluate AI-generated technical content. You' ..."
+          },
+          {
+            "url": "https://fr.jooble.org/jdp/4162442505344838789",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Senior Software Engineer (Golang/TypeScript/React) Our partner is looking for a Senior Software Engineer (Golang/TypeScript/React) - Independent Contractor based in France. This is a senior engineering ..."
+          },
+          {
+            "url": "https://devsdata.com/he/careers/job/staff-backend-engineer-node-js-typescript-662619/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Staff Backend Engineer (Node.js/TypeScript) We are looking for a Staff Backend Engineer (Node.js/TypeScript) to join a ... The product serves companies that run on large networks of independent contractor ..."
+          },
+          {
+            "url": "https://www.dice.com/job-detail/001da4d0-cfbc-4a81-ad1c-eee7a61afb29",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Typescript Engineer - TURING ENTERPRISES, INC. We're looking for a high-taste engineer with a strong eye for quality ... Employment Type: Independent contractor (does not include medical or paid leave benefits."
+          },
+          {
+            "url": "https://www.kaam.work/hire-talents/hire-typescript-developers-india",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Hire TypeScript Developers in India Contractor, per gig. Full-time employee, no brand or belonging support. Read ... Do I need a legal entity in India to hire a TypeScript developer full-time?"
+          },
+          {
+            "url": "https://www.inventive.ai/blog-posts/rfp-software-development-guide",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Writing an RFP for Software Development: Step-by- ... What Is a Software Web Development RFP? A Web Development Request for Proposal (RFP) is a detailed document that sets the foundation for a software ..."
+          }
+        ],
+        "candidates": [
+          {
+            "text": "Senior Software Engineer (Golang/TypeScript/React) Our partner is looking for a Senior Software Engineer (Golang/TypeScript/React) - Independent Contractor based in United States. This is a senior ...",
+            "query": "TypeScript (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 0,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Senior Software Engineer (Golang/TypeScript/React) Senior Software Engineer (Golang/TypeScript/React)- Independent Contractor ... We are looking for a Senior Software Engineer to join our team, responsible ...",
+            "query": "TypeScript (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 1,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Senior Software Engineer (Golang/TypeScript/React) Our partner is looking for a Senior Software Engineer (Golang/TypeScript/React) - Independent Contractor based in France. This is a senior engineering ...",
+            "query": "TypeScript (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 2,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Writing an RFP for Software Development: Step-by- ... What Is a Software Web Development RFP? A Web Development Request for Proposal (RFP) is a detailed document that sets the foundation for a software ...",
+            "query": "web development (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 3,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Staff Backend Engineer (Node.js/TypeScript) We are looking for a Staff Backend Engineer (Node.js/TypeScript) to join a ... The product serves companies that run on large networks of independent contractor ...",
+            "query": "TypeScript (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 4,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Typescript Engineer - TURING ENTERPRISES, INC. We're looking for a high-taste engineer with a strong eye for quality ... Employment Type: Independent contractor (does not include medical or paid leave benefits.",
+            "query": "TypeScript (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 5,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Hire TypeScript Developers in India Contractor, per gig. Full-time employee, no brand or belonging support. Read ... Do I need a legal entity in India to hire a TypeScript developer full-time?",
+            "query": "TypeScript (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 6,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "How Much Does React Native App Development Cost? As a business owner, if you have the understanding to evaluate the cost, you can make a budget for your project and allocate resources effectively. Moreover, it ...",
+            "query": "React (\"project\" OR \"brief\") (\"budget\" OR \"fixed price\")",
+            "choice": 7,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "React Expense Tracker Mini Project with Complete Code Build a React Budget Tracking App: Income, Expenses & Balance. React Project 1 — Task Manager I built my first React Task Manager using reusable. 00:05 ...",
+            "query": "React (\"project\" OR \"brief\") (\"budget\" OR \"fixed price\")",
+            "choice": 8,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "HIRING NOW Sr. Full-Stack Software Engineer $50–$100 ... $90–$140/hr. Remote Contractor 10 Openings SourceBridge Co. is looking for experienced Software Engineers to evaluate AI-generated technical content. You' ...",
+            "query": "TypeScript (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 9,
+            "origin": "search_result",
+            "parentUrl": null
+          }
+        ]
+      },
+      "output": {
+        "kind": "choice",
+        "index": 10,
+        "explanation": "No supplied result is a concrete buyer request for React/TypeScript web development; the rest are jobs, seller pages, or irrelevant content. Best next step is to stop and wait for a more specific client brief or buyer-query result."
+      },
+      "rejected_output": null,
+      "failure": null,
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 2662,
+        "responseId": "resp_049545444a187c20016acc245d601487d2a81f98e9b8f5e805",
+        "inputTokens": 3962,
+        "outputTokens": 286,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 4259
+      }
+    },
+    {
+      "input": {
+        "kind": "choice",
+        "intent": {
+          "remote": true,
+          "target": "React TypeScript web development",
+          "category": "services"
+        },
+        "choices": [
+          {
+            "depth": 0,
+            "title": "Senior Software Engineer (Golang/TypeScript/React)",
+            "action": {
+              "url": "https://www.linkedin.com/jobs/view/senior-software-engineer-golang-typescript-react-independent-contractor-at-jobgether-4474690408",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "ceb572a46e37a85c361bd1e444a709f539a0f2e041dd47f084581dcdcad20baa"
+          },
+          {
+            "depth": 0,
+            "title": "Senior Software Engineer (Golang/TypeScript/React)",
+            "action": {
+              "url": "https://dailyremote.com/remote-job/senior-software-engineer-golang-type-script-react-independent-contractor-5718896",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "ceb572a46e37a85c361bd1e444a709f539a0f2e041dd47f084581dcdcad20baa"
+          },
+          {
+            "depth": 0,
+            "title": "Senior Software Engineer (Golang/TypeScript/React)",
+            "action": {
+              "url": "https://fr.jooble.org/jdp/4162442505344838789",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "ceb572a46e37a85c361bd1e444a709f539a0f2e041dd47f084581dcdcad20baa"
+          },
+          {
+            "depth": 0,
+            "title": "Writing an RFP for Software Development: Step-by- ...",
+            "action": {
+              "url": "https://www.inventive.ai/blog-posts/rfp-software-development-guide",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "e904f88fd99709bf0fa34e7c0327609b786368b1d2e2e202090e1d3b85cd4ec7"
+          },
+          {
+            "depth": 0,
+            "title": "Freelance / Contract | 🧑‍💻 React / TypeScript / Node. ...",
+            "action": {
+              "url": "https://x.com/i/status/2106390640074318276",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "24fc54507019a35719af943b709cd3af4adef8ba9f98852f9e551f9e54ae6630"
+          },
+          {
+            "depth": 0,
+            "title": "Hiring: Frontend Developer (React.js / TypeScript)",
+            "action": {
+              "url": "https://x.com/i/status/2099450262637187408",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "24fc54507019a35719af943b709cd3af4adef8ba9f98852f9e551f9e54ae6630"
+          },
+          {
+            "depth": 0,
+            "title": "Staff Backend Engineer (Node.js/TypeScript)",
+            "action": {
+              "url": "https://devsdata.com/he/careers/job/staff-backend-engineer-node-js-typescript-662619/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "ceb572a46e37a85c361bd1e444a709f539a0f2e041dd47f084581dcdcad20baa"
+          },
+          {
+            "depth": 0,
+            "title": "Typescript Engineer - TURING ENTERPRISES, INC.",
+            "action": {
+              "url": "https://www.dice.com/job-detail/001da4d0-cfbc-4a81-ad1c-eee7a61afb29",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "ceb572a46e37a85c361bd1e444a709f539a0f2e041dd47f084581dcdcad20baa"
+          },
+          {
+            "depth": 0,
+            "title": "React Expense Tracker Mini Project with Complete Code",
+            "action": {
+              "url": "https://www.facebook.com/100094225972294/videos/-build-a-real-react-project-i-just-built-a-react-expense-tracker-mini-project-fr/1821232602369719/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "24b670e3de6cef6b80d77d43eed77d77c3c6ef825d7a92c2a099ba9c4c723cf0"
+          },
+          {
+            "depth": 0,
+            "title": "HIRING NOW Sr. Full-Stack Software Engineer $50–$100 ...",
+            "action": {
+              "url": "https://www.instagram.com/p/DdVsEbfiFWV/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "ceb572a46e37a85c361bd1e444a709f539a0f2e041dd47f084581dcdcad20baa"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "web development site:linkedin.com/posts (\"hiring\" OR \"need\") (\"project\" OR \"freelance\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "24fc54507019a35719af943b709cd3af4adef8ba9f98852f9e551f9e54ae6630"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "TypeScript (\"project\" OR \"brief\") (\"budget\" OR \"fixed price\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "24fc54507019a35719af943b709cd3af4adef8ba9f98852f9e551f9e54ae6630"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "web development (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "24fc54507019a35719af943b709cd3af4adef8ba9f98852f9e551f9e54ae6630"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "React (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "24fc54507019a35719af943b709cd3af4adef8ba9f98852f9e551f9e54ae6630"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "TypeScript (\"project\" OR \"brief\") (\"proposals\" OR \"bids\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "24fc54507019a35719af943b709cd3af4adef8ba9f98852f9e551f9e54ae6630"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": null,
+            "reason": "no_further_action",
+            "parentKey": null
+          }
+        ],
+        "evidence": [
+          {
+            "url": "https://www.facebook.com/100094225972294/videos/-build-a-real-react-project-i-just-built-a-react-expense-tracker-mini-project-fr/1821232602369719/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "React Expense Tracker Mini Project with Complete Code Build a React Budget Tracking App: Income, Expenses & Balance. React Project 1 — Task Manager I built my first React Task Manager using reusable. 00:05 ..."
+          },
+          {
+            "url": "https://www.linkedin.com/jobs/view/senior-software-engineer-golang-typescript-react-independent-contractor-at-jobgether-4474690408",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Senior Software Engineer (Golang/TypeScript/React) Our partner is looking for a Senior Software Engineer (Golang/TypeScript/React) - Independent Contractor based in United States. This is a senior ..."
+          },
+          {
+            "url": "https://dailyremote.com/remote-job/senior-software-engineer-golang-type-script-react-independent-contractor-5718896",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Senior Software Engineer (Golang/TypeScript/React) Senior Software Engineer (Golang/TypeScript/React)- Independent Contractor ... We are looking for a Senior Software Engineer to join our team, responsible ..."
+          },
+          {
+            "url": "https://www.instagram.com/p/DdVsEbfiFWV/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "HIRING NOW Sr. Full-Stack Software Engineer $50–$100 ... $90–$140/hr. Remote Contractor 10 Openings SourceBridge Co. is looking for experienced Software Engineers to evaluate AI-generated technical content. You' ..."
+          },
+          {
+            "url": "https://fr.jooble.org/jdp/4162442505344838789",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Senior Software Engineer (Golang/TypeScript/React) Our partner is looking for a Senior Software Engineer (Golang/TypeScript/React) - Independent Contractor based in France. This is a senior engineering ..."
+          },
+          {
+            "url": "https://devsdata.com/he/careers/job/staff-backend-engineer-node-js-typescript-662619/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Staff Backend Engineer (Node.js/TypeScript) We are looking for a Staff Backend Engineer (Node.js/TypeScript) to join a ... The product serves companies that run on large networks of independent contractor ..."
+          },
+          {
+            "url": "https://www.dice.com/job-detail/001da4d0-cfbc-4a81-ad1c-eee7a61afb29",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Typescript Engineer - TURING ENTERPRISES, INC. We're looking for a high-taste engineer with a strong eye for quality ... Employment Type: Independent contractor (does not include medical or paid leave benefits."
+          },
+          {
+            "url": "https://www.inventive.ai/blog-posts/rfp-software-development-guide",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Writing an RFP for Software Development: Step-by- ... What Is a Software Web Development RFP? A Web Development Request for Proposal (RFP) is a detailed document that sets the foundation for a software ..."
+          },
+          {
+            "url": "https://x.com/i/status/2106390640074318276",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Freelance / Contract | 🧑‍💻 React / TypeScript / Node. ... Hiring: Senior Full-Stack Developer - Company not provided Remote (Global) | Freelance / Contract | ‍ React / TypeScript / Node.js / WebSockets ..."
+          },
+          {
+            "url": "https://x.com/i/status/2099450262637187408",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Hiring: Frontend Developer (React.js / TypeScript) Hiring: Frontend Developer (React.js / TypeScript) - Omniorigin Group of Businesses Remote - India (Tartu, Estonia project) | Full-time / Contract ..."
+          }
+        ],
+        "candidates": [
+          {
+            "text": "Senior Software Engineer (Golang/TypeScript/React) Our partner is looking for a Senior Software Engineer (Golang/TypeScript/React) - Independent Contractor based in United States. This is a senior ...",
+            "query": "TypeScript (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 0,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Senior Software Engineer (Golang/TypeScript/React) Senior Software Engineer (Golang/TypeScript/React)- Independent Contractor ... We are looking for a Senior Software Engineer to join our team, responsible ...",
+            "query": "TypeScript (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 1,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Senior Software Engineer (Golang/TypeScript/React) Our partner is looking for a Senior Software Engineer (Golang/TypeScript/React) - Independent Contractor based in France. This is a senior engineering ...",
+            "query": "TypeScript (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 2,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Writing an RFP for Software Development: Step-by- ... What Is a Software Web Development RFP? A Web Development Request for Proposal (RFP) is a detailed document that sets the foundation for a software ...",
+            "query": "web development (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 3,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Freelance / Contract | 🧑‍💻 React / TypeScript / Node. ... Hiring: Senior Full-Stack Developer - Company not provided Remote (Global) | Freelance / Contract | ‍ React / TypeScript / Node.js / WebSockets ...",
+            "query": "TypeScript site:x.com (\"hiring\" OR \"need\") (\"project\" OR \"freelance\")",
+            "choice": 4,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Hiring: Frontend Developer (React.js / TypeScript) Hiring: Frontend Developer (React.js / TypeScript) - Omniorigin Group of Businesses Remote - India (Tartu, Estonia project) | Full-time / Contract ...",
+            "query": "TypeScript site:x.com (\"hiring\" OR \"need\") (\"project\" OR \"freelance\")",
+            "choice": 5,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Staff Backend Engineer (Node.js/TypeScript) We are looking for a Staff Backend Engineer (Node.js/TypeScript) to join a ... The product serves companies that run on large networks of independent contractor ...",
+            "query": "TypeScript (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 6,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Typescript Engineer - TURING ENTERPRISES, INC. We're looking for a high-taste engineer with a strong eye for quality ... Employment Type: Independent contractor (does not include medical or paid leave benefits.",
+            "query": "TypeScript (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 7,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "React Expense Tracker Mini Project with Complete Code Build a React Budget Tracking App: Income, Expenses & Balance. React Project 1 — Task Manager I built my first React Task Manager using reusable. 00:05 ...",
+            "query": "React (\"project\" OR \"brief\") (\"budget\" OR \"fixed price\")",
+            "choice": 8,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "HIRING NOW Sr. Full-Stack Software Engineer $50–$100 ... $90–$140/hr. Remote Contractor 10 Openings SourceBridge Co. is looking for experienced Software Engineers to evaluate AI-generated technical content. You' ...",
+            "query": "TypeScript (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 9,
+            "origin": "search_result",
+            "parentUrl": null
+          }
+        ]
+      },
+      "output": {
+        "kind": "choice",
+        "index": 2,
+        "explanation": "The current items are mostly job ads or seller-style pages, so a broader buyer-side search is more likely to surface a real client request for React/TypeScript web development."
+      },
+      "rejected_output": null,
+      "failure": null,
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 2840,
+        "responseId": "resp_02b16529dba2279d016acc24612c7887d28959a7b3cba92fdc",
+        "inputTokens": 3993,
+        "outputTokens": 390,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 4750
+      }
+    },
+    {
+      "input": {
+        "kind": "choice",
+        "intent": {
+          "remote": true,
+          "target": "React TypeScript web development",
+          "category": "services"
+        },
+        "choices": [
+          {
+            "depth": 0,
+            "title": "Senior Software Engineer (Golang/TypeScript/React)",
+            "action": {
+              "url": "https://www.linkedin.com/jobs/view/senior-software-engineer-golang-typescript-react-independent-contractor-at-jobgether-4474690408",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "ceb572a46e37a85c361bd1e444a709f539a0f2e041dd47f084581dcdcad20baa"
+          },
+          {
+            "depth": 0,
+            "title": "Senior Software Engineer (Golang/TypeScript/React)",
+            "action": {
+              "url": "https://dailyremote.com/remote-job/senior-software-engineer-golang-type-script-react-independent-contractor-5718896",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "ceb572a46e37a85c361bd1e444a709f539a0f2e041dd47f084581dcdcad20baa"
+          },
+          {
+            "depth": 0,
+            "title": "Writing an RFP for Software Development: Step-by- ...",
+            "action": {
+              "url": "https://www.inventive.ai/blog-posts/rfp-software-development-guide",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "e904f88fd99709bf0fa34e7c0327609b786368b1d2e2e202090e1d3b85cd4ec7"
+          },
+          {
+            "depth": 0,
+            "title": "Freelance / Contract | 🧑‍💻 React / TypeScript / Node. ...",
+            "action": {
+              "url": "https://x.com/i/status/2106390640074318276",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "24fc54507019a35719af943b709cd3af4adef8ba9f98852f9e551f9e54ae6630"
+          },
+          {
+            "depth": 0,
+            "title": "Hiring: Frontend Developer (React.js / TypeScript)",
+            "action": {
+              "url": "https://x.com/i/status/2099450262637187408",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "24fc54507019a35719af943b709cd3af4adef8ba9f98852f9e551f9e54ae6630"
+          },
+          {
+            "depth": 0,
+            "title": "Staff Backend Engineer (Node.js/TypeScript)",
+            "action": {
+              "url": "https://devsdata.com/he/careers/job/staff-backend-engineer-node-js-typescript-662619/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "ceb572a46e37a85c361bd1e444a709f539a0f2e041dd47f084581dcdcad20baa"
+          },
+          {
+            "depth": 0,
+            "title": "Typescript Engineer - TURING ENTERPRISES, INC.",
+            "action": {
+              "url": "https://www.dice.com/job-detail/001da4d0-cfbc-4a81-ad1c-eee7a61afb29",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "ceb572a46e37a85c361bd1e444a709f539a0f2e041dd47f084581dcdcad20baa"
+          },
+          {
+            "depth": 0,
+            "title": "Hire TypeScript Developers in India",
+            "action": {
+              "url": "https://www.kaam.work/hire-talents/hire-typescript-developers-india",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "ceb572a46e37a85c361bd1e444a709f539a0f2e041dd47f084581dcdcad20baa"
+          },
+          {
+            "depth": 0,
+            "title": "React Expense Tracker Mini Project with Complete Code",
+            "action": {
+              "url": "https://www.facebook.com/100094225972294/videos/-build-a-real-react-project-i-just-built-a-react-expense-tracker-mini-project-fr/1821232602369719/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "24b670e3de6cef6b80d77d43eed77d77c3c6ef825d7a92c2a099ba9c4c723cf0"
+          },
+          {
+            "depth": 0,
+            "title": "HIRING NOW Sr. Full-Stack Software Engineer $50–$100 ...",
+            "action": {
+              "url": "https://www.instagram.com/p/DdVsEbfiFWV/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "ceb572a46e37a85c361bd1e444a709f539a0f2e041dd47f084581dcdcad20baa"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "web development site:linkedin.com/posts (\"hiring\" OR \"need\") (\"project\" OR \"freelance\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "24fc54507019a35719af943b709cd3af4adef8ba9f98852f9e551f9e54ae6630"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "TypeScript (\"project\" OR \"brief\") (\"budget\" OR \"fixed price\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "24fc54507019a35719af943b709cd3af4adef8ba9f98852f9e551f9e54ae6630"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "web development (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "24fc54507019a35719af943b709cd3af4adef8ba9f98852f9e551f9e54ae6630"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "React (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "24fc54507019a35719af943b709cd3af4adef8ba9f98852f9e551f9e54ae6630"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "TypeScript (\"project\" OR \"brief\") (\"proposals\" OR \"bids\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "24fc54507019a35719af943b709cd3af4adef8ba9f98852f9e551f9e54ae6630"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": null,
+            "reason": "no_further_action",
+            "parentKey": null
+          }
+        ],
+        "evidence": [
+          {
+            "url": "https://fr.jooble.org/jdp/4162442505344838789",
+            "label": "access_limited",
+            "scope": "source_access",
+            "unknowns": [
+              "demand and availability remain unverified"
+            ],
+            "explanation": "Source capture could not provide complete evidence: source_access_denied."
+          },
+          {
+            "url": "https://www.facebook.com/100094225972294/videos/-build-a-real-react-project-i-just-built-a-react-expense-tracker-mini-project-fr/1821232602369719/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "React Expense Tracker Mini Project with Complete Code Build a React Budget Tracking App: Income, Expenses & Balance. React Project 1 — Task Manager I built my first React Task Manager using reusable. 00:05 ..."
+          },
+          {
+            "url": "https://www.linkedin.com/jobs/view/senior-software-engineer-golang-typescript-react-independent-contractor-at-jobgether-4474690408",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Senior Software Engineer (Golang/TypeScript/React) Our partner is looking for a Senior Software Engineer (Golang/TypeScript/React) - Independent Contractor based in United States. This is a senior ..."
+          },
+          {
+            "url": "https://dailyremote.com/remote-job/senior-software-engineer-golang-type-script-react-independent-contractor-5718896",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Senior Software Engineer (Golang/TypeScript/React) Senior Software Engineer (Golang/TypeScript/React)- Independent Contractor ... We are looking for a Senior Software Engineer to join our team, responsible ..."
+          },
+          {
+            "url": "https://www.instagram.com/p/DdVsEbfiFWV/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "HIRING NOW Sr. Full-Stack Software Engineer $50–$100 ... $90–$140/hr. Remote Contractor 10 Openings SourceBridge Co. is looking for experienced Software Engineers to evaluate AI-generated technical content. You' ..."
+          },
+          {
+            "url": "https://devsdata.com/he/careers/job/staff-backend-engineer-node-js-typescript-662619/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Staff Backend Engineer (Node.js/TypeScript) We are looking for a Staff Backend Engineer (Node.js/TypeScript) to join a ... The product serves companies that run on large networks of independent contractor ..."
+          },
+          {
+            "url": "https://www.dice.com/job-detail/001da4d0-cfbc-4a81-ad1c-eee7a61afb29",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Typescript Engineer - TURING ENTERPRISES, INC. We're looking for a high-taste engineer with a strong eye for quality ... Employment Type: Independent contractor (does not include medical or paid leave benefits."
+          },
+          {
+            "url": "https://www.kaam.work/hire-talents/hire-typescript-developers-india",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Hire TypeScript Developers in India Contractor, per gig. Full-time employee, no brand or belonging support. Read ... Do I need a legal entity in India to hire a TypeScript developer full-time?"
+          },
+          {
+            "url": "https://www.inventive.ai/blog-posts/rfp-software-development-guide",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Writing an RFP for Software Development: Step-by- ... What Is a Software Web Development RFP? A Web Development Request for Proposal (RFP) is a detailed document that sets the foundation for a software ..."
+          },
+          {
+            "url": "https://x.com/i/status/2106390640074318276",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Freelance / Contract | 🧑‍💻 React / TypeScript / Node. ... Hiring: Senior Full-Stack Developer - Company not provided Remote (Global) | Freelance / Contract | ‍ React / TypeScript / Node.js / WebSockets ..."
+          },
+          {
+            "url": "https://x.com/i/status/2099450262637187408",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Hiring: Frontend Developer (React.js / TypeScript) Hiring: Frontend Developer (React.js / TypeScript) - Omniorigin Group of Businesses Remote - India (Tartu, Estonia project) | Full-time / Contract ..."
+          }
+        ],
+        "candidates": [
+          {
+            "text": "Senior Software Engineer (Golang/TypeScript/React) Our partner is looking for a Senior Software Engineer (Golang/TypeScript/React) - Independent Contractor based in United States. This is a senior ...",
+            "query": "TypeScript (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 0,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Senior Software Engineer (Golang/TypeScript/React) Senior Software Engineer (Golang/TypeScript/React)- Independent Contractor ... We are looking for a Senior Software Engineer to join our team, responsible ...",
+            "query": "TypeScript (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 1,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Writing an RFP for Software Development: Step-by- ... What Is a Software Web Development RFP? A Web Development Request for Proposal (RFP) is a detailed document that sets the foundation for a software ...",
+            "query": "web development (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 2,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Freelance / Contract | 🧑‍💻 React / TypeScript / Node. ... Hiring: Senior Full-Stack Developer - Company not provided Remote (Global) | Freelance / Contract | ‍ React / TypeScript / Node.js / WebSockets ...",
+            "query": "TypeScript site:x.com (\"hiring\" OR \"need\") (\"project\" OR \"freelance\")",
+            "choice": 3,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Hiring: Frontend Developer (React.js / TypeScript) Hiring: Frontend Developer (React.js / TypeScript) - Omniorigin Group of Businesses Remote - India (Tartu, Estonia project) | Full-time / Contract ...",
+            "query": "TypeScript site:x.com (\"hiring\" OR \"need\") (\"project\" OR \"freelance\")",
+            "choice": 4,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Staff Backend Engineer (Node.js/TypeScript) We are looking for a Staff Backend Engineer (Node.js/TypeScript) to join a ... The product serves companies that run on large networks of independent contractor ...",
+            "query": "TypeScript (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 5,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Typescript Engineer - TURING ENTERPRISES, INC. We're looking for a high-taste engineer with a strong eye for quality ... Employment Type: Independent contractor (does not include medical or paid leave benefits.",
+            "query": "TypeScript (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 6,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Hire TypeScript Developers in India Contractor, per gig. Full-time employee, no brand or belonging support. Read ... Do I need a legal entity in India to hire a TypeScript developer full-time?",
+            "query": "TypeScript (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 7,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "React Expense Tracker Mini Project with Complete Code Build a React Budget Tracking App: Income, Expenses & Balance. React Project 1 — Task Manager I built my first React Task Manager using reusable. 00:05 ...",
+            "query": "React (\"project\" OR \"brief\") (\"budget\" OR \"fixed price\")",
+            "choice": 8,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "HIRING NOW Sr. Full-Stack Software Engineer $50–$100 ... $90–$140/hr. Remote Contractor 10 Openings SourceBridge Co. is looking for experienced Software Engineers to evaluate AI-generated technical content. You' ...",
+            "query": "TypeScript (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 9,
+            "origin": "search_result",
+            "parentUrl": null
+          }
+        ]
+      },
+      "output": {
+        "kind": "choice",
+        "index": 3,
+        "explanation": "This is the most relevant buyer-side demand among the options because it explicitly mentions freelance/contract work and React/TypeScript web skills, so it could surface a real project brief or hiring need."
+      },
+      "rejected_output": null,
+      "failure": null,
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 2018,
+        "responseId": "resp_0f47636276a0ee5f016acc24679f2087d2ac2b9446b81848aa",
+        "inputTokens": 4046,
+        "outputTokens": 227,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 4056
+      }
+    },
+    {
+      "input": {
+        "kind": "choice",
+        "intent": {
+          "remote": true,
+          "target": "React TypeScript web development",
+          "category": "services"
+        },
+        "choices": [
+          {
+            "depth": 0,
+            "title": "Senior Software Engineer (Golang/TypeScript/React)",
+            "action": {
+              "url": "https://www.linkedin.com/jobs/view/senior-software-engineer-golang-typescript-react-independent-contractor-at-jobgether-4474690408",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "ceb572a46e37a85c361bd1e444a709f539a0f2e041dd47f084581dcdcad20baa"
+          },
+          {
+            "depth": 0,
+            "title": "Senior Software Engineer (Golang/TypeScript/React)",
+            "action": {
+              "url": "https://dailyremote.com/remote-job/senior-software-engineer-golang-type-script-react-independent-contractor-5718896",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "ceb572a46e37a85c361bd1e444a709f539a0f2e041dd47f084581dcdcad20baa"
+          },
+          {
+            "depth": 0,
+            "title": "Writing an RFP for Software Development: Step-by- ...",
+            "action": {
+              "url": "https://www.inventive.ai/blog-posts/rfp-software-development-guide",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "e904f88fd99709bf0fa34e7c0327609b786368b1d2e2e202090e1d3b85cd4ec7"
+          },
+          {
+            "depth": 0,
+            "title": "Hiring: Frontend Developer (React.js / TypeScript)",
+            "action": {
+              "url": "https://x.com/i/status/2099450262637187408",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "24fc54507019a35719af943b709cd3af4adef8ba9f98852f9e551f9e54ae6630"
+          },
+          {
+            "depth": 0,
+            "title": "Riyadh or Jeddah, Saudi Arabia | 💼 Freelance / Project- ...",
+            "action": {
+              "url": "https://x.com/i/status/2103400584158081430",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "24fc54507019a35719af943b709cd3af4adef8ba9f98852f9e551f9e54ae6630"
+          },
+          {
+            "depth": 0,
+            "title": "Staff Backend Engineer (Node.js/TypeScript)",
+            "action": {
+              "url": "https://devsdata.com/he/careers/job/staff-backend-engineer-node-js-typescript-662619/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "ceb572a46e37a85c361bd1e444a709f539a0f2e041dd47f084581dcdcad20baa"
+          },
+          {
+            "depth": 0,
+            "title": "Typescript Engineer - TURING ENTERPRISES, INC.",
+            "action": {
+              "url": "https://www.dice.com/job-detail/001da4d0-cfbc-4a81-ad1c-eee7a61afb29",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "ceb572a46e37a85c361bd1e444a709f539a0f2e041dd47f084581dcdcad20baa"
+          },
+          {
+            "depth": 0,
+            "title": "Hire TypeScript Developers in India",
+            "action": {
+              "url": "https://www.kaam.work/hire-talents/hire-typescript-developers-india",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "ceb572a46e37a85c361bd1e444a709f539a0f2e041dd47f084581dcdcad20baa"
+          },
+          {
+            "depth": 0,
+            "title": "React Expense Tracker Mini Project with Complete Code",
+            "action": {
+              "url": "https://www.facebook.com/100094225972294/videos/-build-a-real-react-project-i-just-built-a-react-expense-tracker-mini-project-fr/1821232602369719/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "24b670e3de6cef6b80d77d43eed77d77c3c6ef825d7a92c2a099ba9c4c723cf0"
+          },
+          {
+            "depth": 0,
+            "title": "HIRING NOW Sr. Full-Stack Software Engineer $50–$100 ...",
+            "action": {
+              "url": "https://www.instagram.com/p/DdVsEbfiFWV/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "ceb572a46e37a85c361bd1e444a709f539a0f2e041dd47f084581dcdcad20baa"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "web development site:linkedin.com/posts (\"hiring\" OR \"need\") (\"project\" OR \"freelance\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "24fc54507019a35719af943b709cd3af4adef8ba9f98852f9e551f9e54ae6630"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "TypeScript (\"project\" OR \"brief\") (\"budget\" OR \"fixed price\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "24fc54507019a35719af943b709cd3af4adef8ba9f98852f9e551f9e54ae6630"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "web development (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "24fc54507019a35719af943b709cd3af4adef8ba9f98852f9e551f9e54ae6630"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "React (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "24fc54507019a35719af943b709cd3af4adef8ba9f98852f9e551f9e54ae6630"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "TypeScript (\"project\" OR \"brief\") (\"proposals\" OR \"bids\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "24fc54507019a35719af943b709cd3af4adef8ba9f98852f9e551f9e54ae6630"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": null,
+            "reason": "no_further_action",
+            "parentKey": null
+          }
+        ],
+        "evidence": [
+          {
+            "url": "https://fr.jooble.org/jdp/4162442505344838789",
+            "label": "access_limited",
+            "scope": "source_access",
+            "unknowns": [
+              "demand and availability remain unverified"
+            ],
+            "explanation": "Source capture could not provide complete evidence: source_access_denied."
+          },
+          {
+            "url": "https://x.com/i/status/2106390640074318276",
+            "label": "access_limited",
+            "scope": "source_access",
+            "unknowns": [
+              "demand and availability remain unverified"
+            ],
+            "explanation": "Source capture could not provide complete evidence: crawl_policy_denied."
+          },
+          {
+            "url": "https://www.facebook.com/100094225972294/videos/-build-a-real-react-project-i-just-built-a-react-expense-tracker-mini-project-fr/1821232602369719/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "React Expense Tracker Mini Project with Complete Code Build a React Budget Tracking App: Income, Expenses & Balance. React Project 1 — Task Manager I built my first React Task Manager using reusable. 00:05 ..."
+          },
+          {
+            "url": "https://www.linkedin.com/jobs/view/senior-software-engineer-golang-typescript-react-independent-contractor-at-jobgether-4474690408",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Senior Software Engineer (Golang/TypeScript/React) Our partner is looking for a Senior Software Engineer (Golang/TypeScript/React) - Independent Contractor based in United States. This is a senior ..."
+          },
+          {
+            "url": "https://dailyremote.com/remote-job/senior-software-engineer-golang-type-script-react-independent-contractor-5718896",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Senior Software Engineer (Golang/TypeScript/React) Senior Software Engineer (Golang/TypeScript/React)- Independent Contractor ... We are looking for a Senior Software Engineer to join our team, responsible ..."
+          },
+          {
+            "url": "https://www.instagram.com/p/DdVsEbfiFWV/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "HIRING NOW Sr. Full-Stack Software Engineer $50–$100 ... $90–$140/hr. Remote Contractor 10 Openings SourceBridge Co. is looking for experienced Software Engineers to evaluate AI-generated technical content. You' ..."
+          },
+          {
+            "url": "https://devsdata.com/he/careers/job/staff-backend-engineer-node-js-typescript-662619/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Staff Backend Engineer (Node.js/TypeScript) We are looking for a Staff Backend Engineer (Node.js/TypeScript) to join a ... The product serves companies that run on large networks of independent contractor ..."
+          },
+          {
+            "url": "https://www.dice.com/job-detail/001da4d0-cfbc-4a81-ad1c-eee7a61afb29",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Typescript Engineer - TURING ENTERPRISES, INC. We're looking for a high-taste engineer with a strong eye for quality ... Employment Type: Independent contractor (does not include medical or paid leave benefits."
+          },
+          {
+            "url": "https://www.kaam.work/hire-talents/hire-typescript-developers-india",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Hire TypeScript Developers in India Contractor, per gig. Full-time employee, no brand or belonging support. Read ... Do I need a legal entity in India to hire a TypeScript developer full-time?"
+          },
+          {
+            "url": "https://www.inventive.ai/blog-posts/rfp-software-development-guide",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Writing an RFP for Software Development: Step-by- ... What Is a Software Web Development RFP? A Web Development Request for Proposal (RFP) is a detailed document that sets the foundation for a software ..."
+          },
+          {
+            "url": "https://x.com/i/status/2099450262637187408",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Hiring: Frontend Developer (React.js / TypeScript) Hiring: Frontend Developer (React.js / TypeScript) - Omniorigin Group of Businesses Remote - India (Tartu, Estonia project) | Full-time / Contract ..."
+          },
+          {
+            "url": "https://x.com/i/status/2103400584158081430",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Riyadh or Jeddah, Saudi Arabia | 💼 Freelance / Project- ... Hiring: Freelance Full-Stack Developer - Eorbitt Remote - Riyadh or Jeddah, Saudi Arabia | Freelance / Project-based | ‍ React / Next.js / TypeScript ..."
+          }
+        ],
+        "candidates": [
+          {
+            "text": "Senior Software Engineer (Golang/TypeScript/React) Our partner is looking for a Senior Software Engineer (Golang/TypeScript/React) - Independent Contractor based in United States. This is a senior ...",
+            "query": "TypeScript (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 0,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Senior Software Engineer (Golang/TypeScript/React) Senior Software Engineer (Golang/TypeScript/React)- Independent Contractor ... We are looking for a Senior Software Engineer to join our team, responsible ...",
+            "query": "TypeScript (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 1,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Writing an RFP for Software Development: Step-by- ... What Is a Software Web Development RFP? A Web Development Request for Proposal (RFP) is a detailed document that sets the foundation for a software ...",
+            "query": "web development (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 2,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Hiring: Frontend Developer (React.js / TypeScript) Hiring: Frontend Developer (React.js / TypeScript) - Omniorigin Group of Businesses Remote - India (Tartu, Estonia project) | Full-time / Contract ...",
+            "query": "TypeScript site:x.com (\"hiring\" OR \"need\") (\"project\" OR \"freelance\")",
+            "choice": 3,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Riyadh or Jeddah, Saudi Arabia | 💼 Freelance / Project- ... Hiring: Freelance Full-Stack Developer - Eorbitt Remote - Riyadh or Jeddah, Saudi Arabia | Freelance / Project-based | ‍ React / Next.js / TypeScript ...",
+            "query": "TypeScript site:x.com (\"hiring\" OR \"need\") (\"project\" OR \"freelance\")",
+            "choice": 4,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Staff Backend Engineer (Node.js/TypeScript) We are looking for a Staff Backend Engineer (Node.js/TypeScript) to join a ... The product serves companies that run on large networks of independent contractor ...",
+            "query": "TypeScript (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 5,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Typescript Engineer - TURING ENTERPRISES, INC. We're looking for a high-taste engineer with a strong eye for quality ... Employment Type: Independent contractor (does not include medical or paid leave benefits.",
+            "query": "TypeScript (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 6,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Hire TypeScript Developers in India Contractor, per gig. Full-time employee, no brand or belonging support. Read ... Do I need a legal entity in India to hire a TypeScript developer full-time?",
+            "query": "TypeScript (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 7,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "React Expense Tracker Mini Project with Complete Code Build a React Budget Tracking App: Income, Expenses & Balance. React Project 1 — Task Manager I built my first React Task Manager using reusable. 00:05 ...",
+            "query": "React (\"project\" OR \"brief\") (\"budget\" OR \"fixed price\")",
+            "choice": 8,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "HIRING NOW Sr. Full-Stack Software Engineer $50–$100 ... $90–$140/hr. Remote Contractor 10 Openings SourceBridge Co. is looking for experienced Software Engineers to evaluate AI-generated technical content. You' ...",
+            "query": "TypeScript (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 9,
+            "origin": "search_result",
+            "parentUrl": null
+          }
+        ]
+      },
+      "output": {
+        "kind": "choice",
+        "index": 4,
+        "explanation": "Best next evidence is the freelance/project-based React/Next.js/TypeScript posting, since it is a concrete buyer demand for contract web development work and likely resolves scope and eligibility better than employee vacancies or generic guides."
+      },
+      "rejected_output": null,
+      "failure": null,
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 1377,
+        "responseId": "resp_035ab13bce4309ef016acc246b79bc87d2a290ddb7eda19822",
+        "inputTokens": 4111,
+        "outputTokens": 122,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 3633
+      }
+    },
+    {
+      "input": {
+        "kind": "choice",
+        "intent": {
+          "remote": true,
+          "target": "React TypeScript web development",
+          "category": "services"
+        },
+        "choices": [
+          {
+            "depth": 0,
+            "title": "Senior Software Engineer (Golang/TypeScript/React)",
+            "action": {
+              "url": "https://www.linkedin.com/jobs/view/senior-software-engineer-golang-typescript-react-independent-contractor-at-jobgether-4474690408",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "ceb572a46e37a85c361bd1e444a709f539a0f2e041dd47f084581dcdcad20baa"
+          },
+          {
+            "depth": 0,
+            "title": "Senior Software Engineer (Golang/TypeScript/React)",
+            "action": {
+              "url": "https://dailyremote.com/remote-job/senior-software-engineer-golang-type-script-react-independent-contractor-5718896",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "ceb572a46e37a85c361bd1e444a709f539a0f2e041dd47f084581dcdcad20baa"
+          },
+          {
+            "depth": 0,
+            "title": "Writing an RFP for Software Development: Step-by- ...",
+            "action": {
+              "url": "https://www.inventive.ai/blog-posts/rfp-software-development-guide",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "e904f88fd99709bf0fa34e7c0327609b786368b1d2e2e202090e1d3b85cd4ec7"
+          },
+          {
+            "depth": 0,
+            "title": "Hiring: Frontend Developer (React.js / TypeScript)",
+            "action": {
+              "url": "https://x.com/i/status/2099450262637187408",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "24fc54507019a35719af943b709cd3af4adef8ba9f98852f9e551f9e54ae6630"
+          },
+          {
+            "depth": 0,
+            "title": "Hiring: Senior Full Stack Developer - [Company not ...",
+            "action": {
+              "url": "https://x.com/i/status/2099834962769756425",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "24fc54507019a35719af943b709cd3af4adef8ba9f98852f9e551f9e54ae6630"
+          },
+          {
+            "depth": 0,
+            "title": "Staff Backend Engineer (Node.js/TypeScript)",
+            "action": {
+              "url": "https://devsdata.com/he/careers/job/staff-backend-engineer-node-js-typescript-662619/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "ceb572a46e37a85c361bd1e444a709f539a0f2e041dd47f084581dcdcad20baa"
+          },
+          {
+            "depth": 0,
+            "title": "Typescript Engineer - TURING ENTERPRISES, INC.",
+            "action": {
+              "url": "https://www.dice.com/job-detail/001da4d0-cfbc-4a81-ad1c-eee7a61afb29",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "ceb572a46e37a85c361bd1e444a709f539a0f2e041dd47f084581dcdcad20baa"
+          },
+          {
+            "depth": 0,
+            "title": "Hire TypeScript Developers in India",
+            "action": {
+              "url": "https://www.kaam.work/hire-talents/hire-typescript-developers-india",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "ceb572a46e37a85c361bd1e444a709f539a0f2e041dd47f084581dcdcad20baa"
+          },
+          {
+            "depth": 0,
+            "title": "React Expense Tracker Mini Project with Complete Code",
+            "action": {
+              "url": "https://www.facebook.com/100094225972294/videos/-build-a-real-react-project-i-just-built-a-react-expense-tracker-mini-project-fr/1821232602369719/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "24b670e3de6cef6b80d77d43eed77d77c3c6ef825d7a92c2a099ba9c4c723cf0"
+          },
+          {
+            "depth": 0,
+            "title": "HIRING NOW Sr. Full-Stack Software Engineer $50–$100 ...",
+            "action": {
+              "url": "https://www.instagram.com/p/DdVsEbfiFWV/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "ceb572a46e37a85c361bd1e444a709f539a0f2e041dd47f084581dcdcad20baa"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "web development site:linkedin.com/posts (\"hiring\" OR \"need\") (\"project\" OR \"freelance\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "24fc54507019a35719af943b709cd3af4adef8ba9f98852f9e551f9e54ae6630"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "TypeScript (\"project\" OR \"brief\") (\"budget\" OR \"fixed price\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "24fc54507019a35719af943b709cd3af4adef8ba9f98852f9e551f9e54ae6630"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "web development (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "24fc54507019a35719af943b709cd3af4adef8ba9f98852f9e551f9e54ae6630"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "React (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "24fc54507019a35719af943b709cd3af4adef8ba9f98852f9e551f9e54ae6630"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "TypeScript (\"project\" OR \"brief\") (\"proposals\" OR \"bids\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "24fc54507019a35719af943b709cd3af4adef8ba9f98852f9e551f9e54ae6630"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": null,
+            "reason": "no_further_action",
+            "parentKey": null
+          }
+        ],
+        "evidence": [
+          {
+            "url": "https://fr.jooble.org/jdp/4162442505344838789",
+            "label": "access_limited",
+            "scope": "source_access",
+            "unknowns": [
+              "demand and availability remain unverified"
+            ],
+            "explanation": "Source capture could not provide complete evidence: source_access_denied."
+          },
+          {
+            "url": "https://x.com/i/status/2106390640074318276",
+            "label": "access_limited",
+            "scope": "source_access",
+            "unknowns": [
+              "demand and availability remain unverified"
+            ],
+            "explanation": "Source capture could not provide complete evidence: crawl_policy_denied."
+          },
+          {
+            "url": "https://x.com/i/status/2103400584158081430",
+            "label": "access_limited",
+            "scope": "source_access",
+            "unknowns": [
+              "demand and availability remain unverified"
+            ],
+            "explanation": "Source capture could not provide complete evidence: crawl_policy_denied."
+          },
+          {
+            "url": "https://www.facebook.com/100094225972294/videos/-build-a-real-react-project-i-just-built-a-react-expense-tracker-mini-project-fr/1821232602369719/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "React Expense Tracker Mini Project with Complete Code Build a React Budget Tracking App: Income, Expenses & Balance. React Project 1 — Task Manager I built my first React Task Manager using reusable. 00:05 ..."
+          },
+          {
+            "url": "https://www.linkedin.com/jobs/view/senior-software-engineer-golang-typescript-react-independent-contractor-at-jobgether-4474690408",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Senior Software Engineer (Golang/TypeScript/React) Our partner is looking for a Senior Software Engineer (Golang/TypeScript/React) - Independent Contractor based in United States. This is a senior ..."
+          },
+          {
+            "url": "https://dailyremote.com/remote-job/senior-software-engineer-golang-type-script-react-independent-contractor-5718896",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Senior Software Engineer (Golang/TypeScript/React) Senior Software Engineer (Golang/TypeScript/React)- Independent Contractor ... We are looking for a Senior Software Engineer to join our team, responsible ..."
+          },
+          {
+            "url": "https://www.instagram.com/p/DdVsEbfiFWV/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "HIRING NOW Sr. Full-Stack Software Engineer $50–$100 ... $90–$140/hr. Remote Contractor 10 Openings SourceBridge Co. is looking for experienced Software Engineers to evaluate AI-generated technical content. You' ..."
+          },
+          {
+            "url": "https://devsdata.com/he/careers/job/staff-backend-engineer-node-js-typescript-662619/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Staff Backend Engineer (Node.js/TypeScript) We are looking for a Staff Backend Engineer (Node.js/TypeScript) to join a ... The product serves companies that run on large networks of independent contractor ..."
+          },
+          {
+            "url": "https://www.dice.com/job-detail/001da4d0-cfbc-4a81-ad1c-eee7a61afb29",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Typescript Engineer - TURING ENTERPRISES, INC. We're looking for a high-taste engineer with a strong eye for quality ... Employment Type: Independent contractor (does not include medical or paid leave benefits."
+          },
+          {
+            "url": "https://www.kaam.work/hire-talents/hire-typescript-developers-india",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Hire TypeScript Developers in India Contractor, per gig. Full-time employee, no brand or belonging support. Read ... Do I need a legal entity in India to hire a TypeScript developer full-time?"
+          },
+          {
+            "url": "https://www.inventive.ai/blog-posts/rfp-software-development-guide",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Writing an RFP for Software Development: Step-by- ... What Is a Software Web Development RFP? A Web Development Request for Proposal (RFP) is a detailed document that sets the foundation for a software ..."
+          },
+          {
+            "url": "https://x.com/i/status/2099450262637187408",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Hiring: Frontend Developer (React.js / TypeScript) Hiring: Frontend Developer (React.js / TypeScript) - Omniorigin Group of Businesses Remote - India (Tartu, Estonia project) | Full-time / Contract ..."
+          },
+          {
+            "url": "https://x.com/i/status/2099834962769756425",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Hiring: Senior Full Stack Developer - [Company not ... Hiring: Senior Full Stack Developer - [Company not provided] Remote (Global) | Project / trial to long-term | ‍ React / Node.js / TypeScript ..."
+          }
+        ],
+        "candidates": [
+          {
+            "text": "Senior Software Engineer (Golang/TypeScript/React) Our partner is looking for a Senior Software Engineer (Golang/TypeScript/React) - Independent Contractor based in United States. This is a senior ...",
+            "query": "TypeScript (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 0,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Senior Software Engineer (Golang/TypeScript/React) Senior Software Engineer (Golang/TypeScript/React)- Independent Contractor ... We are looking for a Senior Software Engineer to join our team, responsible ...",
+            "query": "TypeScript (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 1,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Writing an RFP for Software Development: Step-by- ... What Is a Software Web Development RFP? A Web Development Request for Proposal (RFP) is a detailed document that sets the foundation for a software ...",
+            "query": "web development (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 2,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Hiring: Frontend Developer (React.js / TypeScript) Hiring: Frontend Developer (React.js / TypeScript) - Omniorigin Group of Businesses Remote - India (Tartu, Estonia project) | Full-time / Contract ...",
+            "query": "TypeScript site:x.com (\"hiring\" OR \"need\") (\"project\" OR \"freelance\")",
+            "choice": 3,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Hiring: Senior Full Stack Developer - [Company not ... Hiring: Senior Full Stack Developer - [Company not provided] Remote (Global) | Project / trial to long-term | ‍ React / Node.js / TypeScript ...",
+            "query": "TypeScript site:x.com (\"hiring\" OR \"need\") (\"project\" OR \"freelance\")",
+            "choice": 4,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Staff Backend Engineer (Node.js/TypeScript) We are looking for a Staff Backend Engineer (Node.js/TypeScript) to join a ... The product serves companies that run on large networks of independent contractor ...",
+            "query": "TypeScript (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 5,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Typescript Engineer - TURING ENTERPRISES, INC. We're looking for a high-taste engineer with a strong eye for quality ... Employment Type: Independent contractor (does not include medical or paid leave benefits.",
+            "query": "TypeScript (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 6,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Hire TypeScript Developers in India Contractor, per gig. Full-time employee, no brand or belonging support. Read ... Do I need a legal entity in India to hire a TypeScript developer full-time?",
+            "query": "TypeScript (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 7,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "React Expense Tracker Mini Project with Complete Code Build a React Budget Tracking App: Income, Expenses & Balance. React Project 1 — Task Manager I built my first React Task Manager using reusable. 00:05 ...",
+            "query": "React (\"project\" OR \"brief\") (\"budget\" OR \"fixed price\")",
+            "choice": 8,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "HIRING NOW Sr. Full-Stack Software Engineer $50–$100 ... $90–$140/hr. Remote Contractor 10 Openings SourceBridge Co. is looking for experienced Software Engineers to evaluate AI-generated technical content. You' ...",
+            "query": "TypeScript (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 9,
+            "origin": "search_result",
+            "parentUrl": null
+          }
+        ]
+      },
+      "output": {
+        "kind": "choice",
+        "index": 4,
+        "explanation": "This is the most client-like concrete demand in the list: a remote project/trial-to-long-term role explicitly needing React/Node.js/TypeScript, which is more useful than generic directories or seller pages."
+      },
+      "rejected_output": null,
+      "failure": null,
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 1960,
+        "responseId": "resp_00566fea2e5fa3f3016acc246face087d2a6bdc4b0ebf295be",
+        "inputTokens": 4131,
+        "outputTokens": 249,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 4219
+      }
+    },
+    {
+      "input": {
+        "kind": "choice",
+        "intent": {
+          "remote": true,
+          "target": "React TypeScript web development",
+          "category": "services"
+        },
+        "choices": [
+          {
+            "depth": 0,
+            "title": "Senior Software Engineer (Golang/TypeScript/React)",
+            "action": {
+              "url": "https://www.linkedin.com/jobs/view/senior-software-engineer-golang-typescript-react-independent-contractor-at-jobgether-4474690408",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "ceb572a46e37a85c361bd1e444a709f539a0f2e041dd47f084581dcdcad20baa"
+          },
+          {
+            "depth": 0,
+            "title": "Senior Software Engineer (Golang/TypeScript/React)",
+            "action": {
+              "url": "https://dailyremote.com/remote-job/senior-software-engineer-golang-type-script-react-independent-contractor-5718896",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "ceb572a46e37a85c361bd1e444a709f539a0f2e041dd47f084581dcdcad20baa"
+          },
+          {
+            "depth": 0,
+            "title": "Writing an RFP for Software Development: Step-by- ...",
+            "action": {
+              "url": "https://www.inventive.ai/blog-posts/rfp-software-development-guide",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "e904f88fd99709bf0fa34e7c0327609b786368b1d2e2e202090e1d3b85cd4ec7"
+          },
+          {
+            "depth": 0,
+            "title": "Hiring: Frontend Developer (React.js / TypeScript)",
+            "action": {
+              "url": "https://x.com/i/status/2099450262637187408",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "24fc54507019a35719af943b709cd3af4adef8ba9f98852f9e551f9e54ae6630"
+          },
+          {
+            "depth": 0,
+            "title": "Staff Backend Engineer (Node.js/TypeScript)",
+            "action": {
+              "url": "https://devsdata.com/he/careers/job/staff-backend-engineer-node-js-typescript-662619/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "ceb572a46e37a85c361bd1e444a709f539a0f2e041dd47f084581dcdcad20baa"
+          },
+          {
+            "depth": 0,
+            "title": "Typescript Engineer - TURING ENTERPRISES, INC.",
+            "action": {
+              "url": "https://www.dice.com/job-detail/001da4d0-cfbc-4a81-ad1c-eee7a61afb29",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "ceb572a46e37a85c361bd1e444a709f539a0f2e041dd47f084581dcdcad20baa"
+          },
+          {
+            "depth": 0,
+            "title": "Hire TypeScript Developers in India",
+            "action": {
+              "url": "https://www.kaam.work/hire-talents/hire-typescript-developers-india",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "ceb572a46e37a85c361bd1e444a709f539a0f2e041dd47f084581dcdcad20baa"
+          },
+          {
+            "depth": 0,
+            "title": "How Much Does React Native App Development Cost?",
+            "action": {
+              "url": "https://ripenapps.com/blog/react-native-app-development-cost/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "24b670e3de6cef6b80d77d43eed77d77c3c6ef825d7a92c2a099ba9c4c723cf0"
+          },
+          {
+            "depth": 0,
+            "title": "React Expense Tracker Mini Project with Complete Code",
+            "action": {
+              "url": "https://www.facebook.com/100094225972294/videos/-build-a-real-react-project-i-just-built-a-react-expense-tracker-mini-project-fr/1821232602369719/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "24b670e3de6cef6b80d77d43eed77d77c3c6ef825d7a92c2a099ba9c4c723cf0"
+          },
+          {
+            "depth": 0,
+            "title": "HIRING NOW Sr. Full-Stack Software Engineer $50–$100 ...",
+            "action": {
+              "url": "https://www.instagram.com/p/DdVsEbfiFWV/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "ceb572a46e37a85c361bd1e444a709f539a0f2e041dd47f084581dcdcad20baa"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "web development site:linkedin.com/posts (\"hiring\" OR \"need\") (\"project\" OR \"freelance\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "24fc54507019a35719af943b709cd3af4adef8ba9f98852f9e551f9e54ae6630"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "TypeScript (\"project\" OR \"brief\") (\"budget\" OR \"fixed price\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "24fc54507019a35719af943b709cd3af4adef8ba9f98852f9e551f9e54ae6630"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "web development (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "24fc54507019a35719af943b709cd3af4adef8ba9f98852f9e551f9e54ae6630"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "React (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "24fc54507019a35719af943b709cd3af4adef8ba9f98852f9e551f9e54ae6630"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "TypeScript (\"project\" OR \"brief\") (\"proposals\" OR \"bids\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "24fc54507019a35719af943b709cd3af4adef8ba9f98852f9e551f9e54ae6630"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": null,
+            "reason": "no_further_action",
+            "parentKey": null
+          }
+        ],
+        "evidence": [
+          {
+            "url": "https://fr.jooble.org/jdp/4162442505344838789",
+            "label": "access_limited",
+            "scope": "source_access",
+            "unknowns": [
+              "demand and availability remain unverified"
+            ],
+            "explanation": "Source capture could not provide complete evidence: source_access_denied."
+          },
+          {
+            "url": "https://x.com/i/status/2106390640074318276",
+            "label": "access_limited",
+            "scope": "source_access",
+            "unknowns": [
+              "demand and availability remain unverified"
+            ],
+            "explanation": "Source capture could not provide complete evidence: crawl_policy_denied."
+          },
+          {
+            "url": "https://x.com/i/status/2103400584158081430",
+            "label": "access_limited",
+            "scope": "source_access",
+            "unknowns": [
+              "demand and availability remain unverified"
+            ],
+            "explanation": "Source capture could not provide complete evidence: crawl_policy_denied."
+          },
+          {
+            "url": "https://x.com/i/status/2099834962769756425",
+            "label": "access_limited",
+            "scope": "source_access",
+            "unknowns": [
+              "demand and availability remain unverified"
+            ],
+            "explanation": "Source capture could not provide complete evidence: crawl_policy_denied."
+          },
+          {
+            "url": "https://www.facebook.com/100094225972294/videos/-build-a-real-react-project-i-just-built-a-react-expense-tracker-mini-project-fr/1821232602369719/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "React Expense Tracker Mini Project with Complete Code Build a React Budget Tracking App: Income, Expenses & Balance. React Project 1 — Task Manager I built my first React Task Manager using reusable. 00:05 ..."
+          },
+          {
+            "url": "https://ripenapps.com/blog/react-native-app-development-cost/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "How Much Does React Native App Development Cost? As a business owner, if you have the understanding to evaluate the cost, you can make a budget for your project and allocate resources effectively. Moreover, it ..."
+          },
+          {
+            "url": "https://www.linkedin.com/jobs/view/senior-software-engineer-golang-typescript-react-independent-contractor-at-jobgether-4474690408",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Senior Software Engineer (Golang/TypeScript/React) Our partner is looking for a Senior Software Engineer (Golang/TypeScript/React) - Independent Contractor based in United States. This is a senior ..."
+          },
+          {
+            "url": "https://dailyremote.com/remote-job/senior-software-engineer-golang-type-script-react-independent-contractor-5718896",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Senior Software Engineer (Golang/TypeScript/React) Senior Software Engineer (Golang/TypeScript/React)- Independent Contractor ... We are looking for a Senior Software Engineer to join our team, responsible ..."
+          },
+          {
+            "url": "https://www.instagram.com/p/DdVsEbfiFWV/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "HIRING NOW Sr. Full-Stack Software Engineer $50–$100 ... $90–$140/hr. Remote Contractor 10 Openings SourceBridge Co. is looking for experienced Software Engineers to evaluate AI-generated technical content. You' ..."
+          },
+          {
+            "url": "https://devsdata.com/he/careers/job/staff-backend-engineer-node-js-typescript-662619/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Staff Backend Engineer (Node.js/TypeScript) We are looking for a Staff Backend Engineer (Node.js/TypeScript) to join a ... The product serves companies that run on large networks of independent contractor ..."
+          },
+          {
+            "url": "https://www.dice.com/job-detail/001da4d0-cfbc-4a81-ad1c-eee7a61afb29",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Typescript Engineer - TURING ENTERPRISES, INC. We're looking for a high-taste engineer with a strong eye for quality ... Employment Type: Independent contractor (does not include medical or paid leave benefits."
+          },
+          {
+            "url": "https://www.kaam.work/hire-talents/hire-typescript-developers-india",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Hire TypeScript Developers in India Contractor, per gig. Full-time employee, no brand or belonging support. Read ... Do I need a legal entity in India to hire a TypeScript developer full-time?"
+          },
+          {
+            "url": "https://www.inventive.ai/blog-posts/rfp-software-development-guide",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Writing an RFP for Software Development: Step-by- ... What Is a Software Web Development RFP? A Web Development Request for Proposal (RFP) is a detailed document that sets the foundation for a software ..."
+          },
+          {
+            "url": "https://x.com/i/status/2099450262637187408",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Hiring: Frontend Developer (React.js / TypeScript) Hiring: Frontend Developer (React.js / TypeScript) - Omniorigin Group of Businesses Remote - India (Tartu, Estonia project) | Full-time / Contract ..."
+          }
+        ],
+        "candidates": [
+          {
+            "text": "Senior Software Engineer (Golang/TypeScript/React) Our partner is looking for a Senior Software Engineer (Golang/TypeScript/React) - Independent Contractor based in United States. This is a senior ...",
+            "query": "TypeScript (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 0,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Senior Software Engineer (Golang/TypeScript/React) Senior Software Engineer (Golang/TypeScript/React)- Independent Contractor ... We are looking for a Senior Software Engineer to join our team, responsible ...",
+            "query": "TypeScript (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 1,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Writing an RFP for Software Development: Step-by- ... What Is a Software Web Development RFP? A Web Development Request for Proposal (RFP) is a detailed document that sets the foundation for a software ...",
+            "query": "web development (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 2,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Hiring: Frontend Developer (React.js / TypeScript) Hiring: Frontend Developer (React.js / TypeScript) - Omniorigin Group of Businesses Remote - India (Tartu, Estonia project) | Full-time / Contract ...",
+            "query": "TypeScript site:x.com (\"hiring\" OR \"need\") (\"project\" OR \"freelance\")",
+            "choice": 3,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Staff Backend Engineer (Node.js/TypeScript) We are looking for a Staff Backend Engineer (Node.js/TypeScript) to join a ... The product serves companies that run on large networks of independent contractor ...",
+            "query": "TypeScript (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 4,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Typescript Engineer - TURING ENTERPRISES, INC. We're looking for a high-taste engineer with a strong eye for quality ... Employment Type: Independent contractor (does not include medical or paid leave benefits.",
+            "query": "TypeScript (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 5,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Hire TypeScript Developers in India Contractor, per gig. Full-time employee, no brand or belonging support. Read ... Do I need a legal entity in India to hire a TypeScript developer full-time?",
+            "query": "TypeScript (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 6,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "How Much Does React Native App Development Cost? As a business owner, if you have the understanding to evaluate the cost, you can make a budget for your project and allocate resources effectively. Moreover, it ...",
+            "query": "React (\"project\" OR \"brief\") (\"budget\" OR \"fixed price\")",
+            "choice": 7,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "React Expense Tracker Mini Project with Complete Code Build a React Budget Tracking App: Income, Expenses & Balance. React Project 1 — Task Manager I built my first React Task Manager using reusable. 00:05 ...",
+            "query": "React (\"project\" OR \"brief\") (\"budget\" OR \"fixed price\")",
+            "choice": 8,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "HIRING NOW Sr. Full-Stack Software Engineer $50–$100 ... $90–$140/hr. Remote Contractor 10 Openings SourceBridge Co. is looking for experienced Software Engineers to evaluate AI-generated technical content. You' ...",
+            "query": "TypeScript (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 9,
+            "origin": "search_result",
+            "parentUrl": null
+          }
+        ]
+      },
+      "output": {
+        "kind": "choice",
+        "index": 12,
+        "explanation": "The current results are mostly employer/job posts or seller pages, not clear client requests for React/TypeScript web work. A broader buyer-focused search for people seeking a freelancer or contractor is the most useful next step."
+      },
+      "rejected_output": null,
+      "failure": null,
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 3245,
+        "responseId": "resp_0716719861a3011f016acc2472881487d2b00ff3240ee84f61",
+        "inputTokens": 4177,
+        "outputTokens": 453,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 5172
+      }
+    },
+    {
+      "input": {
+        "kind": "choice",
+        "intent": {
+          "remote": true,
+          "target": "React TypeScript web development",
+          "category": "services"
+        },
+        "choices": [
+          {
+            "depth": 0,
+            "title": "Senior Software Engineer (Golang/TypeScript/React)",
+            "action": {
+              "url": "https://www.linkedin.com/jobs/view/senior-software-engineer-golang-typescript-react-independent-contractor-at-jobgether-4474690408",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "ceb572a46e37a85c361bd1e444a709f539a0f2e041dd47f084581dcdcad20baa"
+          },
+          {
+            "depth": 0,
+            "title": "Senior Software Engineer (Golang/TypeScript/React)",
+            "action": {
+              "url": "https://dailyremote.com/remote-job/senior-software-engineer-golang-type-script-react-independent-contractor-5718896",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "ceb572a46e37a85c361bd1e444a709f539a0f2e041dd47f084581dcdcad20baa"
+          },
+          {
+            "depth": 0,
+            "title": "Writing an RFP for Software Development: Step-by- ...",
+            "action": {
+              "url": "https://www.inventive.ai/blog-posts/rfp-software-development-guide",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "e904f88fd99709bf0fa34e7c0327609b786368b1d2e2e202090e1d3b85cd4ec7"
+          },
+          {
+            "depth": 0,
+            "title": "Hiring: Frontend Developer (React.js / TypeScript)",
+            "action": {
+              "url": "https://x.com/i/status/2099450262637187408",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "24fc54507019a35719af943b709cd3af4adef8ba9f98852f9e551f9e54ae6630"
+          },
+          {
+            "depth": 0,
+            "title": "Freelance web development jobs kosovo Jobs, Employment",
+            "action": {
+              "url": "https://www.freelancer.com/job-search/freelance-web-development-jobs-kosovo/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "13f55774c3afdf6fa6ea186b193fdca21f59b3c7d44b1fc708136de00b5973be"
+          },
+          {
+            "depth": 0,
+            "title": "10+ Freelancer Platforms to Hire Web Developers in 2026",
+            "action": {
+              "url": "https://lemon.io/blog/best-sites-to-hire-freelance-developers/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "13f55774c3afdf6fa6ea186b193fdca21f59b3c7d44b1fc708136de00b5973be"
+          },
+          {
+            "depth": 0,
+            "title": "Freelance Web Developer ( Contractor)",
+            "action": {
+              "url": "https://us.remotejobs.dedyn.io/job/2686662",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "13f55774c3afdf6fa6ea186b193fdca21f59b3c7d44b1fc708136de00b5973be"
+          },
+          {
+            "depth": 0,
+            "title": "Staff Backend Engineer (Node.js/TypeScript)",
+            "action": {
+              "url": "https://devsdata.com/he/careers/job/staff-backend-engineer-node-js-typescript-662619/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "ceb572a46e37a85c361bd1e444a709f539a0f2e041dd47f084581dcdcad20baa"
+          },
+          {
+            "depth": 0,
+            "title": "React Expense Tracker Mini Project with Complete Code",
+            "action": {
+              "url": "https://www.facebook.com/100094225972294/videos/-build-a-real-react-project-i-just-built-a-react-expense-tracker-mini-project-fr/1821232602369719/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "24b670e3de6cef6b80d77d43eed77d77c3c6ef825d7a92c2a099ba9c4c723cf0"
+          },
+          {
+            "depth": 0,
+            "title": "HIRING NOW Sr. Full-Stack Software Engineer $50–$100 ...",
+            "action": {
+              "url": "https://www.instagram.com/p/DdVsEbfiFWV/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "ceb572a46e37a85c361bd1e444a709f539a0f2e041dd47f084581dcdcad20baa"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": null,
+            "reason": "no_further_action",
+            "parentKey": null
+          }
+        ],
+        "evidence": [
+          {
+            "url": "https://fr.jooble.org/jdp/4162442505344838789",
+            "label": "access_limited",
+            "scope": "source_access",
+            "unknowns": [
+              "demand and availability remain unverified"
+            ],
+            "explanation": "Source capture could not provide complete evidence: source_access_denied."
+          },
+          {
+            "url": "https://x.com/i/status/2106390640074318276",
+            "label": "access_limited",
+            "scope": "source_access",
+            "unknowns": [
+              "demand and availability remain unverified"
+            ],
+            "explanation": "Source capture could not provide complete evidence: crawl_policy_denied."
+          },
+          {
+            "url": "https://x.com/i/status/2103400584158081430",
+            "label": "access_limited",
+            "scope": "source_access",
+            "unknowns": [
+              "demand and availability remain unverified"
+            ],
+            "explanation": "Source capture could not provide complete evidence: crawl_policy_denied."
+          },
+          {
+            "url": "https://x.com/i/status/2099834962769756425",
+            "label": "access_limited",
+            "scope": "source_access",
+            "unknowns": [
+              "demand and availability remain unverified"
+            ],
+            "explanation": "Source capture could not provide complete evidence: crawl_policy_denied."
+          },
+          {
+            "url": "https://www.facebook.com/100094225972294/videos/-build-a-real-react-project-i-just-built-a-react-expense-tracker-mini-project-fr/1821232602369719/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "React Expense Tracker Mini Project with Complete Code Build a React Budget Tracking App: Income, Expenses & Balance. React Project 1 — Task Manager I built my first React Task Manager using reusable. 00:05 ..."
+          },
+          {
+            "url": "https://www.linkedin.com/jobs/view/senior-software-engineer-golang-typescript-react-independent-contractor-at-jobgether-4474690408",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Senior Software Engineer (Golang/TypeScript/React) Our partner is looking for a Senior Software Engineer (Golang/TypeScript/React) - Independent Contractor based in United States. This is a senior ..."
+          },
+          {
+            "url": "https://dailyremote.com/remote-job/senior-software-engineer-golang-type-script-react-independent-contractor-5718896",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Senior Software Engineer (Golang/TypeScript/React) Senior Software Engineer (Golang/TypeScript/React)- Independent Contractor ... We are looking for a Senior Software Engineer to join our team, responsible ..."
+          },
+          {
+            "url": "https://www.instagram.com/p/DdVsEbfiFWV/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "HIRING NOW Sr. Full-Stack Software Engineer $50–$100 ... $90–$140/hr. Remote Contractor 10 Openings SourceBridge Co. is looking for experienced Software Engineers to evaluate AI-generated technical content. You' ..."
+          },
+          {
+            "url": "https://devsdata.com/he/careers/job/staff-backend-engineer-node-js-typescript-662619/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Staff Backend Engineer (Node.js/TypeScript) We are looking for a Staff Backend Engineer (Node.js/TypeScript) to join a ... The product serves companies that run on large networks of independent contractor ..."
+          },
+          {
+            "url": "https://www.inventive.ai/blog-posts/rfp-software-development-guide",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Writing an RFP for Software Development: Step-by- ... What Is a Software Web Development RFP? A Web Development Request for Proposal (RFP) is a detailed document that sets the foundation for a software ..."
+          },
+          {
+            "url": "https://x.com/i/status/2099450262637187408",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Hiring: Frontend Developer (React.js / TypeScript) Hiring: Frontend Developer (React.js / TypeScript) - Omniorigin Group of Businesses Remote - India (Tartu, Estonia project) | Full-time / Contract ..."
+          },
+          {
+            "url": "https://lemon.io/blog/best-sites-to-hire-freelance-developers/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "10+ Freelancer Platforms to Hire Web Developers in 2026 Freelancer.com is a massive global bidding marketplace for employers seeking remote contractors from lower-price-rate regions. To hire a programmer, a client ..."
+          },
+          {
+            "url": "https://www.freelancer.com/job-search/freelance-web-development-jobs-kosovo/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Freelance web development jobs kosovo Jobs, Employment I am currently in the early stages and looking for an experienced web designer ... Need to hire a freelancer for a job? It's free to sign up, type in what you ..."
+          },
+          {
+            "url": "https://us.remotejobs.dedyn.io/job/2686662",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Freelance Web Developer ( Contractor) We're a growing digital agency seeking a skilled Senior WordPress Developer to join our dynamic team part time / contractor. If you're passionate about ..."
+          }
+        ],
+        "candidates": [
+          {
+            "text": "Senior Software Engineer (Golang/TypeScript/React) Our partner is looking for a Senior Software Engineer (Golang/TypeScript/React) - Independent Contractor based in United States. This is a senior ...",
+            "query": "TypeScript (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 0,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Senior Software Engineer (Golang/TypeScript/React) Senior Software Engineer (Golang/TypeScript/React)- Independent Contractor ... We are looking for a Senior Software Engineer to join our team, responsible ...",
+            "query": "TypeScript (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 1,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Writing an RFP for Software Development: Step-by- ... What Is a Software Web Development RFP? A Web Development Request for Proposal (RFP) is a detailed document that sets the foundation for a software ...",
+            "query": "web development (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 2,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Hiring: Frontend Developer (React.js / TypeScript) Hiring: Frontend Developer (React.js / TypeScript) - Omniorigin Group of Businesses Remote - India (Tartu, Estonia project) | Full-time / Contract ...",
+            "query": "TypeScript site:x.com (\"hiring\" OR \"need\") (\"project\" OR \"freelance\")",
+            "choice": 3,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Freelance web development jobs kosovo Jobs, Employment I am currently in the early stages and looking for an experienced web designer ... Need to hire a freelancer for a job? It's free to sign up, type in what you ...",
+            "query": "web development (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 4,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "10+ Freelancer Platforms to Hire Web Developers in 2026 Freelancer.com is a massive global bidding marketplace for employers seeking remote contractors from lower-price-rate regions. To hire a programmer, a client ...",
+            "query": "web development (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 5,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Freelance Web Developer ( Contractor) We're a growing digital agency seeking a skilled Senior WordPress Developer to join our dynamic team part time / contractor. If you're passionate about ...",
+            "query": "web development (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 6,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Staff Backend Engineer (Node.js/TypeScript) We are looking for a Staff Backend Engineer (Node.js/TypeScript) to join a ... The product serves companies that run on large networks of independent contractor ...",
+            "query": "TypeScript (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 7,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "React Expense Tracker Mini Project with Complete Code Build a React Budget Tracking App: Income, Expenses & Balance. React Project 1 — Task Manager I built my first React Task Manager using reusable. 00:05 ...",
+            "query": "React (\"project\" OR \"brief\") (\"budget\" OR \"fixed price\")",
+            "choice": 8,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "HIRING NOW Sr. Full-Stack Software Engineer $50–$100 ... $90–$140/hr. Remote Contractor 10 Openings SourceBridge Co. is looking for experienced Software Engineers to evaluate AI-generated technical content. You' ...",
+            "query": "TypeScript (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 9,
+            "origin": "search_result",
+            "parentUrl": null
+          }
+        ]
+      },
+      "output": {
+        "kind": "choice",
+        "index": 10,
+        "explanation": "No supplied option looks like a concrete buyer request for React/TypeScript web work; the remaining items are mainly job ads, seller pages, or a guide. Best next step is to stop or provide a more buyer-focused query family (for example, client project briefs or RFPs)."
+      },
+      "rejected_output": null,
+      "failure": null,
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 2412,
+        "responseId": "resp_058c4dc7b0b6c9fe016acc247b389887d2aa0180ee64b8e5da",
+        "inputTokens": 3621,
+        "outputTokens": 198,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 3607
+      }
+    }
+  ],
+  "sourceReviewsCompleted": 0,
+  "intelligence": [],
+  "matchingState": {
+    "status": "not_started_no_source_demand",
+    "match_count": 0
+  },
+  "taskStates": [],
+  "eligiblePostings": [],
+  "reviewAttempts": [],
+  "opportunities": [],
+  "deliveries": [],
+  "durationMs": 40842,
+  "search": {
+    "goal": "Find remote freelance React development projects",
+    "category": "services",
+    "target": "React TypeScript web development",
+    "name": "Synthetic client-project scout",
+    "arrangement": "remote",
+    "arrangementRequired": true,
+    "residence": "New York, United States",
+    "workLocations": "United States or remote worldwide",
+    "authorizationLocations": "United States",
+    "authorizationConfirmed": true,
+    "sponsorshipNeed": "not_needed",
+    "background": "Five years delivering React and TypeScript web applications, API integrations and dashboards for clients",
+    "minimumPay": "",
+    "currency": "USD",
+    "payPeriod": "project",
+    "unknownEligibility": "review",
+    "undisclosedPay": "include"
+  },
+  "operations": [
+    {
+      "key": "24b670e3de6cef6b80d77d43eed77d77c3c6ef825d7a92c2a099ba9c4c723cf0",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "React (\"project\" OR \"brief\") (\"budget\" OR \"fixed price\")",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "retrieved_url": null,
+      "capture": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "ceb572a46e37a85c361bd1e444a709f539a0f2e041dd47f084581dcdcad20baa",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "TypeScript (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "retrieved_url": null,
+      "capture": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "e904f88fd99709bf0fa34e7c0327609b786368b1d2e2e202090e1d3b85cd4ec7",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "web development (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "retrieved_url": null,
+      "capture": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "7c941b11793059eb775de3a43f2fd9d68f300a0efcf4fc1fe41ceba5f08545ce",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "React (\"project\" OR \"brief\") (\"proposals\" OR \"bids\")",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "retrieved_url": null,
+      "capture": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "24fc54507019a35719af943b709cd3af4adef8ba9f98852f9e551f9e54ae6630",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "TypeScript site:x.com (\"hiring\" OR \"need\") (\"project\" OR \"freelance\")",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "retrieved_url": null,
+      "capture": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "c4dbe211163d153ae907d0f0ab298345574bd51d67aa43195408a1bc08923961",
+      "kind": "document",
+      "input": {
+        "url": "https://fr.jooble.org/jdp/4162442505344838789",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": [
+        {
+          "url": "https://fr.jooble.org/sitemap.xml",
+          "text": "Site-advertised sitemap"
+        }
+      ],
+      "retrieved_url": "https://fr.jooble.org/jdp/4162442505344838789",
+      "capture": {
+        "bytes": 7215,
+        "method": "http",
+        "complete": false,
+        "requests": 2
+      },
+      "captured_text": null,
+      "source_status": "access_limited",
+      "source_reason": "source_access_denied",
+      "observed_links": 0
+    },
+    {
+      "key": "50f46083a5a38884f7e06c0108e62b5bbce65d75590f8de64748a3bc167c2712",
+      "kind": "document",
+      "input": {
+        "url": "https://x.com/i/status/2106390640074318276",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": [
+        {
+          "url": "https://x.com/sitemap.xml",
+          "text": "Site-advertised sitemap"
+        }
+      ],
+      "retrieved_url": null,
+      "capture": {
+        "bytes": 2678,
+        "method": "http",
+        "complete": false,
+        "requests": 1
+      },
+      "captured_text": null,
+      "source_status": "access_limited",
+      "source_reason": "crawl_policy_denied",
+      "observed_links": 0
+    },
+    {
+      "key": "d2b069b267ae81c79b96226b7af1f1d18e10f84c70095f342281bf730c568c13",
+      "kind": "document",
+      "input": {
+        "url": "https://x.com/i/status/2103400584158081430",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": [
+        {
+          "url": "https://x.com/sitemap.xml",
+          "text": "Site-advertised sitemap"
+        }
+      ],
+      "retrieved_url": null,
+      "capture": {
+        "bytes": 2678,
+        "method": "http",
+        "complete": false,
+        "requests": 1
+      },
+      "captured_text": null,
+      "source_status": "access_limited",
+      "source_reason": "crawl_policy_denied",
+      "observed_links": 0
+    },
+    {
+      "key": "0a4611bc38c55d8fafab900567da63a0a95d1f96485daa3a06279d462bef96aa",
+      "kind": "document",
+      "input": {
+        "url": "https://x.com/i/status/2099834962769756425",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": [
+        {
+          "url": "https://x.com/sitemap.xml",
+          "text": "Site-advertised sitemap"
+        }
+      ],
+      "retrieved_url": null,
+      "capture": {
+        "bytes": 2678,
+        "method": "http",
+        "complete": false,
+        "requests": 1
+      },
+      "captured_text": null,
+      "source_status": "access_limited",
+      "source_reason": "crawl_policy_denied",
+      "observed_links": 0
+    },
+    {
+      "key": "13f55774c3afdf6fa6ea186b193fdca21f59b3c7d44b1fc708136de00b5973be",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "web development (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "retrieved_url": null,
+      "capture": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    }
+  ],
+  "decisions": [
+    {
+      "round": 0,
+      "reason": "refine_demand_query",
+      "action": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "TypeScript site:x.com (\"hiring\" OR \"need\") (\"project\" OR \"freelance\")",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "depth": 0,
+      "parent_key": "7c941b11793059eb775de3a43f2fd9d68f300a0efcf4fc1fe41ceba5f08545ce"
+    },
+    {
+      "round": 1,
+      "reason": "check_promising_result",
+      "action": {
+        "url": "https://fr.jooble.org/jdp/4162442505344838789",
+        "kind": "document"
+      },
+      "depth": 0,
+      "parent_key": "ceb572a46e37a85c361bd1e444a709f539a0f2e041dd47f084581dcdcad20baa"
+    },
+    {
+      "round": 2,
+      "reason": "check_promising_result",
+      "action": {
+        "url": "https://x.com/i/status/2106390640074318276",
+        "kind": "document"
+      },
+      "depth": 0,
+      "parent_key": "24fc54507019a35719af943b709cd3af4adef8ba9f98852f9e551f9e54ae6630"
+    },
+    {
+      "round": 3,
+      "reason": "check_promising_result",
+      "action": {
+        "url": "https://x.com/i/status/2103400584158081430",
+        "kind": "document"
+      },
+      "depth": 0,
+      "parent_key": "24fc54507019a35719af943b709cd3af4adef8ba9f98852f9e551f9e54ae6630"
+    },
+    {
+      "round": 4,
+      "reason": "check_promising_result",
+      "action": {
+        "url": "https://x.com/i/status/2099834962769756425",
+        "kind": "document"
+      },
+      "depth": 0,
+      "parent_key": "24fc54507019a35719af943b709cd3af4adef8ba9f98852f9e551f9e54ae6630"
+    },
+    {
+      "round": 5,
+      "reason": "refine_demand_query",
+      "action": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "web development (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "depth": 0,
+      "parent_key": "24fc54507019a35719af943b709cd3af4adef8ba9f98852f9e551f9e54ae6630"
+    },
+    {
+      "round": 6,
+      "reason": "no_further_action",
+      "action": null,
+      "depth": 0,
+      "parent_key": null
+    }
+  ],
+  "case": {
+    "id": "3e6e1159-5bc8-438d-9938-c6fe9a624719",
+    "scoutId": "22de088d-719f-49d7-af24-52a6bb3a44db",
+    "scoutName": "Synthetic client-project scout",
+    "scoutVersion": 1,
+    "provider": "serper",
+    "strategy": {
+      "targets": [
+        "React",
+        "TypeScript",
+        "web development"
+      ],
+      "explanation": "I split the service brief into three focused search concepts so results can surface by core frontend stack terms without over-constraining any single query. The remote preference is handled separately."
+    },
+    "exploration": [
+      {
+        "kind": "search",
+        "reason": "refine_demand_query",
+        "target": "TypeScript site:x.com (\"hiring\" OR \"need\") (\"project\" OR \"freelance\")"
+      },
+      {
+        "kind": "document",
+        "reason": "check_promising_result",
+        "target": "https://fr.jooble.org/jdp/4162442505344838789"
+      },
+      {
+        "kind": "document",
+        "reason": "check_promising_result",
+        "target": "https://x.com/i/status/2106390640074318276"
+      },
+      {
+        "kind": "document",
+        "reason": "check_promising_result",
+        "target": "https://x.com/i/status/2103400584158081430"
+      },
+      {
+        "kind": "document",
+        "reason": "check_promising_result",
+        "target": "https://x.com/i/status/2099834962769756425"
+      },
+      {
+        "kind": "search",
+        "reason": "refine_demand_query",
+        "target": "web development (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")"
+      },
+      {
+        "kind": null,
+        "reason": "no_further_action",
+        "target": null
+      }
+    ],
+    "reviewStatus": "complete",
+    "reviewReason": "source_reviews_complete",
+    "status": "partial",
+    "reason": "some_sources_unavailable",
+    "startedAt": "2026-10-12 00:05:42.088108+00",
+    "finishedAt": "2026-10-12 00:06:20.821761+00",
+    "searchesCompleted": 6,
+    "documentsChecked": 4,
+    "leadCount": 60
+  },
+  "usage": [
+    {
+      "provider": "public-documents",
+      "requests": 4,
+      "reserved_micros": "0"
+    },
+    {
+      "provider": "serper",
+      "requests": 6,
+      "reserved_micros": "60000"
+    }
+  ],
+  "aiBudget": [
+    {
+      "requests": 8,
+      "reserved_microusd": "600000"
+    }
+  ],
+  "dashboardLeadSampleSize": 40,
+  "leads": [
+    {
+      "url": "https://asana.com/resources/project-budget",
+      "title": "Project Budget: Definition, Steps, Example & Template [2026]",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://cityofeagan.com/rfp",
+      "title": "Ads for Bid, Public Notices & Requests for Proposal",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://dailyremote.com/remote-job/senior-software-engineer-golang-type-script-react-independent-contractor-5718896",
+      "title": "Senior Software Engineer (Golang/TypeScript/React)",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://devsdata.com/he/careers/job/staff-backend-engineer-node-js-typescript-662619/",
+      "title": "Staff Backend Engineer (Node.js/TypeScript)",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://epics.ieee.org/october-2026-epics-in-ieee-call-for-proposals/",
+      "title": "October 2026 EPICS in IEEE Call for Proposals",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://eseospace.com/submit-an-rfp/",
+      "title": "Submit an RFP, RFQ or RFI",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://fr.jooble.org/jdp/4162442505344838789",
+      "title": "Senior Software Engineer (Golang/TypeScript/React)",
+      "contentStatus": "access_limited",
+      "contentReason": "source_access_denied",
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://help.hive.com/en/articles/3873342-budgets-in-hive",
+      "title": "Budgets in Hive | Hive Help",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://help.myhours.com/en/articles/1346676-set-and-track-the-project-budget",
+      "title": "Set and track the project budget",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://help.wrike.com/hc/en-us/articles/1500005128341-Financial-Fields-for-Budgeting",
+      "title": "Financial Fields for Budgeting",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://housing.lacity.gov/all-announcement/site-design-analysis-request-for-proposals-rfp",
+      "title": "Site Design Analysis Request for Proposals (RFP) - LAHD",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://lemon.io/blog/best-sites-to-hire-freelance-developers/",
+      "title": "10+ Freelancer Platforms to Hire Web Developers in 2026",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://play.google.com/store/apps/details?id=com.freelancer.android.messenger&hl=en_US",
+      "title": "Freelancer: Hire & Find Jobs - Apps on Google Play",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://reactdigital.ph/advisor",
+      "title": "Advisor — Scope & Price Your Project in 90 Seconds",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://ripenapps.com/blog/react-native-app-development-cost/",
+      "title": "How Much Does React Native App Development Cost?",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://sociallinker.pro/tools/web-development-rfp-template",
+      "title": "Website RFP Template + Generator & Scoring Sheet",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://us.remotejobs.dedyn.io/job/2686662",
+      "title": "Freelance Web Developer ( Contractor)",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://wilson.seattle.gov/2026/09/22/mayor-wilson-releases-2027-2028-proposed-budget-prioritizing-stability-safety-and-affordability/",
+      "title": "Mayor Wilson Releases 2027-2028 Proposed Budget ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.c40.org/wp-content/uploads/2026/10/2-RfP-GCoM-Website-Development-Maintenance.pdf",
+      "title": "Request for Proposal (RfP)",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.cscbroward.org/news/abcd-rfp-2026/",
+      "title": "Asset Based Community Development (ABCD) ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.dcoe.org/opportunities/rfp-tenders",
+      "title": "Web design and development opportunities",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.dice.com/job-detail/001da4d0-cfbc-4a81-ad1c-eee7a61afb29",
+      "title": "Typescript Engineer - TURING ENTERPRISES, INC.",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.facebook.com/100094225972294/videos/-build-a-real-react-project-i-just-built-a-react-expense-tracker-mini-project-fr/1821232602369719/",
+      "title": "React Expense Tracker Mini Project with Complete Code",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.facebook.com/artversion/posts/how-to-write-a-b2b-website-rfp-that-leaves-room-for-strategyby-the-time-a-b2b-we/1668389865297205/",
+      "title": "How to write a flexible B2B website RFP",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.facebook.com/groups/913421419946219/posts/1775312667090419/",
+      "title": "Software Engineer (Remote) Join Micro1 as a contractor ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.facebook.com/thebidlab/posts/will-there-ever-be-a-better-time-to-dig-into-the-ins-and-outs-of-submitting-comp/1747442510717718/",
+      "title": "How to respond to construction RFPs and win bids",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.freelancer.com/job-search/freelance-web-development-jobs-kosovo/",
+      "title": "Freelance web development jobs kosovo Jobs, Employment",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.gainesvillefl.gov/Government-Pages/Government/Departments/Office-of-Procurement-Contracts-Management/Bid-on-a-City-Project",
+      "title": "Bid on a City Project",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.guru.com/d/jobs/",
+      "title": "Find Freelance Jobs on Guru - Search for Projects & Work ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.hostinger.com/tutorials/best-freelance-websites/",
+      "title": "30 best freelance websites to find work in 2026",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.instagram.com/p/Dd4L78OIHJj/",
+      "title": "Real-time project profitability, comparing budget vs. actuals ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.instagram.com/p/DdVsEbfiFWV/",
+      "title": "HIRING NOW Sr. Full-Stack Software Engineer $50–$100 ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.inventive.ai/blog-posts/construction-rfps",
+      "title": "Construction RFP Guide: How to Write One & Win Bids ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.inventive.ai/blog-posts/rfp-software-development-guide",
+      "title": "Writing an RFP for Software Development: Step-by- ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.kaam.work/hire-talents/hire-typescript-developers-india",
+      "title": "Hire TypeScript Developers in India",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.kantata.com/blog/article/project-managers-top-10-tips-for-keeping-projects-on-time-and-on-budget",
+      "title": "Top 10 Project Manager Tips for On-Time, On-Budget ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.larksuite.com/en_us/blog/how-to-write-project-proposal",
+      "title": "How to Write a Project Proposal: Structure, Examples, and ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.linkedin.com/jobs/view/senior-software-engineer-golang-typescript-react-independent-contractor-at-jobgether-4474690408",
+      "title": "Senior Software Engineer (Golang/TypeScript/React)",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.linkedin.com/posts/kenneth-lynard_looking-for-a-web-designer-developer-activity-7507942655935324160-FW0m",
+      "title": "Kenneth Lynard - MSc, EMBA's Post",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.linkedin.com/posts/start-designs_websitedevelopment-rfp-webdevelopment-activity-7506988772400496640-UUs3",
+      "title": "Website Development RFP Best Practices for Clear Projects",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.minneapolismn.gov/business-services/doing-business-with-the-city/bids-rfps/future-opportunties/",
+      "title": "Future Opportunities - City of Minneapolis",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.pandadoc.com/blog/how-to-write-a-winning-project-proposal/",
+      "title": "How to write a winning project proposal",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.reddit.com/r/hiredev/comments/1x34qsk/for_hire_react_typescript_fixes_and_small/",
+      "title": "[For Hire] React / TypeScript fixes and small Telegram bots",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.reddit.com/r/webdevelopment/comments/1x33om6/freelance_website_devs_in_eu/",
+      "title": "Freelance website devs in eu : r/webdevelopment",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.startdesigns.com/blog/website-development-rfp-guide/",
+      "title": "Website Development RFP Guide & Checklist",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.thepandemicfund.org/call-for-proposals",
+      "title": "Call for Proposals",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.truelancer.com/freelance-website-development-jobs",
+      "title": "Best Website Development Jobs Online in October 2026",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.upwork.com/hire/web-designers/in/chennai/",
+      "title": "Hire the Best Web Designers in Chennai, IN",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.vincentschmalbach.com/services/nodejs-development/",
+      "title": "Node.js and TypeScript Development",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://x.com/i/status/2099450262637187408",
+      "title": "Hiring: Frontend Developer (React.js / TypeScript)",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://x.com/i/status/2099798509943685532",
+      "title": "Hiring: Senior Backend & Web3 Engineer (Node.js / Rust ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://x.com/i/status/2099834962769756425",
+      "title": "Hiring: Senior Full Stack Developer - [Company not ...",
+      "contentStatus": "access_limited",
+      "contentReason": "crawl_policy_denied",
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://x.com/i/status/2100627147513557432",
+      "title": "Hiring: Senior Full Stack Engineer - DaCodes 📍 Remote (Global)",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://x.com/i/status/2101929393106927844",
+      "title": "Posted 1 hour ago - September 21, 2026 Xelora S is hiring ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://x.com/i/status/2103400584158081430",
+      "title": "Riyadh or Jeddah, Saudi Arabia | 💼 Freelance / Project- ...",
+      "contentStatus": "access_limited",
+      "contentReason": "crawl_policy_denied",
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://x.com/i/status/2103403448670519476",
+      "title": "Allweb3jobs by Crypto Vazima on ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://x.com/i/status/2105944111349936619",
+      "title": "Allweb3jobs by Crypto Vazima",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://x.com/i/status/2105945866133450960",
+      "title": "Posted 3 hours ago - October 2, 2026 A Web3 project is ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://x.com/i/status/2106390640074318276",
+      "title": "Freelance / Contract | 🧑‍💻 React / TypeScript / Node. ...",
+      "contentStatus": "access_limited",
+      "contentReason": "crawl_policy_denied",
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://xtensio.com/request-for-proposal-template/",
+      "title": "Free Request for Proposal Template & Examples",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    }
+  ],
+  "checks": [
+    "live adaptive decisions",
+    "bounded provider and model admission",
+    "observed parent provenance",
+    "current owner isolation",
+    "terminal replay without new spending"
+  ],
+  "emailsSent": 0,
+  "realAccountsUsed": 0,
+  "scopeNote": "Bounded live synthetic case using production discovery, review, assessment and delivery use cases. Worker reader includes configured browser fallback and Ashby routing without shared Redis caching; HTTP reader is a controlled reduced-access path. Native X and marketplace connector loops are not exercised. All lead rows are measured separately from the dashboard's bounded sample. Matching can remain incomplete if retries exceed the check window. Model labels are not independent ground truth; precision, recall and global throughput remain unproven."
+}

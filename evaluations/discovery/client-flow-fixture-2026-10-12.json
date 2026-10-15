@@ -1,0 +1,84 @@
+{
+  "checkedAt": "2026-10-12T07:53:32.963Z",
+  "scope": "Authored search, HTTP and model fixtures through real use cases, source parser, isolated PostgreSQL and local Mailpit. No live provider calls, organic usefulness or recall measurement. No real accounts used.",
+  "reports": [
+    {
+      "scenario": "projects",
+      "search": {
+        "goal": "Find React TypeScript web development client work",
+        "category": "services",
+        "target": "React TypeScript web development",
+        "name": "Fixture projects",
+        "arrangement": "remote",
+        "arrangementRequired": true,
+        "residence": "United States",
+        "workLocations": "Worldwide",
+        "background": "React and TypeScript dashboards with API integrations",
+        "minimumPay": "",
+        "currency": "USD",
+        "payPeriod": "project",
+        "unknownEligibility": "review",
+        "undisclosedPay": "include"
+      },
+      "syntheticRecipient": "0cb1bfbc-6f47-4d37-b3d2-7f5ef0d046b6@scoutalert.test",
+      "capturedPages": [
+        "https://www.freelancer.com/projects/web-design/projects-remote",
+        "https://www.freelancer.com/projects/web-design/projects-onsite",
+        "https://www.freelancer.com/projects/web-design/projects-seller"
+      ],
+      "recommendations": [
+        {
+          "title": "React dashboard",
+          "url": "https://www.freelancer.com/projects/web-design/projects-remote"
+        }
+      ],
+      "excluded": {
+        "onsite": "https://www.freelancer.com/projects/web-design/projects-onsite",
+        "seller": "https://www.freelancer.com/projects/web-design/projects-seller"
+      },
+      "emailsSent": 1,
+      "duplicateEmails": 0,
+      "operations": 9,
+      "queryPolicy": "client-demand-v2"
+    },
+    {
+      "scenario": "services",
+      "search": {
+        "goal": "Find Website redesign client work",
+        "category": "services",
+        "target": "Website redesign",
+        "name": "Fixture services",
+        "arrangement": "remote",
+        "arrangementRequired": true,
+        "residence": "United States",
+        "workLocations": "Worldwide",
+        "background": "WordPress website redesign and accessible responsive layouts",
+        "minimumPay": "",
+        "currency": "USD",
+        "payPeriod": "project",
+        "unknownEligibility": "review",
+        "undisclosedPay": "include"
+      },
+      "syntheticRecipient": "606ceb4d-52b4-4b48-abca-f302ad9a2686@scoutalert.test",
+      "capturedPages": [
+        "https://www.freelancer.com/projects/web-design/services-remote",
+        "https://www.freelancer.com/projects/web-design/services-onsite",
+        "https://www.freelancer.com/projects/web-design/services-seller"
+      ],
+      "recommendations": [
+        {
+          "title": "Website redesign",
+          "url": "https://www.freelancer.com/projects/web-design/services-remote"
+        }
+      ],
+      "excluded": {
+        "onsite": "https://www.freelancer.com/projects/web-design/services-onsite",
+        "seller": "https://www.freelancer.com/projects/web-design/services-seller"
+      },
+      "emailsSent": 1,
+      "duplicateEmails": 0,
+      "operations": 9,
+      "queryPolicy": "client-demand-v2"
+    }
+  ]
+}

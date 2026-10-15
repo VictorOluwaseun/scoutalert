@@ -1,0 +1,365 @@
+{
+  "recordedAt": "2026-10-15T14:07:26.382Z",
+  "kind": "funded-live-client-discovery-validation",
+  "configuration": {
+    "queryPolicy": "client-demand-v3",
+    "planner": "scout-planning-v10",
+    "review": "lead-evidence-v3",
+    "categoryPolicy": "buyer-category-v1",
+    "reader": "public-document-v7",
+    "deadlinePolicy": "deadline-evidence-v1",
+    "fitPrompt": "evidence-prompts-v8"
+  },
+  "findings": [
+    {
+      "stage": "retrieval",
+      "evidence": "First project run found 40 leads but all six selected documents were inaccessible or not found. New cases prioritize project routes and open bidding, retain coherent deliverable phrases, and change queries after two consecutive inaccessible reads while existing search/document limits remain enforced."
+    },
+    {
+      "stage": "source_review",
+      "evidence": "Intermediate service run classified two complete freelance buyer briefs as jobs/contracts, excluding them from service matching. Complete parser-confirmed buyer provenance now survives review mapping and normalizes positive demand to client_request; negative verdicts and incomplete captures remain excluded."
+    },
+    {
+      "stage": "navigation",
+      "evidence": "Intermediate project decisions described generic React.js and Enterprise links as if they were the parent buyer brief. Hints no longer transfer individual posting text or demand onto unread child pages; collection context remains available."
+    },
+    {
+      "stage": "private_fit",
+      "evidence": "Final project flow assessed two buyer requests; one generic JavaScript role was excluded and a flexible-stack remote screenwriting SPA request was recommended. Intermediate Australia-only project was excluded for the US test profile. Final service flow withheld a completed historical project and recommended two current redesign requests."
+    }
+  ],
+  "runs": [
+    {
+      "file": "client-flow-projects-live-2026-10-15.json",
+      "scenario": "projects",
+      "executionStatus": "measured",
+      "successfulSearches": 4,
+      "failedSearches": 0,
+      "renderingEnabled": true,
+      "durationSeconds": 62.914,
+      "uniqueLeads": 40,
+      "recordedLeads": 40,
+      "completeLeadSet": true,
+      "searchRequests": 4,
+      "documentRequests": 6,
+      "capturedDocuments": 0,
+      "completeCaptures": 0,
+      "inaccessibleDocuments": 6,
+      "repeatedDestinations": 0,
+      "sourceReviewLabels": {},
+      "sourceReviewCountsAreComplete": true,
+      "promotedPostings": 0,
+      "matching": "not_started_no_source_demand",
+      "completedFitAssessments": 0,
+      "dashboardRecommendations": 0,
+      "acceptedEmails": 0,
+      "aiEstimatedUsd": 0.024629,
+      "attemptsWithoutCostEstimate": 0,
+      "searchReservedUsd": 0.04,
+      "aiReservedUsd": 0.525,
+      "estimatedAiPlusSearchReservationPerRecommendationUsd": null,
+      "independentlyUsefulResults": null,
+      "costPerIndependentlyUsefulResultUsd": null,
+      "precision": null,
+      "recall": null,
+      "limitations": "AI estimates exclude unpriced/failed attempts, infrastructure and billing adjustments. Search reservations are configured upper allowances, not invoices. Source labels and dashboard acceptance are not independent usefulness judgments. Distinct URLs may still describe the same opportunity; repeatedDestinations detects only observed redirect identity. Initial reports recorded a dashboard sample, not every source review.",
+      "recommendations": []
+    },
+    {
+      "file": "client-flow-services-live-2026-10-15.json",
+      "scenario": "services",
+      "executionStatus": "measured",
+      "successfulSearches": 4,
+      "failedSearches": 0,
+      "renderingEnabled": true,
+      "durationSeconds": 71.224,
+      "uniqueLeads": 43,
+      "recordedLeads": 43,
+      "completeLeadSet": true,
+      "searchRequests": 4,
+      "documentRequests": 6,
+      "capturedDocuments": 4,
+      "completeCaptures": 4,
+      "inaccessibleDocuments": 2,
+      "repeatedDestinations": 0,
+      "sourceReviewLabels": {
+        "closed": 2,
+        "client_request": 2
+      },
+      "sourceReviewCountsAreComplete": true,
+      "promotedPostings": 2,
+      "matching": "completed",
+      "completedFitAssessments": 1,
+      "dashboardRecommendations": 1,
+      "acceptedEmails": 1,
+      "aiEstimatedUsd": 0.042113,
+      "attemptsWithoutCostEstimate": 1,
+      "searchReservedUsd": 0.04,
+      "aiReservedUsd": 1.125,
+      "estimatedAiPlusSearchReservationPerRecommendationUsd": 0.08211299999999999,
+      "independentlyUsefulResults": null,
+      "costPerIndependentlyUsefulResultUsd": null,
+      "precision": null,
+      "recall": null,
+      "limitations": "AI estimates exclude unpriced/failed attempts, infrastructure and billing adjustments. Search reservations are configured upper allowances, not invoices. Source labels and dashboard acceptance are not independent usefulness judgments. Distinct URLs may still describe the same opportunity; repeatedDestinations detects only observed redirect identity. Initial reports recorded a dashboard sample, not every source review.",
+      "recommendations": [
+        {
+          "title": "minimalist website redesign",
+          "url": "https://www.freelancer.com/projects/web-design/minimalist-website-redesign-40765731",
+          "uncertainties": [
+            "No job location is stated in the posting, so location fit cannot be confirmed or rejected.",
+            "The posting does not state a work location or any authorization or sponsorship requirement, so authorization cannot be determined."
+          ]
+        }
+      ]
+    },
+    {
+      "file": "client-flow-projects-revised-2026-10-15.json",
+      "scenario": "projects",
+      "executionStatus": "measured",
+      "successfulSearches": 5,
+      "failedSearches": 0,
+      "renderingEnabled": true,
+      "durationSeconds": 74.222,
+      "uniqueLeads": 48,
+      "recordedLeads": 48,
+      "completeLeadSet": true,
+      "searchRequests": 5,
+      "documentRequests": 6,
+      "capturedDocuments": 4,
+      "completeCaptures": 4,
+      "inaccessibleDocuments": 2,
+      "repeatedDestinations": 0,
+      "sourceReviewLabels": {
+        "directory": 2,
+        "client_request": 1
+      },
+      "sourceReviewCountsAreComplete": true,
+      "promotedPostings": 1,
+      "matching": "completed",
+      "completedFitAssessments": 1,
+      "dashboardRecommendations": 0,
+      "acceptedEmails": 0,
+      "aiEstimatedUsd": 0.047807,
+      "attemptsWithoutCostEstimate": 1,
+      "searchReservedUsd": 0.05,
+      "aiReservedUsd": 0.975,
+      "estimatedAiPlusSearchReservationPerRecommendationUsd": null,
+      "independentlyUsefulResults": null,
+      "costPerIndependentlyUsefulResultUsd": null,
+      "precision": null,
+      "recall": null,
+      "limitations": "AI estimates exclude unpriced/failed attempts, infrastructure and billing adjustments. Search reservations are configured upper allowances, not invoices. Source labels and dashboard acceptance are not independent usefulness judgments. Distinct URLs may still describe the same opportunity; repeatedDestinations detects only observed redirect identity. Initial reports recorded a dashboard sample, not every source review.",
+      "recommendations": []
+    },
+    {
+      "file": "client-flow-services-revised-2026-10-15.json",
+      "scenario": "services",
+      "executionStatus": "measured",
+      "successfulSearches": 5,
+      "failedSearches": 0,
+      "renderingEnabled": true,
+      "durationSeconds": 56.786,
+      "uniqueLeads": 36,
+      "recordedLeads": 36,
+      "completeLeadSet": true,
+      "searchRequests": 5,
+      "documentRequests": 6,
+      "capturedDocuments": 3,
+      "completeCaptures": 3,
+      "inaccessibleDocuments": 3,
+      "repeatedDestinations": 0,
+      "sourceReviewLabels": {
+        "job_opening": 2,
+        "client_request": 1
+      },
+      "sourceReviewCountsAreComplete": true,
+      "promotedPostings": 3,
+      "matching": "completed",
+      "completedFitAssessments": 1,
+      "dashboardRecommendations": 1,
+      "acceptedEmails": 1,
+      "aiEstimatedUsd": 0.040552,
+      "attemptsWithoutCostEstimate": 0,
+      "searchReservedUsd": 0.05,
+      "aiReservedUsd": 0.9,
+      "estimatedAiPlusSearchReservationPerRecommendationUsd": 0.090552,
+      "independentlyUsefulResults": null,
+      "costPerIndependentlyUsefulResultUsd": null,
+      "precision": null,
+      "recall": null,
+      "limitations": "AI estimates exclude unpriced/failed attempts, infrastructure and billing adjustments. Search reservations are configured upper allowances, not invoices. Source labels and dashboard acceptance are not independent usefulness judgments. Distinct URLs may still describe the same opportunity; repeatedDestinations detects only observed redirect identity. Initial reports recorded a dashboard sample, not every source review.",
+      "recommendations": [
+        {
+          "title": "REDESIGN FOR DOG GROOMING WEBSITE",
+          "url": "https://www.freelancer.com/projects/web-design/redesign-for-dog-grooming-website",
+          "uncertainties": [
+            "No job location is stated in the posting, so there is not enough evidence to compare location with the brief.",
+            "The posting does not state a work location or any authorization requirement, so authorization cannot be compared to the brief.",
+            "The posting gives a project price range and paid-on-delivery terms, but the brief has no minimum pay floor, so there is no basis for a compensation conflict or match."
+          ]
+        }
+      ]
+    },
+    {
+      "file": "client-flow-projects-final-2026-10-15.json",
+      "scenario": "projects",
+      "executionStatus": "measured",
+      "successfulSearches": 6,
+      "failedSearches": 0,
+      "renderingEnabled": true,
+      "durationSeconds": 75.337,
+      "uniqueLeads": 58,
+      "recordedLeads": 58,
+      "completeLeadSet": true,
+      "searchRequests": 6,
+      "documentRequests": 6,
+      "capturedDocuments": 2,
+      "completeCaptures": 2,
+      "inaccessibleDocuments": 4,
+      "repeatedDestinations": 0,
+      "sourceReviewLabels": {
+        "client_request": 2
+      },
+      "sourceReviewCountsAreComplete": true,
+      "promotedPostings": 2,
+      "matching": "completed",
+      "completedFitAssessments": 2,
+      "dashboardRecommendations": 1,
+      "acceptedEmails": 1,
+      "aiEstimatedUsd": 0.041785,
+      "attemptsWithoutCostEstimate": 0,
+      "searchReservedUsd": 0.06,
+      "aiReservedUsd": 0.975,
+      "estimatedAiPlusSearchReservationPerRecommendationUsd": 0.101785,
+      "independentlyUsefulResults": null,
+      "costPerIndependentlyUsefulResultUsd": null,
+      "precision": null,
+      "recall": null,
+      "limitations": "AI estimates exclude unpriced/failed attempts, infrastructure and billing adjustments. Search reservations are configured upper allowances, not invoices. Source labels and dashboard acceptance are not independent usefulness judgments. Distinct URLs may still describe the same opportunity; repeatedDestinations detects only observed redirect identity. Initial reports recorded a dashboard sample, not every source review.",
+      "recommendations": [
+        {
+          "title": "browser-based screenwriting platform",
+          "url": "https://www.freelancer.com/projects/web-development/collaborative-screenwriting-web-app",
+          "uncertainties": [
+            "No specific job location is stated, so it is not possible to confirm whether the opportunity fits the requested work-location preference.",
+            "The posting does not state any work authorization or sponsorship requirement, and the exact job location is not specified, so authorization cannot be confirmed or rejected."
+          ]
+        }
+      ]
+    },
+    {
+      "file": "client-flow-services-final-2026-10-15.json",
+      "scenario": "services",
+      "executionStatus": "measured",
+      "successfulSearches": 4,
+      "failedSearches": 0,
+      "renderingEnabled": true,
+      "durationSeconds": 59.723,
+      "uniqueLeads": 30,
+      "recordedLeads": 30,
+      "completeLeadSet": true,
+      "searchRequests": 4,
+      "documentRequests": 6,
+      "capturedDocuments": 3,
+      "completeCaptures": 3,
+      "inaccessibleDocuments": 3,
+      "repeatedDestinations": 0,
+      "sourceReviewLabels": {
+        "client_request": 2,
+        "closed": 1
+      },
+      "sourceReviewCountsAreComplete": true,
+      "promotedPostings": 2,
+      "matching": "completed",
+      "completedFitAssessments": 2,
+      "dashboardRecommendations": 2,
+      "acceptedEmails": 1,
+      "aiEstimatedUsd": 0.045537,
+      "attemptsWithoutCostEstimate": 0,
+      "searchReservedUsd": 0.04,
+      "aiReservedUsd": 1.05,
+      "estimatedAiPlusSearchReservationPerRecommendationUsd": 0.0427685,
+      "independentlyUsefulResults": null,
+      "costPerIndependentlyUsefulResultUsd": null,
+      "precision": null,
+      "recall": null,
+      "limitations": "AI estimates exclude unpriced/failed attempts, infrastructure and billing adjustments. Search reservations are configured upper allowances, not invoices. Source labels and dashboard acceptance are not independent usefulness judgments. Distinct URLs may still describe the same opportunity; repeatedDestinations detects only observed redirect identity. Initial reports recorded a dashboard sample, not every source review.",
+      "recommendations": [
+        {
+          "title": "REDESIGN FOR DOG GROOMING WEBSITE",
+          "url": "https://www.freelancer.com/projects/web-design/redesign-for-dog-grooming-website",
+          "uncertainties": [
+            "No job location is stated, so it is not possible to compare location eligibility to the brief.",
+            "The job location is not stated, and there is no explicit authorization requirement for a specific country, so authorization cannot be determined."
+          ]
+        },
+        {
+          "title": "minimalist website redesign",
+          "url": "https://www.freelancer.com/projects/web-design/minimalist-website-redesign-40765731",
+          "uncertainties": [
+            "The posting does not state a job location, so the location fit cannot be confirmed or rejected. The brief’s residence is New York, United States, but that alone does not establish applicability.",
+            "No job location or work-permission requirement is stated, so authorization cannot be assessed against the brief’s United States authorization setting."
+          ]
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "unitTests": 117,
+    "databaseTests": 48,
+    "reportTests": 3,
+    "completeFixtureFlows": 2,
+    "fixtureReceipt": "client-flow-fixture-final-2026-10-15.json",
+    "fixtureIncludesDeliberateBuyerMisclassification": true,
+    "duplicateDigests": 0,
+    "builds": [
+      "core",
+      "adapters",
+      "workflows",
+      "worker"
+    ],
+    "typeChecks": [
+      "api",
+      "worker"
+    ],
+    "architecture": "passed",
+    "diffWhitespace": "passed",
+    "liveFinal": {
+      "projects": {
+        "recommendations": 1,
+        "mailpitDigests": 1,
+        "matching": "completed"
+      },
+      "services": {
+        "recommendations": 2,
+        "mailpitDigests": 1,
+        "matching": "completed"
+      },
+      "allSourceReviewsValid": true,
+      "allFitAssessmentsValid": true,
+      "terminalReplayNoAdditionalSpend": true,
+      "ownerIsolation": true
+    }
+  },
+  "cost": {
+    "estimatedAiUsd": 0.242423,
+    "configuredSearchReservationsUsd": 0.28,
+    "note": "Six fresh diagnostic runs only; excludes unknown failed-attempt costs, infrastructure and normal worker activity. Reservations are not invoices."
+  },
+  "runtimeReceipt": "client-flow-activation-2026-10-15.json",
+  "limitations": [
+    "Synthetic US-based profiles, not a real saved-user backfill.",
+    "All three final recommendations came from public Freelancer buyer briefs; other providers and authenticated sources are not proven by these tests.",
+    "The final project/service runs still encountered four/three inaccessible sources respectively; access policy was not bypassed.",
+    "Location and authorization remain unknown and visible under the confirmed review-unknowns preference.",
+    "This is a development sample, not independent usefulness, precision or recall measurement. Native X and the separate marketplace feed loop were not exercised by this diagnostic."
+  ],
+  "sourceHashes": {
+    "packages/core/dist/discovery/application/client-request-search.js": "7d3cee5a2c8d01d24676ffe06e0abd70137d982cd53a8b4515c650bbaa96c358",
+    "packages/core/dist/discovery/domain/review-category.js": "586bdff5e39416b6e07145a7c66514cf158cf77c2b386aedd064d2be64b4ab0f",
+    "packages/adapters/dist/discovery/intelligence/openai-discovery-reasoning.js": "e7dbf95cf604dd080e8974f4d75ab5edd195f139410ab274f916631d97b8bf7c",
+    "packages/adapters/dist/discovery/intelligence/openai-lead-review.js": "fd626e6274ce6919db8f24d3cee45f22bf15d12ea6bd1cb036276aefa514103a",
+    "apps/worker/dist/main.js": "6c90ee3f17ff517a666e371a83dbdd43f98937d63ebaac60e105ab63d0dc7f86"
+  }
+}

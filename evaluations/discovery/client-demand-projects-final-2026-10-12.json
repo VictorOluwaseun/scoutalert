@@ -1,0 +1,3986 @@
+{
+  "checkedAt": "2026-10-12T00:10:19.038Z",
+  "scenario": "projects",
+  "baseline": false,
+  "reasoningConfiguration": "openai:gpt-5.4-mini-2026-03-17:scout-planning-v6",
+  "plan": {
+    "policy": "public-intent-v3",
+    "queries": [
+      {
+        "page": 1,
+        "limit": 10,
+        "query": "React (\"project\" OR \"brief\") (\"budget\" OR \"fixed price\")",
+        "country": "us",
+        "language": "en",
+        "freshness": "month"
+      },
+      {
+        "page": 1,
+        "limit": 10,
+        "query": "TypeScript (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+        "country": "us",
+        "language": "en",
+        "freshness": "month"
+      },
+      {
+        "page": 1,
+        "limit": 10,
+        "query": "web development (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+        "country": "us",
+        "language": "en",
+        "freshness": "month"
+      },
+      {
+        "page": 1,
+        "limit": 10,
+        "query": "React (\"project\" OR \"brief\") (\"proposals\" OR \"bids\")",
+        "country": "us",
+        "language": "en",
+        "freshness": "month"
+      }
+    ],
+    "category": "services",
+    "strategy": {
+      "targets": [
+        "React",
+        "TypeScript",
+        "web development"
+      ],
+      "explanation": "I split the service into three short search concepts a buyer might use. This keeps the key words separate for broader retrieval while preserving the full brief for later matching."
+    },
+    "exploration": {
+      "remote": true,
+      "target": "React TypeScript web development",
+      "queryPolicy": "client-demand-v1",
+      "maximumDepth": 3,
+      "maximumRounds": 8,
+      "candidatePolicy": "contextual-v1",
+      "maximumSearches": 6,
+      "maximumSourcePages": 2
+    },
+    "continuation": "explore_on_next_run",
+    "scoutVersion": 1,
+    "blockedReason": null,
+    "deadlineSeconds": 240,
+    "maximumDocuments": 6
+  },
+  "reader": "worker",
+  "renderingEnabled": true,
+  "status": "measured",
+  "deliveryOutcome": "no_eligible_digest",
+  "reasoning": [
+    {
+      "input": {
+        "kind": "strategy",
+        "intent": {
+          "remote": true,
+          "target": "React TypeScript web development",
+          "category": "services"
+        }
+      },
+      "output": {
+        "kind": "strategy",
+        "strategy": {
+          "targets": [
+            "React",
+            "TypeScript",
+            "web development"
+          ],
+          "explanation": "I split the service into three short search concepts a buyer might use. This keeps the key words separate for broader retrieval while preserving the full brief for later matching."
+        }
+      },
+      "rejected_output": null,
+      "failure": null,
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 2100,
+        "responseId": "resp_0bf48eaac192ae7d016acc252795f487d2ac6c82ce2deb4251",
+        "inputTokens": 318,
+        "outputTokens": 142,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 878
+      }
+    },
+    {
+      "input": {
+        "kind": "choice",
+        "intent": {
+          "remote": true,
+          "target": "React TypeScript web development",
+          "category": "services"
+        },
+        "choices": [
+          {
+            "depth": 0,
+            "title": "Senior Software Engineer (Golang/TypeScript/React)",
+            "action": {
+              "url": "https://fr.jooble.org/jdp/4162442505344838789",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "ceb572a46e37a85c361bd1e444a709f539a0f2e041dd47f084581dcdcad20baa"
+          },
+          {
+            "depth": 0,
+            "title": "Typescript Engineer - TURING ENTERPRISES, INC.",
+            "action": {
+              "url": "https://www.dice.com/job-detail/001da4d0-cfbc-4a81-ad1c-eee7a61afb29",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "ceb572a46e37a85c361bd1e444a709f539a0f2e041dd47f084581dcdcad20baa"
+          },
+          {
+            "depth": 0,
+            "title": "How Much Does React Native App Development Cost?",
+            "action": {
+              "url": "https://ripenapps.com/blog/react-native-app-development-cost/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "24b670e3de6cef6b80d77d43eed77d77c3c6ef825d7a92c2a099ba9c4c723cf0"
+          },
+          {
+            "depth": 0,
+            "title": "Asset Based Community Development (ABCD) ...",
+            "action": {
+              "url": "https://www.cscbroward.org/news/abcd-rfp-2026/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "e904f88fd99709bf0fa34e7c0327609b786368b1d2e2e202090e1d3b85cd4ec7"
+          },
+          {
+            "depth": 0,
+            "title": "Website Development RFP Best Practices for Clear Projects",
+            "action": {
+              "url": "https://www.linkedin.com/posts/start-designs_websitedevelopment-rfp-webdevelopment-activity-7506988772400496640-UUs3",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "e904f88fd99709bf0fa34e7c0327609b786368b1d2e2e202090e1d3b85cd4ec7"
+          },
+          {
+            "depth": 0,
+            "title": "React Expense Tracker Mini Project with Complete Code",
+            "action": {
+              "url": "https://www.facebook.com/100094225972294/videos/-build-a-real-react-project-i-just-built-a-react-expense-tracker-mini-project-fr/1821232602369719/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "24b670e3de6cef6b80d77d43eed77d77c3c6ef825d7a92c2a099ba9c4c723cf0"
+          },
+          {
+            "depth": 0,
+            "title": "Call for Proposals",
+            "action": {
+              "url": "https://www.thepandemicfund.org/call-for-proposals",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "7c941b11793059eb775de3a43f2fd9d68f300a0efcf4fc1fe41ceba5f08545ce"
+          },
+          {
+            "depth": 0,
+            "title": "Bid on a City Project",
+            "action": {
+              "url": "https://www.gainesvillefl.gov/Government-Pages/Government/Departments/Office-of-Procurement-Contracts-Management/Bid-on-a-City-Project",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "7c941b11793059eb775de3a43f2fd9d68f300a0efcf4fc1fe41ceba5f08545ce"
+          },
+          {
+            "depth": 0,
+            "title": "Set and track the project budget",
+            "action": {
+              "url": "https://help.myhours.com/en/articles/1346676-set-and-track-the-project-budget",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "24b670e3de6cef6b80d77d43eed77d77c3c6ef825d7a92c2a099ba9c4c723cf0"
+          },
+          {
+            "depth": 0,
+            "title": "Senior Software Engineer (Golang/TypeScript/React)",
+            "action": {
+              "url": "https://www.linkedin.com/jobs/view/senior-software-engineer-golang-typescript-react-independent-contractor-at-jobgether-4474690408",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "ceb572a46e37a85c361bd1e444a709f539a0f2e041dd47f084581dcdcad20baa"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "TypeScript site:x.com (\"hiring\" OR \"need\") (\"project\" OR \"freelance\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "7c941b11793059eb775de3a43f2fd9d68f300a0efcf4fc1fe41ceba5f08545ce"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "web development site:linkedin.com/posts (\"hiring\" OR \"need\") (\"project\" OR \"freelance\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "7c941b11793059eb775de3a43f2fd9d68f300a0efcf4fc1fe41ceba5f08545ce"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "TypeScript (\"project\" OR \"brief\") (\"budget\" OR \"fixed price\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "7c941b11793059eb775de3a43f2fd9d68f300a0efcf4fc1fe41ceba5f08545ce"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "web development (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "7c941b11793059eb775de3a43f2fd9d68f300a0efcf4fc1fe41ceba5f08545ce"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "React (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "7c941b11793059eb775de3a43f2fd9d68f300a0efcf4fc1fe41ceba5f08545ce"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": null,
+            "reason": "no_further_action",
+            "parentKey": null
+          }
+        ],
+        "evidence": [
+          {
+            "url": "https://www.facebook.com/100094225972294/videos/-build-a-real-react-project-i-just-built-a-react-expense-tracker-mini-project-fr/1821232602369719/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "React Expense Tracker Mini Project with Complete Code Build a React Budget Tracking App: Income, Expenses & Balance. React Project 1 — Task Manager I built my first React Task Manager using reusable. 00:05 ..."
+          },
+          {
+            "url": "https://help.myhours.com/en/articles/1346676-set-and-track-the-project-budget",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Set and track the project budget To set or edit the project budget, please go to the project overview: Set a budget for the entire project or individual tasks. You can choose between setting ..."
+          },
+          {
+            "url": "https://ripenapps.com/blog/react-native-app-development-cost/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "How Much Does React Native App Development Cost? As a business owner, if you have the understanding to evaluate the cost, you can make a budget for your project and allocate resources effectively. Moreover, it ..."
+          },
+          {
+            "url": "https://www.linkedin.com/jobs/view/senior-software-engineer-golang-typescript-react-independent-contractor-at-jobgether-4474690408",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Senior Software Engineer (Golang/TypeScript/React) Our partner is looking for a Senior Software Engineer (Golang/TypeScript/React) - Independent Contractor based in United States. This is a senior ..."
+          },
+          {
+            "url": "https://fr.jooble.org/jdp/4162442505344838789",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Senior Software Engineer (Golang/TypeScript/React) Our partner is looking for a Senior Software Engineer (Golang/TypeScript/React) - Independent Contractor based in France. This is a senior engineering ..."
+          },
+          {
+            "url": "https://www.dice.com/job-detail/001da4d0-cfbc-4a81-ad1c-eee7a61afb29",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Typescript Engineer - TURING ENTERPRISES, INC. We're looking for a high-taste engineer with a strong eye for quality ... Employment Type: Independent contractor (does not include medical or paid leave benefits."
+          },
+          {
+            "url": "https://www.cscbroward.org/news/abcd-rfp-2026/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Asset Based Community Development (ABCD) ... The RFP seeks proposals from applicants who can demonstrate their expertise, experience, and qualifications for providing administrative support services to ..."
+          },
+          {
+            "url": "https://www.linkedin.com/posts/start-designs_websitedevelopment-rfp-webdevelopment-activity-7506988772400496640-UUs3",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Website Development RFP Best Practices for Clear Projects Planning a website development project? Start with a better RFP. A poorly written RFP can lead to: ❌ Unclear project scope ❌ Inconsistent proposals ..."
+          },
+          {
+            "url": "https://www.thepandemicfund.org/call-for-proposals",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Call for Proposals Call for Proposals — Costed Project Activities and Indicators Excel template. Each application must include Costed Project Activities and Indicators, which ..."
+          },
+          {
+            "url": "https://www.gainesvillefl.gov/Government-Pages/Government/Departments/Office-of-Procurement-Contracts-Management/Bid-on-a-City-Project",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Bid on a City Project respond to bids; receive notifications of awarded bids; work with the city to ... proposals during the submission process. The Cone of Silence, formerly ..."
+          }
+        ],
+        "candidates": [
+          {
+            "text": "Senior Software Engineer (Golang/TypeScript/React) Our partner is looking for a Senior Software Engineer (Golang/TypeScript/React) - Independent Contractor based in France. This is a senior engineering ...",
+            "query": "TypeScript (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 0,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Typescript Engineer - TURING ENTERPRISES, INC. We're looking for a high-taste engineer with a strong eye for quality ... Employment Type: Independent contractor (does not include medical or paid leave benefits.",
+            "query": "TypeScript (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 1,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "How Much Does React Native App Development Cost? As a business owner, if you have the understanding to evaluate the cost, you can make a budget for your project and allocate resources effectively. Moreover, it ...",
+            "query": "React (\"project\" OR \"brief\") (\"budget\" OR \"fixed price\")",
+            "choice": 2,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Asset Based Community Development (ABCD) ... The RFP seeks proposals from applicants who can demonstrate their expertise, experience, and qualifications for providing administrative support services to ...",
+            "query": "web development (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 3,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Website Development RFP Best Practices for Clear Projects Planning a website development project? Start with a better RFP. A poorly written RFP can lead to: ❌ Unclear project scope ❌ Inconsistent proposals ...",
+            "query": "web development (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 4,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "React Expense Tracker Mini Project with Complete Code Build a React Budget Tracking App: Income, Expenses & Balance. React Project 1 — Task Manager I built my first React Task Manager using reusable. 00:05 ...",
+            "query": "React (\"project\" OR \"brief\") (\"budget\" OR \"fixed price\")",
+            "choice": 5,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Call for Proposals Call for Proposals — Costed Project Activities and Indicators Excel template. Each application must include Costed Project Activities and Indicators, which ...",
+            "query": "React (\"project\" OR \"brief\") (\"proposals\" OR \"bids\")",
+            "choice": 6,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Bid on a City Project respond to bids; receive notifications of awarded bids; work with the city to ... proposals during the submission process. The Cone of Silence, formerly ...",
+            "query": "React (\"project\" OR \"brief\") (\"proposals\" OR \"bids\")",
+            "choice": 7,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Set and track the project budget To set or edit the project budget, please go to the project overview: Set a budget for the entire project or individual tasks. You can choose between setting ...",
+            "query": "React (\"project\" OR \"brief\") (\"budget\" OR \"fixed price\")",
+            "choice": 8,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Senior Software Engineer (Golang/TypeScript/React) Our partner is looking for a Senior Software Engineer (Golang/TypeScript/React) - Independent Contractor based in United States. This is a senior ...",
+            "query": "TypeScript (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 9,
+            "origin": "search_result",
+            "parentUrl": null
+          }
+        ]
+      },
+      "output": {
+        "kind": "choice",
+        "index": 9,
+        "explanation": "This is the most directly relevant readable opportunity: an independent-contractor senior software engineer role that explicitly includes Golang/TypeScript/React and is based in the United States, which is closer to the target React TypeScript web development work than the broader or less specific alternatives."
+      },
+      "rejected_output": null,
+      "failure": null,
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 2180,
+        "responseId": "resp_01c070cd89bd59f4016acc2531305887d28807776869175b92",
+        "inputTokens": 3915,
+        "outputTokens": 201,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 3841
+      }
+    },
+    {
+      "input": {
+        "kind": "choice",
+        "intent": {
+          "remote": true,
+          "target": "React TypeScript web development",
+          "category": "services"
+        },
+        "choices": [
+          {
+            "depth": 0,
+            "title": "Senior Software Engineer (Golang/TypeScript/React)",
+            "action": {
+              "url": "https://fr.jooble.org/jdp/4162442505344838789",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "ceb572a46e37a85c361bd1e444a709f539a0f2e041dd47f084581dcdcad20baa"
+          },
+          {
+            "depth": 0,
+            "title": "Typescript Engineer - TURING ENTERPRISES, INC.",
+            "action": {
+              "url": "https://www.dice.com/job-detail/001da4d0-cfbc-4a81-ad1c-eee7a61afb29",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "ceb572a46e37a85c361bd1e444a709f539a0f2e041dd47f084581dcdcad20baa"
+          },
+          {
+            "depth": 0,
+            "title": "How Much Does React Native App Development Cost?",
+            "action": {
+              "url": "https://ripenapps.com/blog/react-native-app-development-cost/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "24b670e3de6cef6b80d77d43eed77d77c3c6ef825d7a92c2a099ba9c4c723cf0"
+          },
+          {
+            "depth": 0,
+            "title": "Asset Based Community Development (ABCD) ...",
+            "action": {
+              "url": "https://www.cscbroward.org/news/abcd-rfp-2026/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "e904f88fd99709bf0fa34e7c0327609b786368b1d2e2e202090e1d3b85cd4ec7"
+          },
+          {
+            "depth": 0,
+            "title": "Website Development RFP Best Practices for Clear Projects",
+            "action": {
+              "url": "https://www.linkedin.com/posts/start-designs_websitedevelopment-rfp-webdevelopment-activity-7506988772400496640-UUs3",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "e904f88fd99709bf0fa34e7c0327609b786368b1d2e2e202090e1d3b85cd4ec7"
+          },
+          {
+            "depth": 0,
+            "title": "React Expense Tracker Mini Project with Complete Code",
+            "action": {
+              "url": "https://www.facebook.com/100094225972294/videos/-build-a-real-react-project-i-just-built-a-react-expense-tracker-mini-project-fr/1821232602369719/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "24b670e3de6cef6b80d77d43eed77d77c3c6ef825d7a92c2a099ba9c4c723cf0"
+          },
+          {
+            "depth": 0,
+            "title": "Call for Proposals",
+            "action": {
+              "url": "https://www.thepandemicfund.org/call-for-proposals",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "7c941b11793059eb775de3a43f2fd9d68f300a0efcf4fc1fe41ceba5f08545ce"
+          },
+          {
+            "depth": 0,
+            "title": "Bid on a City Project",
+            "action": {
+              "url": "https://www.gainesvillefl.gov/Government-Pages/Government/Departments/Office-of-Procurement-Contracts-Management/Bid-on-a-City-Project",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "7c941b11793059eb775de3a43f2fd9d68f300a0efcf4fc1fe41ceba5f08545ce"
+          },
+          {
+            "depth": 0,
+            "title": "Set and track the project budget",
+            "action": {
+              "url": "https://help.myhours.com/en/articles/1346676-set-and-track-the-project-budget",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "24b670e3de6cef6b80d77d43eed77d77c3c6ef825d7a92c2a099ba9c4c723cf0"
+          },
+          {
+            "depth": 0,
+            "title": "Senior Software Engineer (Golang/TypeScript/React)",
+            "action": {
+              "url": "https://dailyremote.com/remote-job/senior-software-engineer-golang-type-script-react-independent-contractor-5718896",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "ceb572a46e37a85c361bd1e444a709f539a0f2e041dd47f084581dcdcad20baa"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "TypeScript site:x.com (\"hiring\" OR \"need\") (\"project\" OR \"freelance\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "7c941b11793059eb775de3a43f2fd9d68f300a0efcf4fc1fe41ceba5f08545ce"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "web development site:linkedin.com/posts (\"hiring\" OR \"need\") (\"project\" OR \"freelance\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "7c941b11793059eb775de3a43f2fd9d68f300a0efcf4fc1fe41ceba5f08545ce"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "TypeScript (\"project\" OR \"brief\") (\"budget\" OR \"fixed price\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "7c941b11793059eb775de3a43f2fd9d68f300a0efcf4fc1fe41ceba5f08545ce"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "web development (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "7c941b11793059eb775de3a43f2fd9d68f300a0efcf4fc1fe41ceba5f08545ce"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "React (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "7c941b11793059eb775de3a43f2fd9d68f300a0efcf4fc1fe41ceba5f08545ce"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": null,
+            "reason": "no_further_action",
+            "parentKey": null
+          }
+        ],
+        "evidence": [
+          {
+            "url": "https://www.linkedin.com/jobs/view/senior-software-engineer-golang-typescript-react-independent-contractor-at-jobgether-4474690408",
+            "label": "access_limited",
+            "scope": "source_access",
+            "unknowns": [
+              "demand and availability remain unverified"
+            ],
+            "explanation": "Source capture could not provide complete evidence: crawl_policy_denied."
+          },
+          {
+            "url": "https://www.facebook.com/100094225972294/videos/-build-a-real-react-project-i-just-built-a-react-expense-tracker-mini-project-fr/1821232602369719/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "React Expense Tracker Mini Project with Complete Code Build a React Budget Tracking App: Income, Expenses & Balance. React Project 1 — Task Manager I built my first React Task Manager using reusable. 00:05 ..."
+          },
+          {
+            "url": "https://help.myhours.com/en/articles/1346676-set-and-track-the-project-budget",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Set and track the project budget To set or edit the project budget, please go to the project overview: Set a budget for the entire project or individual tasks. You can choose between setting ..."
+          },
+          {
+            "url": "https://ripenapps.com/blog/react-native-app-development-cost/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "How Much Does React Native App Development Cost? As a business owner, if you have the understanding to evaluate the cost, you can make a budget for your project and allocate resources effectively. Moreover, it ..."
+          },
+          {
+            "url": "https://dailyremote.com/remote-job/senior-software-engineer-golang-type-script-react-independent-contractor-5718896",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Senior Software Engineer (Golang/TypeScript/React) Senior Software Engineer (Golang/TypeScript/React)- Independent Contractor ... We are looking for a Senior Software Engineer to join our team, responsible ..."
+          },
+          {
+            "url": "https://fr.jooble.org/jdp/4162442505344838789",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Senior Software Engineer (Golang/TypeScript/React) Our partner is looking for a Senior Software Engineer (Golang/TypeScript/React) - Independent Contractor based in France. This is a senior engineering ..."
+          },
+          {
+            "url": "https://www.dice.com/job-detail/001da4d0-cfbc-4a81-ad1c-eee7a61afb29",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Typescript Engineer - TURING ENTERPRISES, INC. We're looking for a high-taste engineer with a strong eye for quality ... Employment Type: Independent contractor (does not include medical or paid leave benefits."
+          },
+          {
+            "url": "https://www.cscbroward.org/news/abcd-rfp-2026/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Asset Based Community Development (ABCD) ... The RFP seeks proposals from applicants who can demonstrate their expertise, experience, and qualifications for providing administrative support services to ..."
+          },
+          {
+            "url": "https://www.linkedin.com/posts/start-designs_websitedevelopment-rfp-webdevelopment-activity-7506988772400496640-UUs3",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Website Development RFP Best Practices for Clear Projects Planning a website development project? Start with a better RFP. A poorly written RFP can lead to: ❌ Unclear project scope ❌ Inconsistent proposals ..."
+          },
+          {
+            "url": "https://www.thepandemicfund.org/call-for-proposals",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Call for Proposals Call for Proposals — Costed Project Activities and Indicators Excel template. Each application must include Costed Project Activities and Indicators, which ..."
+          },
+          {
+            "url": "https://www.gainesvillefl.gov/Government-Pages/Government/Departments/Office-of-Procurement-Contracts-Management/Bid-on-a-City-Project",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Bid on a City Project respond to bids; receive notifications of awarded bids; work with the city to ... proposals during the submission process. The Cone of Silence, formerly ..."
+          }
+        ],
+        "candidates": [
+          {
+            "text": "Senior Software Engineer (Golang/TypeScript/React) Our partner is looking for a Senior Software Engineer (Golang/TypeScript/React) - Independent Contractor based in France. This is a senior engineering ...",
+            "query": "TypeScript (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 0,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Typescript Engineer - TURING ENTERPRISES, INC. We're looking for a high-taste engineer with a strong eye for quality ... Employment Type: Independent contractor (does not include medical or paid leave benefits.",
+            "query": "TypeScript (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 1,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "How Much Does React Native App Development Cost? As a business owner, if you have the understanding to evaluate the cost, you can make a budget for your project and allocate resources effectively. Moreover, it ...",
+            "query": "React (\"project\" OR \"brief\") (\"budget\" OR \"fixed price\")",
+            "choice": 2,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Asset Based Community Development (ABCD) ... The RFP seeks proposals from applicants who can demonstrate their expertise, experience, and qualifications for providing administrative support services to ...",
+            "query": "web development (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 3,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Website Development RFP Best Practices for Clear Projects Planning a website development project? Start with a better RFP. A poorly written RFP can lead to: ❌ Unclear project scope ❌ Inconsistent proposals ...",
+            "query": "web development (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 4,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "React Expense Tracker Mini Project with Complete Code Build a React Budget Tracking App: Income, Expenses & Balance. React Project 1 — Task Manager I built my first React Task Manager using reusable. 00:05 ...",
+            "query": "React (\"project\" OR \"brief\") (\"budget\" OR \"fixed price\")",
+            "choice": 5,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Call for Proposals Call for Proposals — Costed Project Activities and Indicators Excel template. Each application must include Costed Project Activities and Indicators, which ...",
+            "query": "React (\"project\" OR \"brief\") (\"proposals\" OR \"bids\")",
+            "choice": 6,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Bid on a City Project respond to bids; receive notifications of awarded bids; work with the city to ... proposals during the submission process. The Cone of Silence, formerly ...",
+            "query": "React (\"project\" OR \"brief\") (\"proposals\" OR \"bids\")",
+            "choice": 7,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Set and track the project budget To set or edit the project budget, please go to the project overview: Set a budget for the entire project or individual tasks. You can choose between setting ...",
+            "query": "React (\"project\" OR \"brief\") (\"budget\" OR \"fixed price\")",
+            "choice": 8,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Senior Software Engineer (Golang/TypeScript/React) Senior Software Engineer (Golang/TypeScript/React)- Independent Contractor ... We are looking for a Senior Software Engineer to join our team, responsible ...",
+            "query": "TypeScript (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 9,
+            "origin": "search_result",
+            "parentUrl": null
+          }
+        ]
+      },
+      "output": {
+        "kind": "choice",
+        "index": 4,
+        "explanation": "The current results are mostly job listings or generic advice, so the most useful next step is a focused React RFP search that can surface actual client project briefs for web development."
+      },
+      "rejected_output": null,
+      "failure": null,
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 2331,
+        "responseId": "resp_0030c58e1d4e0e8f016acc2533e28c87d285dbc9d45606c294",
+        "inputTokens": 3978,
+        "outputTokens": 302,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 4343
+      }
+    },
+    {
+      "input": {
+        "kind": "choice",
+        "intent": {
+          "remote": true,
+          "target": "React TypeScript web development",
+          "category": "services"
+        },
+        "choices": [
+          {
+            "depth": 0,
+            "title": "Senior Software Engineer (Golang/TypeScript/React)",
+            "action": {
+              "url": "https://fr.jooble.org/jdp/4162442505344838789",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "ceb572a46e37a85c361bd1e444a709f539a0f2e041dd47f084581dcdcad20baa"
+          },
+          {
+            "depth": 0,
+            "title": "Typescript Engineer - TURING ENTERPRISES, INC.",
+            "action": {
+              "url": "https://www.dice.com/job-detail/001da4d0-cfbc-4a81-ad1c-eee7a61afb29",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "ceb572a46e37a85c361bd1e444a709f539a0f2e041dd47f084581dcdcad20baa"
+          },
+          {
+            "depth": 0,
+            "title": "How Much Does React Native App Development Cost?",
+            "action": {
+              "url": "https://ripenapps.com/blog/react-native-app-development-cost/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "24b670e3de6cef6b80d77d43eed77d77c3c6ef825d7a92c2a099ba9c4c723cf0"
+          },
+          {
+            "depth": 0,
+            "title": "Asset Based Community Development (ABCD) ...",
+            "action": {
+              "url": "https://www.cscbroward.org/news/abcd-rfp-2026/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "e904f88fd99709bf0fa34e7c0327609b786368b1d2e2e202090e1d3b85cd4ec7"
+          },
+          {
+            "depth": 0,
+            "title": "Web design and development opportunities",
+            "action": {
+              "url": "https://www.dcoe.org/opportunities/rfp-tenders",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "e904f88fd99709bf0fa34e7c0327609b786368b1d2e2e202090e1d3b85cd4ec7"
+          },
+          {
+            "depth": 0,
+            "title": "React Expense Tracker Mini Project with Complete Code",
+            "action": {
+              "url": "https://www.facebook.com/100094225972294/videos/-build-a-real-react-project-i-just-built-a-react-expense-tracker-mini-project-fr/1821232602369719/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "24b670e3de6cef6b80d77d43eed77d77c3c6ef825d7a92c2a099ba9c4c723cf0"
+          },
+          {
+            "depth": 0,
+            "title": "Call for Proposals",
+            "action": {
+              "url": "https://www.thepandemicfund.org/call-for-proposals",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "7c941b11793059eb775de3a43f2fd9d68f300a0efcf4fc1fe41ceba5f08545ce"
+          },
+          {
+            "depth": 0,
+            "title": "Bid on a City Project",
+            "action": {
+              "url": "https://www.gainesvillefl.gov/Government-Pages/Government/Departments/Office-of-Procurement-Contracts-Management/Bid-on-a-City-Project",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "7c941b11793059eb775de3a43f2fd9d68f300a0efcf4fc1fe41ceba5f08545ce"
+          },
+          {
+            "depth": 0,
+            "title": "Set and track the project budget",
+            "action": {
+              "url": "https://help.myhours.com/en/articles/1346676-set-and-track-the-project-budget",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "24b670e3de6cef6b80d77d43eed77d77c3c6ef825d7a92c2a099ba9c4c723cf0"
+          },
+          {
+            "depth": 0,
+            "title": "Senior Software Engineer (Golang/TypeScript/React)",
+            "action": {
+              "url": "https://dailyremote.com/remote-job/senior-software-engineer-golang-type-script-react-independent-contractor-5718896",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "ceb572a46e37a85c361bd1e444a709f539a0f2e041dd47f084581dcdcad20baa"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "TypeScript site:x.com (\"hiring\" OR \"need\") (\"project\" OR \"freelance\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "7c941b11793059eb775de3a43f2fd9d68f300a0efcf4fc1fe41ceba5f08545ce"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "web development site:linkedin.com/posts (\"hiring\" OR \"need\") (\"project\" OR \"freelance\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "7c941b11793059eb775de3a43f2fd9d68f300a0efcf4fc1fe41ceba5f08545ce"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "TypeScript (\"project\" OR \"brief\") (\"budget\" OR \"fixed price\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "7c941b11793059eb775de3a43f2fd9d68f300a0efcf4fc1fe41ceba5f08545ce"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "web development (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "7c941b11793059eb775de3a43f2fd9d68f300a0efcf4fc1fe41ceba5f08545ce"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "React (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "7c941b11793059eb775de3a43f2fd9d68f300a0efcf4fc1fe41ceba5f08545ce"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": null,
+            "reason": "no_further_action",
+            "parentKey": null
+          }
+        ],
+        "evidence": [
+          {
+            "url": "https://www.linkedin.com/jobs/view/senior-software-engineer-golang-typescript-react-independent-contractor-at-jobgether-4474690408",
+            "label": "access_limited",
+            "scope": "source_access",
+            "unknowns": [
+              "demand and availability remain unverified"
+            ],
+            "explanation": "Source capture could not provide complete evidence: crawl_policy_denied."
+          },
+          {
+            "url": "https://www.linkedin.com/posts/start-designs_websitedevelopment-rfp-webdevelopment-activity-7506988772400496640-UUs3",
+            "label": "access_limited",
+            "scope": "source_access",
+            "unknowns": [
+              "demand and availability remain unverified"
+            ],
+            "explanation": "Source capture could not provide complete evidence: crawl_policy_denied."
+          },
+          {
+            "url": "https://www.facebook.com/100094225972294/videos/-build-a-real-react-project-i-just-built-a-react-expense-tracker-mini-project-fr/1821232602369719/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "React Expense Tracker Mini Project with Complete Code Build a React Budget Tracking App: Income, Expenses & Balance. React Project 1 — Task Manager I built my first React Task Manager using reusable. 00:05 ..."
+          },
+          {
+            "url": "https://help.myhours.com/en/articles/1346676-set-and-track-the-project-budget",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Set and track the project budget To set or edit the project budget, please go to the project overview: Set a budget for the entire project or individual tasks. You can choose between setting ..."
+          },
+          {
+            "url": "https://ripenapps.com/blog/react-native-app-development-cost/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "How Much Does React Native App Development Cost? As a business owner, if you have the understanding to evaluate the cost, you can make a budget for your project and allocate resources effectively. Moreover, it ..."
+          },
+          {
+            "url": "https://dailyremote.com/remote-job/senior-software-engineer-golang-type-script-react-independent-contractor-5718896",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Senior Software Engineer (Golang/TypeScript/React) Senior Software Engineer (Golang/TypeScript/React)- Independent Contractor ... We are looking for a Senior Software Engineer to join our team, responsible ..."
+          },
+          {
+            "url": "https://fr.jooble.org/jdp/4162442505344838789",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Senior Software Engineer (Golang/TypeScript/React) Our partner is looking for a Senior Software Engineer (Golang/TypeScript/React) - Independent Contractor based in France. This is a senior engineering ..."
+          },
+          {
+            "url": "https://www.dice.com/job-detail/001da4d0-cfbc-4a81-ad1c-eee7a61afb29",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Typescript Engineer - TURING ENTERPRISES, INC. We're looking for a high-taste engineer with a strong eye for quality ... Employment Type: Independent contractor (does not include medical or paid leave benefits."
+          },
+          {
+            "url": "https://www.cscbroward.org/news/abcd-rfp-2026/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Asset Based Community Development (ABCD) ... The RFP seeks proposals from applicants who can demonstrate their expertise, experience, and qualifications for providing administrative support services to ..."
+          },
+          {
+            "url": "https://www.dcoe.org/opportunities/rfp-tenders",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Web design and development opportunities Web design and development opportunities. Search. Show only active RFPs. Due Date Asc · Due Date Desc. Sort by: Due date, ascending, Due date, descending."
+          },
+          {
+            "url": "https://www.thepandemicfund.org/call-for-proposals",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Call for Proposals Call for Proposals — Costed Project Activities and Indicators Excel template. Each application must include Costed Project Activities and Indicators, which ..."
+          },
+          {
+            "url": "https://www.gainesvillefl.gov/Government-Pages/Government/Departments/Office-of-Procurement-Contracts-Management/Bid-on-a-City-Project",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Bid on a City Project respond to bids; receive notifications of awarded bids; work with the city to ... proposals during the submission process. The Cone of Silence, formerly ..."
+          }
+        ],
+        "candidates": [
+          {
+            "text": "Senior Software Engineer (Golang/TypeScript/React) Our partner is looking for a Senior Software Engineer (Golang/TypeScript/React) - Independent Contractor based in France. This is a senior engineering ...",
+            "query": "TypeScript (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 0,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Typescript Engineer - TURING ENTERPRISES, INC. We're looking for a high-taste engineer with a strong eye for quality ... Employment Type: Independent contractor (does not include medical or paid leave benefits.",
+            "query": "TypeScript (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 1,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "How Much Does React Native App Development Cost? As a business owner, if you have the understanding to evaluate the cost, you can make a budget for your project and allocate resources effectively. Moreover, it ...",
+            "query": "React (\"project\" OR \"brief\") (\"budget\" OR \"fixed price\")",
+            "choice": 2,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Asset Based Community Development (ABCD) ... The RFP seeks proposals from applicants who can demonstrate their expertise, experience, and qualifications for providing administrative support services to ...",
+            "query": "web development (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 3,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Web design and development opportunities Web design and development opportunities. Search. Show only active RFPs. Due Date Asc · Due Date Desc. Sort by: Due date, ascending, Due date, descending.",
+            "query": "web development (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 4,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "React Expense Tracker Mini Project with Complete Code Build a React Budget Tracking App: Income, Expenses & Balance. React Project 1 — Task Manager I built my first React Task Manager using reusable. 00:05 ...",
+            "query": "React (\"project\" OR \"brief\") (\"budget\" OR \"fixed price\")",
+            "choice": 5,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Call for Proposals Call for Proposals — Costed Project Activities and Indicators Excel template. Each application must include Costed Project Activities and Indicators, which ...",
+            "query": "React (\"project\" OR \"brief\") (\"proposals\" OR \"bids\")",
+            "choice": 6,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Bid on a City Project respond to bids; receive notifications of awarded bids; work with the city to ... proposals during the submission process. The Cone of Silence, formerly ...",
+            "query": "React (\"project\" OR \"brief\") (\"proposals\" OR \"bids\")",
+            "choice": 7,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Set and track the project budget To set or edit the project budget, please go to the project overview: Set a budget for the entire project or individual tasks. You can choose between setting ...",
+            "query": "React (\"project\" OR \"brief\") (\"budget\" OR \"fixed price\")",
+            "choice": 8,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Senior Software Engineer (Golang/TypeScript/React) Senior Software Engineer (Golang/TypeScript/React)- Independent Contractor ... We are looking for a Senior Software Engineer to join our team, responsible ...",
+            "query": "TypeScript (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 9,
+            "origin": "search_result",
+            "parentUrl": null
+          }
+        ]
+      },
+      "output": {
+        "kind": "choice",
+        "index": 4,
+        "explanation": "This is the most relevant next step because it’s a directory of active web design and development RFPs, which can surface actual buyer briefs for React/TypeScript work."
+      },
+      "rejected_output": null,
+      "failure": null,
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 1612,
+        "responseId": "resp_08951f9ea7a7480d016acc2537027087d28d6d752f9c665d5c",
+        "inputTokens": 4003,
+        "outputTokens": 169,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 3763
+      }
+    },
+    {
+      "input": {
+        "kind": "choice",
+        "intent": {
+          "remote": true,
+          "target": "React TypeScript web development",
+          "category": "services"
+        },
+        "choices": [
+          {
+            "depth": 0,
+            "title": "Senior Software Engineer (Golang/TypeScript/React)",
+            "action": {
+              "url": "https://fr.jooble.org/jdp/4162442505344838789",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "ceb572a46e37a85c361bd1e444a709f539a0f2e041dd47f084581dcdcad20baa"
+          },
+          {
+            "depth": 0,
+            "title": "Typescript Engineer - TURING ENTERPRISES, INC.",
+            "action": {
+              "url": "https://www.dice.com/job-detail/001da4d0-cfbc-4a81-ad1c-eee7a61afb29",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "ceb572a46e37a85c361bd1e444a709f539a0f2e041dd47f084581dcdcad20baa"
+          },
+          {
+            "depth": 0,
+            "title": "How Much Does React Native App Development Cost?",
+            "action": {
+              "url": "https://ripenapps.com/blog/react-native-app-development-cost/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "24b670e3de6cef6b80d77d43eed77d77c3c6ef825d7a92c2a099ba9c4c723cf0"
+          },
+          {
+            "depth": 0,
+            "title": "Asset Based Community Development (ABCD) ...",
+            "action": {
+              "url": "https://www.cscbroward.org/news/abcd-rfp-2026/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "e904f88fd99709bf0fa34e7c0327609b786368b1d2e2e202090e1d3b85cd4ec7"
+          },
+          {
+            "depth": 0,
+            "title": "Request for Proposal (RfP)",
+            "action": {
+              "url": "https://www.c40.org/wp-content/uploads/2026/10/2-RfP-GCoM-Website-Development-Maintenance.pdf",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "e904f88fd99709bf0fa34e7c0327609b786368b1d2e2e202090e1d3b85cd4ec7"
+          },
+          {
+            "depth": 0,
+            "title": "React Expense Tracker Mini Project with Complete Code",
+            "action": {
+              "url": "https://www.facebook.com/100094225972294/videos/-build-a-real-react-project-i-just-built-a-react-expense-tracker-mini-project-fr/1821232602369719/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "24b670e3de6cef6b80d77d43eed77d77c3c6ef825d7a92c2a099ba9c4c723cf0"
+          },
+          {
+            "depth": 1,
+            "title": "Website design, development, hosting, operations, maintenance, and support services using the Drupal content management system for the 511.org website (Pantheon)",
+            "action": {
+              "url": "https://www.dcoe.org/opportunities/rfp-tenders/website-design-development-hosting-operations-maintenance-and-support",
+              "kind": "document"
+            },
+            "reason": "follow_source_link",
+            "parentKey": "539a4e76e8c1189100590b6478caf01b5583d630e0403ae692b717194e81940b"
+          },
+          {
+            "depth": 0,
+            "title": "Call for Proposals",
+            "action": {
+              "url": "https://www.thepandemicfund.org/call-for-proposals",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "7c941b11793059eb775de3a43f2fd9d68f300a0efcf4fc1fe41ceba5f08545ce"
+          },
+          {
+            "depth": 0,
+            "title": "Set and track the project budget",
+            "action": {
+              "url": "https://help.myhours.com/en/articles/1346676-set-and-track-the-project-budget",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "24b670e3de6cef6b80d77d43eed77d77c3c6ef825d7a92c2a099ba9c4c723cf0"
+          },
+          {
+            "depth": 0,
+            "title": "Senior Software Engineer (Golang/TypeScript/React)",
+            "action": {
+              "url": "https://dailyremote.com/remote-job/senior-software-engineer-golang-type-script-react-independent-contractor-5718896",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "ceb572a46e37a85c361bd1e444a709f539a0f2e041dd47f084581dcdcad20baa"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "TypeScript site:x.com (\"hiring\" OR \"need\") (\"project\" OR \"freelance\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "7c941b11793059eb775de3a43f2fd9d68f300a0efcf4fc1fe41ceba5f08545ce"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "web development site:linkedin.com/posts (\"hiring\" OR \"need\") (\"project\" OR \"freelance\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "7c941b11793059eb775de3a43f2fd9d68f300a0efcf4fc1fe41ceba5f08545ce"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "TypeScript (\"project\" OR \"brief\") (\"budget\" OR \"fixed price\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "7c941b11793059eb775de3a43f2fd9d68f300a0efcf4fc1fe41ceba5f08545ce"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "web development (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "7c941b11793059eb775de3a43f2fd9d68f300a0efcf4fc1fe41ceba5f08545ce"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "React (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "7c941b11793059eb775de3a43f2fd9d68f300a0efcf4fc1fe41ceba5f08545ce"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": null,
+            "reason": "no_further_action",
+            "parentKey": null
+          }
+        ],
+        "evidence": [
+          {
+            "url": "https://www.linkedin.com/jobs/view/senior-software-engineer-golang-typescript-react-independent-contractor-at-jobgether-4474690408",
+            "label": "access_limited",
+            "scope": "source_access",
+            "unknowns": [
+              "demand and availability remain unverified"
+            ],
+            "explanation": "Source capture could not provide complete evidence: crawl_policy_denied."
+          },
+          {
+            "url": "https://www.linkedin.com/posts/start-designs_websitedevelopment-rfp-webdevelopment-activity-7506988772400496640-UUs3",
+            "label": "access_limited",
+            "scope": "source_access",
+            "unknowns": [
+              "demand and availability remain unverified"
+            ],
+            "explanation": "Source capture could not provide complete evidence: crawl_policy_denied."
+          },
+          {
+            "url": "https://www.dcoe.org/opportunities/rfp-tenders",
+            "label": "directory",
+            "scope": "source",
+            "unknowns": [
+              "role",
+              "category",
+              "location",
+              "arrangement",
+              "sponsorship",
+              "compensation",
+              "requirements",
+              "authorization"
+            ],
+            "explanation": "This is a listings/search page collecting many web design and development opportunities, not a single specific opening. The page itself says it has many results and provides filters and sorting for multiple tenders. Subject: . Evidence: WEB DESIGN AND DEVELOPMENT OPPORTUNITIES"
+          },
+          {
+            "url": "https://www.facebook.com/100094225972294/videos/-build-a-real-react-project-i-just-built-a-react-expense-tracker-mini-project-fr/1821232602369719/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "React Expense Tracker Mini Project with Complete Code Build a React Budget Tracking App: Income, Expenses & Balance. React Project 1 — Task Manager I built my first React Task Manager using reusable. 00:05 ..."
+          },
+          {
+            "url": "https://help.myhours.com/en/articles/1346676-set-and-track-the-project-budget",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Set and track the project budget To set or edit the project budget, please go to the project overview: Set a budget for the entire project or individual tasks. You can choose between setting ..."
+          },
+          {
+            "url": "https://ripenapps.com/blog/react-native-app-development-cost/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "How Much Does React Native App Development Cost? As a business owner, if you have the understanding to evaluate the cost, you can make a budget for your project and allocate resources effectively. Moreover, it ..."
+          },
+          {
+            "url": "https://dailyremote.com/remote-job/senior-software-engineer-golang-type-script-react-independent-contractor-5718896",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Senior Software Engineer (Golang/TypeScript/React) Senior Software Engineer (Golang/TypeScript/React)- Independent Contractor ... We are looking for a Senior Software Engineer to join our team, responsible ..."
+          },
+          {
+            "url": "https://fr.jooble.org/jdp/4162442505344838789",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Senior Software Engineer (Golang/TypeScript/React) Our partner is looking for a Senior Software Engineer (Golang/TypeScript/React) - Independent Contractor based in France. This is a senior engineering ..."
+          },
+          {
+            "url": "https://www.dice.com/job-detail/001da4d0-cfbc-4a81-ad1c-eee7a61afb29",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Typescript Engineer - TURING ENTERPRISES, INC. We're looking for a high-taste engineer with a strong eye for quality ... Employment Type: Independent contractor (does not include medical or paid leave benefits."
+          },
+          {
+            "url": "https://www.cscbroward.org/news/abcd-rfp-2026/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Asset Based Community Development (ABCD) ... The RFP seeks proposals from applicants who can demonstrate their expertise, experience, and qualifications for providing administrative support services to ..."
+          },
+          {
+            "url": "https://www.c40.org/wp-content/uploads/2026/10/2-RfP-GCoM-Website-Development-Maintenance.pdf",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Request for Proposal (RfP) Request for Proposal (RfP). GCoM Website Maintenance & Development. C40 Cities Climate Leadership Group, Inc. 120 Park Avenue, 23rd Floor. New York, NY 10017."
+          },
+          {
+            "url": "https://www.thepandemicfund.org/call-for-proposals",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Call for Proposals Call for Proposals — Costed Project Activities and Indicators Excel template. Each application must include Costed Project Activities and Indicators, which ..."
+          }
+        ],
+        "candidates": [
+          {
+            "text": "Senior Software Engineer (Golang/TypeScript/React) Our partner is looking for a Senior Software Engineer (Golang/TypeScript/React) - Independent Contractor based in France. This is a senior engineering ...",
+            "query": "TypeScript (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 0,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Typescript Engineer - TURING ENTERPRISES, INC. We're looking for a high-taste engineer with a strong eye for quality ... Employment Type: Independent contractor (does not include medical or paid leave benefits.",
+            "query": "TypeScript (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 1,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "How Much Does React Native App Development Cost? As a business owner, if you have the understanding to evaluate the cost, you can make a budget for your project and allocate resources effectively. Moreover, it ...",
+            "query": "React (\"project\" OR \"brief\") (\"budget\" OR \"fixed price\")",
+            "choice": 2,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Asset Based Community Development (ABCD) ... The RFP seeks proposals from applicants who can demonstrate their expertise, experience, and qualifications for providing administrative support services to ...",
+            "query": "web development (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 3,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Request for Proposal (RfP) Request for Proposal (RfP). GCoM Website Maintenance & Development. C40 Cities Climate Leadership Group, Inc. 120 Park Avenue, 23rd Floor. New York, NY 10017.",
+            "query": "web development (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 4,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "React Expense Tracker Mini Project with Complete Code Build a React Budget Tracking App: Income, Expenses & Balance. React Project 1 — Task Manager I built my first React Task Manager using reusable. 00:05 ...",
+            "query": "React (\"project\" OR \"brief\") (\"budget\" OR \"fixed price\")",
+            "choice": 5,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Website design, development, hosting, operations, maintenance, and support services using the Drupal content management system for the 511.org website (Pantheon)\nNearby parent text (not verified child evidence): WEBSITE DESIGN, DEVELOPMENT, HOSTING, OPERATIONS, MAINTENANCE, AND SUPPORT SERVICES USING THE DRUPAL CONTENT MANAGEMENT SYSTEM FOR THE 511.ORG WEBSITE (PANTHEON)\n\nDue date: 2027-07-01T00:00:00Location: USA (California)\nRequirements: Drupal, Pantheon, OpenStreetMap, SAAS API Gateway, Real-time data integration\n\n\nMODERNIZE ITS PUBLIC SEX OFFENDER REGISTRY WEBSITE, ENHANCING PUBLIC ACCESS TO REGISTRY INFORMATION THROUGH A MOBILE-RESPONSIVE, SEARCHABLE, AND\n\nDue date: 2026-12-16T19:00:00Location: USA (New Hampshire)\n\n\nDEVELOP A STATEWIDE WORKFORCE PORTAL\n\nDue date: 2026-11-13T16:00:00Location: USA (South Carolina)\n\n\nDESIGN, DEVELOP, HOST, AND SUPPORT A MODERN, SECURE, ACCESSIBLE, AND USER-FRIEND\nParent subject: . Parent context: This is a listings/search page collecting many web design and development opportunities, not a single specific opening. The page itself says it has many results and provides filters and sorting for multiple tenders.",
+            "query": null,
+            "choice": 6,
+            "origin": "source_link",
+            "parentUrl": "https://www.dcoe.org/opportunities/rfp-tenders"
+          },
+          {
+            "text": "Call for Proposals Call for Proposals — Costed Project Activities and Indicators Excel template. Each application must include Costed Project Activities and Indicators, which ...",
+            "query": "React (\"project\" OR \"brief\") (\"proposals\" OR \"bids\")",
+            "choice": 7,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Set and track the project budget To set or edit the project budget, please go to the project overview: Set a budget for the entire project or individual tasks. You can choose between setting ...",
+            "query": "React (\"project\" OR \"brief\") (\"budget\" OR \"fixed price\")",
+            "choice": 8,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Senior Software Engineer (Golang/TypeScript/React) Senior Software Engineer (Golang/TypeScript/React)- Independent Contractor ... We are looking for a Senior Software Engineer to join our team, responsible ...",
+            "query": "TypeScript (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 9,
+            "origin": "search_result",
+            "parentUrl": null
+          }
+        ]
+      },
+      "output": {
+        "kind": "choice",
+        "index": 4,
+        "explanation": "This is a concrete website development RFP, directly aligned with React/TypeScript web work and more useful than the general job listings or directories for finding buyer demand. The practical next step is to inspect the RfP details for scope, eligibility, and deadline."
+      },
+      "rejected_output": null,
+      "failure": null,
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 1781,
+        "responseId": "resp_092dc648d2ffb0e0016acc253eeb3487d28c8650992c3422f5",
+        "inputTokens": 4326,
+        "outputTokens": 162,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 3974
+      }
+    },
+    {
+      "input": {
+        "kind": "choice",
+        "intent": {
+          "remote": true,
+          "target": "React TypeScript web development",
+          "category": "services"
+        },
+        "choices": [
+          {
+            "depth": 0,
+            "title": "Senior Software Engineer (Golang/TypeScript/React)",
+            "action": {
+              "url": "https://fr.jooble.org/jdp/4162442505344838789",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "ceb572a46e37a85c361bd1e444a709f539a0f2e041dd47f084581dcdcad20baa"
+          },
+          {
+            "depth": 0,
+            "title": "Typescript Engineer - TURING ENTERPRISES, INC.",
+            "action": {
+              "url": "https://www.dice.com/job-detail/001da4d0-cfbc-4a81-ad1c-eee7a61afb29",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "ceb572a46e37a85c361bd1e444a709f539a0f2e041dd47f084581dcdcad20baa"
+          },
+          {
+            "depth": 0,
+            "title": "How Much Does React Native App Development Cost?",
+            "action": {
+              "url": "https://ripenapps.com/blog/react-native-app-development-cost/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "24b670e3de6cef6b80d77d43eed77d77c3c6ef825d7a92c2a099ba9c4c723cf0"
+          },
+          {
+            "depth": 0,
+            "title": "Asset Based Community Development (ABCD) ...",
+            "action": {
+              "url": "https://www.cscbroward.org/news/abcd-rfp-2026/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "e904f88fd99709bf0fa34e7c0327609b786368b1d2e2e202090e1d3b85cd4ec7"
+          },
+          {
+            "depth": 0,
+            "title": "Site Design Analysis Request for Proposals (RFP) - LAHD",
+            "action": {
+              "url": "https://housing.lacity.gov/all-announcement/site-design-analysis-request-for-proposals-rfp",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "e904f88fd99709bf0fa34e7c0327609b786368b1d2e2e202090e1d3b85cd4ec7"
+          },
+          {
+            "depth": 0,
+            "title": "React Expense Tracker Mini Project with Complete Code",
+            "action": {
+              "url": "https://www.facebook.com/100094225972294/videos/-build-a-real-react-project-i-just-built-a-react-expense-tracker-mini-project-fr/1821232602369719/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "24b670e3de6cef6b80d77d43eed77d77c3c6ef825d7a92c2a099ba9c4c723cf0"
+          },
+          {
+            "depth": 1,
+            "title": "Website design, development, hosting, operations, maintenance, and support services using the Drupal content management system for the 511.org website (Pantheon)",
+            "action": {
+              "url": "https://www.dcoe.org/opportunities/rfp-tenders/website-design-development-hosting-operations-maintenance-and-support",
+              "kind": "document"
+            },
+            "reason": "follow_source_link",
+            "parentKey": "539a4e76e8c1189100590b6478caf01b5583d630e0403ae692b717194e81940b"
+          },
+          {
+            "depth": 0,
+            "title": "Call for Proposals",
+            "action": {
+              "url": "https://www.thepandemicfund.org/call-for-proposals",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "7c941b11793059eb775de3a43f2fd9d68f300a0efcf4fc1fe41ceba5f08545ce"
+          },
+          {
+            "depth": 0,
+            "title": "Set and track the project budget",
+            "action": {
+              "url": "https://help.myhours.com/en/articles/1346676-set-and-track-the-project-budget",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "24b670e3de6cef6b80d77d43eed77d77c3c6ef825d7a92c2a099ba9c4c723cf0"
+          },
+          {
+            "depth": 0,
+            "title": "Senior Software Engineer (Golang/TypeScript/React)",
+            "action": {
+              "url": "https://dailyremote.com/remote-job/senior-software-engineer-golang-type-script-react-independent-contractor-5718896",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "ceb572a46e37a85c361bd1e444a709f539a0f2e041dd47f084581dcdcad20baa"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "TypeScript site:x.com (\"hiring\" OR \"need\") (\"project\" OR \"freelance\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "7c941b11793059eb775de3a43f2fd9d68f300a0efcf4fc1fe41ceba5f08545ce"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "web development site:linkedin.com/posts (\"hiring\" OR \"need\") (\"project\" OR \"freelance\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "7c941b11793059eb775de3a43f2fd9d68f300a0efcf4fc1fe41ceba5f08545ce"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "TypeScript (\"project\" OR \"brief\") (\"budget\" OR \"fixed price\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "7c941b11793059eb775de3a43f2fd9d68f300a0efcf4fc1fe41ceba5f08545ce"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "web development (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "7c941b11793059eb775de3a43f2fd9d68f300a0efcf4fc1fe41ceba5f08545ce"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "React (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "7c941b11793059eb775de3a43f2fd9d68f300a0efcf4fc1fe41ceba5f08545ce"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": null,
+            "reason": "no_further_action",
+            "parentKey": null
+          }
+        ],
+        "evidence": [
+          {
+            "url": "https://www.linkedin.com/jobs/view/senior-software-engineer-golang-typescript-react-independent-contractor-at-jobgether-4474690408",
+            "label": "access_limited",
+            "scope": "source_access",
+            "unknowns": [
+              "demand and availability remain unverified"
+            ],
+            "explanation": "Source capture could not provide complete evidence: crawl_policy_denied."
+          },
+          {
+            "url": "https://www.linkedin.com/posts/start-designs_websitedevelopment-rfp-webdevelopment-activity-7506988772400496640-UUs3",
+            "label": "access_limited",
+            "scope": "source_access",
+            "unknowns": [
+              "demand and availability remain unverified"
+            ],
+            "explanation": "Source capture could not provide complete evidence: crawl_policy_denied."
+          },
+          {
+            "url": "https://www.c40.org/wp-content/uploads/2026/10/2-RfP-GCoM-Website-Development-Maintenance.pdf",
+            "label": "access_limited",
+            "scope": "source_access",
+            "unknowns": [
+              "demand and availability remain unverified"
+            ],
+            "explanation": "Source capture could not provide complete evidence: source_access_denied."
+          },
+          {
+            "url": "https://www.dcoe.org/opportunities/rfp-tenders",
+            "label": "directory",
+            "scope": "source",
+            "unknowns": [
+              "role",
+              "category",
+              "location",
+              "arrangement",
+              "sponsorship",
+              "compensation",
+              "requirements",
+              "authorization"
+            ],
+            "explanation": "This is a listings/search page collecting many web design and development opportunities, not a single specific opening. The page itself says it has many results and provides filters and sorting for multiple tenders. Subject: . Evidence: WEB DESIGN AND DEVELOPMENT OPPORTUNITIES"
+          },
+          {
+            "url": "https://www.facebook.com/100094225972294/videos/-build-a-real-react-project-i-just-built-a-react-expense-tracker-mini-project-fr/1821232602369719/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "React Expense Tracker Mini Project with Complete Code Build a React Budget Tracking App: Income, Expenses & Balance. React Project 1 — Task Manager I built my first React Task Manager using reusable. 00:05 ..."
+          },
+          {
+            "url": "https://help.myhours.com/en/articles/1346676-set-and-track-the-project-budget",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Set and track the project budget To set or edit the project budget, please go to the project overview: Set a budget for the entire project or individual tasks. You can choose between setting ..."
+          },
+          {
+            "url": "https://ripenapps.com/blog/react-native-app-development-cost/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "How Much Does React Native App Development Cost? As a business owner, if you have the understanding to evaluate the cost, you can make a budget for your project and allocate resources effectively. Moreover, it ..."
+          },
+          {
+            "url": "https://dailyremote.com/remote-job/senior-software-engineer-golang-type-script-react-independent-contractor-5718896",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Senior Software Engineer (Golang/TypeScript/React) Senior Software Engineer (Golang/TypeScript/React)- Independent Contractor ... We are looking for a Senior Software Engineer to join our team, responsible ..."
+          },
+          {
+            "url": "https://fr.jooble.org/jdp/4162442505344838789",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Senior Software Engineer (Golang/TypeScript/React) Our partner is looking for a Senior Software Engineer (Golang/TypeScript/React) - Independent Contractor based in France. This is a senior engineering ..."
+          },
+          {
+            "url": "https://www.dice.com/job-detail/001da4d0-cfbc-4a81-ad1c-eee7a61afb29",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Typescript Engineer - TURING ENTERPRISES, INC. We're looking for a high-taste engineer with a strong eye for quality ... Employment Type: Independent contractor (does not include medical or paid leave benefits."
+          },
+          {
+            "url": "https://www.cscbroward.org/news/abcd-rfp-2026/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Asset Based Community Development (ABCD) ... The RFP seeks proposals from applicants who can demonstrate their expertise, experience, and qualifications for providing administrative support services to ..."
+          },
+          {
+            "url": "https://housing.lacity.gov/all-announcement/site-design-analysis-request-for-proposals-rfp",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Site Design Analysis Request for Proposals (RFP) - LAHD This RFP seeks to solicit Proposals from qualified Proposers to provide site design analysis and planning, and assist in the evaluation of site RFP ..."
+          },
+          {
+            "url": "https://www.thepandemicfund.org/call-for-proposals",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Call for Proposals Call for Proposals — Costed Project Activities and Indicators Excel template. Each application must include Costed Project Activities and Indicators, which ..."
+          }
+        ],
+        "candidates": [
+          {
+            "text": "Senior Software Engineer (Golang/TypeScript/React) Our partner is looking for a Senior Software Engineer (Golang/TypeScript/React) - Independent Contractor based in France. This is a senior engineering ...",
+            "query": "TypeScript (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 0,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Typescript Engineer - TURING ENTERPRISES, INC. We're looking for a high-taste engineer with a strong eye for quality ... Employment Type: Independent contractor (does not include medical or paid leave benefits.",
+            "query": "TypeScript (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 1,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "How Much Does React Native App Development Cost? As a business owner, if you have the understanding to evaluate the cost, you can make a budget for your project and allocate resources effectively. Moreover, it ...",
+            "query": "React (\"project\" OR \"brief\") (\"budget\" OR \"fixed price\")",
+            "choice": 2,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Asset Based Community Development (ABCD) ... The RFP seeks proposals from applicants who can demonstrate their expertise, experience, and qualifications for providing administrative support services to ...",
+            "query": "web development (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 3,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Site Design Analysis Request for Proposals (RFP) - LAHD This RFP seeks to solicit Proposals from qualified Proposers to provide site design analysis and planning, and assist in the evaluation of site RFP ...",
+            "query": "web development (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 4,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "React Expense Tracker Mini Project with Complete Code Build a React Budget Tracking App: Income, Expenses & Balance. React Project 1 — Task Manager I built my first React Task Manager using reusable. 00:05 ...",
+            "query": "React (\"project\" OR \"brief\") (\"budget\" OR \"fixed price\")",
+            "choice": 5,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Website design, development, hosting, operations, maintenance, and support services using the Drupal content management system for the 511.org website (Pantheon)\nNearby parent text (not verified child evidence): WEBSITE DESIGN, DEVELOPMENT, HOSTING, OPERATIONS, MAINTENANCE, AND SUPPORT SERVICES USING THE DRUPAL CONTENT MANAGEMENT SYSTEM FOR THE 511.ORG WEBSITE (PANTHEON)\n\nDue date: 2027-07-01T00:00:00Location: USA (California)\nRequirements: Drupal, Pantheon, OpenStreetMap, SAAS API Gateway, Real-time data integration\n\n\nMODERNIZE ITS PUBLIC SEX OFFENDER REGISTRY WEBSITE, ENHANCING PUBLIC ACCESS TO REGISTRY INFORMATION THROUGH A MOBILE-RESPONSIVE, SEARCHABLE, AND\n\nDue date: 2026-12-16T19:00:00Location: USA (New Hampshire)\n\n\nDEVELOP A STATEWIDE WORKFORCE PORTAL\n\nDue date: 2026-11-13T16:00:00Location: USA (South Carolina)\n\n\nDESIGN, DEVELOP, HOST, AND SUPPORT A MODERN, SECURE, ACCESSIBLE, AND USER-FRIEND\nParent subject: . Parent context: This is a listings/search page collecting many web design and development opportunities, not a single specific opening. The page itself says it has many results and provides filters and sorting for multiple tenders.",
+            "query": null,
+            "choice": 6,
+            "origin": "source_link",
+            "parentUrl": "https://www.dcoe.org/opportunities/rfp-tenders"
+          },
+          {
+            "text": "Call for Proposals Call for Proposals — Costed Project Activities and Indicators Excel template. Each application must include Costed Project Activities and Indicators, which ...",
+            "query": "React (\"project\" OR \"brief\") (\"proposals\" OR \"bids\")",
+            "choice": 7,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Set and track the project budget To set or edit the project budget, please go to the project overview: Set a budget for the entire project or individual tasks. You can choose between setting ...",
+            "query": "React (\"project\" OR \"brief\") (\"budget\" OR \"fixed price\")",
+            "choice": 8,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Senior Software Engineer (Golang/TypeScript/React) Senior Software Engineer (Golang/TypeScript/React)- Independent Contractor ... We are looking for a Senior Software Engineer to join our team, responsible ...",
+            "query": "TypeScript (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 9,
+            "origin": "search_result",
+            "parentUrl": null
+          }
+        ]
+      },
+      "output": {
+        "kind": "choice",
+        "index": 6,
+        "explanation": "The directory page is the most useful next step because it can surface actual web development buyer briefs and RFPs, while the other options are mostly job listings, seller content, or unrelated proposals."
+      },
+      "rejected_output": null,
+      "failure": null,
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 1969,
+        "responseId": "resp_00f8cd181255cd0f016acc254330b487d2ac04efb4daa8d9fa",
+        "inputTokens": 4375,
+        "outputTokens": 232,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 4326
+      }
+    },
+    {
+      "input": {
+        "kind": "choice",
+        "intent": {
+          "remote": true,
+          "target": "React TypeScript web development",
+          "category": "services"
+        },
+        "choices": [
+          {
+            "depth": 0,
+            "title": "Senior Software Engineer (Golang/TypeScript/React)",
+            "action": {
+              "url": "https://fr.jooble.org/jdp/4162442505344838789",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "ceb572a46e37a85c361bd1e444a709f539a0f2e041dd47f084581dcdcad20baa"
+          },
+          {
+            "depth": 0,
+            "title": "Typescript Engineer - TURING ENTERPRISES, INC.",
+            "action": {
+              "url": "https://www.dice.com/job-detail/001da4d0-cfbc-4a81-ad1c-eee7a61afb29",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "ceb572a46e37a85c361bd1e444a709f539a0f2e041dd47f084581dcdcad20baa"
+          },
+          {
+            "depth": 0,
+            "title": "How Much Does React Native App Development Cost?",
+            "action": {
+              "url": "https://ripenapps.com/blog/react-native-app-development-cost/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "24b670e3de6cef6b80d77d43eed77d77c3c6ef825d7a92c2a099ba9c4c723cf0"
+          },
+          {
+            "depth": 0,
+            "title": "Asset Based Community Development (ABCD) ...",
+            "action": {
+              "url": "https://www.cscbroward.org/news/abcd-rfp-2026/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "e904f88fd99709bf0fa34e7c0327609b786368b1d2e2e202090e1d3b85cd4ec7"
+          },
+          {
+            "depth": 0,
+            "title": "Site Design Analysis Request for Proposals (RFP) - LAHD",
+            "action": {
+              "url": "https://housing.lacity.gov/all-announcement/site-design-analysis-request-for-proposals-rfp",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "e904f88fd99709bf0fa34e7c0327609b786368b1d2e2e202090e1d3b85cd4ec7"
+          },
+          {
+            "depth": 0,
+            "title": "React Expense Tracker Mini Project with Complete Code",
+            "action": {
+              "url": "https://www.facebook.com/100094225972294/videos/-build-a-real-react-project-i-just-built-a-react-expense-tracker-mini-project-fr/1821232602369719/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "24b670e3de6cef6b80d77d43eed77d77c3c6ef825d7a92c2a099ba9c4c723cf0"
+          },
+          {
+            "depth": 0,
+            "title": "Call for Proposals",
+            "action": {
+              "url": "https://www.thepandemicfund.org/call-for-proposals",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "7c941b11793059eb775de3a43f2fd9d68f300a0efcf4fc1fe41ceba5f08545ce"
+          },
+          {
+            "depth": 1,
+            "title": "Modernize its public Sex Offender Registry website, enhancing public access to registry information through a mobile-responsive, searchable, and",
+            "action": {
+              "url": "https://www.dcoe.org/opportunities/rfp-tenders/modernize-its-public-sex-offender-registry-website-enhancing-public",
+              "kind": "document"
+            },
+            "reason": "follow_source_link",
+            "parentKey": "539a4e76e8c1189100590b6478caf01b5583d630e0403ae692b717194e81940b"
+          },
+          {
+            "depth": 0,
+            "title": "Set and track the project budget",
+            "action": {
+              "url": "https://help.myhours.com/en/articles/1346676-set-and-track-the-project-budget",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "24b670e3de6cef6b80d77d43eed77d77c3c6ef825d7a92c2a099ba9c4c723cf0"
+          },
+          {
+            "depth": 0,
+            "title": "Senior Software Engineer (Golang/TypeScript/React)",
+            "action": {
+              "url": "https://dailyremote.com/remote-job/senior-software-engineer-golang-type-script-react-independent-contractor-5718896",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "ceb572a46e37a85c361bd1e444a709f539a0f2e041dd47f084581dcdcad20baa"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "TypeScript site:x.com (\"hiring\" OR \"need\") (\"project\" OR \"freelance\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "7c941b11793059eb775de3a43f2fd9d68f300a0efcf4fc1fe41ceba5f08545ce"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "web development site:linkedin.com/posts (\"hiring\" OR \"need\") (\"project\" OR \"freelance\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "7c941b11793059eb775de3a43f2fd9d68f300a0efcf4fc1fe41ceba5f08545ce"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "TypeScript (\"project\" OR \"brief\") (\"budget\" OR \"fixed price\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "7c941b11793059eb775de3a43f2fd9d68f300a0efcf4fc1fe41ceba5f08545ce"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "web development (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "7c941b11793059eb775de3a43f2fd9d68f300a0efcf4fc1fe41ceba5f08545ce"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "React (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "7c941b11793059eb775de3a43f2fd9d68f300a0efcf4fc1fe41ceba5f08545ce"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": null,
+            "reason": "no_further_action",
+            "parentKey": null
+          }
+        ],
+        "evidence": [
+          {
+            "url": "https://www.linkedin.com/jobs/view/senior-software-engineer-golang-typescript-react-independent-contractor-at-jobgether-4474690408",
+            "label": "access_limited",
+            "scope": "source_access",
+            "unknowns": [
+              "demand and availability remain unverified"
+            ],
+            "explanation": "Source capture could not provide complete evidence: crawl_policy_denied."
+          },
+          {
+            "url": "https://www.linkedin.com/posts/start-designs_websitedevelopment-rfp-webdevelopment-activity-7506988772400496640-UUs3",
+            "label": "access_limited",
+            "scope": "source_access",
+            "unknowns": [
+              "demand and availability remain unverified"
+            ],
+            "explanation": "Source capture could not provide complete evidence: crawl_policy_denied."
+          },
+          {
+            "url": "https://www.c40.org/wp-content/uploads/2026/10/2-RfP-GCoM-Website-Development-Maintenance.pdf",
+            "label": "access_limited",
+            "scope": "source_access",
+            "unknowns": [
+              "demand and availability remain unverified"
+            ],
+            "explanation": "Source capture could not provide complete evidence: source_access_denied."
+          },
+          {
+            "url": "https://www.dcoe.org/opportunities/rfp-tenders",
+            "label": "directory",
+            "scope": "source",
+            "unknowns": [
+              "role",
+              "category",
+              "location",
+              "arrangement",
+              "sponsorship",
+              "compensation",
+              "requirements",
+              "authorization"
+            ],
+            "explanation": "This is a listings/search page collecting many web design and development opportunities, not a single specific opening. The page itself says it has many results and provides filters and sorting for multiple tenders. Subject: . Evidence: WEB DESIGN AND DEVELOPMENT OPPORTUNITIES"
+          },
+          {
+            "url": "https://www.dcoe.org/opportunities/rfp-tenders/website-design-development-hosting-operations-maintenance-and-support",
+            "label": "client_request",
+            "scope": "source",
+            "unknowns": [
+              "arrangement",
+              "sponsorship",
+              "compensation",
+              "authorization"
+            ],
+            "explanation": "This is a specific procurement/RFP asking for a vendor to provide website services for 511.org, so it is a buyer request rather than a job opening. Subject: website design, development, hosting, operations, maintenance, and support services. Evidence: The Metropolitan Transportation Commission (MTC) is seeking a vendor for website design, development, hosting, operations, maintenance, and support services using the Drupal content management system for the 511.org website. The project aims to enhance the website's functionality, including real-time traveler alerts and interactive maps, and transition from Google Maps to OpenStreetMap."
+          },
+          {
+            "url": "https://www.facebook.com/100094225972294/videos/-build-a-real-react-project-i-just-built-a-react-expense-tracker-mini-project-fr/1821232602369719/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "React Expense Tracker Mini Project with Complete Code Build a React Budget Tracking App: Income, Expenses & Balance. React Project 1 — Task Manager I built my first React Task Manager using reusable. 00:05 ..."
+          },
+          {
+            "url": "https://help.myhours.com/en/articles/1346676-set-and-track-the-project-budget",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Set and track the project budget To set or edit the project budget, please go to the project overview: Set a budget for the entire project or individual tasks. You can choose between setting ..."
+          },
+          {
+            "url": "https://ripenapps.com/blog/react-native-app-development-cost/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "How Much Does React Native App Development Cost? As a business owner, if you have the understanding to evaluate the cost, you can make a budget for your project and allocate resources effectively. Moreover, it ..."
+          },
+          {
+            "url": "https://dailyremote.com/remote-job/senior-software-engineer-golang-type-script-react-independent-contractor-5718896",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Senior Software Engineer (Golang/TypeScript/React) Senior Software Engineer (Golang/TypeScript/React)- Independent Contractor ... We are looking for a Senior Software Engineer to join our team, responsible ..."
+          },
+          {
+            "url": "https://fr.jooble.org/jdp/4162442505344838789",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Senior Software Engineer (Golang/TypeScript/React) Our partner is looking for a Senior Software Engineer (Golang/TypeScript/React) - Independent Contractor based in France. This is a senior engineering ..."
+          },
+          {
+            "url": "https://www.dice.com/job-detail/001da4d0-cfbc-4a81-ad1c-eee7a61afb29",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Typescript Engineer - TURING ENTERPRISES, INC. We're looking for a high-taste engineer with a strong eye for quality ... Employment Type: Independent contractor (does not include medical or paid leave benefits."
+          },
+          {
+            "url": "https://www.cscbroward.org/news/abcd-rfp-2026/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Asset Based Community Development (ABCD) ... The RFP seeks proposals from applicants who can demonstrate their expertise, experience, and qualifications for providing administrative support services to ..."
+          },
+          {
+            "url": "https://housing.lacity.gov/all-announcement/site-design-analysis-request-for-proposals-rfp",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Site Design Analysis Request for Proposals (RFP) - LAHD This RFP seeks to solicit Proposals from qualified Proposers to provide site design analysis and planning, and assist in the evaluation of site RFP ..."
+          },
+          {
+            "url": "https://www.thepandemicfund.org/call-for-proposals",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Call for Proposals Call for Proposals — Costed Project Activities and Indicators Excel template. Each application must include Costed Project Activities and Indicators, which ..."
+          }
+        ],
+        "candidates": [
+          {
+            "text": "Senior Software Engineer (Golang/TypeScript/React) Our partner is looking for a Senior Software Engineer (Golang/TypeScript/React) - Independent Contractor based in France. This is a senior engineering ...",
+            "query": "TypeScript (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 0,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Typescript Engineer - TURING ENTERPRISES, INC. We're looking for a high-taste engineer with a strong eye for quality ... Employment Type: Independent contractor (does not include medical or paid leave benefits.",
+            "query": "TypeScript (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 1,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "How Much Does React Native App Development Cost? As a business owner, if you have the understanding to evaluate the cost, you can make a budget for your project and allocate resources effectively. Moreover, it ...",
+            "query": "React (\"project\" OR \"brief\") (\"budget\" OR \"fixed price\")",
+            "choice": 2,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Asset Based Community Development (ABCD) ... The RFP seeks proposals from applicants who can demonstrate their expertise, experience, and qualifications for providing administrative support services to ...",
+            "query": "web development (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 3,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Site Design Analysis Request for Proposals (RFP) - LAHD This RFP seeks to solicit Proposals from qualified Proposers to provide site design analysis and planning, and assist in the evaluation of site RFP ...",
+            "query": "web development (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 4,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "React Expense Tracker Mini Project with Complete Code Build a React Budget Tracking App: Income, Expenses & Balance. React Project 1 — Task Manager I built my first React Task Manager using reusable. 00:05 ...",
+            "query": "React (\"project\" OR \"brief\") (\"budget\" OR \"fixed price\")",
+            "choice": 5,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Call for Proposals Call for Proposals — Costed Project Activities and Indicators Excel template. Each application must include Costed Project Activities and Indicators, which ...",
+            "query": "React (\"project\" OR \"brief\") (\"proposals\" OR \"bids\")",
+            "choice": 6,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Modernize its public Sex Offender Registry website, enhancing public access to registry information through a mobile-responsive, searchable, and\nNearby parent text (not verified child evidence): MODERNIZE ITS PUBLIC SEX OFFENDER REGISTRY WEBSITE, ENHANCING PUBLIC ACCESS TO REGISTRY INFORMATION THROUGH A MOBILE-RESPONSIVE, SEARCHABLE, AND\n\nDue date: 2026-12-16T19:00:00Location: USA (New Hampshire)\n\n\nDEVELOP A STATEWIDE WORKFORCE PORTAL\n\nDue date: 2026-11-13T16:00:00Location: USA (South Carolina)\n\n\nDESIGN, DEVELOP, HOST, AND SUPPORT A MODERN, SECURE, ACCESSIBLE, AND USER-FRIENDLY COUNTY WEBSITE USING A CONTENT MANAGEMENT SYSTEM\n\nDue date: 2026-11-12T16:00:00Location: USA (Missouri)\n\n\nREDESIGN AND REDEVELOPMENT OF ITS WEBSITE, INCLUDING IMPROVEMENTS TO THE MEMBER PORTAL AND IMPLEMENTATION OF CONTENT MANAGEMENT AND CONFERENCE\n\nDue date: 2026-10-30T21:00:00Location: USA (Louisiana)\n\n\nPRO\nParent subject: . Parent context: This is a listings/search page collecting many web design and development opportunities, not a single specific opening. The page itself says it has many results and provides filters and sorting for multiple tenders.",
+            "query": null,
+            "choice": 7,
+            "origin": "source_link",
+            "parentUrl": "https://www.dcoe.org/opportunities/rfp-tenders"
+          },
+          {
+            "text": "Set and track the project budget To set or edit the project budget, please go to the project overview: Set a budget for the entire project or individual tasks. You can choose between setting ...",
+            "query": "React (\"project\" OR \"brief\") (\"budget\" OR \"fixed price\")",
+            "choice": 8,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Senior Software Engineer (Golang/TypeScript/React) Senior Software Engineer (Golang/TypeScript/React)- Independent Contractor ... We are looking for a Senior Software Engineer to join our team, responsible ...",
+            "query": "TypeScript (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 9,
+            "origin": "search_result",
+            "parentUrl": null
+          }
+        ]
+      },
+      "output": {
+        "kind": "choice",
+        "index": 7,
+        "explanation": "This directory is the best next step because it routes to a concrete website-development procurement opportunity, which is closer to the requested React/TypeScript web-development services than the employment listings or unrelated RFPs. Reading it can surface a specific buyer brief with requirements and deadlines."
+      },
+      "rejected_output": null,
+      "failure": null,
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 2390,
+        "responseId": "resp_01bd9e2fd2b30334016acc254b800487d2b011551f0eb371fd",
+        "inputTokens": 4550,
+        "outputTokens": 333,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 4911
+      }
+    }
+  ],
+  "sourceReviewsCompleted": 3,
+  "intelligence": [
+    {
+      "id": "97fe96a731a05e6aa0b5fe9fbff3de3a0be5701d9062c0af7d42497272a7f94b",
+      "posting_id": "web:35303072b79f33ff9caf993e717020bd073a0744fca8761f46c77b9fd3e57b06",
+      "kind": "research",
+      "result": {
+        "kind": "research",
+        "usage": {
+          "model": "no-provider-call",
+          "durationMs": 4,
+          "responseId": "",
+          "inputTokens": 0,
+          "outputTokens": 0
+        },
+        "analysis": {
+          "pay": {
+            "period": null,
+            "maximum": null,
+            "minimum": null,
+            "currency": null
+          },
+          "facts": {
+            "role": {
+              "value": "website design, development, hosting, operations, maintenance, and support services",
+              "quotes": [
+                "WEBSITE DESIGN, DEVELOPMENT, HOSTING, OPERATIONS, MAINTENANCE, AND SUPPORT SERVICES USING THE DRUPAL CONTENT MANAGEMENT SYSTEM FOR THE 511.ORG WEBSITE (PANTHEON)",
+                "The Metropolitan Transportation Commission (MTC) is seeking a vendor for website design, development, hosting, operations, maintenance, and support services using the Drupal content management system for the 511.org website. The project aims to enhance the website's functionality, including real-time traveler alerts and interactive maps, and transition from Google Maps to OpenStreetMap."
+              ],
+              "status": "stated"
+            },
+            "category": {
+              "value": "contract",
+              "quotes": [
+                "The Metropolitan Transportation Commission (MTC) is seeking a vendor for website design, development, hosting, operations, maintenance, and support services using the Drupal content management system for the 511.org website. The project aims to enhance the website's functionality, including real-time traveler alerts and interactive maps, and transition from Google Maps to OpenStreetMap."
+              ],
+              "status": "stated"
+            },
+            "location": {
+              "value": "USA, California",
+              "quotes": [
+                "Due Date 2027-07-01T00:00:00 Country USA State California"
+              ],
+              "status": "stated"
+            },
+            "arrangement": {
+              "value": "",
+              "quotes": [],
+              "status": "unknown"
+            },
+            "sponsorship": {
+              "value": "",
+              "quotes": [],
+              "status": "unknown"
+            },
+            "compensation": {
+              "value": "",
+              "quotes": [],
+              "status": "unknown"
+            },
+            "requirements": {
+              "value": "Drupal Pantheon OpenStreetMap SAAS API Gateway Real-time data integration",
+              "quotes": [
+                "Drupal Pantheon OpenStreetMap SAAS API Gateway Real-time data integration"
+              ],
+              "status": "stated"
+            },
+            "authorization": {
+              "value": "",
+              "quotes": [],
+              "status": "unknown"
+            }
+          },
+          "research": {
+            "findings": [
+              {
+                "fact": "location",
+                "value": "",
+                "quotes": [],
+                "status": "unresolved",
+                "sourceUrl": null,
+                "explanation": "Approved employer sources did not provide usable evidence for this question.",
+                "applicability": "unclear"
+              },
+              {
+                "fact": "authorization",
+                "value": "",
+                "quotes": [],
+                "status": "unresolved",
+                "sourceUrl": null,
+                "explanation": "Approved employer sources did not provide usable evidence for this question.",
+                "applicability": "unclear"
+              },
+              {
+                "fact": "sponsorship",
+                "value": "",
+                "quotes": [],
+                "status": "unresolved",
+                "sourceUrl": null,
+                "explanation": "Approved employer sources did not provide usable evidence for this question.",
+                "applicability": "unclear"
+              },
+              {
+                "fact": "requirements",
+                "value": "",
+                "quotes": [],
+                "status": "unresolved",
+                "sourceUrl": null,
+                "explanation": "Approved employer sources did not provide usable evidence for this question.",
+                "applicability": "unclear"
+              },
+              {
+                "fact": "deadline",
+                "value": "",
+                "quotes": [],
+                "status": "unresolved",
+                "sourceUrl": null,
+                "explanation": "Approved employer sources did not provide usable evidence for this question.",
+                "applicability": "unclear"
+              }
+            ],
+            "checkedAt": "2026-10-12T00:10:15.022Z",
+            "documents": [],
+            "expiresAt": "2026-10-12T00:25:15.022Z"
+          }
+        }
+      },
+      "analysis_task_id": null,
+      "outcome": "ready",
+      "usage": {
+        "model": "no-provider-call",
+        "durationMs": 4,
+        "responseId": "",
+        "inputTokens": 0,
+        "outputTokens": 0
+      },
+      "cost": {
+        "source": "none",
+        "currency": "USD",
+        "pricingVersion": "no-provider-call",
+        "estimatedMicrousd": 0
+      }
+    },
+    {
+      "id": "b70d54c00041f1fc5ad4bc98dd83294de8a17c5498ebda4affe4ee59ff5b3d8e",
+      "posting_id": "web:35303072b79f33ff9caf993e717020bd073a0744fca8761f46c77b9fd3e57b06",
+      "kind": "fit",
+      "result": {
+        "fit": {
+          "criteria": [
+            {
+              "quotes": [
+                "WEBSITE DESIGN, DEVELOPMENT, HOSTING, OPERATIONS, MAINTENANCE, AND SUPPORT SERVICES USING THE DRUPAL CONTENT MANAGEMENT SYSTEM FOR THE 511.ORG WEBSITE (PANTHEON)",
+                "The Metropolitan Transportation Commission (MTC) is seeking a vendor for website design, development, hosting, operations, maintenance, and support services using the Drupal content management system for the 511.org website. The project aims to enhance the website's functionality, including real-time traveler alerts and interactive maps, and transition from Google Maps to OpenStreetMap."
+              ],
+              "status": "conflicts",
+              "criterion": "role",
+              "briefQuotes": [
+                "React TypeScript web development"
+              ],
+              "explanation": "The posting is for Drupal-based website design, development, hosting, operations, maintenance, and support services, which does not match the brief target of React TypeScript web development."
+            },
+            {
+              "quotes": [
+                "The Metropolitan Transportation Commission (MTC) is seeking a vendor for website design, development, hosting, operations, maintenance, and support services using the Drupal content management system for the 511.org website. The project aims to enhance the website's functionality, including real-time traveler alerts and interactive maps, and transition from Google Maps to OpenStreetMap."
+              ],
+              "status": "meets",
+              "criterion": "category",
+              "briefQuotes": [
+                "services"
+              ],
+              "explanation": "This is a services opportunity, which matches the brief category."
+            },
+            {
+              "quotes": [],
+              "status": "unknown",
+              "criterion": "arrangement",
+              "briefQuotes": [
+                "remote"
+              ],
+              "explanation": "The posting does not state whether the work is remote, hybrid, or onsite, so the work arrangement cannot be confirmed."
+            },
+            {
+              "quotes": [
+                "Due Date 2027-07-01T00:00:00 Country USA State California"
+              ],
+              "status": "meets",
+              "criterion": "location",
+              "briefQuotes": [
+                "United States or remote worldwide",
+                "United States"
+              ],
+              "explanation": "The opportunity is in USA, California, which fits the brief's United States location scope."
+            },
+            {
+              "quotes": [
+                "Drupal Pantheon OpenStreetMap SAAS API Gateway Real-time data integration"
+              ],
+              "status": "conflicts",
+              "criterion": "experience",
+              "briefQuotes": [
+                "Five years delivering React and TypeScript web applications, API integrations and dashboards for clients",
+                "React TypeScript web development"
+              ],
+              "explanation": "The posting requires Drupal, Pantheon, OpenStreetMap, SAAS, API Gateway, and real-time data integration, while the brief background is React and TypeScript web applications with API integrations and dashboards; the stated experience does not match the job's required stack."
+            },
+            {
+              "quotes": [
+                "Due Date 2027-07-01T00:00:00 Country USA State California"
+              ],
+              "status": "meets",
+              "criterion": "authorization",
+              "briefQuotes": [
+                "not_needed",
+                "United States"
+              ],
+              "explanation": "The brief confirms authorization is not needed for the United States, and the job location is in the United States."
+            },
+            {
+              "quotes": [],
+              "status": "unknown",
+              "criterion": "compensation",
+              "briefQuotes": [
+                "USD",
+                "project",
+                "include"
+              ],
+              "explanation": "No pay or budget information is stated in the posting, so compensation cannot be compared."
+            }
+          ]
+        },
+        "kind": "fit",
+        "usage": {
+          "model": "gpt-5.4-mini-2026-03-17",
+          "durationMs": 3862,
+          "responseId": "resp_0ffd438724a728c9016acc256787b487d2bae7602094d774c9",
+          "inputTokens": 1881,
+          "outputTokens": 633,
+          "cachedInputTokens": 0
+        }
+      },
+      "analysis_task_id": "97fe96a731a05e6aa0b5fe9fbff3de3a0be5701d9062c0af7d42497272a7f94b",
+      "outcome": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 3862,
+        "responseId": "resp_0ffd438724a728c9016acc256787b487d2bae7602094d774c9",
+        "inputTokens": 1881,
+        "outputTokens": 633,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 4260
+      }
+    }
+  ],
+  "matchingState": {
+    "status": "completed",
+    "match_count": 0
+  },
+  "taskStates": [
+    {
+      "kind": "extraction",
+      "status": "ready",
+      "count": 1
+    },
+    {
+      "kind": "fit",
+      "status": "ready",
+      "count": 1
+    },
+    {
+      "kind": "research",
+      "status": "ready",
+      "count": 1
+    }
+  ],
+  "eligiblePostings": [
+    {
+      "id": "web:35303072b79f33ff9caf993e717020bd073a0744fca8761f46c77b9fd3e57b06",
+      "kind": "client_request",
+      "title": "website design, development, hosting, operations, maintenance, and support services",
+      "url": "https://www.dcoe.org/opportunities/rfp-tenders/website-design-development-hosting-operations-maintenance-and-support"
+    }
+  ],
+  "reviewAttempts": [
+    {
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 2338,
+        "responseId": "resp_0329d038dd0dda95016acc253c4f5c87d29a4bacbb8f64d93f",
+        "inputTokens": 4250,
+        "outputTokens": 336,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 4700
+      }
+    },
+    {
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 3135,
+        "responseId": "resp_062d5b783d6cd678016acc25484f2087d28080f1ff206e5b57",
+        "inputTokens": 1763,
+        "outputTokens": 478,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 3474
+      }
+    },
+    {
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 3855,
+        "responseId": "resp_054b691c125a4a69016acc2563bee487d2bd57cd8f8178fa30",
+        "inputTokens": 1832,
+        "outputTokens": 524,
+        "cachedInputTokens": 1280
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 2868
+      }
+    }
+  ],
+  "opportunities": [],
+  "deliveries": [],
+  "durationMs": 68510,
+  "search": {
+    "goal": "Find remote freelance React development projects",
+    "category": "services",
+    "target": "React TypeScript web development",
+    "name": "Synthetic client-project scout",
+    "arrangement": "remote",
+    "arrangementRequired": true,
+    "residence": "New York, United States",
+    "workLocations": "United States or remote worldwide",
+    "authorizationLocations": "United States",
+    "authorizationConfirmed": true,
+    "sponsorshipNeed": "not_needed",
+    "background": "Five years delivering React and TypeScript web applications, API integrations and dashboards for clients",
+    "minimumPay": "",
+    "currency": "USD",
+    "payPeriod": "project",
+    "unknownEligibility": "review",
+    "undisclosedPay": "include"
+  },
+  "operations": [
+    {
+      "key": "24b670e3de6cef6b80d77d43eed77d77c3c6ef825d7a92c2a099ba9c4c723cf0",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "React (\"project\" OR \"brief\") (\"budget\" OR \"fixed price\")",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "retrieved_url": null,
+      "capture": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "ceb572a46e37a85c361bd1e444a709f539a0f2e041dd47f084581dcdcad20baa",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "TypeScript (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "retrieved_url": null,
+      "capture": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "e904f88fd99709bf0fa34e7c0327609b786368b1d2e2e202090e1d3b85cd4ec7",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "web development (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "retrieved_url": null,
+      "capture": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "7c941b11793059eb775de3a43f2fd9d68f300a0efcf4fc1fe41ceba5f08545ce",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "React (\"project\" OR \"brief\") (\"proposals\" OR \"bids\")",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "retrieved_url": null,
+      "capture": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "30953fd63de00c00903632ad9133650aebd68c1a99daeaad479ba89c616f7b98",
+      "kind": "document",
+      "input": {
+        "url": "https://www.linkedin.com/jobs/view/senior-software-engineer-golang-typescript-react-independent-contractor-at-jobgether-4474690408",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": [],
+      "retrieved_url": null,
+      "capture": {
+        "bytes": 120190,
+        "method": "http",
+        "complete": false,
+        "requests": 1
+      },
+      "captured_text": null,
+      "source_status": "access_limited",
+      "source_reason": "crawl_policy_denied",
+      "observed_links": 0
+    },
+    {
+      "key": "09d0079434b7624fa7f6edfea0effc5374393e0cbd901950177d3e6e916169ae",
+      "kind": "document",
+      "input": {
+        "url": "https://www.linkedin.com/posts/start-designs_websitedevelopment-rfp-webdevelopment-activity-7506988772400496640-UUs3",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": [],
+      "retrieved_url": null,
+      "capture": {
+        "bytes": 120190,
+        "method": "http",
+        "complete": false,
+        "requests": 1
+      },
+      "captured_text": null,
+      "source_status": "access_limited",
+      "source_reason": "crawl_policy_denied",
+      "observed_links": 0
+    },
+    {
+      "key": "539a4e76e8c1189100590b6478caf01b5583d630e0403ae692b717194e81940b",
+      "kind": "document",
+      "input": {
+        "url": "https://www.dcoe.org/opportunities/rfp-tenders",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": [
+        {
+          "url": "https://www.dcoe.org/opportunities/rfp-tenders/website-design-development-hosting-operations-maintenance-and-support",
+          "text": "Website design, development, hosting, operations, maintenance, and support services using the Drupal content management system for the 511.org website (Pantheon)"
+        },
+        {
+          "url": "https://www.dcoe.org/opportunities/rfp-tenders/modernize-its-public-sex-offender-registry-website-enhancing-public",
+          "text": "Modernize its public Sex Offender Registry website, enhancing public access to registry information through a mobile-responsive, searchable, and"
+        },
+        {
+          "url": "https://www.dcoe.org/opportunities/rfp-tenders/develop-statewide-workforce-portal",
+          "text": "Develop a statewide workforce portal"
+        },
+        {
+          "url": "https://www.dcoe.org/opportunities/rfp-tenders/design-develop-host-and-support-modern-secure-accessible-and-user",
+          "text": "Design, develop, host, and support a modern, secure, accessible, and user-friendly County website using a content management system"
+        },
+        {
+          "url": "https://www.dcoe.org/opportunities/rfp-tenders/redesign-and-redevelopment-its-website-including-improvements-member",
+          "text": "Redesign and redevelopment of its website, including improvements to the member portal and implementation of content management and conference"
+        },
+        {
+          "url": "https://www.dcoe.org/opportunities/rfp-tenders/provide-website-ada-compliance-services-update-and-maintain-prtpo-website",
+          "text": "Provide website ADA compliance services to update and maintain the PRTPO website in accordance with ADA and WCAG requirements"
+        },
+        {
+          "url": "https://www.dcoe.org/opportunities/rfp-tenders/design-develop-and-implement-modern-accessible-and-user-friendly-website",
+          "text": "Design, develop, and implement a modern, accessible, and user-friendly website (ArcGIS StoryMaps)"
+        },
+        {
+          "url": "https://www.dcoe.org/opportunities/rfp-tenders/redesign-develop-implement-host-and-migrate-its-municipal-website-using",
+          "text": "Redesign, develop, implement, host, and migrate its municipal website using a content management system"
+        },
+        {
+          "url": "https://www.dcoe.org/opportunities/rfp-tenders/website-maintenance-and-hosting-services",
+          "text": "Website maintenance and hosting services"
+        },
+        {
+          "url": "https://www.dcoe.org/opportunities/rfp-tenders/provide-managed-hosting-content-delivery-security-and-support-services",
+          "text": "Provide managed hosting, content delivery, security, and support services for its public website and associated CMS"
+        }
+      ],
+      "feeds": [],
+      "sitemaps": [],
+      "retrieved_url": "https://www.dcoe.org/opportunities/rfp-tenders",
+      "capture": {
+        "bytes": 281810,
+        "method": "http",
+        "complete": true,
+        "requests": 2
+      },
+      "captured_text": "Skip to main content\nLog in\n\n\n\nWEB DESIGN AND DEVELOPMENT OPPORTUNITIES\n\nSearch\n\nShow only active RFPs\n * Due Date Asc\n * Due Date Desc\n\nSort by:\nDue date, ascending Due date, descending\n\nFilter by:\n\n\n\nCOUNTRY\n\n * Austria\n * Belgium\n * Canada\n * France\n * Germany\n * Ghana\n * India\n * Ireland\n * Italy\n * Kenya\n * Liberia\n * Malaysia\n * Namibia\n * Netherlands\n * Philippines\n * South Africa\n * Sri Lanka\n * Switzerland\n * UK United Kingdom\n * USA\n\n\nSTATE\n\n\n\n\nKEY REQUIREMENTS\n\n * Accessibility Standards\n * Accessibility Testing\n * Accessibility Tools\n * Acquia\n * Acquia Cloud Platform\n * Acquia Site Factory\n * Acquia Site Studio\n * Active Directory\n * ADA Compliance\n * Adobe Photoshop\n * Adopets\n * ADP\n * Agile Development\n * AI\n * AI-assisted Search\n * AI-driven Functionalities\n * AI-enabled Web Development\n * AI-enhanced Search\n * AirTable\n * AI Search Optimization\n * AI Technologies\n * Amazeeio\n * Amazon Web Service\n * Amazon Web Services\n * AODA Compliance\n * Apache\n * API\n * API-first Architecture\n * API Integration\n * ArcGIS\n * ArcGIS StoryMaps\n * ASP\n * AWS\n * AWS S3 Glacier ECS\n * Azure\n * Azure AD\n * Bilingual Platforms\n * Bootstrap-SASS\n * Calendly\n * Campaign Monitor\n * Canadaca Design System\n * Canva\n * Capacitor\n * CASCADE CMS\n * CDN\n * CentralSquare Naviline ERP\n * CircleCI\n * Cloud Deployment\n * Cloudflare\n * Cloud Hosting\n * CMS\n * Cold Fusion\n * Composer\n * CONTENTdm\n * Contentful\n * Content Management System\n * Content Management System CMS\n * Content Management Systems\n * Content Management Systems CMS\n * Craft CMS\n * CRM\n * CRM Integration\n * CrowdRiff\n * CSS\n * CSS3\n * Custom Code Support\n * DAM\n * Data Analytics\n * Data Ingestion And Processing\n * Data Security\n * DDoS Protection\n * DevOps Tools\n * Digital Ocean\n * DNN\n * DNS Hosting\n * Docusign\n * Drupal\n * Drupal 7\n * Drupal 8\n * Drupal 9\n * Drupal 9+\n * Drupal 10\n * Drupal 11\n * Drupal 12\n * DRUPAL 9511\n * Drupal CMS\n * DXP Composable Environment\n * Elasticsearch\n * Elementor\n * Email Integration\n * ESRI/GIS\n * Expression Engine\n * FIDS\n * FlyMyAirport\n * FormAssembly\n * GA4\n * GEO/AIO\n * GIS\n * Git\n * GitHub\n * Github\n * GitHub Actions\n * GitLab\n * Gitlab\n * Gmail\n * Google Analytics\n * Google Analytics 4\n * Google Analytics 4 GA4\n * Google Cloud\n * Google Drive\n * Google GA4\n * Google Search Console\n * Google Suite\n * Google Tag Manager\n * Google Tags\n * Google Transit\n * Google Workspace\n * Granicus\n * Hosting Solutions\n * HTML\n * HTML/CSS/JavaScript\n * HTML5\n * HTTP Accelerator\n * HubSpot\n * HubSpot CRM\n * IIS\n * ISAIC Servers\n * JavaScript\n * Javascript\n * Jira\n * JS\n * JUICEBOX\n * Keela\n * LAMP Stack\n * Laravel\n * Linex\n * Linux\n * Localist\n * Looker Studio\n * Mailchimp\n * MailChimp\n * MariaDB\n * Mariadb\n * McAfee Antivirus\n * Membership Works\n * Meta Business Suite Pixel\n * Meta Pixel\n * Microsoft 365\n * Microsoft Azure\n * Microsoft Azure Active Directory\n * Microsoft Azure AD\n * Microsoft Clarity\n * Microsoft Dynamics\n * Microsoft Entra ID\n * Microsoft SharePoint\n * Mobile-responsive Design\n * Mobile Optimization\n * Mondaycom\n * Multilingual Support\n * Multilingual Translation\n * MySQL\n * MySQL/MariaDB\n * NET\n * Net Core\n * Nextjs\n * Nginx\n * October CMS\n * OIDC\n * Okta\n * OKTA FedRAMP\n * Omni Analytics\n * OpenGov\n * OpenSolr\n * OpenStreetMap\n * Oracle\n * Pantheon\n * Pantheon Hosting\n * Pattern Lab\n * PayPal\n * PDF\n * Photoshop\n * PHP\n * Php\n * PHP 82+\n * Platformsh\n * Plone\n * Polylang\n * Power BI\n * PowerSchool\n * QAlert\n * Raisers Edge\n * Rancher\n * React\n * Real-time Data Integration\n * RecDesk\n * Redis\n * Remix\n * Responsive Design\n * Responsive Web Design\n * Runcloud\n * SAAS API Gateway\n * Salesforce\n * Salesforce CRM\n * Salesforce Marketing Cloud\n * SAML 20\n * Sanity\n * SchoolMessenger\n * Secure Payment Gateway Integration\n * Security Authentication\n * Security Maintenance\n * SEO\n * SEO Optimization\n * SEO Tools\n * Server Management\n * SharePoint\n * Sharepoint\n * SharePoint Online\n * Shibboleth\n * Shopify\n * Showpass\n * Single Sign-On SSO\n * Sitecore\n * SmartHub\n * SMTP Services\n * Social Media Integration\n * Software-as-a-Service SaaS\n * Solr\n * Splunk\n * SpringShare LibApps\n * SQL Server\n * Square\n * Squarespace\n * SSL\n * SSL Encryption\n * SSO\n * Starlink\n * Stripe\n * Svelte\n * SVG\n * Tailwind CSS\n * TerminalFour\n * The Events Calendar WordPress Plugin\n * Toast POS\n * TYPO3\n * WCAG 21 AA\n * WCAG 21 AA Compliance\n * Web Development\n * Web Hosting\n * Wix\n * WordPress\n\n279 RESULTS - LAST UPDATED: OCTOBER 11TH, 2026\n\n\nWEBSITE DESIGN, DEVELOPMENT, HOSTING, OPERATIONS, MAINTENANCE, AND SUPPORT SERVICES USING THE DRUPAL CONTENT MANAGEMENT SYSTEM FOR THE 511.ORG WEBSITE (PANTHEON)\n\nDue date: 2027-07-01T00:00:00Location: USA (California)\nRequirements: Drupal, Pantheon, OpenStreetMap, SAAS API Gateway, Real-time data integration\n\n\nMODERNIZE ITS PUBLIC SEX OFFENDER REGISTRY WEBSITE, ENHANCING PUBLIC ACCESS TO REGISTRY INFORMATION THROUGH A MOBILE-RESPONSIVE, SEARCHABLE, AND\n\nDue date: 2026-12-16T19:00:00Location: USA (New Hampshire)\n\n\nDEVELOP A STATEWIDE WORKFORCE PORTAL\n\nDue date: 2026-11-13T16:00:00Location: USA (South Carolina)\n\n\nDESIGN, DEVELOP, HOST, AND SUPPORT A MODERN, SECURE, ACCESSIBLE, AND USER-FRIENDLY COUNTY WEBSITE USING A CONTENT MANAGEMENT SYSTEM\n\nDue date: 2026-11-12T16:00:00Location: USA (Missouri)\n\n\nREDESIGN AND REDEVELOPMENT OF ITS WEBSITE, INCLUDING IMPROVEMENTS TO THE MEMBER PORTAL AND IMPLEMENTATION OF CONTENT MANAGEMENT AND CONFERENCE\n\nDue date: 2026-10-30T21:00:00Location: USA (Louisiana)\n\n\nPROVIDE WEBSITE ADA COMPLIANCE SERVICES TO UPDATE AND MAINTAIN THE PRTPO WEBSITE IN ACCORDANCE WITH ADA AND WCAG REQUIREMENTS\n\nDue date: 2026-10-30T21:00:00Location: USA (Washington)\n\n\nDESIGN, DEVELOP, AND IMPLEMENT A MODERN, ACCESSIBLE, AND USER-FRIENDLY WEBSITE (ARCGIS STORYMAPS)\n\nDue date: 2026-10-29T22:30:00Location: USA (Montana)\nRequirements: ArcGIS StoryMaps\n\n\nREDESIGN, DEVELOP, IMPLEMENT, HOST, AND MIGRATE ITS MUNICIPAL WEBSITE USING A CONTENT MANAGEMENT SYSTEM\n\nDue date: 2026-10-29T21:00:00Location: USA (Michigan)\n\n\nWEBSITE MAINTENANCE AND HOSTING SERVICES\n\nDue date: 2026-10-29T16:00:00Location: USA (New Jersey)\n\n\nPROVIDE MANAGED HOSTING, CONTENT DELIVERY, SECURITY, AND SUPPORT SERVICES FOR ITS PUBLIC WEBSITE AND ASSOCIATED CMS\n\nDue date: 2026-10-29T14:00:00Location: USA (South Carolina)\nImage\n\n\n \n\nThe Digital Center of Excellence (DCoE) is a global marketplace connecting digital professionals, agencies, tech companies, consultants, and site owners. We strive to help digital agencies and tech companies find and win contracts they didn’t know existed. This site is sponsored by Blake Newman and Agileana, a DC-based digital agency. If you have any questions or issues with the website, please email [email protected].",
+      "source_status": "fetched",
+      "source_reason": null,
+      "observed_links": 10
+    },
+    {
+      "key": "4cbada1aceb6888fad4c971f0c93ba9dd35e5e169ffad82864c57c3713cc9cdc",
+      "kind": "document",
+      "input": {
+        "url": "https://www.c40.org/wp-content/uploads/2026/10/2-RfP-GCoM-Website-Development-Maintenance.pdf",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": [
+        {
+          "url": "https://www.c40.org/sitemap_index.xml",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.c40.org/women4climate/sitemap_index.xml",
+          "text": "Site-advertised sitemap"
+        }
+      ],
+      "retrieved_url": "https://www.c40.org/wp-content/uploads/2026/10/2-RfP-GCoM-Website-Development-Maintenance.pdf",
+      "capture": {
+        "bytes": 1900,
+        "method": "http",
+        "complete": false,
+        "requests": 2
+      },
+      "captured_text": null,
+      "source_status": "access_limited",
+      "source_reason": "source_access_denied",
+      "observed_links": 0
+    },
+    {
+      "key": "fe7fca7ccaa6462967930e2281daab32914f434826c0d6727fbb3a0d876642bb",
+      "kind": "document",
+      "input": {
+        "url": "https://www.dcoe.org/opportunities/rfp-tenders/website-design-development-hosting-operations-maintenance-and-support",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 1,
+      "links": [
+        {
+          "url": "https://www.dcoe.org/user/login?destination=/opportunities/rfp-tenders/website-design-development-hosting-operations-maintenance-and-support",
+          "text": "Log in"
+        },
+        {
+          "url": "https://www.dcoe.org/user/register",
+          "text": "Register"
+        }
+      ],
+      "feeds": [],
+      "sitemaps": [],
+      "retrieved_url": "https://www.dcoe.org/opportunities/rfp-tenders/website-design-development-hosting-operations-maintenance-and-support",
+      "capture": {
+        "bytes": 29757,
+        "method": "http",
+        "complete": true,
+        "requests": 2
+      },
+      "captured_text": "Skip to main content\nLog in\n\n\n\nWEBSITE DESIGN, DEVELOPMENT, HOSTING, OPERATIONS, MAINTENANCE, AND SUPPORT SERVICES USING THE DRUPAL CONTENT MANAGEMENT SYSTEM FOR THE 511.ORG WEBSITE (PANTHEON)\n\nLoading navigation...\n\n\nSUMMARY\n\nDue Date 2027-07-01T00:00:00 Country USA State California\n\nThe Metropolitan Transportation Commission (MTC) is seeking a vendor for website design, development, hosting, operations, maintenance, and support services using the Drupal content management system for the 511.org website. The project aims to enhance the website's functionality, including real-time traveler alerts and interactive maps, and transition from Google Maps to OpenStreetMap.\n\nKey Requirements\nDrupal Pantheon OpenStreetMap SAAS API Gateway Real-time data integration\n\nLog in or Register to view this RFP and download solicitation documents.\n\nImage\n\n\n \n\nThe Digital Center of Excellence (DCoE) is a global marketplace connecting digital professionals, agencies, tech companies, consultants, and site owners. We strive to help digital agencies and tech companies find and win contracts they didn’t know existed. This site is sponsored by Blake Newman and Agileana, a DC-based digital agency. If you have any questions or issues with the website, please email [email protected].",
+      "source_status": "fetched",
+      "source_reason": null,
+      "observed_links": 2
+    },
+    {
+      "key": "c6e7ca053b8c32ae3a504f2871dfd4141210c0b0a14623fca531526bfd7ef697",
+      "kind": "document",
+      "input": {
+        "url": "https://www.dcoe.org/opportunities/rfp-tenders/modernize-its-public-sex-offender-registry-website-enhancing-public",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 1,
+      "links": [
+        {
+          "url": "https://www.dcoe.org/user/login?destination=/opportunities/rfp-tenders/modernize-its-public-sex-offender-registry-website-enhancing-public",
+          "text": "Log in"
+        },
+        {
+          "url": "https://www.dcoe.org/user/register",
+          "text": "Register"
+        }
+      ],
+      "feeds": [],
+      "sitemaps": [],
+      "retrieved_url": "https://www.dcoe.org/opportunities/rfp-tenders/modernize-its-public-sex-offender-registry-website-enhancing-public",
+      "capture": {
+        "bytes": 610655,
+        "method": "browser",
+        "complete": false,
+        "requests": 12
+      },
+      "captured_text": "Skip to main content\nHome\nEducation\nCommunity\nOpportunities\nJoin\nLog in\nHome\nOpportunities\nWeb design and development opportunities\nModernize its public Sex Offender Registry website, enhancing public access to registry information through a mobile-responsive, searchable, and\nModernize its public Sex Offender Registry website, enhancing public access to registry information through a mobile-responsive, searchable, and\nLoading navigation...\nSummary\nDue Date\t2026-12-16T19:00:00\nCountry\tUSA\nState\tNew Hampshire\n\nThe State of New Hampshire is seeking a vendor to modernize its public Sex Offender Registry website, enhancing public access to registry information through a mobile-responsive, searchable, and map-enabled platform. The project aims to automate data publication, improve administrative oversight, and support statutory compliance processes.\n\nLog in or Register to view this RFP and download solicitation documents.\n\nImage\n\n \n\nThe Digital Center of Excellence (DCoE) is a global marketplace connecting digital professionals, agencies, tech companies, consultants, and site owners. We strive to help digital agencies and tech companies find and win contracts they didn’t know existed. This site is sponsored by Blake Newman and Agileana, a DC-based digital agency. If you have any questions or issues with the website, please email [email protected].\n\nFooter\nTransparency Statement\nPrivacy Policy\nTerms of Service\nBlog",
+      "source_status": "fetched",
+      "source_reason": "browser_resource_unavailable",
+      "observed_links": 2
+    }
+  ],
+  "decisions": [
+    {
+      "round": 0,
+      "reason": "check_promising_result",
+      "action": {
+        "url": "https://www.linkedin.com/jobs/view/senior-software-engineer-golang-typescript-react-independent-contractor-at-jobgether-4474690408",
+        "kind": "document"
+      },
+      "depth": 0,
+      "parent_key": "ceb572a46e37a85c361bd1e444a709f539a0f2e041dd47f084581dcdcad20baa"
+    },
+    {
+      "round": 1,
+      "reason": "check_promising_result",
+      "action": {
+        "url": "https://www.linkedin.com/posts/start-designs_websitedevelopment-rfp-webdevelopment-activity-7506988772400496640-UUs3",
+        "kind": "document"
+      },
+      "depth": 0,
+      "parent_key": "e904f88fd99709bf0fa34e7c0327609b786368b1d2e2e202090e1d3b85cd4ec7"
+    },
+    {
+      "round": 2,
+      "reason": "check_promising_result",
+      "action": {
+        "url": "https://www.dcoe.org/opportunities/rfp-tenders",
+        "kind": "document"
+      },
+      "depth": 0,
+      "parent_key": "e904f88fd99709bf0fa34e7c0327609b786368b1d2e2e202090e1d3b85cd4ec7"
+    },
+    {
+      "round": 3,
+      "reason": "check_promising_result",
+      "action": {
+        "url": "https://www.c40.org/wp-content/uploads/2026/10/2-RfP-GCoM-Website-Development-Maintenance.pdf",
+        "kind": "document"
+      },
+      "depth": 0,
+      "parent_key": "e904f88fd99709bf0fa34e7c0327609b786368b1d2e2e202090e1d3b85cd4ec7"
+    },
+    {
+      "round": 4,
+      "reason": "follow_source_link",
+      "action": {
+        "url": "https://www.dcoe.org/opportunities/rfp-tenders/website-design-development-hosting-operations-maintenance-and-support",
+        "kind": "document"
+      },
+      "depth": 1,
+      "parent_key": "539a4e76e8c1189100590b6478caf01b5583d630e0403ae692b717194e81940b"
+    },
+    {
+      "round": 5,
+      "reason": "follow_source_link",
+      "action": {
+        "url": "https://www.dcoe.org/opportunities/rfp-tenders/modernize-its-public-sex-offender-registry-website-enhancing-public",
+        "kind": "document"
+      },
+      "depth": 1,
+      "parent_key": "539a4e76e8c1189100590b6478caf01b5583d630e0403ae692b717194e81940b"
+    },
+    {
+      "round": 6,
+      "reason": "exploration_limit",
+      "action": null,
+      "depth": 0,
+      "parent_key": null
+    }
+  ],
+  "case": {
+    "id": "8c6aaa7b-a719-431b-ae7a-1ebf90b3f0ea",
+    "scoutId": "4ed6c680-0293-4443-bb72-08dc763ee669",
+    "scoutName": "Synthetic client-project scout",
+    "scoutVersion": 1,
+    "provider": "serper",
+    "strategy": {
+      "targets": [
+        "React",
+        "TypeScript",
+        "web development"
+      ],
+      "explanation": "I split the service into three short search concepts a buyer might use. This keeps the key words separate for broader retrieval while preserving the full brief for later matching."
+    },
+    "exploration": [
+      {
+        "kind": "document",
+        "reason": "check_promising_result",
+        "target": "https://www.linkedin.com/jobs/view/senior-software-engineer-golang-typescript-react-independent-contractor-at-jobgether-4474690408"
+      },
+      {
+        "kind": "document",
+        "reason": "check_promising_result",
+        "target": "https://www.linkedin.com/posts/start-designs_websitedevelopment-rfp-webdevelopment-activity-7506988772400496640-UUs3"
+      },
+      {
+        "kind": "document",
+        "reason": "check_promising_result",
+        "target": "https://www.dcoe.org/opportunities/rfp-tenders"
+      },
+      {
+        "kind": "document",
+        "reason": "check_promising_result",
+        "target": "https://www.c40.org/wp-content/uploads/2026/10/2-RfP-GCoM-Website-Development-Maintenance.pdf"
+      },
+      {
+        "kind": "document",
+        "reason": "follow_source_link",
+        "target": "https://www.dcoe.org/opportunities/rfp-tenders/website-design-development-hosting-operations-maintenance-and-support"
+      },
+      {
+        "kind": "document",
+        "reason": "follow_source_link",
+        "target": "https://www.dcoe.org/opportunities/rfp-tenders/modernize-its-public-sex-offender-registry-website-enhancing-public"
+      },
+      {
+        "kind": null,
+        "reason": "exploration_limit",
+        "target": null
+      }
+    ],
+    "reviewStatus": "complete",
+    "reviewReason": "source_reviews_complete",
+    "status": "partial",
+    "reason": "some_sources_unavailable",
+    "startedAt": "2026-10-12 00:09:12.852265+00",
+    "finishedAt": "2026-10-12 00:10:14.943135+00",
+    "searchesCompleted": 4,
+    "documentsChecked": 6,
+    "leadCount": 42
+  },
+  "usage": [
+    {
+      "provider": "public-documents",
+      "requests": 6,
+      "reserved_micros": "0"
+    },
+    {
+      "provider": "serper",
+      "requests": 4,
+      "reserved_micros": "40000"
+    }
+  ],
+  "aiBudget": [
+    {
+      "requests": 12,
+      "reserved_microusd": "900000"
+    }
+  ],
+  "dashboardLeadSampleSize": 40,
+  "leads": [
+    {
+      "url": "https://asana.com/resources/project-budget",
+      "title": "Project Budget: Definition, Steps, Example & Template [2026]",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://dailyremote.com/remote-job/senior-software-engineer-golang-type-script-react-independent-contractor-5718896",
+      "title": "Senior Software Engineer (Golang/TypeScript/React)",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://devsdata.com/he/careers/job/staff-backend-engineer-node-js-typescript-662619/",
+      "title": "Staff Backend Engineer (Node.js/TypeScript)",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://epics.ieee.org/october-2026-epics-in-ieee-call-for-proposals/",
+      "title": "October 2026 EPICS in IEEE Call for Proposals",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://eseospace.com/submit-an-rfp/",
+      "title": "Submit an RFP, RFQ or RFI",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://fr.jooble.org/jdp/4162442505344838789",
+      "title": "Senior Software Engineer (Golang/TypeScript/React)",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://help.hive.com/en/articles/3873342-budgets-in-hive",
+      "title": "Budgets in Hive | Hive Help",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://help.myhours.com/en/articles/1346676-set-and-track-the-project-budget",
+      "title": "Set and track the project budget",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://help.wrike.com/hc/en-us/articles/1500005128341-Financial-Fields-for-Budgeting",
+      "title": "Financial Fields for Budgeting",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://housing.lacity.gov/all-announcement/site-design-analysis-request-for-proposals-rfp",
+      "title": "Site Design Analysis Request for Proposals (RFP) - LAHD",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://reactdigital.ph/advisor",
+      "title": "Advisor — Scope & Price Your Project in 90 Seconds",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://ripenapps.com/blog/react-native-app-development-cost/",
+      "title": "How Much Does React Native App Development Cost?",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://sociallinker.pro/tools/web-development-rfp-template",
+      "title": "Website RFP Template + Generator & Scoring Sheet",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://wilson.seattle.gov/2026/09/22/mayor-wilson-releases-2027-2028-proposed-budget-prioritizing-stability-safety-and-affordability/",
+      "title": "Mayor Wilson Releases 2027-2028 Proposed Budget ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.c40.org/wp-content/uploads/2026/10/2-RfP-GCoM-Website-Development-Maintenance.pdf",
+      "title": "Request for Proposal (RfP)",
+      "contentStatus": "access_limited",
+      "contentReason": "source_access_denied",
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.cscbroward.org/news/abcd-rfp-2026/",
+      "title": "Asset Based Community Development (ABCD) ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.dcoe.org/opportunities/rfp-tenders",
+      "title": "Web design and development opportunities",
+      "contentStatus": "fetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": {
+        "facts": {
+          "role": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "category": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "location": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "arrangement": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "sponsorship": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "compensation": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "requirements": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "authorization": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          }
+        },
+        "label": "directory",
+        "scope": "source",
+        "quotes": [
+          "WEB DESIGN AND DEVELOPMENT OPPORTUNITIES",
+          "Show only active RFPs",
+          "Sort by:",
+          "279 RESULTS - LAST UPDATED: OCTOBER 11TH, 2026"
+        ],
+        "explanation": "This is a listings/search page collecting many web design and development opportunities, not a single specific opening. The page itself says it has many results and provides filters and sorting for multiple tenders."
+      }
+    },
+    {
+      "url": "https://www.dcoe.org/opportunities/rfp-tenders/modernize-its-public-sex-offender-registry-website-enhancing-public",
+      "title": "Modernize its public Sex Offender Registry website, enhancing public access to registry information through a mobile-responsive, searchable, and",
+      "contentStatus": "fetched",
+      "contentReason": "browser_resource_unavailable",
+      "postingId": null,
+      "promoted": false,
+      "review": {
+        "facts": {
+          "role": {
+            "value": "vendor",
+            "quotes": [
+              "The State of New Hampshire is seeking a vendor to modernize its public Sex Offender Registry website, enhancing public access to registry information through a mobile-responsive, searchable, and map-enabled platform. The project aims to automate data publication, improve administrative oversight, and support statutory compliance processes."
+            ],
+            "status": "stated"
+          },
+          "category": {
+            "value": "client_request",
+            "quotes": [
+              "The State of New Hampshire is seeking a vendor to modernize its public Sex Offender Registry website, enhancing public access to registry information through a mobile-responsive, searchable, and map-enabled platform. The project aims to automate data publication, improve administrative oversight, and support statutory compliance processes."
+            ],
+            "status": "stated"
+          },
+          "location": {
+            "value": "New Hampshire, USA",
+            "quotes": [
+              "Country\tUSA",
+              "State\tNew Hampshire",
+              "The State of New Hampshire is seeking a vendor to modernize its public Sex Offender Registry website, enhancing public access to registry information through a mobile-responsive, searchable, and map-enabled platform. The project aims to automate data publication, improve administrative oversight, and support statutory compliance processes."
+            ],
+            "status": "stated"
+          },
+          "arrangement": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "sponsorship": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "compensation": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "requirements": {
+            "value": "modernize the public Sex Offender Registry website into a mobile-responsive, searchable, map-enabled platform; automate data publication; improve administrative oversight; support statutory compliance processes",
+            "quotes": [
+              "The State of New Hampshire is seeking a vendor to modernize its public Sex Offender Registry website, enhancing public access to registry information through a mobile-responsive, searchable, and map-enabled platform. The project aims to automate data publication, improve administrative oversight, and support statutory compliance processes."
+            ],
+            "status": "stated"
+          },
+          "authorization": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          }
+        },
+        "label": "client_request",
+        "scope": "source",
+        "quotes": [
+          "The State of New Hampshire is seeking a vendor to modernize its public Sex Offender Registry website, enhancing public access to registry information through a mobile-responsive, searchable, and map-enabled platform. The project aims to automate data publication, improve administrative oversight, and support statutory compliance processes.",
+          "Log in or Register to view this RFP and download solicitation documents.",
+          "Due Date\t2026-12-16T19:00:00"
+        ],
+        "explanation": "The posting is a procurement/RFP asking a vendor to perform a specific website modernization project for the State of New Hampshire, so it is a buyer request rather than a job opening."
+      }
+    },
+    {
+      "url": "https://www.dcoe.org/opportunities/rfp-tenders/website-design-development-hosting-operations-maintenance-and-support",
+      "title": "Website design, development, hosting, operations, maintenance, and support services using the Drupal content management system for the 511.org website (Pantheon)",
+      "contentStatus": "fetched",
+      "contentReason": null,
+      "postingId": "web:35303072b79f33ff9caf993e717020bd073a0744fca8761f46c77b9fd3e57b06",
+      "promoted": true,
+      "review": {
+        "facts": {
+          "role": {
+            "value": "website design, development, hosting, operations, maintenance, and support services",
+            "quotes": [
+              "WEBSITE DESIGN, DEVELOPMENT, HOSTING, OPERATIONS, MAINTENANCE, AND SUPPORT SERVICES USING THE DRUPAL CONTENT MANAGEMENT SYSTEM FOR THE 511.ORG WEBSITE (PANTHEON)",
+              "The Metropolitan Transportation Commission (MTC) is seeking a vendor for website design, development, hosting, operations, maintenance, and support services using the Drupal content management system for the 511.org website. The project aims to enhance the website's functionality, including real-time traveler alerts and interactive maps, and transition from Google Maps to OpenStreetMap."
+            ],
+            "status": "stated"
+          },
+          "category": {
+            "value": "contract",
+            "quotes": [
+              "The Metropolitan Transportation Commission (MTC) is seeking a vendor for website design, development, hosting, operations, maintenance, and support services using the Drupal content management system for the 511.org website. The project aims to enhance the website's functionality, including real-time traveler alerts and interactive maps, and transition from Google Maps to OpenStreetMap."
+            ],
+            "status": "stated"
+          },
+          "location": {
+            "value": "USA, California",
+            "quotes": [
+              "Due Date 2027-07-01T00:00:00 Country USA State California"
+            ],
+            "status": "stated"
+          },
+          "arrangement": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "sponsorship": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "compensation": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "requirements": {
+            "value": "Drupal Pantheon OpenStreetMap SAAS API Gateway Real-time data integration",
+            "quotes": [
+              "Drupal Pantheon OpenStreetMap SAAS API Gateway Real-time data integration"
+            ],
+            "status": "stated"
+          },
+          "authorization": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          }
+        },
+        "label": "client_request",
+        "scope": "source",
+        "quotes": [
+          "The Metropolitan Transportation Commission (MTC) is seeking a vendor for website design, development, hosting, operations, maintenance, and support services using the Drupal content management system for the 511.org website. The project aims to enhance the website's functionality, including real-time traveler alerts and interactive maps, and transition from Google Maps to OpenStreetMap.",
+          "WEBSITE DESIGN, DEVELOPMENT, HOSTING, OPERATIONS, MAINTENANCE, AND SUPPORT SERVICES USING THE DRUPAL CONTENT MANAGEMENT SYSTEM FOR THE 511.ORG WEBSITE (PANTHEON)",
+          "Due Date 2027-07-01T00:00:00 Country USA State California"
+        ],
+        "explanation": "This is a specific procurement/RFP asking for a vendor to provide website services for 511.org, so it is a buyer request rather than a job opening."
+      }
+    },
+    {
+      "url": "https://www.dice.com/job-detail/001da4d0-cfbc-4a81-ad1c-eee7a61afb29",
+      "title": "Typescript Engineer - TURING ENTERPRISES, INC.",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.facebook.com/100094225972294/videos/-build-a-real-react-project-i-just-built-a-react-expense-tracker-mini-project-fr/1821232602369719/",
+      "title": "React Expense Tracker Mini Project with Complete Code",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.facebook.com/groups/913421419946219/posts/1775312667090419/",
+      "title": "Software Engineer (Remote) Join Micro1 as a contractor ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.facebook.com/thebidlab/posts/will-there-ever-be-a-better-time-to-dig-into-the-ins-and-outs-of-submitting-comp/1747442510717718/",
+      "title": "How to respond to construction RFPs and win bids",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.gainesvillefl.gov/Government-Pages/Government/Departments/Office-of-Procurement-Contracts-Management/Bid-on-a-City-Project",
+      "title": "Bid on a City Project",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.greenvillenc.gov/DocumentCenter/View/2325",
+      "title": "House Setup and Site Development Services RFP- 26-27-06",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.instagram.com/p/Dd4L78OIHJj/",
+      "title": "Real-time project profitability, comparing budget vs. actuals ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.instagram.com/p/DdVsEbfiFWV/",
+      "title": "HIRING NOW Sr. Full-Stack Software Engineer $50–$100 ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.inventive.ai/blog-posts/construction-rfps",
+      "title": "Construction RFP Guide: How to Write One & Win Bids ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.inventive.ai/blog-posts/rfp-software-development-guide",
+      "title": "Writing an RFP for Software Development: Step-by- ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.kaam.work/hire-talents/hire-typescript-developers-india",
+      "title": "Hire TypeScript Developers in India",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.kantata.com/blog/article/project-managers-top-10-tips-for-keeping-projects-on-time-and-on-budget",
+      "title": "Top 10 Project Manager Tips for On-Time, On-Budget ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.larksuite.com/en_us/blog/how-to-write-project-proposal",
+      "title": "How to Write a Project Proposal: Structure, Examples, and ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.linkedin.com/jobs/view/senior-software-engineer-golang-typescript-react-independent-contractor-at-jobgether-4474690408",
+      "title": "Senior Software Engineer (Golang/TypeScript/React)",
+      "contentStatus": "access_limited",
+      "contentReason": "crawl_policy_denied",
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.linkedin.com/posts/start-designs_websitedevelopment-rfp-webdevelopment-activity-7506988772400496640-UUs3",
+      "title": "Website Development RFP Best Practices for Clear Projects",
+      "contentStatus": "access_limited",
+      "contentReason": "crawl_policy_denied",
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.minneapolismn.gov/business-services/doing-business-with-the-city/bids-rfps/future-opportunties/",
+      "title": "Future Opportunities - City of Minneapolis",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.pandadoc.com/blog/how-to-write-a-winning-project-proposal/",
+      "title": "How to write a winning project proposal",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.reddit.com/r/hiredev/comments/1x34qsk/for_hire_react_typescript_fixes_and_small/",
+      "title": "[For Hire] React / TypeScript fixes and small Telegram bots",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.startdesigns.com/blog/website-development-rfp-guide/",
+      "title": "Website Development RFP Guide & Checklist",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.thepandemicfund.org/call-for-proposals",
+      "title": "Call for Proposals",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.vincentschmalbach.com/services/nodejs-development/",
+      "title": "Node.js and TypeScript Development",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.yourerie.com/digital-first/digital-exclusive/penndot-to-accept-project-proposals-through-october/",
+      "title": "PennDOT to accept project proposals through October",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://xtensio.com/request-for-proposal-template/",
+      "title": "Free Request for Proposal Template & Examples",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    }
+  ],
+  "checks": [
+    "live adaptive decisions",
+    "bounded provider and model admission",
+    "observed parent provenance",
+    "current owner isolation",
+    "terminal replay without new spending"
+  ],
+  "emailsSent": 0,
+  "realAccountsUsed": 0,
+  "scopeNote": "Bounded live synthetic case using production discovery, review, assessment and delivery use cases. Worker reader includes configured browser fallback and Ashby routing without shared Redis caching; HTTP reader is a controlled reduced-access path. Native X and marketplace connector loops are not exercised. All lead rows are measured separately from the dashboard's bounded sample. Matching can remain incomplete if retries exceed the check window. Model labels are not independent ground truth; precision, recall and global throughput remain unproven."
+}

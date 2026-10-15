@@ -1,0 +1,331 @@
+{
+  "recordedAt": "2026-10-12T00:12:48.964Z",
+  "kind": "client-demand-development-diagnostics",
+  "implementationPlanner": "scout-planning-v7",
+  "runs": [
+    {
+      "file": "client-demand-projects-2026-10-12.json",
+      "configuration": "scout-planning-v4 (recorded during implementation)",
+      "scenario": "projects",
+      "renderingEnabled": true,
+      "durationSeconds": 76.798,
+      "uniqueLeads": 56,
+      "recordedLeads": 56,
+      "completeLeadSet": true,
+      "searchRequests": 6,
+      "documentRequests": 6,
+      "capturedDocuments": 4,
+      "completeCaptures": 4,
+      "inaccessibleDocuments": 2,
+      "repeatedDestinations": 0,
+      "sourceReviewLabels": {
+        "job_opening": 1,
+        "client_request": 2,
+        "discussion": 1
+      },
+      "sourceReviewCountsAreComplete": true,
+      "promotedPostings": 3,
+      "matching": "completed",
+      "dashboardRecommendations": 0,
+      "acceptedEmails": 0,
+      "aiEstimatedUsd": 0.069836,
+      "attemptsWithoutCostEstimate": 0,
+      "searchReservedUsd": 0.06,
+      "aiReservedUsd": 1.275,
+      "estimatedAiPlusSearchReservationPerRecommendationUsd": null,
+      "independentlyUsefulResults": null,
+      "costPerIndependentlyUsefulResultUsd": null,
+      "precision": null,
+      "recall": null,
+      "limitations": "AI estimates exclude unpriced/failed attempts, infrastructure and billing adjustments. Search reservations are configured upper allowances, not invoices. Source labels and dashboard acceptance are not independent usefulness judgments. Distinct URLs may still describe the same opportunity; repeatedDestinations detects only observed redirect identity. Initial reports recorded a dashboard sample, not every source review.",
+      "buyerRequests": [
+        {
+          "url": "https://housing.lacity.gov/all-announcement/site-design-analysis-request-for-proposals-rfp",
+          "title": "Site Design Analysis Request for Proposals (RFP) - LAHD",
+          "subject": "site design analysis and planning",
+          "completeCapture": true
+        },
+        {
+          "url": "https://housing.lacity.gov/partners/urgent-repair-program-urp-construction-services-request-for-proposals-rfp-2",
+          "title": "Urgent Repair Program (URP) Construction Services Request for Proposals (RFP)",
+          "subject": "Urgent Repair Program construction services",
+          "completeCapture": true
+        }
+      ]
+    },
+    {
+      "file": "client-demand-services-2026-10-12.json",
+      "configuration": "scout-planning-v4 (recorded during implementation)",
+      "scenario": "services",
+      "renderingEnabled": true,
+      "durationSeconds": 56.981,
+      "uniqueLeads": 54,
+      "recordedLeads": 54,
+      "completeLeadSet": true,
+      "searchRequests": 6,
+      "documentRequests": 6,
+      "capturedDocuments": 4,
+      "completeCaptures": 4,
+      "inaccessibleDocuments": 2,
+      "repeatedDestinations": 0,
+      "sourceReviewLabels": {
+        "service_offer": 1,
+        "closed": 1,
+        "directory": 2
+      },
+      "sourceReviewCountsAreComplete": true,
+      "promotedPostings": 0,
+      "matching": "not_started_no_source_demand",
+      "dashboardRecommendations": 0,
+      "acceptedEmails": 0,
+      "aiEstimatedUsd": 0.052937,
+      "attemptsWithoutCostEstimate": 0,
+      "searchReservedUsd": 0.06,
+      "aiReservedUsd": 0.975,
+      "estimatedAiPlusSearchReservationPerRecommendationUsd": null,
+      "independentlyUsefulResults": null,
+      "costPerIndependentlyUsefulResultUsd": null,
+      "precision": null,
+      "recall": null,
+      "limitations": "AI estimates exclude unpriced/failed attempts, infrastructure and billing adjustments. Search reservations are configured upper allowances, not invoices. Source labels and dashboard acceptance are not independent usefulness judgments. Distinct URLs may still describe the same opportunity; repeatedDestinations detects only observed redirect identity. Initial reports recorded a dashboard sample, not every source review.",
+      "buyerRequests": []
+    },
+    {
+      "file": "client-demand-projects-corrected-2026-10-12.json",
+      "configuration": "openai:gpt-5.4-mini-2026-03-17:scout-planning-v5",
+      "scenario": "projects",
+      "renderingEnabled": true,
+      "durationSeconds": 40.842,
+      "uniqueLeads": 60,
+      "recordedLeads": 60,
+      "completeLeadSet": true,
+      "searchRequests": 6,
+      "documentRequests": 4,
+      "capturedDocuments": 0,
+      "completeCaptures": 0,
+      "inaccessibleDocuments": 4,
+      "repeatedDestinations": 0,
+      "sourceReviewLabels": {},
+      "sourceReviewCountsAreComplete": true,
+      "promotedPostings": 0,
+      "matching": "not_started_no_source_demand",
+      "dashboardRecommendations": 0,
+      "acceptedEmails": 0,
+      "aiEstimatedUsd": 0.030449,
+      "attemptsWithoutCostEstimate": 0,
+      "searchReservedUsd": 0.06,
+      "aiReservedUsd": 0.6,
+      "estimatedAiPlusSearchReservationPerRecommendationUsd": null,
+      "independentlyUsefulResults": null,
+      "costPerIndependentlyUsefulResultUsd": null,
+      "precision": null,
+      "recall": null,
+      "limitations": "AI estimates exclude unpriced/failed attempts, infrastructure and billing adjustments. Search reservations are configured upper allowances, not invoices. Source labels and dashboard acceptance are not independent usefulness judgments. Distinct URLs may still describe the same opportunity; repeatedDestinations detects only observed redirect identity. Initial reports recorded a dashboard sample, not every source review.",
+      "buyerRequests": []
+    },
+    {
+      "file": "client-demand-services-corrected-2026-10-12.json",
+      "configuration": "openai:gpt-5.4-mini-2026-03-17:scout-planning-v5",
+      "scenario": "services",
+      "renderingEnabled": true,
+      "durationSeconds": 109.156,
+      "uniqueLeads": 41,
+      "recordedLeads": 41,
+      "completeLeadSet": true,
+      "searchRequests": 4,
+      "documentRequests": 6,
+      "capturedDocuments": 5,
+      "completeCaptures": 2,
+      "inaccessibleDocuments": 1,
+      "repeatedDestinations": 0,
+      "sourceReviewLabels": {
+        "closed": 1,
+        "directory": 1,
+        "client_request": 3
+      },
+      "sourceReviewCountsAreComplete": true,
+      "promotedPostings": 0,
+      "matching": "not_started_no_source_demand",
+      "dashboardRecommendations": 0,
+      "acceptedEmails": 0,
+      "aiEstimatedUsd": 0.041281,
+      "attemptsWithoutCostEstimate": 0,
+      "searchReservedUsd": 0.04,
+      "aiReservedUsd": 0.9,
+      "estimatedAiPlusSearchReservationPerRecommendationUsd": null,
+      "independentlyUsefulResults": null,
+      "costPerIndependentlyUsefulResultUsd": null,
+      "precision": null,
+      "recall": null,
+      "limitations": "AI estimates exclude unpriced/failed attempts, infrastructure and billing adjustments. Search reservations are configured upper allowances, not invoices. Source labels and dashboard acceptance are not independent usefulness judgments. Distinct URLs may still describe the same opportunity; repeatedDestinations detects only observed redirect identity. Initial reports recorded a dashboard sample, not every source review.",
+      "buyerRequests": [
+        {
+          "url": "https://www.dcoe.org/opportunities/rfp-tenders/design-develop-host-and-support-modern-secure-accessible-and-user",
+          "title": "Design, develop, host, and support a modern, secure, accessible, and user-friendly County website using a content management system",
+          "subject": "design, develop, host, and support a modern, secure, accessible, and user-friendly County website",
+          "completeCapture": false
+        },
+        {
+          "url": "https://www.dcoe.org/opportunities/rfp-tenders/develop-statewide-workforce-portal",
+          "title": "Develop a statewide workforce portal",
+          "subject": "Develop a statewide workforce portal",
+          "completeCapture": false
+        },
+        {
+          "url": "https://www.dcoe.org/opportunities/rfp-tenders/modernize-its-public-sex-offender-registry-website-enhancing-public",
+          "title": "Modernize its public Sex Offender Registry website, enhancing public access to registry information through a mobile-responsive, searchable, and",
+          "subject": "modernize its public Sex Offender Registry website",
+          "completeCapture": false
+        }
+      ]
+    },
+    {
+      "file": "client-demand-projects-final-2026-10-12.json",
+      "configuration": "openai:gpt-5.4-mini-2026-03-17:scout-planning-v6",
+      "scenario": "projects",
+      "renderingEnabled": true,
+      "durationSeconds": 68.51,
+      "uniqueLeads": 42,
+      "recordedLeads": 42,
+      "completeLeadSet": true,
+      "searchRequests": 4,
+      "documentRequests": 6,
+      "capturedDocuments": 3,
+      "completeCaptures": 2,
+      "inaccessibleDocuments": 3,
+      "repeatedDestinations": 0,
+      "sourceReviewLabels": {
+        "directory": 1,
+        "client_request": 2
+      },
+      "sourceReviewCountsAreComplete": true,
+      "promotedPostings": 1,
+      "matching": "completed",
+      "dashboardRecommendations": 0,
+      "acceptedEmails": 0,
+      "aiEstimatedUsd": 0.041338,
+      "attemptsWithoutCostEstimate": 0,
+      "searchReservedUsd": 0.04,
+      "aiReservedUsd": 0.9,
+      "estimatedAiPlusSearchReservationPerRecommendationUsd": null,
+      "independentlyUsefulResults": null,
+      "costPerIndependentlyUsefulResultUsd": null,
+      "precision": null,
+      "recall": null,
+      "limitations": "AI estimates exclude unpriced/failed attempts, infrastructure and billing adjustments. Search reservations are configured upper allowances, not invoices. Source labels and dashboard acceptance are not independent usefulness judgments. Distinct URLs may still describe the same opportunity; repeatedDestinations detects only observed redirect identity. Initial reports recorded a dashboard sample, not every source review.",
+      "buyerRequests": [
+        {
+          "url": "https://www.dcoe.org/opportunities/rfp-tenders/modernize-its-public-sex-offender-registry-website-enhancing-public",
+          "title": "Modernize its public Sex Offender Registry website, enhancing public access to registry information through a mobile-responsive, searchable, and",
+          "subject": "vendor",
+          "completeCapture": false
+        },
+        {
+          "url": "https://www.dcoe.org/opportunities/rfp-tenders/website-design-development-hosting-operations-maintenance-and-support",
+          "title": "Website design, development, hosting, operations, maintenance, and support services using the Drupal content management system for the 511.org website (Pantheon)",
+          "subject": "website design, development, hosting, operations, maintenance, and support services",
+          "completeCapture": true
+        }
+      ]
+    },
+    {
+      "file": "client-demand-services-final-2026-10-12.json",
+      "configuration": "openai:gpt-5.4-mini-2026-03-17:scout-planning-v6",
+      "scenario": "services",
+      "renderingEnabled": true,
+      "durationSeconds": 60.582,
+      "uniqueLeads": 46,
+      "recordedLeads": 46,
+      "completeLeadSet": true,
+      "searchRequests": 5,
+      "documentRequests": 6,
+      "capturedDocuments": 3,
+      "completeCaptures": 1,
+      "inaccessibleDocuments": 3,
+      "repeatedDestinations": 0,
+      "sourceReviewLabels": {
+        "closed": 1,
+        "client_request": 2
+      },
+      "sourceReviewCountsAreComplete": true,
+      "promotedPostings": 0,
+      "matching": "not_started_no_source_demand",
+      "dashboardRecommendations": 0,
+      "acceptedEmails": 0,
+      "aiEstimatedUsd": 0.047203,
+      "attemptsWithoutCostEstimate": 0,
+      "searchReservedUsd": 0.05,
+      "aiReservedUsd": 0.825,
+      "estimatedAiPlusSearchReservationPerRecommendationUsd": null,
+      "independentlyUsefulResults": null,
+      "costPerIndependentlyUsefulResultUsd": null,
+      "precision": null,
+      "recall": null,
+      "limitations": "AI estimates exclude unpriced/failed attempts, infrastructure and billing adjustments. Search reservations are configured upper allowances, not invoices. Source labels and dashboard acceptance are not independent usefulness judgments. Distinct URLs may still describe the same opportunity; repeatedDestinations detects only observed redirect identity. Initial reports recorded a dashboard sample, not every source review.",
+      "buyerRequests": [
+        {
+          "url": "https://www.freelancer.com/projects/creative-writing/psychological-horror-screenwriting-for",
+          "title": "Previous job",
+          "subject": "screenwriter/co-writer",
+          "completeCapture": false
+        },
+        {
+          "url": "https://www.freelancer.com/projects/website-development/need-website",
+          "title": "I need a website",
+          "subject": "website developer",
+          "completeCapture": false
+        }
+      ]
+    }
+  ],
+  "routing": [
+    {
+      "file": "client-demand-routing-2026-10-12.json",
+      "configuration": "openai:gpt-5.4-mini-2026-03-17:scout-planning-v4",
+      "corpus": "evaluations/discovery/candidate-selection-cases.json",
+      "calls": 12,
+      "estimatedUsd": 0.013758,
+      "contextualSelectionsPassed": 6,
+      "cases": 6
+    },
+    {
+      "file": "client-demand-routing-corrected-2026-10-12.json",
+      "configuration": "openai:gpt-5.4-mini-2026-03-17:scout-planning-v5",
+      "corpus": "evaluations/discovery/client-demand-routing-cases.json",
+      "calls": 12,
+      "estimatedUsd": 0.019147,
+      "contextualSelectionsPassed": 6,
+      "cases": 6
+    },
+    {
+      "file": "client-demand-routing-final-2026-10-12.json",
+      "configuration": "openai:gpt-5.4-mini-2026-03-17:scout-planning-v6",
+      "corpus": "evaluations/discovery/client-demand-routing-cases.json",
+      "calls": 12,
+      "estimatedUsd": 0.019618,
+      "contextualSelectionsPassed": 5,
+      "cases": 6
+    },
+    {
+      "file": "client-demand-routing-v7-2026-10-12.json",
+      "configuration": "openai:gpt-5.4-mini-2026-03-17:scout-planning-v7",
+      "corpus": "evaluations/discovery/client-demand-routing-cases.json",
+      "calls": 12,
+      "estimatedUsd": 0.020882,
+      "contextualSelectionsPassed": 6,
+      "cases": 6
+    }
+  ],
+  "totalKnownAiEstimateUsd": 0.356449,
+  "totalSearchReservationUsd": 0.31,
+  "precision": null,
+  "recall": null,
+  "costPerUsefulResult": null,
+  "limitations": [
+    "Small adaptive development runs using US/remote synthetic briefs; no independently reviewed usefulness labels or known-positive recall set.",
+    "The final full-path runs use v6; v7 corrects buyer phrasing and has a paired development replay, not a new full-path sample. The preceding failed v6 replay is retained.",
+    "Request labels come from public source review; incomplete captures, gated documents, buyer identity and personal fit remain separate concerns.",
+    "The web path diagnostic does not run the native X or Freelancer collection loops. Configured budgets and account scouts are unchanged.",
+    "AI prices are estimates, search values are conservative reservations, and costs exclude infrastructure and billing adjustments."
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "checkedAt": "2026-10-12T00:33:42.278Z",
+  "sourceReport": "evaluations/discovery/client-request-recapture-audit-2026-10-12.json",
+  "modelCalls": 0,
+  "searchCalls": 0,
+  "emailsSent": 0,
+  "cases": [
+    {
+      "url": "https://www.dcoe.org/opportunities/rfp-tenders/design-develop-host-and-support-modern-secure-accessible-and-user",
+      "truncated": true,
+      "before": {
+        "value": "2026-11-12",
+        "quotes": [
+          "Due Date 2026-11-12T16:00:00 Country USA State Missouri"
+        ],
+        "status": "stated"
+      },
+      "after": {
+        "value": "2026-11-12",
+        "quotes": [
+          "Due Date 2026-11-12T16:00:00 Country USA State Missouri"
+        ],
+        "status": "stated"
+      },
+      "publishableBefore": false,
+      "publishableAfter": false
+    },
+    {
+      "url": "https://www.dcoe.org/opportunities/rfp-tenders/develop-statewide-workforce-portal",
+      "truncated": true,
+      "before": {
+        "value": "2026-11-13T16:00:00",
+        "quotes": [
+          "Due Date 2026-11-13T16:00:00 Country USA State South Carolina"
+        ],
+        "status": "stated"
+      },
+      "after": {
+        "value": "2026-11-13T16:00:00",
+        "quotes": [
+          "Due Date 2026-11-13T16:00:00 Country USA State South Carolina"
+        ],
+        "status": "stated"
+      },
+      "publishableBefore": false,
+      "publishableAfter": false
+    },
+    {
+      "url": "https://www.dcoe.org/opportunities/rfp-tenders/modernize-its-public-sex-offender-registry-website-enhancing-public",
+      "truncated": true,
+      "before": {
+        "value": "2026-12-16T19:00:00",
+        "quotes": [
+          "Due Date 2026-12-16T19:00:00 Country USA State New Hampshire"
+        ],
+        "status": "stated"
+      },
+      "after": {
+        "value": "2026-12-16T19:00:00",
+        "quotes": [
+          "Due Date 2026-12-16T19:00:00 Country USA State New Hampshire"
+        ],
+        "status": "stated"
+      },
+      "publishableBefore": false,
+      "publishableAfter": false
+    },
+    {
+      "url": "https://www.dcoe.org/opportunities/rfp-tenders/website-design-development-hosting-operations-maintenance-and-support",
+      "truncated": true,
+      "before": {
+        "value": "2027-07-01",
+        "quotes": [
+          "Due Date 2027-07-01T00:00:00 Country USA State California"
+        ],
+        "status": "stated"
+      },
+      "after": {
+        "value": "2027-07-01",
+        "quotes": [
+          "Due Date 2027-07-01T00:00:00 Country USA State California"
+        ],
+        "status": "stated"
+      },
+      "publishableBefore": false,
+      "publishableAfter": false
+    },
+    {
+      "url": "https://www.freelancer.com/projects/creative-writing/psychological-horror-screenwriting-for",
+      "truncated": false,
+      "before": {
+        "value": "2026-10-18",
+        "quotes": [
+          "Ends in 6 days",
+          "I’m looking for a screenwriter/co-writer to help turn a fairly developed psychological horror short into a polished, production-ready screenplay of approximately 18–22 pages. I’m a film student/indie filmmaker in Kentucky, and this short is being produced for a competition later this month, so I need someone who can work quickly and communicate reliably. The basic story, characters, themes, and visual concepts, are already developed. I mainly need a strong writer to help turn my existing material into an effective screenplay, especially the dialogue. The film is grounded relationship horror about Alex and Robin, a couple whose relationship gradually becomes emotionally and physically unsafe. Alex sometimes dissociates, which is represented visually through a glamorous, decaying cabaret/variety-show world in his mind. The external story remains realistic; the performance sequences are subjective cinematic imagery rather than a supernatural plot device. Tonal influences include The Invis"
+        ],
+        "status": "stated"
+      },
+      "after": {
+        "status": "unknown",
+        "value": "",
+        "quotes": []
+      },
+      "publishableBefore": true,
+      "publishableAfter": true
+    },
+    {
+      "url": "https://www.freelancer.com/projects/website-development/need-website",
+      "truncated": false,
+      "before": {
+        "value": "Ends in 6 days",
+        "quotes": [
+          "Ends in 6 days"
+        ],
+        "status": "stated"
+      },
+      "after": {
+        "status": "unknown",
+        "value": "",
+        "quotes": []
+      },
+      "publishableBefore": false,
+      "publishableAfter": true
+    }
+  ],
+  "scopeNote": "Deterministic replay of existing source reviews. Relative counter dates remain unknown. Does not create or assess personal recommendations."
+}

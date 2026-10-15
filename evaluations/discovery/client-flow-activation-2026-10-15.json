@@ -1,0 +1,44 @@
+{
+  "recordedAt": "2026-10-15T14:08:20.809Z",
+  "workerPreviouslyRunning": false,
+  "action": "started verified worker because no prior worker process was running",
+  "pid": 35384,
+  "workerStartedAt": "2026-10-15T14:05:57.608571+00:00",
+  "logPath": "/tmp/scoutalert-worker-2026-10-15.log",
+  "runningQueues": [
+    "scout-workflows-v1",
+    "scout-sources-v1",
+    "scout-web-discovery-v1",
+    "scout-source-monitoring-v1",
+    "scout-social-discovery-v1",
+    "scout-matching-v1",
+    "scout-research-v1",
+    "scout-delivery-v1",
+    "scout-private-mail-v1"
+  ],
+  "configuration": {
+    "planner": "scout-planning-v10",
+    "queries": "client-demand-v3",
+    "review": "lead-evidence-v3:deadline-evidence-v1:buyer-category-v1",
+    "document": "public-document-v7",
+    "fit": "evidence-prompts-v8"
+  },
+  "configurationChanges": [],
+  "forcedReschedules": 0,
+  "http": [
+    {
+      "name": "temporal",
+      "status": 200
+    },
+    {
+      "name": "mailpit",
+      "status": 200
+    }
+  ],
+  "aggregate": {
+    "new_planner_tasks": 37,
+    "new_review_tasks": 20
+  },
+  "startupErrorCount": 0,
+  "note": "Existing database, budgets, schedules, provider settings and local Mailpit configuration retained. Build verified before startup; no saved-user result backfill asserted."
+}

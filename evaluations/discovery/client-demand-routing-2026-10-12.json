@@ -1,0 +1,330 @@
+{
+  "kind": "paired-candidate-selection-development-regression",
+  "recordedAt": "2026-10-11T23:57:52.370Z",
+  "corpusHash": "acd8bdbc7fb3d78ea81aff95d3d62cb202e45e7afbd87aa9f75a9a5b2f9816c3",
+  "configuration": "openai:gpt-5.4-mini-2026-03-17:scout-planning-v4",
+  "eligibleExamples": 5,
+  "baselineOffered": 2,
+  "contextualOffered": 5,
+  "baselineSelectionsPassed": 3,
+  "contextualSelectionsPassed": 6,
+  "providerCalls": 12,
+  "maximumReservedUsd": 0.9,
+  "estimatedUsd": 0.013758,
+  "usage": [
+    {
+      "model": "gpt-5.4-mini-2026-03-17",
+      "inputTokens": 545,
+      "cachedInputTokens": 0,
+      "outputTokens": 69,
+      "durationMs": 1420,
+      "responseId": "resp_037a7074b4e56e2e016acc2270dd2087d2906d9e5dcac4317b"
+    },
+    {
+      "model": "gpt-5.4-mini-2026-03-17",
+      "inputTokens": 1054,
+      "cachedInputTokens": 0,
+      "outputTokens": 137,
+      "durationMs": 1611,
+      "responseId": "resp_0e652a029dcc12e1016acc2271e8f887d2a00367adb2ac721b"
+    },
+    {
+      "model": "gpt-5.4-mini-2026-03-17",
+      "inputTokens": 772,
+      "cachedInputTokens": 0,
+      "outputTokens": 118,
+      "durationMs": 1266,
+      "responseId": "resp_0fad3ed5dfbcae8d016acc2273829487d2845f0424fcf2fad0"
+    },
+    {
+      "model": "gpt-5.4-mini-2026-03-17",
+      "inputTokens": 1023,
+      "cachedInputTokens": 0,
+      "outputTokens": 117,
+      "durationMs": 1313,
+      "responseId": "resp_0399f91eadeb66b4016acc2274cadc87d2b913350f462b501d"
+    },
+    {
+      "model": "gpt-5.4-mini-2026-03-17",
+      "inputTokens": 979,
+      "cachedInputTokens": 0,
+      "outputTokens": 85,
+      "durationMs": 1326,
+      "responseId": "resp_02fec6ac282cb4e9016acc227623c087d29b94f4115b3c07a7"
+    },
+    {
+      "model": "gpt-5.4-mini-2026-03-17",
+      "inputTokens": 1053,
+      "cachedInputTokens": 0,
+      "outputTokens": 82,
+      "durationMs": 1114,
+      "responseId": "resp_0d27817424c65646016acc22776fac87d2a8e46612a8c9edd9"
+    },
+    {
+      "model": "gpt-5.4-mini-2026-03-17",
+      "inputTokens": 612,
+      "cachedInputTokens": 0,
+      "outputTokens": 117,
+      "durationMs": 1563,
+      "responseId": "resp_0153adef4b2ed071016acc22788cf087d2be889a9cafcc33fe"
+    },
+    {
+      "model": "gpt-5.4-mini-2026-03-17",
+      "inputTokens": 782,
+      "cachedInputTokens": 0,
+      "outputTokens": 88,
+      "durationMs": 1316,
+      "responseId": "resp_0afa6f929460411f016acc227a247887d28c23d802e13f1197"
+    },
+    {
+      "model": "gpt-5.4-mini-2026-03-17",
+      "inputTokens": 869,
+      "cachedInputTokens": 0,
+      "outputTokens": 119,
+      "durationMs": 1397,
+      "responseId": "resp_0b76395edf3f2faf016acc227b6fc087d298a1e9bc3007cfb9"
+    },
+    {
+      "model": "gpt-5.4-mini-2026-03-17",
+      "inputTokens": 1072,
+      "cachedInputTokens": 0,
+      "outputTokens": 85,
+      "durationMs": 1243,
+      "responseId": "resp_054b6426dafede5e016acc227cdde087d2992c62138f5d4dba"
+    },
+    {
+      "model": "gpt-5.4-mini-2026-03-17",
+      "inputTokens": 869,
+      "cachedInputTokens": 0,
+      "outputTokens": 123,
+      "durationMs": 1345,
+      "responseId": "resp_0b0dc6a23c68d8af016acc227e119487d288f0388ff5bbecec"
+    },
+    {
+      "model": "gpt-5.4-mini-2026-03-17",
+      "inputTokens": 1177,
+      "cachedInputTokens": 0,
+      "outputTokens": 115,
+      "durationMs": 1308,
+      "responseId": "resp_0e9d34443386a8e2016acc227f6f7c87d2b9cf96493d6807f9"
+    }
+  ],
+  "results": [
+    {
+      "id": "captured-1",
+      "provenance": "Previously captured public posting from development corpus; synthetic public goal",
+      "baseline": {
+        "offered": false,
+        "choices": 2,
+        "documentChoices": 0,
+        "inputBytes": 452,
+        "selected": {
+          "kind": "search",
+          "query": {
+            "query": "UX interaction specialist remote \"apply\"",
+            "language": "en",
+            "country": null,
+            "freshness": "month",
+            "page": 1,
+            "limit": 10
+          }
+        },
+        "explanation": "This is a relevant employment search for a UX interaction specialist and may surface concrete remote openings with application details, so it’s the best next step.",
+        "passed": false,
+        "latencyMs": 1420
+      },
+      "contextual": {
+        "offered": true,
+        "choices": 3,
+        "documentChoices": 1,
+        "inputBytes": 2819,
+        "selected": {
+          "kind": "document",
+          "url": "https://boards.greenhouse.io/figma/jobs/5711468004?gh_jid=5711468004"
+        },
+        "explanation": "The Figma posting is the strongest evidence source here: it’s a real employer page for a design role that may clarify whether the work aligns with UX/interaction specialization and remote eligibility. If it doesn’t fit, it will still resolve the key unknowns better than another broad search.",
+        "passed": true,
+        "latencyMs": 1611
+      }
+    },
+    {
+      "id": "captured-2",
+      "provenance": "Previously captured public posting from development corpus; synthetic public goal",
+      "baseline": {
+        "offered": true,
+        "choices": 3,
+        "documentChoices": 1,
+        "inputBytes": 1456,
+        "selected": {
+          "kind": "document",
+          "url": "https://boards.greenhouse.io/figma/jobs/5551532004?gh_jid=5551532004"
+        },
+        "explanation": "The Figma posting is a direct employee vacancy for a Machine Learning / AI Engineer, which is the closest match to an applied AI developer role and can clarify remote/work eligibility and requirements. The search refinement is lower value than checking this concrete opening, and no-action would miss useful evidence.",
+        "passed": true,
+        "latencyMs": 1266
+      },
+      "contextual": {
+        "offered": true,
+        "choices": 3,
+        "documentChoices": 1,
+        "inputBytes": 2793,
+        "selected": {
+          "kind": "document",
+          "url": "https://boards.greenhouse.io/figma/jobs/5551532004?gh_jid=5551532004"
+        },
+        "explanation": "The Figma posting is a concrete employer opening for a Machine Learning/AI engineer role, which is closely aligned with an Applied AI developer search and can clarify requirements, location/remote status, and fit better than another broad query.",
+        "passed": true,
+        "latencyMs": 1313
+      }
+    },
+    {
+      "id": "client-storefront",
+      "provenance": "Authored regression, not an organic discovery sample",
+      "baseline": {
+        "offered": true,
+        "choices": 7,
+        "documentChoices": 1,
+        "inputBytes": 2100,
+        "selected": {
+          "kind": "document",
+          "url": "https://buyers.example.org/request/42"
+        },
+        "explanation": "This is the most concrete buyer request: it asks for a remote web/ecommerce build, estimate, and past work, which can clarify scope and budget better than another broad search query.",
+        "passed": true,
+        "latencyMs": 1326
+      },
+      "contextual": {
+        "offered": true,
+        "choices": 7,
+        "documentChoices": 1,
+        "inputBytes": 2426,
+        "selected": {
+          "kind": "document",
+          "url": "https://buyers.example.org/request/42"
+        },
+        "explanation": "Read the buyer request: it’s a direct remote project brief asking for an ecommerce build and estimate, which is more useful than broad query refinement.",
+        "passed": true,
+        "latencyMs": 1114
+      }
+    },
+    {
+      "id": "brand-contract",
+      "provenance": "Authored regression, not an organic discovery sample",
+      "baseline": {
+        "offered": false,
+        "choices": 3,
+        "documentChoices": 0,
+        "inputBytes": 684,
+        "selected": {
+          "kind": "search",
+          "query": {
+            "query": "Brand designer remote \"project\" \"budget\"",
+            "language": "en",
+            "country": null,
+            "freshness": "month",
+            "page": 1,
+            "limit": 10
+          }
+        },
+        "explanation": "This is the better demand-side search for a contract brand designer: it is more likely to surface a buyer’s project brief with scope or budget, which is more useful than a general hiring/freelance query. Next step: inspect results for specific client requests or RFP-style posts.",
+        "passed": false,
+        "latencyMs": 1563
+      },
+      "contextual": {
+        "offered": true,
+        "choices": 4,
+        "documentChoices": 1,
+        "inputBytes": 1491,
+        "selected": {
+          "kind": "document",
+          "url": "https://briefs.example.org/42"
+        },
+        "explanation": "The coffee shop brief is a concrete client request for logo and visual identity work, which matches brand design contract demand; it’s the most useful next source to inspect for scope, budget, and deadlines.",
+        "passed": true,
+        "latencyMs": 1317
+      }
+    },
+    {
+      "id": "spanish-bookkeeping",
+      "provenance": "Authored multilingual regression, not language-wide validation",
+      "baseline": {
+        "offered": false,
+        "choices": 6,
+        "documentChoices": 0,
+        "inputBytes": 1576,
+        "selected": {
+          "kind": "search",
+          "query": {
+            "query": "Bookkeeper (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "language": "en",
+            "country": null,
+            "freshness": "month",
+            "page": 1,
+            "limit": 10
+          }
+        },
+        "explanation": "Best next step is a broad buyer-intent search for people actively looking for a bookkeeper or contractor, which is most likely to surface concrete service demand quickly.",
+        "passed": false,
+        "latencyMs": 1398
+      },
+      "contextual": {
+        "offered": true,
+        "choices": 7,
+        "documentChoices": 1,
+        "inputBytes": 2433,
+        "selected": {
+          "kind": "document",
+          "url": "https://buyers.example.org/solicitud/19"
+        },
+        "explanation": "This is a concrete buyer request for bookkeeping services, with monthly books, reconciliation, reports, and remote paid work. It’s the most directly relevant evidence source to inspect next.",
+        "passed": true,
+        "latencyMs": 1244
+      }
+    },
+    {
+      "id": "seller-and-advice",
+      "provenance": "Authored negative regression; offering work is not buying work",
+      "baseline": {
+        "offered": null,
+        "choices": 6,
+        "documentChoices": 0,
+        "inputBytes": 1612,
+        "selected": {
+          "kind": "search",
+          "query": {
+            "query": "Product designer (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "language": "en",
+            "country": null,
+            "freshness": "month",
+            "page": 1,
+            "limit": 10
+          }
+        },
+        "explanation": "Best next step is a direct buyer-intent query for people actively looking for a product designer freelancer or contractor, which is more likely to surface a concrete request than job posts or broad social searches.",
+        "passed": true,
+        "latencyMs": 1345
+      },
+      "contextual": {
+        "offered": null,
+        "choices": 8,
+        "documentChoices": 2,
+        "inputBytes": 2984,
+        "selected": {
+          "kind": "search",
+          "query": {
+            "query": "Product designer (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "language": "en",
+            "country": null,
+            "freshness": "month",
+            "page": 1,
+            "limit": 10
+          }
+        },
+        "explanation": "This query is more likely to surface a concrete buyer request for a remote product designer seeking a freelancer or contractor, which is more useful than seller or salary pages.",
+        "passed": true,
+        "latencyMs": 1307
+      }
+    }
+  ],
+  "limitations": "Six implementation-authored development cases; two use previously captured public job text and four are synthetic. Both policies use the same current model prompt. Expected routes are not independent human labels. This measures shortlist inclusion and single-step routing, not discovery recall, personal fit, whole-internet coverage, delivery or global scale. Live model calls are bounded separately from the worker ledger; the production planner retains its shared admission policy."
+}

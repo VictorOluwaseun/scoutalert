@@ -1,0 +1,37 @@
+{
+  "recordedAt": "2026-10-12T00:14:49.435Z",
+  "planner": "scout-planning-v7",
+  "queryPolicy": "client-demand-v1",
+  "workerStartedAt": "2026-10-12T00:14:06Z",
+  "runningQueues": [
+    "scout-workflows-v1",
+    "scout-sources-v1",
+    "scout-web-discovery-v1",
+    "scout-source-monitoring-v1",
+    "scout-social-discovery-v1",
+    "scout-matching-v1",
+    "scout-research-v1",
+    "scout-delivery-v1",
+    "scout-private-mail-v1"
+  ],
+  "aggregate": {
+    "new_cases": 1,
+    "buyer_query_cases": 0
+  },
+  "configurationChanges": [],
+  "note": "Local worker resumed with unchanged budgets, schedules and email configuration. This startup snapshot does not establish new account recommendations or completion of every saved scout.",
+  "http": [
+    {
+      "name": "web",
+      "status": 200
+    },
+    {
+      "name": "api",
+      "status": 200
+    },
+    {
+      "name": "mailpit",
+      "status": 200
+    }
+  ]
+}

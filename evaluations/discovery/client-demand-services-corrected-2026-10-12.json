@@ -1,0 +1,3710 @@
+{
+  "checkedAt": "2026-10-12T00:04:22.706Z",
+  "scenario": "services",
+  "baseline": false,
+  "reasoningConfiguration": "openai:gpt-5.4-mini-2026-03-17:scout-planning-v5",
+  "plan": {
+    "policy": "public-intent-v3",
+    "queries": [
+      {
+        "page": 1,
+        "limit": 10,
+        "query": "Website redesign (\"project\" OR \"brief\") (\"budget\" OR \"fixed price\")",
+        "country": "us",
+        "language": "en",
+        "freshness": "month"
+      },
+      {
+        "page": 1,
+        "limit": 10,
+        "query": "Website redesign (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+        "country": "us",
+        "language": "en",
+        "freshness": "month"
+      },
+      {
+        "page": 1,
+        "limit": 10,
+        "query": "Website redesign (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+        "country": "us",
+        "language": "en",
+        "freshness": "month"
+      },
+      {
+        "page": 1,
+        "limit": 10,
+        "query": "Website redesign (\"project\" OR \"brief\") (\"proposals\" OR \"bids\")",
+        "country": "us",
+        "language": "en",
+        "freshness": "month"
+      }
+    ],
+    "category": "services",
+    "strategy": {
+      "targets": [
+        "Website redesign"
+      ],
+      "explanation": "I kept the search focused on the full service phrase so matching stays broad enough for redesign work while preserving the exact public wording. Remote is handled separately in the search template, so it is not included here."
+    },
+    "exploration": {
+      "remote": true,
+      "target": "Website redesign",
+      "queryPolicy": "client-demand-v1",
+      "maximumDepth": 3,
+      "maximumRounds": 8,
+      "candidatePolicy": "contextual-v1",
+      "maximumSearches": 6,
+      "maximumSourcePages": 2
+    },
+    "continuation": "explore_on_next_run",
+    "scoutVersion": 1,
+    "blockedReason": null,
+    "deadlineSeconds": 240,
+    "maximumDocuments": 6
+  },
+  "reader": "worker",
+  "renderingEnabled": true,
+  "status": "measured",
+  "deliveryOutcome": "no_eligible_digest",
+  "reasoning": [
+    {
+      "input": {
+        "kind": "strategy",
+        "intent": {
+          "remote": true,
+          "target": "Website redesign",
+          "category": "services"
+        }
+      },
+      "output": {
+        "kind": "strategy",
+        "strategy": {
+          "targets": [
+            "Website redesign"
+          ],
+          "explanation": "I kept the search focused on the full service phrase so matching stays broad enough for redesign work while preserving the exact public wording. Remote is handled separately in the search template, so it is not included here."
+        }
+      },
+      "rejected_output": null,
+      "failure": null,
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 1942,
+        "responseId": "resp_0509c3ce6781a4e8016acc239a973087d2aee00d1a2147d2fc",
+        "inputTokens": 305,
+        "outputTokens": 158,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 940
+      }
+    },
+    {
+      "input": {
+        "kind": "choice",
+        "intent": {
+          "remote": true,
+          "target": "Website redesign",
+          "category": "services"
+        },
+        "choices": [
+          {
+            "depth": 0,
+            "title": "PolicyWise issued RFP for Brand and Website Redesign",
+            "action": {
+              "url": "https://policywise.com/news/rfp-for-brand-website-redesign/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "eed6469475f6023183b06a29e535242b50e903746458f4f697c5d48b4849cf17"
+          },
+          {
+            "depth": 0,
+            "title": "\"Your website redesign RFP might be costing you more ...",
+            "action": {
+              "url": "https://www.instagram.com/p/DdTxS8ojHQa/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "eed6469475f6023183b06a29e535242b50e903746458f4f697c5d48b4849cf17"
+          },
+          {
+            "depth": 0,
+            "title": "Fixed-Price Website Redesign: What's Included and When ...",
+            "action": {
+              "url": "https://skydea.co/blog/fixed-price-website-redesign",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "298e136d600d3b7bdc2694573d1dce408b47279342ff13742bd9ec76a04e91b6"
+          },
+          {
+            "depth": 0,
+            "title": "I need a website",
+            "action": {
+              "url": "https://www.freelancer.com/projects/website-development/need-website",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "0a8add4c0e8f47fe4deea12c492463546e06569b83d0ded12271836c4ecdf29c"
+          },
+          {
+            "depth": 0,
+            "title": "Request for Proposals: Website Redesign & Ecosystem ...",
+            "action": {
+              "url": "https://www.achievementfirst.org/request-for-proposals-website-redesign-ecosystem-development/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "6efdfc7d062dd394d344a12465cac62b99543621d27deb588013220d279eb2bd"
+          },
+          {
+            "depth": 0,
+            "title": "Choosing a Website Provider: Freelancer, Agency or DIY",
+            "action": {
+              "url": "https://www.mwdwebsites.com/choosing-a-website-provider-freelancer-agency-or-diy/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "0a8add4c0e8f47fe4deea12c492463546e06569b83d0ded12271836c4ecdf29c"
+          },
+          {
+            "depth": 0,
+            "title": "Website Redesign Process: Steps, Preparation & Execution",
+            "action": {
+              "url": "https://www.ramotion.com/blog/website-redesign/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "298e136d600d3b7bdc2694573d1dce408b47279342ff13742bd9ec76a04e91b6"
+          },
+          {
+            "depth": 0,
+            "title": "How Much Does a B2B Website Redesign Cost in 2026?",
+            "action": {
+              "url": "https://www.rickwhittington.com/blog/how-much-does-it-cost-to-build-a-website/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "298e136d600d3b7bdc2694573d1dce408b47279342ff13742bd9ec76a04e91b6"
+          },
+          {
+            "depth": 0,
+            "title": "Website redesign: What it is, when you need it, and how to ...",
+            "action": {
+              "url": "https://www.godaddy.com/resources/skills/website-redesign",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "0a8add4c0e8f47fe4deea12c492463546e06569b83d0ded12271836c4ecdf29c"
+          },
+          {
+            "depth": 0,
+            "title": "Website Redesign Budget Guide for B2B Marketing",
+            "action": {
+              "url": "https://www.linkedin.com/posts/joinamply_website-revamp-pricing-guide-activity-7508595968586706944-6PXo",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "298e136d600d3b7bdc2694573d1dce408b47279342ff13742bd9ec76a04e91b6"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "Website redesign site:x.com (\"hiring\" OR \"need\") (\"project\" OR \"freelance\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "6efdfc7d062dd394d344a12465cac62b99543621d27deb588013220d279eb2bd"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "Website redesign site:linkedin.com/posts (\"hiring\" OR \"need\") (\"project\" OR \"freelance\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "6efdfc7d062dd394d344a12465cac62b99543621d27deb588013220d279eb2bd"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": null,
+            "reason": "no_further_action",
+            "parentKey": null
+          }
+        ],
+        "evidence": [
+          {
+            "url": "https://www.godaddy.com/resources/skills/website-redesign",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Website redesign: What it is, when you need it, and how to ... This proposal outlines the project's goals, scope, deliverables, timeline, budget, and the people responsible for each stage. It gives everyone involved a ..."
+          },
+          {
+            "url": "https://www.linkedin.com/posts/joinamply_website-revamp-pricing-guide-activity-7508595968586706944-6PXo",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Website Redesign Budget Guide for B2B Marketing ... budget is. Check out this guide that helps you understand the various tiers for a website project, what's generally included, and what to expect. You could ..."
+          },
+          {
+            "url": "https://skydea.co/blog/fixed-price-website-redesign",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Fixed-Price Website Redesign: What's Included and When ... Set a budget first and keep a close eye on the estimates. What does a fixed-price redesign cost? It varies by project type. A refresh, a full redesign and a ..."
+          },
+          {
+            "url": "https://www.ramotion.com/blog/website-redesign/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Website Redesign Process: Steps, Preparation & Execution A project budget outlines the total cost of the redesign from start to finish. This should cover all redesign aspects, including design, development, testing, ..."
+          },
+          {
+            "url": "https://www.rickwhittington.com/blog/how-much-does-it-cost-to-build-a-website/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "How Much Does a B2B Website Redesign Cost in 2026? Website Redesign Budget Calculator · Timeline & process · FAQs · Articles and ... Our starting project includes one fully custom design concept, development into ..."
+          },
+          {
+            "url": "https://www.freelancer.com/projects/website-development/need-website",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "I need a website Do you need a local freelancer? Find out more. Building an international team ... Hello, I am looking for an experienced website developer to build a ..."
+          },
+          {
+            "url": "https://www.godaddy.com/resources/skills/website-redesign",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Website redesign: What it is, when you need it, and how to ... When do you need to redesign your website? Even a well-built website ... Choose Airo AI Builder if you're a small business, freelancer, or marketing ..."
+          },
+          {
+            "url": "https://www.mwdwebsites.com/choosing-a-website-provider-freelancer-agency-or-diy/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Choosing a Website Provider: Freelancer, Agency or DIY Need a website, redesign or support? Get in touch or call (732) 673-1887. Freelance Blog. Choosing a Website Provider: Freelancer, Agency, or DIY Platform?"
+          },
+          {
+            "url": "https://www.instagram.com/p/DdTxS8ojHQa/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "\"Your website redesign RFP might be costing you more ... Your website redesign RFP might be costing you more than you think. Stop asking for \"prettier pages\" and start demanding clarity."
+          },
+          {
+            "url": "https://policywise.com/news/rfp-for-brand-website-redesign/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "PolicyWise issued RFP for Brand and Website Redesign To support this, we issued a Request for Proposal (RFP) for a brand and website redesign. We were looking for an experienced partner to help us align our ..."
+          },
+          {
+            "url": "https://www.achievementfirst.org/request-for-proposals-website-redesign-ecosystem-development/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Request for Proposals: Website Redesign & Ecosystem ... Request for Proposals: Website Redesign & Ecosystem Development. CATEGORY ... Strong project management methodologies and executive account governance."
+          }
+        ],
+        "candidates": [
+          {
+            "text": "PolicyWise issued RFP for Brand and Website Redesign To support this, we issued a Request for Proposal (RFP) for a brand and website redesign. We were looking for an experienced partner to help us align our ...",
+            "query": "Website redesign (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 0,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "\"Your website redesign RFP might be costing you more ... Your website redesign RFP might be costing you more than you think. Stop asking for \"prettier pages\" and start demanding clarity.",
+            "query": "Website redesign (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 1,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Fixed-Price Website Redesign: What's Included and When ... Set a budget first and keep a close eye on the estimates. What does a fixed-price redesign cost? It varies by project type. A refresh, a full redesign and a ...",
+            "query": "Website redesign (\"project\" OR \"brief\") (\"budget\" OR \"fixed price\")",
+            "choice": 2,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "I need a website Do you need a local freelancer? Find out more. Building an international team ... Hello, I am looking for an experienced website developer to build a ...",
+            "query": "Website redesign (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 3,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Request for Proposals: Website Redesign & Ecosystem ... Request for Proposals: Website Redesign & Ecosystem Development. CATEGORY ... Strong project management methodologies and executive account governance.",
+            "query": "Website redesign (\"project\" OR \"brief\") (\"proposals\" OR \"bids\")",
+            "choice": 4,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Choosing a Website Provider: Freelancer, Agency or DIY Need a website, redesign or support? Get in touch or call (732) 673-1887. Freelance Blog. Choosing a Website Provider: Freelancer, Agency, or DIY Platform?",
+            "query": "Website redesign (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 5,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Website Redesign Process: Steps, Preparation & Execution A project budget outlines the total cost of the redesign from start to finish. This should cover all redesign aspects, including design, development, testing, ...",
+            "query": "Website redesign (\"project\" OR \"brief\") (\"budget\" OR \"fixed price\")",
+            "choice": 6,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "How Much Does a B2B Website Redesign Cost in 2026? Website Redesign Budget Calculator · Timeline & process · FAQs · Articles and ... Our starting project includes one fully custom design concept, development into ...",
+            "query": "Website redesign (\"project\" OR \"brief\") (\"budget\" OR \"fixed price\")",
+            "choice": 7,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Website redesign: What it is, when you need it, and how to ... When do you need to redesign your website? Even a well-built website ... Choose Airo AI Builder if you're a small business, freelancer, or marketing ...",
+            "query": "Website redesign (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 8,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Website Redesign Budget Guide for B2B Marketing ... budget is. Check out this guide that helps you understand the various tiers for a website project, what's generally included, and what to expect. You could ...",
+            "query": "Website redesign (\"project\" OR \"brief\") (\"budget\" OR \"fixed price\")",
+            "choice": 9,
+            "origin": "search_result",
+            "parentUrl": null
+          }
+        ]
+      },
+      "output": {
+        "kind": "choice",
+        "index": 4,
+        "explanation": "This is a concrete buyer-side RFP for website redesign and ecosystem development, which is the most useful next evidence to inspect for scope, eligibility, and deadlines."
+      },
+      "rejected_output": null,
+      "failure": null,
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 2040,
+        "responseId": "resp_0f7421dab11d75df016acc23a2b29487d2adf5700d12193214",
+        "inputTokens": 3568,
+        "outputTokens": 124,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 3234
+      }
+    },
+    {
+      "input": {
+        "kind": "choice",
+        "intent": {
+          "remote": true,
+          "target": "Website redesign",
+          "category": "services"
+        },
+        "choices": [
+          {
+            "depth": 0,
+            "title": "PolicyWise issued RFP for Brand and Website Redesign",
+            "action": {
+              "url": "https://policywise.com/news/rfp-for-brand-website-redesign/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "eed6469475f6023183b06a29e535242b50e903746458f4f697c5d48b4849cf17"
+          },
+          {
+            "depth": 0,
+            "title": "\"Your website redesign RFP might be costing you more ...",
+            "action": {
+              "url": "https://www.instagram.com/p/DdTxS8ojHQa/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "eed6469475f6023183b06a29e535242b50e903746458f4f697c5d48b4849cf17"
+          },
+          {
+            "depth": 0,
+            "title": "Fixed-Price Website Redesign: What's Included and When ...",
+            "action": {
+              "url": "https://skydea.co/blog/fixed-price-website-redesign",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "298e136d600d3b7bdc2694573d1dce408b47279342ff13742bd9ec76a04e91b6"
+          },
+          {
+            "depth": 0,
+            "title": "I need a website",
+            "action": {
+              "url": "https://www.freelancer.com/projects/website-development/need-website",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "0a8add4c0e8f47fe4deea12c492463546e06569b83d0ded12271836c4ecdf29c"
+          },
+          {
+            "depth": 0,
+            "title": "Choosing a Website Provider: Freelancer, Agency or DIY",
+            "action": {
+              "url": "https://www.mwdwebsites.com/choosing-a-website-provider-freelancer-agency-or-diy/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "0a8add4c0e8f47fe4deea12c492463546e06569b83d0ded12271836c4ecdf29c"
+          },
+          {
+            "depth": 0,
+            "title": "Website Redesign Process: Steps, Preparation & Execution",
+            "action": {
+              "url": "https://www.ramotion.com/blog/website-redesign/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "298e136d600d3b7bdc2694573d1dce408b47279342ff13742bd9ec76a04e91b6"
+          },
+          {
+            "depth": 0,
+            "title": "How Much Does a B2B Website Redesign Cost in 2026?",
+            "action": {
+              "url": "https://www.rickwhittington.com/blog/how-much-does-it-cost-to-build-a-website/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "298e136d600d3b7bdc2694573d1dce408b47279342ff13742bd9ec76a04e91b6"
+          },
+          {
+            "depth": 0,
+            "title": "Submit an RFP, RFQ or RFI",
+            "action": {
+              "url": "https://eseospace.com/submit-an-rfp/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "eed6469475f6023183b06a29e535242b50e903746458f4f697c5d48b4849cf17"
+          },
+          {
+            "depth": 0,
+            "title": "Website redesign: What it is, when you need it, and how to ...",
+            "action": {
+              "url": "https://www.godaddy.com/resources/skills/website-redesign",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "0a8add4c0e8f47fe4deea12c492463546e06569b83d0ded12271836c4ecdf29c"
+          },
+          {
+            "depth": 0,
+            "title": "Website Redesign Budget Guide for B2B Marketing",
+            "action": {
+              "url": "https://www.linkedin.com/posts/joinamply_website-revamp-pricing-guide-activity-7508595968586706944-6PXo",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "298e136d600d3b7bdc2694573d1dce408b47279342ff13742bd9ec76a04e91b6"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "Website redesign site:x.com (\"hiring\" OR \"need\") (\"project\" OR \"freelance\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "6efdfc7d062dd394d344a12465cac62b99543621d27deb588013220d279eb2bd"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "Website redesign site:linkedin.com/posts (\"hiring\" OR \"need\") (\"project\" OR \"freelance\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "6efdfc7d062dd394d344a12465cac62b99543621d27deb588013220d279eb2bd"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": null,
+            "reason": "no_further_action",
+            "parentKey": null
+          }
+        ],
+        "evidence": [
+          {
+            "url": "https://www.achievementfirst.org/request-for-proposals-website-redesign-ecosystem-development/",
+            "label": "access_limited",
+            "scope": "source_access",
+            "unknowns": [
+              "demand and availability remain unverified"
+            ],
+            "explanation": "Source capture could not provide complete evidence: crawl_delay_exceeds_run_budget."
+          },
+          {
+            "url": "https://www.godaddy.com/resources/skills/website-redesign",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Website redesign: What it is, when you need it, and how to ... This proposal outlines the project's goals, scope, deliverables, timeline, budget, and the people responsible for each stage. It gives everyone involved a ..."
+          },
+          {
+            "url": "https://www.linkedin.com/posts/joinamply_website-revamp-pricing-guide-activity-7508595968586706944-6PXo",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Website Redesign Budget Guide for B2B Marketing ... budget is. Check out this guide that helps you understand the various tiers for a website project, what's generally included, and what to expect. You could ..."
+          },
+          {
+            "url": "https://skydea.co/blog/fixed-price-website-redesign",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Fixed-Price Website Redesign: What's Included and When ... Set a budget first and keep a close eye on the estimates. What does a fixed-price redesign cost? It varies by project type. A refresh, a full redesign and a ..."
+          },
+          {
+            "url": "https://www.ramotion.com/blog/website-redesign/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Website Redesign Process: Steps, Preparation & Execution A project budget outlines the total cost of the redesign from start to finish. This should cover all redesign aspects, including design, development, testing, ..."
+          },
+          {
+            "url": "https://www.rickwhittington.com/blog/how-much-does-it-cost-to-build-a-website/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "How Much Does a B2B Website Redesign Cost in 2026? Website Redesign Budget Calculator · Timeline & process · FAQs · Articles and ... Our starting project includes one fully custom design concept, development into ..."
+          },
+          {
+            "url": "https://www.freelancer.com/projects/website-development/need-website",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "I need a website Do you need a local freelancer? Find out more. Building an international team ... Hello, I am looking for an experienced website developer to build a ..."
+          },
+          {
+            "url": "https://www.godaddy.com/resources/skills/website-redesign",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Website redesign: What it is, when you need it, and how to ... When do you need to redesign your website? Even a well-built website ... Choose Airo AI Builder if you're a small business, freelancer, or marketing ..."
+          },
+          {
+            "url": "https://www.mwdwebsites.com/choosing-a-website-provider-freelancer-agency-or-diy/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Choosing a Website Provider: Freelancer, Agency or DIY Need a website, redesign or support? Get in touch or call (732) 673-1887. Freelance Blog. Choosing a Website Provider: Freelancer, Agency, or DIY Platform?"
+          },
+          {
+            "url": "https://www.instagram.com/p/DdTxS8ojHQa/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "\"Your website redesign RFP might be costing you more ... Your website redesign RFP might be costing you more than you think. Stop asking for \"prettier pages\" and start demanding clarity."
+          },
+          {
+            "url": "https://policywise.com/news/rfp-for-brand-website-redesign/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "PolicyWise issued RFP for Brand and Website Redesign To support this, we issued a Request for Proposal (RFP) for a brand and website redesign. We were looking for an experienced partner to help us align our ..."
+          },
+          {
+            "url": "https://eseospace.com/submit-an-rfp/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Submit an RFP, RFQ or RFI Submit your website RFP, RFQ, RFI or scope of work to eSEOspace. Upload the solicitation and supporting documents, tell us your deadline and budget range, ..."
+          }
+        ],
+        "candidates": [
+          {
+            "text": "PolicyWise issued RFP for Brand and Website Redesign To support this, we issued a Request for Proposal (RFP) for a brand and website redesign. We were looking for an experienced partner to help us align our ...",
+            "query": "Website redesign (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 0,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "\"Your website redesign RFP might be costing you more ... Your website redesign RFP might be costing you more than you think. Stop asking for \"prettier pages\" and start demanding clarity.",
+            "query": "Website redesign (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 1,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Fixed-Price Website Redesign: What's Included and When ... Set a budget first and keep a close eye on the estimates. What does a fixed-price redesign cost? It varies by project type. A refresh, a full redesign and a ...",
+            "query": "Website redesign (\"project\" OR \"brief\") (\"budget\" OR \"fixed price\")",
+            "choice": 2,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "I need a website Do you need a local freelancer? Find out more. Building an international team ... Hello, I am looking for an experienced website developer to build a ...",
+            "query": "Website redesign (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 3,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Choosing a Website Provider: Freelancer, Agency or DIY Need a website, redesign or support? Get in touch or call (732) 673-1887. Freelance Blog. Choosing a Website Provider: Freelancer, Agency, or DIY Platform?",
+            "query": "Website redesign (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 4,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Website Redesign Process: Steps, Preparation & Execution A project budget outlines the total cost of the redesign from start to finish. This should cover all redesign aspects, including design, development, testing, ...",
+            "query": "Website redesign (\"project\" OR \"brief\") (\"budget\" OR \"fixed price\")",
+            "choice": 5,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "How Much Does a B2B Website Redesign Cost in 2026? Website Redesign Budget Calculator · Timeline & process · FAQs · Articles and ... Our starting project includes one fully custom design concept, development into ...",
+            "query": "Website redesign (\"project\" OR \"brief\") (\"budget\" OR \"fixed price\")",
+            "choice": 6,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Submit an RFP, RFQ or RFI Submit your website RFP, RFQ, RFI or scope of work to eSEOspace. Upload the solicitation and supporting documents, tell us your deadline and budget range, ...",
+            "query": "Website redesign (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 7,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Website redesign: What it is, when you need it, and how to ... When do you need to redesign your website? Even a well-built website ... Choose Airo AI Builder if you're a small business, freelancer, or marketing ...",
+            "query": "Website redesign (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 8,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Website Redesign Budget Guide for B2B Marketing ... budget is. Check out this guide that helps you understand the various tiers for a website project, what's generally included, and what to expect. You could ...",
+            "query": "Website redesign (\"project\" OR \"brief\") (\"budget\" OR \"fixed price\")",
+            "choice": 9,
+            "origin": "search_result",
+            "parentUrl": null
+          }
+        ]
+      },
+      "output": {
+        "kind": "choice",
+        "index": 0,
+        "explanation": "This is the strongest buyer-side lead: a published RFP for a brand and website redesign, which is directly relevant to the target service and likely to clarify scope and vendor requirements."
+      },
+      "rejected_output": null,
+      "failure": null,
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 1175,
+        "responseId": "resp_0ea843ae4b57ca57016acc23a5521487d2b9f79e72da6d6fc6",
+        "inputTokens": 3638,
+        "outputTokens": 95,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 3156
+      }
+    },
+    {
+      "input": {
+        "kind": "choice",
+        "intent": {
+          "remote": true,
+          "target": "Website redesign",
+          "category": "services"
+        },
+        "choices": [
+          {
+            "depth": 0,
+            "title": "\"Your website redesign RFP might be costing you more ...",
+            "action": {
+              "url": "https://www.instagram.com/p/DdTxS8ojHQa/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "eed6469475f6023183b06a29e535242b50e903746458f4f697c5d48b4849cf17"
+          },
+          {
+            "depth": 0,
+            "title": "Fixed-Price Website Redesign: What's Included and When ...",
+            "action": {
+              "url": "https://skydea.co/blog/fixed-price-website-redesign",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "298e136d600d3b7bdc2694573d1dce408b47279342ff13742bd9ec76a04e91b6"
+          },
+          {
+            "depth": 0,
+            "title": "I need a website",
+            "action": {
+              "url": "https://www.freelancer.com/projects/website-development/need-website",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "0a8add4c0e8f47fe4deea12c492463546e06569b83d0ded12271836c4ecdf29c"
+          },
+          {
+            "depth": 0,
+            "title": "Choosing a Website Provider: Freelancer, Agency or DIY",
+            "action": {
+              "url": "https://www.mwdwebsites.com/choosing-a-website-provider-freelancer-agency-or-diy/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "0a8add4c0e8f47fe4deea12c492463546e06569b83d0ded12271836c4ecdf29c"
+          },
+          {
+            "depth": 0,
+            "title": "Website Redesign Process: Steps, Preparation & Execution",
+            "action": {
+              "url": "https://www.ramotion.com/blog/website-redesign/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "298e136d600d3b7bdc2694573d1dce408b47279342ff13742bd9ec76a04e91b6"
+          },
+          {
+            "depth": 0,
+            "title": "Submit an RFP, RFQ or RFI",
+            "action": {
+              "url": "https://eseospace.com/submit-an-rfp/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "eed6469475f6023183b06a29e535242b50e903746458f4f697c5d48b4849cf17"
+          },
+          {
+            "depth": 0,
+            "title": "Web design and development opportunities",
+            "action": {
+              "url": "https://www.dcoe.org/opportunities/rfp-tenders",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "eed6469475f6023183b06a29e535242b50e903746458f4f697c5d48b4849cf17"
+          },
+          {
+            "depth": 0,
+            "title": "How Much Does a B2B Website Redesign Cost in 2026?",
+            "action": {
+              "url": "https://www.rickwhittington.com/blog/how-much-does-it-cost-to-build-a-website/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "298e136d600d3b7bdc2694573d1dce408b47279342ff13742bd9ec76a04e91b6"
+          },
+          {
+            "depth": 0,
+            "title": "Website redesign: What it is, when you need it, and how to ...",
+            "action": {
+              "url": "https://www.godaddy.com/resources/skills/website-redesign",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "0a8add4c0e8f47fe4deea12c492463546e06569b83d0ded12271836c4ecdf29c"
+          },
+          {
+            "depth": 0,
+            "title": "Website Redesign Budget Guide for B2B Marketing",
+            "action": {
+              "url": "https://www.linkedin.com/posts/joinamply_website-revamp-pricing-guide-activity-7508595968586706944-6PXo",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "298e136d600d3b7bdc2694573d1dce408b47279342ff13742bd9ec76a04e91b6"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "Website redesign site:x.com (\"hiring\" OR \"need\") (\"project\" OR \"freelance\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "6efdfc7d062dd394d344a12465cac62b99543621d27deb588013220d279eb2bd"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "Website redesign site:linkedin.com/posts (\"hiring\" OR \"need\") (\"project\" OR \"freelance\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "6efdfc7d062dd394d344a12465cac62b99543621d27deb588013220d279eb2bd"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": null,
+            "reason": "no_further_action",
+            "parentKey": null
+          }
+        ],
+        "evidence": [
+          {
+            "url": "https://www.achievementfirst.org/request-for-proposals-website-redesign-ecosystem-development/",
+            "label": "access_limited",
+            "scope": "source_access",
+            "unknowns": [
+              "demand and availability remain unverified"
+            ],
+            "explanation": "Source capture could not provide complete evidence: crawl_delay_exceeds_run_budget."
+          },
+          {
+            "url": "https://policywise.com/news/rfp-for-brand-website-redesign/",
+            "label": "closed",
+            "scope": "source",
+            "unknowns": [
+              "arrangement",
+              "sponsorship",
+              "compensation",
+              "authorization"
+            ],
+            "explanation": "This is an RFP for a specific brand and website redesign, but the submission deadline had already passed by the observation date, so it is closed. Subject: brand and website redesign. Evidence: To support this, we issued a Request for Proposal (RFP) for a brand and website redesign. We were looking for an experienced partner to help us align our identity and digital presence with our new strategic direction. The key deliverables for this project include:"
+          },
+          {
+            "url": "https://www.godaddy.com/resources/skills/website-redesign",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Website redesign: What it is, when you need it, and how to ... This proposal outlines the project's goals, scope, deliverables, timeline, budget, and the people responsible for each stage. It gives everyone involved a ..."
+          },
+          {
+            "url": "https://www.linkedin.com/posts/joinamply_website-revamp-pricing-guide-activity-7508595968586706944-6PXo",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Website Redesign Budget Guide for B2B Marketing ... budget is. Check out this guide that helps you understand the various tiers for a website project, what's generally included, and what to expect. You could ..."
+          },
+          {
+            "url": "https://skydea.co/blog/fixed-price-website-redesign",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Fixed-Price Website Redesign: What's Included and When ... Set a budget first and keep a close eye on the estimates. What does a fixed-price redesign cost? It varies by project type. A refresh, a full redesign and a ..."
+          },
+          {
+            "url": "https://www.ramotion.com/blog/website-redesign/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Website Redesign Process: Steps, Preparation & Execution A project budget outlines the total cost of the redesign from start to finish. This should cover all redesign aspects, including design, development, testing, ..."
+          },
+          {
+            "url": "https://www.rickwhittington.com/blog/how-much-does-it-cost-to-build-a-website/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "How Much Does a B2B Website Redesign Cost in 2026? Website Redesign Budget Calculator · Timeline & process · FAQs · Articles and ... Our starting project includes one fully custom design concept, development into ..."
+          },
+          {
+            "url": "https://www.freelancer.com/projects/website-development/need-website",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "I need a website Do you need a local freelancer? Find out more. Building an international team ... Hello, I am looking for an experienced website developer to build a ..."
+          },
+          {
+            "url": "https://www.godaddy.com/resources/skills/website-redesign",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Website redesign: What it is, when you need it, and how to ... When do you need to redesign your website? Even a well-built website ... Choose Airo AI Builder if you're a small business, freelancer, or marketing ..."
+          },
+          {
+            "url": "https://www.mwdwebsites.com/choosing-a-website-provider-freelancer-agency-or-diy/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Choosing a Website Provider: Freelancer, Agency or DIY Need a website, redesign or support? Get in touch or call (732) 673-1887. Freelance Blog. Choosing a Website Provider: Freelancer, Agency, or DIY Platform?"
+          },
+          {
+            "url": "https://www.instagram.com/p/DdTxS8ojHQa/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "\"Your website redesign RFP might be costing you more ... Your website redesign RFP might be costing you more than you think. Stop asking for \"prettier pages\" and start demanding clarity."
+          },
+          {
+            "url": "https://eseospace.com/submit-an-rfp/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Submit an RFP, RFQ or RFI Submit your website RFP, RFQ, RFI or scope of work to eSEOspace. Upload the solicitation and supporting documents, tell us your deadline and budget range, ..."
+          },
+          {
+            "url": "https://www.dcoe.org/opportunities/rfp-tenders",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Web design and development opportunities Website design, development, hosting, operations, maintenance, and support services. Redesign, develop, implement, host, and migrate its municipal website"
+          }
+        ],
+        "candidates": [
+          {
+            "text": "\"Your website redesign RFP might be costing you more ... Your website redesign RFP might be costing you more than you think. Stop asking for \"prettier pages\" and start demanding clarity.",
+            "query": "Website redesign (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 0,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Fixed-Price Website Redesign: What's Included and When ... Set a budget first and keep a close eye on the estimates. What does a fixed-price redesign cost? It varies by project type. A refresh, a full redesign and a ...",
+            "query": "Website redesign (\"project\" OR \"brief\") (\"budget\" OR \"fixed price\")",
+            "choice": 1,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "I need a website Do you need a local freelancer? Find out more. Building an international team ... Hello, I am looking for an experienced website developer to build a ...",
+            "query": "Website redesign (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 2,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Choosing a Website Provider: Freelancer, Agency or DIY Need a website, redesign or support? Get in touch or call (732) 673-1887. Freelance Blog. Choosing a Website Provider: Freelancer, Agency, or DIY Platform?",
+            "query": "Website redesign (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 3,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Website Redesign Process: Steps, Preparation & Execution A project budget outlines the total cost of the redesign from start to finish. This should cover all redesign aspects, including design, development, testing, ...",
+            "query": "Website redesign (\"project\" OR \"brief\") (\"budget\" OR \"fixed price\")",
+            "choice": 4,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Submit an RFP, RFQ or RFI Submit your website RFP, RFQ, RFI or scope of work to eSEOspace. Upload the solicitation and supporting documents, tell us your deadline and budget range, ...",
+            "query": "Website redesign (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 5,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Web design and development opportunities Website design, development, hosting, operations, maintenance, and support services. Redesign, develop, implement, host, and migrate its municipal website",
+            "query": "Website redesign (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 6,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "How Much Does a B2B Website Redesign Cost in 2026? Website Redesign Budget Calculator · Timeline & process · FAQs · Articles and ... Our starting project includes one fully custom design concept, development into ...",
+            "query": "Website redesign (\"project\" OR \"brief\") (\"budget\" OR \"fixed price\")",
+            "choice": 7,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Website redesign: What it is, when you need it, and how to ... When do you need to redesign your website? Even a well-built website ... Choose Airo AI Builder if you're a small business, freelancer, or marketing ...",
+            "query": "Website redesign (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 8,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Website Redesign Budget Guide for B2B Marketing ... budget is. Check out this guide that helps you understand the various tiers for a website project, what's generally included, and what to expect. You could ...",
+            "query": "Website redesign (\"project\" OR \"brief\") (\"budget\" OR \"fixed price\")",
+            "choice": 9,
+            "origin": "search_result",
+            "parentUrl": null
+          }
+        ]
+      },
+      "output": {
+        "kind": "choice",
+        "index": 6,
+        "explanation": "This is the clearest demand-side lead: a municipal opportunities page for web design/development, including redesign work. It is more likely to contain an actual open RFP or child brief than the blog/service pages or generic advice results."
+      },
+      "rejected_output": null,
+      "failure": null,
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 1698,
+        "responseId": "resp_02aa73202dfc0a61016acc23ae87f487d2bb27fb75ee258064",
+        "inputTokens": 3741,
+        "outputTokens": 126,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 3373
+      }
+    },
+    {
+      "input": {
+        "kind": "choice",
+        "intent": {
+          "remote": true,
+          "target": "Website redesign",
+          "category": "services"
+        },
+        "choices": [
+          {
+            "depth": 0,
+            "title": "\"Your website redesign RFP might be costing you more ...",
+            "action": {
+              "url": "https://www.instagram.com/p/DdTxS8ojHQa/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "eed6469475f6023183b06a29e535242b50e903746458f4f697c5d48b4849cf17"
+          },
+          {
+            "depth": 0,
+            "title": "Fixed-Price Website Redesign: What's Included and When ...",
+            "action": {
+              "url": "https://skydea.co/blog/fixed-price-website-redesign",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "298e136d600d3b7bdc2694573d1dce408b47279342ff13742bd9ec76a04e91b6"
+          },
+          {
+            "depth": 0,
+            "title": "I need a website",
+            "action": {
+              "url": "https://www.freelancer.com/projects/website-development/need-website",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "0a8add4c0e8f47fe4deea12c492463546e06569b83d0ded12271836c4ecdf29c"
+          },
+          {
+            "depth": 1,
+            "title": "Modernize its public Sex Offender Registry website, enhancing public access to registry information through a mobile-responsive, searchable, and",
+            "action": {
+              "url": "https://www.dcoe.org/opportunities/rfp-tenders/modernize-its-public-sex-offender-registry-website-enhancing-public",
+              "kind": "document"
+            },
+            "reason": "follow_source_link",
+            "parentKey": "539a4e76e8c1189100590b6478caf01b5583d630e0403ae692b717194e81940b"
+          },
+          {
+            "depth": 0,
+            "title": "Choosing a Website Provider: Freelancer, Agency or DIY",
+            "action": {
+              "url": "https://www.mwdwebsites.com/choosing-a-website-provider-freelancer-agency-or-diy/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "0a8add4c0e8f47fe4deea12c492463546e06569b83d0ded12271836c4ecdf29c"
+          },
+          {
+            "depth": 0,
+            "title": "Website Redesign Process: Steps, Preparation & Execution",
+            "action": {
+              "url": "https://www.ramotion.com/blog/website-redesign/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "298e136d600d3b7bdc2694573d1dce408b47279342ff13742bd9ec76a04e91b6"
+          },
+          {
+            "depth": 0,
+            "title": "Submit an RFP, RFQ or RFI",
+            "action": {
+              "url": "https://eseospace.com/submit-an-rfp/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "eed6469475f6023183b06a29e535242b50e903746458f4f697c5d48b4849cf17"
+          },
+          {
+            "depth": 0,
+            "title": "Clarify RFP for Website Migrations and Redesigns",
+            "action": {
+              "url": "https://www.linkedin.com/posts/kayak-websites_how-to-create-a-better-rfp-for-a-website-activity-7506035139056058369-FwBT",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "eed6469475f6023183b06a29e535242b50e903746458f4f697c5d48b4849cf17"
+          },
+          {
+            "depth": 0,
+            "title": "Website redesign: What it is, when you need it, and how to ...",
+            "action": {
+              "url": "https://www.godaddy.com/resources/skills/website-redesign",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "0a8add4c0e8f47fe4deea12c492463546e06569b83d0ded12271836c4ecdf29c"
+          },
+          {
+            "depth": 0,
+            "title": "Website Redesign Budget Guide for B2B Marketing",
+            "action": {
+              "url": "https://www.linkedin.com/posts/joinamply_website-revamp-pricing-guide-activity-7508595968586706944-6PXo",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "298e136d600d3b7bdc2694573d1dce408b47279342ff13742bd9ec76a04e91b6"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "Website redesign site:x.com (\"hiring\" OR \"need\") (\"project\" OR \"freelance\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "6efdfc7d062dd394d344a12465cac62b99543621d27deb588013220d279eb2bd"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "Website redesign site:linkedin.com/posts (\"hiring\" OR \"need\") (\"project\" OR \"freelance\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "6efdfc7d062dd394d344a12465cac62b99543621d27deb588013220d279eb2bd"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": null,
+            "reason": "no_further_action",
+            "parentKey": null
+          }
+        ],
+        "evidence": [
+          {
+            "url": "https://www.achievementfirst.org/request-for-proposals-website-redesign-ecosystem-development/",
+            "label": "access_limited",
+            "scope": "source_access",
+            "unknowns": [
+              "demand and availability remain unverified"
+            ],
+            "explanation": "Source capture could not provide complete evidence: crawl_delay_exceeds_run_budget."
+          },
+          {
+            "url": "https://policywise.com/news/rfp-for-brand-website-redesign/",
+            "label": "closed",
+            "scope": "source",
+            "unknowns": [
+              "arrangement",
+              "sponsorship",
+              "compensation",
+              "authorization"
+            ],
+            "explanation": "This is an RFP for a specific brand and website redesign, but the submission deadline had already passed by the observation date, so it is closed. Subject: brand and website redesign. Evidence: To support this, we issued a Request for Proposal (RFP) for a brand and website redesign. We were looking for an experienced partner to help us align our identity and digital presence with our new strategic direction. The key deliverables for this project include:"
+          },
+          {
+            "url": "https://www.dcoe.org/opportunities/rfp-tenders",
+            "label": "directory",
+            "scope": "source",
+            "unknowns": [
+              "role",
+              "category",
+              "location",
+              "arrangement",
+              "sponsorship",
+              "compensation",
+              "requirements",
+              "authorization"
+            ],
+            "explanation": "This is a listings page aggregating many web design/development opportunities, not a single specific opening or request. It shows \"279 RESULTS\" and multiple separate tenders with different due dates and locations. Subject: . Evidence: WEB DESIGN AND DEVELOPMENT OPPORTUNITIES"
+          },
+          {
+            "url": "https://www.godaddy.com/resources/skills/website-redesign",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Website redesign: What it is, when you need it, and how to ... This proposal outlines the project's goals, scope, deliverables, timeline, budget, and the people responsible for each stage. It gives everyone involved a ..."
+          },
+          {
+            "url": "https://www.linkedin.com/posts/joinamply_website-revamp-pricing-guide-activity-7508595968586706944-6PXo",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Website Redesign Budget Guide for B2B Marketing ... budget is. Check out this guide that helps you understand the various tiers for a website project, what's generally included, and what to expect. You could ..."
+          },
+          {
+            "url": "https://skydea.co/blog/fixed-price-website-redesign",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Fixed-Price Website Redesign: What's Included and When ... Set a budget first and keep a close eye on the estimates. What does a fixed-price redesign cost? It varies by project type. A refresh, a full redesign and a ..."
+          },
+          {
+            "url": "https://www.ramotion.com/blog/website-redesign/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Website Redesign Process: Steps, Preparation & Execution A project budget outlines the total cost of the redesign from start to finish. This should cover all redesign aspects, including design, development, testing, ..."
+          },
+          {
+            "url": "https://www.freelancer.com/projects/website-development/need-website",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "I need a website Do you need a local freelancer? Find out more. Building an international team ... Hello, I am looking for an experienced website developer to build a ..."
+          },
+          {
+            "url": "https://www.godaddy.com/resources/skills/website-redesign",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Website redesign: What it is, when you need it, and how to ... When do you need to redesign your website? Even a well-built website ... Choose Airo AI Builder if you're a small business, freelancer, or marketing ..."
+          },
+          {
+            "url": "https://www.mwdwebsites.com/choosing-a-website-provider-freelancer-agency-or-diy/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Choosing a Website Provider: Freelancer, Agency or DIY Need a website, redesign or support? Get in touch or call (732) 673-1887. Freelance Blog. Choosing a Website Provider: Freelancer, Agency, or DIY Platform?"
+          },
+          {
+            "url": "https://www.instagram.com/p/DdTxS8ojHQa/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "\"Your website redesign RFP might be costing you more ... Your website redesign RFP might be costing you more than you think. Stop asking for \"prettier pages\" and start demanding clarity."
+          },
+          {
+            "url": "https://eseospace.com/submit-an-rfp/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Submit an RFP, RFQ or RFI Submit your website RFP, RFQ, RFI or scope of work to eSEOspace. Upload the solicitation and supporting documents, tell us your deadline and budget range, ..."
+          },
+          {
+            "url": "https://www.linkedin.com/posts/kayak-websites_how-to-create-a-better-rfp-for-a-website-activity-7506035139056058369-FwBT",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Clarify RFP for Website Migrations and Redesigns Create a better RFP for website migrations, redesigns, and more by clarifying scope, budget, access, goals, and discovery needs first."
+          }
+        ],
+        "candidates": [
+          {
+            "text": "\"Your website redesign RFP might be costing you more ... Your website redesign RFP might be costing you more than you think. Stop asking for \"prettier pages\" and start demanding clarity.",
+            "query": "Website redesign (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 0,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Fixed-Price Website Redesign: What's Included and When ... Set a budget first and keep a close eye on the estimates. What does a fixed-price redesign cost? It varies by project type. A refresh, a full redesign and a ...",
+            "query": "Website redesign (\"project\" OR \"brief\") (\"budget\" OR \"fixed price\")",
+            "choice": 1,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "I need a website Do you need a local freelancer? Find out more. Building an international team ... Hello, I am looking for an experienced website developer to build a ...",
+            "query": "Website redesign (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 2,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Modernize its public Sex Offender Registry website, enhancing public access to registry information through a mobile-responsive, searchable, and\nNearby parent text (not verified child evidence): MODERNIZE ITS PUBLIC SEX OFFENDER REGISTRY WEBSITE, ENHANCING PUBLIC ACCESS TO REGISTRY INFORMATION THROUGH A MOBILE-RESPONSIVE, SEARCHABLE, AND\n\nDue date: 2026-12-16T19:00:00Location: USA (New Hampshire)\n\n\nDEVELOP A STATEWIDE WORKFORCE PORTAL\n\nDue date: 2026-11-13T16:00:00Location: USA (South Carolina)\n\n\nDESIGN, DEVELOP, HOST, AND SUPPORT A MODERN, SECURE, ACCESSIBLE, AND USER-FRIENDLY COUNTY WEBSITE USING A CONTENT MANAGEMENT SYSTEM\n\nDue date: 2026-11-12T16:00:00Location: USA (Missouri)\n\n\nREDESIGN AND REDEVELOPMENT OF ITS WEBSITE, INCLUDING IMPROVEMENTS TO THE MEMBER PORTAL AND IMPLEMENTATION OF CONTENT MANAGEMENT AND CONFERENCE\n\nDue date: 2026-10-30T21:00:00Location: USA (Louisiana)\n\n\nPRO\nParent subject: . Parent context: This is a listings page aggregating many web design/development opportunities, not a single specific opening or request. It shows \"279 RESULTS\" and multiple separate tenders with different due dates and locations.",
+            "query": null,
+            "choice": 3,
+            "origin": "source_link",
+            "parentUrl": "https://www.dcoe.org/opportunities/rfp-tenders"
+          },
+          {
+            "text": "Choosing a Website Provider: Freelancer, Agency or DIY Need a website, redesign or support? Get in touch or call (732) 673-1887. Freelance Blog. Choosing a Website Provider: Freelancer, Agency, or DIY Platform?",
+            "query": "Website redesign (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 4,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Website Redesign Process: Steps, Preparation & Execution A project budget outlines the total cost of the redesign from start to finish. This should cover all redesign aspects, including design, development, testing, ...",
+            "query": "Website redesign (\"project\" OR \"brief\") (\"budget\" OR \"fixed price\")",
+            "choice": 5,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Submit an RFP, RFQ or RFI Submit your website RFP, RFQ, RFI or scope of work to eSEOspace. Upload the solicitation and supporting documents, tell us your deadline and budget range, ...",
+            "query": "Website redesign (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 6,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Clarify RFP for Website Migrations and Redesigns Create a better RFP for website migrations, redesigns, and more by clarifying scope, budget, access, goals, and discovery needs first.",
+            "query": "Website redesign (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 7,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Website redesign: What it is, when you need it, and how to ... When do you need to redesign your website? Even a well-built website ... Choose Airo AI Builder if you're a small business, freelancer, or marketing ...",
+            "query": "Website redesign (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 8,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Website Redesign Budget Guide for B2B Marketing ... budget is. Check out this guide that helps you understand the various tiers for a website project, what's generally included, and what to expect. You could ...",
+            "query": "Website redesign (\"project\" OR \"brief\") (\"budget\" OR \"fixed price\")",
+            "choice": 9,
+            "origin": "search_result",
+            "parentUrl": null
+          }
+        ]
+      },
+      "output": {
+        "kind": "choice",
+        "index": 3,
+        "explanation": "This is the strongest concrete buyer demand: a specific public RFP to modernize a website, which is directly relevant to website redesign. The directory context also shows it leads to a real tender rather than advice or a seller page."
+      },
+      "rejected_output": null,
+      "failure": null,
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 1523,
+        "responseId": "resp_0c7775a01f903f29016acc23b6654c87d290249056b0077c50",
+        "inputTokens": 4081,
+        "outputTokens": 138,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 3682
+      }
+    },
+    {
+      "input": {
+        "kind": "choice",
+        "intent": {
+          "remote": true,
+          "target": "Website redesign",
+          "category": "services"
+        },
+        "choices": [
+          {
+            "depth": 0,
+            "title": "\"Your website redesign RFP might be costing you more ...",
+            "action": {
+              "url": "https://www.instagram.com/p/DdTxS8ojHQa/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "eed6469475f6023183b06a29e535242b50e903746458f4f697c5d48b4849cf17"
+          },
+          {
+            "depth": 0,
+            "title": "Fixed-Price Website Redesign: What's Included and When ...",
+            "action": {
+              "url": "https://skydea.co/blog/fixed-price-website-redesign",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "298e136d600d3b7bdc2694573d1dce408b47279342ff13742bd9ec76a04e91b6"
+          },
+          {
+            "depth": 0,
+            "title": "I need a website",
+            "action": {
+              "url": "https://www.freelancer.com/projects/website-development/need-website",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "0a8add4c0e8f47fe4deea12c492463546e06569b83d0ded12271836c4ecdf29c"
+          },
+          {
+            "depth": 1,
+            "title": "Develop a statewide workforce portal",
+            "action": {
+              "url": "https://www.dcoe.org/opportunities/rfp-tenders/develop-statewide-workforce-portal",
+              "kind": "document"
+            },
+            "reason": "follow_source_link",
+            "parentKey": "539a4e76e8c1189100590b6478caf01b5583d630e0403ae692b717194e81940b"
+          },
+          {
+            "depth": 0,
+            "title": "Choosing a Website Provider: Freelancer, Agency or DIY",
+            "action": {
+              "url": "https://www.mwdwebsites.com/choosing-a-website-provider-freelancer-agency-or-diy/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "0a8add4c0e8f47fe4deea12c492463546e06569b83d0ded12271836c4ecdf29c"
+          },
+          {
+            "depth": 0,
+            "title": "Website Redesign Process: Steps, Preparation & Execution",
+            "action": {
+              "url": "https://www.ramotion.com/blog/website-redesign/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "298e136d600d3b7bdc2694573d1dce408b47279342ff13742bd9ec76a04e91b6"
+          },
+          {
+            "depth": 0,
+            "title": "Submit an RFP, RFQ or RFI",
+            "action": {
+              "url": "https://eseospace.com/submit-an-rfp/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "eed6469475f6023183b06a29e535242b50e903746458f4f697c5d48b4849cf17"
+          },
+          {
+            "depth": 0,
+            "title": "Clarify RFP for Website Migrations and Redesigns",
+            "action": {
+              "url": "https://www.linkedin.com/posts/kayak-websites_how-to-create-a-better-rfp-for-a-website-activity-7506035139056058369-FwBT",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "eed6469475f6023183b06a29e535242b50e903746458f4f697c5d48b4849cf17"
+          },
+          {
+            "depth": 0,
+            "title": "Website redesign: What it is, when you need it, and how to ...",
+            "action": {
+              "url": "https://www.godaddy.com/resources/skills/website-redesign",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "0a8add4c0e8f47fe4deea12c492463546e06569b83d0ded12271836c4ecdf29c"
+          },
+          {
+            "depth": 0,
+            "title": "Website Redesign Budget Guide for B2B Marketing",
+            "action": {
+              "url": "https://www.linkedin.com/posts/joinamply_website-revamp-pricing-guide-activity-7508595968586706944-6PXo",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "298e136d600d3b7bdc2694573d1dce408b47279342ff13742bd9ec76a04e91b6"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "Website redesign site:x.com (\"hiring\" OR \"need\") (\"project\" OR \"freelance\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "6efdfc7d062dd394d344a12465cac62b99543621d27deb588013220d279eb2bd"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "Website redesign site:linkedin.com/posts (\"hiring\" OR \"need\") (\"project\" OR \"freelance\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "6efdfc7d062dd394d344a12465cac62b99543621d27deb588013220d279eb2bd"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": null,
+            "reason": "no_further_action",
+            "parentKey": null
+          }
+        ],
+        "evidence": [
+          {
+            "url": "https://www.achievementfirst.org/request-for-proposals-website-redesign-ecosystem-development/",
+            "label": "access_limited",
+            "scope": "source_access",
+            "unknowns": [
+              "demand and availability remain unverified"
+            ],
+            "explanation": "Source capture could not provide complete evidence: crawl_delay_exceeds_run_budget."
+          },
+          {
+            "url": "https://www.dcoe.org/opportunities/rfp-tenders/modernize-its-public-sex-offender-registry-website-enhancing-public",
+            "label": "fetched",
+            "scope": "source_access",
+            "unknowns": [
+              "demand and availability remain unverified"
+            ],
+            "explanation": "Source capture could not provide complete evidence: browser_resource_unavailable."
+          },
+          {
+            "url": "https://policywise.com/news/rfp-for-brand-website-redesign/",
+            "label": "closed",
+            "scope": "source",
+            "unknowns": [
+              "arrangement",
+              "sponsorship",
+              "compensation",
+              "authorization"
+            ],
+            "explanation": "This is an RFP for a specific brand and website redesign, but the submission deadline had already passed by the observation date, so it is closed. Subject: brand and website redesign. Evidence: To support this, we issued a Request for Proposal (RFP) for a brand and website redesign. We were looking for an experienced partner to help us align our identity and digital presence with our new strategic direction. The key deliverables for this project include:"
+          },
+          {
+            "url": "https://www.dcoe.org/opportunities/rfp-tenders",
+            "label": "directory",
+            "scope": "source",
+            "unknowns": [
+              "role",
+              "category",
+              "location",
+              "arrangement",
+              "sponsorship",
+              "compensation",
+              "requirements",
+              "authorization"
+            ],
+            "explanation": "This is a listings page aggregating many web design/development opportunities, not a single specific opening or request. It shows \"279 RESULTS\" and multiple separate tenders with different due dates and locations. Subject: . Evidence: WEB DESIGN AND DEVELOPMENT OPPORTUNITIES"
+          },
+          {
+            "url": "https://www.dcoe.org/opportunities/rfp-tenders/modernize-its-public-sex-offender-registry-website-enhancing-public",
+            "label": "client_request",
+            "scope": "source",
+            "unknowns": [
+              "arrangement",
+              "sponsorship",
+              "compensation",
+              "authorization"
+            ],
+            "explanation": "The posting is a buyer-side RFP from the State of New Hampshire seeking a vendor to modernize a website, which is a concrete service request rather than a job opening. Subject: modernize its public Sex Offender Registry website. Evidence: The State of New Hampshire is seeking a vendor to modernize its public Sex Offender Registry website, enhancing public access to registry information through a mobile-responsive, searchable, and map-enabled platform. The project aims to automate data publication, improve administrative oversight, and support statutory compliance processes."
+          },
+          {
+            "url": "https://www.godaddy.com/resources/skills/website-redesign",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Website redesign: What it is, when you need it, and how to ... This proposal outlines the project's goals, scope, deliverables, timeline, budget, and the people responsible for each stage. It gives everyone involved a ..."
+          },
+          {
+            "url": "https://www.linkedin.com/posts/joinamply_website-revamp-pricing-guide-activity-7508595968586706944-6PXo",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Website Redesign Budget Guide for B2B Marketing ... budget is. Check out this guide that helps you understand the various tiers for a website project, what's generally included, and what to expect. You could ..."
+          },
+          {
+            "url": "https://skydea.co/blog/fixed-price-website-redesign",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Fixed-Price Website Redesign: What's Included and When ... Set a budget first and keep a close eye on the estimates. What does a fixed-price redesign cost? It varies by project type. A refresh, a full redesign and a ..."
+          },
+          {
+            "url": "https://www.ramotion.com/blog/website-redesign/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Website Redesign Process: Steps, Preparation & Execution A project budget outlines the total cost of the redesign from start to finish. This should cover all redesign aspects, including design, development, testing, ..."
+          },
+          {
+            "url": "https://www.freelancer.com/projects/website-development/need-website",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "I need a website Do you need a local freelancer? Find out more. Building an international team ... Hello, I am looking for an experienced website developer to build a ..."
+          },
+          {
+            "url": "https://www.godaddy.com/resources/skills/website-redesign",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Website redesign: What it is, when you need it, and how to ... When do you need to redesign your website? Even a well-built website ... Choose Airo AI Builder if you're a small business, freelancer, or marketing ..."
+          },
+          {
+            "url": "https://www.mwdwebsites.com/choosing-a-website-provider-freelancer-agency-or-diy/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Choosing a Website Provider: Freelancer, Agency or DIY Need a website, redesign or support? Get in touch or call (732) 673-1887. Freelance Blog. Choosing a Website Provider: Freelancer, Agency, or DIY Platform?"
+          },
+          {
+            "url": "https://www.instagram.com/p/DdTxS8ojHQa/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "\"Your website redesign RFP might be costing you more ... Your website redesign RFP might be costing you more than you think. Stop asking for \"prettier pages\" and start demanding clarity."
+          },
+          {
+            "url": "https://eseospace.com/submit-an-rfp/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Submit an RFP, RFQ or RFI Submit your website RFP, RFQ, RFI or scope of work to eSEOspace. Upload the solicitation and supporting documents, tell us your deadline and budget range, ..."
+          },
+          {
+            "url": "https://www.linkedin.com/posts/kayak-websites_how-to-create-a-better-rfp-for-a-website-activity-7506035139056058369-FwBT",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Clarify RFP for Website Migrations and Redesigns Create a better RFP for website migrations, redesigns, and more by clarifying scope, budget, access, goals, and discovery needs first."
+          }
+        ],
+        "candidates": [
+          {
+            "text": "\"Your website redesign RFP might be costing you more ... Your website redesign RFP might be costing you more than you think. Stop asking for \"prettier pages\" and start demanding clarity.",
+            "query": "Website redesign (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 0,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Fixed-Price Website Redesign: What's Included and When ... Set a budget first and keep a close eye on the estimates. What does a fixed-price redesign cost? It varies by project type. A refresh, a full redesign and a ...",
+            "query": "Website redesign (\"project\" OR \"brief\") (\"budget\" OR \"fixed price\")",
+            "choice": 1,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "I need a website Do you need a local freelancer? Find out more. Building an international team ... Hello, I am looking for an experienced website developer to build a ...",
+            "query": "Website redesign (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 2,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Develop a statewide workforce portal\nNearby parent text (not verified child evidence): DEVELOP A STATEWIDE WORKFORCE PORTAL\n\nDue date: 2026-11-13T16:00:00Location: USA (South Carolina)\n\n\nDESIGN, DEVELOP, HOST, AND SUPPORT A MODERN, SECURE, ACCESSIBLE, AND USER-FRIENDLY COUNTY WEBSITE USING A CONTENT MANAGEMENT SYSTEM\n\nDue date: 2026-11-12T16:00:00Location: USA (Missouri)\n\n\nREDESIGN AND REDEVELOPMENT OF ITS WEBSITE, INCLUDING IMPROVEMENTS TO THE MEMBER PORTAL AND IMPLEMENTATION OF CONTENT MANAGEMENT AND CONFERENCE\n\nDue date: 2026-10-30T21:00:00Location: USA (Louisiana)\n\n\nPROVIDE WEBSITE ADA COMPLIANCE SERVICES TO UPDATE AND MAINTAIN THE PRTPO WEBSITE IN ACCORDANCE WITH ADA AND WCAG REQUIREMENTS\n\nDue date: 2026-10-30T21:00:00Location: USA (Washington)\n\n\nDESIGN, DEVELOP, AND IMPL\nParent subject: . Parent context: This is a listings page aggregating many web design/development opportunities, not a single specific opening or request. It shows \"279 RESULTS\" and multiple separate tenders with different due dates and locations.",
+            "query": null,
+            "choice": 3,
+            "origin": "source_link",
+            "parentUrl": "https://www.dcoe.org/opportunities/rfp-tenders"
+          },
+          {
+            "text": "Choosing a Website Provider: Freelancer, Agency or DIY Need a website, redesign or support? Get in touch or call (732) 673-1887. Freelance Blog. Choosing a Website Provider: Freelancer, Agency, or DIY Platform?",
+            "query": "Website redesign (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 4,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Website Redesign Process: Steps, Preparation & Execution A project budget outlines the total cost of the redesign from start to finish. This should cover all redesign aspects, including design, development, testing, ...",
+            "query": "Website redesign (\"project\" OR \"brief\") (\"budget\" OR \"fixed price\")",
+            "choice": 5,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Submit an RFP, RFQ or RFI Submit your website RFP, RFQ, RFI or scope of work to eSEOspace. Upload the solicitation and supporting documents, tell us your deadline and budget range, ...",
+            "query": "Website redesign (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 6,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Clarify RFP for Website Migrations and Redesigns Create a better RFP for website migrations, redesigns, and more by clarifying scope, budget, access, goals, and discovery needs first.",
+            "query": "Website redesign (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 7,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Website redesign: What it is, when you need it, and how to ... When do you need to redesign your website? Even a well-built website ... Choose Airo AI Builder if you're a small business, freelancer, or marketing ...",
+            "query": "Website redesign (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 8,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Website Redesign Budget Guide for B2B Marketing ... budget is. Check out this guide that helps you understand the various tiers for a website project, what's generally included, and what to expect. You could ...",
+            "query": "Website redesign (\"project\" OR \"brief\") (\"budget\" OR \"fixed price\")",
+            "choice": 9,
+            "origin": "search_result",
+            "parentUrl": null
+          }
+        ]
+      },
+      "output": {
+        "kind": "choice",
+        "index": 3,
+        "explanation": "Read the directory child because it contains a concrete buyer-side website redesign/development tender that could clarify scope, deadlines, and eligibility better than the blog or seller pages."
+      },
+      "rejected_output": null,
+      "failure": null,
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 1933,
+        "responseId": "resp_02b8d230fa314649016acc23d1798487d29d05f9f7544bbf6c",
+        "inputTokens": 4270,
+        "outputTokens": 165,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 3945
+      }
+    },
+    {
+      "input": {
+        "kind": "choice",
+        "intent": {
+          "remote": true,
+          "target": "Website redesign",
+          "category": "services"
+        },
+        "choices": [
+          {
+            "depth": 0,
+            "title": "\"Your website redesign RFP might be costing you more ...",
+            "action": {
+              "url": "https://www.instagram.com/p/DdTxS8ojHQa/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "eed6469475f6023183b06a29e535242b50e903746458f4f697c5d48b4849cf17"
+          },
+          {
+            "depth": 0,
+            "title": "Fixed-Price Website Redesign: What's Included and When ...",
+            "action": {
+              "url": "https://skydea.co/blog/fixed-price-website-redesign",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "298e136d600d3b7bdc2694573d1dce408b47279342ff13742bd9ec76a04e91b6"
+          },
+          {
+            "depth": 0,
+            "title": "I need a website",
+            "action": {
+              "url": "https://www.freelancer.com/projects/website-development/need-website",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "0a8add4c0e8f47fe4deea12c492463546e06569b83d0ded12271836c4ecdf29c"
+          },
+          {
+            "depth": 1,
+            "title": "Design, develop, host, and support a modern, secure, accessible, and user-friendly County website using a content management system",
+            "action": {
+              "url": "https://www.dcoe.org/opportunities/rfp-tenders/design-develop-host-and-support-modern-secure-accessible-and-user",
+              "kind": "document"
+            },
+            "reason": "follow_source_link",
+            "parentKey": "539a4e76e8c1189100590b6478caf01b5583d630e0403ae692b717194e81940b"
+          },
+          {
+            "depth": 0,
+            "title": "Choosing a Website Provider: Freelancer, Agency or DIY",
+            "action": {
+              "url": "https://www.mwdwebsites.com/choosing-a-website-provider-freelancer-agency-or-diy/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "0a8add4c0e8f47fe4deea12c492463546e06569b83d0ded12271836c4ecdf29c"
+          },
+          {
+            "depth": 0,
+            "title": "Website Redesign Process: Steps, Preparation & Execution",
+            "action": {
+              "url": "https://www.ramotion.com/blog/website-redesign/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "298e136d600d3b7bdc2694573d1dce408b47279342ff13742bd9ec76a04e91b6"
+          },
+          {
+            "depth": 0,
+            "title": "Submit an RFP, RFQ or RFI",
+            "action": {
+              "url": "https://eseospace.com/submit-an-rfp/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "eed6469475f6023183b06a29e535242b50e903746458f4f697c5d48b4849cf17"
+          },
+          {
+            "depth": 0,
+            "title": "Clarify RFP for Website Migrations and Redesigns",
+            "action": {
+              "url": "https://www.linkedin.com/posts/kayak-websites_how-to-create-a-better-rfp-for-a-website-activity-7506035139056058369-FwBT",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "eed6469475f6023183b06a29e535242b50e903746458f4f697c5d48b4849cf17"
+          },
+          {
+            "depth": 0,
+            "title": "Website redesign: What it is, when you need it, and how to ...",
+            "action": {
+              "url": "https://www.godaddy.com/resources/skills/website-redesign",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "0a8add4c0e8f47fe4deea12c492463546e06569b83d0ded12271836c4ecdf29c"
+          },
+          {
+            "depth": 0,
+            "title": "Website Redesign Budget Guide for B2B Marketing",
+            "action": {
+              "url": "https://www.linkedin.com/posts/joinamply_website-revamp-pricing-guide-activity-7508595968586706944-6PXo",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "298e136d600d3b7bdc2694573d1dce408b47279342ff13742bd9ec76a04e91b6"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "Website redesign site:x.com (\"hiring\" OR \"need\") (\"project\" OR \"freelance\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "6efdfc7d062dd394d344a12465cac62b99543621d27deb588013220d279eb2bd"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "Website redesign site:linkedin.com/posts (\"hiring\" OR \"need\") (\"project\" OR \"freelance\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "6efdfc7d062dd394d344a12465cac62b99543621d27deb588013220d279eb2bd"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": null,
+            "reason": "no_further_action",
+            "parentKey": null
+          }
+        ],
+        "evidence": [
+          {
+            "url": "https://www.achievementfirst.org/request-for-proposals-website-redesign-ecosystem-development/",
+            "label": "access_limited",
+            "scope": "source_access",
+            "unknowns": [
+              "demand and availability remain unverified"
+            ],
+            "explanation": "Source capture could not provide complete evidence: crawl_delay_exceeds_run_budget."
+          },
+          {
+            "url": "https://www.dcoe.org/opportunities/rfp-tenders/modernize-its-public-sex-offender-registry-website-enhancing-public",
+            "label": "fetched",
+            "scope": "source_access",
+            "unknowns": [
+              "demand and availability remain unverified"
+            ],
+            "explanation": "Source capture could not provide complete evidence: browser_resource_unavailable."
+          },
+          {
+            "url": "https://www.dcoe.org/opportunities/rfp-tenders/develop-statewide-workforce-portal",
+            "label": "fetched",
+            "scope": "source_access",
+            "unknowns": [
+              "demand and availability remain unverified"
+            ],
+            "explanation": "Source capture could not provide complete evidence: browser_resource_unavailable."
+          },
+          {
+            "url": "https://policywise.com/news/rfp-for-brand-website-redesign/",
+            "label": "closed",
+            "scope": "source",
+            "unknowns": [
+              "arrangement",
+              "sponsorship",
+              "compensation",
+              "authorization"
+            ],
+            "explanation": "This is an RFP for a specific brand and website redesign, but the submission deadline had already passed by the observation date, so it is closed. Subject: brand and website redesign. Evidence: To support this, we issued a Request for Proposal (RFP) for a brand and website redesign. We were looking for an experienced partner to help us align our identity and digital presence with our new strategic direction. The key deliverables for this project include:"
+          },
+          {
+            "url": "https://www.dcoe.org/opportunities/rfp-tenders",
+            "label": "directory",
+            "scope": "source",
+            "unknowns": [
+              "role",
+              "category",
+              "location",
+              "arrangement",
+              "sponsorship",
+              "compensation",
+              "requirements",
+              "authorization"
+            ],
+            "explanation": "This is a listings page aggregating many web design/development opportunities, not a single specific opening or request. It shows \"279 RESULTS\" and multiple separate tenders with different due dates and locations. Subject: . Evidence: WEB DESIGN AND DEVELOPMENT OPPORTUNITIES"
+          },
+          {
+            "url": "https://www.dcoe.org/opportunities/rfp-tenders/develop-statewide-workforce-portal",
+            "label": "client_request",
+            "scope": "source",
+            "unknowns": [
+              "arrangement",
+              "sponsorship",
+              "compensation",
+              "authorization"
+            ],
+            "explanation": "The posting is a buyer request for a vendor to develop a specific portal, with a stated due date and public-sector buyer identity. Subject: Develop a statewide workforce portal. Evidence: The SC Department of Employment and Workforce seeks a vendor to develop a statewide workforce portal. This portal will serve as a coordination layer to help various stakeholders navigate education and employment pathways while preserving existing systems of record."
+          },
+          {
+            "url": "https://www.dcoe.org/opportunities/rfp-tenders/modernize-its-public-sex-offender-registry-website-enhancing-public",
+            "label": "client_request",
+            "scope": "source",
+            "unknowns": [
+              "arrangement",
+              "sponsorship",
+              "compensation",
+              "authorization"
+            ],
+            "explanation": "The posting is a buyer-side RFP from the State of New Hampshire seeking a vendor to modernize a website, which is a concrete service request rather than a job opening. Subject: modernize its public Sex Offender Registry website. Evidence: The State of New Hampshire is seeking a vendor to modernize its public Sex Offender Registry website, enhancing public access to registry information through a mobile-responsive, searchable, and map-enabled platform. The project aims to automate data publication, improve administrative oversight, and support statutory compliance processes."
+          },
+          {
+            "url": "https://www.godaddy.com/resources/skills/website-redesign",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Website redesign: What it is, when you need it, and how to ... This proposal outlines the project's goals, scope, deliverables, timeline, budget, and the people responsible for each stage. It gives everyone involved a ..."
+          },
+          {
+            "url": "https://www.linkedin.com/posts/joinamply_website-revamp-pricing-guide-activity-7508595968586706944-6PXo",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Website Redesign Budget Guide for B2B Marketing ... budget is. Check out this guide that helps you understand the various tiers for a website project, what's generally included, and what to expect. You could ..."
+          },
+          {
+            "url": "https://skydea.co/blog/fixed-price-website-redesign",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Fixed-Price Website Redesign: What's Included and When ... Set a budget first and keep a close eye on the estimates. What does a fixed-price redesign cost? It varies by project type. A refresh, a full redesign and a ..."
+          },
+          {
+            "url": "https://www.ramotion.com/blog/website-redesign/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Website Redesign Process: Steps, Preparation & Execution A project budget outlines the total cost of the redesign from start to finish. This should cover all redesign aspects, including design, development, testing, ..."
+          },
+          {
+            "url": "https://www.freelancer.com/projects/website-development/need-website",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "I need a website Do you need a local freelancer? Find out more. Building an international team ... Hello, I am looking for an experienced website developer to build a ..."
+          },
+          {
+            "url": "https://www.godaddy.com/resources/skills/website-redesign",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Website redesign: What it is, when you need it, and how to ... When do you need to redesign your website? Even a well-built website ... Choose Airo AI Builder if you're a small business, freelancer, or marketing ..."
+          },
+          {
+            "url": "https://www.mwdwebsites.com/choosing-a-website-provider-freelancer-agency-or-diy/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Choosing a Website Provider: Freelancer, Agency or DIY Need a website, redesign or support? Get in touch or call (732) 673-1887. Freelance Blog. Choosing a Website Provider: Freelancer, Agency, or DIY Platform?"
+          },
+          {
+            "url": "https://www.instagram.com/p/DdTxS8ojHQa/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "\"Your website redesign RFP might be costing you more ... Your website redesign RFP might be costing you more than you think. Stop asking for \"prettier pages\" and start demanding clarity."
+          },
+          {
+            "url": "https://eseospace.com/submit-an-rfp/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Submit an RFP, RFQ or RFI Submit your website RFP, RFQ, RFI or scope of work to eSEOspace. Upload the solicitation and supporting documents, tell us your deadline and budget range, ..."
+          },
+          {
+            "url": "https://www.linkedin.com/posts/kayak-websites_how-to-create-a-better-rfp-for-a-website-activity-7506035139056058369-FwBT",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Clarify RFP for Website Migrations and Redesigns Create a better RFP for website migrations, redesigns, and more by clarifying scope, budget, access, goals, and discovery needs first."
+          }
+        ],
+        "candidates": [
+          {
+            "text": "\"Your website redesign RFP might be costing you more ... Your website redesign RFP might be costing you more than you think. Stop asking for \"prettier pages\" and start demanding clarity.",
+            "query": "Website redesign (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 0,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Fixed-Price Website Redesign: What's Included and When ... Set a budget first and keep a close eye on the estimates. What does a fixed-price redesign cost? It varies by project type. A refresh, a full redesign and a ...",
+            "query": "Website redesign (\"project\" OR \"brief\") (\"budget\" OR \"fixed price\")",
+            "choice": 1,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "I need a website Do you need a local freelancer? Find out more. Building an international team ... Hello, I am looking for an experienced website developer to build a ...",
+            "query": "Website redesign (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 2,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Design, develop, host, and support a modern, secure, accessible, and user-friendly County website using a content management system\nNearby parent text (not verified child evidence): DESIGN, DEVELOP, HOST, AND SUPPORT A MODERN, SECURE, ACCESSIBLE, AND USER-FRIENDLY COUNTY WEBSITE USING A CONTENT MANAGEMENT SYSTEM\n\nDue date: 2026-11-12T16:00:00Location: USA (Missouri)\n\n\nREDESIGN AND REDEVELOPMENT OF ITS WEBSITE, INCLUDING IMPROVEMENTS TO THE MEMBER PORTAL AND IMPLEMENTATION OF CONTENT MANAGEMENT AND CONFERENCE\n\nDue date: 2026-10-30T21:00:00Location: USA (Louisiana)\n\n\nPROVIDE WEBSITE ADA COMPLIANCE SERVICES TO UPDATE AND MAINTAIN THE PRTPO WEBSITE IN ACCORDANCE WITH ADA AND WCAG REQUIREMENTS\n\nDue date: 2026-10-30T21:00:00Location: USA (Washington)\n\n\nDESIGN, DEVELOP, AND IMPLEMENT A MODERN, ACCESSIBLE, AND USER-FRIENDLY WEBSITE (ARCGIS STORYMAPS)\n\nDue date: 2026-10-29T22:30\nParent subject: . Parent context: This is a listings page aggregating many web design/development opportunities, not a single specific opening or request. It shows \"279 RESULTS\" and multiple separate tenders with different due dates and locations.",
+            "query": null,
+            "choice": 3,
+            "origin": "source_link",
+            "parentUrl": "https://www.dcoe.org/opportunities/rfp-tenders"
+          },
+          {
+            "text": "Choosing a Website Provider: Freelancer, Agency or DIY Need a website, redesign or support? Get in touch or call (732) 673-1887. Freelance Blog. Choosing a Website Provider: Freelancer, Agency, or DIY Platform?",
+            "query": "Website redesign (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 4,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Website Redesign Process: Steps, Preparation & Execution A project budget outlines the total cost of the redesign from start to finish. This should cover all redesign aspects, including design, development, testing, ...",
+            "query": "Website redesign (\"project\" OR \"brief\") (\"budget\" OR \"fixed price\")",
+            "choice": 5,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Submit an RFP, RFQ or RFI Submit your website RFP, RFQ, RFI or scope of work to eSEOspace. Upload the solicitation and supporting documents, tell us your deadline and budget range, ...",
+            "query": "Website redesign (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 6,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Clarify RFP for Website Migrations and Redesigns Create a better RFP for website migrations, redesigns, and more by clarifying scope, budget, access, goals, and discovery needs first.",
+            "query": "Website redesign (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 7,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Website redesign: What it is, when you need it, and how to ... When do you need to redesign your website? Even a well-built website ... Choose Airo AI Builder if you're a small business, freelancer, or marketing ...",
+            "query": "Website redesign (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+            "choice": 8,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Website Redesign Budget Guide for B2B Marketing ... budget is. Check out this guide that helps you understand the various tiers for a website project, what's generally included, and what to expect. You could ...",
+            "query": "Website redesign (\"project\" OR \"brief\") (\"budget\" OR \"fixed price\")",
+            "choice": 9,
+            "origin": "search_result",
+            "parentUrl": null
+          }
+        ]
+      },
+      "output": {
+        "kind": "choice",
+        "index": 3,
+        "explanation": "Concrete buyer-side RFP for designing and developing a county website; it’s the most useful demand evidence for a website redesign opportunity."
+      },
+      "rejected_output": null,
+      "failure": null,
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 1509,
+        "responseId": "resp_0ed0a6dc7b3b08c6016acc23ec38c887d2bd2014c5644b0f9d",
+        "inputTokens": 4501,
+        "outputTokens": 88,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 3772
+      }
+    }
+  ],
+  "sourceReviewsCompleted": 5,
+  "intelligence": [],
+  "matchingState": {
+    "status": "not_started_no_source_demand",
+    "match_count": 0
+  },
+  "taskStates": [],
+  "eligiblePostings": [],
+  "reviewAttempts": [
+    {
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 4286,
+        "responseId": "resp_0ee51aec9da0142b016acc23aa1a7087d283973cf135433a59",
+        "inputTokens": 2033,
+        "outputTokens": 412,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 3379
+      }
+    },
+    {
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 2985,
+        "responseId": "resp_0948cb297d53c2d9016acc23b3598087d29b1572ffce813b7a",
+        "inputTokens": 4250,
+        "outputTokens": 467,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 5289
+      }
+    },
+    {
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 2990,
+        "responseId": "resp_0fefc308d9ddb78d016acc23cea7b087d298348d3853867bce",
+        "inputTokens": 1832,
+        "outputTokens": 485,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 3557
+      }
+    },
+    {
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 2467,
+        "responseId": "resp_0144c7832e04592e016acc23e9b8c487d2ba9f2b2bfead6fb8",
+        "inputTokens": 1766,
+        "outputTokens": 376,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 3017
+      }
+    },
+    {
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 3515,
+        "responseId": "resp_00e11cac2a39671e016acc2403bda087d286673b9416a8245f",
+        "inputTokens": 1835,
+        "outputTokens": 569,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 3937
+      }
+    }
+  ],
+  "opportunities": [],
+  "deliveries": [],
+  "durationMs": 109156,
+  "search": {
+    "goal": "Find clients requesting website redesign services",
+    "category": "services",
+    "target": "Website redesign",
+    "name": "Synthetic service-request scout",
+    "arrangement": "remote",
+    "arrangementRequired": true,
+    "residence": "New York, United States",
+    "workLocations": "United States or remote worldwide",
+    "authorizationLocations": "United States",
+    "authorizationConfirmed": true,
+    "sponsorshipNeed": "not_needed",
+    "background": "Five years delivering website redesign, responsive layouts, WordPress and accessible user interfaces for small businesses",
+    "minimumPay": "",
+    "currency": "USD",
+    "payPeriod": "project",
+    "unknownEligibility": "review",
+    "undisclosedPay": "include"
+  },
+  "operations": [
+    {
+      "key": "298e136d600d3b7bdc2694573d1dce408b47279342ff13742bd9ec76a04e91b6",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "Website redesign (\"project\" OR \"brief\") (\"budget\" OR \"fixed price\")",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "retrieved_url": null,
+      "capture": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "0a8add4c0e8f47fe4deea12c492463546e06569b83d0ded12271836c4ecdf29c",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "Website redesign (\"looking for\" OR \"seeking\" OR \"need\") (\"freelancer\" OR \"contractor\")",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "retrieved_url": null,
+      "capture": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "eed6469475f6023183b06a29e535242b50e903746458f4f697c5d48b4849cf17",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "Website redesign (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "retrieved_url": null,
+      "capture": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "6efdfc7d062dd394d344a12465cac62b99543621d27deb588013220d279eb2bd",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "Website redesign (\"project\" OR \"brief\") (\"proposals\" OR \"bids\")",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "retrieved_url": null,
+      "capture": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "3768ec81e7f70641622705f71b9dabed9556adcb490f77c90bab1a6b029b870b",
+      "kind": "document",
+      "input": {
+        "url": "https://www.achievementfirst.org/request-for-proposals-website-redesign-ecosystem-development/",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": [],
+      "retrieved_url": null,
+      "capture": {
+        "bytes": 31,
+        "method": "http",
+        "complete": false,
+        "requests": 1
+      },
+      "captured_text": null,
+      "source_status": "access_limited",
+      "source_reason": "crawl_delay_exceeds_run_budget",
+      "observed_links": 0
+    },
+    {
+      "key": "22ff96716ae268fa51959e5f821d6caa7619e4b5599d9c5ad57b2a164f00bc35",
+      "kind": "document",
+      "input": {
+        "url": "https://policywise.com/news/rfp-for-brand-website-redesign/",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": [
+        {
+          "url": "https://policywise.com/",
+          "text": "PolicyWise for Children & Families"
+        },
+        {
+          "url": "https://policywise.com/wp-content/uploads/2026/08/2026-08AUG-PolicyWise-RFP-Brand-Identity-Website-Redesign.pdf",
+          "text": "Download the RFP"
+        },
+        {
+          "url": "https://policywise.com/wp-content/uploads/2026/09/PolicyWise-RFP-FAQ.pdf",
+          "text": "Download the FAQ"
+        },
+        {
+          "url": "https://policywise.com/about/",
+          "text": "About Us"
+        },
+        {
+          "url": "https://policywise.com/newsletters/",
+          "text": "Sign up for our newsletter"
+        },
+        {
+          "url": "https://policywise.com/careers/",
+          "text": "Careers"
+        },
+        {
+          "url": "https://policywise.com/contact/",
+          "text": "Contact Us"
+        },
+        {
+          "url": "https://ca.linkedin.com/company/policywise-for-children-&-families",
+          "text": "Linkedin"
+        },
+        {
+          "url": "https://bsky.app/profile/policywise.com",
+          "text": "Bluesky Icon"
+        },
+        {
+          "url": "https://twitter.com/policywise",
+          "text": "Twitter"
+        },
+        {
+          "url": "https://www.youtube.com/channel/UCfQxC6_XpSZ8HHU-VSfHWUg",
+          "text": "Youtube"
+        },
+        {
+          "url": "https://policywise.com/board-of-directors/",
+          "text": "Board Director Login"
+        },
+        {
+          "url": "https://policywise.com/privacy-policy/",
+          "text": "Privacy Policy"
+        }
+      ],
+      "feeds": [
+        {
+          "url": "https://policywise.com/feed/",
+          "text": "PolicyWise for Children & Families » Feed"
+        },
+        {
+          "url": "https://policywise.com/comments/feed/",
+          "text": "PolicyWise for Children & Families » Comments Feed"
+        }
+      ],
+      "sitemaps": [
+        {
+          "url": "https://policywise.com/sitemap_index.xml",
+          "text": "Site-advertised sitemap"
+        }
+      ],
+      "retrieved_url": "https://policywise.com/news/rfp-for-brand-website-redesign/",
+      "capture": {
+        "bytes": 118065,
+        "method": "http",
+        "complete": true,
+        "requests": 2
+      },
+      "captured_text": "Skip to content\nMenu\n\n\nPOLICYWISE ISSUED RFP FOR BRAND AND WEBSITE REDESIGN\n\nPolicyWise for Children & Families has recently completed a strategic planning process that sets our direction for the years ahead. As we move forward, we want to ensure our public presence clearly reflects who we are and what we do.\n\nTo support this, we issued a Request for Proposal (RFP) for a brand and website redesign. We were looking for an experienced partner to help us align our identity and digital presence with our new strategic direction. The key deliverables for this project include:\n\n * A clear brand positioning and value proposition\n * Comprehensive brand guidelines and identity package\n * A summary of interest holder engagement insights\n * A fully functional, redesigned website\n\n\n\n\nHOW TO SUBMIT PROPOSALS\n\nAgencies or consultancies with experience in non-profit branding were requested to submit their proposals by September 28, 2026. \n\nDownload the RFP\nDownload the FAQ\n\n\n\nABOUT POLICYWISE\n\nPolicyWise is a charitable organization based in Alberta dedicated to advancing action-ready research that strengthens the social and health systems supporting children and families. Since our founding in 2003, we have worked in close partnership with all orders of government, academic institutions, Indigenous communities, and civil society organizations to provide trusted, evidence-informed guidance. Our contributions have meaningfully shaped social policy and practice across the country, with a particular focus on ministries and sectors serving children and families.\n\nTo learn more about who we are and what we do, please visit our About Us page.\n\nSign up for our newsletter\n\n * 1000, 9925 109 Street NW\n * Edmonton, AB, Canada T5K 2J8\n * Phone: 780-944-8630\n\n * Mailbox #2 - 402, 609 14 Street NW\n * Calgary, AB, Canada T2N 2A1\n * Phone: 587-354-4805\n\n * Email: info@policywise.com\n\nCharitable Registration # 889801908 RR 0001 \n\nWe’d like to acknowledge and show respect to the histories, languages, and cultures of the First Nations, Métis, and Inuit, whose presence continues to enrich our communities.\n\n * About Us\n * Careers\n * Contact Us\n\nLinkedin Bluesky Icon Twitter Youtube\nBoard Director Login\nPrivacy Policy",
+      "source_status": "fetched",
+      "source_reason": null,
+      "observed_links": 13
+    },
+    {
+      "key": "539a4e76e8c1189100590b6478caf01b5583d630e0403ae692b717194e81940b",
+      "kind": "document",
+      "input": {
+        "url": "https://www.dcoe.org/opportunities/rfp-tenders",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": [
+        {
+          "url": "https://www.dcoe.org/opportunities/rfp-tenders/website-design-development-hosting-operations-maintenance-and-support",
+          "text": "Website design, development, hosting, operations, maintenance, and support services using the Drupal content management system for the 511.org website (Pantheon)"
+        },
+        {
+          "url": "https://www.dcoe.org/opportunities/rfp-tenders/modernize-its-public-sex-offender-registry-website-enhancing-public",
+          "text": "Modernize its public Sex Offender Registry website, enhancing public access to registry information through a mobile-responsive, searchable, and"
+        },
+        {
+          "url": "https://www.dcoe.org/opportunities/rfp-tenders/develop-statewide-workforce-portal",
+          "text": "Develop a statewide workforce portal"
+        },
+        {
+          "url": "https://www.dcoe.org/opportunities/rfp-tenders/design-develop-host-and-support-modern-secure-accessible-and-user",
+          "text": "Design, develop, host, and support a modern, secure, accessible, and user-friendly County website using a content management system"
+        },
+        {
+          "url": "https://www.dcoe.org/opportunities/rfp-tenders/redesign-and-redevelopment-its-website-including-improvements-member",
+          "text": "Redesign and redevelopment of its website, including improvements to the member portal and implementation of content management and conference"
+        },
+        {
+          "url": "https://www.dcoe.org/opportunities/rfp-tenders/provide-website-ada-compliance-services-update-and-maintain-prtpo-website",
+          "text": "Provide website ADA compliance services to update and maintain the PRTPO website in accordance with ADA and WCAG requirements"
+        },
+        {
+          "url": "https://www.dcoe.org/opportunities/rfp-tenders/design-develop-and-implement-modern-accessible-and-user-friendly-website",
+          "text": "Design, develop, and implement a modern, accessible, and user-friendly website (ArcGIS StoryMaps)"
+        },
+        {
+          "url": "https://www.dcoe.org/opportunities/rfp-tenders/redesign-develop-implement-host-and-migrate-its-municipal-website-using",
+          "text": "Redesign, develop, implement, host, and migrate its municipal website using a content management system"
+        },
+        {
+          "url": "https://www.dcoe.org/opportunities/rfp-tenders/website-maintenance-and-hosting-services",
+          "text": "Website maintenance and hosting services"
+        },
+        {
+          "url": "https://www.dcoe.org/opportunities/rfp-tenders/provide-managed-hosting-content-delivery-security-and-support-services",
+          "text": "Provide managed hosting, content delivery, security, and support services for its public website and associated CMS"
+        }
+      ],
+      "feeds": [],
+      "sitemaps": [],
+      "retrieved_url": "https://www.dcoe.org/opportunities/rfp-tenders",
+      "capture": {
+        "bytes": 281810,
+        "method": "http",
+        "complete": true,
+        "requests": 2
+      },
+      "captured_text": "Skip to main content\nLog in\n\n\n\nWEB DESIGN AND DEVELOPMENT OPPORTUNITIES\n\nSearch\n\nShow only active RFPs\n * Due Date Asc\n * Due Date Desc\n\nSort by:\nDue date, ascending Due date, descending\n\nFilter by:\n\n\n\nCOUNTRY\n\n * Austria\n * Belgium\n * Canada\n * France\n * Germany\n * Ghana\n * India\n * Ireland\n * Italy\n * Kenya\n * Liberia\n * Malaysia\n * Namibia\n * Netherlands\n * Philippines\n * South Africa\n * Sri Lanka\n * Switzerland\n * UK United Kingdom\n * USA\n\n\nSTATE\n\n\n\n\nKEY REQUIREMENTS\n\n * Accessibility Standards\n * Accessibility Testing\n * Accessibility Tools\n * Acquia\n * Acquia Cloud Platform\n * Acquia Site Factory\n * Acquia Site Studio\n * Active Directory\n * ADA Compliance\n * Adobe Photoshop\n * Adopets\n * ADP\n * Agile Development\n * AI\n * AI-assisted Search\n * AI-driven Functionalities\n * AI-enabled Web Development\n * AI-enhanced Search\n * AirTable\n * AI Search Optimization\n * AI Technologies\n * Amazeeio\n * Amazon Web Service\n * Amazon Web Services\n * AODA Compliance\n * Apache\n * API\n * API-first Architecture\n * API Integration\n * ArcGIS\n * ArcGIS StoryMaps\n * ASP\n * AWS\n * AWS S3 Glacier ECS\n * Azure\n * Azure AD\n * Bilingual Platforms\n * Bootstrap-SASS\n * Calendly\n * Campaign Monitor\n * Canadaca Design System\n * Canva\n * Capacitor\n * CASCADE CMS\n * CDN\n * CentralSquare Naviline ERP\n * CircleCI\n * Cloud Deployment\n * Cloudflare\n * Cloud Hosting\n * CMS\n * Cold Fusion\n * Composer\n * CONTENTdm\n * Contentful\n * Content Management System\n * Content Management System CMS\n * Content Management Systems\n * Content Management Systems CMS\n * Craft CMS\n * CRM\n * CRM Integration\n * CrowdRiff\n * CSS\n * CSS3\n * Custom Code Support\n * DAM\n * Data Analytics\n * Data Ingestion And Processing\n * Data Security\n * DDoS Protection\n * DevOps Tools\n * Digital Ocean\n * DNN\n * DNS Hosting\n * Docusign\n * Drupal\n * Drupal 7\n * Drupal 8\n * Drupal 9\n * Drupal 9+\n * Drupal 10\n * Drupal 11\n * Drupal 12\n * DRUPAL 9511\n * Drupal CMS\n * DXP Composable Environment\n * Elasticsearch\n * Elementor\n * Email Integration\n * ESRI/GIS\n * Expression Engine\n * FIDS\n * FlyMyAirport\n * FormAssembly\n * GA4\n * GEO/AIO\n * GIS\n * Git\n * GitHub\n * Github\n * GitHub Actions\n * GitLab\n * Gitlab\n * Gmail\n * Google Analytics\n * Google Analytics 4\n * Google Analytics 4 GA4\n * Google Cloud\n * Google Drive\n * Google GA4\n * Google Search Console\n * Google Suite\n * Google Tag Manager\n * Google Tags\n * Google Transit\n * Google Workspace\n * Granicus\n * Hosting Solutions\n * HTML\n * HTML/CSS/JavaScript\n * HTML5\n * HTTP Accelerator\n * HubSpot\n * HubSpot CRM\n * IIS\n * ISAIC Servers\n * JavaScript\n * Javascript\n * Jira\n * JS\n * JUICEBOX\n * Keela\n * LAMP Stack\n * Laravel\n * Linex\n * Linux\n * Localist\n * Looker Studio\n * Mailchimp\n * MailChimp\n * MariaDB\n * Mariadb\n * McAfee Antivirus\n * Membership Works\n * Meta Business Suite Pixel\n * Meta Pixel\n * Microsoft 365\n * Microsoft Azure\n * Microsoft Azure Active Directory\n * Microsoft Azure AD\n * Microsoft Clarity\n * Microsoft Dynamics\n * Microsoft Entra ID\n * Microsoft SharePoint\n * Mobile-responsive Design\n * Mobile Optimization\n * Mondaycom\n * Multilingual Support\n * Multilingual Translation\n * MySQL\n * MySQL/MariaDB\n * NET\n * Net Core\n * Nextjs\n * Nginx\n * October CMS\n * OIDC\n * Okta\n * OKTA FedRAMP\n * Omni Analytics\n * OpenGov\n * OpenSolr\n * OpenStreetMap\n * Oracle\n * Pantheon\n * Pantheon Hosting\n * Pattern Lab\n * PayPal\n * PDF\n * Photoshop\n * PHP\n * Php\n * PHP 82+\n * Platformsh\n * Plone\n * Polylang\n * Power BI\n * PowerSchool\n * QAlert\n * Raisers Edge\n * Rancher\n * React\n * Real-time Data Integration\n * RecDesk\n * Redis\n * Remix\n * Responsive Design\n * Responsive Web Design\n * Runcloud\n * SAAS API Gateway\n * Salesforce\n * Salesforce CRM\n * Salesforce Marketing Cloud\n * SAML 20\n * Sanity\n * SchoolMessenger\n * Secure Payment Gateway Integration\n * Security Authentication\n * Security Maintenance\n * SEO\n * SEO Optimization\n * SEO Tools\n * Server Management\n * SharePoint\n * Sharepoint\n * SharePoint Online\n * Shibboleth\n * Shopify\n * Showpass\n * Single Sign-On SSO\n * Sitecore\n * SmartHub\n * SMTP Services\n * Social Media Integration\n * Software-as-a-Service SaaS\n * Solr\n * Splunk\n * SpringShare LibApps\n * SQL Server\n * Square\n * Squarespace\n * SSL\n * SSL Encryption\n * SSO\n * Starlink\n * Stripe\n * Svelte\n * SVG\n * Tailwind CSS\n * TerminalFour\n * The Events Calendar WordPress Plugin\n * Toast POS\n * TYPO3\n * WCAG 21 AA\n * WCAG 21 AA Compliance\n * Web Development\n * Web Hosting\n * Wix\n * WordPress\n\n279 RESULTS - LAST UPDATED: OCTOBER 11TH, 2026\n\n\nWEBSITE DESIGN, DEVELOPMENT, HOSTING, OPERATIONS, MAINTENANCE, AND SUPPORT SERVICES USING THE DRUPAL CONTENT MANAGEMENT SYSTEM FOR THE 511.ORG WEBSITE (PANTHEON)\n\nDue date: 2027-07-01T00:00:00Location: USA (California)\nRequirements: Drupal, Pantheon, OpenStreetMap, SAAS API Gateway, Real-time data integration\n\n\nMODERNIZE ITS PUBLIC SEX OFFENDER REGISTRY WEBSITE, ENHANCING PUBLIC ACCESS TO REGISTRY INFORMATION THROUGH A MOBILE-RESPONSIVE, SEARCHABLE, AND\n\nDue date: 2026-12-16T19:00:00Location: USA (New Hampshire)\n\n\nDEVELOP A STATEWIDE WORKFORCE PORTAL\n\nDue date: 2026-11-13T16:00:00Location: USA (South Carolina)\n\n\nDESIGN, DEVELOP, HOST, AND SUPPORT A MODERN, SECURE, ACCESSIBLE, AND USER-FRIENDLY COUNTY WEBSITE USING A CONTENT MANAGEMENT SYSTEM\n\nDue date: 2026-11-12T16:00:00Location: USA (Missouri)\n\n\nREDESIGN AND REDEVELOPMENT OF ITS WEBSITE, INCLUDING IMPROVEMENTS TO THE MEMBER PORTAL AND IMPLEMENTATION OF CONTENT MANAGEMENT AND CONFERENCE\n\nDue date: 2026-10-30T21:00:00Location: USA (Louisiana)\n\n\nPROVIDE WEBSITE ADA COMPLIANCE SERVICES TO UPDATE AND MAINTAIN THE PRTPO WEBSITE IN ACCORDANCE WITH ADA AND WCAG REQUIREMENTS\n\nDue date: 2026-10-30T21:00:00Location: USA (Washington)\n\n\nDESIGN, DEVELOP, AND IMPLEMENT A MODERN, ACCESSIBLE, AND USER-FRIENDLY WEBSITE (ARCGIS STORYMAPS)\n\nDue date: 2026-10-29T22:30:00Location: USA (Montana)\nRequirements: ArcGIS StoryMaps\n\n\nREDESIGN, DEVELOP, IMPLEMENT, HOST, AND MIGRATE ITS MUNICIPAL WEBSITE USING A CONTENT MANAGEMENT SYSTEM\n\nDue date: 2026-10-29T21:00:00Location: USA (Michigan)\n\n\nWEBSITE MAINTENANCE AND HOSTING SERVICES\n\nDue date: 2026-10-29T16:00:00Location: USA (New Jersey)\n\n\nPROVIDE MANAGED HOSTING, CONTENT DELIVERY, SECURITY, AND SUPPORT SERVICES FOR ITS PUBLIC WEBSITE AND ASSOCIATED CMS\n\nDue date: 2026-10-29T14:00:00Location: USA (South Carolina)\nImage\n\n\n \n\nThe Digital Center of Excellence (DCoE) is a global marketplace connecting digital professionals, agencies, tech companies, consultants, and site owners. We strive to help digital agencies and tech companies find and win contracts they didn’t know existed. This site is sponsored by Blake Newman and Agileana, a DC-based digital agency. If you have any questions or issues with the website, please email [email protected].",
+      "source_status": "fetched",
+      "source_reason": null,
+      "observed_links": 10
+    },
+    {
+      "key": "c6e7ca053b8c32ae3a504f2871dfd4141210c0b0a14623fca531526bfd7ef697",
+      "kind": "document",
+      "input": {
+        "url": "https://www.dcoe.org/opportunities/rfp-tenders/modernize-its-public-sex-offender-registry-website-enhancing-public",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 1,
+      "links": [
+        {
+          "url": "https://www.dcoe.org/user/login?destination=/opportunities/rfp-tenders/modernize-its-public-sex-offender-registry-website-enhancing-public",
+          "text": "Log in"
+        },
+        {
+          "url": "https://www.dcoe.org/user/register",
+          "text": "Register"
+        }
+      ],
+      "feeds": [],
+      "sitemaps": [],
+      "retrieved_url": "https://www.dcoe.org/opportunities/rfp-tenders/modernize-its-public-sex-offender-registry-website-enhancing-public",
+      "capture": {
+        "bytes": 610655,
+        "method": "browser",
+        "complete": false,
+        "requests": 12
+      },
+      "captured_text": "Skip to main content\nHome\nEducation\nCommunity\nOpportunities\nJoin\nLog in\nHome\nOpportunities\nWeb design and development opportunities\nModernize its public Sex Offender Registry website, enhancing public access to registry information through a mobile-responsive, searchable, and\nModernize its public Sex Offender Registry website, enhancing public access to registry information through a mobile-responsive, searchable, and\nLoading navigation...\nSummary\nDue Date\t2026-12-16T19:00:00\nCountry\tUSA\nState\tNew Hampshire\n\nThe State of New Hampshire is seeking a vendor to modernize its public Sex Offender Registry website, enhancing public access to registry information through a mobile-responsive, searchable, and map-enabled platform. The project aims to automate data publication, improve administrative oversight, and support statutory compliance processes.\n\nLog in or Register to view this RFP and download solicitation documents.\n\nImage\n\n \n\nThe Digital Center of Excellence (DCoE) is a global marketplace connecting digital professionals, agencies, tech companies, consultants, and site owners. We strive to help digital agencies and tech companies find and win contracts they didn’t know existed. This site is sponsored by Blake Newman and Agileana, a DC-based digital agency. If you have any questions or issues with the website, please email [email protected].\n\nFooter\nTransparency Statement\nPrivacy Policy\nTerms of Service\nBlog",
+      "source_status": "fetched",
+      "source_reason": "browser_resource_unavailable",
+      "observed_links": 2
+    },
+    {
+      "key": "63d1eff500fe3053c8ad3ddf1229dc50cfc0b36f71a9422e2077531eff6cd396",
+      "kind": "document",
+      "input": {
+        "url": "https://www.dcoe.org/opportunities/rfp-tenders/develop-statewide-workforce-portal",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 1,
+      "links": [
+        {
+          "url": "https://www.dcoe.org/user/login?destination=/opportunities/rfp-tenders/develop-statewide-workforce-portal",
+          "text": "Log in"
+        },
+        {
+          "url": "https://www.dcoe.org/user/register",
+          "text": "Register"
+        }
+      ],
+      "feeds": [],
+      "sitemaps": [],
+      "retrieved_url": "https://www.dcoe.org/opportunities/rfp-tenders/develop-statewide-workforce-portal",
+      "capture": {
+        "bytes": 610016,
+        "method": "browser",
+        "complete": false,
+        "requests": 12
+      },
+      "captured_text": "Skip to main content\nHome\nEducation\nCommunity\nOpportunities\nJoin\nLog in\nHome\nOpportunities\nWeb design and development opportunities\nDevelop a statewide workforce portal\nDevelop a statewide workforce portal\nLoading navigation...\nSummary\nDue Date\t2026-11-13T16:00:00\nCountry\tUSA\nState\tSouth Carolina\n\nThe SC Department of Employment and Workforce seeks a vendor to develop a statewide workforce portal. This portal will serve as a coordination layer to help various stakeholders navigate education and employment pathways while preserving existing systems of record.\n\nLog in or Register to view this RFP and download solicitation documents.\n\nImage\n\n \n\nThe Digital Center of Excellence (DCoE) is a global marketplace connecting digital professionals, agencies, tech companies, consultants, and site owners. We strive to help digital agencies and tech companies find and win contracts they didn’t know existed. This site is sponsored by Blake Newman and Agileana, a DC-based digital agency. If you have any questions or issues with the website, please email [email protected].\n\nFooter\nTransparency Statement\nPrivacy Policy\nTerms of Service\nBlog",
+      "source_status": "fetched",
+      "source_reason": "browser_resource_unavailable",
+      "observed_links": 2
+    },
+    {
+      "key": "b983369a704d6e5dafdb273b0a946f1bdcb117f33605c20f5b153a33335e2bbf",
+      "kind": "document",
+      "input": {
+        "url": "https://www.dcoe.org/opportunities/rfp-tenders/design-develop-host-and-support-modern-secure-accessible-and-user",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 1,
+      "links": [
+        {
+          "url": "https://www.dcoe.org/user/login?destination=/opportunities/rfp-tenders/design-develop-host-and-support-modern-secure-accessible-and-user",
+          "text": "Log in"
+        },
+        {
+          "url": "https://www.dcoe.org/user/register",
+          "text": "Register"
+        }
+      ],
+      "feeds": [],
+      "sitemaps": [],
+      "retrieved_url": "https://www.dcoe.org/opportunities/rfp-tenders/design-develop-host-and-support-modern-secure-accessible-and-user",
+      "capture": {
+        "bytes": 610607,
+        "method": "browser",
+        "complete": false,
+        "requests": 12
+      },
+      "captured_text": "Skip to main content\nHome\nEducation\nCommunity\nOpportunities\nJoin\nLog in\nHome\nOpportunities\nWeb design and development opportunities\nDesign, develop, host, and support a modern, secure, accessible, and user-friendly County website using a content management system\nDesign, develop, host, and support a modern, secure, accessible, and user-friendly County website using a content management system\nLoading navigation...\nSummary\nDue Date\t2026-11-12T16:00:00\nCountry\tUSA\nState\tMissouri\n\nNewton County, Missouri is seeking a qualified vendor to design, develop, host, and support a modern, secure, accessible, and user-friendly County website using a content management system. The project aims to replace the current public website with a responsive, reliable, and easy-to-manage platform that improves access to county information and services.\n\nLog in or Register to view this RFP and download solicitation documents.\n\nImage\n\n \n\nThe Digital Center of Excellence (DCoE) is a global marketplace connecting digital professionals, agencies, tech companies, consultants, and site owners. We strive to help digital agencies and tech companies find and win contracts they didn’t know existed. This site is sponsored by Blake Newman and Agileana, a DC-based digital agency. If you have any questions or issues with the website, please email [email protected].\n\nFooter\nTransparency Statement\nPrivacy Policy\nTerms of Service\nBlog",
+      "source_status": "fetched",
+      "source_reason": "browser_resource_unavailable",
+      "observed_links": 2
+    }
+  ],
+  "decisions": [
+    {
+      "round": 0,
+      "reason": "check_promising_result",
+      "action": {
+        "url": "https://www.achievementfirst.org/request-for-proposals-website-redesign-ecosystem-development/",
+        "kind": "document"
+      },
+      "depth": 0,
+      "parent_key": "6efdfc7d062dd394d344a12465cac62b99543621d27deb588013220d279eb2bd"
+    },
+    {
+      "round": 1,
+      "reason": "check_promising_result",
+      "action": {
+        "url": "https://policywise.com/news/rfp-for-brand-website-redesign/",
+        "kind": "document"
+      },
+      "depth": 0,
+      "parent_key": "eed6469475f6023183b06a29e535242b50e903746458f4f697c5d48b4849cf17"
+    },
+    {
+      "round": 2,
+      "reason": "check_promising_result",
+      "action": {
+        "url": "https://www.dcoe.org/opportunities/rfp-tenders",
+        "kind": "document"
+      },
+      "depth": 0,
+      "parent_key": "eed6469475f6023183b06a29e535242b50e903746458f4f697c5d48b4849cf17"
+    },
+    {
+      "round": 3,
+      "reason": "follow_source_link",
+      "action": {
+        "url": "https://www.dcoe.org/opportunities/rfp-tenders/modernize-its-public-sex-offender-registry-website-enhancing-public",
+        "kind": "document"
+      },
+      "depth": 1,
+      "parent_key": "539a4e76e8c1189100590b6478caf01b5583d630e0403ae692b717194e81940b"
+    },
+    {
+      "round": 4,
+      "reason": "follow_source_link",
+      "action": {
+        "url": "https://www.dcoe.org/opportunities/rfp-tenders/develop-statewide-workforce-portal",
+        "kind": "document"
+      },
+      "depth": 1,
+      "parent_key": "539a4e76e8c1189100590b6478caf01b5583d630e0403ae692b717194e81940b"
+    },
+    {
+      "round": 5,
+      "reason": "follow_source_link",
+      "action": {
+        "url": "https://www.dcoe.org/opportunities/rfp-tenders/design-develop-host-and-support-modern-secure-accessible-and-user",
+        "kind": "document"
+      },
+      "depth": 1,
+      "parent_key": "539a4e76e8c1189100590b6478caf01b5583d630e0403ae692b717194e81940b"
+    },
+    {
+      "round": 6,
+      "reason": "exploration_limit",
+      "action": null,
+      "depth": 0,
+      "parent_key": null
+    }
+  ],
+  "case": {
+    "id": "b8f8d706-cf53-4753-8cfa-023a9b23ed4f",
+    "scoutId": "158f41b1-8e95-4db7-bf9c-3ef64f7fdcc2",
+    "scoutName": "Synthetic service-request scout",
+    "scoutVersion": 1,
+    "provider": "serper",
+    "strategy": {
+      "targets": [
+        "Website redesign"
+      ],
+      "explanation": "I kept the search focused on the full service phrase so matching stays broad enough for redesign work while preserving the exact public wording. Remote is handled separately in the search template, so it is not included here."
+    },
+    "exploration": [
+      {
+        "kind": "document",
+        "reason": "check_promising_result",
+        "target": "https://www.achievementfirst.org/request-for-proposals-website-redesign-ecosystem-development/"
+      },
+      {
+        "kind": "document",
+        "reason": "check_promising_result",
+        "target": "https://policywise.com/news/rfp-for-brand-website-redesign/"
+      },
+      {
+        "kind": "document",
+        "reason": "check_promising_result",
+        "target": "https://www.dcoe.org/opportunities/rfp-tenders"
+      },
+      {
+        "kind": "document",
+        "reason": "follow_source_link",
+        "target": "https://www.dcoe.org/opportunities/rfp-tenders/modernize-its-public-sex-offender-registry-website-enhancing-public"
+      },
+      {
+        "kind": "document",
+        "reason": "follow_source_link",
+        "target": "https://www.dcoe.org/opportunities/rfp-tenders/develop-statewide-workforce-portal"
+      },
+      {
+        "kind": "document",
+        "reason": "follow_source_link",
+        "target": "https://www.dcoe.org/opportunities/rfp-tenders/design-develop-host-and-support-modern-secure-accessible-and-user"
+      },
+      {
+        "kind": null,
+        "reason": "exploration_limit",
+        "target": null
+      }
+    ],
+    "reviewStatus": "complete",
+    "reviewReason": "source_reviews_complete",
+    "status": "partial",
+    "reason": "some_sources_unavailable",
+    "startedAt": "2026-10-12 00:02:35.763401+00",
+    "finishedAt": "2026-10-12 00:04:22.621142+00",
+    "searchesCompleted": 4,
+    "documentsChecked": 6,
+    "leadCount": 41
+  },
+  "usage": [
+    {
+      "provider": "public-documents",
+      "requests": 6,
+      "reserved_micros": "0"
+    },
+    {
+      "provider": "serper",
+      "requests": 4,
+      "reserved_micros": "40000"
+    }
+  ],
+  "aiBudget": [
+    {
+      "requests": 12,
+      "reserved_microusd": "900000"
+    }
+  ],
+  "dashboardLeadSampleSize": 40,
+  "leads": [
+    {
+      "url": "https://avatariinfotech.com/blog/website-design-brief",
+      "title": "How to Write a Website Design Brief (+ Template) - Avatari",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://eseospace.com/submit-an-rfp/",
+      "title": "Submit an RFP, RFQ or RFI",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://federalcontractingwebdesign.com/pricing/",
+      "title": "Federal Contractor Web Design Pricing | HILARTECH",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://monday.com/blog/project-management/creative-brief-template/",
+      "title": "Creative Brief Template: Components, Steps, Examples",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://policywise.com/news/rfp-for-brand-website-redesign/",
+      "title": "PolicyWise issued RFP for Brand and Website Redesign",
+      "contentStatus": "fetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": {
+        "facts": {
+          "role": {
+            "value": "brand and website redesign",
+            "quotes": [
+              "To support this, we issued a Request for Proposal (RFP) for a brand and website redesign. We were looking for an experienced partner to help us align our identity and digital presence with our new strategic direction. The key deliverables for this project include:"
+            ],
+            "status": "stated"
+          },
+          "category": {
+            "value": "client_request",
+            "quotes": [
+              "To support this, we issued a Request for Proposal (RFP) for a brand and website redesign. We were looking for an experienced partner to help us align our identity and digital presence with our new strategic direction. The key deliverables for this project include:",
+              "Agencies or consultancies with experience in non-profit branding were requested to submit their proposals by September 28, 2026. "
+            ],
+            "status": "stated"
+          },
+          "location": {
+            "value": "Alberta",
+            "quotes": [
+              "PolicyWise is a charitable organization based in Alberta dedicated to advancing action-ready research that strengthens the social and health systems supporting children and families. Since our founding in 2003, we have worked in close partnership with all orders of government, academic institutions, Indigenous communities, and civil society organizations to provide trusted, evidence-informed guidance. Our contributions have meaningfully shaped social policy and practice across the country, with a particular focus on ministries and sectors serving children and families.",
+              " * 1000, 9925 109 Street NW",
+              " * Edmonton, AB, Canada T5K 2J8",
+              " * Mailbox #2 - 402, 609 14 Street NW"
+            ],
+            "status": "stated"
+          },
+          "arrangement": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "sponsorship": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "compensation": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "requirements": {
+            "value": "experience in non-profit branding",
+            "quotes": [
+              "Agencies or consultancies with experience in non-profit branding were requested to submit their proposals by September 28, 2026. "
+            ],
+            "status": "stated"
+          },
+          "authorization": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          }
+        },
+        "label": "closed",
+        "scope": "source",
+        "quotes": [
+          "To support this, we issued a Request for Proposal (RFP) for a brand and website redesign. We were looking for an experienced partner to help us align our identity and digital presence with our new strategic direction. The key deliverables for this project include:",
+          "Agencies or consultancies with experience in non-profit branding were requested to submit their proposals by September 28, 2026. "
+        ],
+        "explanation": "This is an RFP for a specific brand and website redesign, but the submission deadline had already passed by the observation date, so it is closed."
+      }
+    },
+    {
+      "url": "https://skydea.co/blog/fixed-price-website-redesign",
+      "title": "Fixed-Price Website Redesign: What's Included and When ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://solutionshq.asaecenter.org/viewrfp",
+      "title": "View RFP",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://thegigresource.com/website-redesign-request-for-proposal/",
+      "title": "Website Redesign RFP Template: How to Brief a Designer or ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://visualstate.studio/insights/how-to-write-a-website-design-brief",
+      "title": "How to Write a Website Design Brief | Visual State Studio",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://wpship.tech/blog/how-to-write-a-small-business-website-design-brief/",
+      "title": "Website design brief template for small businesses - WPShip",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.achievementfirst.org/request-for-proposals-website-redesign-ecosystem-development/",
+      "title": "Request for Proposals: Website Redesign & Ecosystem ...",
+      "contentStatus": "access_limited",
+      "contentReason": "crawl_delay_exceeds_run_budget",
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.approvedbusiness.co.uk/blog/website-design-brief-how-to-write-one",
+      "title": "Website Design Brief: How to Write One",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.brainboxagency.com/web-design-agency-vs-freelancer-vs-diy/",
+      "title": "Web Design Agency vs Freelancer vs DIY: Which Is Best?",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.dcoe.org/opportunities/rfp-tenders",
+      "title": "Web design and development opportunities",
+      "contentStatus": "fetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": {
+        "facts": {
+          "role": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "category": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "location": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "arrangement": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "sponsorship": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "compensation": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "requirements": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "authorization": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          }
+        },
+        "label": "directory",
+        "scope": "source",
+        "quotes": [
+          "WEB DESIGN AND DEVELOPMENT OPPORTUNITIES",
+          "279 RESULTS - LAST UPDATED: OCTOBER 11TH, 2026",
+          "WEBSITE DESIGN, DEVELOPMENT, HOSTING, OPERATIONS, MAINTENANCE, AND SUPPORT SERVICES USING THE DRUPAL CONTENT MANAGEMENT SYSTEM FOR THE 511.ORG WEBSITE (PANTHEON)",
+          "MODERNIZE ITS PUBLIC SEX OFFENDER REGISTRY WEBSITE, ENHANCING PUBLIC ACCESS TO REGISTRY INFORMATION THROUGH A MOBILE-RESPONSIVE, SEARCHABLE, AND"
+        ],
+        "explanation": "This is a listings page aggregating many web design/development opportunities, not a single specific opening or request. It shows \"279 RESULTS\" and multiple separate tenders with different due dates and locations."
+      }
+    },
+    {
+      "url": "https://www.dcoe.org/opportunities/rfp-tenders/design-develop-host-and-support-modern-secure-accessible-and-user",
+      "title": "Design, develop, host, and support a modern, secure, accessible, and user-friendly County website using a content management system",
+      "contentStatus": "fetched",
+      "contentReason": "browser_resource_unavailable",
+      "postingId": null,
+      "promoted": false,
+      "review": {
+        "facts": {
+          "role": {
+            "value": "design, develop, host, and support a modern, secure, accessible, and user-friendly County website",
+            "quotes": [
+              "Newton County, Missouri is seeking a qualified vendor to design, develop, host, and support a modern, secure, accessible, and user-friendly County website using a content management system. The project aims to replace the current public website with a responsive, reliable, and easy-to-manage platform that improves access to county information and services.",
+              "Design, develop, host, and support a modern, secure, accessible, and user-friendly County website using a content management system"
+            ],
+            "status": "stated"
+          },
+          "category": {
+            "value": "client_request",
+            "quotes": [
+              "Newton County, Missouri is seeking a qualified vendor to design, develop, host, and support a modern, secure, accessible, and user-friendly County website using a content management system. The project aims to replace the current public website with a responsive, reliable, and easy-to-manage platform that improves access to county information and services."
+            ],
+            "status": "stated"
+          },
+          "location": {
+            "value": "Newton County, Missouri",
+            "quotes": [
+              "Newton County, Missouri is seeking a qualified vendor to design, develop, host, and support a modern, secure, accessible, and user-friendly County website using a content management system. The project aims to replace the current public website with a responsive, reliable, and easy-to-manage platform that improves access to county information and services.",
+              "State\tMissouri",
+              "Country\tUSA"
+            ],
+            "status": "stated"
+          },
+          "arrangement": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "sponsorship": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "compensation": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "requirements": {
+            "value": "qualified vendor; content management system; responsive, reliable, and easy-to-manage platform",
+            "quotes": [
+              "Newton County, Missouri is seeking a qualified vendor to design, develop, host, and support a modern, secure, accessible, and user-friendly County website using a content management system. The project aims to replace the current public website with a responsive, reliable, and easy-to-manage platform that improves access to county information and services."
+            ],
+            "status": "stated"
+          },
+          "authorization": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          }
+        },
+        "label": "client_request",
+        "scope": "source",
+        "quotes": [
+          "Newton County, Missouri is seeking a qualified vendor to design, develop, host, and support a modern, secure, accessible, and user-friendly County website using a content management system. The project aims to replace the current public website with a responsive, reliable, and easy-to-manage platform that improves access to county information and services.",
+          "Due Date\t2026-11-12T16:00:00",
+          "Log in or Register to view this RFP and download solicitation documents."
+        ],
+        "explanation": "Newton County, Missouri is seeking a vendor to deliver a specific website project, which is a buyer request for services rather than a job opening."
+      }
+    },
+    {
+      "url": "https://www.dcoe.org/opportunities/rfp-tenders/develop-statewide-workforce-portal",
+      "title": "Develop a statewide workforce portal",
+      "contentStatus": "fetched",
+      "contentReason": "browser_resource_unavailable",
+      "postingId": null,
+      "promoted": false,
+      "review": {
+        "facts": {
+          "role": {
+            "value": "Develop a statewide workforce portal",
+            "quotes": [
+              "Develop a statewide workforce portal",
+              "Develop a statewide workforce portal",
+              "The SC Department of Employment and Workforce seeks a vendor to develop a statewide workforce portal. This portal will serve as a coordination layer to help various stakeholders navigate education and employment pathways while preserving existing systems of record."
+            ],
+            "status": "stated"
+          },
+          "category": {
+            "value": "contract",
+            "quotes": [
+              "The SC Department of Employment and Workforce seeks a vendor to develop a statewide workforce portal. This portal will serve as a coordination layer to help various stakeholders navigate education and employment pathways while preserving existing systems of record."
+            ],
+            "status": "stated"
+          },
+          "location": {
+            "value": "South Carolina, USA",
+            "quotes": [
+              "Country\tUSA",
+              "State\tSouth Carolina"
+            ],
+            "status": "stated"
+          },
+          "arrangement": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "sponsorship": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "compensation": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "requirements": {
+            "value": "vendor to develop a statewide workforce portal",
+            "quotes": [
+              "The SC Department of Employment and Workforce seeks a vendor to develop a statewide workforce portal. This portal will serve as a coordination layer to help various stakeholders navigate education and employment pathways while preserving existing systems of record."
+            ],
+            "status": "stated"
+          },
+          "authorization": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          }
+        },
+        "label": "client_request",
+        "scope": "source",
+        "quotes": [
+          "The SC Department of Employment and Workforce seeks a vendor to develop a statewide workforce portal. This portal will serve as a coordination layer to help various stakeholders navigate education and employment pathways while preserving existing systems of record.",
+          "Due Date\t2026-11-13T16:00:00",
+          "State\tSouth Carolina"
+        ],
+        "explanation": "The posting is a buyer request for a vendor to develop a specific portal, with a stated due date and public-sector buyer identity."
+      }
+    },
+    {
+      "url": "https://www.dcoe.org/opportunities/rfp-tenders/modernize-its-public-sex-offender-registry-website-enhancing-public",
+      "title": "Modernize its public Sex Offender Registry website, enhancing public access to registry information through a mobile-responsive, searchable, and",
+      "contentStatus": "fetched",
+      "contentReason": "browser_resource_unavailable",
+      "postingId": null,
+      "promoted": false,
+      "review": {
+        "facts": {
+          "role": {
+            "value": "modernize its public Sex Offender Registry website",
+            "quotes": [
+              "The State of New Hampshire is seeking a vendor to modernize its public Sex Offender Registry website, enhancing public access to registry information through a mobile-responsive, searchable, and map-enabled platform. The project aims to automate data publication, improve administrative oversight, and support statutory compliance processes."
+            ],
+            "status": "stated"
+          },
+          "category": {
+            "value": "contract",
+            "quotes": [
+              "The State of New Hampshire is seeking a vendor to modernize its public Sex Offender Registry website, enhancing public access to registry information through a mobile-responsive, searchable, and map-enabled platform. The project aims to automate data publication, improve administrative oversight, and support statutory compliance processes."
+            ],
+            "status": "stated"
+          },
+          "location": {
+            "value": "New Hampshire, USA",
+            "quotes": [
+              "Country\tUSA",
+              "State\tNew Hampshire",
+              "The State of New Hampshire is seeking a vendor to modernize its public Sex Offender Registry website, enhancing public access to registry information through a mobile-responsive, searchable, and map-enabled platform. The project aims to automate data publication, improve administrative oversight, and support statutory compliance processes."
+            ],
+            "status": "stated"
+          },
+          "arrangement": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "sponsorship": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "compensation": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "requirements": {
+            "value": "mobile-responsive, searchable, and map-enabled platform; automate data publication; improve administrative oversight; support statutory compliance processes",
+            "quotes": [
+              "The State of New Hampshire is seeking a vendor to modernize its public Sex Offender Registry website, enhancing public access to registry information through a mobile-responsive, searchable, and map-enabled platform. The project aims to automate data publication, improve administrative oversight, and support statutory compliance processes."
+            ],
+            "status": "stated"
+          },
+          "authorization": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          }
+        },
+        "label": "client_request",
+        "scope": "source",
+        "quotes": [
+          "The State of New Hampshire is seeking a vendor to modernize its public Sex Offender Registry website, enhancing public access to registry information through a mobile-responsive, searchable, and map-enabled platform. The project aims to automate data publication, improve administrative oversight, and support statutory compliance processes.",
+          "Log in or Register to view this RFP and download solicitation documents."
+        ],
+        "explanation": "The posting is a buyer-side RFP from the State of New Hampshire seeking a vendor to modernize a website, which is a concrete service request rather than a job opening."
+      }
+    },
+    {
+      "url": "https://www.facebook.com/groups/everyexpatinkorea/posts/10163062940541696/",
+      "title": "I was wondering if anyone has recommendations for a ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.facebook.com/WorldWise.net/posts/what-should-a-website-redesign-cost-in-2026-the-answer-depends-on-the-scope-stra/1726520502811426/",
+      "title": "What should a website redesign cost in 2026? The answer ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.facebook.com/x8webdesign/posts/are-you-planning-a-website-redesign-dont-fall-for-common-rfp-mistakes-many-busin/1771804171616866/",
+      "title": "How to build a successful website redesign RFP for ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.figma.com/resource-library/ui-ux-design-cost/",
+      "title": "UI/UX Design Cost: What to Budget for Your Project",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.forbes.com/advisor/business/software/how-much-does-a-website-cost/",
+      "title": "How Much Does a Website Cost? (2026 Guide)",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.freelancer.com/projects/website-development/need-website",
+      "title": "I need a website",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.godaddy.com/resources/skills/website-redesign",
+      "title": "Website redesign: What it is, when you need it, and how to ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.instagram.com/p/Dd3lu4YIDSK/",
+      "title": "$15K–$200K web design projects accepting proposals ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.instagram.com/p/DdniToeiKV2/",
+      "title": "peopleperhour",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.instagram.com/p/DdTxS8ojHQa/",
+      "title": "\"Your website redesign RFP might be costing you more ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.instagram.com/reel/DdZSnEBxKLG/",
+      "title": "A redesign shouldn't begin with: \"What colors do you like? ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.jamie-thomson-designer.com/how-to-request-a-website-redesign-quote/",
+      "title": "How To Request A Website Redesign Quote",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.linkedin.com/posts/joinamply_website-revamp-pricing-guide-activity-7508595968586706944-6PXo",
+      "title": "Website Redesign Budget Guide for B2B Marketing",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.linkedin.com/posts/kayak-websites_how-to-create-a-better-rfp-for-a-website-activity-7506035139056058369-FwBT",
+      "title": "Clarify RFP for Website Migrations and Redesigns",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.linkedin.com/posts/muhammadarman_most-design-agencies-sell-websites-very-activity-7506744720899964928--jAU",
+      "title": "Design Agencies Often Outsource Web Development",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.mwdwebsites.com/choosing-a-website-provider-freelancer-agency-or-diy/",
+      "title": "Choosing a Website Provider: Freelancer, Agency or DIY",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.orbix.studio/blogs/website-redesign-cost",
+      "title": "Website Redesign Cost 2026: $2K–$150K Pricing Guide",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.outerboxdesign.com/articles/web-development/website-pricing-costs/",
+      "title": "How Much Does a Website Cost in 2026",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.ramotion.com/blog/website-redesign/",
+      "title": "Website Redesign Process: Steps, Preparation & Execution",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.rfpschoolwatch.com/",
+      "title": "RFPSchoolWatch: Find, Track, and Win Education ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.rickwhittington.com/blog/how-much-does-it-cost-to-build-a-website/",
+      "title": "How Much Does a B2B Website Redesign Cost in 2026?",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.startdesigns.com/blog/website-development-rfp-guide/",
+      "title": "Website Development RFP Guide & Checklist",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.winchester.us/CivicAlerts.aspx?AID=1948",
+      "title": "Request for Proposals for the Reconstruction of Symmes ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=74TYhKSyiJk",
+      "title": "How to Write a High Converting Website Brief",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    }
+  ],
+  "checks": [
+    "live adaptive decisions",
+    "bounded provider and model admission",
+    "observed parent provenance",
+    "current owner isolation",
+    "terminal replay without new spending"
+  ],
+  "emailsSent": 0,
+  "realAccountsUsed": 0,
+  "scopeNote": "Bounded live synthetic case using production discovery, review, assessment and delivery use cases. Worker reader includes configured browser fallback and Ashby routing without shared Redis caching; HTTP reader is a controlled reduced-access path. Native X and marketplace connector loops are not exercised. All lead rows are measured separately from the dashboard's bounded sample. Matching can remain incomplete if retries exceed the check window. Model labels are not independent ground truth; precision, recall and global throughput remain unproven."
+}

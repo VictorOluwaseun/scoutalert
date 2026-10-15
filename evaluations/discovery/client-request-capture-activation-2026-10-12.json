@@ -1,0 +1,43 @@
+{
+  "recordedAt": "2026-10-12T00:39:49.744Z",
+  "workerStartedAt": "2026-10-12T00:36:32Z",
+  "documentVersion": "public-document-v7",
+  "reviewPolicy": "deadline-evidence-v1",
+  "runningQueues": [
+    "scout-workflows-v1",
+    "scout-sources-v1",
+    "scout-web-discovery-v1",
+    "scout-source-monitoring-v1",
+    "scout-social-discovery-v1",
+    "scout-matching-v1",
+    "scout-research-v1",
+    "scout-delivery-v1",
+    "scout-private-mail-v1"
+  ],
+  "http": [
+    {
+      "name": "web",
+      "status": 200
+    },
+    {
+      "name": "api",
+      "path": "/",
+      "status": 200
+    },
+    {
+      "name": "mailpit",
+      "status": 200
+    }
+  ],
+  "aggregate": {
+    "new_source_observations": 2,
+    "buyer_brief_captures": 0
+  },
+  "configurationChanges": [],
+  "note": "Local worker restarted with the validated reader and deadline policy. Existing source, model, schedule and email settings retained. No saved scout was force-rescheduled; startup does not establish a complete account backfill.",
+  "probeCorrection": {
+    "path": "/health",
+    "status": 404,
+    "note": "No health route is defined; checked the existing starter route at / instead."
+  }
+}
