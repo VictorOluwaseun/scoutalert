@@ -1,0 +1,107 @@
+{
+  "document": {
+    "kind": "document",
+    "url": "https://www.workana.com/en/job/wix-website-redesign-with-e-commerce-and-digital-download-integration",
+    "checkedAt": "2026-10-15T14:32:34.146Z",
+    "status": "fetched",
+    "reason": null,
+    "text": "1. Workana\n 2. Freelance Jobs\n 3. E-commerce jobs\n\nEvaluating bids\n\n\nWIX WEBSITE REDESIGN WITH E-COMMERCE AND DIGITAL DOWNLOAD INTEGRATION\n\nPublished on the August 12, 2026 in IT & Programming\n\n * Project\n * Project Insights\n\nABOUT THIS PROJECT\n\n\nIT-PROGRAMMING / E-COMMERCE\n\nOPEN\n\n\n\nA freelancer is needed to complete a comprehensive redesign of an existing Wix website. The project involves implementing a provided design to refresh the site's appearance and functionality. Key requirements include integrating a fully functional e-commerce store and enabling digital download capabilities for products. The successful candidate will work with the existing Wix platform to apply the new design and ensure all specified features are seamlessly integrated and operational.\n\n\n\nCategory IT & Programming\nSubcategory E-commerce\nWhat is the scope of the project? Medium-sized change\n\n\nDelivery term: Not specified\n\nSkills needed\n\nWix HTML CSS JavaScript\n\nWant to start working on this project?\n\nLog into your Workana account or Register today. Boost your freelance work!\n\n\nARE YOU LOOKING FOR A FREELANCER TO DO A SIMILAR PROJECT?\n\nCreate your project and get bids from the best freelancers.\n\nPublish your own project\nSend your proposal now\n\nR. M.\n\n\n\n1\n\nPublished projects\n\n0\n\nProjects paid\n\nMember since: August 2026\n\nProject activity\n\n5\n\nBids\n\n5\n\nInterested freelancers\n\nPrevious project\nNext project",
+    "fingerprint": "d38eb0353c5342ddcfc27f49a679e7409fa5243d136569471e4901c66ef0a76b",
+    "posting": null,
+    "hostDelaySeconds": 2,
+    "retrievedUrl": "https://www.workana.com/en/job/wix-website-redesign-with-e-commerce-and-digital-download-integration",
+    "sitemaps": [
+      {
+        "url": "https://www.workana.com/sitemap_index.xml",
+        "text": "Site-advertised sitemap"
+      }
+    ],
+    "truncated": false,
+    "links": [
+      {
+        "url": "https://www.workana.com/",
+        "text": "Workana"
+      },
+      {
+        "url": "https://www.workana.com/jobs",
+        "text": "Freelance Jobs"
+      },
+      {
+        "url": "https://www.workana.com/jobs?subcategory=e-commerce",
+        "text": "E-commerce jobs"
+      },
+      {
+        "url": "https://www.workana.com/job/insight/wix-website-redesign-with-e-commerce-and-digital-download-integration",
+        "text": "Project Insights"
+      },
+      {
+        "url": "https://www.workana.com/jobs?skills=wix",
+        "text": "Wix"
+      },
+      {
+        "url": "https://www.workana.com/jobs?skills=html",
+        "text": "HTML"
+      },
+      {
+        "url": "https://www.workana.com/jobs?skills=css",
+        "text": "CSS"
+      },
+      {
+        "url": "https://www.workana.com/jobs?skills=javascript",
+        "text": "JavaScript"
+      },
+      {
+        "url": "https://www.workana.com/login",
+        "text": "Log into"
+      },
+      {
+        "url": "https://www.workana.com/en/signup/w",
+        "text": "Register"
+      },
+      {
+        "url": "https://www.workana.com/en/projects/add?clone=wix-website-redesign-with-e-commerce-and-digital-download-integration",
+        "text": "Publish your own project"
+      },
+      {
+        "url": "https://www.workana.com/en/signup/w?r=https%3A%2F%2Fwww.workana.com%2Fen%2Fjob%2Fwix-website-redesign-with-e-commerce-and-digital-download-integration",
+        "text": "Send your proposal now"
+      },
+      {
+        "url": "https://www.workana.com/e/7fdc6fbd95cc38deeff873dd1026c241",
+        "text": "R. M."
+      },
+      {
+        "url": "https://www.workana.com/en/job/professional-medical-interpreter-for-ongoing-english-spanish-services",
+        "text": "Previous project"
+      },
+      {
+        "url": "https://www.workana.com/en/job/project-build-1",
+        "text": "Next project"
+      }
+    ],
+    "feeds": [],
+    "searchForms": [],
+    "pagination": {
+      "next": [],
+      "contentFingerprint": "6037e42b8bf321a9312a6be8af92bfe2e5d0cf63d0c2cada4f0535f81c0af5e7"
+    },
+    "capture": {
+      "method": "http",
+      "requests": 2,
+      "bytes": 38476,
+      "complete": true
+    }
+  },
+  "requests": [
+    {
+      "url": "https://www.workana.com/robots.txt",
+      "status": 200,
+      "type": "text/plain"
+    },
+    {
+      "url": "https://www.workana.com/en/job/wix-website-redesign-with-e-commerce-and-digital-download-integration",
+      "status": 200,
+      "type": "text/html;charset=UTF-8"
+    }
+  ]
+}

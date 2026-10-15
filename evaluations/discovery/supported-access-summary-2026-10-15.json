@@ -1,0 +1,187 @@
+{
+  "checkedAt": "2026-10-15T16:15:22.510962+00:00",
+  "status": "available_checks_complete_ai_validation_blocked",
+  "userDirection": "Finish the available checks and report the blocked AI tests",
+  "modelFailure": "credit_balance_exhausted",
+  "subsequentPaidModelCalls": 0,
+  "versions": {
+    "queries": "client-demand-v7",
+    "document": "public-document-v10",
+    "capture": "public-capture-v10",
+    "pdf": "public-pdf-v1",
+    "bluesky": "bluesky-public-v1"
+  },
+  "repairs": [
+    "Bounded binary PDF extraction with ordered text and observed links",
+    "Supported exact-post Bluesky API capture and primary-author provenance",
+    "Upwork approved-access boundary before website requests, including redirects",
+    "Grounded fallback choices prevent persistence rejection loops during a model outage"
+  ],
+  "liveCapture": [
+    {
+      "scenario": "projects",
+      "receipt": "supported-access-projects-capture-only-2026-10-15.json",
+      "leads": 11,
+      "searches": 4,
+      "documentOperations": 6,
+      "completeCaptures": 2,
+      "searchReservationUsd": 0.04,
+      "aiCalls": 0,
+      "sourceReview": "not_tested_ai_disabled",
+      "recommendationQuality": "not_tested_ai_disabled",
+      "emailsSent": 0,
+      "durationSeconds": 59.444
+    },
+    {
+      "scenario": "services",
+      "receipt": "supported-access-services-capture-only-2026-10-15.json",
+      "leads": 33,
+      "searches": 4,
+      "documentOperations": 6,
+      "completeCaptures": 5,
+      "searchReservationUsd": 0.04,
+      "aiCalls": 0,
+      "sourceReview": "not_tested_ai_disabled",
+      "recommendationQuality": "not_tested_ai_disabled",
+      "emailsSent": 0,
+      "durationSeconds": 42.371
+    }
+  ],
+  "pdfReads": [
+    {
+      "url": "https://unearthodox.org/wp-content/uploads/2026/03/RFP%E2%80%93Web-Design-Development-and-Maintenance-Services.pdf",
+      "status": "fetched",
+      "pdf": {
+        "pages": 6,
+        "extractedPages": 6
+      },
+      "characters": 11887,
+      "capture": {
+        "method": "http",
+        "parser": "public-pdf-v1",
+        "requests": 2,
+        "bytes": 519789,
+        "complete": true
+      }
+    },
+    {
+      "url": "https://www.amideast.org/sites/default/files/otherfiles/jnevinanderson/Website%20RFP%20Addendum%20PDF.pdf",
+      "status": "fetched",
+      "pdf": {
+        "pages": 6,
+        "extractedPages": 6
+      },
+      "characters": 9972,
+      "capture": {
+        "method": "http",
+        "parser": "public-pdf-v1",
+        "requests": 2,
+        "bytes": 87086,
+        "complete": true
+      }
+    }
+  ],
+  "blueskyReadReceipt": "supported-access-bluesky-final-2026-10-15.json",
+  "blueskySearch": "Unauthenticated direct search probe returned HTTP 403; only exact observed post reads were verified",
+  "nativeX": [
+    {
+      "scenario": "projects",
+      "receipt": "supported-access-native-projects-2026-10-15.json",
+      "attempts": [
+        {
+          "kind": "search",
+          "state": "succeeded",
+          "failure": null,
+          "returned_posts": 0,
+          "partial": false
+        }
+      ],
+      "downstreamEvidence": "not_exercised_no_posts_returned",
+      "aiCalls": 0
+    },
+    {
+      "scenario": "services",
+      "receipt": "supported-access-native-services-2026-10-15.json",
+      "attempts": [
+        {
+          "kind": "search",
+          "state": "succeeded",
+          "failure": null,
+          "returned_posts": 0,
+          "partial": false
+        }
+      ],
+      "downstreamEvidence": "not_exercised_no_posts_returned",
+      "aiCalls": 0
+    }
+  ],
+  "fixtureReceipt": "supported-access-fallback-fixture-2026-10-15.json",
+  "fixtureOutcome": {
+    "scenarios": 2,
+    "planner": "controlled unavailable provider",
+    "sourceReviewsAndFits": "authored fixtures, not a live model",
+    "recommendationsPerScenario": 1,
+    "localEmailsPerScenario": 1,
+    "duplicateEmails": 0
+  },
+  "verification": {
+    "standardWorkerSuite": {
+      "passed": 322,
+      "skipped": 117,
+      "note": "Before the final additional redirect regression; skipped tests include opt-in integrations"
+    },
+    "databaseSuite": {
+      "passed": 56,
+      "files": 3
+    },
+    "browserSuite": {
+      "passed": 27,
+      "actualChromiumChecks": 9,
+      "note": "Other checks overlap standard suite"
+    },
+    "finalPdfSuite": {
+      "passed": 10,
+      "note": "Includes final redirect boundary regression; overlaps standard suite"
+    },
+    "focusedPdfBlueskyPlanning": {
+      "passed": 29,
+      "failed": 1,
+      "finalFailureResolution": "New redirect fixture used an invalid response shape; corrected header and all 10 PDF checks passed"
+    },
+    "reportSummaryChecks": 3,
+    "builds": [
+      "core",
+      "adapters",
+      "worker"
+    ],
+    "types": [
+      "api",
+      "web",
+      "worker"
+    ],
+    "architecture": "passed",
+    "whitespace": "passed"
+  },
+  "remainingAccess": {
+    "upwork": "Separate explicit commercial permission and approved API scope needed; standard program excludes commercial use",
+    "guru": "Robots HTTP 403; supported marketplace API/feed contract and authorization remain unconfirmed",
+    "facebook": "No approved public-content read access; live robots restrictions respected",
+    "linkedin": "No approved read integration; general member-post permission is closed",
+    "pdf": "OCR, password protection, oversized/invalid documents remain incomplete"
+  },
+  "incompleteAttempts": [
+    "Two initial web runs stopped at the terminal assertion without saved reports; a third preserved the stalled case in supported-access-services-diagnostic-2026-10-15.json. The model provider was exhausted, and a duplicated-URL provenance mismatch stalled fallback decisions.",
+    "Initial PDF live audit failed because a disposable worker inherited --input-type=module. Clearing worker execArgv repaired both real PDFs; original and revised receipts remain.",
+    "Initial native project diagnostic completed the bounded call path but failed report SQL on a nonexistent started_at field; the corrected repeat has a saved receipt.",
+    "Initial database batch had one stale review-policy fixture; corrected fixture and all 56 checks passed."
+  ],
+  "accounting": "Final capture-only web runs reserve $0.08 for eight Serper searches and zero AI. Saved successful native runs reserve $0.10 total. Earlier diagnostic/audit calls, failed attempts and ordinary worker activity are excluded; no complete billing total or provider invoice is claimed.",
+  "limits": [
+    "Successful captures are not verified open or useful opportunities",
+    "Both audited PDFs are historical documents and were not recommended",
+    "The project capture-only run completed two directory/template pages; useful project demand is unproven",
+    "The service capture-only run included buyer briefs and a removed notice; AI classification and private fit were deliberately not tested",
+    "No new funded end-to-end AI recommendation, independent precision, recall or global coverage claim"
+  ],
+  "activationReceipt": "supported-access-activation-2026-10-15.json"
+}

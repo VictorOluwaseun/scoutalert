@@ -1,0 +1,663 @@
+{
+  "recordedAt": "2026-10-15T15:11:54.942874+00:00",
+  "scope": "Fresh paid synthetic remote project/service discovery through production use cases, isolated PostgreSQL schemas and local Mailpit. No saved-user backfill or buyer contact. Latest verified reports are canonical; earlier final-named reports preserve a failed intermediate experiment.",
+  "versions": {
+    "queries": "client-demand-v6",
+    "search": "google-search-v2",
+    "planner": "scout-planning-v13",
+    "primaryBuyerParser": "peopleperhour-public-html-v2",
+    "document": "public-document-v9",
+    "capture": "public-capture-v9",
+    "review": "lead-evidence-v5:deadline-evidence-v2:buyer-category-v1",
+    "fit": "evidence-prompts-v9"
+  },
+  "repairs": [
+    "Add PeoplePerHour and Workana buyer-detail search families, preserve coherent target phrases, and omit the Google date filter only for Workana v5/v6 queries.",
+    "Capture only PeoplePerHour buyer brief, budget, status and experience level; exclude bidder/profile prose and preserve closed-page evidence.",
+    "Respect permitted public crawl delays up to 30 seconds with aligned 45-second source, 60-second activity and 75-second shared operation/host leases.",
+    "Install the missing matching Playwright headless Chromium runtime; real browser checks now pass.",
+    "Keep observed parent context only for confirmed collection sources and exclude author/back-navigation links.",
+    "Group short source labels with adjacent source text without changing citation offsets; distinguish buyer market from contractor eligibility.",
+    "Validate relative deadline quotations against source text before canonicalizing countdowns to unknown absolute dates; preserve full strict validation for other evidence."
+  ],
+  "runs": [
+    {
+      "report": "source-expansion-projects-live-2026-10-15.json",
+      "stage": "live",
+      "scenario": "projects",
+      "checkedAt": "2026-10-15T14:40:33.427Z",
+      "metrics": {
+        "scenario": "projects",
+        "executionStatus": "measured",
+        "successfulSearches": 4,
+        "failedSearches": 0,
+        "renderingEnabled": true,
+        "durationSeconds": 75.639,
+        "uniqueLeads": 30,
+        "recordedLeads": 30,
+        "completeLeadSet": true,
+        "searchRequests": 4,
+        "documentRequests": 6,
+        "capturedDocuments": 4,
+        "completeCaptures": 4,
+        "inaccessibleDocuments": 2,
+        "repeatedDestinations": 0,
+        "sourceReviewLabels": {
+          "client_request": 2
+        },
+        "sourceReviewCountsAreComplete": true,
+        "promotedPostings": 2,
+        "matching": "completed",
+        "completedFitAssessments": 2,
+        "dashboardRecommendations": 0,
+        "acceptedEmails": 0,
+        "aiEstimatedUsd": 0.043824,
+        "attemptsWithoutCostEstimate": 2,
+        "searchReservedUsd": 0.04,
+        "aiReservedUsd": 1.125,
+        "estimatedAiPlusSearchReservationPerRecommendationUsd": null,
+        "independentlyUsefulResults": null,
+        "costPerIndependentlyUsefulResultUsd": null,
+        "precision": null,
+        "recall": null,
+        "limitations": "AI estimates exclude unpriced/failed attempts, infrastructure and billing adjustments. Search reservations are configured upper allowances, not invoices. Source labels and dashboard acceptance are not independent usefulness judgments. Distinct URLs may still describe the same opportunity; repeatedDestinations detects only observed redirect identity. Initial reports recorded a dashboard sample, not every source review."
+      },
+      "reviewFailures": 0,
+      "rejectedReviews": 2,
+      "rejectedFits": 0
+    },
+    {
+      "report": "source-expansion-services-live-2026-10-15.json",
+      "stage": "live",
+      "scenario": "services",
+      "checkedAt": "2026-10-15T14:42:30.736Z",
+      "metrics": {
+        "scenario": "services",
+        "executionStatus": "measured",
+        "successfulSearches": 4,
+        "failedSearches": 0,
+        "renderingEnabled": true,
+        "durationSeconds": 189.255,
+        "uniqueLeads": 26,
+        "recordedLeads": 26,
+        "completeLeadSet": true,
+        "searchRequests": 4,
+        "documentRequests": 6,
+        "capturedDocuments": 5,
+        "completeCaptures": 5,
+        "inaccessibleDocuments": 1,
+        "repeatedDestinations": 0,
+        "sourceReviewLabels": {
+          "closed": 1,
+          "directory": 2
+        },
+        "sourceReviewCountsAreComplete": true,
+        "promotedPostings": 0,
+        "matching": "not_started_no_source_demand",
+        "completedFitAssessments": 0,
+        "dashboardRecommendations": 0,
+        "acceptedEmails": 0,
+        "aiEstimatedUsd": 0.032379,
+        "attemptsWithoutCostEstimate": 2,
+        "searchReservedUsd": 0.04,
+        "aiReservedUsd": 0.9,
+        "estimatedAiPlusSearchReservationPerRecommendationUsd": null,
+        "independentlyUsefulResults": null,
+        "costPerIndependentlyUsefulResultUsd": null,
+        "precision": null,
+        "recall": null,
+        "limitations": "AI estimates exclude unpriced/failed attempts, infrastructure and billing adjustments. Search reservations are configured upper allowances, not invoices. Source labels and dashboard acceptance are not independent usefulness judgments. Distinct URLs may still describe the same opportunity; repeatedDestinations detects only observed redirect identity. Initial reports recorded a dashboard sample, not every source review."
+      },
+      "reviewFailures": 0,
+      "rejectedReviews": 1,
+      "rejectedFits": 0
+    },
+    {
+      "report": "source-expansion-projects-revised-2026-10-15.json",
+      "stage": "revised",
+      "scenario": "projects",
+      "checkedAt": "2026-10-15T14:49:58.820Z",
+      "metrics": {
+        "scenario": "projects",
+        "executionStatus": "measured",
+        "successfulSearches": 5,
+        "failedSearches": 0,
+        "renderingEnabled": true,
+        "durationSeconds": 105.475,
+        "uniqueLeads": 40,
+        "recordedLeads": 40,
+        "completeLeadSet": true,
+        "searchRequests": 5,
+        "documentRequests": 6,
+        "capturedDocuments": 1,
+        "completeCaptures": 1,
+        "inaccessibleDocuments": 5,
+        "repeatedDestinations": 0,
+        "sourceReviewLabels": {
+          "client_request": 1
+        },
+        "sourceReviewCountsAreComplete": true,
+        "promotedPostings": 1,
+        "matching": "completed",
+        "completedFitAssessments": 1,
+        "dashboardRecommendations": 1,
+        "acceptedEmails": 1,
+        "aiEstimatedUsd": 0.035999,
+        "attemptsWithoutCostEstimate": 0,
+        "searchReservedUsd": 0.05,
+        "aiReservedUsd": 0.75,
+        "estimatedAiPlusSearchReservationPerRecommendationUsd": 0.085999,
+        "independentlyUsefulResults": null,
+        "costPerIndependentlyUsefulResultUsd": null,
+        "precision": null,
+        "recall": null,
+        "limitations": "AI estimates exclude unpriced/failed attempts, infrastructure and billing adjustments. Search reservations are configured upper allowances, not invoices. Source labels and dashboard acceptance are not independent usefulness judgments. Distinct URLs may still describe the same opportunity; repeatedDestinations detects only observed redirect identity. Initial reports recorded a dashboard sample, not every source review."
+      },
+      "reviewFailures": 0,
+      "rejectedReviews": 0,
+      "rejectedFits": 0
+    },
+    {
+      "report": "source-expansion-services-revised-2026-10-15.json",
+      "stage": "revised",
+      "scenario": "services",
+      "checkedAt": "2026-10-15T14:51:43.598Z",
+      "metrics": {
+        "scenario": "services",
+        "executionStatus": "measured",
+        "successfulSearches": 4,
+        "failedSearches": 0,
+        "renderingEnabled": true,
+        "durationSeconds": 212.355,
+        "uniqueLeads": 26,
+        "recordedLeads": 26,
+        "completeLeadSet": true,
+        "searchRequests": 4,
+        "documentRequests": 6,
+        "capturedDocuments": 5,
+        "completeCaptures": 5,
+        "inaccessibleDocuments": 1,
+        "repeatedDestinations": 0,
+        "sourceReviewLabels": {
+          "closed": 1,
+          "directory": 2,
+          "client_request": 2
+        },
+        "sourceReviewCountsAreComplete": true,
+        "promotedPostings": 2,
+        "matching": "completed",
+        "completedFitAssessments": 1,
+        "dashboardRecommendations": 0,
+        "acceptedEmails": 0,
+        "aiEstimatedUsd": 0.055093,
+        "attemptsWithoutCostEstimate": 1,
+        "searchReservedUsd": 0.04,
+        "aiReservedUsd": 1.2,
+        "estimatedAiPlusSearchReservationPerRecommendationUsd": null,
+        "independentlyUsefulResults": null,
+        "costPerIndependentlyUsefulResultUsd": null,
+        "precision": null,
+        "recall": null,
+        "limitations": "AI estimates exclude unpriced/failed attempts, infrastructure and billing adjustments. Search reservations are configured upper allowances, not invoices. Source labels and dashboard acceptance are not independent usefulness judgments. Distinct URLs may still describe the same opportunity; repeatedDestinations detects only observed redirect identity. Initial reports recorded a dashboard sample, not every source review."
+      },
+      "reviewFailures": 0,
+      "rejectedReviews": 0,
+      "rejectedFits": 1
+    },
+    {
+      "report": "source-expansion-projects-final-2026-10-15.json",
+      "stage": "final",
+      "scenario": "projects",
+      "checkedAt": "2026-10-15T14:59:59.220Z",
+      "metrics": {
+        "scenario": "projects",
+        "executionStatus": "measured",
+        "successfulSearches": 4,
+        "failedSearches": 0,
+        "renderingEnabled": true,
+        "durationSeconds": 110.253,
+        "uniqueLeads": 30,
+        "recordedLeads": 30,
+        "completeLeadSet": true,
+        "searchRequests": 4,
+        "documentRequests": 6,
+        "capturedDocuments": 3,
+        "completeCaptures": 3,
+        "inaccessibleDocuments": 3,
+        "repeatedDestinations": 0,
+        "sourceReviewLabels": {
+          "client_request": 1
+        },
+        "sourceReviewCountsAreComplete": true,
+        "promotedPostings": 1,
+        "matching": "completed",
+        "completedFitAssessments": 1,
+        "dashboardRecommendations": 0,
+        "acceptedEmails": 0,
+        "aiEstimatedUsd": 0.03513,
+        "attemptsWithoutCostEstimate": 2,
+        "searchReservedUsd": 0.04,
+        "aiReservedUsd": 0.9,
+        "estimatedAiPlusSearchReservationPerRecommendationUsd": null,
+        "independentlyUsefulResults": null,
+        "costPerIndependentlyUsefulResultUsd": null,
+        "precision": null,
+        "recall": null,
+        "limitations": "AI estimates exclude unpriced/failed attempts, infrastructure and billing adjustments. Search reservations are configured upper allowances, not invoices. Source labels and dashboard acceptance are not independent usefulness judgments. Distinct URLs may still describe the same opportunity; repeatedDestinations detects only observed redirect identity. Initial reports recorded a dashboard sample, not every source review."
+      },
+      "reviewFailures": 0,
+      "rejectedReviews": 2,
+      "rejectedFits": 0
+    },
+    {
+      "report": "source-expansion-services-final-2026-10-15.json",
+      "stage": "final",
+      "scenario": "services",
+      "checkedAt": "2026-10-15T15:00:00.377Z",
+      "metrics": {
+        "scenario": "services",
+        "executionStatus": "measured",
+        "successfulSearches": 4,
+        "failedSearches": 0,
+        "renderingEnabled": true,
+        "durationSeconds": 108.267,
+        "uniqueLeads": 31,
+        "recordedLeads": 31,
+        "completeLeadSet": true,
+        "searchRequests": 4,
+        "documentRequests": 6,
+        "capturedDocuments": 4,
+        "completeCaptures": 4,
+        "inaccessibleDocuments": 2,
+        "repeatedDestinations": 0,
+        "sourceReviewLabels": {
+          "client_request": 4
+        },
+        "sourceReviewCountsAreComplete": true,
+        "promotedPostings": 4,
+        "matching": "completed",
+        "completedFitAssessments": 4,
+        "dashboardRecommendations": 1,
+        "acceptedEmails": 1,
+        "aiEstimatedUsd": 0.065728,
+        "attemptsWithoutCostEstimate": 0,
+        "searchReservedUsd": 0.04,
+        "aiReservedUsd": 1.425,
+        "estimatedAiPlusSearchReservationPerRecommendationUsd": 0.10572799999999999,
+        "independentlyUsefulResults": null,
+        "costPerIndependentlyUsefulResultUsd": null,
+        "precision": null,
+        "recall": null,
+        "limitations": "AI estimates exclude unpriced/failed attempts, infrastructure and billing adjustments. Search reservations are configured upper allowances, not invoices. Source labels and dashboard acceptance are not independent usefulness judgments. Distinct URLs may still describe the same opportunity; repeatedDestinations detects only observed redirect identity. Initial reports recorded a dashboard sample, not every source review."
+      },
+      "reviewFailures": 0,
+      "rejectedReviews": 0,
+      "rejectedFits": 0
+    },
+    {
+      "report": "source-expansion-projects-verified-2026-10-15.json",
+      "stage": "verified",
+      "scenario": "projects",
+      "checkedAt": "2026-10-15T15:03:43.182Z",
+      "metrics": {
+        "scenario": "projects",
+        "executionStatus": "measured",
+        "successfulSearches": 5,
+        "failedSearches": 0,
+        "renderingEnabled": true,
+        "durationSeconds": 55.093,
+        "uniqueLeads": 40,
+        "recordedLeads": 40,
+        "completeLeadSet": true,
+        "searchRequests": 5,
+        "documentRequests": 6,
+        "capturedDocuments": 2,
+        "completeCaptures": 2,
+        "inaccessibleDocuments": 4,
+        "repeatedDestinations": 0,
+        "sourceReviewLabels": {
+          "client_request": 2
+        },
+        "sourceReviewCountsAreComplete": true,
+        "promotedPostings": 2,
+        "matching": "completed",
+        "completedFitAssessments": 2,
+        "dashboardRecommendations": 1,
+        "acceptedEmails": 1,
+        "aiEstimatedUsd": 0.045989,
+        "attemptsWithoutCostEstimate": 0,
+        "searchReservedUsd": 0.05,
+        "aiReservedUsd": 0.975,
+        "estimatedAiPlusSearchReservationPerRecommendationUsd": 0.095989,
+        "independentlyUsefulResults": null,
+        "costPerIndependentlyUsefulResultUsd": null,
+        "precision": null,
+        "recall": null,
+        "limitations": "AI estimates exclude unpriced/failed attempts, infrastructure and billing adjustments. Search reservations are configured upper allowances, not invoices. Source labels and dashboard acceptance are not independent usefulness judgments. Distinct URLs may still describe the same opportunity; repeatedDestinations detects only observed redirect identity. Initial reports recorded a dashboard sample, not every source review."
+      },
+      "reviewFailures": 0,
+      "rejectedReviews": 0,
+      "rejectedFits": 0,
+      "checks": [
+        "live adaptive decisions",
+        "bounded provider and model admission",
+        "observed parent provenance",
+        "current owner isolation",
+        "terminal replay without new spending"
+      ],
+      "sourceReviews": [
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/mobile-app-development/create-responsive-webapp-based-on-wordpress-application-4525990",
+          "label": "client_request",
+          "publishable": true,
+          "deadline": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "arrangement": {
+            "value": "remote",
+            "quotes": [" * Remote"],
+            "status": "stated"
+          }
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/react-js-node-js-developer-for-existing-management-system-4526654",
+          "label": "client_request",
+          "publishable": true,
+          "deadline": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "arrangement": {
+            "value": "remote",
+            "quotes": [" * Remote"],
+            "status": "stated"
+          }
+        }
+      ],
+      "recommendations": [
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/react-js-node-js-developer-for-existing-management-system-4526654",
+          "title": "REACT.JS & NODE.JS DEVELOPER FOR EXISTING MANAGEMENT SYSTEM",
+          "reasons": [
+            "The project is for a React.js and Node.js developer, and the brief targets React web development with related API/dashboard work.",
+            "This is a client-request/service project rather than an employment posting, matching the brief’s services category.",
+            "The posting explicitly says the work is remote, which matches the brief’s remote arrangement.",
+            "The posting asks for experience with React.js, Node.js/Express.js, database work, API-based architecture, and modifying existing web applications, which aligns with the brief’s React, TypeScript, API integration, and dashboard background."
+          ],
+          "uncertainties": [
+            "No applicant location restriction is stated, so there is no basis to confirm or reject location fit.",
+            "There is no explicit work-permission or sponsorship requirement stated for this exact project, so authorization cannot be confirmed from the posting.",
+            "The post offers a fixed price of $200, but the brief has no minimum pay floor, so this cannot be judged as a fit or conflict."
+          ],
+          "availability": {
+            "status": "available",
+            "checkedAt": "2026-10-15T15:03:16.687Z",
+            "sourceUrl": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/react-js-node-js-developer-for-existing-management-system-4526654",
+            "validUntil": "2026-10-15T15:18:16.687Z",
+            "fingerprint": "41fd6e7e94c9f44d0e57fb6168b0b7c085158f9e0cedda9b37704b5a7f3fc839"
+          }
+        }
+      ],
+      "leadHostCounts": {
+        "codeandcore.com": 1,
+        "docs.soliditylang.org": 1,
+        "en.wikipedia.org": 1,
+        "gatilab.com": 1,
+        "infoloop.co": 1,
+        "loxala.com": 1,
+        "nexthireinc.com": 1,
+        "pbs.proxmox.com": 1,
+        "sociallinker.pro": 1,
+        "www.auhsd.us": 1,
+        "www.c40.org": 1,
+        "www.clarity-ventures.com": 1,
+        "www.facebook.com": 3,
+        "www.freelancer.com": 1,
+        "www.hifis.net": 1,
+        "www.instagram.com": 2,
+        "www.inventive.ai": 1,
+        "www.linkedin.com": 3,
+        "www.peopleperhour.com": 10,
+        "www.pwc.com": 1,
+        "www.redamon.org": 1,
+        "www.reddit.com": 1,
+        "www.startdesigns.com": 1,
+        "www.stlouis-mo.gov": 1,
+        "www.taxinstitute.com.au": 1,
+        "www.upgrad.com": 1
+      }
+    },
+    {
+      "report": "source-expansion-services-verified-2026-10-15.json",
+      "stage": "verified",
+      "scenario": "services",
+      "checkedAt": "2026-10-15T15:04:44.215Z",
+      "metrics": {
+        "scenario": "services",
+        "executionStatus": "measured",
+        "successfulSearches": 4,
+        "failedSearches": 0,
+        "renderingEnabled": true,
+        "durationSeconds": 114.746,
+        "uniqueLeads": 32,
+        "recordedLeads": 32,
+        "completeLeadSet": true,
+        "searchRequests": 4,
+        "documentRequests": 6,
+        "capturedDocuments": 5,
+        "completeCaptures": 5,
+        "inaccessibleDocuments": 1,
+        "repeatedDestinations": 0,
+        "sourceReviewLabels": {
+          "closed": 1,
+          "client_request": 4
+        },
+        "sourceReviewCountsAreComplete": true,
+        "promotedPostings": 4,
+        "matching": "completed",
+        "completedFitAssessments": 4,
+        "dashboardRecommendations": 1,
+        "acceptedEmails": 1,
+        "aiEstimatedUsd": 0.067934,
+        "attemptsWithoutCostEstimate": 0,
+        "searchReservedUsd": 0.04,
+        "aiReservedUsd": 1.5,
+        "estimatedAiPlusSearchReservationPerRecommendationUsd": 0.107934,
+        "independentlyUsefulResults": null,
+        "costPerIndependentlyUsefulResultUsd": null,
+        "precision": null,
+        "recall": null,
+        "limitations": "AI estimates exclude unpriced/failed attempts, infrastructure and billing adjustments. Search reservations are configured upper allowances, not invoices. Source labels and dashboard acceptance are not independent usefulness judgments. Distinct URLs may still describe the same opportunity; repeatedDestinations detects only observed redirect identity. Initial reports recorded a dashboard sample, not every source review."
+      },
+      "reviewFailures": 0,
+      "rejectedReviews": 0,
+      "rejectedFits": 0,
+      "checks": [
+        "live adaptive decisions",
+        "bounded provider and model admission",
+        "observed parent provenance",
+        "current owner isolation",
+        "terminal replay without new spending"
+      ],
+      "sourceReviews": [
+        {
+          "url": "https://classifieds.daytondailynews.com/marketplace/advert/request-for-proposals-rfp-for-website-redesign-general_3566",
+          "label": "closed",
+          "publishable": false,
+          "deadline": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "arrangement": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          }
+        },
+        {
+          "url": "https://www.achievementfirst.org/request-for-proposals-website-redesign-ecosystem-development/",
+          "label": "client_request",
+          "publishable": true,
+          "deadline": {
+            "value": "2026-11-09",
+            "quotes": [
+              "RFP Key Milestones Date / Timeline RFP Issuance Date October 5, 2026 Vendor Questions Due October 19, 2026 Proposal Submission Deadline November 9, 2026 Finalist Presentations & Demonstrations November 16-20 & November 30-December 4, 2026 Target Selection Notification By December 11, 2026 Project Kickoff January 2027",
+              "Procurement Phase Target Date RFP Release October 5, 2026 Vendor Questions Submission Deadline October 19, 2026 AF Responses to Vendor Questions October 23, 2026 Proposal Submission Deadline November 9, 2026 Finalist Interviews & Demonstrations November 16-20 & November 30-December 4, 2026 Partner Selection & Notification Week of December 14, 2026 Contracting & Transition Planning December 2026 Project Kickoff January 2027",
+              "Proposals must be submitted in PDF format via email no later than November 9, 2026 to:",
+              "Please direct all inquiries regarding this RFP to the contact above by October 19, 2026. Written responses to all vendor queries will be distributed by October 23, 2026. Proposals must remain valid for at least 90 days following submission."
+            ],
+            "status": "stated"
+          },
+          "arrangement": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          }
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648",
+          "label": "client_request",
+          "publishable": true,
+          "deadline": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "arrangement": {
+            "value": "remote",
+            "quotes": [" * Remote"],
+            "status": "stated"
+          }
+        },
+        {
+          "url": "https://www.workana.com/job/healthcare-dental-company-website-redesign-for-enhanced-user-experience-and-lead-generation",
+          "label": "client_request",
+          "publishable": true,
+          "deadline": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "arrangement": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          }
+        },
+        {
+          "url": "https://www.workana.com/job/web-redesign-y-logo?ref=projects_1",
+          "label": "client_request",
+          "publishable": true,
+          "deadline": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "arrangement": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          }
+        }
+      ],
+      "recommendations": [
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648",
+          "title": "web designer/developer",
+          "reasons": [
+            "The posting is for a web designer/developer to redesign a website, which matches the target website redesign work in the brief.",
+            "This is a client request/opportunity for services, which matches the brief’s services target.",
+            "The posting explicitly states remote work, matching the brief’s remote arrangement requirement.",
+            "The posting asks for proven experience in website design for hospitality, catering, food, events, or similar services, which aligns with the brief’s website redesign background."
+          ],
+          "uncertainties": [
+            "No explicit applicant-location restriction is stated in the posting, so location eligibility cannot be determined.",
+            "The posting does not state any work authorization or sponsorship requirement, so eligibility cannot be confirmed.",
+            "The posting shows a fixed price of £500, but the brief does not set a minimum pay floor, so there is no basis for a compensation conflict or match."
+          ],
+          "availability": {
+            "status": "available",
+            "checkedAt": "2026-10-15T15:04:07.024Z",
+            "sourceUrl": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648",
+            "validUntil": "2026-10-15T15:19:07.024Z",
+            "fingerprint": "326b59b545099dddb38ca237193dc751a5dadfc870908058d99c7af8b6fbfae9"
+          }
+        }
+      ],
+      "leadHostCounts": {
+        "brittcreative.co": 1,
+        "classifieds.daytondailynews.com": 1,
+        "eseospace.com": 1,
+        "sitepact.com": 1,
+        "withmission.tech": 1,
+        "www.achievementfirst.org": 1,
+        "www.cleardigital.com": 1,
+        "www.facebook.com": 1,
+        "www.godaddy.com": 1,
+        "www.instagram.com": 1,
+        "www.linkedin.com": 2,
+        "www.peopleperhour.com": 5,
+        "www.ramotion.com": 1,
+        "www.startdesigns.com": 1,
+        "www.thecssagency.com": 1,
+        "www.workana.com": 10,
+        "www.youtube.com": 1,
+        "zlatkomarjanovic.com": 1
+      }
+    }
+  ],
+  "finalTotals": {
+    "successfulSearches": 9,
+    "uniqueLeads": 72,
+    "documentRequests": 12,
+    "completeCaptures": 7,
+    "inaccessibleDocuments": 5,
+    "completedFitAssessments": 6,
+    "dashboardRecommendations": 2,
+    "acceptedEmails": 2
+  },
+  "interpretation": [
+    "Both final recommendations are public PeoplePerHour buyer requests with explicit remote delivery and open proposals.",
+    "Two Workana requests and the Achievement First organizational RFP reached source review and fit assessment, but mandatory remote delivery was not confirmed; all three were withheld.",
+    "The removed Dayton notice was classified closed. A React Native mobile request was excluded against the project web-development target.",
+    "Location and authorization remain unknown for the two recommendations under the synthetic review-unknowns preference. No minimum pay floor was configured.",
+    "Workana undated retrieval can surface older listings. This is broader source coverage, not proof of freshness, independent precision or recall."
+  ],
+  "validation": {
+    "focusedUnitChecks": 130,
+    "isolatedDatabaseChecks": 40,
+    "realChromiumChecks": 9,
+    "reportSummaryChecks": 3,
+    "totalPassingChecks": 182,
+    "builds": ["core", "adapters", "workflows", "worker"],
+    "typeChecks": ["core", "adapters", "workflows", "worker", "api"],
+    "architectureFiles": 380,
+    "terminalReplay": "No new spending or duplicate digest on final project/service replay.",
+    "browserRuntime": {
+      "playwright": "1.61.1",
+      "chromiumBuild": "1228",
+      "chromiumVersion": "149.0.7827.55",
+      "installation": "playwright install chromium --only-shell"
+    }
+  },
+  "knownEightRunCosts": {
+    "modelEstimatedUsd": 0.382076,
+    "searchReservedUsd": 0.34,
+    "attemptsWithoutCostEstimate": 7,
+    "note": "Excludes separate query/access/model audit calls, unpriced failed attempts, infrastructure and ordinary worker activity. Reservations are not invoices or cost per independently useful result."
+  },
+  "remainingLimits": [
+    "Upwork public detail HTTP 403.",
+    "Guru robots HTTP 403.",
+    "C40 PDF request denied; PDF extraction was not added.",
+    "Social robots denials remain enforced.",
+    "Mandatory remote confirmation still absent on the assessed Workana and direct RFP requests.",
+    "Native X and the separate marketplace connector loop were not exercised by this web-path diagnostic.",
+    "Independent relevance labels, global recall and throughput remain unmeasured."
+  ],
+  "activation": "source-expansion-activation-2026-10-15.json"
+}

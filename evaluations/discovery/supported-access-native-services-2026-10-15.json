@@ -1,0 +1,36 @@
+{
+  "checkedAt": "2026-10-15T15:55:35.480Z",
+  "scenario": "services",
+  "query": "\"website redesign\" (hiring OR \"looking for\" OR \"need a\" OR \"need an\" OR seeking OR \"paid project\") -is:retweet",
+  "policy": "x-public-demand-v1",
+  "attempts": [
+    {
+      "kind": "search",
+      "state": "succeeded",
+      "failure": null,
+      "returned_posts": 0,
+      "partial": false
+    }
+  ],
+  "captures": [],
+  "fit": [],
+  "usage": [
+    {
+      "provider": "x-api",
+      "requests": 1,
+      "reserved_micros": "50000"
+    }
+  ],
+  "ai": [],
+  "recommendations": [],
+  "emailsSent": 0,
+  "durationMs": 872,
+  "checks": [
+    "native API admission",
+    "production source review and private matching",
+    "availability and local Mailpit",
+    "owner isolation",
+    "no duplicate delivery"
+  ],
+  "scope": "Bounded fresh native X run with synthetic brief and disposable database. Raw post bodies are not retained in this diagnostic. No independent precision, recall or useful-result claim."
+}

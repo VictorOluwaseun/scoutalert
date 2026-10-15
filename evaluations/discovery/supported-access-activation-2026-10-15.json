@@ -1,0 +1,35 @@
+{
+  "recordedAt": "2026-10-15T16:15:22.303696+00:00",
+  "pid": 53226,
+  "previousPid": 42111,
+  "previousProcessStopped": true,
+  "forcedKill": false,
+  "logPath": "/tmp/scoutalert-worker-supported-access-2026-10-15.log",
+  "verifiedAt": "2026-10-15T16:16:48.354379+00:00",
+  "action": "Graceful worker restart after available checks; fresh AI validation remains blocked",
+  "processAlive": true,
+  "runningQueues": [
+    "scout-delivery-v1",
+    "scout-matching-v1",
+    "scout-private-mail-v1",
+    "scout-research-v1",
+    "scout-social-discovery-v1",
+    "scout-source-monitoring-v1",
+    "scout-sources-v1",
+    "scout-web-discovery-v1",
+    "scout-workflows-v1"
+  ],
+  "startupErrorCount": 0,
+  "configuration": {
+    "queries": "client-demand-v7",
+    "document": "public-document-v10",
+    "capture": "public-capture-v10",
+    "pdf": "public-pdf-v1",
+    "bluesky": "bluesky-public-v1"
+  },
+  "modelValidation": "blocked_credit_balance_exhausted; no further paid model test calls",
+  "configurationChanges": [],
+  "forcedReschedules": 0,
+  "savedUserBackfill": false,
+  "note": "Queue startup and process liveness only. Existing budgets, provider settings and schedules retained. No claim that fresh AI review or recommendation validation passed."
+}

@@ -1,0 +1,217 @@
+{
+  "checkedAt": "2026-10-15T14:26:31.694Z",
+  "scope": "Four paid source-research queries only; not full discovery cases or usefulness scores.",
+  "searchReservationUsd": 0.04,
+  "reports": [
+    {
+      "query": "\"React\" \"TypeScript\" site:peopleperhour.com/freelance-jobs",
+      "kind": "search",
+      "observations": [
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/react-js-node-js-developer-for-existing-management-system-4526654",
+          "title": "Node.js Developer for Existing Management System",
+          "snippet": "Senior full-stack engineer — WordPress, Go and TypeScript. Production apps. Subscriber TopAccess. Sri Lanka Sri Jayewardenepura Kotte. Dilip K. Senior React ...",
+          "rank": 1
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/mobile-app-development/create-responsive-webapp-based-on-wordpress-application-4525990",
+          "title": "Create responsive webapp based on wordpress application",
+          "snippet": "We want to convert it into a polished, native-feeling mobile application using React Native and WebView technology. ... TypeScript. React Native WebView",
+          "rank": 2
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/artificial-intelligence",
+          "title": "AI Services Projects in Oct 2026",
+          "snippet": "... TypeScript, React, and Node.js * Experience building and integrating REST APIs * Good understanding of databases and backend architecture * Experience ...",
+          "rank": 3
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/wordpress-one-page-website-with-online-booking-system-4526546",
+          "title": "WordPress One-Page Website with Online Booking System",
+          "snippet": "Raj S. ♛ PPH No. #1 ✓ AI Solutions Architect ♛ Enterprise Software Engineer ✓ Magento ✓ Shopify ✓ WordPress ✓ API Integration ✓ React Native ✓ ...",
+          "rank": 4
+        }
+      ],
+      "checkedAt": "2026-10-15T14:26:24.709Z",
+      "completeness": "window",
+      "nextPage": null
+    },
+    {
+      "query": "\"website redesign\" (site:peopleperhour.com/freelance-jobs OR site:guru.com/jobs)",
+      "kind": "search",
+      "observations": [
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/digital-marketing/seo/website-redesign-and-seo-specialist-4526487",
+          "title": "Website redesign and SEO specialist",
+          "snippet": "Digital Marketing freelance job: website redesign and SEO specialist. Discover more freelance jobs or hire some expert freelancers online on PeoplePerHour!",
+          "rank": 1
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648",
+          "title": "Redesign of caterers website UK",
+          "snippet": "Website Redesign – Indian & Asian Catering & Events Business UK We're looking for an experienced web designer/developer to redesign an established Indian ...",
+          "rank": 2
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/website-creation-4526609",
+          "title": "Website creation",
+          "snippet": "This is not simply a website redesign. I need someone with strong experience in WordPress, technical SEO, Local SEO, multilingual SEO and modern AI/GEO/AEO ...",
+          "rank": 3
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/experienced-joblogic-professional-needed-4526636",
+          "title": "Experienced JobLogic professional needed",
+          "snippet": "Moshood T. Website Design| Website Redesign| Email Marketing| Shopify Theme|. Subscriber Basic. Switzerland Zurich. David O. Website Developer ...",
+          "rank": 4
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/erp-crm-development/system-engineer-us-timezone-4526679",
+          "title": "System Engineer - US Timezone",
+          "snippet": "Moshood T. Website Design| Website Redesign| Email Marketing| Shopify Theme|. Subscriber Basic. Switzerland Zurich. CYTNHIA W. Seasoned mobile and ...",
+          "rank": 5
+        }
+      ],
+      "checkedAt": "2026-10-15T14:26:26.405Z",
+      "completeness": "window",
+      "nextPage": null
+    },
+    {
+      "query": "\"React\" (\"project\" OR \"budget\") -site:freelancer.com -site:facebook.com -site:linkedin.com -site:instagram.com",
+      "kind": "search",
+      "observations": [
+        {
+          "url": "https://www.youtube.com/watch?v=TMYSeKi_MnI",
+          "title": "React Course For Beginners (Build a Project)",
+          "snippet": "What React is and why developers use it · How to create a React project with Vite · JSX syntax and dynamic values · React components and reusable interfaces ...",
+          "rank": 1
+        },
+        {
+          "url": "https://code.visualstudio.com/docs/nodejs/reactjs-tutorial",
+          "title": "Using React in Visual Studio Code",
+          "snippet": "Can I get IntelliSense within declarative JSX? Yes. For example, if you open the create-react-app project's App.js file, you can see IntelliSense ...",
+          "rank": 2
+        },
+        {
+          "url": "https://www.simpalm.com/blog/building-web-apps-with-react-and-net",
+          "title": "How to Build Modern Web Applications with React and .NET?",
+          "snippet": "A typical React + .NET Core project includes: React App: The frontend folder, where you'll store React components, assets, and other frontend logic. .",
+          "rank": 3
+        },
+        {
+          "url": "https://webdriver.io/docs/component-testing/react",
+          "title": "React",
+          "snippet": "Set up the WebdriverIO browser runner for a React project with the react preset and write component tests with Testing Library.",
+          "rank": 4
+        },
+        {
+          "url": "https://adminlte.io/blog/react-examples/",
+          "title": "Real-World React Examples: Apps, Websites & Open ...",
+          "snippet": "— React drives its dynamic playlists, recommendations, and playback UI. Asana — its project-management web app runs on React. Trello — React powers its drag ...",
+          "rank": 5
+        },
+        {
+          "url": "https://www.europarl.europa.eu/news/en/press-room/20261009IPR48078/lead-meps-on-eu-s-long-term-budget-react-to-irish-presidency-s-negotiating-box",
+          "title": "Lead MEPs on EU's long-term budget react to Irish ...",
+          "snippet": "Lead MEPs on EU's long-term budget react to Irish presidency's negotiating box ... A cut of 8% to the Commission's proposal, which already only keeps the budget ...",
+          "rank": 6
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=JUximatTFmk",
+          "title": "Build Your First React Project + Folder Structure Explained",
+          "snippet": "#react #webdevelopment #hindi Welcome to Episode 2 of our React JS Full Course! In this video, we create our first real React project from scratch using ...",
+          "rank": 7
+        },
+        {
+          "url": "https://www.reddit.com/r/reactnative/",
+          "title": "r/reactnative",
+          "snippet": "... React tree, aaaaand many more That way it can check its own changes ... How do you handle native changes when upgrading an Expo SDK in a prebuild/bare project?",
+          "rank": 8
+        },
+        {
+          "url": "https://www.severemalaria.org/in-the-field/severe-malaria-projects/sema-react",
+          "title": "SEMA ReACT | smo",
+          "snippet": "The 4-year (April 2023 – March 2027) SEMA ReACT project is funded by the European and Developing Countries Clinical Trials Partnership (Global Health EDCTP3) ...",
+          "rank": 9
+        },
+        {
+          "url": "https://redux.js.org/tutorials/essentials/part-2-app-structure",
+          "title": "Redux Essentials, Part 2: Redux Toolkit App Structure",
+          "snippet": "It may not be very exciting, but it shows all the important pieces of a React+Redux application in action. The project has been created using a smaller version ...",
+          "rank": 10
+        }
+      ],
+      "checkedAt": "2026-10-15T14:26:30.278Z",
+      "completeness": "window",
+      "nextPage": 2
+    },
+    {
+      "query": "\"website redesign\" (\"proposal\" OR \"tender\") -site:freelancer.com",
+      "kind": "search",
+      "observations": [
+        {
+          "url": "https://www.facebook.com/cityofsaugatuck/posts/-request-for-proposal-city-of-saugatuck-website-redesign-development-the-city-of/1547161207448191/",
+          "title": "Request for Proposal City of Saugatuck Website Redesign ...",
+          "snippet": "Request for Proposal City of Saugatuck Website Redesign & Development The City of Saugatuck is seeking an experienced website development partner...",
+          "rank": 1
+        },
+        {
+          "url": "https://www.thecssagency.com/blog/website-redesign-rfp",
+          "title": "How to Write a Website Redesign RFP 2026",
+          "snippet": "A website redesign RFP (request for proposal) is a document you send to agencies describing your business, goals, scope, technical needs, timeline, and budget, ...",
+          "rank": 2
+        },
+        {
+          "url": "https://www.instagram.com/p/Dd_3yfVjCzS/",
+          "title": "A website redesign proposal should make responsibility ...",
+          "snippet": "A website redesign proposal should make responsibility clear before the work becomes expensive. Pages and visuals are only part of the scope.",
+          "rank": 3
+        },
+        {
+          "url": "https://www.achievementfirst.org/request-for-proposals-website-redesign-ecosystem-development/",
+          "title": "Request for Proposals: Website Redesign & Ecosystem ...",
+          "snippet": "Request for Proposals: Website Redesign & Ecosystem Development. CATEGORY ... Critical Proposal Requirements. Proposals will be evaluated on the agency's ...",
+          "rank": 4
+        },
+        {
+          "url": "https://www.linkedin.com/posts/matt-darm_websiteredesign-webdevelopment-projectplanning-activity-7511819060641439745-w6md",
+          "title": "Website Redesign Proposal Checklist: Clear Responsibilities",
+          "snippet": "A website redesign proposal should make responsibility clear before the work becomes expensive. Pages and visuals are only part of the scope.",
+          "rank": 5
+        },
+        {
+          "url": "https://www.godaddy.com/resources/skills/website-redesign",
+          "title": "Website redesign: What it is, when you need it, and how to ...",
+          "snippet": "Document those details in a website redesign proposal. This proposal outlines the project's goals, scope, deliverables, timeline, budget, and the people ...",
+          "rank": 6
+        },
+        {
+          "url": "https://www.facebook.com/qwilr/posts/your-website-looks-amazing-do-your-proposals/1758229696309495/",
+          "title": "Your website looks amazing. Do your proposals?",
+          "snippet": "Website redesign proposal needed for hostingultraso.com. Sandip Choudhury ▻ Bangalore Startups Connect. 8y · Public · We want a Website Design Company who can ...",
+          "rank": 7
+        },
+        {
+          "url": "https://www.honeybook.com/templates/t/web-design-proposal",
+          "title": "Web Design Proposal Template",
+          "snippet": "Without a formal proposal for website redesign or new builds, expectations can drift, and vague and differing ideas about the deliverables often lead to ...",
+          "rank": 8
+        },
+        {
+          "url": "https://thegigresource.com/website-redesign-request-for-proposal/",
+          "title": "Website Redesign RFP Template: How to Brief a Designer or ...",
+          "snippet": "What to include in a website redesign request for proposal · State the business problem the redesign should solve · Set measurable goals and success indicators.",
+          "rank": 9
+        },
+        {
+          "url": "https://akdesignhouse.com/website-redesign/",
+          "title": "Website Redesign Services",
+          "snippet": "Website redesign services for established businesses. Custom design ... The proposal defines the content, design, development, and migration work ...",
+          "rank": 10
+        }
+      ],
+      "checkedAt": "2026-10-15T14:26:31.694Z",
+      "completeness": "window",
+      "nextPage": 2
+    }
+  ]
+}

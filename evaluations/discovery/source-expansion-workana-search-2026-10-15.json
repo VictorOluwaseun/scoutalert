@@ -1,0 +1,138 @@
+[
+  {
+    "query": {
+      "query": "\"TypeScript\" site:workana.com",
+      "language": "en",
+      "country": "us",
+      "freshness": "month",
+      "page": 1,
+      "limit": 10
+    },
+    "result": {
+      "kind": "search",
+      "observations": [
+        {
+          "url": "https://www.workana.com/freelancer/4088bced62a2b32deee926092eaee5b7",
+          "title": "Freelancer Christian RPM",
+          "snippet": "... TypescriptIonic FrameworkDiseño de App MóvilReact NativeiOSBlockchainChatGPT ... PythonNode.jsReact.jsTypescriptJavaScriptNext.jsPHPLaravelVue.jsMySQL ...",
+          "rank": 1
+        }
+      ],
+      "checkedAt": "2026-10-15T14:42:32.949Z",
+      "completeness": "window",
+      "nextPage": null
+    }
+  },
+  {
+    "query": {
+      "query": "\"TypeScript\" site:workana.com",
+      "language": "en",
+      "country": "us",
+      "freshness": "year",
+      "page": 1,
+      "limit": 10
+    },
+    "result": {
+      "kind": "search",
+      "observations": [
+        {
+          "url": "https://www.workana.com/es/jobs?country=CO&skills=typescript",
+          "title": "Trabajos de Typescript freelance de Colombia",
+          "snippet": "Encuentra trabajos freelance de Typescript en Colombia​. El mundo del trabajo está cambiando. Los mejores freelancers están en Workana.",
+          "rank": 1
+        },
+        {
+          "url": "https://www.workana.com/en/freelancers/vietnam",
+          "title": "Freelancers from Vietnam",
+          "snippet": "... TypeScript, with strong expertise in cloud-native architectures on AWS and technical leadership across cross-fun ... View more. Hire. Hourly rate: USD 25.00.",
+          "rank": 2
+        },
+        {
+          "url": "https://www.workana.com/freelancers/brazil?category=it-programming&query=Mobile+developer",
+          "title": "Expertos freelancers en Programación y Tecnología Brasil",
+          "snippet": "Software Developer · JavaScript (5 a 10 años) · React.js (5 a 10 años) · Typescript (5 a 10 años) · Ver más.",
+          "rank": 3
+        },
+        {
+          "url": "https://www.workana.com/es/jobs?country=VE&skills=flutter",
+          "title": "Trabajos de Flutter freelance de Venezuela",
+          "snippet": "Desarrollador Móvil Experto en React Native o Flutter para Proyectos · React.js · Flutter · Typescript · Dart · API · Firebase · Git.",
+          "rank": 4
+        },
+        {
+          "url": "https://www.workana.com/pt/freelancer/bc08dabeb363a0fa8a6c8e10f6645cd5",
+          "title": "Freelancer profissional especialista em JavaScript: Felipe ...",
+          "snippet": "TypescriptNode.jsReact.jsDesign GráficoPHPJavaScriptMySQLNext.jsWordPressHTMLDesenvolvimento WebCRMWooCommerceC#React NativeJavaFlutterPythonAndroidiOS ...",
+          "rank": 5
+        },
+        {
+          "url": "https://www.workana.com/en/freelancer/b8e2271139c3fbb0981c22a249f6c990",
+          "title": "professional freelance Video Editing expert in Mozambique",
+          "snippet": "... TypescriptExpress.jsVue.jsNext.jsReact.jsReact NativeAndroid (Kotlin)AndroidAPIPostgresSQLFlutterIT & ProgrammingDesign & Multimedia · Noeli B. Lo ...",
+          "rank": 6
+        },
+        {
+          "url": "https://www.workana.com/es/jobs?country=EC&skills=power-bi",
+          "title": "Trabajos de Power BI freelance de Ecuador",
+          "snippet": "Typescript · HTML5 · CSS3 · PostgresSQL · SQL ... +. Freelancer Sonia M. Sonia M. Ecuador Método de pago: Verificado. Envía una propuesta. Más de USD 3.000.",
+          "rank": 7
+        },
+        {
+          "url": "https://www.workana.com/freelancer/daniela-nava-picasso-1",
+          "title": "Freelancer DANIELA NP - Expertos Arquitectura",
+          "snippet": "... TypescriptInteligencia ArtificialChatbotMachine LearningTiendas Online (e-commerce)WooCommerceCMSCRMAndroidiOSAPIProgramación de video juegosShopifyDiseño ...",
+          "rank": 8
+        },
+        {
+          "url": "https://www.workana.com/en/freelancer/7db6ac6353ebab944d23f064e762c3f9",
+          "title": "AR E.: professional freelance Video Editing expert in Panama",
+          "snippet": "... TypescriptExpress.jsVue.jsNext.jsReact.jsReact NativeAndroid (Kotlin)AndroidAPIPostgresSQLFlutterIT & ProgrammingDesign & Multimedia · View all profiles. Make ...",
+          "rank": 9
+        },
+        {
+          "url": "https://www.workana.com/freelancers/argentina/java",
+          "title": "Programadores Java - Freelancers de Argentina",
+          "snippet": "Senior Full-Stack Developer with 8+ years of experience in [Next.js](http://Next.js), React, TypeScript, [Node.js](http://Node.js), Python, and AI development ...",
+          "rank": 10
+        }
+      ],
+      "checkedAt": "2026-10-15T14:42:34.553Z",
+      "completeness": "window",
+      "nextPage": 2
+    }
+  },
+  {
+    "query": {
+      "query": "\"Website\" \"redesign\" site:workana.com",
+      "language": "en",
+      "country": "us",
+      "freshness": "month",
+      "page": 1,
+      "limit": 10
+    },
+    "result": {
+      "kind": "search",
+      "observations": [],
+      "checkedAt": "2026-10-15T14:42:36.402Z",
+      "completeness": "window",
+      "nextPage": null
+    }
+  },
+  {
+    "query": {
+      "query": "\"Website\" \"redesign\" site:workana.com",
+      "language": "en",
+      "country": "us",
+      "freshness": "year",
+      "page": 1,
+      "limit": 10
+    },
+    "result": {
+      "kind": "search",
+      "observations": [],
+      "checkedAt": "2026-10-15T14:42:39.116Z",
+      "completeness": "window",
+      "nextPage": null
+    }
+  }
+]

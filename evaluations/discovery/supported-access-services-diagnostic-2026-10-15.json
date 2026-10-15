@@ -1,0 +1,547 @@
+{
+  "checkedAt": "2026-10-15T15:58:21.646Z",
+  "status": "incomplete",
+  "scenario": "services",
+  "cases": [
+    {
+      "id": "9fa7bf6c-f255-4dcd-956c-d068455afb78",
+      "scoutId": "7910dc81-53f4-4d4f-b690-070f7ca121b9",
+      "scoutName": "Synthetic service-request scout",
+      "scoutVersion": 1,
+      "provider": "serper",
+      "strategy": {
+        "targets": [
+          "Website redesign"
+        ],
+        "explanation": "Using the confirmed target; model planning was unavailable."
+      },
+      "exploration": [],
+      "reviewStatus": "complete",
+      "reviewReason": "source_reviews_complete",
+      "status": "searching",
+      "reason": null,
+      "startedAt": "2026-10-15 15:58:10.464536+00",
+      "finishedAt": null,
+      "searchesCompleted": 4,
+      "documentsChecked": 0,
+      "leadCount": 33
+    }
+  ],
+  "reasoning": [
+    {
+      "input": {
+        "kind": "strategy",
+        "intent": {
+          "remote": true,
+          "target": "Website redesign",
+          "category": "services"
+        }
+      },
+      "output": null,
+      "rejected_output": null,
+      "failure": "provider_unavailable",
+      "state": "failed",
+      "usage": null,
+      "cost": null
+    },
+    {
+      "input": {
+        "kind": "choice",
+        "intent": {
+          "remote": true,
+          "target": "Website redesign",
+          "category": "services"
+        },
+        "choices": [
+          {
+            "depth": 0,
+            "title": "Redesign of caterers website UK",
+            "action": {
+              "url": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "85eae50d5cf51fd82738540c139c5f4f585befb4af97bbc6815e1df0606ba440"
+          },
+          {
+            "depth": 0,
+            "title": "Request for Proposal City of Saugatuck Website Redesign ...",
+            "action": {
+              "url": "https://www.facebook.com/cityofsaugatuck/posts/-request-for-proposal-city-of-saugatuck-website-redesign-development-the-city-of/1547161207448191/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "f1435bf85c7ed17a7f67a0f18ebcb1eaa9b57ec6cdb938b1c427f61528867814"
+          },
+          {
+            "depth": 0,
+            "title": "Addendum 2",
+            "action": {
+              "url": "https://edgertonks.org/wp-content/uploads/Addendum-2.pdf",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "c45b3534255ce153615a67841adab65f3c4ac34e94c9d2c0dd643fde4be557eb"
+          },
+          {
+            "depth": 0,
+            "title": "AGENDA AGENDA ITEM PRESENTED BY ACTION",
+            "action": {
+              "url": "https://www.elcaminohealthcaredistrict.org/sites/default/files/2026-09/packet_dbod_092226.pdf",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "c45b3534255ce153615a67841adab65f3c4ac34e94c9d2c0dd643fde4be557eb"
+          },
+          {
+            "depth": 0,
+            "title": "Request for Proposals (RFP) for Website Redesign",
+            "action": {
+              "url": "https://classifieds.daytondailynews.com/marketplace/advert/request-for-proposals-rfp-for-website-redesign-general_3566",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "f1435bf85c7ed17a7f67a0f18ebcb1eaa9b57ec6cdb938b1c427f61528867814"
+          },
+          {
+            "depth": 0,
+            "title": "Website creation",
+            "action": {
+              "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/website-creation-4526609",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "85eae50d5cf51fd82738540c139c5f4f585befb4af97bbc6815e1df0606ba440"
+          },
+          {
+            "depth": 0,
+            "title": "Web redesign y logo - Freelance Job in Web design",
+            "action": {
+              "url": "https://www.workana.com/job/web-redesign-y-logo?ref=projects_1",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "3778be78547bced5542e259b80f79d3511f117db81ff59f97a345415ac073110"
+          },
+          {
+            "depth": 0,
+            "title": "Healthcare dental company website redesign for...",
+            "action": {
+              "url": "https://www.workana.com/job/healthcare-dental-company-website-redesign-for-enhanced-user-experience-and-lead-generation",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "3778be78547bced5542e259b80f79d3511f117db81ff59f97a345415ac073110"
+          },
+          {
+            "depth": 0,
+            "title": "Website redesign and SEO specialist",
+            "action": {
+              "url": "https://www.peopleperhour.com/freelance-jobs/digital-marketing/seo/website-redesign-and-seo-specialist-4526487",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "85eae50d5cf51fd82738540c139c5f4f585befb4af97bbc6815e1df0606ba440"
+          },
+          {
+            "depth": 0,
+            "title": "Expert web designer needed for enterprise b2b...",
+            "action": {
+              "url": "https://www.workana.com/job/expert-web-designer-needed-for-enterprise-b2b-website-redesign-and-enhanced-ux",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "3778be78547bced5542e259b80f79d3511f117db81ff59f97a345415ac073110"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"Website redesign\" site:bsky.app/profile (\"looking for\" OR \"need\" OR \"seeking\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "c45b3534255ce153615a67841adab65f3c4ac34e94c9d2c0dd643fde4be557eb"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"Website redesign\" inurl:projects (\"budget\" OR \"bids\" OR \"proposals\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "c45b3534255ce153615a67841adab65f3c4ac34e94c9d2c0dd643fde4be557eb"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"Website redesign\" (\"I need\" OR \"we need\" OR \"looking for\") (\"freelancer\" OR \"budget\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "c45b3534255ce153615a67841adab65f3c4ac34e94c9d2c0dd643fde4be557eb"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"Website redesign\" (\"project details\" OR \"project description\" OR \"open for bidding\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "c45b3534255ce153615a67841adab65f3c4ac34e94c9d2c0dd643fde4be557eb"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"Website redesign\" (\"seeking\" OR \"hiring\") (\"freelance\" OR \"contractor\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "c45b3534255ce153615a67841adab65f3c4ac34e94c9d2c0dd643fde4be557eb"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": null,
+            "reason": "no_further_action",
+            "parentKey": null
+          }
+        ],
+        "evidence": [
+          {
+            "url": "https://www.peopleperhour.com/freelance-jobs/digital-marketing/seo/website-redesign-and-seo-specialist-4526487",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Website redesign and SEO specialist Digital Marketing freelance job: website redesign and SEO specialist. Discover more freelance jobs or hire some expert freelancers online on PeoplePerHour!"
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Redesign of caterers website UK Website Redesign – Indian & Asian Catering & Events Business UK We're looking for an experienced web designer/developer to redesign an established Indian ..."
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/website-creation-4526609",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Website creation This is not simply a website redesign. I need someone with strong experience in WordPress, technical SEO, Local SEO, multilingual SEO and modern AI/GEO/AEO ..."
+          },
+          {
+            "url": "https://www.workana.com/job/expert-web-designer-needed-for-enterprise-b2b-website-redesign-and-enhanced-ux",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Expert web designer needed for enterprise b2b... We are looking for a freelancer who can deliver a sophisticated and intuitive design for a B2B technology audience. Please provide your portfolio, highlighting ..."
+          },
+          {
+            "url": "https://www.workana.com/job/healthcare-dental-company-website-redesign-for-enhanced-user-experience-and-lead-generation",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Healthcare dental company website redesign for... We are seeking an experienced freelancer to undertake a comprehensive redesign of our healthcare dental company website."
+          },
+          {
+            "url": "https://www.workana.com/job/web-redesign-y-logo?ref=projects_1",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Web redesign y logo - Freelance Job in Web design Wix Website Redesign. Published on the June 17, 2024 in Design & Multimedia ... Web Design CSS JavaScript MySQL PHP Web Development Web Layout Web design."
+          },
+          {
+            "url": "https://www.facebook.com/cityofsaugatuck/posts/-request-for-proposal-city-of-saugatuck-website-redesign-development-the-city-of/1547161207448191/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Request for Proposal City of Saugatuck Website Redesign ... Request for Proposal City of Saugatuck Website Redesign & Development The ... RFP - Web Design Agency World Renew is seeking to engage a Website Design ..."
+          },
+          {
+            "url": "https://classifieds.daytondailynews.com/marketplace/advert/request-for-proposals-rfp-for-website-redesign-general_3566",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Request for Proposals (RFP) for Website Redesign ... RFP #25-07 for Website Redesign, Data Migration and Hosting until 4:00 PM (local time) on February 28, 2025. The RFP is available through Bid Express at:"
+          },
+          {
+            "url": "https://edgertonks.org/wp-content/uploads/Addendum-2.pdf",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Addendum 2 The City Website Redesign and Codification System RFP should be amended to: Section V. Submittal of Proposal Requirements, a. Format of the document should ..."
+          },
+          {
+            "url": "https://www.elcaminohealthcaredistrict.org/sites/default/files/2026-09/packet_dbod_092226.pdf",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "AGENDA AGENDA ITEM PRESENTED BY ACTION Staff designed and will issue a Request for Proposal (RFP) in August and September ... • Website Redesign (One-Time Cost): Based on initial scoping ..."
+          }
+        ],
+        "candidates": [
+          {
+            "text": "Redesign of caterers website UK Website Redesign – Indian & Asian Catering & Events Business UK We're looking for an experienced web designer/developer to redesign an established Indian ...",
+            "query": "\"Website redesign\" site:peopleperhour.com/freelance-jobs",
+            "choice": 0,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Request for Proposal City of Saugatuck Website Redesign ... Request for Proposal City of Saugatuck Website Redesign & Development The ... RFP - Web Design Agency World Renew is seeking to engage a Website Design ...",
+            "query": "\"Website redesign\" (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 1,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Addendum 2 The City Website Redesign and Codification System RFP should be amended to: Section V. Submittal of Proposal Requirements, a. Format of the document should ...",
+            "query": "\"Website redesign\" filetype:pdf (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 2,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "AGENDA AGENDA ITEM PRESENTED BY ACTION Staff designed and will issue a Request for Proposal (RFP) in August and September ... • Website Redesign (One-Time Cost): Based on initial scoping ...",
+            "query": "\"Website redesign\" filetype:pdf (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 3,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Request for Proposals (RFP) for Website Redesign ... RFP #25-07 for Website Redesign, Data Migration and Hosting until 4:00 PM (local time) on February 28, 2025. The RFP is available through Bid Express at:",
+            "query": "\"Website redesign\" (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 4,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Website creation This is not simply a website redesign. I need someone with strong experience in WordPress, technical SEO, Local SEO, multilingual SEO and modern AI/GEO/AEO ...",
+            "query": "\"Website redesign\" site:peopleperhour.com/freelance-jobs",
+            "choice": 5,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Web redesign y logo - Freelance Job in Web design Wix Website Redesign. Published on the June 17, 2024 in Design & Multimedia ... Web Design CSS JavaScript MySQL PHP Web Development Web Layout Web design.",
+            "query": "\"Website redesign\" site:workana.com inurl:job",
+            "choice": 6,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Healthcare dental company website redesign for... We are seeking an experienced freelancer to undertake a comprehensive redesign of our healthcare dental company website.",
+            "query": "\"Website redesign\" site:workana.com inurl:job",
+            "choice": 7,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Website redesign and SEO specialist Digital Marketing freelance job: website redesign and SEO specialist. Discover more freelance jobs or hire some expert freelancers online on PeoplePerHour!",
+            "query": "\"Website redesign\" site:peopleperhour.com/freelance-jobs",
+            "choice": 8,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Expert web designer needed for enterprise b2b... We are looking for a freelancer who can deliver a sophisticated and intuitive design for a B2B technology audience. Please provide your portfolio, highlighting ...",
+            "query": "\"Website redesign\" site:workana.com inurl:job",
+            "choice": 9,
+            "origin": "search_result",
+            "parentUrl": null
+          }
+        ]
+      },
+      "output": null,
+      "rejected_output": null,
+      "failure": "provider_unavailable",
+      "state": "failed",
+      "usage": null,
+      "cost": null
+    }
+  ],
+  "reviewAttempts": [],
+  "operations": [
+    {
+      "key": "85eae50d5cf51fd82738540c139c5f4f585befb4af97bbc6815e1df0606ba440",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "\"Website redesign\" site:peopleperhour.com/freelance-jobs",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "retrieved_url": null,
+      "capture": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "3778be78547bced5542e259b80f79d3511f117db81ff59f97a345415ac073110",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "\"Website redesign\" site:workana.com inurl:job",
+          "country": "us",
+          "language": "en",
+          "freshness": "any"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "retrieved_url": null,
+      "capture": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "f1435bf85c7ed17a7f67a0f18ebcb1eaa9b57ec6cdb938b1c427f61528867814",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "\"Website redesign\" (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "retrieved_url": null,
+      "capture": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "c45b3534255ce153615a67841adab65f3c4ac34e94c9d2c0dd643fde4be557eb",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "\"Website redesign\" filetype:pdf (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "retrieved_url": null,
+      "capture": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    }
+  ],
+  "decisions": [],
+  "usage": [
+    {
+      "provider": "serper",
+      "requests": 4,
+      "reserved_micros": "40000"
+    }
+  ],
+  "aiBudget": [
+    {
+      "requests": 2,
+      "reserved_microusd": "150000"
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "checkedAt": "2026-10-15T15:56:26.637Z",
+  "scope": "Live access and parsing probes of observed URLs; not independent discovery or recommendation evidence.",
+  "results": [
+    {
+      "kind": "document",
+      "url": "https://unearthodox.org/wp-content/uploads/2026/03/RFP%E2%80%93Web-Design-Development-and-Maintenance-Services.pdf",
+      "checkedAt": "2026-10-15T15:56:10.208Z",
+      "status": "access_limited",
+      "reason": "source_pdf_invalid",
+      "text": null,
+      "fingerprint": null,
+      "posting": null,
+      "hostDelaySeconds": 2,
+      "sitemaps": [
+        {
+          "url": "https://unearthodox.org/sitemap_index.xml",
+          "text": "Site-advertised sitemap"
+        }
+      ],
+      "capture": {
+        "method": "http",
+        "requests": 2,
+        "bytes": 519789,
+        "complete": false
+      },
+      "durationMs": 3163
+    },
+    {
+      "kind": "document",
+      "url": "https://www.amideast.org/sites/default/files/otherfiles/jnevinanderson/Website%20RFP%20Addendum%20PDF.pdf",
+      "checkedAt": "2026-10-15T15:56:13.371Z",
+      "status": "access_limited",
+      "reason": "source_pdf_invalid",
+      "text": null,
+      "fingerprint": null,
+      "posting": null,
+      "hostDelaySeconds": 2,
+      "sitemaps": [],
+      "capture": {
+        "method": "http",
+        "requests": 2,
+        "bytes": 87086,
+        "complete": false
+      },
+      "durationMs": 2676
+    },
+    {
+      "kind": "document",
+      "url": "https://www.guru.com/d/jobs/",
+      "checkedAt": "2026-10-15T15:56:16.048Z",
+      "status": "access_limited",
+      "reason": "crawl_policy_unavailable",
+      "text": null,
+      "fingerprint": null,
+      "posting": null,
+      "hostDelaySeconds": 2,
+      "sitemaps": [],
+      "capture": {
+        "method": "http",
+        "requests": 1,
+        "bytes": 879,
+        "complete": false
+      },
+      "durationMs": 744
+    },
+    {
+      "kind": "document",
+      "url": "https://bsky.app/profile/signal.org/post/3ma7awnh4vs24",
+      "checkedAt": "2026-10-15T15:56:16.793Z",
+      "status": "access_limited",
+      "reason": "bluesky_context_incomplete",
+      "text": "Author: signal.org\nPublished: 2025-12-17T18:07:55.227Z\n\nIf you’ve felt safer sending a message because you sent it on Signal, please support our work. As a nonprofit, Signal exists because of your donations. \n\nIn the app: Settings > Donate\nOn the web: Signal.org/donate",
+      "fingerprint": "2137031867ffc95ed97aa6da338ab6b407e48e25b8d6afb3b8391421da3a6c43",
+      "posting": null,
+      "hostDelaySeconds": 2,
+      "truncated": true,
+      "links": [
+        {
+          "url": "https://signal.org/donate",
+          "text": "Link shared by the post author"
+        }
+      ],
+      "publicApi": {
+        "provider": "bluesky",
+        "url": "https://public.api.bsky.app/xrpc/app.bsky.feed.getPostThread?uri=at%3A%2F%2Fsignal.org%2Fapp.bsky.feed.post%2F3ma7awnh4vs24&depth=0&parentHeight=0",
+        "snapshotFingerprint": "c471025bccb96af2078a675d2238d3a985c4259e45d3618e6703bfb81b737d0c"
+      },
+      "capture": {
+        "method": "public_api",
+        "requests": 1,
+        "bytes": 2497,
+        "complete": false,
+        "parser": "bluesky-public-v1"
+      },
+      "durationMs": 9844
+    }
+  ]
+}

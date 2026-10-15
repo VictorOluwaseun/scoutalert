@@ -1,0 +1,1407 @@
+{
+  "checkedAt": "2026-10-15T16:10:31.478Z",
+  "scenario": "services",
+  "recaptureCases": null,
+  "baseline": false,
+  "reasoningConfiguration": "openai:gpt-5.4-mini-2026-03-17:scout-planning-v13",
+  "plan": {
+    "policy": "public-intent-v2",
+    "queries": [
+      {
+        "page": 1,
+        "limit": 10,
+        "query": "\"Website redesign\" site:peopleperhour.com/freelance-jobs",
+        "country": "us",
+        "language": "en",
+        "freshness": "month"
+      },
+      {
+        "page": 1,
+        "limit": 10,
+        "query": "\"Website redesign\" site:workana.com inurl:job",
+        "country": "us",
+        "language": "en",
+        "freshness": "any"
+      },
+      {
+        "page": 1,
+        "limit": 10,
+        "query": "\"Website redesign\" (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+        "country": "us",
+        "language": "en",
+        "freshness": "month"
+      },
+      {
+        "page": 1,
+        "limit": 10,
+        "query": "\"Website redesign\" filetype:pdf (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+        "country": "us",
+        "language": "en",
+        "freshness": "month"
+      }
+    ],
+    "category": "services",
+    "exploration": {
+      "remote": true,
+      "target": "Website redesign",
+      "queryPolicy": "client-demand-v7",
+      "maximumDepth": 3,
+      "maximumRounds": 8,
+      "maximumSearches": 6,
+      "maximumSourcePages": 2
+    },
+    "continuation": "explore_on_next_run",
+    "scoutVersion": 1,
+    "blockedReason": null,
+    "deadlineSeconds": 240,
+    "maximumDocuments": 6
+  },
+  "reader": "worker",
+  "renderingEnabled": true,
+  "status": "captured_without_ai",
+  "aiEnabled": false,
+  "deliveryOutcome": "no_eligible_digest",
+  "reasoning": [],
+  "sourceReviewsCompleted": 0,
+  "intelligence": [],
+  "rejectedFits": [],
+  "rejectedReviews": [],
+  "reviewFailures": [],
+  "matchingState": {
+    "status": "not_started_no_source_demand",
+    "match_count": 0
+  },
+  "taskStates": [],
+  "eligiblePostings": [],
+  "reviewAttempts": [],
+  "opportunities": [],
+  "deliveries": [],
+  "durationMs": 42371,
+  "search": {
+    "goal": "Find clients requesting website redesign services",
+    "category": "services",
+    "target": "Website redesign",
+    "name": "Synthetic service-request scout",
+    "arrangement": "remote",
+    "arrangementRequired": true,
+    "residence": "New York, United States",
+    "workLocations": "United States or remote worldwide",
+    "authorizationLocations": "United States",
+    "authorizationConfirmed": true,
+    "sponsorshipNeed": "not_needed",
+    "background": "Five years delivering website redesign, responsive layouts, WordPress and accessible user interfaces for small businesses",
+    "minimumPay": "",
+    "currency": "USD",
+    "payPeriod": "project",
+    "unknownEligibility": "review",
+    "undisclosedPay": "include"
+  },
+  "operations": [
+    {
+      "key": "95aaf0cb02389975fd783115e21942587e102c6ffc460ebf87333aa756447882",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "\"Website redesign\" site:peopleperhour.com/freelance-jobs",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "retrieved_url": null,
+      "capture": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "bdcf5ed382161113329a417c2368a22464accaa0f93f06bad9551a1c75204227",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "\"Website redesign\" site:workana.com inurl:job",
+          "country": "us",
+          "language": "en",
+          "freshness": "any"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "retrieved_url": null,
+      "capture": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "f0e9bca699bd83e5818a20a3ef4d98abf46545c1b2f945e3cf1ee0106b75881c",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "\"Website redesign\" (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "retrieved_url": null,
+      "capture": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "0973fdb373d82ab8f6c08fdf8940c19ee45ce8b2eedd5d1a3756c058a6f883be",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "\"Website redesign\" filetype:pdf (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "retrieved_url": null,
+      "capture": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "218e190f782482248bc00b39d08713f48462ccdc7d0b77f1272f49e895f9c11d",
+      "kind": "document",
+      "input": {
+        "url": "https://www.peopleperhour.com/freelance-jobs/digital-marketing/seo/website-redesign-and-seo-specialist-4526487",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": [
+        {
+          "url": "https://www.peopleperhour.com/freelancer/writing-translation/wajid-ali-web-developer-seo-google-meta-ads-zxmqvxzq",
+          "text": "Wajid A."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/design/bisma-iqbal-top-cert-graphic-designer-expert-nvmjxyv",
+          "text": "Bisma I."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/bright-adelanke-wordpress-website-designer-zxvyzwnv",
+          "text": "Bright A."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/cornelius-oke-top-rated-website-developer-mobile-zxzvxyjm",
+          "text": "Cornelius O."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/david-olusanya-top-rated-website-and-mobile-app-zymjwajy",
+          "text": "David O."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/ali-kazmi-top-tier-uk-based-professional-web-yjjvxxv",
+          "text": "Ali K."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/joshua-awoyemi-web-developer-designer-wordpress-zxvzvnay",
+          "text": "Joshua A."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/design/emmanuel-adeniji-ui-ux-designer-web-developer-zxwmjqvy",
+          "text": "Emmanuel A."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/thompson-jeje-website-designer-developer-zxvyzwqq",
+          "text": "Thompson J."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/design/miracle-ilesanmi-uk-website-designer-google-zxyqxxwj",
+          "text": "Miracle I."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/muhammad_uneeb-ghazanfar-senior-full-stack-mobile-developer-zajzznnm",
+          "text": "Muhammad Uneeb G."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/marketing-seo/xemtech-agency-senior-full-stack-web-app-ai-zxjywjqv",
+          "text": "XemTech A."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/digital-marketing/seo/website-redesign-and-seo-specialist-4526487?Members_page=2",
+          "text": "2"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/digital-marketing/seo/website-redesign-and-seo-specialist-4526487?Members_page=3",
+          "text": "3"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/digital-marketing/seo/website-redesign-and-seo-specialist-4526487?Members_page=4",
+          "text": "4"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/digital-marketing/seo/website-redesign-and-seo-specialist-4526487?Members_page=5",
+          "text": "5"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/digital-marketing/seo/website-redesign-and-seo-specialist-4526487?Members_page=6",
+          "text": "6"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/digital-marketing/seo/website-redesign-and-seo-specialist-4526487?Members_page=7",
+          "text": "7"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/digital-marketing/seo/website-redesign-and-seo-specialist-4526487?Members_page=8",
+          "text": "8"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/digital-marketing/seo/website-redesign-and-seo-specialist-4526487?Members_page=9",
+          "text": "9"
+        },
+        {
+          "url": "https://x.com/intent/tweet",
+          "text": ""
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/rachel-harrison-zjmmmxq?ref=buyer",
+          "text": "Rachel H."
+        },
+        {
+          "url": "https://www.peopleperhour.com/site/register?next=https%3A%2F%2Fwww.peopleperhour.com%2Ffreelance-jobs%2Fdigital-marketing%2Fseo%2Fwebsite-redesign-and-seo-specialist-4526487",
+          "text": "Sign up"
+        },
+        {
+          "url": "https://www.peopleperhour.com/job/new?id=4526487&ref=similar",
+          "text": "Post a project like this"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Conversion+tracking",
+          "text": "Conversion tracking"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Google+analytics",
+          "text": "Google analytics"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Keyword+research",
+          "text": "Keyword research"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Organic+traffic",
+          "text": "Organic traffic"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Artificial+Intelligence+%2F+AI",
+          "text": "Artificial Intelligence / AI"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Antispam%2Fantivirus",
+          "text": "Antispam/antivirus"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Booking",
+          "text": "Booking"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Data+structures",
+          "text": "Data structures"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Development",
+          "text": "Development"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Digital+marketing",
+          "text": "Digital marketing"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Extensible+Markup+Language+%28XML%29",
+          "text": "Extensible Markup Language (XML)"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Frequently+asked+questions+%28faqs%29",
+          "text": "Frequently asked questions (faqs)"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Mobile",
+          "text": "Mobile"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Search+engine+optimization+%28seo%29",
+          "text": "Search engine optimization (seo)"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Sitemap",
+          "text": "Sitemap"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Tailoring",
+          "text": "Tailoring"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=User+experience+%28UX%29",
+          "text": "User experience (UX)"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Web+testing",
+          "text": "Web testing"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Webflow",
+          "text": "Webflow"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Website+design",
+          "text": "Website design"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Website+security",
+          "text": "Website security"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Wordpress+%28cms%29",
+          "text": "Wordpress (cms)"
+        },
+        {
+          "url": "https://www.peopleperhour.com/cookies",
+          "text": "Cookie Policy"
+        }
+      ],
+      "feeds": [],
+      "sitemaps": [
+        {
+          "url": "https://www.peopleperhour.com/pphsitemaps/sitemap.live.hire_freelancers.index.xml",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.peopleperhour.com/pphsitemaps/sitemap.live.topcert.index.xml",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.peopleperhour.com/pphsitemaps/sitemap.live.cert5.index.xml",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.peopleperhour.com/pphsitemaps/sitemap.live.cert4.index.xml",
+          "text": "Site-advertised sitemap"
+        }
+      ],
+      "retrieved_url": "https://www.peopleperhour.com/freelance-jobs/digital-marketing/seo/website-redesign-and-seo-specialist-4526487",
+      "capture": {
+        "bytes": 155228,
+        "scope": "buyer_brief",
+        "method": "http",
+        "parser": "peopleperhour-public-html-v2",
+        "complete": true,
+        "requests": 2
+      },
+      "captured_text": "WEBSITE REDESIGN AND SEO SPECIALIST\n\n- or -\n\nPost a project like this\nEnds in 28 days\nFixed Price\n£500(approx. $671)\n * Posted: 2 days ago\n * Proposals: 98\n * Remote\n * #4526487\n * OPPORTUNITY\n * Open for Proposals\n\nExperience Level: Expert\n\nWe are seeking an experienced web designer/developer with strong SEO expertise to redesign the website for an established premium adult entertainment venue in central Birmingham.\n\nWe want a visually impressive, fast, mobile-first website that improves our visibility on Google and AI-powered search platforms, attracts new customers and converts visitors into genuine booking enquiries.\n\nThis is a complete redesign focused on commercial results, not simply appearance.\n\nKey Objectives\nIncrease organic traffic from relevant Birmingham nightlife, stag-party, VIP and group-booking searches.\n\nGenerate more enquiries and bookings.\n\nPresent our venue, facilities and packages professionally.\n\nMake it easy for customers to enquire, call, book or find us.\n\nBuild a strong foundation for long-term SEO performance.\n\nWebsite Pages\nWe envisage approximately 10–11 pages:\n\nHome: Premium design, compelling imagery and clear booking calls to action.\n\nStag Dos (priority): Dedicated SEO landing page with packages, pricing, FAQs and enquiry form.\n\nBirthdays & Celebrations: Group occasions and bookings.\n\nVIP & Private Billiard Room: Premium experiences and private facilities.\n\nCorporate Events & Private Hire: Corporate groups, exhibitions and private bookings.\n\nPackages: Clear comparison of options, inclusions and prices.\n\nThe Venue: Facilities, atmosphere and photography.\n\nVisit Us: Location, opening hours, directions and local information.\n\nFAQs: Common questions covering entry, bookings, pricing and dress code.\n\nBook / Enquire: Simple, effective booking enquiry system.\n\nCareers: Easy-to-update recruitment page.\n\nWe welcome recommendations on the final site structure.\n\nSEO & AI Search Requirements\nSEO must be integrated into the build, including:\n\nKeyword research and dedicated search intent for each page.\n\nSEO-optimised copywriting, titles, headings and metadata.\n\nBirmingham-specific local SEO.\n\nStructured data/schema markup and internal linking.\n\nTechnical SEO, XML sitemap, indexing and canonical URLs.\n\nFast loading, Core Web Vitals and mobile optimisation.\n\n301 redirects to preserve existing search visibility.\n\nGoogle Analytics 4 and Search Console setup.\n\nConversion tracking for enquiries, calls and bookings.\n\nContent structured for discoverability by AI-powered search engines.\n\nBooking & Conversion Features\nProminent booking and enquiry buttons throughout.\n\nMobile click-to-call and contact options.\n\nBooking forms capturing package, date, group size, name, phone and email.\n\nTailored enquiry forms for stag parties, VIP and private events.\n\nClear package information and pricing.\n\nReviews, FAQs and trust signals positioned near booking calls to action.\n\nReliable enquiry notifications, consent and spam protection.\n\nDesign Direction\nPremium, contemporary, stylish, atmospheric and sophisticated.\n\nWe want an engaging, distinctive website with excellent mobile usability, strong imagery and a polished user experience. Avoid generic or dated adult-entertainment website design.\n\nPlatform & Delivery\nWe are open to retaining the existing platform or moving to WordPress/Webflow, subject to suitability and ongoing costs.\n\nThe finished website must be secure, easy for our team to update and owned by our business, with no unnecessary developer dependency. The proposed platform must support a licensed adult entertainment venue.\n\nDeliverables\nExisting website and SEO review.\n\nProposed sitemap, keyword strategy and design.\n\nComplete website design and development.\n\nSEO copywriting and technical optimisation.\n\nEnquiry forms and conversion tracking.\n\nRedirects, testing and website launch.\n\nHandover, basic training and post-launch support.\n\nWhat We're Looking For\nAn experienced freelancer with a strong portfolio of attractive, conversion-focused websites and proven SEO expertise. Hospitality, nightlife, leisure or booking-driven website experience is particularly desirable.\n\nPlease include in your proposal:\n\nExamples of relevant live websites and measurable SEO results.\n\nRecommended platform and approach.\n\nConfirmation that copywriting and technical SEO are included.\n\nFixed-price quotation and project timeline.\n\nAny additional or ongoing costs.\n\nPost-launch support arrangements.\n\nOur priority is a website that generates customers and bookings, not just traffic.",
+      "source_status": "fetched",
+      "source_reason": null,
+      "observed_links": 47
+    },
+    {
+      "key": "e5e94d7d174e10c682279502590afd6f358e92519b1544b0027920ab44c4a040",
+      "kind": "document",
+      "input": {
+        "url": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": [
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/%C3%93scar-palomar-python-ai-automation-developer-zxxvxxvm",
+          "text": "Óscar P."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/design/bisma-iqbal-top-cert-graphic-designer-expert-nvmjxyv",
+          "text": "Bisma I."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/riffat-baig-advanced-ai-custom-development-xxawzjv",
+          "text": "Riffat B."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/design/isha-sharma-8-years-experienced-full-stack-web-zznqjqnz",
+          "text": "Isha S."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/pavlo-hordiienko-full-stack-web-mobile-blockchain-zzanmaxm",
+          "text": "Pavlo H."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/social-media/isaac-web-designer-wordpress-developer-zyyamajx",
+          "text": "Isaac O."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/emmanuel-tunde_borode-website-designer-developer-zyanqqmz",
+          "text": "Emmanuel T."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/gabriel-gradinaru-web-developer-fast-seo-ready-zxynaqyq",
+          "text": "Gabriel G."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/design/maria-top-cert-experienced-team-of-wjawjq",
+          "text": "Maria H."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/muhammad-huraira-wordpress-shopify-wix-square-space-zxamanzm",
+          "text": "Muhammad H."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/cornelius-oke-top-rated-website-developer-mobile-zxzvxyjm",
+          "text": "Cornelius O."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/marketing-seo/micheal-endurance-fast-delivery-website-designer-zyanxqjv",
+          "text": "Micheal E."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648?Members_page=2",
+          "text": "2"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648?Members_page=3",
+          "text": "3"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648?Members_page=4",
+          "text": "4"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648?Members_page=5",
+          "text": "5"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648?Members_page=6",
+          "text": "6"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648?Members_page=7",
+          "text": "7"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648?Members_page=8",
+          "text": "8"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648?Members_page=10",
+          "text": "10"
+        },
+        {
+          "url": "https://x.com/intent/tweet",
+          "text": ""
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/zameer-dabhad-senior-business-consultant-wmnwym?ref=buyer",
+          "text": "Zameer D."
+        },
+        {
+          "url": "https://www.peopleperhour.com/site/register?next=https%3A%2F%2Fwww.peopleperhour.com%2Ffreelance-jobs%2Fdesign%2Fweb-design%2Fredesign-of-caterers-website-uk-4525648",
+          "text": "Sign up"
+        },
+        {
+          "url": "https://www.peopleperhour.com/job/new?id=4525648&ref=similar",
+          "text": "Post a project like this"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Building+design",
+          "text": "Building design"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Catering",
+          "text": "Catering"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Development",
+          "text": "Development"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Homepage",
+          "text": "Homepage"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Search+engine+optimization+%28seo%29",
+          "text": "Search engine optimization (seo)"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Website+design",
+          "text": "Website design"
+        },
+        {
+          "url": "https://www.peopleperhour.com/cookies",
+          "text": "Cookie Policy"
+        }
+      ],
+      "feeds": [],
+      "sitemaps": [
+        {
+          "url": "https://www.peopleperhour.com/pphsitemaps/sitemap.live.hire_freelancers.index.xml",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.peopleperhour.com/pphsitemaps/sitemap.live.topcert.index.xml",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.peopleperhour.com/pphsitemaps/sitemap.live.cert5.index.xml",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.peopleperhour.com/pphsitemaps/sitemap.live.cert4.index.xml",
+          "text": "Site-advertised sitemap"
+        }
+      ],
+      "retrieved_url": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648",
+      "capture": {
+        "bytes": 136623,
+        "scope": "buyer_brief",
+        "method": "http",
+        "parser": "peopleperhour-public-html-v2",
+        "complete": true,
+        "requests": 2
+      },
+      "captured_text": "REDESIGN OF CATERERS WEBSITE UK\n\n- or -\n\nPost a project like this\nEnds in 22 days\nFixed Price\n£500(approx. $671)\n * Posted: 1 week ago\n * Proposals: 113\n * Remote\n * #4525648\n * OPPORTUNITY\n * Open for Proposals\n\nExperience Level: Intermediate\n\nWebsite Redesign – Indian & Asian Catering & Events Business UK\n\nWe’re looking for an experienced web designer/developer to redesign an established Indian & Asian catering and events business website.\n\nThe existing website is dated and needs a complete refresh in terms of layout, visual design, user experience and enquiry journey.\n\nThe main objective is simple: make it look professional, modern and premium,while making it much easier for potential customers to enquire and book catering services.\n\nWhat we need\n\n- Modern, attractive and mobile-friendly website design\n- Strong visual presentation of Indian & Asian catering, food and events\n- Clear navigation and service structure\n- A redesigned catering/enquiry menu form that is quick and simple to complete\n- A smooth enquiry journey that captures the key information needed to qualify a potential customer\n- Clear calls-to-action throughout the website\n- Design that builds trust and encourages customers to make an enquiry\n- Consideration of SEO, speed and overall user experience\n\nThe website needs to work particularly well for customers looking for weddings, private functions, corporate events, parties and Asian/Indian catering in the UK..\n\nWho we're looking for\n\nYou should have proven experience designing websites for hospitality, catering, food, events or similar service businesses.\n\nPlease provide examples of previous websites you have designed, particularly projects where you have improved the customer journey or increased enquiries/conversions.\n\nWe are looking for someone who can bring ideas and initiative, not simply follow instructions or apply a generic template.\n\nOnce you have submitted you previous designs and work is to the standard we desire we will send further information on the clients website fo you to submit a draft proposal and mock up of the homepage.\n\nThanks",
+      "source_status": "fetched",
+      "source_reason": null,
+      "observed_links": 31
+    },
+    {
+      "key": "0235841bf18ebe17f22f461562ebe1bc359179c875ec6a97c7ea4609ffff218f",
+      "kind": "document",
+      "input": {
+        "url": "https://www.workana.com/job/expert-web-designer-needed-for-enterprise-b2b-website-redesign-and-enhanced-ux",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": [
+        {
+          "url": "https://www.workana.com/",
+          "text": "Workana"
+        },
+        {
+          "url": "https://www.workana.com/jobs",
+          "text": "Freelance Jobs"
+        },
+        {
+          "url": "https://www.workana.com/jobs?subcategory=web-design-1",
+          "text": "Web design jobs"
+        },
+        {
+          "url": "https://www.workana.com/job/insight/expert-web-designer-needed-for-enterprise-b2b-website-redesign-and-enhanced-ux",
+          "text": "Project Insights"
+        },
+        {
+          "url": "https://www.workana.com/jobs?skills=web-design-2",
+          "text": "Web design"
+        },
+        {
+          "url": "https://www.workana.com/jobs?skills=user-experience-design",
+          "text": "User Experience Design"
+        },
+        {
+          "url": "https://www.workana.com/jobs?skills=graphic-design",
+          "text": "Graphic Design"
+        },
+        {
+          "url": "https://www.workana.com/jobs?skills=corporate-brand-identity",
+          "text": "Corporate Brand Identity"
+        },
+        {
+          "url": "https://www.workana.com/jobs?skills=adobe-photoshop",
+          "text": "Adobe Photoshop"
+        },
+        {
+          "url": "https://www.workana.com/jobs?skills=adobe-illustrator",
+          "text": "Adobe Illustrator"
+        },
+        {
+          "url": "https://www.workana.com/jobs?skills=user-interface",
+          "text": "User Interface"
+        },
+        {
+          "url": "https://www.workana.com/jobs?skills=material-design",
+          "text": "Material Design"
+        },
+        {
+          "url": "https://www.workana.com/login",
+          "text": "Log into"
+        },
+        {
+          "url": "https://www.workana.com/signup/w",
+          "text": "Register"
+        },
+        {
+          "url": "https://www.workana.com/projects/add?clone=expert-web-designer-needed-for-enterprise-b2b-website-redesign-and-enhanced-ux",
+          "text": "Publish your own project"
+        },
+        {
+          "url": "https://www.workana.com/signup/w?r=https%3A%2F%2Fwww.workana.com%2Fjob%2Fexpert-web-designer-needed-for-enterprise-b2b-website-redesign-and-enhanced-ux",
+          "text": "Send your proposal now"
+        },
+        {
+          "url": "https://www.workana.com/e/c5ee2b5601f3cc2b4e9528d145f6d785",
+          "text": "Junaid A."
+        },
+        {
+          "url": "https://www.workana.com/job/kunal-neware-experienced-amazon-fba-specialist-for-premium-supplement-brand",
+          "text": "Previous project"
+        },
+        {
+          "url": "https://www.workana.com/job/development-of-a-comprehensive-logistics-web-portal-tms-erp-integration-with-ai-automation",
+          "text": "Next project"
+        }
+      ],
+      "feeds": [],
+      "sitemaps": [
+        {
+          "url": "https://www.workana.com/sitemap_index.xml",
+          "text": "Site-advertised sitemap"
+        }
+      ],
+      "retrieved_url": "https://www.workana.com/job/expert-web-designer-needed-for-enterprise-b2b-website-redesign-and-enhanced-ux",
+      "capture": {
+        "bytes": 39546,
+        "method": "http",
+        "complete": true,
+        "requests": 2
+      },
+      "captured_text": "1. Workana\n 2. Freelance Jobs\n 3. Web design jobs\n\nEvaluating bids\n\n\nEXPERT WEB DESIGNER NEEDED FOR ENTERPRISE B2B WEBSITE REDESIGN AND ENHANCED UX\n\nPublished on the April 26, 2026 in Design & Multimedia\n\n * Project\n * Project Insights\n\nABOUT THIS PROJECT\n\n\nDESIGN-MULTIMEDIA / WEB-DESIGN-1\n\nOPEN\n\n\n\nWe are seeking a highly skilled web designer for a complete redesign of our company website. The primary objective is to achieve a modern, international-grade user experience that aligns with enterprise software standards. We aim to significantly elevate our visual identity and overall user experience to accurately reflect the sophistication and scale of our products, thereby positioning our brand at a global standard. We are looking for a freelancer who can deliver a sophisticated and intuitive design for a B2B technology audience. Please provide your portfolio, highlighting any relevant enterprise or SaaS website projects you have completed, and outline your proposed approach to redesigning a B2B technology website.\n\n\n\nCategory Design & Multimedia\nSubcategory Web design\nWhat do you need? Small update to an existing design\n\n\nDelivery term: Not specified\n\nSkills needed\n\nWeb design User Experience Design Graphic Design Corporate Brand Identity Adobe Photoshop Adobe Illustrator User Interface Material Design\n\nWant to start working on this project?\n\nLog into your Workana account or Register today. Boost your freelance work!\n\n\nARE YOU LOOKING FOR A FREELANCER TO DO A SIMILAR PROJECT?\n\nCreate your project and get bids from the best freelancers.\n\nPublish your own project\nSend your proposal now\n\nJunaid A.\n\n\n\n1\n\nPublished projects\n\n0\n\nProjects paid\n\nMember since: July 2022\n\nProject activity\n\n4\n\nBids\n\n7\n\nInterested freelancers\n\nPrevious project\nNext project",
+      "source_status": "fetched",
+      "source_reason": null,
+      "observed_links": 19
+    },
+    {
+      "key": "271e0655e3120b113daa94636703af37772051bfc96b89d70cb8d4671eff0b74",
+      "kind": "document",
+      "input": {
+        "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/experienced-joblogic-professional-needed-4526636",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": [
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/%C3%93scar-palomar-python-ai-automation-developer-zxxvxxvm",
+          "text": "Óscar P."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/yassine-aboulouafa-integration-developer-woocommerce-qavzqnz",
+          "text": "Yassine A."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/joshua-awoyemi-web-developer-designer-wordpress-zxvzvnay",
+          "text": "Joshua A."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/marketing-seo/moshood-tajudeen-website-design-website-redesign-zyxavvzx",
+          "text": "Moshood T."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/design/david-oladimeji-website-developer-website-designer-zxavjmww",
+          "text": "David O."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/raj-sharma-pph-no-1-enterprise-software-zzjaaaq",
+          "text": "Raj S."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/cytnhia-wanjiru-seasoned-mobile-and-web-zzmzmvqw",
+          "text": "CYTNHIA W."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/hamza-akram-web-desktop-development-graphics-ywazxjj",
+          "text": "Hamza A."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/ziyoddin-shalabi-full-stack-web-app-developer-ai-vmnammw",
+          "text": "Ziyoddin S."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/the_one_technologies-rakesh-ai-development-net-solutions-zxxzwm",
+          "text": "The One Technologies"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/cornelius-oke-top-rated-website-developer-mobile-zxzvxyjm",
+          "text": "Cornelius O."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/thompson-jeje-website-designer-developer-zxvyzwqq",
+          "text": "Thompson J."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/experienced-joblogic-professional-needed-4526636?Members_page=2",
+          "text": "2"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/experienced-joblogic-professional-needed-4526636?Members_page=3",
+          "text": "3"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/experienced-joblogic-professional-needed-4526636?Members_page=4",
+          "text": "4"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/experienced-joblogic-professional-needed-4526636?Members_page=5",
+          "text": "5"
+        },
+        {
+          "url": "https://x.com/intent/tweet",
+          "text": ""
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/richard-zxjxjmax?ref=buyer",
+          "text": "Richard H."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/i-need-a-website-updated-to-a-modern-contemporary-style-with-4526620",
+          "text": "I need a website updated to a modern contemporary style with CMS"
+        },
+        {
+          "url": "https://www.peopleperhour.com/site/register?next=https%3A%2F%2Fwww.peopleperhour.com%2Ffreelance-jobs%2Ftechnology-programming%2Fwebsite-development%2Fexperienced-joblogic-professional-needed-4526636",
+          "text": "Sign up"
+        },
+        {
+          "url": "https://www.peopleperhour.com/job/new?id=4526636&ref=similar",
+          "text": "Post a project like this"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Application+programming+interface+%28API%29",
+          "text": "Application programming interface (API)"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Website+development",
+          "text": "Website development"
+        },
+        {
+          "url": "https://www.peopleperhour.com/cookies",
+          "text": "Cookie Policy"
+        }
+      ],
+      "feeds": [],
+      "sitemaps": [
+        {
+          "url": "https://www.peopleperhour.com/pphsitemaps/sitemap.live.hire_freelancers.index.xml",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.peopleperhour.com/pphsitemaps/sitemap.live.topcert.index.xml",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.peopleperhour.com/pphsitemaps/sitemap.live.cert5.index.xml",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.peopleperhour.com/pphsitemaps/sitemap.live.cert4.index.xml",
+          "text": "Site-advertised sitemap"
+        }
+      ],
+      "retrieved_url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/experienced-joblogic-professional-needed-4526636",
+      "capture": {
+        "bytes": 126723,
+        "scope": "buyer_brief",
+        "method": "http",
+        "parser": "peopleperhour-public-html-v2",
+        "complete": true,
+        "requests": 2
+      },
+      "captured_text": "EXPERIENCED JOBLOGIC PROFESSIONAL NEEDED\n\n- or -\n\nPost a project like this\nEnds in 28 days\nFixed Price\n£1.5k(approx. $2.0k)\n * Posted: 1 day ago\n * Proposals: 53\n * Remote\n * #4526636\n * Open for Proposals\n\nExperience Level: Expert\n\nWe need to create a user friendly client dashboard with an API connector to our JobLogic CAFM system please provide examples of where you have delivered this previously. We are trying to achieve a compliance dashboard along these lines https://kchportal.co.uk/ but using the live data from our Joblogic",
+      "source_status": "fetched",
+      "source_reason": null,
+      "observed_links": 24
+    },
+    {
+      "key": "9eead7c69428488ee4887b2ac9c2b6be59af338029a032adc1b24cfeee15d0ea",
+      "kind": "document",
+      "input": {
+        "url": "https://www.facebook.com/cityofsaugatuck/posts/-request-for-proposal-city-of-saugatuck-website-redesign-development-the-city-of/1547161207448191/",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": [
+        {
+          "url": "https://www.facebook.com/sitemap/cpg_offplat_future_public_events_sitemap.xml.gz",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.facebook.com/sitemap/public_active_groups_sitemap.xml.gz",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.facebook.com/sitemap/groups_popular_posts_sitemap_qe.xml.gz",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.facebook.com/sitemap/groups_latest_posts_0.xml.gz",
+          "text": "Site-advertised sitemap"
+        }
+      ],
+      "retrieved_url": null,
+      "capture": {
+        "bytes": 48799,
+        "method": "http",
+        "complete": false,
+        "requests": 1
+      },
+      "captured_text": null,
+      "source_status": "access_limited",
+      "source_reason": "crawl_policy_denied",
+      "observed_links": 0
+    },
+    {
+      "key": "178a86c3f5f0c001bc459cb4f73c7ce1a5257faf92c0cec52ab8f5e02df16440",
+      "kind": "document",
+      "input": {
+        "url": "https://classifieds.daytondailynews.com/marketplace/advert/request-for-proposals-rfp-for-website-redesign-general_3566",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": [
+        {
+          "url": "https://classifieds.daytondailynews.com/marketplace/",
+          "text": "Home"
+        },
+        {
+          "url": "https://placeads.coxohio.com/",
+          "text": "Place an ad"
+        },
+        {
+          "url": "https://classifieds.daytondailynews.com/marketplace/page/contactus.html",
+          "text": "Contact us"
+        },
+        {
+          "url": "https://classifieds.daytondailynews.com/marketplace/login",
+          "text": "Sign In"
+        },
+        {
+          "url": "https://classifieds.daytondailynews.com/marketplace/registration",
+          "text": "Register"
+        },
+        {
+          "url": "https://classifieds.daytondailynews.com/marketplace/category/Public%20Notices",
+          "text": "Public Notices"
+        },
+        {
+          "url": "https://classifieds.daytondailynews.com/marketplace/category/Public%20Notices/Legal%20-%20Notice%20to%20Bid",
+          "text": "Legal - Notice to Bid"
+        },
+        {
+          "url": "https://classifieds.daytondailynews.com/marketplace/advert/invitation-for-bid-ifb-35-26-08-authority-wide-general_14029",
+          "text": "Invitation for Bid IFB #26-08 Authority Wide"
+        },
+        {
+          "url": "https://classifieds.daytondailynews.com/marketplace/advert/legal-notice-request-for-proposal-pursuant-to-general_13643",
+          "text": "LEGAL NOTICE REQUEST FOR PROPOSAL Pursuant to"
+        },
+        {
+          "url": "https://classifieds.daytondailynews.com/marketplace/advert/legal-ad-contract-no-2026-09-vsc4-sealed-prop-general_13631",
+          "text": "LEGAL AD CONTRACT NO. 2026-09-VSC4 Sealed prop"
+        },
+        {
+          "url": "https://www.daytondailynews.com/local/visitor-agreement/OHHOKFZZZZBJBBU7LY4IY7TW6Q/",
+          "text": "Terms and Conditions"
+        }
+      ],
+      "feeds": [],
+      "sitemaps": [],
+      "retrieved_url": "https://classifieds.daytondailynews.com/marketplace/advert/request-for-proposals-rfp-for-website-redesign-general_3566",
+      "capture": {
+        "bytes": 18385,
+        "method": "http",
+        "complete": true,
+        "requests": 2
+      },
+      "captured_text": "----------------------------------------\n\nPlace an ad\nMarketplace\n * Home\n * Contact us\n * Sign In\n * Register\n\nWhat are you looking for?\n\n\nOK\n 1. Home\n 2. Public Notices\n 3. Legal - Notice to Bid\n\nUnfortunately, the listing you're looking for is no longer available.\n\n\nSIMILAR LISTINGS\n\nINVITATION FOR BID IFB #26-08 AUTHORITY WIDE \n\nInvitation for Bid IFB #26-08 Authority Wide CCTV Replacement Greater Dayton Premier Management GDPM CONTACT PERSON P Show more »\nPost Date: 09/25 12:00 AM\n\nRefcode: #0000904316 \n\n\nLEGAL NOTICE REQUEST FOR PROPOSAL PURSUANT TO \n\nLEGAL NOTICE REQUEST FOR PROPOSAL Pursuant to Ohio Revised Code Section 307.862, competitive sealed proposals (\"proposal Show more »\nPost Date: 09/03 12:00 AM\n\nRefcode: #0000903005 \n\n\nLEGAL AD CONTRACT NO. 2026-09-VSC4 SEALED PROP \n\nLEGAL AD CONTRACT NO. 2026-09-VSC4 Sealed proposals will be received at the office of the Butler County Veterans Service Com Show more »\nPost Date: 09/02 12:00 AM\n\nRefcode: #0000902839 \n\n- Advertisement -\n\nTerms and Conditions\nPrivacy Policy\niPublish® Marketplace powered by iPublish® Media Solutions © Copyright 2024",
+      "source_status": "fetched",
+      "source_reason": null,
+      "observed_links": 11
+    }
+  ],
+  "decisions": [
+    {
+      "round": 0,
+      "reason": "check_promising_result",
+      "action": {
+        "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/experienced-joblogic-professional-needed-4526636",
+        "kind": "document"
+      },
+      "depth": 0,
+      "parent_key": "95aaf0cb02389975fd783115e21942587e102c6ffc460ebf87333aa756447882"
+    },
+    {
+      "round": 1,
+      "reason": "check_promising_result",
+      "action": {
+        "url": "https://www.facebook.com/cityofsaugatuck/posts/-request-for-proposal-city-of-saugatuck-website-redesign-development-the-city-of/1547161207448191/",
+        "kind": "document"
+      },
+      "depth": 0,
+      "parent_key": "f0e9bca699bd83e5818a20a3ef4d98abf46545c1b2f945e3cf1ee0106b75881c"
+    },
+    {
+      "round": 2,
+      "reason": "check_promising_result",
+      "action": {
+        "url": "https://classifieds.daytondailynews.com/marketplace/advert/request-for-proposals-rfp-for-website-redesign-general_3566",
+        "kind": "document"
+      },
+      "depth": 0,
+      "parent_key": "f0e9bca699bd83e5818a20a3ef4d98abf46545c1b2f945e3cf1ee0106b75881c"
+    },
+    {
+      "round": 3,
+      "reason": "exploration_limit",
+      "action": null,
+      "depth": 0,
+      "parent_key": null
+    }
+  ],
+  "case": {
+    "id": "969aa3f8-a551-405a-8551-a9a060ef0e94",
+    "scoutId": "db81ea17-ffba-4895-a6b2-63f291983aef",
+    "scoutName": "Synthetic service-request scout",
+    "scoutVersion": 1,
+    "provider": "serper",
+    "strategy": null,
+    "exploration": [
+      {
+        "kind": "document",
+        "reason": "check_promising_result",
+        "target": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/experienced-joblogic-professional-needed-4526636"
+      },
+      {
+        "kind": "document",
+        "reason": "check_promising_result",
+        "target": "https://www.facebook.com/cityofsaugatuck/posts/-request-for-proposal-city-of-saugatuck-website-redesign-development-the-city-of/1547161207448191/"
+      },
+      {
+        "kind": "document",
+        "reason": "check_promising_result",
+        "target": "https://classifieds.daytondailynews.com/marketplace/advert/request-for-proposals-rfp-for-website-redesign-general_3566"
+      },
+      {
+        "kind": null,
+        "reason": "exploration_limit",
+        "target": null
+      }
+    ],
+    "reviewStatus": null,
+    "reviewReason": null,
+    "status": "partial",
+    "reason": "some_sources_unavailable",
+    "startedAt": "2026-10-15 16:09:49.271986+00",
+    "finishedAt": "2026-10-15 16:10:31.4104+00",
+    "searchesCompleted": 4,
+    "documentsChecked": 6,
+    "leadCount": 33
+  },
+  "usage": [
+    {
+      "provider": "public-documents",
+      "requests": 6,
+      "reserved_micros": "0"
+    },
+    {
+      "provider": "serper",
+      "requests": 4,
+      "reserved_micros": "40000"
+    }
+  ],
+  "aiBudget": [],
+  "dashboardLeadSampleSize": 33,
+  "leads": [
+    {
+      "url": "https://al-anon.org/pdf/P46-2026-World-Service-Conference-Summary.pdf",
+      "title": "ONE PURPOSE UN PROPÓSITO UN BUT",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://berkeleyca.gov/sites/default/files/city-council-meetings/2026-10-13%20Revised%20Agenda%20Packet%20-%20Council%20-%20WEB.pdf",
+      "title": "revised agenda",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://classifieds.daytondailynews.com/marketplace/advert/request-for-proposals-rfp-for-website-redesign-general_3566",
+      "title": "Request for Proposals (RFP) for Website Redesign",
+      "contentStatus": "fetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://edgertonks.org/wp-content/uploads/Addendum-1-1.pdf",
+      "title": "Addendum 1",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://edgertonks.org/wp-content/uploads/Addendum-2.pdf",
+      "title": "Addendum 2",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://eseospace.com/submit-an-rfp/",
+      "title": "Submit an RFP, RFQ or RFI",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://web.sph.uth.edu/cv/shegog.pdf",
+      "title": "ROSS SHEGOG",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://withmission.tech/guides/nonprofit-website-rfp",
+      "title": "Website Redesign RFP for Nonprofits: Guide and Template",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.achievementfirst.org/request-for-proposals-website-redesign-ecosystem-development/",
+      "title": "Request for Proposals: Website Redesign & Ecosystem ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.elcaminohealthcaredistrict.org/sites/default/files/2026-09/packet_dbod_092226.pdf",
+      "title": "AGENDA AGENDA ITEM PRESENTED BY ACTION",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.facebook.com/cityofsaugatuck/posts/-request-for-proposal-city-of-saugatuck-website-redesign-development-the-city-of/1547161207448191/",
+      "title": "Request for Proposal City of Saugatuck Website Redesign ...",
+      "contentStatus": "access_limited",
+      "contentReason": "crawl_policy_denied",
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.instagram.com/p/DeZUIC5BGCm/",
+      "title": "📢 Request for Proposal (RFP) - Website Development We ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.linkedin.com/posts/kayak-websites_how-to-create-a-better-rfp-for-a-website-activity-7506035139056058369-FwBT",
+      "title": "Clarify RFP for Website Migrations and Redesigns",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648",
+      "title": "Redesign of caterers website UK",
+      "contentStatus": "fetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.peopleperhour.com/freelance-jobs/digital-marketing/seo/website-redesign-and-seo-specialist-4526487",
+      "title": "Website redesign and SEO specialist",
+      "contentStatus": "fetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/erp-crm-development/system-engineer-us-timezone-4526679",
+      "title": "System Engineer - US Timezone",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/experienced-joblogic-professional-needed-4526636",
+      "title": "Experienced JobLogic professional needed",
+      "contentStatus": "fetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/website-creation-4526609",
+      "title": "Website creation",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.shorewoodlibrary.org/content/0%20-%20AGENDA%20-%20October%2014%202026%20%20Shorewood%20Public%20Library%20Board%20of%20Trustees.pdf",
+      "title": "SHOREWOOD PUBLIC LIBRARY BOARD OF TRUSTEES ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.srilankabusiness.com/pdfs/announcements/2026/ioi-web-revamp/bid-document-ioi-web-revamp-english.pdf",
+      "title": "Procurement of a Service Provider for Website Revamp & ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.startdesigns.com/blog/website-development-rfp-guide/",
+      "title": "Website Development RFP Guide & Checklist",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.thecssagency.com/blog/website-redesign-rfp",
+      "title": "How to Write a Website Redesign RFP 2026",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.workana.com/en/job/expert-wix-studio-website-design-review-and-responsive-optimization",
+      "title": "Expert wix studio website design review and...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.workana.com/en/job/modern-ai-integrated-architectural-website-redesign-hostinger-deployment",
+      "title": "Modern ai integrated architectural website... - Freelance Job in ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.workana.com/en/job/website-redesign-and-optimization-for-us-telecom-smart-hands-provider-bilingual-en-pt",
+      "title": "Website redesign and optimization for us... - Freelance Job in ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.workana.com/job/complete-branding-and-responsive-website-design-for-manufacturing-company",
+      "title": "Complete Branding and Responsive Website Design ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.workana.com/job/expert-branding-ux-ui-and-responsive-web-design-for-new-business-launch",
+      "title": "Expert Branding, Ux/Ui, and Responsive Web Design for New ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.workana.com/job/expert-web-designer-needed-for-enterprise-b2b-website-redesign-and-enhanced-ux",
+      "title": "Expert web designer needed for enterprise b2b...",
+      "contentStatus": "fetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.workana.com/job/fullstack-web-developer-uiux-website-designerlogo-brand-identity-designercontent-script-writer",
+      "title": "Fullstack web developer uiux website... - Freelance Job in ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.workana.com/job/healthcare-dental-company-website-redesign-for-enhanced-user-experience-and-lead-generation",
+      "title": "Healthcare dental company website redesign for...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.workana.com/job/professional-restaurant-website-design-and-development-1?ref=projects_1",
+      "title": "Professional Restaurant Website Design and Development",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.workana.com/job/web-redesign-y-logo?ref=projects_1",
+      "title": "Web redesign y logo - Freelance Job in Web design",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.youtube.com/shorts/na1fc3mVlo0",
+      "title": "Website redesign RFP: what agencies check first",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    }
+  ],
+  "publication": [],
+  "checks": [
+    "deterministic live capture; AI review and recommendations not tested",
+    "bounded provider and model admission",
+    "observed parent provenance",
+    "current owner isolation",
+    "terminal replay without new spending"
+  ],
+  "emailsSent": 0,
+  "realAccountsUsed": 0,
+  "scopeNote": "AI is explicitly disabled: this measures live source discovery and capture, not source interpretation or recommendation quality. Bounded live synthetic case using production discovery, review, assessment and delivery use cases. Worker reader includes configured browser fallback and Ashby routing without shared Redis caching; HTTP reader is a controlled reduced-access path. Native X and marketplace connector loops are not exercised. All lead rows are measured separately from the dashboard's bounded sample. Matching can remain incomplete if retries exceed the check window. Model labels are not independent ground truth; precision, recall and global throughput remain unproven.",
+  "stages": {
+    "scenario": "services",
+    "executionStatus": "captured_without_ai",
+    "successfulSearches": 4,
+    "failedSearches": 0,
+    "renderingEnabled": true,
+    "durationSeconds": 42.371,
+    "uniqueLeads": 33,
+    "recordedLeads": 33,
+    "completeLeadSet": true,
+    "searchRequests": 4,
+    "documentRequests": 6,
+    "capturedDocuments": 5,
+    "completeCaptures": 5,
+    "inaccessibleDocuments": 1,
+    "repeatedDestinations": 0,
+    "sourceReviewLabels": {},
+    "sourceReviewCountsAreComplete": true,
+    "promotedPostings": 0,
+    "matching": "not_started_no_source_demand",
+    "completedFitAssessments": 0,
+    "dashboardRecommendations": 0,
+    "acceptedEmails": 0,
+    "aiEstimatedUsd": 0,
+    "attemptsWithoutCostEstimate": 0,
+    "searchReservedUsd": 0.04,
+    "aiReservedUsd": 0,
+    "estimatedAiPlusSearchReservationPerRecommendationUsd": null,
+    "independentlyUsefulResults": null,
+    "costPerIndependentlyUsefulResultUsd": null,
+    "precision": null,
+    "recall": null,
+    "limitations": "AI estimates exclude unpriced/failed attempts, infrastructure and billing adjustments. Search reservations are configured upper allowances, not invoices. Source labels and dashboard acceptance are not independent usefulness judgments. Distinct URLs may still describe the same opportunity; repeatedDestinations detects only observed redirect identity. Initial reports recorded a dashboard sample, not every source review."
+  }
+}

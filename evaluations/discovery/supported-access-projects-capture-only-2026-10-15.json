@@ -1,0 +1,1015 @@
+{
+  "checkedAt": "2026-10-15T16:09:00.827Z",
+  "scenario": "projects",
+  "recaptureCases": null,
+  "baseline": false,
+  "reasoningConfiguration": "openai:gpt-5.4-mini-2026-03-17:scout-planning-v13",
+  "plan": {
+    "policy": "public-intent-v2",
+    "queries": [
+      {
+        "page": 1,
+        "limit": 10,
+        "query": "\"React\" \"TypeScript\" \"web\" \"development\" site:peopleperhour.com/freelance-jobs",
+        "country": "us",
+        "language": "en",
+        "freshness": "month"
+      },
+      {
+        "page": 1,
+        "limit": 10,
+        "query": "\"React\" \"TypeScript\" \"web\" \"development\" site:workana.com inurl:job",
+        "country": "us",
+        "language": "en",
+        "freshness": "any"
+      },
+      {
+        "page": 1,
+        "limit": 10,
+        "query": "\"React\" \"TypeScript\" \"web\" \"development\" (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+        "country": "us",
+        "language": "en",
+        "freshness": "month"
+      },
+      {
+        "page": 1,
+        "limit": 10,
+        "query": "\"React\" \"TypeScript\" \"web\" \"development\" filetype:pdf (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+        "country": "us",
+        "language": "en",
+        "freshness": "month"
+      }
+    ],
+    "category": "services",
+    "exploration": {
+      "remote": true,
+      "target": "React TypeScript web development",
+      "queryPolicy": "client-demand-v7",
+      "maximumDepth": 3,
+      "maximumRounds": 8,
+      "maximumSearches": 6,
+      "maximumSourcePages": 2
+    },
+    "continuation": "explore_on_next_run",
+    "scoutVersion": 1,
+    "blockedReason": null,
+    "deadlineSeconds": 240,
+    "maximumDocuments": 6
+  },
+  "reader": "worker",
+  "renderingEnabled": true,
+  "status": "captured_without_ai",
+  "aiEnabled": false,
+  "deliveryOutcome": "no_eligible_digest",
+  "reasoning": [],
+  "sourceReviewsCompleted": 0,
+  "intelligence": [],
+  "rejectedFits": [],
+  "rejectedReviews": [],
+  "reviewFailures": [],
+  "matchingState": {
+    "status": "not_started_no_source_demand",
+    "match_count": 0
+  },
+  "taskStates": [],
+  "eligiblePostings": [],
+  "reviewAttempts": [],
+  "opportunities": [],
+  "deliveries": [],
+  "durationMs": 59444,
+  "search": {
+    "goal": "Find remote freelance React development projects",
+    "category": "services",
+    "target": "React TypeScript web development",
+    "name": "Synthetic client-project scout",
+    "arrangement": "remote",
+    "arrangementRequired": true,
+    "residence": "New York, United States",
+    "workLocations": "United States or remote worldwide",
+    "authorizationLocations": "United States",
+    "authorizationConfirmed": true,
+    "sponsorshipNeed": "not_needed",
+    "background": "Five years delivering React and TypeScript web applications, API integrations and dashboards for clients",
+    "minimumPay": "",
+    "currency": "USD",
+    "payPeriod": "project",
+    "unknownEligibility": "review",
+    "undisclosedPay": "include"
+  },
+  "operations": [
+    {
+      "key": "b87ab533d3c1c3210ff9fdbab08ac86a162f2aa9754db4f7c2817e44a6b96731",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "\"React\" \"TypeScript\" \"web\" \"development\" site:peopleperhour.com/freelance-jobs",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "retrieved_url": null,
+      "capture": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "47721c0edf78161ec4e6a8d924c29b40cacbd0727435d78cb295767189cd7f8f",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "\"React\" \"TypeScript\" \"web\" \"development\" site:workana.com inurl:job",
+          "country": "us",
+          "language": "en",
+          "freshness": "any"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "retrieved_url": null,
+      "capture": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "cce2fdd4f20d4c714921aae5214be614e99a5096193d2e09d23f2e18bc13caba",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "\"React\" \"TypeScript\" \"web\" \"development\" (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "retrieved_url": null,
+      "capture": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "0af04e92595ba6cc80a73d4bc6951ba15fa04c1976d233fc8562df2d7e67db61",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "\"React\" \"TypeScript\" \"web\" \"development\" filetype:pdf (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "retrieved_url": null,
+      "capture": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "5ebfead0ee7ba4a202ed8a1403b7306ffaf60ea3eff608391ce45e0df89a4b80",
+      "kind": "document",
+      "input": {
+        "url": "https://www.workana.com/en/jobs?country=GT&skills=css",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": [
+        {
+          "url": "https://www.workana.com/signup",
+          "text": "Sign up"
+        }
+      ],
+      "feeds": [],
+      "sitemaps": [
+        {
+          "url": "https://www.workana.com/sitemap_index.xml",
+          "text": "Site-advertised sitemap"
+        }
+      ],
+      "retrieved_url": "https://www.workana.com/en/jobs?country=GT&skills=css",
+      "capture": {
+        "bytes": 1942926,
+        "method": "browser",
+        "complete": false,
+        "requests": 12
+      },
+      "captured_text": "Freelancers\nJobs\nHow it works\nBusiness\nRegister\nSign in\nSign up, create your profile and send your proposals. As easy as that!\nSign up",
+      "source_status": "fetched",
+      "source_reason": "browser_resource_unavailable",
+      "observed_links": 1
+    },
+    {
+      "key": "31401ee290933bdcb4d17ddcbfdd74daadb902195f5b5bb515f3a0e718936d05",
+      "kind": "document",
+      "input": {
+        "url": "https://www.workana.com/en/jobs?country=GT&skills=html",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": [
+        {
+          "url": "https://www.workana.com/signup",
+          "text": "Sign up"
+        }
+      ],
+      "feeds": [],
+      "sitemaps": [
+        {
+          "url": "https://www.workana.com/sitemap_index.xml",
+          "text": "Site-advertised sitemap"
+        }
+      ],
+      "retrieved_url": "https://www.workana.com/en/jobs?country=GT&skills=html",
+      "capture": {
+        "bytes": 1942945,
+        "method": "browser",
+        "complete": false,
+        "requests": 12
+      },
+      "captured_text": "Freelancers\nJobs\nHow it works\nBusiness\nRegister\nSign in\nSign up, create your profile and send your proposals. As easy as that!\nSign up",
+      "source_status": "fetched",
+      "source_reason": "browser_resource_unavailable",
+      "observed_links": 1
+    },
+    {
+      "key": "a6ef758f87ecbbdc95332e63995010566b073a72c3e978a41b5c33cac7c50c66",
+      "kind": "document",
+      "input": {
+        "url": "https://www.linkedin.com/posts/bareera-gulraiz_one-of-my-college-projects-ended-up-coming-activity-7510130937318416384-5HW7",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": [],
+      "retrieved_url": null,
+      "capture": {
+        "bytes": 120190,
+        "method": "http",
+        "complete": false,
+        "requests": 1
+      },
+      "captured_text": null,
+      "source_status": "access_limited",
+      "source_reason": "crawl_policy_denied",
+      "observed_links": 0
+    },
+    {
+      "key": "9830c962f7f49e2f55b07e5daf5fc04bbbf229d7525d39aec60e751250be1d10",
+      "kind": "document",
+      "input": {
+        "url": "https://www.freelancer.com/job-search/rag/",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": [
+        {
+          "url": "https://www.freelancer.com/job-search/rag/2/",
+          "text": "2"
+        },
+        {
+          "url": "https://www.freelancer.com/job-search/rag/3/",
+          "text": "3"
+        },
+        {
+          "url": "https://www.freelancer.com/job-search/rag/4/",
+          "text": "4"
+        },
+        {
+          "url": "https://www.freelancer.com/job-search/rag/33/",
+          "text": "Last"
+        },
+        {
+          "url": "https://www.freelancer.com/projects/fastapi/python-rag-ingestion-engineer",
+          "text": "Python RAG Ingestion Engineer"
+        },
+        {
+          "url": "https://www.freelancer.com/jobs/fastapi/",
+          "text": "FastAPI"
+        },
+        {
+          "url": "https://www.freelancer.com/jobs/java/",
+          "text": "Java"
+        },
+        {
+          "url": "https://www.freelancer.com/jobs/javascript/",
+          "text": "JavaScript"
+        },
+        {
+          "url": "https://www.freelancer.com/jobs/langchain/",
+          "text": "LangChain"
+        },
+        {
+          "url": "https://www.freelancer.com/jobs/postgresql/",
+          "text": "PostgreSQL"
+        },
+        {
+          "url": "https://www.freelancer.com/jobs/python/",
+          "text": "Python"
+        },
+        {
+          "url": "https://www.freelancer.com/jobs/software-architecture/",
+          "text": "Software Architecture"
+        },
+        {
+          "url": "https://www.freelancer.com/jobs/sqlite/",
+          "text": "SQLite"
+        },
+        {
+          "url": "https://www.freelancer.com/projects/dot-net/build-automation-with-flows-rag",
+          "text": "Build Automation with n8n Flows and RAG Chatbot"
+        },
+        {
+          "url": "https://www.freelancer.com/projects/mobile-app-development/mobile-app-developer-needed-for-40759777",
+          "text": "Mobile App Developer Needed for SmartCity Companion — AI, Maps, Real-Time Services & IoT Integration"
+        },
+        {
+          "url": "https://www.freelancer.com/jobs/android/",
+          "text": "Android"
+        },
+        {
+          "url": "https://www.freelancer.com/jobs/api-developmet/",
+          "text": "API Development"
+        },
+        {
+          "url": "https://www.freelancer.com/jobs/backend-development/",
+          "text": "Backend Development"
+        },
+        {
+          "url": "https://www.freelancer.com/jobs/flutter/",
+          "text": "Flutter"
+        },
+        {
+          "url": "https://www.freelancer.com/jobs/ios/",
+          "text": "iOS"
+        },
+        {
+          "url": "https://www.freelancer.com/jobs/mobile-app-development/",
+          "text": "Mobile App Development"
+        },
+        {
+          "url": "https://www.freelancer.com/jobs/nodejs/",
+          "text": "Node.js"
+        },
+        {
+          "url": "https://www.freelancer.com/jobs/react-native/",
+          "text": "React Native"
+        },
+        {
+          "url": "https://www.freelancer.com/projects/full-stack-development/powered-crm-business-automation",
+          "text": "AI-Powered CRM and Business Automation Development"
+        },
+        {
+          "url": "https://www.freelancer.com/jobs/full-stack-development/",
+          "text": "Full Stack Development"
+        },
+        {
+          "url": "https://www.freelancer.com/jobs/git/",
+          "text": "Git"
+        },
+        {
+          "url": "https://www.freelancer.com/jobs/google-app-engine/",
+          "text": "Google App Engine"
+        },
+        {
+          "url": "https://www.freelancer.com/jobs/nextjs/",
+          "text": "Next.js"
+        },
+        {
+          "url": "https://www.freelancer.com/jobs/nosql-couch-mongo/",
+          "text": "NoSQL Couch & Mongo"
+        },
+        {
+          "url": "https://www.freelancer.com/jobs/typescript/",
+          "text": "Typescript"
+        },
+        {
+          "url": "https://www.freelancer.com/jobs/website-design/",
+          "text": "Website Design"
+        },
+        {
+          "url": "https://www.freelancer.com/projects/voice-agents/aws-agentcore-phone-voice-agent",
+          "text": "AWS AgentCore phone voice agent coded in Python"
+        },
+        {
+          "url": "https://www.freelancer.com/jobs/amazon-web-services/",
+          "text": "Amazon Web Services"
+        },
+        {
+          "url": "https://www.freelancer.com/jobs/artificial-intelligence/",
+          "text": "Artificial Intelligence"
+        },
+        {
+          "url": "https://www.freelancer.com/jobs/voice-agents/",
+          "text": "Voice Agents"
+        },
+        {
+          "url": "https://www.freelancer.com/projects/ai-agents/integration-specialist-required",
+          "text": "AI Integration Specialist Required"
+        },
+        {
+          "url": "https://www.freelancer.com/jobs/ai-agents/",
+          "text": "AI Agents"
+        },
+        {
+          "url": "https://www.freelancer.com/jobs/ai-chatbot-development/",
+          "text": "AI Chatbot Development"
+        },
+        {
+          "url": "https://www.freelancer.com/jobs/ai-integration/",
+          "text": "AI Integration"
+        },
+        {
+          "url": "https://www.freelancer.com/jobs/ai-model-development/",
+          "text": "AI Model Development"
+        },
+        {
+          "url": "https://www.freelancer.com/jobs/ai-workflow-automation/",
+          "text": "AI Workflow Automation"
+        },
+        {
+          "url": "https://www.freelancer.com/projects/ai-agents/full-stack-engineer-for-recruitment",
+          "text": "Full-Stack AI Engineer for Recruitment System"
+        },
+        {
+          "url": "https://www.freelancer.com/jobs/ai-automation/",
+          "text": "AI Automation"
+        },
+        {
+          "url": "https://www.freelancer.com/jobs/ai-training-data/",
+          "text": "AI Training Data"
+        },
+        {
+          "url": "https://www.freelancer.com/jobs/ai-voice-agents/",
+          "text": "AI Voice Agents"
+        },
+        {
+          "url": "https://www.freelancer.com/projects/python/phone-voice-aws-agentcore-agent",
+          "text": "phone voice AWS AgentCore agent coded in Python"
+        },
+        {
+          "url": "https://www.freelancer.com/projects/cloud-computing/aws-agentcore-python-phone-voice",
+          "text": "AWS AgentCore Python phone Voice AI Agent"
+        },
+        {
+          "url": "https://www.freelancer.com/jobs/amazon/",
+          "text": "Amazon"
+        },
+        {
+          "url": "https://www.freelancer.com/jobs/amazon-app-development/",
+          "text": "Amazon App Development"
+        },
+        {
+          "url": "https://www.freelancer.com/jobs/cloud-computing/",
+          "text": "Cloud Computing"
+        },
+        {
+          "url": "https://www.freelancer.com/jobs/linux/",
+          "text": "Linux"
+        },
+        {
+          "url": "https://www.freelancer.com/projects/ai-app-development/cross-platform-app-platform",
+          "text": "Cross-Platform AI App & Platform"
+        },
+        {
+          "url": "https://www.freelancer.com/jobs/ai-app-development/",
+          "text": "AI App Development"
+        },
+        {
+          "url": "https://www.freelancer.com/jobs/iphone-app-development/",
+          "text": "iPhone"
+        },
+        {
+          "url": "https://www.freelancer.com/jobs/tensorflow/",
+          "text": "Tensorflow"
+        },
+        {
+          "url": "https://www.freelancer.com/jobs/user-interface-ia/",
+          "text": "User Interface / IA"
+        },
+        {
+          "url": "https://www.freelancer.com/projects/ai-agents/powered-application-backend-developer",
+          "text": "AI-Powered Application & Backend Developer"
+        },
+        {
+          "url": "https://www.freelancer.com/projects/geotechnical-engineering/based-data-extraction-from-documents",
+          "text": "AI-Based Data Extraction from Documents"
+        },
+        {
+          "url": "https://www.freelancer.com/jobs/ai-development/",
+          "text": "AI Development"
+        },
+        {
+          "url": "https://www.freelancer.com/jobs/data-extraction/",
+          "text": "Data Extraction"
+        },
+        {
+          "url": "https://www.freelancer.com/jobs/geotechnical-engineering/",
+          "text": "Geotechnical Engineering"
+        },
+        {
+          "url": "https://www.freelancer.com/projects/full-stack-development/nexora-ecosystem-full-stack-developer",
+          "text": "Nexora AI Ecosystem: Full Stack Developer Needed"
+        },
+        {
+          "url": "https://www.freelancer.com/projects/ai-voice-agents/voice-agent-receptionist-saas-platform",
+          "text": "AI Voice Agent / AI Receptionist SaaS Platform Development"
+        },
+        {
+          "url": "https://www.freelancer.com/jobs/conversational-ai/",
+          "text": "Conversational AI"
+        },
+        {
+          "url": "https://www.freelancer.com/jobs/nlp/",
+          "text": "NLP"
+        },
+        {
+          "url": "https://www.freelancer.com/jobs/php/",
+          "text": "PHP"
+        },
+        {
+          "url": "https://www.freelancer.com/jobs/saas/",
+          "text": "SaaS"
+        },
+        {
+          "url": "https://www.freelancer.com/jobs/twilio/",
+          "text": "Twilio"
+        },
+        {
+          "url": "https://www.freelancer.com/projects/saas/saas-based-proposal-bid-management",
+          "text": "Saas-Based AI Proposal and Bid Management"
+        },
+        {
+          "url": "https://www.freelancer.com/jobs/agentic-ai/",
+          "text": "Agentic AI"
+        },
+        {
+          "url": "https://www.freelancer.com/jobs/data-science/",
+          "text": "Data Science"
+        },
+        {
+          "url": "https://www.freelancer.com/jobs/docker/",
+          "text": "Docker"
+        },
+        {
+          "url": "https://www.freelancer.com/jobs/generative-ai/",
+          "text": "Generative AI"
+        },
+        {
+          "url": "https://www.freelancer.com/jobs/natural-language-processing/",
+          "text": "Natural Language Processing"
+        },
+        {
+          "url": "https://www.freelancer.com/projects/machine-learning/private-local-llm-developer-sql",
+          "text": "Private Local LLM Developer: SQL Data Room Setup & On-Premise LLM Deployment (NDA Required)"
+        },
+        {
+          "url": "https://www.freelancer.com/jobs/database-administration/",
+          "text": "Database Administration"
+        },
+        {
+          "url": "https://www.freelancer.com/jobs/database-design/",
+          "text": "Database Design"
+        },
+        {
+          "url": "https://www.freelancer.com/jobs/database-development/",
+          "text": "Database Development"
+        },
+        {
+          "url": "https://www.freelancer.com/jobs/large-language-model/",
+          "text": "Large Language Model"
+        },
+        {
+          "url": "https://www.freelancer.com/jobs/machine-learning/",
+          "text": "Machine Learning (ML)"
+        }
+      ],
+      "feeds": [
+        {
+          "url": "https://www.freelancer.com/rss.xml",
+          "text": "Latest projects"
+        }
+      ],
+      "sitemaps": [
+        {
+          "url": "https://www.freelancer.com/sitemap_index_default_s3.xml",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.freelancer.com/sitemap_index_default_job-search_s3.xml",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.freelancer.com/sitemap_index_default_projects_s3.xml",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.freelancer.com/sitemap_index_default_contests_s3.xml",
+          "text": "Site-advertised sitemap"
+        }
+      ],
+      "retrieved_url": "https://www.freelancer.com/job-search/rag/",
+      "capture": {
+        "bytes": 415752,
+        "method": "http",
+        "complete": true,
+        "requests": 2
+      },
+      "captured_text": "RAG JOBS\n\nHire a Freelancer Earn Money Freelancing\nSearch Keyword\nWhere ?\nSearch\n\n\nFILTER\n\nMY RECENT SEARCHES\n\n\n\nFILTER BY:\n\nBUDGET\n\nFixed Price Projects\nto\n\n\nHourly Projects\nto\n\n\nDuration All Durations Less than 1 week 1 week to 4 weeks 1 month to 3 months 3 months to 6 months Over 6 months / Ongoing Unspecified\n\nContests\nto\n\n\n\nTYPE\n\n * Local Jobs\n * Featured Jobs\n * Recruiter Jobs\n * Full Time Jobs\n\nSKILLS\n\nenter skills\n\nLANGUAGES\n\nenter languages\n\nJOB STATE\n\nAll open jobs All open and closed jobs\nApply Filter\nNewest first Lowest budget first Highest budget first Lowest bids/entries Highest bids/entries\n1,628 rag jobs found\n\nFirst 1 2 3 4 Next Last\nPython RAG Ingestion Engineer\n5 days left\nVerified\n\nI’m building a desktop-first retrieval-augmented generation (RAG) tool and I need a senior Python engineer to take full ownership of the document-ingestion layer. The current prototype already embeds and queries local language models, but the pipeline that feeds them is still thin. Your focus will be to ingest and normalise three document types—plain text, PDFs, and Word files—so they can be chunked, vectorised, and indexed reliably. Here is the landscape you’ll be stepping into: • Stack: Python 3.11, LangChain, FastAPI, SQLite for local mode, Postgres in the cloud, Git for workflow, and a mix of GGUF local models plus an OpenAI fallback. • Environment: Windows is the primary target, so you should be comfortable with PyInstaller or similar packa...\n\nFastAPI Java JavaScript LangChain PostgreSQL Python Software Architecture SQLite\n$13 / hr Average bid\n$13 / hr Avg Bid\n344 bids\nBid now\nBuild Automation with n8n Flows and RAG Chatbot\n4 days left\nVerified\n\nI’m looking for a professional who can assist in building two key AI projects for my portfolio: 1. Automating P1 & P2 issue ticketing using n8n flows: This involves creating workflows that automatically generate tickets based on the severity of issues, ensuring seamless automation. 2. Creating a chatbot using RAG architecture to simplify the retrieval of KB articles for users. The solution should integrate document ingestion, semantic search, and user-friendly interactions. Ideally, I’d like guidance or collaboration to implement these processes efficiently as part of my resume-building effort. Hi, Here are my requirements: 1. n8n Ticket Automation (P1/P2) I would like an automated workflow in n8n that can receive incidents from users and automatically create ...\n\nPython\n$735 Average bid\n$735 Avg Bid\n207 bids\nBid now\nMobile App Developer Needed for SmartCity Companion — AI, Maps, Real-Time Services & IoT Integration\n2 days left\n\n... and customizable map filters. 2. AI PERSONAL ASSISTANT - Integrate an AI assistant using Claude or OpenAI APIs. - Understand natural-language requests and recommend relevant local services. - Generate personalized daily plans and contextual suggestions. - Implement tool calling for approved actions such as searching, booking, and retrieving information. - Add a retrieval-augmented generation (RAG) knowledge layer where useful. 3. LOCAL SERVICES & BOOKING - Discover service providers and compare available options. - Appointment booking, scheduling, and cancellation. - Provider profiles, ratings, reviews, and service categories. - Booking history, reminders, and status updates. 4. REAL-TIME NOTIFICATIONS - Push notifications for bookings, schedule changes, nearby alerts, an...\n\nAndroid API Development Backend Development FastAPI Flutter iOS Mobile App Development Node.js PostgreSQL React Native\n$881 Average bid\n$881 Avg Bid\n93 bids\nBid now\nAI-Powered CRM and Business Automation Development\n2 days left\n\n...using Claude or OpenAI APIs. - Develop AI-powered lead scoring, document analysis, intelligent search, and RAG capabilities. - Automate email workflows, notifications, task management, and business processes. - Implement dashboards, analytics, reporting, and data visualization. - Integrate payment processing and subscription management. - Use Docker, Git, automated testing, and CI/CD pipelines. - Deploy and monitor the application using AWS or an equivalent cloud platform. - Implement security controls, logging, error handling, and technical documentation. Required Skills: Full-Stack Development, React, , TypeScript, Python, FastAPI, PostgreSQL, REST APIs, AI/LLM Integration, RAG, Workflow Automation, Docker, Git, Cloud Deployment, and Software Testing. Expected Delivera...\n\nFull Stack Development Git Google App Engine Next.js NoSQL Couch & Mongo PostgreSQL Python React Native Typescript Website Design\n$3430 Average bid\n$3430 Avg Bid\n102 bids\nBid now\nAWS AgentCore phone voice agent coded in Python\n23 hours left\nVerified\n\n...environment. Every actionable setup/configuration step needs a real, readable screenshot. Numbered instructions with copyable commands/settings. Explain the purpose of the step, the expected result, and how to verify it. Clearly distinguish between Windows and Server commands and explain any placeholders (e.g., [YOUR_BUCKET_NAME]). Must cover: Prerequisites, code structure, AgentCore setup, memory/RAG routing, telephony settings, database/logs, AWS IAM/security, tests, monitoring, recovery, updates, cost breakdown, and complete environment cleanup. Include exact software/library versions and architecture details. Do not include real secrets/passwords in the doc. Include a section on common errors and fixes. 2. Narrated MP4 Videos: Follow the exact section/step numbers of ...\n\nAmazon Web Services Artificial Intelligence Python Voice Agents\n$36 Average bid\n$36 Avg Bid\n81 bids\nBid now\nAI Integration Specialist Required\n20 hours left\nVerified\n\n...experienced freelance engineers to support enterprise AI projects on a project-by-project basis. Scope of Work: * Develop and integrate AI solutions with customer websites, ERP, CRM, databases, and internal systems. * Build secure APIs and backend integrations. * Develop AI chatbots, RAG solutions, and AI agents. * Work with Google Cloud (Vertex AI, Gemini) and/or AWS (Bedrock, Lambda). * Handle testing, deployment, troubleshooting, and technical documentation. Required Skills: * Python, FastAPI, REST API, JSON * LLM, RAG, Vector Databases * AWS or Google Cloud * System integration and backend development We are looking for reliable engineers with proven experience in delivering real client projects. This is a remote, project-based opportunity with potential for long...\n\nAI Agents AI Chatbot Development AI Integration AI Model Development AI Workflow Automation Amazon Web Services Backend Development Google App Engine Python Software Architecture\n$844 Average bid\n$844 Avg Bid\n175 bids\nBid now\nFull-Stack AI Engineer for Recruitment System\n12 hours left\n\n...Track → Extract Offer → Create Placement → Audit Everything --- Required Experience Must Have - Production AI agents - Multi-agent orchestration - LLM applications - Python/FastAPI - Node.js/TypeScript - - PostgreSQL/Supabase - APIs - Event-driven architecture - Redis/background jobs - Authentication/RBAC - Cloud deployment - Git/GitHub Preferred OpenAI, Claude, Gemini, LangGraph, RAG, pgvector, OpenSearch, Workday, Greenhouse, Lever, iCIMS, SAP SuccessFactors, Oracle Recruiting, email/calendar APIs, Stripe/Razorpay, OCR and recruitment/staffing platforms. Applicants without production AI-agent experience should not apply. --- Proposal Requirements Please provide: 1. 3–5 relevant production projects 2. Proposed architecture for scaling 8–10 ...\n\nAI Agents AI Automation AI Chatbot Development AI Integration AI Model Development AI Training Data AI Voice Agents AI Workflow Automation Full Stack Development Node.js\n$323 Average bid\n$323 Avg Bid\n122 bids\nBid now\nphone voice AWS AgentCore agent coded in Python\n10 hours left\nVerified\n\n...environment. Every actionable setup/configuration step needs a real, readable screenshot. Numbered instructions with copyable commands/settings. Explain the purpose of the step, the expected result, and how to verify it. Clearly distinguish between Windows and Server commands and explain any placeholders (e.g., [YOUR_BUCKET_NAME]). Must cover: Prerequisites, code structure, AgentCore setup, memory/RAG routing, telephony settings, database/logs, AWS IAM/security, tests, monitoring, recovery, updates, cost breakdown, and complete environment cleanup. Include exact software/library versions and architecture details. Do not include real secrets/passwords in the doc. Include a section on common errors and fixes. 2. Narrated MP4 Videos: Follow the exact section/step numbers of ...\n\nAmazon Web Services Python\n$77 Average bid\n$77 Avg Bid\n110 bids\nBid now\nAWS AgentCore Python phone Voice AI Agent\nEnded\n\n...environment. Every actionable setup/configuration step needs a real, readable screenshot. Numbered instructions with copyable commands/settings. Explain the purpose of the step, the expected result, and how to verify it. Clearly distinguish between Windows and Server commands and explain any placeholders (e.g., [YOUR_BUCKET_NAME]). Must cover: Prerequisites, code structure, AgentCore setup, memory/RAG routing, telephony settings, database/logs, AWS IAM/security, tests, monitoring, recovery, updates, cost breakdown, and complete environment cleanup. Include exact software/library versions and architecture details. Do not include real secrets/passwords in the doc. Include a section on common errors and fixes. 2. Narrated MP4 Videos: Follow the exact section/step numbers of ...\n\nAI Voice Agents Amazon Amazon App Development Amazon Web Services Artificial Intelligence Cloud Computing Linux Python\n$126 Average bid\n$126 Avg Bid\n65 bids\nBid now\nCross-Platform AI App & Platform\nEnded\n\nI am building an end-to-end AI platform: The build must cover: • iOS • Android • Web The work involves taking an excellent base model (such as Meta’s Llama or Mistral AI) and adapting it to your niche using techniques like fine-tuning or RAG (Retrieval-Augmented Generation). Adding data must also be made possible through a simple and intuitive interface. The platform must allow users to write questions and read answers, but also feature a graphical interface that enables the exchange of opinions and realistic debate with the user. What I expect from you is a fully functional, production-ready system—front-end, back-end, and model integration—delivered with clear documentation and deployment assistance so my team can scale it after launch. If...\n\nAI App Development Android Flutter iPhone Mobile App Development React Native Tensorflow User Interface / IA\n$646 Average bid\n$646 Avg Bid\n218 bids\nBid now\nAI-Powered Application & Backend Developer\nEnded\n\nI am looking for freelance projects involving **AI application development, Python backend development, RAG systems, voice AI, chatbots, API development, and business automation**. I specialize in building practical AI-powered applications using: - Python & FastAPI - AI agents and conversational AI - RAG and knowledge retrieval systems - PostgreSQL, pgvector & Redis - REST APIs and WebSockets - Speech-to-Text and Text-to-Speech - Voicebots and telephony integrations - WhatsApp and Google Calendar integrations - SQLAlchemy & Alembic - Automated testing with pytest - Git & GitHub ### What I can build **AI & RAG** - Custom AI chatbots - Document-based RAG systems - Knowledge-base assistants - AI agents - Business AI automation **Voice AI** ...\n\nAI Agents AI Chatbot Development API Development FastAPI Git Java Mobile App Development Python\n$258 Average bid\n$258 Avg Bid\n78 bids\nBid now\nAI-Based Data Extraction from Documents\nEnded\n\n...calculation rules. - Generate the final completed Excel workbook. ### Preferred Technologies I am open to the developer's recommendation, but experience with the following would be preferred: - Python - OCR - OpenAI/LLM APIs or other AI models - Document AI - Computer Vision - PDF/Table extraction - Pandas - OpenPyXL - Azure Document Intelligence / Google Document AI / AWS Textract or similar - RAG/LLM-based document understand",
+      "source_status": "fetched",
+      "source_reason": null,
+      "observed_links": 80
+    },
+    {
+      "key": "ef3d311a7e55c208df2cf59fc3963c736eddf11b95fedd96ad852a35fcea7de0",
+      "kind": "document",
+      "input": {
+        "url": "https://www.innovation-insight.com/templates",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": [
+        {
+          "url": "https://www.innovation-insight.com/templates/software-rfp-template",
+          "text": "RFPSoftware Development RFP TemplateThe request for proposal we wish every buyer sent us. Thirteen sections, a scoring table, and the questions that separate a serious vendor from a sales deck. Free, in Markdown or Word, no sign-up required.13 sections · updated Oct 2026Read and download"
+        },
+        {
+          "url": "https://www.innovation-insight.com/templates/statement-of-work-template",
+          "text": "SOWStatement of Work Template for Software DevelopmentThe statement of work is the document you will actually argue over, so it should be the clearest one in the project. Fifteen sections covering deliverables, acceptance, payment, change control and IP, with the wording we use on our own projects.1"
+        },
+        {
+          "url": "https://www.innovation-insight.com/templates/prd-template",
+          "text": "PRDProduct Requirements Document (PRD) TemplateA product requirements document template that is short enough to keep current and precise enough to hand to an engineer, or to an AI coding tool. Twelve sections, Given/When/Then acceptance criteria, Markdown or Word download.12 sections · updated Oct 2"
+        },
+        {
+          "url": "https://www.innovation-insight.com/templates/mutual-nda-template",
+          "text": "NDAMutual NDA Template for Software DevelopmentA plain-language mutual non-disclosure agreement for conversations between a company and a software vendor, with definitions that actually cover code, architecture and roadmaps. Free, in Markdown or Word. Have a lawyer check it for your jurisdiction.14"
+        },
+        {
+          "url": "https://www.innovation-insight.com/security",
+          "text": "security page"
+        },
+        {
+          "url": "https://www.innovation-insight.com/pricing",
+          "text": "pricing page"
+        },
+        {
+          "url": "https://www.innovation-insight.com/app-development-cost-calculator",
+          "text": "app development cost calculator"
+        },
+        {
+          "url": "https://www.innovation-insight.com/engagement-models",
+          "text": "engagement models"
+        }
+      ],
+      "feeds": [],
+      "sitemaps": [
+        {
+          "url": "https://www.innovation-insight.com/sitemap.xml",
+          "text": "Site-advertised sitemap"
+        }
+      ],
+      "retrieved_url": "https://www.innovation-insight.com/templates",
+      "capture": {
+        "bytes": 230843,
+        "method": "http",
+        "complete": true,
+        "requests": 2
+      },
+      "captured_text": "Skip to content\nSenior devs from $4,000/moBook a callGet a quote\n\nFree downloads · Markdown and Word\n\n\nFREE TEMPLATES FOR SOFTWARE PROJECTS: RFP, SOW, PRD AND NDA\n\nThe four documents every software project needs before the first line of code, written from the ones we sign and use with clients. Read each one in full, then download it.\n\nRFPSoftware Development RFP TemplateThe request for proposal we wish every buyer sent us. Thirteen sections, a scoring table, and the questions that separate a serious vendor from a sales deck. Free, in Markdown or Word, no sign-up required.13 sections · updated Oct 2026Read and download SOWStatement of Work Template for Software DevelopmentThe statement of work is the document you will actually argue over, so it should be the clearest one in the project. Fifteen sections covering deliverables, acceptance, payment, change control and IP, with the wording we use on our own projects.15 sections · updated Oct 2026Read and download PRDProduct Requirements Document (PRD) TemplateA product requirements document template that is short enough to keep current and precise enough to hand to an engineer, or to an AI coding tool. Twelve sections, Given/When/Then acceptance criteria, Markdown or Word download.12 sections · updated Oct 2026Read and download NDAMutual NDA Template for Software DevelopmentA plain-language mutual non-disclosure agreement for conversations between a company and a software vendor, with definitions that actually cover code, architecture and roadmaps. Free, in Markdown or Word. Have a lawyer check it for your jurisdiction.14 sections · updated Oct 2026Read and download\nWhy these four\n\n\nHOW WE USE THESE DOCUMENTS.\n\nEvery engagement at Innovation Insight passes through the same four documents, in the same order. A mutual NDA is signed before any technical discussion, as our security page describes. The client's request for proposal, or the brief that stands in for it, tells us what to estimate. A product requirements document, written with the client during discovery if one does not exist, defines the first release precisely enough to price. The statement of work then turns the chosen proposal into deliverables, acceptance criteria, milestones and payments.\n\nThe templates here are the structures we use ourselves, with our project-specific wording removed and guidance added for each section. They are deliberately short. A document that is too long to keep current is ignored, and an ignored document is where scope disputes start. If you fill these in and send them to us, or to any vendor, the proposals you get back will be comparable and the contract will be signed faster.\n\nPrices for the work itself are on our pricing page, and the app development cost calculator will give you a budget band for the RFP in a few minutes. Which contract type to choose is covered on the engagement models page.\n\nAlready have a filled-in template?\n\n\nSEND IT TO US AND GET A WRITTEN ESTIMATE WITHIN ONE BUSINESS DAY.\n\nA senior engineer reads it, lists the assumptions we would have to make, and replies with a range per milestone. No sales call required.\n\nSend your brief\nFAQ\n\n\nTEMPLATE QUESTIONS, ANSWERED.\n\n\nARE THESE TEMPLATES REALLY FREE?\n\nYes. Every template is shown in full on its page and the Markdown and Word files download with or without the form. Use them, change them and share them; no attribution needed.\n\n\nWHICH FORMATS CAN I DOWNLOAD?\n\nMarkdown and Word (.docx). Markdown opens in Google Docs, Notion, GitHub and every AI coding tool and keeps the headings intact when pasted; the Word file suits procurement and legal teams.\n\n\nIN WHAT ORDER SHOULD I USE THEM?\n\nNDA first, before any detailed conversation. Then the RFP to get comparable proposals, the PRD to define what the first release must do, and the statement of work to turn the chosen proposal into commitments.\n\n\nARE THE NDA AND SOW LEGALLY BINDING AS WRITTEN?\n\nThey are general templates written from our own contracts, not legal advice. Governing law, liability and some clauses differ by country, so have a lawyer review them for your jurisdiction before signing.\n\nLet's build\n\n\nHAVE A PRODUCT IN MIND? LET'S SCOPE IT THIS WEEK.\n\nSend a short brief or book a call. You'll talk to an engineer, not a sales script, and leave with a clear next step.\n\nGet a quoteBook a call\n\nWeb, mobile, AI and cloud software built by senior engineers in Lahore and Sialkot for startups and enterprises in 15+ countries, at published rates.\n\n * +92 322 7225236\n * contact@innovation-insight.com\n\n\n\n\nSERVICES\n\n * Enterprise Software Development\n * Web Application Development\n * Mobile App Development\n * AI and Data Solutions\n * Cloud and DevOps\n * UI/UX Design\n * QA and Software Testing\n\n\nSPECIALIST SERVICES\n\n * Custom software development\n * MVP development\n * AI agent development\n * LLM integration\n * Flutter app development\n * HIPAA-compliant software\n * RAG development\n * Next.js development\n * Python and FastAPI development\n * React Native development\n * SaaS development\n * Multi-tenant SaaS development\n * Web application development\n * API development and integration\n * AI chatbot development\n * MCP server development\n * Telemedicine app development\n * Fintech app development\n * AI automation\n * Fractional CTO\n * Software maintenance and support\n * Marketplace development\n * Payment gateway integration\n * HIPAA DevOps and testing\n * Ride-sharing app development\n * Voice AI agent development\n * Legacy software modernization\n * PCI DSS compliant development\n * Vibe code cleanup\n * Supabase development\n * AI app development\n\n\nHIRE AND PRICING\n\n * Staff augmentation\n * Hire developers\n * Dedicated development team\n * Offshore software development\n * Engagement models\n * Pricing\n * App cost calculator\n * Team cost calculator\n * AI agent cost calculator\n * Free templates\n\n\nCOMPANY\n\n * About us\n * Case studies\n * Blog\n * Security\n * Careers\n * Contact\n * Open roles\n\nLahore · Headquarters174-C, Broadway Commercial, Block C, DHA Phase 8, Lahore 54000, Pakistan\nSialkot · Engineering officePrem Nagar, Classico Road, Sialkot 51310, Pakistan\n\nMarkets and locations\n\n * For US companies\n * For European companies\n * Software company in Pakistan\n * Lahore office\n * Sialkot office\n\nHire developers\n\n * Full-stack developers\n * React developers\n * Node.js developers\n * Python developers\n * Flutter developers\n * AI and ML engineers\n * DevOps engineers\n * QA engineers\n * .NET developers\n * Laravel developers\n * Angular developers\n * Vue.js developers\n * IOS developers\n * Android developers\n * Mobile app developers\n * Next.js developers\n * React Native developers\n * UI/UX designers\n * Data engineers\n * TypeScript developers\n * PostgreSQL developers\n * Supabase developers\n * PHP developers\n * MongoDB developers\n\n© 2026 Innovation Insight. All rights reserved.\n\n * Privacy policy\n * Terms and conditions",
+      "source_status": "fetched",
+      "source_reason": null,
+      "observed_links": 8
+    },
+    {
+      "key": "56f56839178874512eed8e85cf1a930e07275c2711d762d2b1974950ce6fe371",
+      "kind": "document",
+      "input": {
+        "url": "https://www.facebook.com/groups/647718825333067/posts/27821170527561196/",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": [
+        {
+          "url": "https://www.facebook.com/sitemap/cpg_offplat_future_public_events_sitemap.xml.gz",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.facebook.com/sitemap/public_active_groups_sitemap.xml.gz",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.facebook.com/sitemap/groups_popular_posts_sitemap_qe.xml.gz",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.facebook.com/sitemap/groups_latest_posts_0.xml.gz",
+          "text": "Site-advertised sitemap"
+        }
+      ],
+      "retrieved_url": null,
+      "capture": {
+        "bytes": 48799,
+        "method": "http",
+        "complete": false,
+        "requests": 1
+      },
+      "captured_text": null,
+      "source_status": "access_limited",
+      "source_reason": "crawl_policy_denied",
+      "observed_links": 0
+    }
+  ],
+  "decisions": [
+    {
+      "round": 0,
+      "reason": "check_promising_result",
+      "action": {
+        "url": "https://www.freelancer.com/job-search/rag/",
+        "kind": "document"
+      },
+      "depth": 0,
+      "parent_key": "cce2fdd4f20d4c714921aae5214be614e99a5096193d2e09d23f2e18bc13caba"
+    },
+    {
+      "round": 1,
+      "reason": "check_promising_result",
+      "action": {
+        "url": "https://www.innovation-insight.com/templates",
+        "kind": "document"
+      },
+      "depth": 0,
+      "parent_key": "cce2fdd4f20d4c714921aae5214be614e99a5096193d2e09d23f2e18bc13caba"
+    },
+    {
+      "round": 2,
+      "reason": "check_promising_result",
+      "action": {
+        "url": "https://www.facebook.com/groups/647718825333067/posts/27821170527561196/",
+        "kind": "document"
+      },
+      "depth": 0,
+      "parent_key": "cce2fdd4f20d4c714921aae5214be614e99a5096193d2e09d23f2e18bc13caba"
+    },
+    {
+      "round": 3,
+      "reason": "exploration_limit",
+      "action": null,
+      "depth": 0,
+      "parent_key": null
+    }
+  ],
+  "case": {
+    "id": "a5df0600-0e38-4c8d-91ec-13614da3c995",
+    "scoutId": "1fbcfedb-5537-4d1d-b6f7-e9b45c8b5264",
+    "scoutName": "Synthetic client-project scout",
+    "scoutVersion": 1,
+    "provider": "serper",
+    "strategy": null,
+    "exploration": [
+      {
+        "kind": "document",
+        "reason": "check_promising_result",
+        "target": "https://www.freelancer.com/job-search/rag/"
+      },
+      {
+        "kind": "document",
+        "reason": "check_promising_result",
+        "target": "https://www.innovation-insight.com/templates"
+      },
+      {
+        "kind": "document",
+        "reason": "check_promising_result",
+        "target": "https://www.facebook.com/groups/647718825333067/posts/27821170527561196/"
+      },
+      {
+        "kind": null,
+        "reason": "exploration_limit",
+        "target": null
+      }
+    ],
+    "reviewStatus": null,
+    "reviewReason": null,
+    "status": "partial",
+    "reason": "some_sources_unavailable",
+    "startedAt": "2026-10-15 16:08:01.599503+00",
+    "finishedAt": "2026-10-15 16:09:00.775294+00",
+    "searchesCompleted": 4,
+    "documentsChecked": 6,
+    "leadCount": 11
+  },
+  "usage": [
+    {
+      "provider": "public-documents",
+      "requests": 6,
+      "reserved_micros": "0"
+    },
+    {
+      "provider": "serper",
+      "requests": 4,
+      "reserved_micros": "40000"
+    }
+  ],
+  "aiBudget": [],
+  "dashboardLeadSampleSize": 11,
+  "leads": [
+    {
+      "url": "https://careers.capgemini.com/job/Dallas%2C-TX-Lead-Frontend-Developer/1416460433/",
+      "title": "Lead Frontend Developer Job Details",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://hiringcafe.com/job/software-engineer-l2-growth-marketing-platform-curative-austin-texas-k0em4z48r9aipy0o",
+      "title": "Software Engineer L2 - Growth Marketing Platform",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://saigontechnology.com/services/hire-offshore-dot-net-developers/",
+      "title": "Hire Offshore Dot Net Developers",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.facebook.com/groups/647718825333067/posts/27821170527561196/",
+      "title": "Software Engineer and IT Jobs Available in Rangsit ...",
+      "contentStatus": "access_limited",
+      "contentReason": "crawl_policy_denied",
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.freelancer.com/job-search/rag/",
+      "title": "RAG Jobs, Employment",
+      "contentStatus": "fetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.innovation-insight.com/templates",
+      "title": "Free Software Project Templates",
+      "contentStatus": "fetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.instagram.com/p/DdlRJlTAXlW/",
+      "title": "We're Hiring: Technical Architect We are looking for an ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.linkedin.com/posts/bareera-gulraiz_one-of-my-college-projects-ended-up-coming-activity-7510130937318416384-5HW7",
+      "title": "From Capstone to Production: Hotel RFP Sourcing Platform ...",
+      "contentStatus": "access_limited",
+      "contentReason": "crawl_policy_denied",
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.rorixtech.com/blogs/warehouse/wms-requirements-template",
+      "title": "WMS Requirements Template: What to Include (2026)",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.workana.com/en/jobs?country=GT&skills=css",
+      "title": "CSS in Guatemala - Freelance Jobs Online",
+      "contentStatus": "fetched",
+      "contentReason": "browser_resource_unavailable",
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.workana.com/en/jobs?country=GT&skills=html",
+      "title": "HTML in Guatemala - Freelance Jobs Online",
+      "contentStatus": "fetched",
+      "contentReason": "browser_resource_unavailable",
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    }
+  ],
+  "publication": [],
+  "checks": [
+    "deterministic live capture; AI review and recommendations not tested",
+    "bounded provider and model admission",
+    "observed parent provenance",
+    "current owner isolation",
+    "terminal replay without new spending"
+  ],
+  "emailsSent": 0,
+  "realAccountsUsed": 0,
+  "scopeNote": "AI is explicitly disabled: this measures live source discovery and capture, not source interpretation or recommendation quality. Bounded live synthetic case using production discovery, review, assessment and delivery use cases. Worker reader includes configured browser fallback and Ashby routing without shared Redis caching; HTTP reader is a controlled reduced-access path. Native X and marketplace connector loops are not exercised. All lead rows are measured separately from the dashboard's bounded sample. Matching can remain incomplete if retries exceed the check window. Model labels are not independent ground truth; precision, recall and global throughput remain unproven.",
+  "stages": {
+    "scenario": "projects",
+    "executionStatus": "captured_without_ai",
+    "successfulSearches": 4,
+    "failedSearches": 0,
+    "renderingEnabled": true,
+    "durationSeconds": 59.444,
+    "uniqueLeads": 11,
+    "recordedLeads": 11,
+    "completeLeadSet": true,
+    "searchRequests": 4,
+    "documentRequests": 6,
+    "capturedDocuments": 4,
+    "completeCaptures": 2,
+    "inaccessibleDocuments": 2,
+    "repeatedDestinations": 0,
+    "sourceReviewLabels": {},
+    "sourceReviewCountsAreComplete": true,
+    "promotedPostings": 0,
+    "matching": "not_started_no_source_demand",
+    "completedFitAssessments": 0,
+    "dashboardRecommendations": 0,
+    "acceptedEmails": 0,
+    "aiEstimatedUsd": 0,
+    "attemptsWithoutCostEstimate": 0,
+    "searchReservedUsd": 0.04,
+    "aiReservedUsd": 0,
+    "estimatedAiPlusSearchReservationPerRecommendationUsd": null,
+    "independentlyUsefulResults": null,
+    "costPerIndependentlyUsefulResultUsd": null,
+    "precision": null,
+    "recall": null,
+    "limitations": "AI estimates exclude unpriced/failed attempts, infrastructure and billing adjustments. Search reservations are configured upper allowances, not invoices. Source labels and dashboard acceptance are not independent usefulness judgments. Distinct URLs may still describe the same opportunity; repeatedDestinations detects only observed redirect identity. Initial reports recorded a dashboard sample, not every source review."
+  }
+}

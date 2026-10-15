@@ -1,0 +1,177 @@
+{
+  "checkedAt": "2026-10-15T14:27:00.388Z",
+  "scope": "Four observed source URLs through the current public reader; no source-policy bypass or paid model calls.",
+  "receipts": [
+    {
+      "index": 0,
+      "url": "https://www.peopleperhour.com/freelance-jobs/html-css-react-using-typescript-4393680",
+      "requests": [
+        {
+          "url": "https://www.peopleperhour.com/robots.txt",
+          "status": 200,
+          "contentType": "text/plain; charset=utf8",
+          "robots": "# Allow all robots to access our site\nUser-agent: *\nDisallow: /*?\nAllow: /*?page=\n\n# Disallowed pages\nDisallow: /member/portfolioItems\nDisallow: /member/prizes\nDisallow: /site/externalAuth\nDisallow: /member/saveBottomPrefs\nDisallow: /member/saveCurrency\nDisallow: /member/saveLocation\nDisallow: /hourlie/hourliePortfolio\nDisallow: /embedMedia/validate\nDisallow: /errorReport/*\nDisallow: /interview/saveAnswers\nDisallow: /endorsement/public*\nDisallow: /job/bidders*\nDisallow: /directory\nDisallow: /site/forgot\nDisallow: /job/new*\n\n# Disallow WordPress admin section\nDisallow: /*/wp-admin/\n\n# Sitemaps\nSitemap: https://www.peopleperhour.com/pphsitemaps/sitemap.live.hire_freelancers.index.xml\nSitemap: https://www.peopleperhour.com/pphsitemaps/sitemap.live.topcert.index.xml\nSitemap: https://www.peopleperhour.com/pphsitemaps/sitemap.live.cert5.index.xml\nSitemap: https://www.peopleperhour.com/pphsitemaps/sitemap.live.cert4.index.xml\nSitemap: https://www.peopleperhour.com/pphsitemaps/sitemap.live.cert3.index.xml\nSitemap: https://www.peopleperhour.com/pphsitemaps/sitemap.live.hourlies.index.xml\nSitemap: https://www.peopleperhour.com/pphsitemaps/sitemap.live.category_hourlies.index.xml\nSitemap: https://www.peopleperhour.com/pphsitemaps/sitemap.live.static_jobs.index.xml\nSitemap: https://www.peopleperhour.com/pphsitemaps/sitemap.live.jobs.index.xml\nSitemap: https://www.peopleperhour.com/pphsitemaps/sitemap.live.freelance_jobs.0.xml\nSitemap: https://www.peopleperhour.com/pphsitemaps/sitemap.live.searches.index.xml\n\nSitemap: https://www.peopleperhour.com/discover/sitemap_index.xml\n"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/html-css-react-using-typescript-4393680",
+          "status": 301,
+          "contentType": "text/html; charset=UTF-8",
+          "robots": null
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/html-css-react-using-typescript-4393680",
+          "status": 200,
+          "contentType": "text/html; charset=UTF-8",
+          "robots": null
+        }
+      ],
+      "result": {
+        "kind": "document",
+        "url": "https://www.peopleperhour.com/freelance-jobs/html-css-react-using-typescript-4393680",
+        "checkedAt": "2026-10-15T14:26:57.687Z",
+        "status": "fetched",
+        "reason": null,
+        "text": "Phoenix - Your AI Assistant\n\n\nInactive session will be ended in 24 hours\nEnd Session\n\n\n\nTHIS PROJECT IS NO LONGER AVAILABLE\n\nLUKAS B.\n\n0% (0)\nProjects Completed\n-\nFreelancers worked with\n-\nProjects awarded\n0%\nLast project\n15 Oct 2026\n\nThis project has been canceled\n\nWhy not search for other projects that may interest you!\n\nSearch projects\n\nLUKAS B.\n\n0% (0)\nProjects Completed\n-\nFreelancers worked with\n-\nProjects awarded\n0%\nLast project\n15 Oct 2026\n\n\nPRODUCT\n\n * About\n * Team\n\n\nSUPPORT\n\n * How it works\n * Trust & Safety\n * Help Centre\n\n\nDISCOVER\n\n * GuidesStoriesNews\n\n\nRESOURCES\n\n * Global Payroll\n * Business Cost Calculator\n * Startup Cities\n\n\nBROWSE\n\n * Freelance Services\n * Freelance Skills\n\n * \n * \n * \n * \n\n\n * Terms\n * Privacy\n * Sitemap\n * Company Details\n * © 2026 People Per Hour Ltd\n\nWe collect cookies to enable the proper functioning and security of our website, and to enhance your experience. By clicking on 'Accept All Cookies', you consent to the use of these cookies. You can change your 'Cookies Settings' at any time. For more information, please read ourCookie Policy\nCookie Settings\nAccept All Cookies",
+        "fingerprint": "365ecedd9ee272eb7e55bb44d040a2c91331c98cd9628321c246352030947a8c",
+        "posting": null,
+        "hostDelaySeconds": 2,
+        "retrievedUrl": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/html-css-react-using-typescript-4393680",
+        "sitemaps": [
+          {
+            "url": "https://www.peopleperhour.com/pphsitemaps/sitemap.live.hire_freelancers.index.xml",
+            "text": "Site-advertised sitemap"
+          },
+          {
+            "url": "https://www.peopleperhour.com/pphsitemaps/sitemap.live.topcert.index.xml",
+            "text": "Site-advertised sitemap"
+          },
+          {
+            "url": "https://www.peopleperhour.com/pphsitemaps/sitemap.live.cert5.index.xml",
+            "text": "Site-advertised sitemap"
+          },
+          {
+            "url": "https://www.peopleperhour.com/pphsitemaps/sitemap.live.cert4.index.xml",
+            "text": "Site-advertised sitemap"
+          }
+        ],
+        "truncated": false,
+        "links": [
+          {
+            "url": "https://www.peopleperhour.com/freelance-jobs",
+            "text": "Search projects"
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelancer/lukas-zyqqaxwy?ref=buyer",
+            "text": "Lukas B."
+          },
+          {
+            "url": "https://www.peopleperhour.com/cookies",
+            "text": "Cookie Policy"
+          }
+        ],
+        "feeds": [],
+        "searchForms": [],
+        "pagination": {
+          "next": [],
+          "contentFingerprint": "50c27cc30eadc809b54d610d6cd043124ebadce143742a4cdefffa75d1b1c08f"
+        },
+        "capture": {
+          "method": "http",
+          "requests": 3,
+          "bytes": 60589,
+          "complete": true
+        }
+      }
+    },
+    {
+      "index": 1,
+      "url": "https://www.guru.com/jobs/i-need-a-redesign-of-my-existing/2119676",
+      "requests": [
+        {
+          "url": "https://www.guru.com/robots.txt",
+          "status": 403,
+          "contentType": "text/html",
+          "robots": "<html style=\"height:100%\"><head><META NAME=\"ROBOTS\" CONTENT=\"NOINDEX, NOFOLLOW\"><meta name=\"format-detection\" content=\"telephone=no\"><meta name=\"viewport\" content=\"initial-scale=1.0\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge,chrome=1\"><script type=\"text/javascript\" src=\"/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3\"></script></head><body style=\"margin:0px;height:100%\"><iframe id=\"main-iframe\" src=\"/_Incapsula_Resource?CWUDNSAI=23&xinfo=2-57959093-0%200NNN%20RT%281792074418430%20108%29%20q%280%20-1%20-1%200%29%20r%280%20-1%29%20B15%284%2c201%2c0%29%20U24&incident_id=510000910216973913-295921816503719618&edet=15&cinfo=04000000&rpinfo=0&cip=102.88.168.28&mth=GET\" frameborder=0 width=\"100%\" height=\"100%\" marginheight=\"0px\" marginwidth=\"0px\">Request unsuccessful. Incapsula incident ID: 510000910216973913-295921816503719618</iframe></body></html>"
+        }
+      ],
+      "result": {
+        "kind": "document",
+        "url": "https://www.guru.com/jobs/i-need-a-redesign-of-my-existing/2119676",
+        "checkedAt": "2026-10-15T14:26:57.688Z",
+        "status": "access_limited",
+        "reason": "crawl_policy_unavailable",
+        "text": null,
+        "fingerprint": null,
+        "posting": null,
+        "hostDelaySeconds": 2,
+        "sitemaps": [],
+        "capture": {
+          "method": "http",
+          "requests": 1,
+          "bytes": 879,
+          "complete": false
+        }
+      }
+    },
+    {
+      "index": 2,
+      "url": "https://www.achievementfirst.org/request-for-proposals-website-redesign-ecosystem-development/",
+      "requests": [
+        {
+          "url": "https://www.achievementfirst.org/robots.txt",
+          "status": 200,
+          "contentType": "text/plain",
+          "robots": "User-agent: *\nCrawl-delay: 30\n\n"
+        }
+      ],
+      "result": {
+        "kind": "document",
+        "url": "https://www.achievementfirst.org/request-for-proposals-website-redesign-ecosystem-development/",
+        "checkedAt": "2026-10-15T14:26:58.342Z",
+        "status": "access_limited",
+        "reason": "crawl_delay_exceeds_run_budget",
+        "text": null,
+        "fingerprint": null,
+        "posting": null,
+        "hostDelaySeconds": 30,
+        "sitemaps": [],
+        "capture": {
+          "method": "http",
+          "requests": 1,
+          "bytes": 31,
+          "complete": false
+        }
+      }
+    },
+    {
+      "index": 3,
+      "url": "https://classifieds.daytondailynews.com/marketplace/advert/request-for-proposals-rfp-for-website-redesign-general_3566",
+      "requests": [
+        {
+          "url": "https://classifieds.daytondailynews.com/robots.txt",
+          "status": 200,
+          "contentType": "text/plain",
+          "robots": "# robots.txt\nUser-agent: *\nDisallow: /marketplace/login/\nDisallow: /marketplace/registration/\nDisallow: /marketplace/search/\nDisallow: /marketplace/account/\nDisallow: /marketplace/basket/\nSitemap: http://classifieds.daytondailynews.com/marketplace/sitemap.xml\nCrawl-Delay: 20\nUser-agent: SemrushBot\nDisallow: /\nUser-agent: SemrushBot-SA\nDisallow: /\nUser-agent: SemrushBot-BA\nDisallow: /\nUser-agent: SemrushBot-SI\nDisallow: /\nUser-agent: SemrushBot-SWA\nDisallow: /\nUser-agent: SemrushBot-CT\nDisallow: /\nUser-agent: SemrushBot-BM\nDisallow: /\nUser-agent: AhrefsBot\nDisallow: /\nUser-Agent: MJ12bot\nDisallow: /\nUser-agent: TurnitinBot\nDisallow: /\nUser-agent: VelenPublicWebCrawler\nDisallow: /\nUser-agent: MojeekBot\nDisallow: /\nUser-agent: CCBot\nDisallow: /\nUser-agent: LEXBot\nDisallow: /\nUser-agent: AhrefsBot\nDisallow: /\nUser-agent: GetHPinfo.com-Bot\nDisallow: /\nUser-agent: YandexBot\nDisallow: /\nUser-Agent: trendictionbot\nDisallow: /\nUser-Agent: Veooz\nDisallow: /\nUser-Agent: WikiDo\nDisallow: /\nUser-Agent: Yeti\nDisallow: /\nUser-Agent: SeznamBot\nDisallow: /\nUser-agent: grapeshot\nDisallow: /\nUser-agent: IstellaBot\nDisallow: /\nUser-agent: PetalBot\nDisallow: /\nUser-agent: Baiduspider\nDisallow: /\nUser-agent: dotbot\nDisallow: /\n\n\n\n"
+        }
+      ],
+      "result": {
+        "kind": "document",
+        "url": "https://classifieds.daytondailynews.com/marketplace/advert/request-for-proposals-rfp-for-website-redesign-general_3566",
+        "checkedAt": "2026-10-15T14:26:59.064Z",
+        "status": "access_limited",
+        "reason": "crawl_delay_exceeds_run_budget",
+        "text": null,
+        "fingerprint": null,
+        "posting": null,
+        "hostDelaySeconds": 20,
+        "sitemaps": [],
+        "capture": {
+          "method": "http",
+          "requests": 1,
+          "bytes": 1228,
+          "complete": false
+        }
+      }
+    }
+  ]
+}

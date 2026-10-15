@@ -1,0 +1,97 @@
+[
+  {
+    "query": {
+      "query": "\"TypeScript\" site:workana.com inurl:job",
+      "language": "en",
+      "country": "us",
+      "freshness": "any",
+      "page": 1,
+      "limit": 10
+    },
+    "result": {
+      "kind": "search",
+      "observations": [],
+      "checkedAt": "2026-10-15T14:44:44.270Z",
+      "completeness": "window",
+      "nextPage": null
+    }
+  },
+  {
+    "query": {
+      "query": "\"website redesign\" site:workana.com inurl:job",
+      "language": "en",
+      "country": "us",
+      "freshness": "any",
+      "page": 1,
+      "limit": 10
+    },
+    "result": {
+      "kind": "search",
+      "observations": [
+        {
+          "url": "https://www.workana.com/job/expert-web-designer-needed-for-enterprise-b2b-website-redesign-and-enhanced-ux",
+          "title": "Expert web designer needed for enterprise b2b...",
+          "snippet": "We are looking for a freelancer who can deliver a sophisticated and intuitive design for a B2B technology audience. Please provide your portfolio, highlighting ...",
+          "rank": 1
+        },
+        {
+          "url": "https://www.workana.com/job/healthcare-dental-company-website-redesign-for-enhanced-user-experience-and-lead-generation",
+          "title": "Healthcare dental company website redesign for...",
+          "snippet": "We are seeking an experienced freelancer to undertake a comprehensive redesign of our healthcare dental company website.",
+          "rank": 2
+        },
+        {
+          "url": "https://www.workana.com/job/complete-branding-and-responsive-website-design-for-manufacturing-company",
+          "title": "Complete Branding and Responsive Website Design ...",
+          "snippet": "We are a manufacturing company seeking a talented freelancer or agency to develop a comprehensive branding package and design a modern, professional, ...",
+          "rank": 3
+        },
+        {
+          "url": "https://www.workana.com/job/professional-restaurant-website-design-and-development-1?ref=projects_1",
+          "title": "Professional Restaurant Website Design and Development",
+          "snippet": "We are seeking a skilled freelancer to design and develop a comprehensive website for a restaurant. The website should be visually appealing ...",
+          "rank": 4
+        },
+        {
+          "url": "https://www.workana.com/en/job/modern-ai-integrated-architectural-website-redesign-hostinger-deployment",
+          "title": "Modern ai integrated architectural website... - Freelance Job in ...",
+          "snippet": "I am looking for a skilled web developer or design team to completely rebuild and modernize my existing architectural services website and redeploy it on ...",
+          "rank": 5
+        },
+        {
+          "url": "https://www.workana.com/job/web-redesign-y-logo?ref=projects_1",
+          "title": "Web redesign y logo - Freelance Job in Web design",
+          "snippet": "Wix Website Redesign. Published on the June 17, 2024 in Design & Multimedia ... Web Design CSS JavaScript MySQL PHP Web Development Web Layout Web design.",
+          "rank": 6
+        },
+        {
+          "url": "https://www.workana.com/en/job/expert-wix-studio-website-design-review-and-responsive-optimization",
+          "title": "Expert wix studio website design review and...",
+          "snippet": "We are seeking an experienced web design professional to conduct a thorough review and uplift of our existing website, built on Wix Studio.",
+          "rank": 7
+        },
+        {
+          "url": "https://www.workana.com/en/job/website-redesign-and-optimization-for-us-telecom-smart-hands-provider-bilingual-en-pt",
+          "title": "Website redesign and optimization for us... - Freelance Job in ...",
+          "snippet": "I'm seeking a mid-level web developer (3-5 years experience) to redesign our simple one-page site at Hype Telecom... I need a freelancer for this project.",
+          "rank": 8
+        },
+        {
+          "url": "https://www.workana.com/job/expert-branding-ux-ui-and-responsive-web-design-for-new-business-launch",
+          "title": "Expert Branding, Ux/Ui, and Responsive Web Design for New ...",
+          "snippet": "The ideal freelancer will manage both the branding and ux/ui design processes, from initial conceptualization through to the final website layouts. All ...",
+          "rank": 9
+        },
+        {
+          "url": "https://www.workana.com/job/design-of-a-website-for-a-childrens-9?ref=projects_1",
+          "title": "Design of a website for a childrens 9 - Freelance Job in ...",
+          "snippet": "I need a corporate website featuring our company's history, team members and contact from to be launched within the next two weeks.",
+          "rank": 10
+        }
+      ],
+      "checkedAt": "2026-10-15T14:44:46.159Z",
+      "completeness": "window",
+      "nextPage": 2
+    }
+  }
+]

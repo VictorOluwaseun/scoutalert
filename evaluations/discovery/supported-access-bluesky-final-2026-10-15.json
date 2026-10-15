@@ -1,0 +1,34 @@
+{
+  "checkedAt": "2026-10-15T16:09:15.208Z",
+  "scope": "Exact observed public post read through the supported unauthenticated API; no paid search, AI, recommendation or buyer-demand claim. External preview text is excluded.",
+  "result": {
+    "kind": "document",
+    "url": "https://bsky.app/profile/signal.org/post/3ma7awnh4vs24",
+    "checkedAt": "2026-10-15T16:09:14.583Z",
+    "status": "fetched",
+    "reason": null,
+    "text": "Author: signal.org\nPublished: 2025-12-17T18:07:55.227Z\n\nIf you’ve felt safer sending a message because you sent it on Signal, please support our work. As a nonprofit, Signal exists because of your donations. \n\nIn the app: Settings > Donate\nOn the web: Signal.org/donate",
+    "fingerprint": "2137031867ffc95ed97aa6da338ab6b407e48e25b8d6afb3b8391421da3a6c43",
+    "posting": null,
+    "hostDelaySeconds": 2,
+    "truncated": false,
+    "links": [
+      {
+        "url": "https://signal.org/donate",
+        "text": "Link shared by the post author"
+      }
+    ],
+    "publicApi": {
+      "provider": "bluesky",
+      "url": "https://public.api.bsky.app/xrpc/app.bsky.feed.getPostThread?uri=at%3A%2F%2Fsignal.org%2Fapp.bsky.feed.post%2F3ma7awnh4vs24&depth=0&parentHeight=0",
+      "snapshotFingerprint": "c471025bccb96af2078a675d2238d3a985c4259e45d3618e6703bfb81b737d0c"
+    },
+    "capture": {
+      "method": "public_api",
+      "requests": 1,
+      "bytes": 2497,
+      "complete": true,
+      "parser": "bluesky-public-v1"
+    }
+  }
+}

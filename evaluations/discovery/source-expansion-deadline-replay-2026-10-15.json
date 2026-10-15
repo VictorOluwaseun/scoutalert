@@ -1,0 +1,41 @@
+{
+  "note": "Offline replay of recorded failed model output; not new source availability or live discovery.",
+  "checks": [
+    {
+      "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/react-js-node-js-developer-for-existing-management-system-4526654",
+      "beforeValid": false,
+      "afterValid": true,
+      "beforeDeadline": {
+        "status": "unknown",
+        "value": "",
+        "quotes": [
+          "Ends in 28 days"
+        ]
+      },
+      "afterDeadline": {
+        "status": "unknown",
+        "value": "",
+        "quotes": []
+      },
+      "forgedRemainsRejected": true
+    },
+    {
+      "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/mobile-app-development/create-responsive-webapp-based-on-wordpress-application-4525990",
+      "beforeValid": false,
+      "afterValid": true,
+      "beforeDeadline": {
+        "status": "unknown",
+        "value": "",
+        "quotes": [
+          "Ends in 24 days"
+        ]
+      },
+      "afterDeadline": {
+        "status": "unknown",
+        "value": "",
+        "quotes": []
+      },
+      "forgedRemainsRejected": true
+    }
+  ]
+}

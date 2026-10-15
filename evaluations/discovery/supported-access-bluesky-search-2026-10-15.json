@@ -1,0 +1,6 @@
+{
+  "checkedAt": "2026-10-15T15:55:41.568Z",
+  "endpoint": "https://public.api.bsky.app/xrpc/app.bsky.feed.searchPosts?q=%22website+redesign%22&limit=10&sort=latest",
+  "status": 403,
+  "posts": []
+}

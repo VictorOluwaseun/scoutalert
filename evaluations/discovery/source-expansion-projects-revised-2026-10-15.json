@@ -1,0 +1,4398 @@
+{
+  "checkedAt": "2026-10-15T14:49:58.820Z",
+  "scenario": "projects",
+  "recaptureCases": null,
+  "baseline": false,
+  "reasoningConfiguration": "openai:gpt-5.4-mini-2026-03-17:scout-planning-v12",
+  "plan": {
+    "policy": "public-intent-v3",
+    "queries": [
+      {
+        "page": 1,
+        "limit": 10,
+        "query": "\"React\" site:peopleperhour.com/freelance-jobs",
+        "country": "us",
+        "language": "en",
+        "freshness": "month"
+      },
+      {
+        "page": 1,
+        "limit": 10,
+        "query": "\"React\" site:workana.com inurl:job",
+        "country": "us",
+        "language": "en",
+        "freshness": "any"
+      },
+      {
+        "page": 1,
+        "limit": 10,
+        "query": "\"web\" \"development\" (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+        "country": "us",
+        "language": "en",
+        "freshness": "month"
+      },
+      {
+        "page": 1,
+        "limit": 10,
+        "query": "\"React\" inurl:projects (\"budget\" OR \"bids\" OR \"proposals\")",
+        "country": "us",
+        "language": "en",
+        "freshness": "month"
+      }
+    ],
+    "category": "services",
+    "strategy": {
+      "targets": [
+        "React",
+        "TypeScript",
+        "web development"
+      ],
+      "explanation": "I split the service into three concise search concepts using only the words from the brief. This helps surface buyers searching for React work, TypeScript work, or web development work while keeping the full request available for later matching. Remote is kept out of the public targets and handled separately."
+    },
+    "exploration": {
+      "remote": true,
+      "target": "React TypeScript web development",
+      "queryPolicy": "client-demand-v5",
+      "maximumDepth": 3,
+      "maximumRounds": 8,
+      "candidatePolicy": "contextual-v1",
+      "maximumSearches": 6,
+      "maximumSourcePages": 2
+    },
+    "continuation": "explore_on_next_run",
+    "scoutVersion": 1,
+    "blockedReason": null,
+    "deadlineSeconds": 240,
+    "maximumDocuments": 6
+  },
+  "reader": "worker",
+  "renderingEnabled": true,
+  "status": "measured",
+  "deliveryOutcome": "submitted_to_mailpit",
+  "reasoning": [
+    {
+      "input": {
+        "kind": "strategy",
+        "intent": {
+          "remote": true,
+          "target": "React TypeScript web development",
+          "category": "services"
+        }
+      },
+      "output": {
+        "kind": "strategy",
+        "strategy": {
+          "targets": [
+            "React",
+            "TypeScript",
+            "web development"
+          ],
+          "explanation": "I split the service into three concise search concepts using only the words from the brief. This helps surface buyers searching for React work, TypeScript work, or web development work while keeping the full request available for later matching. Remote is kept out of the public targets and handled separately."
+        }
+      },
+      "rejected_output": null,
+      "failure": null,
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 2434,
+        "responseId": "resp_0842730f8c5a1210016ad0e7ae4dd887d284b331d6df8b24d8",
+        "inputTokens": 340,
+        "outputTokens": 170,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 1020
+      }
+    },
+    {
+      "input": {
+        "kind": "choice",
+        "intent": {
+          "remote": true,
+          "target": "React TypeScript web development",
+          "category": "services"
+        },
+        "choices": [
+          {
+            "depth": 0,
+            "title": "Sales & Business Development Executive (Inbound & ...",
+            "action": {
+              "url": "https://www.peopleperhour.com/freelance-jobs/marketing-branding-sales/sales-calls/sales-business-development-executive-inbound-outbound-4526763",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "5c34f80210fb25931ba5c08741e1e49da85fa89f92f55e36eb8a0a73a4a5eda4"
+          },
+          {
+            "depth": 0,
+            "title": "Active City RFPs, RFQs, RFIs, and Bids",
+            "action": {
+              "url": "https://www.stlouis-mo.gov/government/procurement/index.cfm",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "5ec5bb3f10ede423c781fb933d22bb3e5753ebc1e886df9594e26ac0b1106f57"
+          },
+          {
+            "depth": 0,
+            "title": "Request for Proposal (RfP)",
+            "action": {
+              "url": "https://www.c40.org/wp-content/uploads/2026/10/2-RfP-GCoM-Website-Development-Maintenance.pdf",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "5ec5bb3f10ede423c781fb933d22bb3e5753ebc1e886df9594e26ac0b1106f57"
+          },
+          {
+            "depth": 0,
+            "title": "Replit / PostgreSQL developer required",
+            "action": {
+              "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/databases/replit-postgresql-developer-required-4526666",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "5c34f80210fb25931ba5c08741e1e49da85fa89f92f55e36eb8a0a73a4a5eda4"
+          },
+          {
+            "depth": 0,
+            "title": "Top 30 Final Year Project Ideas for CSE Students (2026)",
+            "action": {
+              "url": "https://www.upgrad.com/blog/final-year-projects-ideas-topics/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "9fc4c302fa7e5f4b65b2834f8a3567fe363870fdd6e16bff621e5f6036ebc37d"
+          },
+          {
+            "depth": 0,
+            "title": "Achieving hedge accounting in practice under IFRS 9",
+            "action": {
+              "url": "https://www.pwc.com/hu/hu/szolgaltatasok/ifrs/ifrs_9/ifrs9_kiadvanyok/achieving_hedge_accounting_in_practice_under_ifrs9.pdf",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "9fc4c302fa7e5f4b65b2834f8a3567fe363870fdd6e16bff621e5f6036ebc37d"
+          },
+          {
+            "depth": 0,
+            "title": "📢 Request for Proposal (RFP) - Website Development We ...",
+            "action": {
+              "url": "https://www.instagram.com/p/DeZUIC5BGCm/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "5ec5bb3f10ede423c781fb933d22bb3e5753ebc1e886df9594e26ac0b1106f57"
+          },
+          {
+            "depth": 0,
+            "title": "Website Development RFP Best Practices for Clear Projects",
+            "action": {
+              "url": "https://www.linkedin.com/posts/start-designs_websitedevelopment-rfp-webdevelopment-activity-7506988772400496640-UUs3",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "5ec5bb3f10ede423c781fb933d22bb3e5753ebc1e886df9594e26ac0b1106f57"
+          },
+          {
+            "depth": 0,
+            "title": "Node.js Developer for Existing Management System",
+            "action": {
+              "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/react-js-node-js-developer-for-existing-management-system-4526654",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "5c34f80210fb25931ba5c08741e1e49da85fa89f92f55e36eb8a0a73a4a5eda4"
+          },
+          {
+            "depth": 0,
+            "title": "Website RFP Template + Generator & Scoring Sheet",
+            "action": {
+              "url": "https://sociallinker.pro/tools/web-development-rfp-template",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "5ec5bb3f10ede423c781fb933d22bb3e5753ebc1e886df9594e26ac0b1106f57"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"TypeScript\" (\"I need\" OR \"we need\" OR \"looking for\") (\"freelancer\" OR \"budget\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "9fc4c302fa7e5f4b65b2834f8a3567fe363870fdd6e16bff621e5f6036ebc37d"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"web\" \"development\" (\"project details\" OR \"project description\" OR \"open for bidding\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "9fc4c302fa7e5f4b65b2834f8a3567fe363870fdd6e16bff621e5f6036ebc37d"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"React\" (\"I need\" OR \"we need\" OR \"looking for\") (\"freelancer\" OR \"budget\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "9fc4c302fa7e5f4b65b2834f8a3567fe363870fdd6e16bff621e5f6036ebc37d"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"TypeScript\" (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "9fc4c302fa7e5f4b65b2834f8a3567fe363870fdd6e16bff621e5f6036ebc37d"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"web\" \"development\" (\"seeking\" OR \"hiring\") (\"freelance\" OR \"contractor\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "9fc4c302fa7e5f4b65b2834f8a3567fe363870fdd6e16bff621e5f6036ebc37d"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": null,
+            "reason": "no_further_action",
+            "parentKey": null
+          }
+        ],
+        "evidence": [
+          {
+            "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/react-js-node-js-developer-for-existing-management-system-4526654",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Node.js Developer for Existing Management System Technology & Programming freelance job: React.js & Node.js Developer for Existing Management System."
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/databases/replit-postgresql-developer-required-4526666",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Replit / PostgreSQL developer required Hemant K. Full Stack Developer| Web & Mobile Development | React | Node | React Native | WordPress | Shopify | eCommerce | Custom Development | SEO | AI ..."
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelance-jobs/marketing-branding-sales/sales-calls/sales-business-development-executive-inbound-outbound-4526763",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Sales & Business Development Executive (Inbound & ... ... React.js ✓ React Native ✓ Android ✓ iOS ✓ASP.net ✓ n8n. Subscriber TopAccess Top Seller with earnings over £200k Top Seller with earnings over £100k Top ..."
+          },
+          {
+            "url": "https://sociallinker.pro/tools/web-development-rfp-template",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Website RFP Template + Generator & Scoring Sheet Website RFP template, generator, and scoring sheet. Build a request for proposal that gives every web development company, agency, or developer the same project ..."
+          },
+          {
+            "url": "https://www.linkedin.com/posts/start-designs_websitedevelopment-rfp-webdevelopment-activity-7506988772400496640-UUs3",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Website Development RFP Best Practices for Clear Projects ... development RFP and how to structure it effectively. Read the ... web development. We explored what goes into making different services feel ..."
+          },
+          {
+            "url": "https://www.stlouis-mo.gov/government/procurement/index.cfm",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Active City RFPs, RFQs, RFIs, and Bids RFP Parking Facilities Garage Repair Design Services Office of the Treasurer ... Built by the ITSA Web Development Team. © 2011 - 2026 City of St. Louis."
+          },
+          {
+            "url": "https://www.c40.org/wp-content/uploads/2026/10/2-RfP-GCoM-Website-Development-Maintenance.pdf",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Request for Proposal (RfP) Request for Proposal (RfP). GCoM Website Maintenance ... provide comprehensive web development, technical maintenance, and strategic design-led."
+          },
+          {
+            "url": "https://www.instagram.com/p/DeZUIC5BGCm/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "📢 Request for Proposal (RFP) - Website Development We ... Request for Proposal (RFP) - Website Development · Hiring a web development team? · We're giving our website a fresh look — and we need your help! ·"
+          },
+          {
+            "url": "https://www.upgrad.com/blog/final-year-projects-ideas-topics/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Top 30 Final Year Project Ideas for CSE Students (2026) Budget Tracker. At the end of a month, most wonder where their money goes. A ... These projects will help you learn React or Angular for the frontend, Node."
+          },
+          {
+            "url": "https://www.pwc.com/hu/hu/szolgaltatasok/ifrs/ifrs_9/ifrs9_kiadvanyok/achieving_hedge_accounting_in_practice_under_ifrs9.pdf",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Achieving hedge accounting in practice under IFRS 9 ... react to changes in circumstances. It is normally a general document that ... budget period. Company F will. Page 161. In depth: Achieving hedge ..."
+          }
+        ],
+        "candidates": [
+          {
+            "text": "Sales & Business Development Executive (Inbound & ... ... React.js ✓ React Native ✓ Android ✓ iOS ✓ASP.net ✓ n8n. Subscriber TopAccess Top Seller with earnings over £200k Top Seller with earnings over £100k Top ...",
+            "query": "\"React\" site:peopleperhour.com/freelance-jobs",
+            "choice": 0,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Active City RFPs, RFQs, RFIs, and Bids RFP Parking Facilities Garage Repair Design Services Office of the Treasurer ... Built by the ITSA Web Development Team. © 2011 - 2026 City of St. Louis.",
+            "query": "\"web\" \"development\" (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 1,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Request for Proposal (RfP) Request for Proposal (RfP). GCoM Website Maintenance ... provide comprehensive web development, technical maintenance, and strategic design-led.",
+            "query": "\"web\" \"development\" (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 2,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Replit / PostgreSQL developer required Hemant K. Full Stack Developer| Web & Mobile Development | React | Node | React Native | WordPress | Shopify | eCommerce | Custom Development | SEO | AI ...",
+            "query": "\"React\" site:peopleperhour.com/freelance-jobs",
+            "choice": 3,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Top 30 Final Year Project Ideas for CSE Students (2026) Budget Tracker. At the end of a month, most wonder where their money goes. A ... These projects will help you learn React or Angular for the frontend, Node.",
+            "query": "\"React\" inurl:projects (\"budget\" OR \"bids\" OR \"proposals\")",
+            "choice": 4,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Achieving hedge accounting in practice under IFRS 9 ... react to changes in circumstances. It is normally a general document that ... budget period. Company F will. Page 161. In depth: Achieving hedge ...",
+            "query": "\"React\" inurl:projects (\"budget\" OR \"bids\" OR \"proposals\")",
+            "choice": 5,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "📢 Request for Proposal (RFP) - Website Development We ... Request for Proposal (RFP) - Website Development · Hiring a web development team? · We're giving our website a fresh look — and we need your help! ·",
+            "query": "\"web\" \"development\" (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 6,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Website Development RFP Best Practices for Clear Projects ... development RFP and how to structure it effectively. Read the ... web development. We explored what goes into making different services feel ...",
+            "query": "\"web\" \"development\" (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 7,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Node.js Developer for Existing Management System Technology & Programming freelance job: React.js & Node.js Developer for Existing Management System.",
+            "query": "\"React\" site:peopleperhour.com/freelance-jobs",
+            "choice": 8,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Website RFP Template + Generator & Scoring Sheet Website RFP template, generator, and scoring sheet. Build a request for proposal that gives every web development company, agency, or developer the same project ...",
+            "query": "\"web\" \"development\" (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 9,
+            "origin": "search_result",
+            "parentUrl": null
+          }
+        ]
+      },
+      "output": {
+        "kind": "choice",
+        "index": 2,
+        "explanation": "This looks like a concrete buyer RFP for website development and maintenance, which is directly relevant to React/TypeScript web work and more useful than directories or seller-facing pages."
+      },
+      "rejected_output": null,
+      "failure": null,
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 2566,
+        "responseId": "resp_0f39ab893d2f3894016ad0e7b7b32c87d2adc3ceed25a773f6",
+        "inputTokens": 4163,
+        "outputTokens": 119,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 3658
+      }
+    },
+    {
+      "input": {
+        "kind": "choice",
+        "intent": {
+          "remote": true,
+          "target": "React TypeScript web development",
+          "category": "services"
+        },
+        "choices": [
+          {
+            "depth": 0,
+            "title": "Sales & Business Development Executive (Inbound & ...",
+            "action": {
+              "url": "https://www.peopleperhour.com/freelance-jobs/marketing-branding-sales/sales-calls/sales-business-development-executive-inbound-outbound-4526763",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "5c34f80210fb25931ba5c08741e1e49da85fa89f92f55e36eb8a0a73a4a5eda4"
+          },
+          {
+            "depth": 0,
+            "title": "Active City RFPs, RFQs, RFIs, and Bids",
+            "action": {
+              "url": "https://www.stlouis-mo.gov/government/procurement/index.cfm",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "5ec5bb3f10ede423c781fb933d22bb3e5753ebc1e886df9594e26ac0b1106f57"
+          },
+          {
+            "depth": 0,
+            "title": "📢 Request for Proposal (RFP) - Website Development We ...",
+            "action": {
+              "url": "https://www.instagram.com/p/DeZUIC5BGCm/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "5ec5bb3f10ede423c781fb933d22bb3e5753ebc1e886df9594e26ac0b1106f57"
+          },
+          {
+            "depth": 0,
+            "title": "Replit / PostgreSQL developer required",
+            "action": {
+              "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/databases/replit-postgresql-developer-required-4526666",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "5c34f80210fb25931ba5c08741e1e49da85fa89f92f55e36eb8a0a73a4a5eda4"
+          },
+          {
+            "depth": 0,
+            "title": "Top 30 Final Year Project Ideas for CSE Students (2026)",
+            "action": {
+              "url": "https://www.upgrad.com/blog/final-year-projects-ideas-topics/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "9fc4c302fa7e5f4b65b2834f8a3567fe363870fdd6e16bff621e5f6036ebc37d"
+          },
+          {
+            "depth": 0,
+            "title": "Achieving hedge accounting in practice under IFRS 9",
+            "action": {
+              "url": "https://www.pwc.com/hu/hu/szolgaltatasok/ifrs/ifrs_9/ifrs9_kiadvanyok/achieving_hedge_accounting_in_practice_under_ifrs9.pdf",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "9fc4c302fa7e5f4b65b2834f8a3567fe363870fdd6e16bff621e5f6036ebc37d"
+          },
+          {
+            "depth": 0,
+            "title": "Website Development RFP Best Practices for Clear Projects",
+            "action": {
+              "url": "https://www.linkedin.com/posts/start-designs_websitedevelopment-rfp-webdevelopment-activity-7506988772400496640-UUs3",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "5ec5bb3f10ede423c781fb933d22bb3e5753ebc1e886df9594e26ac0b1106f57"
+          },
+          {
+            "depth": 0,
+            "title": "Asset Based Community Development (ABCD) ...",
+            "action": {
+              "url": "https://www.cscbroward.org/news/abcd-rfp-2026/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "5ec5bb3f10ede423c781fb933d22bb3e5753ebc1e886df9594e26ac0b1106f57"
+          },
+          {
+            "depth": 0,
+            "title": "Node.js Developer for Existing Management System",
+            "action": {
+              "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/react-js-node-js-developer-for-existing-management-system-4526654",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "5c34f80210fb25931ba5c08741e1e49da85fa89f92f55e36eb8a0a73a4a5eda4"
+          },
+          {
+            "depth": 0,
+            "title": "Website RFP Template + Generator & Scoring Sheet",
+            "action": {
+              "url": "https://sociallinker.pro/tools/web-development-rfp-template",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "5ec5bb3f10ede423c781fb933d22bb3e5753ebc1e886df9594e26ac0b1106f57"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"TypeScript\" (\"I need\" OR \"we need\" OR \"looking for\") (\"freelancer\" OR \"budget\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "9fc4c302fa7e5f4b65b2834f8a3567fe363870fdd6e16bff621e5f6036ebc37d"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"web\" \"development\" (\"project details\" OR \"project description\" OR \"open for bidding\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "9fc4c302fa7e5f4b65b2834f8a3567fe363870fdd6e16bff621e5f6036ebc37d"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"React\" (\"I need\" OR \"we need\" OR \"looking for\") (\"freelancer\" OR \"budget\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "9fc4c302fa7e5f4b65b2834f8a3567fe363870fdd6e16bff621e5f6036ebc37d"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"TypeScript\" (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "9fc4c302fa7e5f4b65b2834f8a3567fe363870fdd6e16bff621e5f6036ebc37d"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"web\" \"development\" (\"seeking\" OR \"hiring\") (\"freelance\" OR \"contractor\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "9fc4c302fa7e5f4b65b2834f8a3567fe363870fdd6e16bff621e5f6036ebc37d"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": null,
+            "reason": "no_further_action",
+            "parentKey": null
+          }
+        ],
+        "evidence": [
+          {
+            "url": "https://www.c40.org/wp-content/uploads/2026/10/2-RfP-GCoM-Website-Development-Maintenance.pdf",
+            "label": "access_limited",
+            "scope": "source_access",
+            "unknowns": [
+              "demand and availability remain unverified"
+            ],
+            "explanation": "Source capture could not provide complete evidence: source_access_denied."
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/react-js-node-js-developer-for-existing-management-system-4526654",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Node.js Developer for Existing Management System Technology & Programming freelance job: React.js & Node.js Developer for Existing Management System."
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/databases/replit-postgresql-developer-required-4526666",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Replit / PostgreSQL developer required Hemant K. Full Stack Developer| Web & Mobile Development | React | Node | React Native | WordPress | Shopify | eCommerce | Custom Development | SEO | AI ..."
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelance-jobs/marketing-branding-sales/sales-calls/sales-business-development-executive-inbound-outbound-4526763",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Sales & Business Development Executive (Inbound & ... ... React.js ✓ React Native ✓ Android ✓ iOS ✓ASP.net ✓ n8n. Subscriber TopAccess Top Seller with earnings over £200k Top Seller with earnings over £100k Top ..."
+          },
+          {
+            "url": "https://sociallinker.pro/tools/web-development-rfp-template",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Website RFP Template + Generator & Scoring Sheet Website RFP template, generator, and scoring sheet. Build a request for proposal that gives every web development company, agency, or developer the same project ..."
+          },
+          {
+            "url": "https://www.linkedin.com/posts/start-designs_websitedevelopment-rfp-webdevelopment-activity-7506988772400496640-UUs3",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Website Development RFP Best Practices for Clear Projects ... development RFP and how to structure it effectively. Read the ... web development. We explored what goes into making different services feel ..."
+          },
+          {
+            "url": "https://www.cscbroward.org/news/abcd-rfp-2026/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Asset Based Community Development (ABCD) ... Asset Based Community Development (ABCD) Administrative Support Organization RFP ... This procurement will be available on September 28, 2026, through CSC's web ..."
+          },
+          {
+            "url": "https://www.stlouis-mo.gov/government/procurement/index.cfm",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Active City RFPs, RFQs, RFIs, and Bids RFP Parking Facilities Garage Repair Design Services Office of the Treasurer ... Built by the ITSA Web Development Team. © 2011 - 2026 City of St. Louis."
+          },
+          {
+            "url": "https://www.instagram.com/p/DeZUIC5BGCm/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "📢 Request for Proposal (RFP) - Website Development We ... Request for Proposal (RFP) - Website Development · Hiring a web development team? · We're giving our website a fresh look — and we need your help! ·"
+          },
+          {
+            "url": "https://www.upgrad.com/blog/final-year-projects-ideas-topics/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Top 30 Final Year Project Ideas for CSE Students (2026) Budget Tracker. At the end of a month, most wonder where their money goes. A ... These projects will help you learn React or Angular for the frontend, Node."
+          },
+          {
+            "url": "https://www.pwc.com/hu/hu/szolgaltatasok/ifrs/ifrs_9/ifrs9_kiadvanyok/achieving_hedge_accounting_in_practice_under_ifrs9.pdf",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Achieving hedge accounting in practice under IFRS 9 ... react to changes in circumstances. It is normally a general document that ... budget period. Company F will. Page 161. In depth: Achieving hedge ..."
+          }
+        ],
+        "candidates": [
+          {
+            "text": "Sales & Business Development Executive (Inbound & ... ... React.js ✓ React Native ✓ Android ✓ iOS ✓ASP.net ✓ n8n. Subscriber TopAccess Top Seller with earnings over £200k Top Seller with earnings over £100k Top ...",
+            "query": "\"React\" site:peopleperhour.com/freelance-jobs",
+            "choice": 0,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Active City RFPs, RFQs, RFIs, and Bids RFP Parking Facilities Garage Repair Design Services Office of the Treasurer ... Built by the ITSA Web Development Team. © 2011 - 2026 City of St. Louis.",
+            "query": "\"web\" \"development\" (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 1,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "📢 Request for Proposal (RFP) - Website Development We ... Request for Proposal (RFP) - Website Development · Hiring a web development team? · We're giving our website a fresh look — and we need your help! ·",
+            "query": "\"web\" \"development\" (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 2,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Replit / PostgreSQL developer required Hemant K. Full Stack Developer| Web & Mobile Development | React | Node | React Native | WordPress | Shopify | eCommerce | Custom Development | SEO | AI ...",
+            "query": "\"React\" site:peopleperhour.com/freelance-jobs",
+            "choice": 3,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Top 30 Final Year Project Ideas for CSE Students (2026) Budget Tracker. At the end of a month, most wonder where their money goes. A ... These projects will help you learn React or Angular for the frontend, Node.",
+            "query": "\"React\" inurl:projects (\"budget\" OR \"bids\" OR \"proposals\")",
+            "choice": 4,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Achieving hedge accounting in practice under IFRS 9 ... react to changes in circumstances. It is normally a general document that ... budget period. Company F will. Page 161. In depth: Achieving hedge ...",
+            "query": "\"React\" inurl:projects (\"budget\" OR \"bids\" OR \"proposals\")",
+            "choice": 5,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Website Development RFP Best Practices for Clear Projects ... development RFP and how to structure it effectively. Read the ... web development. We explored what goes into making different services feel ...",
+            "query": "\"web\" \"development\" (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 6,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Asset Based Community Development (ABCD) ... Asset Based Community Development (ABCD) Administrative Support Organization RFP ... This procurement will be available on September 28, 2026, through CSC's web ...",
+            "query": "\"web\" \"development\" (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 7,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Node.js Developer for Existing Management System Technology & Programming freelance job: React.js & Node.js Developer for Existing Management System.",
+            "query": "\"React\" site:peopleperhour.com/freelance-jobs",
+            "choice": 8,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Website RFP Template + Generator & Scoring Sheet Website RFP template, generator, and scoring sheet. Build a request for proposal that gives every web development company, agency, or developer the same project ...",
+            "query": "\"web\" \"development\" (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 9,
+            "origin": "search_result",
+            "parentUrl": null
+          }
+        ]
+      },
+      "output": {
+        "kind": "choice",
+        "index": 8,
+        "explanation": "Relevant buyer request for web development work using React/Node, likely to clarify scope and requirements better than generic RFP or seller/template pages."
+      },
+      "rejected_output": null,
+      "failure": null,
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 2742,
+        "responseId": "resp_0e209634e5bd6fbf016ad0e7bc683087d29d1c6c464b60a01f",
+        "inputTokens": 4233,
+        "outputTokens": 203,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 4089
+      }
+    },
+    {
+      "input": {
+        "kind": "choice",
+        "intent": {
+          "remote": true,
+          "target": "React TypeScript web development",
+          "category": "services"
+        },
+        "choices": [
+          {
+            "depth": 0,
+            "title": "Sales & Business Development Executive (Inbound & ...",
+            "action": {
+              "url": "https://www.peopleperhour.com/freelance-jobs/marketing-branding-sales/sales-calls/sales-business-development-executive-inbound-outbound-4526763",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "5c34f80210fb25931ba5c08741e1e49da85fa89f92f55e36eb8a0a73a4a5eda4"
+          },
+          {
+            "depth": 0,
+            "title": "Active City RFPs, RFQs, RFIs, and Bids",
+            "action": {
+              "url": "https://www.stlouis-mo.gov/government/procurement/index.cfm",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "5ec5bb3f10ede423c781fb933d22bb3e5753ebc1e886df9594e26ac0b1106f57"
+          },
+          {
+            "depth": 0,
+            "title": "📢 Request for Proposal (RFP) - Website Development We ...",
+            "action": {
+              "url": "https://www.instagram.com/p/DeZUIC5BGCm/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "5ec5bb3f10ede423c781fb933d22bb3e5753ebc1e886df9594e26ac0b1106f57"
+          },
+          {
+            "depth": 0,
+            "title": "Replit / PostgreSQL developer required",
+            "action": {
+              "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/databases/replit-postgresql-developer-required-4526666",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "5c34f80210fb25931ba5c08741e1e49da85fa89f92f55e36eb8a0a73a4a5eda4"
+          },
+          {
+            "depth": 0,
+            "title": "Top 30 Final Year Project Ideas for CSE Students (2026)",
+            "action": {
+              "url": "https://www.upgrad.com/blog/final-year-projects-ideas-topics/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "9fc4c302fa7e5f4b65b2834f8a3567fe363870fdd6e16bff621e5f6036ebc37d"
+          },
+          {
+            "depth": 0,
+            "title": "Achieving hedge accounting in practice under IFRS 9",
+            "action": {
+              "url": "https://www.pwc.com/hu/hu/szolgaltatasok/ifrs/ifrs_9/ifrs9_kiadvanyok/achieving_hedge_accounting_in_practice_under_ifrs9.pdf",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "9fc4c302fa7e5f4b65b2834f8a3567fe363870fdd6e16bff621e5f6036ebc37d"
+          },
+          {
+            "depth": 0,
+            "title": "Website Development RFP Best Practices for Clear Projects",
+            "action": {
+              "url": "https://www.linkedin.com/posts/start-designs_websitedevelopment-rfp-webdevelopment-activity-7506988772400496640-UUs3",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "5ec5bb3f10ede423c781fb933d22bb3e5753ebc1e886df9594e26ac0b1106f57"
+          },
+          {
+            "depth": 0,
+            "title": "Asset Based Community Development (ABCD) ...",
+            "action": {
+              "url": "https://www.cscbroward.org/news/abcd-rfp-2026/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "5ec5bb3f10ede423c781fb933d22bb3e5753ebc1e886df9594e26ac0b1106f57"
+          },
+          {
+            "depth": 0,
+            "title": "Create responsive webapp based on wordpress application",
+            "action": {
+              "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/mobile-app-development/create-responsive-webapp-based-on-wordpress-application-4525990",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "5c34f80210fb25931ba5c08741e1e49da85fa89f92f55e36eb8a0a73a4a5eda4"
+          },
+          {
+            "depth": 0,
+            "title": "Website RFP Template + Generator & Scoring Sheet",
+            "action": {
+              "url": "https://sociallinker.pro/tools/web-development-rfp-template",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "5ec5bb3f10ede423c781fb933d22bb3e5753ebc1e886df9594e26ac0b1106f57"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"TypeScript\" (\"I need\" OR \"we need\" OR \"looking for\") (\"freelancer\" OR \"budget\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "9fc4c302fa7e5f4b65b2834f8a3567fe363870fdd6e16bff621e5f6036ebc37d"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"web\" \"development\" (\"project details\" OR \"project description\" OR \"open for bidding\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "9fc4c302fa7e5f4b65b2834f8a3567fe363870fdd6e16bff621e5f6036ebc37d"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"React\" (\"I need\" OR \"we need\" OR \"looking for\") (\"freelancer\" OR \"budget\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "9fc4c302fa7e5f4b65b2834f8a3567fe363870fdd6e16bff621e5f6036ebc37d"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"TypeScript\" (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "9fc4c302fa7e5f4b65b2834f8a3567fe363870fdd6e16bff621e5f6036ebc37d"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"web\" \"development\" (\"seeking\" OR \"hiring\") (\"freelance\" OR \"contractor\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "9fc4c302fa7e5f4b65b2834f8a3567fe363870fdd6e16bff621e5f6036ebc37d"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": null,
+            "reason": "no_further_action",
+            "parentKey": null
+          }
+        ],
+        "evidence": [
+          {
+            "url": "https://www.c40.org/wp-content/uploads/2026/10/2-RfP-GCoM-Website-Development-Maintenance.pdf",
+            "label": "access_limited",
+            "scope": "source_access",
+            "unknowns": [
+              "demand and availability remain unverified"
+            ],
+            "explanation": "Source capture could not provide complete evidence: source_access_denied."
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/react-js-node-js-developer-for-existing-management-system-4526654",
+            "label": "client_request",
+            "scope": "source",
+            "unknowns": [
+              "location",
+              "sponsorship",
+              "authorization"
+            ],
+            "explanation": "A buyer is requesting a developer to modify an existing internal management system, with a fixed-price budget and open proposals, so this is a client request rather than an employment opening. Subject: Full Stack Developer. Evidence: We are looking for an experienced Full Stack Developer to carry out modifications and improvements to our existing internal business management system, Central Station."
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/mobile-app-development/create-responsive-webapp-based-on-wordpress-application-4525990",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Create responsive webapp based on wordpress application Build the application from scratch using React Native / Expo. Integrate our existing WordPress website using WebViews. Develop a scalable architecture that can ..."
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/databases/replit-postgresql-developer-required-4526666",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Replit / PostgreSQL developer required Hemant K. Full Stack Developer| Web & Mobile Development | React | Node | React Native | WordPress | Shopify | eCommerce | Custom Development | SEO | AI ..."
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelance-jobs/marketing-branding-sales/sales-calls/sales-business-development-executive-inbound-outbound-4526763",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Sales & Business Development Executive (Inbound & ... ... React.js ✓ React Native ✓ Android ✓ iOS ✓ASP.net ✓ n8n. Subscriber TopAccess Top Seller with earnings over £200k Top Seller with earnings over £100k Top ..."
+          },
+          {
+            "url": "https://sociallinker.pro/tools/web-development-rfp-template",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Website RFP Template + Generator & Scoring Sheet Website RFP template, generator, and scoring sheet. Build a request for proposal that gives every web development company, agency, or developer the same project ..."
+          },
+          {
+            "url": "https://www.linkedin.com/posts/start-designs_websitedevelopment-rfp-webdevelopment-activity-7506988772400496640-UUs3",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Website Development RFP Best Practices for Clear Projects ... development RFP and how to structure it effectively. Read the ... web development. We explored what goes into making different services feel ..."
+          },
+          {
+            "url": "https://www.cscbroward.org/news/abcd-rfp-2026/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Asset Based Community Development (ABCD) ... Asset Based Community Development (ABCD) Administrative Support Organization RFP ... This procurement will be available on September 28, 2026, through CSC's web ..."
+          },
+          {
+            "url": "https://www.stlouis-mo.gov/government/procurement/index.cfm",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Active City RFPs, RFQs, RFIs, and Bids RFP Parking Facilities Garage Repair Design Services Office of the Treasurer ... Built by the ITSA Web Development Team. © 2011 - 2026 City of St. Louis."
+          },
+          {
+            "url": "https://www.instagram.com/p/DeZUIC5BGCm/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "📢 Request for Proposal (RFP) - Website Development We ... Request for Proposal (RFP) - Website Development · Hiring a web development team? · We're giving our website a fresh look — and we need your help! ·"
+          },
+          {
+            "url": "https://www.upgrad.com/blog/final-year-projects-ideas-topics/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Top 30 Final Year Project Ideas for CSE Students (2026) Budget Tracker. At the end of a month, most wonder where their money goes. A ... These projects will help you learn React or Angular for the frontend, Node."
+          },
+          {
+            "url": "https://www.pwc.com/hu/hu/szolgaltatasok/ifrs/ifrs_9/ifrs9_kiadvanyok/achieving_hedge_accounting_in_practice_under_ifrs9.pdf",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Achieving hedge accounting in practice under IFRS 9 ... react to changes in circumstances. It is normally a general document that ... budget period. Company F will. Page 161. In depth: Achieving hedge ..."
+          }
+        ],
+        "candidates": [
+          {
+            "text": "Sales & Business Development Executive (Inbound & ... ... React.js ✓ React Native ✓ Android ✓ iOS ✓ASP.net ✓ n8n. Subscriber TopAccess Top Seller with earnings over £200k Top Seller with earnings over £100k Top ...",
+            "query": "\"React\" site:peopleperhour.com/freelance-jobs",
+            "choice": 0,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Active City RFPs, RFQs, RFIs, and Bids RFP Parking Facilities Garage Repair Design Services Office of the Treasurer ... Built by the ITSA Web Development Team. © 2011 - 2026 City of St. Louis.",
+            "query": "\"web\" \"development\" (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 1,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "📢 Request for Proposal (RFP) - Website Development We ... Request for Proposal (RFP) - Website Development · Hiring a web development team? · We're giving our website a fresh look — and we need your help! ·",
+            "query": "\"web\" \"development\" (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 2,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Replit / PostgreSQL developer required Hemant K. Full Stack Developer| Web & Mobile Development | React | Node | React Native | WordPress | Shopify | eCommerce | Custom Development | SEO | AI ...",
+            "query": "\"React\" site:peopleperhour.com/freelance-jobs",
+            "choice": 3,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Top 30 Final Year Project Ideas for CSE Students (2026) Budget Tracker. At the end of a month, most wonder where their money goes. A ... These projects will help you learn React or Angular for the frontend, Node.",
+            "query": "\"React\" inurl:projects (\"budget\" OR \"bids\" OR \"proposals\")",
+            "choice": 4,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Achieving hedge accounting in practice under IFRS 9 ... react to changes in circumstances. It is normally a general document that ... budget period. Company F will. Page 161. In depth: Achieving hedge ...",
+            "query": "\"React\" inurl:projects (\"budget\" OR \"bids\" OR \"proposals\")",
+            "choice": 5,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Website Development RFP Best Practices for Clear Projects ... development RFP and how to structure it effectively. Read the ... web development. We explored what goes into making different services feel ...",
+            "query": "\"web\" \"development\" (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 6,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Asset Based Community Development (ABCD) ... Asset Based Community Development (ABCD) Administrative Support Organization RFP ... This procurement will be available on September 28, 2026, through CSC's web ...",
+            "query": "\"web\" \"development\" (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 7,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Create responsive webapp based on wordpress application Build the application from scratch using React Native / Expo. Integrate our existing WordPress website using WebViews. Develop a scalable architecture that can ...",
+            "query": "\"React\" site:peopleperhour.com/freelance-jobs",
+            "choice": 8,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Website RFP Template + Generator & Scoring Sheet Website RFP template, generator, and scoring sheet. Build a request for proposal that gives every web development company, agency, or developer the same project ...",
+            "query": "\"web\" \"development\" (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 9,
+            "origin": "search_result",
+            "parentUrl": null
+          }
+        ]
+      },
+      "output": {
+        "kind": "choice",
+        "index": 2,
+        "explanation": "This looks like a concrete website-development buyer brief and is more relevant than seller/guide pages or unrelated roles. It should best clarify scope and whether React/TypeScript web work is needed."
+      },
+      "rejected_output": null,
+      "failure": null,
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 4519,
+        "responseId": "resp_0cce7a68a20417e7016ad0e7c77e7c87d2b8f2de375f21236b",
+        "inputTokens": 4392,
+        "outputTokens": 171,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 4064
+      }
+    },
+    {
+      "input": {
+        "kind": "choice",
+        "intent": {
+          "remote": true,
+          "target": "React TypeScript web development",
+          "category": "services"
+        },
+        "choices": [
+          {
+            "depth": 0,
+            "title": "Sales & Business Development Executive (Inbound & ...",
+            "action": {
+              "url": "https://www.peopleperhour.com/freelance-jobs/marketing-branding-sales/sales-calls/sales-business-development-executive-inbound-outbound-4526763",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "5c34f80210fb25931ba5c08741e1e49da85fa89f92f55e36eb8a0a73a4a5eda4"
+          },
+          {
+            "depth": 0,
+            "title": "Active City RFPs, RFQs, RFIs, and Bids",
+            "action": {
+              "url": "https://www.stlouis-mo.gov/government/procurement/index.cfm",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "5ec5bb3f10ede423c781fb933d22bb3e5753ebc1e886df9594e26ac0b1106f57"
+          },
+          {
+            "depth": 0,
+            "title": "Replit / PostgreSQL developer required",
+            "action": {
+              "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/databases/replit-postgresql-developer-required-4526666",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "5c34f80210fb25931ba5c08741e1e49da85fa89f92f55e36eb8a0a73a4a5eda4"
+          },
+          {
+            "depth": 0,
+            "title": "Website Development RFP Best Practices for Clear Projects",
+            "action": {
+              "url": "https://www.linkedin.com/posts/start-designs_websitedevelopment-rfp-webdevelopment-activity-7506988772400496640-UUs3",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "5ec5bb3f10ede423c781fb933d22bb3e5753ebc1e886df9594e26ac0b1106f57"
+          },
+          {
+            "depth": 0,
+            "title": "Top 30 Final Year Project Ideas for CSE Students (2026)",
+            "action": {
+              "url": "https://www.upgrad.com/blog/final-year-projects-ideas-topics/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "9fc4c302fa7e5f4b65b2834f8a3567fe363870fdd6e16bff621e5f6036ebc37d"
+          },
+          {
+            "depth": 0,
+            "title": "Achieving hedge accounting in practice under IFRS 9",
+            "action": {
+              "url": "https://www.pwc.com/hu/hu/szolgaltatasok/ifrs/ifrs_9/ifrs9_kiadvanyok/achieving_hedge_accounting_in_practice_under_ifrs9.pdf",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "9fc4c302fa7e5f4b65b2834f8a3567fe363870fdd6e16bff621e5f6036ebc37d"
+          },
+          {
+            "depth": 0,
+            "title": "Asset Based Community Development (ABCD) ...",
+            "action": {
+              "url": "https://www.cscbroward.org/news/abcd-rfp-2026/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "5ec5bb3f10ede423c781fb933d22bb3e5753ebc1e886df9594e26ac0b1106f57"
+          },
+          {
+            "depth": 0,
+            "title": "Submit an RFP, RFQ or RFI",
+            "action": {
+              "url": "https://eseospace.com/submit-an-rfp/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "5ec5bb3f10ede423c781fb933d22bb3e5753ebc1e886df9594e26ac0b1106f57"
+          },
+          {
+            "depth": 0,
+            "title": "Create responsive webapp based on wordpress application",
+            "action": {
+              "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/mobile-app-development/create-responsive-webapp-based-on-wordpress-application-4525990",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "5c34f80210fb25931ba5c08741e1e49da85fa89f92f55e36eb8a0a73a4a5eda4"
+          },
+          {
+            "depth": 0,
+            "title": "Website RFP Template + Generator & Scoring Sheet",
+            "action": {
+              "url": "https://sociallinker.pro/tools/web-development-rfp-template",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "5ec5bb3f10ede423c781fb933d22bb3e5753ebc1e886df9594e26ac0b1106f57"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"TypeScript\" (\"I need\" OR \"we need\" OR \"looking for\") (\"freelancer\" OR \"budget\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "9fc4c302fa7e5f4b65b2834f8a3567fe363870fdd6e16bff621e5f6036ebc37d"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"web\" \"development\" (\"project details\" OR \"project description\" OR \"open for bidding\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "9fc4c302fa7e5f4b65b2834f8a3567fe363870fdd6e16bff621e5f6036ebc37d"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"React\" (\"I need\" OR \"we need\" OR \"looking for\") (\"freelancer\" OR \"budget\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "9fc4c302fa7e5f4b65b2834f8a3567fe363870fdd6e16bff621e5f6036ebc37d"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"TypeScript\" (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "9fc4c302fa7e5f4b65b2834f8a3567fe363870fdd6e16bff621e5f6036ebc37d"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"web\" \"development\" (\"seeking\" OR \"hiring\") (\"freelance\" OR \"contractor\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "9fc4c302fa7e5f4b65b2834f8a3567fe363870fdd6e16bff621e5f6036ebc37d"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": null,
+            "reason": "no_further_action",
+            "parentKey": null
+          }
+        ],
+        "evidence": [
+          {
+            "url": "https://www.c40.org/wp-content/uploads/2026/10/2-RfP-GCoM-Website-Development-Maintenance.pdf",
+            "label": "access_limited",
+            "scope": "source_access",
+            "unknowns": [
+              "demand and availability remain unverified"
+            ],
+            "explanation": "Source capture could not provide complete evidence: source_access_denied."
+          },
+          {
+            "url": "https://www.instagram.com/p/DeZUIC5BGCm/",
+            "label": "access_limited",
+            "scope": "source_access",
+            "unknowns": [
+              "demand and availability remain unverified"
+            ],
+            "explanation": "Source capture could not provide complete evidence: crawl_policy_denied."
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/react-js-node-js-developer-for-existing-management-system-4526654",
+            "label": "client_request",
+            "scope": "source",
+            "unknowns": [
+              "location",
+              "sponsorship",
+              "authorization"
+            ],
+            "explanation": "A buyer is requesting a developer to modify an existing internal management system, with a fixed-price budget and open proposals, so this is a client request rather than an employment opening. Subject: Full Stack Developer. Evidence: We are looking for an experienced Full Stack Developer to carry out modifications and improvements to our existing internal business management system, Central Station."
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/mobile-app-development/create-responsive-webapp-based-on-wordpress-application-4525990",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Create responsive webapp based on wordpress application Build the application from scratch using React Native / Expo. Integrate our existing WordPress website using WebViews. Develop a scalable architecture that can ..."
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/databases/replit-postgresql-developer-required-4526666",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Replit / PostgreSQL developer required Hemant K. Full Stack Developer| Web & Mobile Development | React | Node | React Native | WordPress | Shopify | eCommerce | Custom Development | SEO | AI ..."
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelance-jobs/marketing-branding-sales/sales-calls/sales-business-development-executive-inbound-outbound-4526763",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Sales & Business Development Executive (Inbound & ... ... React.js ✓ React Native ✓ Android ✓ iOS ✓ASP.net ✓ n8n. Subscriber TopAccess Top Seller with earnings over £200k Top Seller with earnings over £100k Top ..."
+          },
+          {
+            "url": "https://sociallinker.pro/tools/web-development-rfp-template",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Website RFP Template + Generator & Scoring Sheet Website RFP template, generator, and scoring sheet. Build a request for proposal that gives every web development company, agency, or developer the same project ..."
+          },
+          {
+            "url": "https://www.linkedin.com/posts/start-designs_websitedevelopment-rfp-webdevelopment-activity-7506988772400496640-UUs3",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Website Development RFP Best Practices for Clear Projects ... development RFP and how to structure it effectively. Read the ... web development. We explored what goes into making different services feel ..."
+          },
+          {
+            "url": "https://www.cscbroward.org/news/abcd-rfp-2026/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Asset Based Community Development (ABCD) ... Asset Based Community Development (ABCD) Administrative Support Organization RFP ... This procurement will be available on September 28, 2026, through CSC's web ..."
+          },
+          {
+            "url": "https://www.stlouis-mo.gov/government/procurement/index.cfm",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Active City RFPs, RFQs, RFIs, and Bids RFP Parking Facilities Garage Repair Design Services Office of the Treasurer ... Built by the ITSA Web Development Team. © 2011 - 2026 City of St. Louis."
+          },
+          {
+            "url": "https://eseospace.com/submit-an-rfp/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Submit an RFP, RFQ or RFI How to Create a Website RFP: A Template for Hiring a Web Design or Dev Partner ... Website Development · WordPress Development · eCommerce Development · Custom ..."
+          },
+          {
+            "url": "https://www.upgrad.com/blog/final-year-projects-ideas-topics/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Top 30 Final Year Project Ideas for CSE Students (2026) Budget Tracker. At the end of a month, most wonder where their money goes. A ... These projects will help you learn React or Angular for the frontend, Node."
+          },
+          {
+            "url": "https://www.pwc.com/hu/hu/szolgaltatasok/ifrs/ifrs_9/ifrs9_kiadvanyok/achieving_hedge_accounting_in_practice_under_ifrs9.pdf",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Achieving hedge accounting in practice under IFRS 9 ... react to changes in circumstances. It is normally a general document that ... budget period. Company F will. Page 161. In depth: Achieving hedge ..."
+          }
+        ],
+        "candidates": [
+          {
+            "text": "Sales & Business Development Executive (Inbound & ... ... React.js ✓ React Native ✓ Android ✓ iOS ✓ASP.net ✓ n8n. Subscriber TopAccess Top Seller with earnings over £200k Top Seller with earnings over £100k Top ...",
+            "query": "\"React\" site:peopleperhour.com/freelance-jobs",
+            "choice": 0,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Active City RFPs, RFQs, RFIs, and Bids RFP Parking Facilities Garage Repair Design Services Office of the Treasurer ... Built by the ITSA Web Development Team. © 2011 - 2026 City of St. Louis.",
+            "query": "\"web\" \"development\" (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 1,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Replit / PostgreSQL developer required Hemant K. Full Stack Developer| Web & Mobile Development | React | Node | React Native | WordPress | Shopify | eCommerce | Custom Development | SEO | AI ...",
+            "query": "\"React\" site:peopleperhour.com/freelance-jobs",
+            "choice": 2,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Website Development RFP Best Practices for Clear Projects ... development RFP and how to structure it effectively. Read the ... web development. We explored what goes into making different services feel ...",
+            "query": "\"web\" \"development\" (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 3,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Top 30 Final Year Project Ideas for CSE Students (2026) Budget Tracker. At the end of a month, most wonder where their money goes. A ... These projects will help you learn React or Angular for the frontend, Node.",
+            "query": "\"React\" inurl:projects (\"budget\" OR \"bids\" OR \"proposals\")",
+            "choice": 4,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Achieving hedge accounting in practice under IFRS 9 ... react to changes in circumstances. It is normally a general document that ... budget period. Company F will. Page 161. In depth: Achieving hedge ...",
+            "query": "\"React\" inurl:projects (\"budget\" OR \"bids\" OR \"proposals\")",
+            "choice": 5,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Asset Based Community Development (ABCD) ... Asset Based Community Development (ABCD) Administrative Support Organization RFP ... This procurement will be available on September 28, 2026, through CSC's web ...",
+            "query": "\"web\" \"development\" (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 6,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Submit an RFP, RFQ or RFI How to Create a Website RFP: A Template for Hiring a Web Design or Dev Partner ... Website Development · WordPress Development · eCommerce Development · Custom ...",
+            "query": "\"web\" \"development\" (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 7,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Create responsive webapp based on wordpress application Build the application from scratch using React Native / Expo. Integrate our existing WordPress website using WebViews. Develop a scalable architecture that can ...",
+            "query": "\"React\" site:peopleperhour.com/freelance-jobs",
+            "choice": 8,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Website RFP Template + Generator & Scoring Sheet Website RFP template, generator, and scoring sheet. Build a request for proposal that gives every web development company, agency, or developer the same project ...",
+            "query": "\"web\" \"development\" (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 9,
+            "origin": "search_result",
+            "parentUrl": null
+          }
+        ]
+      },
+      "output": {
+        "kind": "choice",
+        "index": 1,
+        "explanation": "City procurement directory is the best next step here because it can surface concrete buyer RFPs/RFQs, including possible web development work, whereas the other options are mostly seller pages, unrelated jobs, or generic templates."
+      },
+      "rejected_output": null,
+      "failure": null,
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 4534,
+        "responseId": "resp_072e8867b6f672bc016ad0e7cbca5c87d2bba8473439c67c7a",
+        "inputTokens": 4429,
+        "outputTokens": 336,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 4834
+      }
+    },
+    {
+      "input": {
+        "kind": "choice",
+        "intent": {
+          "remote": true,
+          "target": "React TypeScript web development",
+          "category": "services"
+        },
+        "choices": [
+          {
+            "depth": 0,
+            "title": "React TypeScript Full-Stack Web App",
+            "action": {
+              "url": "https://www.freelancer.com/projects/typescript/react-typescript-full-stack-web",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "829a513c9bc1ac44ed8ef77f3a077656a8b2d5f20440fa7a21f627830f95b8c6"
+          },
+          {
+            "depth": 0,
+            "title": "Kenneth Lynard - MSc, EMBA's Post",
+            "action": {
+              "url": "https://www.linkedin.com/posts/kenneth-lynard_looking-for-a-web-designer-developer-activity-7507942655935324160-FW0m",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "829a513c9bc1ac44ed8ef77f3a077656a8b2d5f20440fa7a21f627830f95b8c6"
+          },
+          {
+            "depth": 0,
+            "title": "Sales & Business Development Executive (Inbound & ...",
+            "action": {
+              "url": "https://www.peopleperhour.com/freelance-jobs/marketing-branding-sales/sales-calls/sales-business-development-executive-inbound-outbound-4526763",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "5c34f80210fb25931ba5c08741e1e49da85fa89f92f55e36eb8a0a73a4a5eda4"
+          },
+          {
+            "depth": 0,
+            "title": "Replit / PostgreSQL developer required",
+            "action": {
+              "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/databases/replit-postgresql-developer-required-4526666",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "5c34f80210fb25931ba5c08741e1e49da85fa89f92f55e36eb8a0a73a4a5eda4"
+          },
+          {
+            "depth": 0,
+            "title": "Asset Based Community Development (ABCD) ...",
+            "action": {
+              "url": "https://www.cscbroward.org/news/abcd-rfp-2026/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "5ec5bb3f10ede423c781fb933d22bb3e5753ebc1e886df9594e26ac0b1106f57"
+          },
+          {
+            "depth": 0,
+            "title": "Submit an RFP, RFQ or RFI",
+            "action": {
+              "url": "https://eseospace.com/submit-an-rfp/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "5ec5bb3f10ede423c781fb933d22bb3e5753ebc1e886df9594e26ac0b1106f57"
+          },
+          {
+            "depth": 0,
+            "title": "Top 30 Final Year Project Ideas for CSE Students (2026)",
+            "action": {
+              "url": "https://www.upgrad.com/blog/final-year-projects-ideas-topics/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "9fc4c302fa7e5f4b65b2834f8a3567fe363870fdd6e16bff621e5f6036ebc37d"
+          },
+          {
+            "depth": 0,
+            "title": "Achieving hedge accounting in practice under IFRS 9",
+            "action": {
+              "url": "https://www.pwc.com/hu/hu/szolgaltatasok/ifrs/ifrs_9/ifrs9_kiadvanyok/achieving_hedge_accounting_in_practice_under_ifrs9.pdf",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "9fc4c302fa7e5f4b65b2834f8a3567fe363870fdd6e16bff621e5f6036ebc37d"
+          },
+          {
+            "depth": 0,
+            "title": "Create responsive webapp based on wordpress application",
+            "action": {
+              "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/mobile-app-development/create-responsive-webapp-based-on-wordpress-application-4525990",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "5c34f80210fb25931ba5c08741e1e49da85fa89f92f55e36eb8a0a73a4a5eda4"
+          },
+          {
+            "depth": 0,
+            "title": "Website RFP Template + Generator & Scoring Sheet",
+            "action": {
+              "url": "https://sociallinker.pro/tools/web-development-rfp-template",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "5ec5bb3f10ede423c781fb933d22bb3e5753ebc1e886df9594e26ac0b1106f57"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"web\" \"development\" (\"project details\" OR \"project description\" OR \"open for bidding\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "829a513c9bc1ac44ed8ef77f3a077656a8b2d5f20440fa7a21f627830f95b8c6"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"React\" (\"I need\" OR \"we need\" OR \"looking for\") (\"freelancer\" OR \"budget\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "829a513c9bc1ac44ed8ef77f3a077656a8b2d5f20440fa7a21f627830f95b8c6"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"TypeScript\" (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "829a513c9bc1ac44ed8ef77f3a077656a8b2d5f20440fa7a21f627830f95b8c6"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"web\" \"development\" (\"seeking\" OR \"hiring\") (\"freelance\" OR \"contractor\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "829a513c9bc1ac44ed8ef77f3a077656a8b2d5f20440fa7a21f627830f95b8c6"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"React\" (\"project\" OR \"brief\") (\"budget\" OR \"fixed price\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "829a513c9bc1ac44ed8ef77f3a077656a8b2d5f20440fa7a21f627830f95b8c6"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": null,
+            "reason": "no_further_action",
+            "parentKey": null
+          }
+        ],
+        "evidence": [
+          {
+            "url": "https://www.c40.org/wp-content/uploads/2026/10/2-RfP-GCoM-Website-Development-Maintenance.pdf",
+            "label": "access_limited",
+            "scope": "source_access",
+            "unknowns": [
+              "demand and availability remain unverified"
+            ],
+            "explanation": "Source capture could not provide complete evidence: source_access_denied."
+          },
+          {
+            "url": "https://www.instagram.com/p/DeZUIC5BGCm/",
+            "label": "access_limited",
+            "scope": "source_access",
+            "unknowns": [
+              "demand and availability remain unverified"
+            ],
+            "explanation": "Source capture could not provide complete evidence: crawl_policy_denied."
+          },
+          {
+            "url": "https://www.stlouis-mo.gov/government/procurement/index.cfm",
+            "label": "access_limited",
+            "scope": "source_access",
+            "unknowns": [
+              "demand and availability remain unverified"
+            ],
+            "explanation": "Source capture could not provide complete evidence: source_request_failed."
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/react-js-node-js-developer-for-existing-management-system-4526654",
+            "label": "client_request",
+            "scope": "source",
+            "unknowns": [
+              "location",
+              "sponsorship",
+              "authorization"
+            ],
+            "explanation": "A buyer is requesting a developer to modify an existing internal management system, with a fixed-price budget and open proposals, so this is a client request rather than an employment opening. Subject: Full Stack Developer. Evidence: We are looking for an experienced Full Stack Developer to carry out modifications and improvements to our existing internal business management system, Central Station."
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/mobile-app-development/create-responsive-webapp-based-on-wordpress-application-4525990",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Create responsive webapp based on wordpress application Build the application from scratch using React Native / Expo. Integrate our existing WordPress website using WebViews. Develop a scalable architecture that can ..."
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/databases/replit-postgresql-developer-required-4526666",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Replit / PostgreSQL developer required Hemant K. Full Stack Developer| Web & Mobile Development | React | Node | React Native | WordPress | Shopify | eCommerce | Custom Development | SEO | AI ..."
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelance-jobs/marketing-branding-sales/sales-calls/sales-business-development-executive-inbound-outbound-4526763",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Sales & Business Development Executive (Inbound & ... ... React.js ✓ React Native ✓ Android ✓ iOS ✓ASP.net ✓ n8n. Subscriber TopAccess Top Seller with earnings over £200k Top Seller with earnings over £100k Top ..."
+          },
+          {
+            "url": "https://sociallinker.pro/tools/web-development-rfp-template",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Website RFP Template + Generator & Scoring Sheet Website RFP template, generator, and scoring sheet. Build a request for proposal that gives every web development company, agency, or developer the same project ..."
+          },
+          {
+            "url": "https://www.cscbroward.org/news/abcd-rfp-2026/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Asset Based Community Development (ABCD) ... Asset Based Community Development (ABCD) Administrative Support Organization RFP ... This procurement will be available on September 28, 2026, through CSC's web ..."
+          },
+          {
+            "url": "https://eseospace.com/submit-an-rfp/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Submit an RFP, RFQ or RFI How to Create a Website RFP: A Template for Hiring a Web Design or Dev Partner ... Website Development · WordPress Development · eCommerce Development · Custom ..."
+          },
+          {
+            "url": "https://www.upgrad.com/blog/final-year-projects-ideas-topics/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Top 30 Final Year Project Ideas for CSE Students (2026) Budget Tracker. At the end of a month, most wonder where their money goes. A ... These projects will help you learn React or Angular for the frontend, Node."
+          },
+          {
+            "url": "https://www.pwc.com/hu/hu/szolgaltatasok/ifrs/ifrs_9/ifrs9_kiadvanyok/achieving_hedge_accounting_in_practice_under_ifrs9.pdf",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Achieving hedge accounting in practice under IFRS 9 ... react to changes in circumstances. It is normally a general document that ... budget period. Company F will. Page 161. In depth: Achieving hedge ..."
+          },
+          {
+            "url": "https://www.freelancer.com/projects/typescript/react-typescript-full-stack-web",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "React TypeScript Full-Stack Web App Looking for a freelancer with a specific skill? Start here. By location ... Freelancer Jobs Typescript · React TypeScript Full-Stack Web App. React ..."
+          },
+          {
+            "url": "https://www.linkedin.com/posts/kenneth-lynard_looking-for-a-web-designer-developer-activity-7507942655935324160-FW0m",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Kenneth Lynard - MSc, EMBA's Post Looking for a Web Designer / Developer Looking for a talented freelancer ... Daniel Albino. Senior React & React Native Engineer | TypeScript, Next.js ..."
+          }
+        ],
+        "candidates": [
+          {
+            "text": "React TypeScript Full-Stack Web App Looking for a freelancer with a specific skill? Start here. By location ... Freelancer Jobs Typescript · React TypeScript Full-Stack Web App. React ...",
+            "query": "\"TypeScript\" (\"I need\" OR \"we need\" OR \"looking for\") (\"freelancer\" OR \"budget\")",
+            "choice": 0,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Kenneth Lynard - MSc, EMBA's Post Looking for a Web Designer / Developer Looking for a talented freelancer ... Daniel Albino. Senior React & React Native Engineer | TypeScript, Next.js ...",
+            "query": "\"TypeScript\" (\"I need\" OR \"we need\" OR \"looking for\") (\"freelancer\" OR \"budget\")",
+            "choice": 1,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Sales & Business Development Executive (Inbound & ... ... React.js ✓ React Native ✓ Android ✓ iOS ✓ASP.net ✓ n8n. Subscriber TopAccess Top Seller with earnings over £200k Top Seller with earnings over £100k Top ...",
+            "query": "\"React\" site:peopleperhour.com/freelance-jobs",
+            "choice": 2,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Replit / PostgreSQL developer required Hemant K. Full Stack Developer| Web & Mobile Development | React | Node | React Native | WordPress | Shopify | eCommerce | Custom Development | SEO | AI ...",
+            "query": "\"React\" site:peopleperhour.com/freelance-jobs",
+            "choice": 3,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Asset Based Community Development (ABCD) ... Asset Based Community Development (ABCD) Administrative Support Organization RFP ... This procurement will be available on September 28, 2026, through CSC's web ...",
+            "query": "\"web\" \"development\" (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 4,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Submit an RFP, RFQ or RFI How to Create a Website RFP: A Template for Hiring a Web Design or Dev Partner ... Website Development · WordPress Development · eCommerce Development · Custom ...",
+            "query": "\"web\" \"development\" (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 5,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Top 30 Final Year Project Ideas for CSE Students (2026) Budget Tracker. At the end of a month, most wonder where their money goes. A ... These projects will help you learn React or Angular for the frontend, Node.",
+            "query": "\"React\" inurl:projects (\"budget\" OR \"bids\" OR \"proposals\")",
+            "choice": 6,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Achieving hedge accounting in practice under IFRS 9 ... react to changes in circumstances. It is normally a general document that ... budget period. Company F will. Page 161. In depth: Achieving hedge ...",
+            "query": "\"React\" inurl:projects (\"budget\" OR \"bids\" OR \"proposals\")",
+            "choice": 7,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Create responsive webapp based on wordpress application Build the application from scratch using React Native / Expo. Integrate our existing WordPress website using WebViews. Develop a scalable architecture that can ...",
+            "query": "\"React\" site:peopleperhour.com/freelance-jobs",
+            "choice": 8,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Website RFP Template + Generator & Scoring Sheet Website RFP template, generator, and scoring sheet. Build a request for proposal that gives every web development company, agency, or developer the same project ...",
+            "query": "\"web\" \"development\" (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 9,
+            "origin": "search_result",
+            "parentUrl": null
+          }
+        ]
+      },
+      "output": {
+        "kind": "choice",
+        "index": 0,
+        "explanation": "Best fit is the freelancer buyer request for a React TypeScript full-stack web app, which is directly aligned with the target React TypeScript web development work."
+      },
+      "rejected_output": null,
+      "failure": null,
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 2729,
+        "responseId": "resp_00b6dec106480ee9016ad0e7ffc1c087d29535affecc12b4ce",
+        "inputTokens": 4481,
+        "outputTokens": 140,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 3991
+      }
+    },
+    {
+      "input": {
+        "kind": "choice",
+        "intent": {
+          "remote": true,
+          "target": "React TypeScript web development",
+          "category": "services"
+        },
+        "choices": [
+          {
+            "depth": 0,
+            "title": "Kenneth Lynard - MSc, EMBA's Post",
+            "action": {
+              "url": "https://www.linkedin.com/posts/kenneth-lynard_looking-for-a-web-designer-developer-activity-7507942655935324160-FW0m",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "829a513c9bc1ac44ed8ef77f3a077656a8b2d5f20440fa7a21f627830f95b8c6"
+          },
+          {
+            "depth": 0,
+            "title": "Remote frontend or full stack developer job opportunities ...",
+            "action": {
+              "url": "https://www.facebook.com/groups/4478714448882966/posts/28484703571190718/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "829a513c9bc1ac44ed8ef77f3a077656a8b2d5f20440fa7a21f627830f95b8c6"
+          },
+          {
+            "depth": 0,
+            "title": "Sales & Business Development Executive (Inbound & ...",
+            "action": {
+              "url": "https://www.peopleperhour.com/freelance-jobs/marketing-branding-sales/sales-calls/sales-business-development-executive-inbound-outbound-4526763",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "5c34f80210fb25931ba5c08741e1e49da85fa89f92f55e36eb8a0a73a4a5eda4"
+          },
+          {
+            "depth": 0,
+            "title": "Replit / PostgreSQL developer required",
+            "action": {
+              "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/databases/replit-postgresql-developer-required-4526666",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "5c34f80210fb25931ba5c08741e1e49da85fa89f92f55e36eb8a0a73a4a5eda4"
+          },
+          {
+            "depth": 0,
+            "title": "Asset Based Community Development (ABCD) ...",
+            "action": {
+              "url": "https://www.cscbroward.org/news/abcd-rfp-2026/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "5ec5bb3f10ede423c781fb933d22bb3e5753ebc1e886df9594e26ac0b1106f57"
+          },
+          {
+            "depth": 0,
+            "title": "Submit an RFP, RFQ or RFI",
+            "action": {
+              "url": "https://eseospace.com/submit-an-rfp/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "5ec5bb3f10ede423c781fb933d22bb3e5753ebc1e886df9594e26ac0b1106f57"
+          },
+          {
+            "depth": 0,
+            "title": "Top 30 Final Year Project Ideas for CSE Students (2026)",
+            "action": {
+              "url": "https://www.upgrad.com/blog/final-year-projects-ideas-topics/",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "9fc4c302fa7e5f4b65b2834f8a3567fe363870fdd6e16bff621e5f6036ebc37d"
+          },
+          {
+            "depth": 0,
+            "title": "Achieving hedge accounting in practice under IFRS 9",
+            "action": {
+              "url": "https://www.pwc.com/hu/hu/szolgaltatasok/ifrs/ifrs_9/ifrs9_kiadvanyok/achieving_hedge_accounting_in_practice_under_ifrs9.pdf",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "9fc4c302fa7e5f4b65b2834f8a3567fe363870fdd6e16bff621e5f6036ebc37d"
+          },
+          {
+            "depth": 0,
+            "title": "Create responsive webapp based on wordpress application",
+            "action": {
+              "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/mobile-app-development/create-responsive-webapp-based-on-wordpress-application-4525990",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "5c34f80210fb25931ba5c08741e1e49da85fa89f92f55e36eb8a0a73a4a5eda4"
+          },
+          {
+            "depth": 0,
+            "title": "Website RFP Template + Generator & Scoring Sheet",
+            "action": {
+              "url": "https://sociallinker.pro/tools/web-development-rfp-template",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "5ec5bb3f10ede423c781fb933d22bb3e5753ebc1e886df9594e26ac0b1106f57"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"web\" \"development\" (\"project details\" OR \"project description\" OR \"open for bidding\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "829a513c9bc1ac44ed8ef77f3a077656a8b2d5f20440fa7a21f627830f95b8c6"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"React\" (\"I need\" OR \"we need\" OR \"looking for\") (\"freelancer\" OR \"budget\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "829a513c9bc1ac44ed8ef77f3a077656a8b2d5f20440fa7a21f627830f95b8c6"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"TypeScript\" (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "829a513c9bc1ac44ed8ef77f3a077656a8b2d5f20440fa7a21f627830f95b8c6"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"web\" \"development\" (\"seeking\" OR \"hiring\") (\"freelance\" OR \"contractor\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "829a513c9bc1ac44ed8ef77f3a077656a8b2d5f20440fa7a21f627830f95b8c6"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"React\" (\"project\" OR \"brief\") (\"budget\" OR \"fixed price\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "829a513c9bc1ac44ed8ef77f3a077656a8b2d5f20440fa7a21f627830f95b8c6"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": null,
+            "reason": "no_further_action",
+            "parentKey": null
+          }
+        ],
+        "evidence": [
+          {
+            "url": "https://www.c40.org/wp-content/uploads/2026/10/2-RfP-GCoM-Website-Development-Maintenance.pdf",
+            "label": "access_limited",
+            "scope": "source_access",
+            "unknowns": [
+              "demand and availability remain unverified"
+            ],
+            "explanation": "Source capture could not provide complete evidence: source_access_denied."
+          },
+          {
+            "url": "https://www.instagram.com/p/DeZUIC5BGCm/",
+            "label": "access_limited",
+            "scope": "source_access",
+            "unknowns": [
+              "demand and availability remain unverified"
+            ],
+            "explanation": "Source capture could not provide complete evidence: crawl_policy_denied."
+          },
+          {
+            "url": "https://www.stlouis-mo.gov/government/procurement/index.cfm",
+            "label": "access_limited",
+            "scope": "source_access",
+            "unknowns": [
+              "demand and availability remain unverified"
+            ],
+            "explanation": "Source capture could not provide complete evidence: source_request_failed."
+          },
+          {
+            "url": "https://www.freelancer.com/projects/typescript/react-typescript-full-stack-web",
+            "label": "access_limited",
+            "scope": "source_access",
+            "unknowns": [
+              "demand and availability remain unverified"
+            ],
+            "explanation": "Source capture could not provide complete evidence: source_not_found."
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/react-js-node-js-developer-for-existing-management-system-4526654",
+            "label": "client_request",
+            "scope": "source",
+            "unknowns": [
+              "location",
+              "sponsorship",
+              "authorization"
+            ],
+            "explanation": "A buyer is requesting a developer to modify an existing internal management system, with a fixed-price budget and open proposals, so this is a client request rather than an employment opening. Subject: Full Stack Developer. Evidence: We are looking for an experienced Full Stack Developer to carry out modifications and improvements to our existing internal business management system, Central Station."
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/mobile-app-development/create-responsive-webapp-based-on-wordpress-application-4525990",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Create responsive webapp based on wordpress application Build the application from scratch using React Native / Expo. Integrate our existing WordPress website using WebViews. Develop a scalable architecture that can ..."
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/databases/replit-postgresql-developer-required-4526666",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Replit / PostgreSQL developer required Hemant K. Full Stack Developer| Web & Mobile Development | React | Node | React Native | WordPress | Shopify | eCommerce | Custom Development | SEO | AI ..."
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelance-jobs/marketing-branding-sales/sales-calls/sales-business-development-executive-inbound-outbound-4526763",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Sales & Business Development Executive (Inbound & ... ... React.js ✓ React Native ✓ Android ✓ iOS ✓ASP.net ✓ n8n. Subscriber TopAccess Top Seller with earnings over £200k Top Seller with earnings over £100k Top ..."
+          },
+          {
+            "url": "https://sociallinker.pro/tools/web-development-rfp-template",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Website RFP Template + Generator & Scoring Sheet Website RFP template, generator, and scoring sheet. Build a request for proposal that gives every web development company, agency, or developer the same project ..."
+          },
+          {
+            "url": "https://www.cscbroward.org/news/abcd-rfp-2026/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Asset Based Community Development (ABCD) ... Asset Based Community Development (ABCD) Administrative Support Organization RFP ... This procurement will be available on September 28, 2026, through CSC's web ..."
+          },
+          {
+            "url": "https://eseospace.com/submit-an-rfp/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Submit an RFP, RFQ or RFI How to Create a Website RFP: A Template for Hiring a Web Design or Dev Partner ... Website Development · WordPress Development · eCommerce Development · Custom ..."
+          },
+          {
+            "url": "https://www.upgrad.com/blog/final-year-projects-ideas-topics/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Top 30 Final Year Project Ideas for CSE Students (2026) Budget Tracker. At the end of a month, most wonder where their money goes. A ... These projects will help you learn React or Angular for the frontend, Node."
+          },
+          {
+            "url": "https://www.pwc.com/hu/hu/szolgaltatasok/ifrs/ifrs_9/ifrs9_kiadvanyok/achieving_hedge_accounting_in_practice_under_ifrs9.pdf",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Achieving hedge accounting in practice under IFRS 9 ... react to changes in circumstances. It is normally a general document that ... budget period. Company F will. Page 161. In depth: Achieving hedge ..."
+          },
+          {
+            "url": "https://www.facebook.com/groups/4478714448882966/posts/28484703571190718/",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Remote frontend or full stack developer job opportunities ... Minh Hien ▻ REMOTE, Freelancer IT Vietnam. 1y · Public · Hiring: Frontend ... Job Title: Frontend Developer (React/Typescript) We are looking for an ..."
+          },
+          {
+            "url": "https://www.linkedin.com/posts/kenneth-lynard_looking-for-a-web-designer-developer-activity-7507942655935324160-FW0m",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Kenneth Lynard - MSc, EMBA's Post Looking for a Web Designer / Developer Looking for a talented freelancer ... Daniel Albino. Senior React & React Native Engineer | TypeScript, Next.js ..."
+          }
+        ],
+        "candidates": [
+          {
+            "text": "Kenneth Lynard - MSc, EMBA's Post Looking for a Web Designer / Developer Looking for a talented freelancer ... Daniel Albino. Senior React & React Native Engineer | TypeScript, Next.js ...",
+            "query": "\"TypeScript\" (\"I need\" OR \"we need\" OR \"looking for\") (\"freelancer\" OR \"budget\")",
+            "choice": 0,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Remote frontend or full stack developer job opportunities ... Minh Hien ▻ REMOTE, Freelancer IT Vietnam. 1y · Public · Hiring: Frontend ... Job Title: Frontend Developer (React/Typescript) We are looking for an ...",
+            "query": "\"TypeScript\" (\"I need\" OR \"we need\" OR \"looking for\") (\"freelancer\" OR \"budget\")",
+            "choice": 1,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Sales & Business Development Executive (Inbound & ... ... React.js ✓ React Native ✓ Android ✓ iOS ✓ASP.net ✓ n8n. Subscriber TopAccess Top Seller with earnings over £200k Top Seller with earnings over £100k Top ...",
+            "query": "\"React\" site:peopleperhour.com/freelance-jobs",
+            "choice": 2,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Replit / PostgreSQL developer required Hemant K. Full Stack Developer| Web & Mobile Development | React | Node | React Native | WordPress | Shopify | eCommerce | Custom Development | SEO | AI ...",
+            "query": "\"React\" site:peopleperhour.com/freelance-jobs",
+            "choice": 3,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Asset Based Community Development (ABCD) ... Asset Based Community Development (ABCD) Administrative Support Organization RFP ... This procurement will be available on September 28, 2026, through CSC's web ...",
+            "query": "\"web\" \"development\" (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 4,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Submit an RFP, RFQ or RFI How to Create a Website RFP: A Template for Hiring a Web Design or Dev Partner ... Website Development · WordPress Development · eCommerce Development · Custom ...",
+            "query": "\"web\" \"development\" (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 5,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Top 30 Final Year Project Ideas for CSE Students (2026) Budget Tracker. At the end of a month, most wonder where their money goes. A ... These projects will help you learn React or Angular for the frontend, Node.",
+            "query": "\"React\" inurl:projects (\"budget\" OR \"bids\" OR \"proposals\")",
+            "choice": 6,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Achieving hedge accounting in practice under IFRS 9 ... react to changes in circumstances. It is normally a general document that ... budget period. Company F will. Page 161. In depth: Achieving hedge ...",
+            "query": "\"React\" inurl:projects (\"budget\" OR \"bids\" OR \"proposals\")",
+            "choice": 7,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Create responsive webapp based on wordpress application Build the application from scratch using React Native / Expo. Integrate our existing WordPress website using WebViews. Develop a scalable architecture that can ...",
+            "query": "\"React\" site:peopleperhour.com/freelance-jobs",
+            "choice": 8,
+            "origin": "search_result",
+            "parentUrl": null
+          },
+          {
+            "text": "Website RFP Template + Generator & Scoring Sheet Website RFP template, generator, and scoring sheet. Build a request for proposal that gives every web development company, agency, or developer the same project ...",
+            "query": "\"web\" \"development\" (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 9,
+            "origin": "search_result",
+            "parentUrl": null
+          }
+        ]
+      },
+      "output": {
+        "kind": "choice",
+        "index": 0,
+        "explanation": "This looks like a direct buyer request for a web designer/developer, and the post excerpt may clarify whether the project fits React/TypeScript web work and remote delivery. A quick read should give more useful evidence than the seller or unrelated items."
+      },
+      "rejected_output": null,
+      "failure": null,
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 2669,
+        "responseId": "resp_03d41f8d0e46d9cb016ad0e80aa47087d2ae803e249e984672",
+        "inputTokens": 4573,
+        "outputTokens": 151,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 4110
+      }
+    }
+  ],
+  "sourceReviewsCompleted": 1,
+  "intelligence": [
+    {
+      "id": "372a419f1af577b838d1be33c98ea0ea1e5bc88bff6e45ed6102792acb7e7ec2",
+      "posting_id": "web:2e28268c7a3b5cd29488196aa0d6bf161ddfb78fc7ce62c77925adabecef7c14",
+      "kind": "research",
+      "result": {
+        "kind": "research",
+        "usage": {
+          "model": "no-provider-call",
+          "durationMs": 1,
+          "responseId": "",
+          "inputTokens": 0,
+          "outputTokens": 0
+        },
+        "analysis": {
+          "pay": {
+            "period": null,
+            "maximum": null,
+            "minimum": null,
+            "currency": null
+          },
+          "facts": {
+            "role": {
+              "value": "Full Stack Developer",
+              "quotes": [
+                "We are looking for an experienced Full Stack Developer to carry out modifications and improvements to our existing internal business management system, Central Station."
+              ],
+              "status": "stated"
+            },
+            "category": {
+              "value": "client_request",
+              "quotes": [
+                "Fixed Price",
+                "$200",
+                " * Open for Proposals",
+                "We are looking for an experienced Full Stack Developer to carry out modifications and improvements to our existing internal business management system, Central Station."
+              ],
+              "status": "stated"
+            },
+            "location": {
+              "value": "",
+              "quotes": [],
+              "status": "unknown"
+            },
+            "arrangement": {
+              "value": "remote",
+              "quotes": [
+                " * Remote"
+              ],
+              "status": "stated"
+            },
+            "sponsorship": {
+              "value": "",
+              "quotes": [],
+              "status": "unknown"
+            },
+            "compensation": {
+              "value": "Fixed Price $200",
+              "quotes": [
+                "Fixed Price",
+                "$200"
+              ],
+              "status": "stated"
+            },
+            "requirements": {
+              "value": "experience with React.js, Node.js (Express.js), PostgreSQL or MongoDB, API-based architecture, and modifying existing web applications",
+              "quotes": [
+                "The system is already developed and operational, using the following technologies:",
+                "- Frontend: React.js",
+                "- Backend: Node.js (Express.js)",
+                "- Database: PostgreSQL or MongoDB"
+              ],
+              "status": "stated"
+            },
+            "authorization": {
+              "value": "",
+              "quotes": [],
+              "status": "unknown"
+            }
+          },
+          "research": {
+            "findings": [
+              {
+                "fact": "location",
+                "value": "",
+                "quotes": [],
+                "status": "unresolved",
+                "sourceUrl": null,
+                "explanation": "Approved employer sources did not provide usable evidence for this question.",
+                "applicability": "unclear"
+              },
+              {
+                "fact": "authorization",
+                "value": "",
+                "quotes": [],
+                "status": "unresolved",
+                "sourceUrl": null,
+                "explanation": "Approved employer sources did not provide usable evidence for this question.",
+                "applicability": "unclear"
+              },
+              {
+                "fact": "sponsorship",
+                "value": "",
+                "quotes": [],
+                "status": "unresolved",
+                "sourceUrl": null,
+                "explanation": "Approved employer sources did not provide usable evidence for this question.",
+                "applicability": "unclear"
+              },
+              {
+                "fact": "requirements",
+                "value": "",
+                "quotes": [],
+                "status": "unresolved",
+                "sourceUrl": null,
+                "explanation": "Approved employer sources did not provide usable evidence for this question.",
+                "applicability": "unclear"
+              },
+              {
+                "fact": "deadline",
+                "value": "",
+                "quotes": [],
+                "status": "unresolved",
+                "sourceUrl": null,
+                "explanation": "Approved employer sources did not provide usable evidence for this question.",
+                "applicability": "unclear"
+              }
+            ],
+            "checkedAt": "2026-10-15T14:49:49.338Z",
+            "documents": [],
+            "expiresAt": "2026-10-15T15:04:49.338Z"
+          }
+        }
+      },
+      "analysis_task_id": null,
+      "outcome": "ready",
+      "usage": {
+        "model": "no-provider-call",
+        "durationMs": 1,
+        "responseId": "",
+        "inputTokens": 0,
+        "outputTokens": 0
+      },
+      "cost": {
+        "source": "none",
+        "currency": "USD",
+        "pricingVersion": "no-provider-call",
+        "estimatedMicrousd": 0
+      }
+    },
+    {
+      "id": "f4501eecc0778b17e38ebd1201203650252a0d6dd7da369e64d4482b3ef4aaf5",
+      "posting_id": "web:2e28268c7a3b5cd29488196aa0d6bf161ddfb78fc7ce62c77925adabecef7c14",
+      "kind": "fit",
+      "result": {
+        "fit": {
+          "criteria": [
+            {
+              "quotes": [
+                "Full Stack Developer",
+                "REACT.JS & NODE.JS DEVELOPER FOR EXISTING MANAGEMENT SYSTEM",
+                "We are looking for an experienced Full Stack Developer to carry out modifications and improvements to our existing internal business management system, Central Station.",
+                "- Frontend: React.js"
+              ],
+              "status": "meets",
+              "criterion": "role",
+              "briefQuotes": [
+                "React TypeScript web development",
+                "Five years delivering React and TypeScript web applications, API integrations and dashboards for clients"
+              ],
+              "explanation": "The posting is for a React-based full stack developer role, which is reasonably aligned with the brief’s React TypeScript web development target and the user’s React/web app background."
+            },
+            {
+              "quotes": [
+                "Post a project like this",
+                " * Open for Proposals",
+                "We are looking for an experienced Full Stack Developer to carry out modifications and improvements to our existing internal business management system, Central Station."
+              ],
+              "status": "meets",
+              "criterion": "category",
+              "briefQuotes": [
+                "services"
+              ],
+              "explanation": "This is a buyer-posted project/service request, which matches the brief’s services category."
+            },
+            {
+              "quotes": [
+                " * Remote"
+              ],
+              "status": "meets",
+              "criterion": "arrangement",
+              "briefQuotes": [
+                "remote"
+              ],
+              "explanation": "The posting explicitly says the work is remote, matching the brief’s remote arrangement."
+            },
+            {
+              "quotes": [
+                " * Remote"
+              ],
+              "status": "meets",
+              "criterion": "location",
+              "briefQuotes": [
+                "New York, United States",
+                "United States or remote worldwide",
+                "United States"
+              ],
+              "explanation": "The brief allows United States or remote worldwide, so the applicant’s New York, United States location does not conflict with this opportunity."
+            },
+            {
+              "quotes": [
+                "The system is already developed and operational, using the following technologies:",
+                "- Frontend: React.js",
+                "- Backend: Node.js (Express.js)",
+                "- Database: PostgreSQL or MongoDB"
+              ],
+              "status": "unknown",
+              "criterion": "experience",
+              "briefQuotes": [
+                "Five years delivering React and TypeScript web applications, API integrations and dashboards for clients"
+              ],
+              "explanation": "The posting asks for experience with React.js, Node.js, PostgreSQL or MongoDB, API-based architecture, and modifying existing web applications, while the brief only confirms React/TypeScript web apps, API integrations, and dashboards. That is supportive but does not fully confirm the specific backend/database experience requested."
+            },
+            {
+              "quotes": [
+                " * Remote"
+              ],
+              "status": "unknown",
+              "criterion": "authorization",
+              "briefQuotes": [
+                "not_needed",
+                "United States"
+              ],
+              "explanation": "Work authorization cannot be confirmed from the provided information for this exact job location, and the posting does not state any authorization or sponsorship requirements."
+            },
+            {
+              "quotes": [
+                "Fixed Price",
+                "$200",
+                "We would prefer a fixed-price quotation covering all the requested modifications, including testing and necessary revisions until the agreed requirements are met."
+              ],
+              "status": "unknown",
+              "criterion": "compensation",
+              "briefQuotes": [
+                "USD",
+                "project",
+                "include"
+              ],
+              "explanation": "The posting states a fixed price of $200, but the brief does not set a minimum pay floor, so there is no confirmed compensation conflict or guaranteed match to determine."
+            }
+          ]
+        },
+        "kind": "fit",
+        "usage": {
+          "model": "gpt-5.4-mini-2026-03-17",
+          "durationMs": 9366,
+          "responseId": "resp_095ae6205464c353016ad0e80dcf5c87d289b4d8bbbf04605d",
+          "inputTokens": 1838,
+          "outputTokens": 1133,
+          "cachedInputTokens": 0
+        }
+      },
+      "analysis_task_id": "372a419f1af577b838d1be33c98ea0ea1e5bc88bff6e45ed6102792acb7e7ec2",
+      "outcome": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 9366,
+        "responseId": "resp_095ae6205464c353016ad0e80dcf5c87d289b4d8bbbf04605d",
+        "inputTokens": 1838,
+        "outputTokens": 1133,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 6477
+      }
+    }
+  ],
+  "rejectedFits": [],
+  "rejectedReviews": [],
+  "reviewFailures": [],
+  "matchingState": {
+    "status": "completed",
+    "match_count": 1
+  },
+  "taskStates": [
+    {
+      "kind": "extraction",
+      "status": "ready",
+      "count": 1
+    },
+    {
+      "kind": "fit",
+      "status": "ready",
+      "count": 1
+    },
+    {
+      "kind": "research",
+      "status": "ready",
+      "count": 1
+    }
+  ],
+  "eligiblePostings": [
+    {
+      "id": "web:2e28268c7a3b5cd29488196aa0d6bf161ddfb78fc7ce62c77925adabecef7c14",
+      "kind": "client_request",
+      "title": "Full Stack Developer",
+      "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/react-js-node-js-developer-for-existing-management-system-4526654"
+    }
+  ],
+  "reviewAttempts": [
+    {
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 4221,
+        "responseId": "resp_007bfcc9a6347d11016ad0e7c23d0887d2a0159ce18deef89f",
+        "inputTokens": 1941,
+        "outputTokens": 511,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 3756
+      }
+    }
+  ],
+  "opportunities": [
+    {
+      "id": "web:2e28268c7a3b5cd29488196aa0d6bf161ddfb78fc7ce62c77925adabecef7c14",
+      "kind": "client_request",
+      "title": "Full Stack Developer",
+      "company": null,
+      "location": null,
+      "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/react-js-node-js-developer-for-existing-management-system-4526654",
+      "checkedAt": "2026-10-15 14:49:58.754731+00",
+      "scouts": [
+        "Synthetic client-project scout"
+      ],
+      "feedback": {
+        "value": "none",
+        "version": 0
+      },
+      "reasons": [
+        "The posting is for a React-based full stack developer role, which is reasonably aligned with the brief’s React TypeScript web development target and the user’s React/web app background.",
+        "This is a buyer-posted project/service request, which matches the brief’s services category.",
+        "The posting explicitly says the work is remote, matching the brief’s remote arrangement."
+      ],
+      "uncertainties": [
+        "The posting does not provide clear, consistent evidence for this requirement.",
+        "The posting asks for experience with React.js, Node.js, PostgreSQL or MongoDB, API-based architecture, and modifying existing web applications, while the brief only confirms React/TypeScript web apps, API integrations, and dashboards. That is supportive but does not fully confirm the specific backend/database experience requested.",
+        "Work authorization cannot be confirmed from the provided information for this exact job location, and the posting does not state any authorization or sponsorship requirements.",
+        "The posting states a fixed price of $200, but the brief does not set a minimum pay floor, so there is no confirmed compensation conflict or guaranteed match to determine."
+      ],
+      "detail": {
+        "criteria": [
+          {
+            "quotes": [
+              "Full Stack Developer",
+              "REACT.JS & NODE.JS DEVELOPER FOR EXISTING MANAGEMENT SYSTEM",
+              "We are looking for an experienced Full Stack Developer to carry out modifications and improvements to our existing internal business management system, Central Station.",
+              "- Frontend: React.js"
+            ],
+            "status": "meets",
+            "criterion": "role",
+            "briefQuotes": [
+              "React TypeScript web development",
+              "Five years delivering React and TypeScript web applications, API integrations and dashboards for clients"
+            ],
+            "explanation": "The posting is for a React-based full stack developer role, which is reasonably aligned with the brief’s React TypeScript web development target and the user’s React/web app background."
+          },
+          {
+            "quotes": [
+              "Post a project like this",
+              " * Open for Proposals",
+              "We are looking for an experienced Full Stack Developer to carry out modifications and improvements to our existing internal business management system, Central Station."
+            ],
+            "status": "meets",
+            "criterion": "category",
+            "briefQuotes": [
+              "services"
+            ],
+            "explanation": "This is a buyer-posted project/service request, which matches the brief’s services category."
+          },
+          {
+            "quotes": [
+              " * Remote"
+            ],
+            "status": "meets",
+            "criterion": "arrangement",
+            "briefQuotes": [
+              "remote"
+            ],
+            "explanation": "The posting explicitly says the work is remote, matching the brief’s remote arrangement."
+          },
+          {
+            "quotes": [
+              " * Remote"
+            ],
+            "status": "unknown",
+            "criterion": "location",
+            "briefQuotes": [
+              "New York, United States",
+              "United States or remote worldwide",
+              "United States"
+            ],
+            "explanation": "The posting does not provide clear, consistent evidence for this requirement."
+          },
+          {
+            "quotes": [
+              "The system is already developed and operational, using the following technologies:",
+              "- Frontend: React.js",
+              "- Backend: Node.js (Express.js)",
+              "- Database: PostgreSQL or MongoDB"
+            ],
+            "status": "unknown",
+            "criterion": "experience",
+            "briefQuotes": [
+              "Five years delivering React and TypeScript web applications, API integrations and dashboards for clients"
+            ],
+            "explanation": "The posting asks for experience with React.js, Node.js, PostgreSQL or MongoDB, API-based architecture, and modifying existing web applications, while the brief only confirms React/TypeScript web apps, API integrations, and dashboards. That is supportive but does not fully confirm the specific backend/database experience requested."
+          },
+          {
+            "quotes": [
+              " * Remote"
+            ],
+            "status": "unknown",
+            "criterion": "authorization",
+            "briefQuotes": [
+              "not_needed",
+              "United States"
+            ],
+            "explanation": "Work authorization cannot be confirmed from the provided information for this exact job location, and the posting does not state any authorization or sponsorship requirements."
+          },
+          {
+            "quotes": [
+              "Fixed Price",
+              "$200",
+              "We would prefer a fixed-price quotation covering all the requested modifications, including testing and necessary revisions until the agreed requirements are met."
+            ],
+            "status": "unknown",
+            "criterion": "compensation",
+            "briefQuotes": [
+              "USD",
+              "project",
+              "include"
+            ],
+            "explanation": "The posting states a fixed price of $200, but the brief does not set a minimum pay floor, so there is no confirmed compensation conflict or guaranteed match to determine."
+          }
+        ],
+        "research": [
+          {
+            "status": "unresolved",
+            "question": "The posting does not provide clear, consistent evidence for this requirement.",
+            "criterion": "location"
+          },
+          {
+            "status": "unresolved",
+            "question": "The posting asks for experience with React.js, Node.js, PostgreSQL or MongoDB, API-based architecture, and modifying existing web applications, while the brief only confirms React/TypeScript web apps, API integrations, and dashboards. That is supportive but does not fully confirm the specific backend/database experience requested.",
+            "criterion": "experience"
+          },
+          {
+            "status": "unresolved",
+            "question": "Work authorization cannot be confirmed from the provided information for this exact job location, and the posting does not state any authorization or sponsorship requirements.",
+            "criterion": "authorization"
+          },
+          {
+            "status": "unresolved",
+            "question": "The posting states a fixed price of $200, but the brief does not set a minimum pay floor, so there is no confirmed compensation conflict or guaranteed match to determine.",
+            "criterion": "compensation"
+          }
+        ],
+        "assessedBy": "ai",
+        "employerResearch": {
+          "findings": [
+            {
+              "fact": "location",
+              "value": "",
+              "quotes": [],
+              "status": "unresolved",
+              "sourceUrl": null,
+              "explanation": "Approved employer sources did not provide usable evidence for this question.",
+              "applicability": "unclear"
+            },
+            {
+              "fact": "authorization",
+              "value": "",
+              "quotes": [],
+              "status": "unresolved",
+              "sourceUrl": null,
+              "explanation": "Approved employer sources did not provide usable evidence for this question.",
+              "applicability": "unclear"
+            },
+            {
+              "fact": "sponsorship",
+              "value": "",
+              "quotes": [],
+              "status": "unresolved",
+              "sourceUrl": null,
+              "explanation": "Approved employer sources did not provide usable evidence for this question.",
+              "applicability": "unclear"
+            },
+            {
+              "fact": "requirements",
+              "value": "",
+              "quotes": [],
+              "status": "unresolved",
+              "sourceUrl": null,
+              "explanation": "Approved employer sources did not provide usable evidence for this question.",
+              "applicability": "unclear"
+            },
+            {
+              "fact": "deadline",
+              "value": "",
+              "quotes": [],
+              "status": "unresolved",
+              "sourceUrl": null,
+              "explanation": "Approved employer sources did not provide usable evidence for this question.",
+              "applicability": "unclear"
+            }
+          ],
+          "checkedAt": "2026-10-15T14:49:49.338Z",
+          "documents": [],
+          "expiresAt": "2026-10-15T15:04:49.338Z"
+        },
+        "verificationPolicy": "supported-criteria-v4"
+      },
+      "assessmentScout": "Synthetic client-project scout",
+      "availability": {
+        "status": "available",
+        "checkedAt": "2026-10-15T14:48:33.505Z",
+        "sourceUrl": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/react-js-node-js-developer-for-existing-management-system-4526654",
+        "validUntil": "2026-10-15T15:03:33.505Z",
+        "fingerprint": "72b8ebd8f5fc4c4c976314e326acbac0bb3fb7d18c799b4ca57440318fab277b"
+      }
+    }
+  ],
+  "deliveries": [
+    {
+      "status": "accepted",
+      "provider_message_id": "<439605fb-ce81-4ed2-b816-4fe2671a7b0f@scoutalert.test>"
+    }
+  ],
+  "durationMs": 105475,
+  "search": {
+    "goal": "Find remote freelance React development projects",
+    "category": "services",
+    "target": "React TypeScript web development",
+    "name": "Synthetic client-project scout",
+    "arrangement": "remote",
+    "arrangementRequired": true,
+    "residence": "New York, United States",
+    "workLocations": "United States or remote worldwide",
+    "authorizationLocations": "United States",
+    "authorizationConfirmed": true,
+    "sponsorshipNeed": "not_needed",
+    "background": "Five years delivering React and TypeScript web applications, API integrations and dashboards for clients",
+    "minimumPay": "",
+    "currency": "USD",
+    "payPeriod": "project",
+    "unknownEligibility": "review",
+    "undisclosedPay": "include"
+  },
+  "operations": [
+    {
+      "key": "5c34f80210fb25931ba5c08741e1e49da85fa89f92f55e36eb8a0a73a4a5eda4",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "\"React\" site:peopleperhour.com/freelance-jobs",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "retrieved_url": null,
+      "capture": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "8a8b06a33a2c70443a1d6d53a5ccb0d3c514381343135b07a7ab017dfcb0bda4",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "\"React\" site:workana.com inurl:job",
+          "country": "us",
+          "language": "en",
+          "freshness": "any"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "retrieved_url": null,
+      "capture": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "5ec5bb3f10ede423c781fb933d22bb3e5753ebc1e886df9594e26ac0b1106f57",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "\"web\" \"development\" (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "retrieved_url": null,
+      "capture": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "9fc4c302fa7e5f4b65b2834f8a3567fe363870fdd6e16bff621e5f6036ebc37d",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "\"React\" inurl:projects (\"budget\" OR \"bids\" OR \"proposals\")",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "retrieved_url": null,
+      "capture": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "e56205ce4d430099b07a0c96bd80baafb1acb74b8c61b9b2857114bf7decc8c4",
+      "kind": "document",
+      "input": {
+        "url": "https://www.c40.org/wp-content/uploads/2026/10/2-RfP-GCoM-Website-Development-Maintenance.pdf",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": [
+        {
+          "url": "https://www.c40.org/sitemap_index.xml",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.c40.org/women4climate/sitemap_index.xml",
+          "text": "Site-advertised sitemap"
+        }
+      ],
+      "retrieved_url": "https://www.c40.org/wp-content/uploads/2026/10/2-RfP-GCoM-Website-Development-Maintenance.pdf",
+      "capture": {
+        "bytes": 1900,
+        "method": "http",
+        "complete": false,
+        "requests": 2
+      },
+      "captured_text": null,
+      "source_status": "access_limited",
+      "source_reason": "source_access_denied",
+      "observed_links": 0
+    },
+    {
+      "key": "5489ea870f3538efaae0b7b487e9239f3ed28cfdd447f27c0bc97f9ea739e413",
+      "kind": "document",
+      "input": {
+        "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/react-js-node-js-developer-for-existing-management-system-4526654",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": [
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/%C3%93scar-palomar-python-ai-automation-developer-zxxvxxvm",
+          "text": "Óscar P."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/osama_bin-sajid-senior-software-developer-pwa-zyaxwqwv",
+          "text": "Osama Bin S."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/hamza-akram-web-desktop-development-graphics-ywazxjj",
+          "text": "Hamza A."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/razan-mohamed-senior-full-stack-engineer-zzjaaxwq",
+          "text": "Razan M."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/devcloudify-solutions-uk-s-top-cert-award-winning-va-n8n-zyzvzjnj",
+          "text": "DevCloudify S."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/raj-sharma-pph-no-1-enterprise-software-zzjaaaq",
+          "text": "Raj S."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/amaneet-brar-most-trusted-1-team-19-years-of-zymxvy",
+          "text": "Amaneet B."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/cornelius-oke-top-rated-website-developer-mobile-zxzvxyjm",
+          "text": "Cornelius O."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/mohit-pande-full-stack-web-developer-python-wwxmvz",
+          "text": "Mohit P."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/cytnhia-wanjiru-seasoned-mobile-and-web-zzmzmvqw",
+          "text": "CYTNHIA W."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/coderkube_technologies-technologies-uk-s-no-1-wordpress-magento-php-zxqynn",
+          "text": "CoderKube Technologies"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/muhammad_shahid-iqbal-flutter-expert-ai-powered-mobile-mvqzynx",
+          "text": "Muhammad Shahid I."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/react-js-node-js-developer-for-existing-management-system-4526654?Members_page=2",
+          "text": "2"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/react-js-node-js-developer-for-existing-management-system-4526654?Members_page=3",
+          "text": "3"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/react-js-node-js-developer-for-existing-management-system-4526654?Members_page=4",
+          "text": "4"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/react-js-node-js-developer-for-existing-management-system-4526654?Members_page=5",
+          "text": "5"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/react-js-node-js-developer-for-existing-management-system-4526654?Members_page=6",
+          "text": "6"
+        },
+        {
+          "url": "https://x.com/intent/tweet",
+          "text": ""
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/madara-guruge-zywqaqqq?ref=buyer",
+          "text": "Madara G."
+        },
+        {
+          "url": "https://www.peopleperhour.com/site/register?next=https%3A%2F%2Fwww.peopleperhour.com%2Ffreelance-jobs%2Ftechnology-programming%2Fwebsite-development%2Freact-js-node-js-developer-for-existing-management-system-4526654",
+          "text": "Sign up"
+        },
+        {
+          "url": "https://www.peopleperhour.com/job/new?id=4526654&ref=similar",
+          "text": "Post a project like this"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Postgresql",
+          "text": "Postgresql"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Developer+operations+%28devops%29",
+          "text": "Developer operations (devops)"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Express+js",
+          "text": "Express js"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Full+stack+developer",
+          "text": "Full stack developer"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Mongo+db",
+          "text": "Mongo db"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Node+js",
+          "text": "Node js"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=React+js",
+          "text": "React js"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Systems+development",
+          "text": "Systems development"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Website+development",
+          "text": "Website development"
+        },
+        {
+          "url": "https://www.peopleperhour.com/cookies",
+          "text": "Cookie Policy"
+        }
+      ],
+      "feeds": [],
+      "sitemaps": [
+        {
+          "url": "https://www.peopleperhour.com/pphsitemaps/sitemap.live.hire_freelancers.index.xml",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.peopleperhour.com/pphsitemaps/sitemap.live.topcert.index.xml",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.peopleperhour.com/pphsitemaps/sitemap.live.cert5.index.xml",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.peopleperhour.com/pphsitemaps/sitemap.live.cert4.index.xml",
+          "text": "Site-advertised sitemap"
+        }
+      ],
+      "retrieved_url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/react-js-node-js-developer-for-existing-management-system-4526654",
+      "capture": {
+        "bytes": 132285,
+        "scope": "buyer_brief",
+        "method": "http",
+        "parser": "peopleperhour-public-html-v2",
+        "complete": true,
+        "requests": 2
+      },
+      "captured_text": "REACT.JS & NODE.JS DEVELOPER FOR EXISTING MANAGEMENT SYSTEM\n\n- or -\n\nPost a project like this\nEnds in 28 days\nFixed Price\n$200\n * Posted: 1 day ago\n * Proposals: 66\n * Remote\n * #4526654\n * Open for Proposals\n\nExperience Level: Entry\n\nHi,\n\nWe are looking for an experienced Full Stack Developer to carry out modifications and improvements to our existing internal business management system, Central Station.\n\nThe system is already developed and operational, using the following technologies:\n\n- Frontend: React.js\n- Backend: Node.js (Express.js)\n- Database: PostgreSQL or MongoDB\n- Architecture: API-based\n\nThe requested modifications mainly involve project management, invoicing, reporting, dashboard functionality, and salary management.\n\nWe have prepared a detailed scope of work outlining all the required changes, which we can share for your review.\n\nCould you please confirm whether you have experience working with these technologies and modifying existing web applications?\n\nWe would prefer a fixed-price quotation covering all the requested modifications, including testing and necessary revisions until the agreed requirements are met.\n\nWe look forward to hearing from you.\n\nThank you!",
+      "source_status": "fetched",
+      "source_reason": null,
+      "observed_links": 31
+    },
+    {
+      "key": "063374db59741b2076c338500a18c67f8bfca1405673b7a0ea3874d2a9959b82",
+      "kind": "document",
+      "input": {
+        "url": "https://www.instagram.com/p/DeZUIC5BGCm/",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": [
+        {
+          "url": "https://www.instagram.com/sitemap/ig_places_sitemap.xml.gz",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.instagram.com/sitemap/ig_seo_profile_sitemap.xml.gz",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.instagram.com/sitemap/ig_seo_profile_sitemap_non_media_eligible.xml.gz",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.instagram.com/sitemap/dim_ig_logged_out_web_keyword_ent.xml.gz",
+          "text": "Site-advertised sitemap"
+        }
+      ],
+      "retrieved_url": null,
+      "capture": {
+        "bytes": 7336,
+        "method": "http",
+        "complete": false,
+        "requests": 1
+      },
+      "captured_text": null,
+      "source_status": "access_limited",
+      "source_reason": "crawl_policy_denied",
+      "observed_links": 0
+    },
+    {
+      "key": "ab33ca98883daf46e757ba001636fc1813a6ab97386eb493a9e810b0b6daa6d4",
+      "kind": "document",
+      "input": {
+        "url": "https://www.stlouis-mo.gov/government/procurement/index.cfm",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": [],
+      "retrieved_url": null,
+      "capture": {
+        "bytes": 0,
+        "method": "http",
+        "complete": false,
+        "requests": 1
+      },
+      "captured_text": null,
+      "source_status": "access_limited",
+      "source_reason": "source_request_failed",
+      "observed_links": 0
+    },
+    {
+      "key": "829a513c9bc1ac44ed8ef77f3a077656a8b2d5f20440fa7a21f627830f95b8c6",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "\"TypeScript\" (\"I need\" OR \"we need\" OR \"looking for\") (\"freelancer\" OR \"budget\")",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "retrieved_url": null,
+      "capture": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "ed8ef54e28ccfee1b76e46f7ac3bff3fe5ea23bf307456313524ea09b48dc439",
+      "kind": "document",
+      "input": {
+        "url": "https://www.freelancer.com/projects/typescript/react-typescript-full-stack-web",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": [
+        {
+          "url": "https://www.freelancer.com/sitemap_index_default_s3.xml",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.freelancer.com/sitemap_index_default_job-search_s3.xml",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.freelancer.com/sitemap_index_default_projects_s3.xml",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.freelancer.com/sitemap_index_default_contests_s3.xml",
+          "text": "Site-advertised sitemap"
+        }
+      ],
+      "retrieved_url": "https://www.freelancer.com/projects/typescript/react-typescript-full-stack-web",
+      "capture": {
+        "bytes": 803179,
+        "method": "http",
+        "complete": false,
+        "requests": 2
+      },
+      "captured_text": null,
+      "source_status": "access_limited",
+      "source_reason": "source_not_found",
+      "observed_links": 0
+    },
+    {
+      "key": "87bf7a17f81d1893eea462f8097e7899c2bb934cc3005318f37b39a64549721f",
+      "kind": "document",
+      "input": {
+        "url": "https://www.linkedin.com/posts/kenneth-lynard_looking-for-a-web-designer-developer-activity-7507942655935324160-FW0m",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": [],
+      "retrieved_url": null,
+      "capture": {
+        "bytes": 120190,
+        "method": "http",
+        "complete": false,
+        "requests": 1
+      },
+      "captured_text": null,
+      "source_status": "access_limited",
+      "source_reason": "crawl_policy_denied",
+      "observed_links": 0
+    }
+  ],
+  "decisions": [
+    {
+      "round": 0,
+      "reason": "check_promising_result",
+      "action": {
+        "url": "https://www.c40.org/wp-content/uploads/2026/10/2-RfP-GCoM-Website-Development-Maintenance.pdf",
+        "kind": "document"
+      },
+      "depth": 0,
+      "parent_key": "5ec5bb3f10ede423c781fb933d22bb3e5753ebc1e886df9594e26ac0b1106f57"
+    },
+    {
+      "round": 1,
+      "reason": "check_promising_result",
+      "action": {
+        "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/react-js-node-js-developer-for-existing-management-system-4526654",
+        "kind": "document"
+      },
+      "depth": 0,
+      "parent_key": "5c34f80210fb25931ba5c08741e1e49da85fa89f92f55e36eb8a0a73a4a5eda4"
+    },
+    {
+      "round": 2,
+      "reason": "check_promising_result",
+      "action": {
+        "url": "https://www.instagram.com/p/DeZUIC5BGCm/",
+        "kind": "document"
+      },
+      "depth": 0,
+      "parent_key": "5ec5bb3f10ede423c781fb933d22bb3e5753ebc1e886df9594e26ac0b1106f57"
+    },
+    {
+      "round": 3,
+      "reason": "check_promising_result",
+      "action": {
+        "url": "https://www.stlouis-mo.gov/government/procurement/index.cfm",
+        "kind": "document"
+      },
+      "depth": 0,
+      "parent_key": "5ec5bb3f10ede423c781fb933d22bb3e5753ebc1e886df9594e26ac0b1106f57"
+    },
+    {
+      "round": 4,
+      "reason": "refine_demand_query",
+      "action": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "\"TypeScript\" (\"I need\" OR \"we need\" OR \"looking for\") (\"freelancer\" OR \"budget\")",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "depth": 0,
+      "parent_key": "9fc4c302fa7e5f4b65b2834f8a3567fe363870fdd6e16bff621e5f6036ebc37d"
+    },
+    {
+      "round": 5,
+      "reason": "check_promising_result",
+      "action": {
+        "url": "https://www.freelancer.com/projects/typescript/react-typescript-full-stack-web",
+        "kind": "document"
+      },
+      "depth": 0,
+      "parent_key": "829a513c9bc1ac44ed8ef77f3a077656a8b2d5f20440fa7a21f627830f95b8c6"
+    },
+    {
+      "round": 6,
+      "reason": "check_promising_result",
+      "action": {
+        "url": "https://www.linkedin.com/posts/kenneth-lynard_looking-for-a-web-designer-developer-activity-7507942655935324160-FW0m",
+        "kind": "document"
+      },
+      "depth": 0,
+      "parent_key": "829a513c9bc1ac44ed8ef77f3a077656a8b2d5f20440fa7a21f627830f95b8c6"
+    },
+    {
+      "round": 7,
+      "reason": "exploration_limit",
+      "action": null,
+      "depth": 0,
+      "parent_key": null
+    }
+  ],
+  "case": {
+    "id": "e20ffde9-d14f-49ce-bb81-a0e7c875b5ae",
+    "scoutId": "f0adad0d-435f-42e1-a7bd-5a714b0e58c6",
+    "scoutName": "Synthetic client-project scout",
+    "scoutVersion": 1,
+    "provider": "serper",
+    "strategy": {
+      "targets": [
+        "React",
+        "TypeScript",
+        "web development"
+      ],
+      "explanation": "I split the service into three concise search concepts using only the words from the brief. This helps surface buyers searching for React work, TypeScript work, or web development work while keeping the full request available for later matching. Remote is kept out of the public targets and handled separately."
+    },
+    "exploration": [
+      {
+        "kind": "document",
+        "reason": "check_promising_result",
+        "target": "https://www.c40.org/wp-content/uploads/2026/10/2-RfP-GCoM-Website-Development-Maintenance.pdf"
+      },
+      {
+        "kind": "document",
+        "reason": "check_promising_result",
+        "target": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/react-js-node-js-developer-for-existing-management-system-4526654"
+      },
+      {
+        "kind": "document",
+        "reason": "check_promising_result",
+        "target": "https://www.instagram.com/p/DeZUIC5BGCm/"
+      },
+      {
+        "kind": "document",
+        "reason": "check_promising_result",
+        "target": "https://www.stlouis-mo.gov/government/procurement/index.cfm"
+      },
+      {
+        "kind": "search",
+        "reason": "refine_demand_query",
+        "target": "\"TypeScript\" (\"I need\" OR \"we need\" OR \"looking for\") (\"freelancer\" OR \"budget\")"
+      },
+      {
+        "kind": "document",
+        "reason": "check_promising_result",
+        "target": "https://www.freelancer.com/projects/typescript/react-typescript-full-stack-web"
+      },
+      {
+        "kind": "document",
+        "reason": "check_promising_result",
+        "target": "https://www.linkedin.com/posts/kenneth-lynard_looking-for-a-web-designer-developer-activity-7507942655935324160-FW0m"
+      },
+      {
+        "kind": null,
+        "reason": "exploration_limit",
+        "target": null
+      }
+    ],
+    "reviewStatus": "complete",
+    "reviewReason": "source_reviews_complete",
+    "status": "partial",
+    "reason": "some_sources_unavailable",
+    "startedAt": "2026-10-15 14:48:15.991516+00",
+    "finishedAt": "2026-10-15 14:49:49.304577+00",
+    "searchesCompleted": 5,
+    "documentsChecked": 6,
+    "leadCount": 40
+  },
+  "usage": [
+    {
+      "provider": "public-documents",
+      "requests": 6,
+      "reserved_micros": "0"
+    },
+    {
+      "provider": "serper",
+      "requests": 5,
+      "reserved_micros": "50000"
+    }
+  ],
+  "aiBudget": [
+    {
+      "requests": 10,
+      "reserved_microusd": "750000"
+    }
+  ],
+  "dashboardLeadSampleSize": 40,
+  "leads": [
+    {
+      "url": "https://codeandcore.com/blog/dedicated-developer-vs-freelancer-vs-agency/",
+      "title": "Dedicated Developer vs Freelancer vs Agency: 2026 Cost ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://docs.soliditylang.org/_/downloads/en/latest/pdf/",
+      "title": "Release 0.8.38-develop Ethereum",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Cement",
+      "title": "Cement",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://eseospace.com/submit-an-rfp/",
+      "title": "Submit an RFP, RFQ or RFI",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://gatilab.com/google-hacks/",
+      "title": "Google Hacks: Search Operators, Tools and Fun Tricks",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://infoloop.co/hire-typescript-developers",
+      "title": "Hire TypeScript Developers",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://loxala.com/jobs/full-stack-engineer",
+      "title": "Senior Full-Stack Engineer — React + Node",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://nexthireinc.com/hire-typescript-developers/",
+      "title": "Hire TypeScript Developers | Type-Safe App Development ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://pbs.proxmox.com/docs/proxmox-backup.pdf",
+      "title": "Proxmox Backup Documentation",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://sociallinker.pro/tools/web-development-rfp-template",
+      "title": "Website RFP Template + Generator & Scoring Sheet",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://websitedevelopmentbangkok.com/blog/website-rfp-template/",
+      "title": "Website Redesign RFP Template: What to Include",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.c40.org/wp-content/uploads/2026/10/2-RfP-GCoM-Website-Development-Maintenance.pdf",
+      "title": "Request for Proposal (RfP)",
+      "contentStatus": "access_limited",
+      "contentReason": "source_access_denied",
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.cscbroward.org/news/abcd-rfp-2026/",
+      "title": "Asset Based Community Development (ABCD) ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.facebook.com/100084348184171/posts/%EF%B8%8F-%F0%9D%97%A6%F0%9D%97%9C%F0%9D%97%A7%F0%9D%97%98-%F0%9D%97%94%F0%9D%97%A5%F0%9D%97%96%F0%9D%97%9B%F0%9D%97%9C%F0%9D%97%A7%F0%9D%97%98%F0%9D%97%96%F0%9D%97%A7%F0%9D%97%A8%F0%9D%97%A5%F0%9D%97%98-%F0%9D%97%9C%F0%9D%97%A6%F0%9D%97%A1%F0%9D%97%A7-%F0%9D%97%9D%F0%9D%97%A8%F0%9D%97%A6%F0%9D%97%A7-%F0%9D%97%94%F0%9D%97%95%F0%9D%97%A2%F0%9D%97%A8%F0%9D%97%A7-%F0%9D%97%9B%F0%9D%97%94%F0%9D%97%A9%F0%9D%97%9C%F0%9D%97%A1%F0%9D%97%9A-%F0%9D%97%94-%F0%9D%97%A1%F0%9D%97%9C%F0%9D%97%96%F0%9D%97%98-%F0%9D%97%A0%F0%9D%97%98%F0%9D%97%A1%F0%9D%97%A8one-of-the-easiest-ways-to/1085758107579119/",
+      "title": "Understanding technical SEO site architecture beyond surface ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.facebook.com/groups/4478714448882966/posts/28484703571190718/",
+      "title": "Remote frontend or full stack developer job opportunities ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.freelancer.com/projects/typescript/react-typescript-full-stack-web",
+      "title": "React TypeScript Full-Stack Web App",
+      "contentStatus": "access_limited",
+      "contentReason": "source_not_found",
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.hifis.net/posts/",
+      "title": "News on HIFIS and Helmholtz Services",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.instagram.com/p/Dd0oou5GlDa/",
+      "title": "We're Hiring: Full Stack Developer",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.instagram.com/p/DeZUIC5BGCm/",
+      "title": "📢 Request for Proposal (RFP) - Website Development We ...",
+      "contentStatus": "access_limited",
+      "contentReason": "crawl_policy_denied",
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.inventive.ai/blog-posts/rfp-software-development-guide",
+      "title": "Writing an RFP for Software Development: Step-by- ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.linkedin.com/posts/clanxai_hiring-a-senior-sdetpune-looking-for-5-activity-7507651922351456256-J6RA",
+      "title": "Hiring a Senior SDET📍Pune Looking for 5+ years of SDET ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.linkedin.com/posts/kenneth-lynard_looking-for-a-web-designer-developer-activity-7507942655935324160-FW0m",
+      "title": "Kenneth Lynard - MSc, EMBA's Post",
+      "contentStatus": "access_limited",
+      "contentReason": "crawl_policy_denied",
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.linkedin.com/posts/start-designs_websitedevelopment-rfp-webdevelopment-activity-7506988772400496640-UUs3",
+      "title": "Website Development RFP Best Practices for Clear Projects",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.peopleperhour.com/freelance-jobs/design/web-design/domain-setup-hosting-website-launch-and-maintenance-4526411",
+      "title": "Domain setup, hosting, website launch and maintenance.",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.peopleperhour.com/freelance-jobs/marketing-branding-sales/direct-marketers/outsourced-marketing-team-4526652",
+      "title": "Outsourced Marketing Team",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.peopleperhour.com/freelance-jobs/marketing-branding-sales/sales-calls/sales-business-development-executive-inbound-outbound-4526763",
+      "title": "Sales & Business Development Executive (Inbound & ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.peopleperhour.com/freelance-jobs/marketing-branding-sales/sales-calls/telesales-appointment-setting-uk-electrical-wholesale-custo-4526298",
+      "title": "Telesales appointment setting: UK electrical wholesale ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/databases/replit-postgresql-developer-required-4526666",
+      "title": "Replit / PostgreSQL developer required",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/mobile-app-development/create-responsive-webapp-based-on-wordpress-application-4525990",
+      "title": "Create responsive webapp based on wordpress application",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/programming-coding/full-stack-developer-custom-training-course-booking-platfo-4526833",
+      "title": "Full-stack developer - custom training course booking ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/i-need-a-website-updated-to-a-modern-contemporary-style-with-4526620",
+      "title": "I need a website updated to a modern contemporary style ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/react-js-node-js-developer-for-existing-management-system-4526654",
+      "title": "Node.js Developer for Existing Management System",
+      "contentStatus": "fetched",
+      "contentReason": null,
+      "postingId": "web:2e28268c7a3b5cd29488196aa0d6bf161ddfb78fc7ce62c77925adabecef7c14",
+      "promoted": true,
+      "review": {
+        "facts": {
+          "role": {
+            "value": "Full Stack Developer",
+            "quotes": [
+              "We are looking for an experienced Full Stack Developer to carry out modifications and improvements to our existing internal business management system, Central Station."
+            ],
+            "status": "stated"
+          },
+          "category": {
+            "value": "client_request",
+            "quotes": [
+              "Fixed Price",
+              "$200",
+              " * Open for Proposals",
+              "We are looking for an experienced Full Stack Developer to carry out modifications and improvements to our existing internal business management system, Central Station."
+            ],
+            "status": "stated"
+          },
+          "location": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "arrangement": {
+            "value": "remote",
+            "quotes": [
+              " * Remote"
+            ],
+            "status": "stated"
+          },
+          "sponsorship": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "compensation": {
+            "value": "Fixed Price $200",
+            "quotes": [
+              "Fixed Price",
+              "$200"
+            ],
+            "status": "stated"
+          },
+          "requirements": {
+            "value": "experience with React.js, Node.js (Express.js), PostgreSQL or MongoDB, API-based architecture, and modifying existing web applications",
+            "quotes": [
+              "The system is already developed and operational, using the following technologies:",
+              "- Frontend: React.js",
+              "- Backend: Node.js (Express.js)",
+              "- Database: PostgreSQL or MongoDB"
+            ],
+            "status": "stated"
+          },
+          "authorization": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          }
+        },
+        "label": "client_request",
+        "scope": "source",
+        "quotes": [
+          "We are looking for an experienced Full Stack Developer to carry out modifications and improvements to our existing internal business management system, Central Station.",
+          "The requested modifications mainly involve project management, invoicing, reporting, dashboard functionality, and salary management.",
+          "We would prefer a fixed-price quotation covering all the requested modifications, including testing and necessary revisions until the agreed requirements are met.",
+          " * Open for Proposals"
+        ],
+        "explanation": "A buyer is requesting a developer to modify an existing internal management system, with a fixed-price budget and open proposals, so this is a client request rather than an employment opening."
+      }
+    },
+    {
+      "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/wp-403-error-4526853",
+      "title": "WP 403 error",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.pwc.com/hu/hu/szolgaltatasok/ifrs/ifrs_9/ifrs9_kiadvanyok/achieving_hedge_accounting_in_practice_under_ifrs9.pdf",
+      "title": "Achieving hedge accounting in practice under IFRS 9",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.redamon.org/docs/ai-agent-guide",
+      "title": "AI Agent Guide | RedAmon Docs",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.reddit.com/r/INAT/comments/1x3rpj5/paid_looking_for_a_developer_for_outlands_600/",
+      "title": "[Paid] Looking for a developer for Outlands — $600 budget ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.startdesigns.com/blog/website-development-rfp-guide/",
+      "title": "Website Development RFP Guide & Checklist",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.stlouis-mo.gov/government/procurement/index.cfm",
+      "title": "Active City RFPs, RFQs, RFIs, and Bids",
+      "contentStatus": "access_limited",
+      "contentReason": "source_request_failed",
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.taxinstitute.com.au/insights/taxvibe",
+      "title": "TaxVibe Podcast",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.upgrad.com/blog/final-year-projects-ideas-topics/",
+      "title": "Top 30 Final Year Project Ideas for CSE Students (2026)",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    }
+  ],
+  "publication": [
+    {
+      "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/react-js-node-js-developer-for-existing-management-system-4526654",
+      "linkedPostingId": "web:2e28268c7a3b5cd29488196aa0d6bf161ddfb78fc7ce62c77925adabecef7c14",
+      "reviewedPostingId": "web:2e28268c7a3b5cd29488196aa0d6bf161ddfb78fc7ce62c77925adabecef7c14",
+      "publishable": true,
+      "input": {
+        "id": "2e28268c7a3b5cd29488196aa0d6bf161ddfb78fc7ce62c77925adabecef7c14",
+        "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/react-js-node-js-developer-for-existing-management-system-4526654",
+        "text": "REACT.JS & NODE.JS DEVELOPER FOR EXISTING MANAGEMENT SYSTEM\n\n- or -\n\nPost a project like this\nEnds in 28 days\nFixed Price\n$200\n * Posted: 1 day ago\n * Proposals: 66\n * Remote\n * #4526654\n * Open for Proposals\n\nExperience Level: Entry\n\nHi,\n\nWe are looking for an experienced Full Stack Developer to carry out modifications and improvements to our existing internal business management system, Central Station.\n\nThe system is already developed and operational, using the following technologies:\n\n- Frontend: React.js\n- Backend: Node.js (Express.js)\n- Database: PostgreSQL or MongoDB\n- Architecture: API-based\n\nThe requested modifications mainly involve project management, invoicing, reporting, dashboard functionality, and salary management.\n\nWe have prepared a detailed scope of work outlining all the required changes, which we can share for your review.\n\nCould you please confirm whether you have experience working with these technologies and modifying existing web applications?\n\nWe would prefer a fixed-price quotation covering all the requested modifications, including testing and necessary revisions until the agreed requirements are met.\n\nWe look forward to hearing from you.\n\nThank you!",
+        "scope": "source",
+        "truncated": false,
+        "observedAt": "2026-10-15T14:48:33.505Z",
+        "sourceKind": "buyer_brief",
+        "fingerprint": "d479dc8109208cf8ded4fa19e65ead4cb15631962b359475c08c8738d711ad6e",
+        "documentFingerprint": "14df51b8395b2eb69ccab98e36bfe981fc411efd26f8e96ec9cfe9722a654a92"
+      },
+      "review": {
+        "label": "client_request",
+        "quotes": [
+          "We are looking for an experienced Full Stack Developer to carry out modifications and improvements to our existing internal business management system, Central Station.",
+          "The requested modifications mainly involve project management, invoicing, reporting, dashboard functionality, and salary management.",
+          "We would prefer a fixed-price quotation covering all the requested modifications, including testing and necessary revisions until the agreed requirements are met.",
+          " * Open for Proposals"
+        ],
+        "company": {
+          "value": "",
+          "quotes": [],
+          "status": "unknown"
+        },
+        "analysis": {
+          "pay": {
+            "period": null,
+            "maximum": null,
+            "minimum": null,
+            "currency": null
+          },
+          "facts": {
+            "role": {
+              "value": "Full Stack Developer",
+              "quotes": [
+                "We are looking for an experienced Full Stack Developer to carry out modifications and improvements to our existing internal business management system, Central Station."
+              ],
+              "status": "stated"
+            },
+            "category": {
+              "value": "client_request",
+              "quotes": [
+                "Fixed Price",
+                "$200",
+                " * Open for Proposals",
+                "We are looking for an experienced Full Stack Developer to carry out modifications and improvements to our existing internal business management system, Central Station."
+              ],
+              "status": "stated"
+            },
+            "location": {
+              "value": "",
+              "quotes": [],
+              "status": "unknown"
+            },
+            "arrangement": {
+              "value": "remote",
+              "quotes": [
+                " * Remote"
+              ],
+              "status": "stated"
+            },
+            "sponsorship": {
+              "value": "",
+              "quotes": [],
+              "status": "unknown"
+            },
+            "compensation": {
+              "value": "Fixed Price $200",
+              "quotes": [
+                "Fixed Price",
+                "$200"
+              ],
+              "status": "stated"
+            },
+            "requirements": {
+              "value": "experience with React.js, Node.js (Express.js), PostgreSQL or MongoDB, API-based architecture, and modifying existing web applications",
+              "quotes": [
+                "The system is already developed and operational, using the following technologies:",
+                "- Frontend: React.js",
+                "- Backend: Node.js (Express.js)",
+                "- Database: PostgreSQL or MongoDB"
+              ],
+              "status": "stated"
+            },
+            "authorization": {
+              "value": "",
+              "quotes": [],
+              "status": "unknown"
+            }
+          }
+        },
+        "deadline": {
+          "value": "",
+          "quotes": [],
+          "status": "unknown"
+        },
+        "application": {
+          "value": "Open for Proposals",
+          "quotes": [
+            " * Open for Proposals"
+          ],
+          "status": "stated"
+        },
+        "explanation": "A buyer is requesting a developer to modify an existing internal management system, with a fixed-price budget and open proposals, so this is a client request rather than an employment opening."
+      }
+    }
+  ],
+  "checks": [
+    "live adaptive decisions",
+    "bounded provider and model admission",
+    "observed parent provenance",
+    "current owner isolation",
+    "terminal replay without new spending"
+  ],
+  "emailsSent": 1,
+  "realAccountsUsed": 0,
+  "scopeNote": "Bounded live synthetic case using production discovery, review, assessment and delivery use cases. Worker reader includes configured browser fallback and Ashby routing without shared Redis caching; HTTP reader is a controlled reduced-access path. Native X and marketplace connector loops are not exercised. All lead rows are measured separately from the dashboard's bounded sample. Matching can remain incomplete if retries exceed the check window. Model labels are not independent ground truth; precision, recall and global throughput remain unproven.",
+  "stages": {
+    "scenario": "projects",
+    "executionStatus": "measured",
+    "successfulSearches": 5,
+    "failedSearches": 0,
+    "renderingEnabled": true,
+    "durationSeconds": 105.475,
+    "uniqueLeads": 40,
+    "recordedLeads": 40,
+    "completeLeadSet": true,
+    "searchRequests": 5,
+    "documentRequests": 6,
+    "capturedDocuments": 1,
+    "completeCaptures": 1,
+    "inaccessibleDocuments": 5,
+    "repeatedDestinations": 0,
+    "sourceReviewLabels": {
+      "client_request": 1
+    },
+    "sourceReviewCountsAreComplete": true,
+    "promotedPostings": 1,
+    "matching": "completed",
+    "completedFitAssessments": 1,
+    "dashboardRecommendations": 1,
+    "acceptedEmails": 1,
+    "aiEstimatedUsd": 0.035999,
+    "attemptsWithoutCostEstimate": 0,
+    "searchReservedUsd": 0.05,
+    "aiReservedUsd": 0.75,
+    "estimatedAiPlusSearchReservationPerRecommendationUsd": 0.085999,
+    "independentlyUsefulResults": null,
+    "costPerIndependentlyUsefulResultUsd": null,
+    "precision": null,
+    "recall": null,
+    "limitations": "AI estimates exclude unpriced/failed attempts, infrastructure and billing adjustments. Search reservations are configured upper allowances, not invoices. Source labels and dashboard acceptance are not independent usefulness judgments. Distinct URLs may still describe the same opportunity; repeatedDestinations detects only observed redirect identity. Initial reports recorded a dashboard sample, not every source review."
+  }
+}

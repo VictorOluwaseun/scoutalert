@@ -1,0 +1,54 @@
+{
+  "recordedAt": "2026-10-15T15:12:43.092250+00:00",
+  "action": "gracefully restarted verified worker with SIGTERM after builds and live validation",
+  "pid": 42111,
+  "previousPid": 35384,
+  "previousProcessStopped": true,
+  "forcedKill": false,
+  "workerStartedAt": "2026-10-15T15:06:54.253177+00:00",
+  "logPath": "/tmp/scoutalert-worker-source-expansion-2026-10-15.log",
+  "runningQueues": [
+    "scout-delivery-v1",
+    "scout-matching-v1",
+    "scout-private-mail-v1",
+    "scout-research-v1",
+    "scout-social-discovery-v1",
+    "scout-source-monitoring-v1",
+    "scout-sources-v1",
+    "scout-web-discovery-v1",
+    "scout-workflows-v1"
+  ],
+  "configuration": {
+    "queries": "client-demand-v6",
+    "search": "google-search-v2",
+    "planner": "scout-planning-v13",
+    "primaryBuyerParser": "peopleperhour-public-html-v2",
+    "document": "public-document-v9",
+    "capture": "public-capture-v9",
+    "review": "lead-evidence-v5:deadline-evidence-v2:buyer-category-v1",
+    "fit": "evidence-prompts-v9"
+  },
+  "configurationChanges": [],
+  "forcedReschedules": 0,
+  "http": [
+    {
+      "name": "temporal",
+      "status": 200
+    },
+    {
+      "name": "mailpit",
+      "status": 200
+    }
+  ],
+  "startupErrorCount": 0,
+  "postStartupKnownWarnings": [
+    {
+      "source": "remotecom-v1 Greenhouse employment feed",
+      "activity": "refreshSource",
+      "failure": "source_unavailable",
+      "observedAttempts": 3,
+      "scope": "Existing separate employment connector; also observed before restart. Not a new project/service discovery or startup failure."
+    }
+  ],
+  "note": "Nine queue startup transitions verified and process alive. Existing budgets, schedules and provider settings retained. No saved-user result backfill or claim that every external source is healthy."
+}
