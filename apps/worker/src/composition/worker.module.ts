@@ -22,6 +22,7 @@ import {
   PublicHttpRepository,
   BrowserDocumentRepository,
   AshbySourceDocumentRepository,
+  BlueskySourceDocumentRepository,
   SourceDocumentRouter,
   RedisPublicApiSnapshotRepository,
   SerperSearchProvider,
@@ -136,6 +137,7 @@ export const WORKER_RESOURCES = Symbol("WORKER_RESOURCES");
             http,
             redis ? new RedisPublicApiSnapshotRepository(redis) : null,
           ),
+          new BlueskySourceDocumentRepository(http),
         );
         const monitors = new PostgresSourceMonitoringRepository(
           db,

@@ -2,7 +2,7 @@ import { lookup } from "node:dns/promises";
 import { isIP } from "node:net";
 import { request } from "node:https";
 import { setTimeout as delay } from "node:timers/promises";
-import { publicResponseBody } from "./public-response-body.js";
+import { publicResponseBytes } from "./public-response-body.js";
 import ipaddr from "ipaddr.js";
 import { canonicalDiscoveryUrl } from "../persistence/discovery-identities.js";
 
@@ -10,6 +10,8 @@ export interface PublicResponse {
   status: number;
   contentType: string;
   body: string;
+  /** Original decoded PDF bytes; textual body is empty for binary documents. */
+  binary?: Uint8Array;
   /** Larger of wire and decoded bytes, for aggregate capture limits. */
   accountedBytes?: number;
   /** Selected response policy and redirect headers only; cookies and authentication headers are never propagated. */
@@ -75,7 +77,7 @@ export class PublicHttpRepository {
           headers: {
             "user-agent": "ScoutAlert/1.0",
             accept:
-              "text/html,application/xhtml+xml,application/rss+xml,application/atom+xml,application/xml,application/json,text/javascript,text/css,text/plain;q=0.9",
+              "text/html,application/xhtml+xml,application/pdf,application/rss+xml,application/atom+xml,application/xml,application/json,text/javascript,text/css,text/plain;q=0.9",
             "accept-encoding": "identity",
           },
         },
@@ -103,21 +105,31 @@ export class PublicHttpRepository {
           });
           response.once("end", () => {
             const contentType = response.headers["content-type"] ?? "";
-            publicResponseBody(
+            publicResponseBytes(
               Buffer.concat(chunks),
               encoding,
               contentType,
               canonical,
               maximumBytes,
             )
-              .then((body) => {
+              .then((decoded) => {
                 signal.throwIfAborted();
+                const pdf =
+                  /^application\/pdf(?:;|$)/iu.test(contentType) ||
+                  (/^application\/octet-stream(?:;|$)/iu.test(contentType) &&
+                    decoded.subarray(0, 5).toString("ascii") === "%PDF-");
+                const body = pdf ? "" : decoded.toString("utf8");
+                if (Buffer.byteLength(body, "utf8") > maximumBytes) {
+                  throw new Error("source_response_too_large");
+                }
                 resolve({
                   status: response.statusCode ?? 0,
                   contentType,
                   body,
+                  ...(pdf ? { binary: decoded } : {}),
                   accountedBytes: Math.max(
                     bytes,
+                    decoded.length,
                     Buffer.byteLength(body, "utf8"),
                   ),
                   headers: Object.fromEntries(

@@ -34,6 +34,7 @@ export function documentText(html: string): string {
     selectors: [
       { selector: "script", format: "skip" },
       { selector: "style", format: "skip" },
+      { selector: "noscript", format: "skip" },
       { selector: "nav", format: "skip" },
       { selector: "a", options: { ignoreHref: true } },
       { selector: "img", format: "skip" },

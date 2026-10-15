@@ -67,6 +67,10 @@ export function LeadCard({ lead }: { lead: WebDiscoveryLead }) {
       : "Untitled source result");
   const summary = lead.review?.explanation || lead.snippet;
   const sourceReviewed = lead.review?.scope === "source";
+  const incomplete = lead.contentStatus === "fetched" && !!lead.contentReason;
+  const contentLabel = incomplete
+    ? "Partial source capture"
+    : (contentLabels[lead.contentStatus] ?? "Source status unavailable");
 
   return (
     <article className="web-lead">
@@ -98,15 +102,23 @@ export function LeadCard({ lead }: { lead: WebDiscoveryLead }) {
         Found for {lead.scouts.join(", ")}
       </p>
       <div className="web-lead-footer">
-        <span className="web-lead-check" data-reviewed={sourceReviewed}>
-          <Icon name={sourceReviewed ? "check" : "clock"} size={16} />
-          {sourceReviewed
-            ? lead.review?.label === "directory"
-              ? "Source reviewed · Links need checking"
-              : "Source reviewed · Fit needs checking"
-            : lead.review
-              ? "Excerpt review · Source unverified"
-              : (contentLabels[lead.contentStatus] ?? "Source status unknown")}
+        <span
+          className="web-lead-check"
+          data-reviewed={sourceReviewed && !incomplete}
+        >
+          <Icon
+            name={sourceReviewed && !incomplete ? "check" : "clock"}
+            size={16}
+          />
+          {incomplete
+            ? "Partial capture · More evidence needed"
+            : sourceReviewed
+              ? lead.review?.label === "directory"
+                ? "Source reviewed · Links need checking"
+                : "Source reviewed · Fit needs checking"
+              : lead.review
+                ? "Excerpt review · Source unverified"
+                : contentLabel}
         </span>
         <a
           className={`${buttonVariants({ variant: "secondary" })} web-source-link`}
@@ -177,9 +189,8 @@ export function LeadCard({ lead }: { lead: WebDiscoveryLead }) {
             </section>
           )}
           <p>
-            {contentLabels[lead.contentStatus] ?? "Source status unavailable"}.
-            A search result alone does not confirm that this opportunity fits
-            your brief.
+            {contentLabel}. A search result alone does not confirm that this
+            opportunity fits your brief.
           </p>
           {sourceAccessMessage(lead.contentReason) && (
             <p>{sourceAccessMessage(lead.contentReason)}</p>

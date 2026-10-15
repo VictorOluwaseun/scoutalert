@@ -11,6 +11,28 @@ export async function publicResponseBody(
   url: string,
   maximum: number,
 ): Promise<string> {
+  const decoded = await publicResponseBytes(
+    bytes,
+    encoding,
+    contentType,
+    url,
+    maximum,
+  );
+  const body = decoded.toString("utf8");
+  if (Buffer.byteLength(body, "utf8") > maximum) {
+    throw new Error("source_response_too_large");
+  }
+  return body;
+}
+
+/** Preserves binary document bytes after bounded decompression; PDFs must never pass through UTF-8 decoding. */
+export async function publicResponseBytes(
+  bytes: Buffer,
+  encoding: string | undefined,
+  contentType: string,
+  url: string,
+  maximum: number,
+): Promise<Buffer> {
   if (bytes.length > maximum) {
     throw new Error("source_response_too_large");
   }
@@ -25,11 +47,7 @@ export async function publicResponseBody(
   if (compressedFile && decoded[0] === 0x1f && decoded[1] === 0x8b) {
     decoded = await boundedGunzip(decoded, maximum);
   }
-  const body = decoded.toString("utf8");
-  if (Buffer.byteLength(body, "utf8") > maximum) {
-    throw new Error("source_response_too_large");
-  }
-  return body;
+  return decoded;
 }
 
 /** Uses Node's native output cap during decompression; truncated streams remain failures rather than partial XML. */

@@ -14,6 +14,10 @@ import { isFeedDocument, parseFeedDocument } from "./feed-document.js";
 import { isSitemapDocument, parseSitemapDocument } from "./sitemap-document.js";
 import { readSourceResponse, sourceResponseReason } from "./source-response.js";
 import { discoveryKey } from "../persistence/discovery-identities.js";
+import { freelancerRequestContent } from "./freelancer-request-content.js";
+import { peoplePerHourRequestContent } from "./peopleperhour-request-content.js";
+import { documentAccessReason } from "./document-access.js";
+import { pdfSourceContent } from "./pdf-source-content.js";
 
 /** Reads permitted public pages, escalating thin JavaScript shells to an optional bounded browser repository. */
 export class PublicSourceDocumentRepository extends SourceDocumentRepository {
@@ -25,11 +29,11 @@ export class PublicSourceDocumentRepository extends SourceDocumentRepository {
     super();
   }
 
-  /** Bounds the complete page bundle to 25 seconds; failed rendering remains explicit and cannot publish a listing. */
+  /** Bounds the complete page bundle to 45 seconds; failed rendering remains explicit and cannot publish a listing. */
   async read(url: string): Promise<SourceDocumentResult> {
     const session = new PublicPageSession(
       this.http,
-      AbortSignal.timeout(25_000),
+      AbortSignal.timeout(45_000),
     );
     const empty: SourceDocumentResult = {
       kind: "document",
@@ -48,6 +52,7 @@ export class PublicSourceDocumentRepository extends SourceDocumentRepository {
       const reason =
         error instanceof Error ? error.message : "source_request_failed";
       const known = [
+        "upwork_api_access_required",
         "source_address_blocked",
         "crawl_policy_unavailable",
         "crawl_policy_denied",
@@ -66,6 +71,8 @@ export class PublicSourceDocumentRepository extends SourceDocumentRepository {
         "source_encoding_unsupported",
         "source_encoding_invalid",
         "source_dns_timeout",
+        "source_pdf_timeout",
+        "source_pdf_invalid",
       ];
       return {
         ...empty,
@@ -96,6 +103,9 @@ export class PublicSourceDocumentRepository extends SourceDocumentRepository {
     const response = retrieved.response;
     url = retrieved.url;
     empty = { ...empty, retrievedUrl: url, sitemaps: session.sitemaps(url) };
+    if (response.status === 200 && response.binary) {
+      return pdfSourceContent(response.binary, empty, session);
+    }
     const collection =
       response.status === 200 &&
       (isSitemapDocument(response.body) ||
@@ -139,10 +149,17 @@ export class PublicSourceDocumentRepository extends SourceDocumentRepository {
     }
     let html = response.body;
     let text = documentText(html);
+    const buyer =
+      freelancerRequestContent(html, url) ??
+      peoplePerHourRequestContent(html, url);
+    const access = documentAccessReason(buyer?.text ?? text);
     let reason: string | null =
-      text.length >= 64_000 ? "source_text_truncated" : null;
+      !buyer?.complete && text.length >= 64_000
+        ? "source_text_truncated"
+        : null;
     let method: "http" | "browser" = "http";
-    const dynamic = needsBrowser(html, text, url);
+    const dynamic =
+      !buyer?.complete && !access && needsBrowser(html, text, url);
     if (dynamic && !this.browser) {
       reason = "browser_rendering_disabled";
     }
@@ -158,6 +175,19 @@ export class PublicSourceDocumentRepository extends SourceDocumentRepository {
           (rendered.complete ? null : "browser_capture_incomplete"))
         : "browser_render_failed";
     }
+    // Source-rendered buyer content is independently complete; failed browser captures are never upgraded by a non-empty text heuristic.
+    const selected =
+      method === "http"
+        ? buyer
+        : (freelancerRequestContent(html, url) ??
+          peoplePerHourRequestContent(html, url));
+    text = selected ? (selected.text ?? "") : text;
+    reason =
+      access ??
+      documentAccessReason(text) ??
+      reason ??
+      selected?.reason ??
+      null;
     const links = documentLinks(html, url);
     const feeds = documentFeeds(html, url);
     const searchForms = documentSearchForms(html, url);
@@ -175,7 +205,7 @@ export class PublicSourceDocumentRepository extends SourceDocumentRepository {
       text,
       reason,
       fingerprint: discoveryKey([
-        "public-capture-v6",
+        "public-capture-v10",
         url,
         empty.sitemaps,
         text,
@@ -184,8 +214,9 @@ export class PublicSourceDocumentRepository extends SourceDocumentRepository {
         next,
         feeds,
         reason,
+        selected?.parser,
       ]),
-      posting: reason ? null : parseFormalPosting(html, url, now),
+      posting: reason || selected ? null : parseFormalPosting(html, url, now),
       truncated: reason !== null,
       hostDelaySeconds: session.hostDelaySeconds,
       links,
@@ -197,6 +228,9 @@ export class PublicSourceDocumentRepository extends SourceDocumentRepository {
         requests: session.requests,
         bytes: session.bytes,
         complete: reason === null,
+        ...(selected
+          ? { scope: "buyer_brief" as const, parser: selected.parser }
+          : {}),
       },
     };
   }

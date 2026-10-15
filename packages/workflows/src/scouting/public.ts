@@ -43,8 +43,8 @@ const web = proxyActivities<
   Pick<ScoutingActivities, "discoverWeb" | "reviewDiscoveryLeads">
 >({
   taskQueue: "scout-web-discovery-v1",
-  startToCloseTimeout: "40 seconds",
-  scheduleToCloseTimeout: "50 seconds",
+  startToCloseTimeout: "60 seconds",
+  scheduleToCloseTimeout: "75 seconds",
   retry: { maximumAttempts: 2, initialInterval: "2 seconds" },
 });
 
@@ -152,8 +152,8 @@ export async function researchWorkflow(): Promise<void> {
 
 const monitoring = proxyActivities<Pick<ScoutingActivities, "monitorSources">>({
   taskQueue: "scout-source-monitoring-v1",
-  startToCloseTimeout: "40 seconds",
-  scheduleToCloseTimeout: "50 seconds",
+  startToCloseTimeout: "60 seconds",
+  scheduleToCloseTimeout: "75 seconds",
   retry: { maximumAttempts: 2, initialInterval: "2 seconds" },
 });
 

@@ -50,3 +50,12 @@ export { parseFeedDocument } from "./connectors/feed-document.js";
 
 export { parseSitemapDocument } from "./connectors/sitemap-document.js";
 export { publicResponseBody } from "./connectors/public-response-body.js";
+export { freelancerRequestContent } from "./connectors/freelancer-request-content.js";
+export { peoplePerHourRequestContent } from "./connectors/peopleperhour-request-content.js";
+export { PublicPageSession } from "./connectors/public-page-session.js";
+export { PdfTextRepository } from "./connectors/pdf-text.js";
+export { publicResponseBytes } from "./connectors/public-response-body.js";
+export {
+  BlueskySourceDocumentRepository,
+  blueskyTarget,
+} from "./connectors/bluesky-source-documents.js";

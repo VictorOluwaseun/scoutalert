@@ -66,10 +66,13 @@ export class PublicPageSession {
       throw new Error("source_address_blocked");
     }
     const url = new URL(canonical);
+    if (/^(?:www\.)?upwork\.com$/iu.test(url.hostname)) {
+      throw new Error("upwork_api_access_required");
+    }
     const policy = await this.policy(url.origin);
     const seconds = Math.max(2, policy.getCrawlDelay("ScoutAlert") ?? 2);
     this.hostDelaySeconds = Math.max(this.hostDelaySeconds, seconds);
-    if (!Number.isFinite(seconds) || seconds > 5) {
+    if (!Number.isFinite(seconds) || seconds > 30) {
       throw new Error("crawl_delay_exceeds_run_budget");
     }
     if (policy.isAllowed(canonical, "ScoutAlert") !== true) {
@@ -123,7 +126,9 @@ export class PublicPageSession {
       this.signal,
     );
     this.bytes +=
-      response.accountedBytes ?? Buffer.byteLength(response.body, "utf8");
+      response.accountedBytes ??
+      response.binary?.byteLength ??
+      Buffer.byteLength(response.body, "utf8");
     return response;
   }
 }

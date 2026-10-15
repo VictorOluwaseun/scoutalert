@@ -54,6 +54,7 @@
     "kysely": "0.29.6",
     "nodemailer": "10.0.12",
     "openai": "7.25.0",
+    "pdfjs-dist": "6.4.299",
     "pg": "8.23.0",
     "playwright": "1.61.1",
     "robots-parser": "^3.0.1",
