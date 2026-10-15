@@ -456,6 +456,39 @@ describe.skipIf(!enabled)("continuous shared source monitoring", () => {
     ).toEqual([]);
   });
 
+  it("keeps a slow source capture admissible through completion and preserves its crawl delay", async () => {
+    await fixture();
+    await due();
+    const claim = await registry.claim(100, 2);
+    if (claim.status !== "claimed") {
+      throw new Error("expected_slow_source_claim");
+    }
+    // Move both leases forward by a simulated 46-second elapsed capture without changing the production clock.
+    await sql`UPDATE web_discovery_operations SET lease_until=lease_until-interval '46 seconds' WHERE key=${claim.key}`.execute(
+      db,
+    );
+    await sql`UPDATE web_discovery_hosts SET lease_until=lease_until-interval '46 seconds' WHERE lease_token=${claim.token}::uuid`.execute(
+      db,
+    );
+    await records.complete(claim.key, claim.token, {
+      ...document(sourceUrl),
+      hostDelaySeconds: 30,
+    });
+    const operation = await sql<{
+      state: string;
+    }>`SELECT state FROM web_discovery_operations WHERE key=${claim.key}`.execute(
+      db,
+    );
+    expect(operation.rows[0]!.state).toBe("succeeded");
+    const host = await sql<{
+      released: boolean;
+      paced: boolean;
+    }>`SELECT lease_token IS NULL AND lease_until IS NULL AS released,next_allowed_at>now()+interval '29 seconds' AS paced FROM web_discovery_hosts WHERE hostname='example.org'`.execute(
+      db,
+    );
+    expect(host.rows[0]).toEqual({ released: true, paced: true });
+  });
+
   it("coalesces concurrent attempts, fences expired leases and preserves reservations after unknown outcomes", async () => {
     await fixture();
     await due();

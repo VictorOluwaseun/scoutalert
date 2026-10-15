@@ -27,3 +27,4 @@ export {
   AvailabilitySourceRouter,
 } from "./connectors/source-router.js";
 export { PostgresRelevanceFeedbackRepository } from "./persistence/postgres-relevance-feedback.js";
+export { evidencePassages } from "./intelligence/evidence-passages.js";

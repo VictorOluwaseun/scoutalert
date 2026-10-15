@@ -50,7 +50,7 @@ export class PostgresLeadReviewRepository extends LeadReviewRepository {
     super();
   }
 
-  /** Refreshes each bounded review round; parser-confirmed collections receive a structural directory review before any AI reservation. */
+  /** Refreshes each bounded review round and policy revision; parser-confirmed collections receive a structural directory review before any AI reservation. */
   private async freeze(
     tx: Kysely<ScoutAlertDatabase>,
     request: ScoutRunRequest,
@@ -68,12 +68,14 @@ export class PostgresLeadReviewRepository extends LeadReviewRepository {
     const known = await sql<{
       round: number;
       source_only: boolean;
-    }>`SELECT round,source_only FROM web_lead_review_cases WHERE case_id=${request.runId}::uuid`.execute(
+      configuration: string;
+    }>`SELECT round,source_only,configuration FROM web_lead_review_cases WHERE case_id=${request.runId}::uuid`.execute(
       tx,
     );
     if (
       known.rows[0] &&
       known.rows[0].round === current.round &&
+      known.rows[0].configuration === configuration &&
       known.rows[0].source_only === sourceOnly
     ) {
       return;

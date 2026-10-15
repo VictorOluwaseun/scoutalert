@@ -2,6 +2,8 @@ import { describe, it, expect } from "vitest";
 import {
   mayPublishLead,
   validLeadReview,
+  normalizeReviewDeadline,
+  normalizeBuyerReview,
   type LeadReviewInput,
 } from "@repo/core/discovery";
 import { assessPosting, normalizeArrangement } from "@repo/core/scouting";
@@ -81,6 +83,65 @@ describe("public lead evidence admission", () => {
     };
     expect(mayPublishLead(input, review, new Date())).toBe(false);
   });
+  it("keeps relative closing counters unknown instead of blocking an open brief or inventing its closing date", () => {
+    const source = { ...input, text: `${input.text} Ends in 6 days` };
+    for (const value of ["Ends in 6 days", "2099-10-18"]) {
+      const review = demandReview(source);
+      review.deadline = { status: "stated", value, quotes: ["Ends in 6 days"] };
+      const normalized = normalizeReviewDeadline(review);
+      expect(normalized.deadline).toEqual({
+        status: "unknown",
+        value: "",
+        quotes: [],
+      });
+      expect(mayPublishLead(source, normalized, new Date())).toBe(true);
+      expect(review.deadline.status).toBe("stated");
+    }
+  });
+  it("canonicalizes a source-supported unknown countdown before shape validation without accepting fabricated or calendar evidence", () => {
+    const source = { ...input, text: `${input.text}\nEnds in 28 days` };
+    const review = demandReview(source);
+    review.deadline = {
+      status: "unknown",
+      value: "",
+      quotes: ["Ends in 28 days"],
+    };
+    expect(validLeadReview(source, review)).toBe(false);
+    expect(
+      mayPublishLead(
+        source,
+        normalizeReviewDeadline(review, source.text),
+        new Date(),
+      ),
+    ).toBe(true);
+    expect(normalizeReviewDeadline(review)).toBe(review);
+    review.deadline.quotes.push("Invented deadline evidence");
+    expect(normalizeReviewDeadline(review, source.text)).toBe(review);
+    review.deadline.quotes = ["Ends in 28 days", "Deadline January 1, 2020"];
+    const dated = `${source.text}\nDeadline January 1, 2020`;
+    expect(normalizeReviewDeadline(review, dated)).toBe(review);
+    review.deadline = {
+      status: "conflicting",
+      value: "unclear",
+      quotes: ["Ends in 28 days"],
+    };
+    expect(normalizeReviewDeadline(review, source.text)).toBe(review);
+  });
+
+  it.each(["2020-01-01", "1 January 2020", "January 1, 2020", "01/01/2020"])(
+    "preserves calendar evidence %s even beside a stale relative counter",
+    (date) => {
+      const review = demandReview(input);
+      review.deadline = {
+        status: "stated",
+        value: "2020-01-01",
+        quotes: [`Closes in 6 days. Deadline ${date}.`],
+      };
+      expect(normalizeReviewDeadline(review)).toBe(review);
+      review.deadline.status = "conflicting";
+      expect(normalizeReviewDeadline(review)).toBe(review);
+    },
+  );
   it("does not store contract or payment terms as a work arrangement", () => {
     const review = demandReview(input);
     review.analysis.facts.arrangement = {
@@ -105,6 +166,40 @@ describe("public lead evidence admission", () => {
       normalizeArrangement(demandReview(input).analysis).facts.arrangement
         .status,
     ).toBe("stated");
+  });
+
+  it("keeps parser-confirmed buyer demand in the service category without promoting negative or incomplete evidence", () => {
+    const source = { ...input, sourceKind: "buyer_brief" as const };
+    const review = demandReview(source);
+    review.analysis.facts.category.value = "contract";
+    const normalized = normalizeBuyerReview(source, review);
+    expect(normalized.label).toBe("client_request");
+    expect(normalized.analysis.facts.category.value).toBe("client_request");
+    expect(normalized.analysis.facts.category.quotes).toEqual(
+      review.analysis.facts.category.quotes,
+    );
+    expect(validLeadReview(source, normalized)).toBe(true);
+    expect(normalizeBuyerReview(input, review)).toBe(review);
+    expect(normalizeBuyerReview({ ...source, truncated: true }, review)).toBe(
+      review,
+    );
+    expect(
+      normalizeBuyerReview({ ...source, scope: "search_excerpt" }, review),
+    ).toBe(review);
+    for (const label of [
+      "closed",
+      "unclear",
+      "directory",
+      "service_offer",
+    ] as const) {
+      const negative = { ...review, label };
+      expect(normalizeBuyerReview(source, negative)).toBe(negative);
+      expect(mayPublishLead(source, negative, new Date())).toBe(false);
+    }
+    review.analysis.facts.category.status = "unknown";
+    expect(
+      normalizeBuyerReview(source, review).analysis.facts.category.status,
+    ).toBe("unknown");
   });
 
   it("cannot fall back to title matching when AI is unavailable for a web candidate", () => {

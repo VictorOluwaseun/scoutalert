@@ -214,6 +214,50 @@ describe("evidence and personal fit policies", () => {
         ?.status,
     ).toBe("unknown");
   });
+  it("does not invent a currency or payment-period restriction when no minimum was set", () => {
+    const brief = {
+      ...search,
+      minimumPay: "",
+      category: "services" as const,
+      payPeriod: "project" as const,
+    };
+    const evidence = {
+      ...analysis,
+      pay: {
+        minimum: 1500,
+        maximum: 12500,
+        currency: "INR",
+        period: "hour" as const,
+      },
+    };
+    const result = assessPersonalFit(
+      brief,
+      evidence,
+      change("compensation", "conflicts"),
+    );
+    expect(result).not.toBeNull();
+    expect(
+      result?.detail?.criteria.find(
+        (item) => item.criterion === "compensation",
+      ),
+    ).toMatchObject({
+      status: "unknown",
+      explanation: expect.stringContaining("No minimum pay"),
+    });
+    expect(
+      assessPersonalFit(
+        { ...brief, undisclosedPay: "exclude" },
+        {
+          ...evidence,
+          facts: {
+            ...evidence.facts,
+            compensation: { status: "unknown", value: "", quotes: [] },
+          },
+        },
+        fit,
+      ),
+    ).toBeNull();
+  });
   it("retains missing experience and contradictory public evidence as unknown", () => {
     const missing = assessPersonalFit(
       { ...search, background: "" },

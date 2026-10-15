@@ -33,7 +33,7 @@ export class SerperSearchProvider extends WebSearchProvider {
     super();
     this.capability = {
       id: "serper",
-      configuration: "google-search-v1",
+      configuration: "google-search-v2",
       access: "public_index",
       ...settings,
     };
@@ -50,7 +50,7 @@ export class SerperSearchProvider extends WebSearchProvider {
         q: query.query,
         hl: query.language,
         gl: query.country ?? undefined,
-        tbs: "qdr:m",
+        tbs: query.freshness === "month" ? "qdr:m" : undefined,
         num: query.limit,
         page: query.page,
       }),

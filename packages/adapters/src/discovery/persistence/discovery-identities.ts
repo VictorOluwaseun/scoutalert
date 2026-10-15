@@ -1,5 +1,8 @@
 import { createHash } from "node:crypto";
 
+/** Shared source-reader version invalidates old whole-page/failed-render cache entries without rewriting historical captures. */
+export const PUBLIC_DOCUMENT_VERSION = "public-document-v10";
+
 /** Stable public identity includes canonical semantic inputs rather than an account or profile. */
 export function discoveryKey(value: unknown): string {
   return createHash("sha256").update(JSON.stringify(value)).digest("hex");

@@ -1,22 +1,39 @@
-/** Gives untrusted source text stable passage IDs; stored citations always use original text selected by the model. */
+/** Gives untrusted text stable passage IDs. A source minimum joins short labels to adjacent text using exact original offsets; private brief passages may still contain a single short value. No source wording is invented or discarded. */
 export function evidencePassages(
   text: string,
   prefix: string,
+  minimumLength = 1,
 ): Record<string, string> {
-  const passages: string[] = [];
+  const ranges: { start: number; end: number }[] = [];
 
-  for (const paragraph of text.split(/\n+/u)) {
+  for (const match of text.matchAll(/[^\n]+/gu)) {
+    const paragraph = match[0];
     if (!paragraph.trim()) {
       continue;
     }
 
     for (let offset = 0; offset < paragraph.length; offset += 1000) {
-      passages.push(paragraph.slice(offset, offset + 1000));
+      const start = match.index + offset;
+      const end = Math.min(start + 1000, match.index + paragraph.length);
+      const previous = ranges.at(-1);
+      const joinsShort =
+        previous &&
+        (text.slice(start, end).trim().length < minimumLength ||
+          text.slice(previous.start, previous.end).trim().length <
+            minimumLength);
+      if (joinsShort) {
+        previous.end = end;
+        continue;
+      }
+      ranges.push({ start, end });
     }
   }
 
   return Object.fromEntries(
-    passages.map((passage, index) => [`${prefix}${index}`, passage]),
+    ranges.map(({ start, end }, index) => [
+      `${prefix}${index}`,
+      text.slice(start, end),
+    ]),
   );
 }
 

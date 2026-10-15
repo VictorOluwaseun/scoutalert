@@ -1093,6 +1093,37 @@ describe.skipIf(!enabled)(
       ).toEqual([]);
     });
 
+    it("reopens the same review round after a policy upgrade without reusing the previous policy's result", async () => {
+      const { request, id } = await reviewFixture();
+      const repository = new PostgresLeadReviewRepository(
+        db,
+        1000,
+        100_000_000,
+      );
+      const provider = new FixtureLeadProvider();
+      const old = await repository.claim(request, "old-review-policy");
+      expect(old.status).toBe("claimed");
+      if (old.status !== "claimed") {
+        throw new Error("fixture_admission_missing");
+      }
+      await repository.complete(old.token, await provider.review(old.inputs));
+      const reviews = new ReviewDiscoveryLeads(repository, provider);
+      expect(await reviews.execute(request)).toBe("progress");
+      expect(await reviews.execute(request)).toBe("done");
+      expect(provider.calls).toBe(2);
+      const saved =
+        await sql`SELECT configuration,state FROM web_lead_reviews WHERE lead_id=${id} ORDER BY configuration`.execute(
+          db,
+        );
+      expect(saved.rows).toEqual([
+        {
+          configuration: `${provider.configuration}:deadline-evidence-v2:buyer-category-v1`,
+          state: "ready",
+        },
+        { configuration: "old-review-policy", state: "ready" },
+      ]);
+    });
+
     it("clears obsolete failure state after a successful retry and preserves both paid attempt receipts", async () => {
       const { request, id } = await reviewFixture();
       const provider = new FixtureLeadProvider();

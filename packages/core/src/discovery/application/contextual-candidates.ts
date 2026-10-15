@@ -2,10 +2,16 @@ import { blocksSourceHost } from "../domain/source-access.js";
 import type {
   DiscoveryDecision,
   DiscoveryExploration,
+  SourceDocumentResult,
 } from "../domain/contracts.js";
 import type { DiscoveryReasoningInput } from "../domain/reasoning.js";
 import { publicDestination } from "../domain/public-destination.js";
 import { discoveryNavigation } from "./discovery-navigation.js";
+import {
+  clientRequestPriority,
+  clientRequestRouteCoolingDown,
+  usesClientRequestQueries,
+} from "./client-request-search.js";
 
 type Candidate = {
   decision: DiscoveryDecision & { action: { kind: "document"; url: string } };
@@ -66,6 +72,7 @@ function allowed(
     !denied &&
     !visited &&
     !blockedHost &&
+    !clientRequestRouteCoolingDown(snapshot, url) &&
     !!parent &&
     decision.depth <= snapshot.plan.exploration!.maximumDepth
   );
@@ -105,7 +112,7 @@ function observedCandidates(snapshot: DiscoveryExploration): Candidate[] {
           parentKey: operation.key,
           depth: operation.depth + 1,
         },
-        text: link.text,
+        text: `${link.text} ${childContext(snapshot, result, link.text)}`,
       })),
     );
   }
@@ -115,7 +122,11 @@ function observedCandidates(snapshot: DiscoveryExploration): Candidate[] {
 }
 
 /** Interleaves originating searches/pages and hosts so a repetitive domain cannot occupy every model option. */
-function diverse(candidates: Candidate[], maximum: number): Candidate[] {
+function diverse(
+  candidates: Candidate[],
+  maximum: number,
+  rank?: (candidate: Candidate) => number,
+): Candidate[] {
   const selected: Candidate[] = [];
   const remaining = [...candidates];
   const parents = new Map<string | null, number>();
@@ -128,7 +139,13 @@ function diverse(candidates: Candidate[], maximum: number): Candidate[] {
   while (remaining.length && selected.length < maximum) {
     remaining.sort(
       (a, b) =>
-        pressure(a)[0] - pressure(b)[0] || pressure(a)[1] - pressure(b)[1],
+        Number(pressure(a)[0] >= 2) - Number(pressure(b)[0] >= 2) ||
+        (rank
+          ? Number(pressure(a)[1] >= 2) - Number(pressure(b)[1] >= 2)
+          : 0) ||
+        (rank ? rank(b) - rank(a) : 0) ||
+        pressure(a)[0] - pressure(b)[0] ||
+        pressure(a)[1] - pressure(b)[1],
     );
     const candidate = remaining.shift()!;
     const action = candidate.decision.action;
@@ -164,6 +181,9 @@ export function contextualDocumentChoices(
     }
     trusted.set(decision.action.url, decision);
   }
+  if (usesClientRequestQueries(snapshot.plan)) {
+    return clientRequestChoices(snapshot, [...trusted.values()]);
+  }
   const priority = [...trusted.values()].slice(0, 4);
   const chosen = new Set(
     priority.flatMap((item) =>
@@ -180,6 +200,83 @@ export function contextualDocumentChoices(
   }
   const extra = diverse([...unseen.values()], 10 - priority.length);
   return [...priority, ...extra.map((item) => item.decision)];
+}
+
+/** Gives specific buyer requests room ahead of generic hiring directories and seller pages, retaining two diverse semantic options so English hints never become a recall gate. */
+function clientRequestChoices(
+  snapshot: DiscoveryExploration,
+  preferred: DiscoveryDecision[],
+): DiscoveryDecision[] {
+  const observed = observedCandidates(snapshot);
+  const candidates = new Map(
+    observed.map((item) => [item.decision.action.url, item]),
+  );
+  for (const decision of preferred) {
+    if (
+      decision.action?.kind !== "document" ||
+      candidates.has(decision.action.url)
+    ) {
+      continue;
+    }
+    candidates.set(decision.action.url, {
+      decision: { ...decision, action: decision.action },
+      text: decision.title ?? "",
+    });
+  }
+  const target = snapshot.plan.exploration!.target;
+  const priority = diverse([...candidates.values()], 8, (candidate) =>
+    requestPriority(candidate, target),
+  );
+  const selected = new Set(priority.map((item) => item.decision.action.url));
+  const extra = diverse(
+    [...candidates.values()].filter(
+      (item) => !selected.has(item.decision.action.url),
+    ),
+    2,
+  );
+  return [...priority, ...extra].map((item) => item.decision);
+}
+
+/** Ranks observed buyer language without authorizing publication or making private fit judgments. */
+function requestPriority(candidate: Candidate, target: string): number {
+  return clientRequestPriority(
+    candidate.decision.action.url,
+    candidate.decision.title ?? "",
+    candidate.text,
+    target,
+  );
+}
+
+/** Keeps an anchor's observed surrounding wording available as a routing hint, without transferring parent facts to the unread child. */
+function nearbyText(text: string | null, title: string): string {
+  if (!text || title.trim().length < 8) {
+    return "";
+  }
+  const position = text
+    .toLocaleLowerCase("en")
+    .indexOf(title.toLocaleLowerCase("en"));
+  return position < 0 ? "" : text.slice(position, position + 700);
+}
+
+/** Only confirmed collections may supply nearby listing context. Unreviewed pages and failed reviews do not establish that surrounding demand describes an unread child. */
+function childContext(
+  snapshot: DiscoveryExploration,
+  document: SourceDocumentResult,
+  title: string,
+): string {
+  if (document.capture?.scope === "buyer_brief" || document.posting) {
+    return "";
+  }
+  const collection =
+    !!document.feed ||
+    !!document.sitemap ||
+    snapshot.reviews?.some(
+      ({ url, scope, review }) =>
+        url === document.url &&
+        scope === "source" &&
+        review.label === "directory",
+    );
+  return collection ? nearbyText(document.text, title) : "";
 }
 
 /** Supplies only selected public hints, with explicit parent/query provenance; linked-page facts remain unknown until captured. */
@@ -216,14 +313,12 @@ export function contextualCandidateHints(
       ];
     }
     const document = parent.result;
-    const parentReview = snapshot.reviews?.find(
-      (item) => item.scope === "source" && item.url === document.url,
-    );
+    const context = childContext(snapshot, document, choice.title ?? "");
     return [
       {
         choice: index,
         origin: "source_link",
-        text: `${choice.title ?? ""}\nParent page context (not child evidence): ${parentReview?.review.explanation ?? parent.result.text ?? ""}`.slice(
+        text: `${choice.title ?? ""}\n${context ? `Nearby collection text (not verified child evidence): ${context}` : "Linked page unread; the parent page does not establish this child's demand, availability or fit."}`.slice(
           0,
           1200,
         ),

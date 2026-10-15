@@ -4,6 +4,14 @@ import { sourceSearchUrls } from "./source-search.js";
 import { publicDestination } from "../domain/public-destination.js";
 import { contextualDocumentChoices } from "./contextual-candidates.js";
 import { discoveryNavigation } from "./discovery-navigation.js";
+import {
+  clientRequestQueries,
+  clientRequestFreshness,
+  clientRequestNeedsSearch,
+  clientRequestPriority,
+  clientRequestRouteCoolingDown,
+  usesClientRequestQueries,
+} from "./client-request-search.js";
 import type {
   DiscoveryDecision,
   DiscoveryExploration,
@@ -110,11 +118,20 @@ function documentCandidates(
           parentKey: operation.key,
           depth: 0,
           reason: "check_promising_result",
-          score: relevance(
-            `${item.title ?? ""} ${item.snippet ?? ""}`,
-            item.url,
-            words,
-          ),
+          score:
+            relevance(
+              `${item.title ?? ""} ${item.snippet ?? ""}`,
+              item.url,
+              words,
+            ) +
+            (usesClientRequestQueries(snapshot.plan)
+              ? clientRequestPriority(
+                  item.url,
+                  item.title ?? "",
+                  item.snippet ?? "",
+                  snapshot.plan.exploration!.target,
+                ) * 5
+              : 0),
         });
       }
     }
@@ -228,6 +245,7 @@ function documentCandidates(
         !rejected.has(candidate.url) &&
         publicDestination(candidate.url) &&
         !inaccessibleHosts.has(new URL(candidate.url).hostname) &&
+        !clientRequestRouteCoolingDown(snapshot, candidate.url) &&
         candidate.score >= 7,
     )
     .sort((a, b) => b.score - a.score);
@@ -310,6 +328,30 @@ export function planExploration(
     ({ input }) => input.kind === "document",
   );
   const candidate = documentCandidates(snapshot, words)[0];
+  if (
+    usesClientRequestQueries(snapshot.plan) &&
+    documents.length >= snapshot.plan.maximumDocuments
+  ) {
+    return { ...stop, reason: "exploration_limit" };
+  }
+  const recovery = clientRequestNeedsSearch(snapshot)
+    ? alternativeSearchChoices(snapshot)
+    : [];
+  const recoveryQuery = [
+    "client-demand-v4",
+    "client-demand-v5",
+    "client-demand-v6",
+    "client-demand-v7",
+  ].includes(settings.queryPolicy ?? "")
+    ? recovery[0]
+    : (recovery.find(
+        (choice) =>
+          choice.action?.kind === "search" &&
+          choice.action.query.query.includes("inurl:projects"),
+      ) ?? recovery[0]);
+  if (recoveryQuery) {
+    return recoveryQuery;
+  }
   if (candidate && documents.length < snapshot.plan.maximumDocuments) {
     return {
       reason: candidate.reason,
@@ -327,6 +369,9 @@ export function planExploration(
   }
   if (searches.length >= settings.maximumSearches) {
     return { ...stop, reason: "exploration_limit" };
+  }
+  if (usesClientRequestQueries(snapshot.plan)) {
+    return alternativeSearchChoices(snapshot)[0] ?? stop;
   }
   const continuation = nextPage(snapshot, words);
   if (continuation) {
@@ -379,9 +424,22 @@ function alternativeSearchChoices(
   if (searches.length >= settings.maximumSearches) {
     return [];
   }
+  if (
+    usesClientRequestQueries(snapshot.plan) &&
+    snapshot.operations.filter(({ input }) => input.kind === "document")
+      .length >= snapshot.plan.maximumDocuments
+  ) {
+    return [];
+  }
   const choices: DiscoveryDecision[] = [];
-  for (const target of snapshot.plan.strategy?.targets ?? [settings.target]) {
-    const query = `${target}${settings.remote ? " remote" : ""} ${snapshot.plan.category === "employment" ? '"apply"' : '"project" "budget"'}`;
+  const targets = snapshot.plan.strategy?.targets ?? [settings.target];
+  const queries = usesClientRequestQueries(snapshot.plan)
+    ? clientRequestQueries(targets, settings.queryPolicy)
+    : targets.map(
+        (target) =>
+          `${target}${settings.remote ? " remote" : ""} ${snapshot.plan.category === "employment" ? '"apply"' : '"project" "budget"'}`,
+      );
+  for (const query of queries) {
     if (
       searches.some(
         ({ input }) => input.kind === "search" && input.query.query === query,
@@ -393,7 +451,14 @@ function alternativeSearchChoices(
       reason: "refine_demand_query",
       action: {
         kind: "search",
-        query: { ...snapshot.plan.queries[0]!, query, page: 1 },
+        query: {
+          ...snapshot.plan.queries[0]!,
+          query,
+          page: 1,
+          freshness: usesClientRequestQueries(snapshot.plan)
+            ? clientRequestFreshness(query, settings.queryPolicy)
+            : snapshot.plan.queries[0]!.freshness,
+        },
       },
       parentKey: searches.at(-1)?.key ?? null,
       depth: 0,
@@ -417,6 +482,9 @@ export function explorationChoices(
     snapshot.round >= snapshot.plan.exploration.maximumRounds ||
     (!first.action && !contextual)
   ) {
+    return [first];
+  }
+  if (clientRequestNeedsSearch(snapshot) && first.action?.kind === "search") {
     return [first];
   }
   const settings = snapshot.plan.exploration!;

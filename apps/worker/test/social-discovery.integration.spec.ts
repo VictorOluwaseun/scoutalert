@@ -735,7 +735,10 @@ describe.skipIf(!enabled)("native X durable discovery", () => {
     ).rows[0]!;
     const provider = new FixtureLeadProvider();
     const reviewRecords = new PostgresLeadReviewRepository(db, 10, 1_000_000);
-    const reviewClaim = await reviewRecords.claim(run, provider.configuration);
+    const reviewClaim = await reviewRecords.claim(
+      run,
+      `${provider.configuration}:deadline-evidence-v2:buyer-category-v1`,
+    );
     if (reviewClaim.status !== "claimed") {
       throw new Error("expected_review_claim");
     }

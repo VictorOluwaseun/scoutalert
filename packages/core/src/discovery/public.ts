@@ -11,6 +11,8 @@ export {
 } from "./application/plan-exploration.js";
 export { ReadWebDiscovery } from "./application/read-web-discovery.js";
 export * from "./domain/lead-review.js";
+export { normalizeReviewDeadline } from "./domain/review-deadline.js";
+export { normalizeBuyerReview } from "./domain/review-category.js";
 export { validLeadReview, mayPublishLead } from "./domain/review-policy.js";
 export { ReviewDiscoveryLeads } from "./application/review-discovery-leads.js";
 
@@ -26,3 +28,4 @@ export {
 
 export * from "./domain/public-api-snapshots.js";
 export { collectionDirectoryReview } from "./domain/collection-review.js";
+export { blocksSourceHost } from "./domain/source-access.js";

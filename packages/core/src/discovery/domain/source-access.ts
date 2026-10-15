@@ -19,5 +19,14 @@ export function blocksSourceHost(document: SourceDocumentResult): boolean {
     "source_redirect_limit",
     "source_redirect_invalid",
     "source_response_too_large",
+    "source_pdf_invalid",
+    "source_pdf_timeout",
+    "source_pdf_page_limit",
+    "source_pdf_text_limit",
+    "source_pdf_password_required",
+    "source_pdf_ocr_required",
+    "bluesky_context_incomplete",
+    "bluesky_post_unavailable",
+    "bluesky_identity_mismatch",
   ].includes(document.reason ?? "");
 }

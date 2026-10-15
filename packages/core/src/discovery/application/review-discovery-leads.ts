@@ -3,6 +3,8 @@ import {
   LeadReviewProvider,
   LeadReviewRepository,
 } from "../domain/lead-review.js";
+import { normalizeReviewDeadline } from "../domain/review-deadline.js";
+import { normalizeBuyerReview } from "../domain/review-category.js";
 import { validLeadReview } from "../domain/review-policy.js";
 
 /** Classifies shared public demand before private assessment, advancing at most one admitted model call per activity. */
@@ -22,7 +24,7 @@ export class ReviewDiscoveryLeads {
     }
     const claim = await this.records.claim(
       request,
-      this.provider.configuration,
+      `${this.provider.configuration}:deadline-evidence-v2:buyer-category-v1`,
     );
     if (claim.status !== "claimed") {
       return claim.status;
@@ -30,7 +32,15 @@ export class ReviewDiscoveryLeads {
     try {
       const result = await this.provider.review(claim.inputs);
       const outputs = new Map(
-        result.reviews.map((item) => [item.id, item.review]),
+        result.reviews.map((item) => {
+          const input = claim.inputs.find((input) => input.id === item.id);
+          return [
+            item.id,
+            input
+              ? normalizeReviewDeadline(item.review, input.text)
+              : item.review,
+          ];
+        }),
       );
       const valid =
         outputs.size === claim.inputs.length &&
@@ -43,7 +53,16 @@ export class ReviewDiscoveryLeads {
         await this.records.fail(claim.token, "invalid_evidence");
         return "progress";
       }
-      await this.records.complete(claim.token, result);
+      await this.records.complete(claim.token, {
+        ...result,
+        reviews: result.reviews.map((item) => ({
+          ...item,
+          review: normalizeBuyerReview(
+            claim.inputs.find((input) => input.id === item.id)!,
+            outputs.get(item.id)!,
+          ),
+        })),
+      });
     } catch {
       await this.records.fail(claim.token, "provider_unavailable");
     }

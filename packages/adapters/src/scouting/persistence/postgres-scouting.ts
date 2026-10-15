@@ -56,7 +56,7 @@ export class PostgresScoutingRepository extends ScoutingRepository {
     });
   }
 
-  /** Combines GIN retrieval with up to eight recent, source-reviewed discoveries for this scout; both paths still require private assessment. */
+  /** Retrieves exact target matches first, then bounded service-term alternatives and recent reviewed discoveries. Retrieval is not a fit verdict; freshness, hiding and private assessment still apply. */
   async candidates(context: RunContext): Promise<Posting[] | null> {
     const ready =
       await sql`SELECT id FROM opportunity_sources WHERE kind=${context.search.category === "services" ? "client_request" : "job"} AND checked_at>now()-interval '30 minutes' LIMIT 1`.execute(
@@ -67,13 +67,20 @@ export class PostgresScoutingRepository extends ScoutingRepository {
       return null;
     }
 
-    const query = roleTerms(context.search.target).join(" ");
+    const terms = roleTerms(context.search.target);
+    const query = terms.join(" ");
+    const alternatives =
+      context.search.category === "services" ? terms.join(" OR ") : query;
     const discovered = await this.discoveredPostingIds(context);
     const found = await sql<Posting>`
+      WITH retrieval AS (
+        SELECT plainto_tsquery('english',${query}) AS exact,
+          websearch_to_tsquery('english',${alternatives}) AS expanded
+      )
       SELECT p.id,p.kind,p.source_id AS source,p.external_id AS "externalId",p.family_id AS "familyId",p.company,p.title,p.location,p.url,p.content AS text,p.source_updated_at::text AS "sourceUpdatedAt",p.fingerprint,p.version
-      FROM opportunity_postings p JOIN opportunity_sources s ON s.id=p.source_id
-      WHERE NOT EXISTS(SELECT 1 FROM opportunity_feedback f WHERE f.owner_id=${context.request.ownerId}::uuid AND f.posting_id=p.id AND f.value='hidden') AND p.kind=${context.search.category === "services" ? "client_request" : "job"} AND p.open AND p.checked_at>now()-interval '30 minutes' AND s.checked_at>now()-interval '30 minutes' AND (p.search_document @@ plainto_tsquery('english',${query}) OR p.id=ANY(${discovered}::text[]))
-      ORDER BY (p.id=ANY(${discovered}::text[])) DESC,ts_rank_cd(p.search_document,plainto_tsquery('english',${query})) DESC,p.id LIMIT 200
+      FROM opportunity_postings p JOIN opportunity_sources s ON s.id=p.source_id CROSS JOIN retrieval
+      WHERE NOT EXISTS(SELECT 1 FROM opportunity_feedback f WHERE f.owner_id=${context.request.ownerId}::uuid AND f.posting_id=p.id AND f.value='hidden') AND p.kind=${context.search.category === "services" ? "client_request" : "job"} AND p.open AND p.checked_at>now()-interval '30 minutes' AND s.checked_at>now()-interval '30 minutes' AND (p.search_document @@ retrieval.expanded OR p.id=ANY(${discovered}::text[]))
+      ORDER BY (p.id=ANY(${discovered}::text[])) DESC,(p.search_document @@ retrieval.exact) DESC,ts_rank_cd(p.search_document,retrieval.exact) DESC,ts_rank_cd(p.search_document,retrieval.expanded) DESC,p.id LIMIT 200
     `.execute(this.db);
 
     return found.rows;

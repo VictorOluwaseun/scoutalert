@@ -67,8 +67,10 @@ describe("public discovery boundaries", () => {
   });
   it("looks for service demand without changing hard requirements", () => {
     expect(
-      planDiscovery({ ...brief, category: "services" }, 1, 4).queries[1]!.query,
-    ).toContain('"looking for"');
+      planDiscovery({ ...brief, category: "services" }, 1, 4)
+        .queries.map((query) => query.query)
+        .join(" "),
+    ).toContain('"request for proposal"');
   });
   it.each([
     "127.0.0.1",
@@ -178,6 +180,26 @@ describe("public discovery boundaries", () => {
       "Hiring",
     );
   });
+  it("keeps monthly search filtering while permitting an explicitly undated source query", async () => {
+    const request = vi
+      .fn()
+      .mockImplementation(
+        async () => new Response(JSON.stringify({ organic: [] })),
+      );
+    const provider = new SerperSearchProvider(
+      "synthetic-key",
+      { language: "en", country: "us", requestCostMicros: 10000 },
+      request,
+    );
+    const query = planDiscovery(brief, 1, 4).queries[0]!;
+    await provider.search(query);
+    await provider.search({ ...query, freshness: "any" });
+    expect(JSON.parse(request.mock.calls[0]![1].body).tbs).toBe("qdr:m");
+    expect(JSON.parse(request.mock.calls[1]![1].body)).not.toHaveProperty(
+      "tbs",
+    );
+  });
+
   it("uses a fixed provider endpoint, validates its response and keeps credentials in the header", async () => {
     const request = vi.fn().mockResolvedValue(
       new Response(

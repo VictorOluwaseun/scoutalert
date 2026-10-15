@@ -116,7 +116,14 @@ function payCriterion(
   proposed: FitCriterion,
 ): FitCriterion {
   if (!search.minimumPay) {
-    return proposed;
+    return proposed.status === "conflicts"
+      ? {
+          ...proposed,
+          status: "unknown",
+          explanation:
+            "No minimum pay was specified. Confirm the offered budget and payment terms; the currency and period fields alone do not impose a pay restriction.",
+        }
+      : proposed;
   }
 
   if (proposed.status === "unknown") {

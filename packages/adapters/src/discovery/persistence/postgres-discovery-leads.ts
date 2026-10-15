@@ -5,7 +5,11 @@ import type {
   WebSearchResult,
 } from "@repo/core/discovery";
 import type { ScoutAlertDatabase } from "../../database/types/database.js";
-import { canonicalDiscoveryUrl, discoveryKey } from "./discovery-identities.js";
+import {
+  canonicalDiscoveryUrl,
+  discoveryKey,
+  PUBLIC_DOCUMENT_VERSION,
+} from "./discovery-identities.js";
 
 /** Applies public observations and evidence inside the coordinator's explicit current-revision transaction. */
 export class PostgresDiscoveryLeadRepository {
@@ -75,11 +79,7 @@ export class PostgresDiscoveryLeadRepository {
         break;
       }
 
-      const key = discoveryKey([
-        plan.exploration ? "public-document-v6" : "public-document-v1",
-        item.url,
-        epoch,
-      ]);
+      const key = discoveryKey([PUBLIC_DOCUMENT_VERSION, item.url, epoch]);
       await sql`INSERT INTO web_discovery_operations(key,provider,kind,input) VALUES(${key},'public-documents','document',${JSON.stringify({ kind: "document", url: item.url })}::jsonb) ON CONFLICT DO NOTHING`.execute(
         this.tx,
       );

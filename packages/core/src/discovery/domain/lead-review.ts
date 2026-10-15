@@ -18,6 +18,8 @@ export type LeadLabel = (typeof leadLabels)[number];
 
 /** Immutable public input; search excerpts cannot establish source facts or authorize opportunity publication. */
 export interface LeadReviewInput {
+  /** Infrastructure-confirmed primary buyer sections, never inferred from a hostname, snippet or model label. */
+  sourceKind?: "buyer_brief";
   /** Parser-confirmed collections cannot be classified or published as individual demand. */
   collection?: "feed" | "sitemap";
   nativePost?: import("./social-discovery.js").NativePost;

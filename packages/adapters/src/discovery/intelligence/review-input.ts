@@ -13,6 +13,7 @@ export interface ReviewableLead {
   snippet: string | null;
   content_status: string;
   document: {
+    capture?: { scope?: "buyer_brief"; complete: boolean };
     sitemap?: { format: "urlset" | "index" };
     feed?: { format: "rss" | "atom" };
     nativePost?: NativePost;
@@ -47,11 +48,16 @@ export function reviewInput(lead: ReviewableLead): LeadReviewInput {
   const nativePost = source ? lead.document?.nativePost : undefined;
   const nativeContext = source ? lead.document?.nativeContext : undefined;
   const collection = source ? collectionKind(lead.document) : undefined;
+  const sourceKind =
+    source && !truncated && lead.document?.capture?.complete
+      ? lead.document.capture.scope
+      : undefined;
   const observedAt = source
     ? lead.document!.checkedAt!
     : new Date(lead.last_seen_at).toISOString();
   return {
     collection,
+    sourceKind,
     nativePost,
     nativeContext,
     id: lead.id,
@@ -76,6 +82,7 @@ export function reviewInput(lead: ReviewableLead): LeadReviewInput {
       source ? lead.document?.fingerprint : null,
       ...(nativePost ? ["native-attribution-v1", nativePost] : []),
       ...(collection ? [`${collection}-directory-v1`] : []),
+      ...(sourceKind ? ["primary-buyer-brief-v1"] : []),
     ]),
   };
 }

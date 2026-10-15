@@ -169,6 +169,68 @@ describe.skipIf(process.env.SCOUTING_INTEGRATION !== "1")(
       expect(await matching.execute(job)).toBe("waiting");
     });
 
+    it("retrieves partial service vocabulary for assessment while ranking exact matches first and preserving hiding and freshness", async () => {
+      const variants = [
+        {
+          ...project,
+          id: "market:react",
+          externalId: "react",
+          familyId: "market:react",
+          title: "React dashboard",
+          text: "We need TypeScript charts and API integrations.",
+          fingerprint: "react",
+        },
+        {
+          ...project,
+          id: "market:exact",
+          externalId: "exact",
+          familyId: "market:exact",
+          title: "Remote React TypeScript web development",
+          fingerprint: "exact",
+        },
+        {
+          ...project,
+          id: "market:noise",
+          externalId: "noise",
+          familyId: "market:noise",
+          title: "Kitchen renovation",
+          text: "Carpentry required",
+          fingerprint: "noise",
+        },
+      ];
+      await publish(variants);
+      const request = await fixture({
+        ...search,
+        target: "React TypeScript web development",
+      });
+      const context = (await records.begin(request))!;
+      const retrieved = (await records.candidates(context))!;
+      expect(retrieved.map((item) => item.id)).toEqual([
+        "market:exact",
+        "market:react",
+      ]);
+      // Retrieval broadening does not broaden the deterministic fallback's publication rules.
+      expect(await matching.execute(request)).toBe("done");
+      const catalog = new PostgresOpportunityCatalogRepository(db);
+      expect(
+        (await catalog.list(request.ownerId)).some(
+          (item) => item.id === "market:react",
+        ),
+      ).toBe(false);
+      await sql`UPDATE opportunity_postings SET checked_at=now()-interval '31 minutes' WHERE id='market:react'`.execute(
+        db,
+      );
+      expect(
+        (await records.candidates(context))?.map((item) => item.id),
+      ).toEqual(["market:exact"]);
+      await feedback.record(request.ownerId, "market:exact", {
+        key: randomUUID(),
+        version: 0,
+        value: "hidden",
+      });
+      expect(await records.candidates(context)).toEqual([]);
+    });
+
     it("reuses identical evidence, refreshes changed versions and reconciles client scouts", async () => {
       await publish();
       await publish();

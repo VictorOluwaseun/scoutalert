@@ -146,6 +146,305 @@ const request = {
 } as ScoutRunRequest;
 
 describe("contextual candidate selection", () => {
+  it("follows descriptive project links without treating previous/next listing navigation as related demand", () => {
+    const state = snapshot();
+    state.plan.category = "services";
+    state.plan.exploration!.target = "Website redesign";
+    state.plan.exploration!.queryPolicy = "client-demand-v1";
+    const related = "https://board.example.org/projects/web-development/42";
+    const previous = "https://board.example.org/projects/writing/41";
+    const next = "https://board.example.org/projects/adverts/43";
+    const page = directory(state, [
+      { url: previous, text: "Previous job" },
+      { url: next, text: "Next project" },
+      { url: related, text: "Website redesign: budget $3000" },
+    ]);
+    page.text = "We need a website redesign. Previous job. Next project.";
+    const choices = urls(explorationChoices(state));
+    expect(choices).toContain(related);
+    expect(choices).not.toContain(previous);
+    expect(choices).not.toContain(next);
+    expect(planExploration(state).action).toMatchObject({ url: related });
+  });
+
+  it("keeps different buyer-query families in the menu when one skill query returns many job ads", () => {
+    const jobs = Array.from({ length: 16 }, (_, index) => ({
+      ...result(
+        "React TypeScript developer",
+        `https://company${index}.example.org/jobs/42`,
+        index + 1,
+      ),
+      snippet: "Looking for a full-time developer to join our team.",
+    }));
+    const state = snapshot(jobs);
+    state.plan.category = "services";
+    state.plan.exploration!.target = "React TypeScript web development";
+    state.plan.exploration!.queryPolicy = "client-demand-v1";
+    const directoryUrl = "https://buyers.example.org/rfp-tenders";
+    const initial = state.operations[0]!;
+    state.operations.push({
+      ...initial,
+      key: "buyer-query",
+      result: {
+        kind: "search",
+        observations: [
+          {
+            ...result("Web development opportunities", directoryUrl),
+            snippet: "Requests for proposals; current buyer projects.",
+          },
+        ],
+        nextPage: null,
+        completeness: "window",
+        checkedAt: new Date().toISOString(),
+      },
+    });
+    expect(urls(explorationChoices(state))).toContain(directoryUrl);
+  });
+
+  it("pauses repeatedly denied sibling routes for this run while preserving other observed paths", () => {
+    const denied = "https://board.example.org/posts/third";
+    const available = "https://board.example.org/projects/redesign";
+    const state = snapshot([
+      result("Website redesign project", denied),
+      result("Website redesign project", available),
+    ]);
+    state.plan.category = "services";
+    state.plan.exploration!.target = "Website redesign";
+    state.plan.exploration!.queryPolicy = "client-demand-v1";
+    for (const name of ["first", "second"]) {
+      const page = directory(state, []);
+      page.url = `https://board.example.org/posts/${name}`;
+      page.status = "access_limited";
+      page.reason = "crawl_policy_denied";
+      const operation = state.operations.at(-1)!;
+      operation.key = name;
+      operation.input = { kind: "document", url: page.url };
+    }
+    expect(urls(explorationChoices(state))).not.toContain(denied);
+    expect(urls(explorationChoices(state))).toContain(available);
+    expect(planExploration(state).action).toEqual({
+      kind: "document",
+      url: available,
+    });
+    state.plan.exploration!.queryPolicy = undefined;
+    expect(urls(explorationChoices(state))).toContain(denied);
+  });
+
+  it.each([
+    "client-demand-v3",
+    "client-demand-v4",
+    "client-demand-v5",
+  ] as const)(
+    "changes the %s buyer query after two inaccessible reads, then resumes observed documents without relaxing limits",
+    (policy) => {
+      const available = "https://buyer.example.org/projects/redesign";
+      const state = snapshot([result("Website redesign needed", available)]);
+      state.plan.category = "services";
+      state.plan.exploration!.target = "Website redesign";
+      state.plan.exploration!.queryPolicy = policy;
+      state.plan.strategy!.targets = ["Website redesign"];
+      for (const name of ["first", "second"]) {
+        const page = directory(state, []);
+        page.url = `https://board.example.org/posts/${name}`;
+        page.status = "access_limited";
+        page.reason = "crawl_policy_denied";
+        const operation = state.operations.at(-1)!;
+        operation.key = name;
+        operation.input = { kind: "document", url: page.url };
+      }
+      const choices = explorationChoices(state);
+      expect(choices).toHaveLength(1);
+      expect(choices[0]).toEqual(planExploration(state));
+      const action = choices[0]!.action;
+      expect(action).toMatchObject({
+        kind: "search",
+        query: {
+          query: expect.stringContaining(
+            policy !== "client-demand-v3"
+              ? "site:peopleperhour.com/freelance-jobs"
+              : "inurl:projects",
+          ),
+        },
+      });
+      if (action?.kind !== "search") {
+        throw new Error("missing_recovery_query");
+      }
+      state.operations.push({
+        key: "recovery",
+        depth: 0,
+        input: action,
+        result: {
+          kind: "search",
+          checkedAt: new Date().toISOString(),
+          observations: [],
+        },
+      });
+      expect(urls(explorationChoices(state))).toContain(available);
+      state.operations.pop();
+      state.plan.exploration!.maximumSearches = 1;
+      expect(urls(explorationChoices(state))).toContain(available);
+      state.plan.exploration!.maximumSearches = 6;
+      state.plan.maximumDocuments = 2;
+      expect(explorationChoices(state).every((choice) => !choice.action)).toBe(
+        true,
+      );
+    },
+  );
+
+  it.each(["client-demand-v1", "client-demand-v2"] as const)(
+    "preserves %s routing and resets recovery after a successful capture",
+    (policy) => {
+      const available = "https://buyer.example.org/projects/redesign";
+      const state = snapshot([result("Website redesign needed", available)]);
+      state.plan.category = "services";
+      state.plan.exploration!.target = "Website redesign";
+      state.plan.exploration!.queryPolicy = policy;
+      for (const name of ["first", "second"]) {
+        const page = directory(state, []);
+        page.url = `https://board.example.org/posts/${name}`;
+        page.status = "access_limited";
+        page.reason = "crawl_policy_denied";
+        state.operations.at(-1)!.input = { kind: "document", url: page.url };
+      }
+      expect(urls(explorationChoices(state))).toContain(available);
+      state.plan.exploration!.queryPolicy = "client-demand-v3";
+      const page = state.operations.at(-1)!.result as SourceDocumentResult;
+      page.status = "fetched";
+      page.reason = null;
+      expect(urls(explorationChoices(state))).toContain(available);
+    },
+  );
+
+  it("offers a relevant directory child and its nearby brief ahead of unrelated requests", () => {
+    const state = snapshot();
+    state.plan.category = "services";
+    state.plan.exploration!.target = "Website redesign";
+    state.plan.exploration!.queryPolicy = "client-demand-v1";
+    const relevant = {
+      url: "https://board.example.org/projects/web-development/redesign",
+      text: "Premium Website Developer",
+    };
+    const unrelated = Array.from({ length: 15 }, (_, i) => ({
+      url: `https://board.example.org/projects/lead-generation/${i}`,
+      text: `Need company leads ${i}`,
+    }));
+    const page = directory(state, [...unrelated, relevant]);
+    page.text =
+      "Premium Website Developer\nWe need someone to redesign our website. Budget $3000; send a proposal.\n";
+    state.reviews = [
+      {
+        url: page.url,
+        scope: "source",
+        review: {
+          ...demandReview({
+            text: page.text,
+            scope: "search_excerpt",
+          } as Parameters<typeof demandReview>[0]),
+          label: "directory",
+        },
+      },
+    ];
+    const choices = explorationChoices(state);
+    expect(urls(choices)[0]).toBe(relevant.url);
+    let received: DiscoveryReasoningInput | undefined;
+    const planner = new PlanScoutSearch(
+      records((input) => {
+        received = input;
+        return 0;
+      }),
+      provider,
+    );
+    return planner.next(request, state).then(() => {
+      expect(received).toMatchObject({
+        candidates: expect.arrayContaining([
+          expect.objectContaining({
+            text: expect.stringContaining("redesign our website"),
+          }),
+        ]),
+      });
+    });
+  });
+
+  it("stops paid query refinement when no source-read capacity remains", () => {
+    const state = snapshot([result()]);
+    state.plan.category = "services";
+    state.plan.exploration!.queryPolicy = "client-demand-v1";
+    state.plan.maximumDocuments = 1;
+    directory(state, []);
+    expect(explorationChoices(state).every((choice) => !choice.action)).toBe(
+      true,
+    );
+  });
+
+  it("keeps a late buyer brief in the menu ahead of seller pages without excluding multilingual demand", () => {
+    const sellers = Array.from({ length: 18 }, (_, index) => ({
+      ...result(
+        "Hire website redesign specialists",
+        `https://agency${index}.example.org/services/redesign`,
+        index + 1,
+      ),
+      snippet: "Our agency offers website redesign services. Get a quote.",
+    }));
+    const buyer = {
+      ...result(
+        "Redesign our website",
+        "https://clients.example.org/projects/redesign",
+        19,
+      ),
+      snippet:
+        "We need a contractor. Budget $3000, send proposals for this project.",
+    };
+    const multilingual = {
+      ...result(
+        "Buscamos diseño para nuestra tienda",
+        "https://community.example.org/posts/42",
+        20,
+      ),
+      snippet:
+        "Necesitamos renovar nuestra tienda; presupuesto y requisitos disponibles.",
+    };
+    const state = snapshot([...sellers, buyer, multilingual]);
+    state.plan.category = "services";
+    state.plan.exploration!.target = "Website redesign";
+    state.plan.exploration!.queryPolicy = "client-demand-v1";
+    const choices = urls(explorationChoices(state));
+    expect(choices[0]).toBe(buyer.url);
+    expect(choices).toContain(multilingual.url);
+    expect(choices.length).toBeLessThanOrEqual(10);
+    expect(state.reviews).toBeUndefined();
+  });
+
+  it("passes incomplete source access to the planner without turning it into a host-wide ban", async () => {
+    const state = snapshot([result()]);
+    const page = directory(state, [
+      {
+        url: "https://board.example.org/projects/42",
+        text: "Client needs design. Budget $3000",
+      },
+    ]);
+    page.status = "access_limited";
+    page.reason = "crawl_policy_denied";
+    let received: DiscoveryReasoningInput | undefined;
+    const planner = new PlanScoutSearch(
+      records((input) => {
+        received = input;
+        return 0;
+      }),
+      provider,
+    );
+    await planner.next(request, state);
+    expect(received).toMatchObject({
+      kind: "choice",
+      evidence: expect.arrayContaining([
+        expect.objectContaining({
+          url: page.url,
+          scope: "source_access",
+          label: "access_limited",
+        }),
+      ]),
+    });
+  });
+
   it("rejects account and auto-apply destinations even when their labels look like application evidence", () => {
     const state = snapshot();
     const links = [
@@ -175,6 +474,16 @@ describe("contextual candidate selection", () => {
     expect(choices).not.toContain(links[1]!.url);
     expect(choices).not.toContain(links[2]!.url);
     expect(planExploration(state).action).toMatchObject({ url: links[3]!.url });
+    page.links!.push(
+      { url: "https://board.example.org/blog/", text: "Back to Company Blog" },
+      { url: "https://board.example.org/author/company", text: "Company" },
+    );
+    expect(urls(explorationChoices(state))).not.toContain(
+      "https://board.example.org/blog/",
+    );
+    expect(urls(explorationChoices(state))).not.toContain(
+      "https://board.example.org/author/company",
+    );
   });
 
   it("does not spend another read on the final destination of an observed redirect", () => {
@@ -330,6 +639,44 @@ describe("contextual candidate selection", () => {
     state.operations[1]!.depth = state.plan.exploration!.maximumDepth;
     expect(urls(explorationChoices(state))).not.toContain(url);
   });
+
+  it.each(["buyer_brief", "unreviewed"] as const)(
+    "does not transfer %s demand onto an unread navigation or related-project link",
+    async (scope) => {
+      const state = snapshot();
+      state.plan.category = "services";
+      state.plan.exploration!.target = "Enterprise React development";
+      state.plan.exploration!.queryPolicy = "client-demand-v3";
+      const url = "https://board.example.org/enterprise";
+      const page = directory(state, [{ url, text: "Enterprise" }]);
+      page.text =
+        "Enterprise React development. I need a developer for my platform. Budget $4000. Open for bidding.";
+      page.capture = {
+        scope: scope === "buyer_brief" ? "buyer_brief" : undefined,
+        method: "http",
+        complete: true,
+        requests: 2,
+        bytes: 3000,
+      };
+      let hints: Extract<
+        DiscoveryReasoningInput,
+        { kind: "choice" }
+      >["candidates"];
+      const planner = new PlanScoutSearch(
+        records((input) => {
+          hints = input.kind === "choice" ? input.candidates : undefined;
+          return 0;
+        }),
+        provider,
+      );
+      await planner.next(request, state);
+      expect(JSON.stringify(hints)).toContain("Enterprise");
+      expect(JSON.stringify(hints)).not.toMatch(
+        /Budget|\$4000|Open for bidding|I need a developer/,
+      );
+      expect(JSON.stringify(hints)).toContain("Linked page unread");
+    },
+  );
 
   it("keeps the document, round and blocked-intent limits even for differently worded results", () => {
     const state = snapshot([result()]);

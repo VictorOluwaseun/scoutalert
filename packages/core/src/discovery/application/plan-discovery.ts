@@ -1,4 +1,8 @@
 import type { SearchDraft } from "../../onboarding/domain/search-draft.js";
+import {
+  clientRequestQueries,
+  clientRequestFreshness,
+} from "./client-request-search.js";
 import type {
   DiscoveryPlan,
   SearchCapability,
@@ -24,12 +28,15 @@ export function planDiscovery(
   const demand = search.category === "services" ? '"looking for"' : "hiring";
   const intent =
     search.category === "employment" ? "jobs" : "freelance projects";
-  const queries = [
-    `${publicTarget}${arrangement} ${intent}`,
-    `${publicTarget}${arrangement} ${demand}`,
-    `site:x.com ${publicTarget} ${demand}`,
-    `site:linkedin.com/posts ${publicTarget} ${demand}`,
-  ];
+  const queries =
+    search.category === "services"
+      ? clientRequestQueries([publicTarget]).slice(0, 4)
+      : [
+          `${publicTarget}${arrangement} ${intent}`,
+          `${publicTarget}${arrangement} ${demand}`,
+          `site:x.com ${publicTarget} ${demand}`,
+          `site:linkedin.com/posts ${publicTarget} ${demand}`,
+        ];
 
   return {
     policy: adaptive ? "public-intent-v2" : "public-intent-v1",
@@ -41,7 +48,10 @@ export function planDiscovery(
           query,
           language: capability?.language ?? "en",
           country: capability?.country ?? null,
-          freshness: "month",
+          freshness:
+            search.category === "services"
+              ? clientRequestFreshness(query, "client-demand-v7")
+              : "month",
           page: 1,
           limit: 10,
         })),
@@ -52,6 +62,9 @@ export function planDiscovery(
     ...(adaptive
       ? {
           exploration: {
+            ...(search.category === "services"
+              ? { queryPolicy: "client-demand-v7" as const }
+              : {}),
             target: publicTarget,
             remote: search.arrangement === "remote",
             maximumRounds: exploration?.maximumRounds ?? 4,

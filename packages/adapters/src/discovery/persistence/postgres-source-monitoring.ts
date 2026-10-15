@@ -14,7 +14,11 @@ import {
 } from "@repo/core/discovery";
 import type { ScoutRunRequest } from "@repo/core/scouting";
 import type { ScoutAlertDatabase } from "../../database/types/database.js";
-import { canonicalDiscoveryUrl, discoveryKey } from "./discovery-identities.js";
+import {
+  canonicalDiscoveryUrl,
+  discoveryKey,
+  PUBLIC_DOCUMENT_VERSION,
+} from "./discovery-identities.js";
 import { lockWebSources } from "./web-source-locks.js";
 import { PostgresDocumentAdmissionRepository } from "./postgres-document-admission.js";
 import { PostgresMonitorReceiptRepository } from "./postgres-monitor-receipts.js";
@@ -154,7 +158,11 @@ export class PostgresSourceMonitoringRepository extends SourceMonitoringReposito
       );
       const key =
         monitor.pending_key ??
-        discoveryKey(["public-document-v6", monitor.url, epoch.rows[0]!.value]);
+        discoveryKey([
+          PUBLIC_DOCUMENT_VERSION,
+          monitor.url,
+          epoch.rows[0]!.value,
+        ]);
       await sql`INSERT INTO web_discovery_operations(key,provider,kind,input) VALUES(${key},'public-documents','document',${JSON.stringify({ kind: "document", url: monitor.url })}::jsonb) ON CONFLICT DO NOTHING`.execute(
         tx,
       );

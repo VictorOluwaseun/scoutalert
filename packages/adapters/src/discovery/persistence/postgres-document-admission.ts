@@ -17,7 +17,7 @@ export class PostgresDocumentAdmissionRepository {
   /** Joins the caller's source-first transaction; the operation must already be locked and pending. */
   constructor(private readonly tx: Kysely<ScoutAlertDatabase>) {}
 
-  /** Reserves one non-refundable document attempt only when host spacing, global concurrency and daily limits permit. */
+  /** Reserves one non-refundable document attempt only when host spacing, global concurrency and daily limits permit. The shared 75-second host/operation lease outlives the 45-second source capture and 60-second activity deadline. */
   async reserve(
     key: string,
     url: string,
@@ -58,10 +58,10 @@ export class PostgresDocumentAdmissionRepository {
       return { status: "budget" };
     }
     const token = randomUUID();
-    await sql`UPDATE web_discovery_operations SET state='running',lease_token=${token}::uuid,lease_until=now()+interval '45 seconds' WHERE key=${key}`.execute(
+    await sql`UPDATE web_discovery_operations SET state='running',lease_token=${token}::uuid,lease_until=now()+interval '75 seconds' WHERE key=${key}`.execute(
       this.tx,
     );
-    await sql`UPDATE web_discovery_hosts SET lease_token=${token}::uuid,lease_until=now()+interval '45 seconds' WHERE hostname=${hostname}`.execute(
+    await sql`UPDATE web_discovery_hosts SET lease_token=${token}::uuid,lease_until=now()+interval '75 seconds' WHERE hostname=${hostname}`.execute(
       this.tx,
     );
     await new PostgresDiscoveryPerformanceRepository(this.tx).admit(

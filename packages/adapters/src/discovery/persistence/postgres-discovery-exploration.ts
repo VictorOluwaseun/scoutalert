@@ -8,7 +8,11 @@ import {
   type SearchCapability,
 } from "@repo/core/discovery";
 import type { ScoutAlertDatabase } from "../../database/types/database.js";
-import { canonicalDiscoveryUrl, discoveryKey } from "./discovery-identities.js";
+import {
+  canonicalDiscoveryUrl,
+  discoveryKey,
+  PUBLIC_DOCUMENT_VERSION,
+} from "./discovery-identities.js";
 
 /** Persists bounded planning snapshots and decisions within the coordinator's current-scout transaction. */
 export class PostgresDiscoveryExplorationRepository {
@@ -95,7 +99,7 @@ export class PostgresDiscoveryExplorationRepository {
     const action = decision.action;
     const key =
       action.kind === "document"
-        ? discoveryKey(["public-document-v6", action.url, epoch])
+        ? discoveryKey([PUBLIC_DOCUMENT_VERSION, action.url, epoch])
         : discoveryKey([
             capability.id,
             capability.configuration,

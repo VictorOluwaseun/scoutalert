@@ -19,7 +19,7 @@ export interface WebSearchQuery {
   query: string;
   language: string;
   country: string | null;
-  freshness: "month";
+  freshness: "month" | "any";
   page: number;
   limit: number;
 }
@@ -67,6 +67,8 @@ export interface SourceDocumentResult {
   sitemap?: { format: "urlset" | "index"; entries: number; omitted: number };
   /** Final permitted HTTPS destination after bounded redirects; url remains the requested identity. */
   retrievedUrl?: string;
+  /** PDF extraction retains page boundaries; incomplete, scanned or encrypted documents cannot be published. */
+  pdf?: { pages: number; extractedPages: number };
   /** A bounded feed window is a directory of unassessed links, never a single opportunity. */
   feed?: {
     format: "rss" | "atom";
@@ -83,9 +85,16 @@ export interface SourceDocumentResult {
   /** Observed source pagination with a stable result signature for loop detection. */
   pagination?: { next: string[]; contentFingerprint: string };
   /** Exact public API used for this source observation; provider data is never relabeled as an HTML capture. */
-  publicApi?: { provider: "ashby"; url: string; snapshotFingerprint: string };
+  publicApi?: {
+    provider: "ashby" | "bluesky";
+    url: string;
+    snapshotFingerprint: string;
+  };
   /** Bounded page-bundle accounting, including robots and browser resources; absent on older captures. */
   capture?: {
+    /** Provider-validated primary buyer sections exclude proposals, profiles and related-listing text. */
+    scope?: "buyer_brief";
+    parser?: string;
     method: "http" | "browser" | "public_api";
     cacheHit?: boolean;
     requests: number;
@@ -114,6 +123,15 @@ export interface DiscoveryPlan {
   exploration?: {
     /** Frozen routing version; plans without this field retain their historical keyword shortlist. */
     candidatePolicy?: "contextual-v1";
+    /** Frozen buyer-query/routing semantics; absent on historical and employment plans. */
+    queryPolicy?:
+      | "client-demand-v1"
+      | "client-demand-v2"
+      | "client-demand-v3"
+      | "client-demand-v4"
+      | "client-demand-v5"
+      | "client-demand-v6"
+      | "client-demand-v7";
     target: string;
     remote: boolean;
     maximumRounds: number;
