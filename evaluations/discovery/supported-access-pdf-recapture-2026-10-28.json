@@ -1,0 +1,558 @@
+{
+  "checkedAt": "2026-10-28T14:12:48.149Z",
+  "scenario": "projects",
+  "recaptureCases": [
+    {
+      "url": "https://www.itgenius.co.th/assets/frondend/instructor_profile/Ajarn-Kongnakorn-Jantakun-profile-y8dp00a8.pdf",
+      "sourceReport": "evaluations/discovery/supported-access-projects-capture-only-2026-10-28.json",
+      "priorReason": null,
+      "priorCapture": null,
+      "title": "Kongnakorn Jantakun Profile",
+      "snippet": null
+    }
+  ],
+  "baseline": false,
+  "reasoningConfiguration": "openai:gpt-5.4-mini-2026-03-17:scout-planning-v13",
+  "plan": {
+    "policy": "public-intent-v2",
+    "queries": [
+      {
+        "page": 1,
+        "limit": 10,
+        "query": "\"React\" \"TypeScript\" \"web\" \"development\" site:peopleperhour.com/freelance-jobs",
+        "country": "us",
+        "language": "en",
+        "freshness": "month"
+      },
+      {
+        "page": 1,
+        "limit": 10,
+        "query": "\"React\" \"TypeScript\" \"web\" \"development\" site:workana.com inurl:job",
+        "country": "us",
+        "language": "en",
+        "freshness": "any"
+      },
+      {
+        "page": 1,
+        "limit": 10,
+        "query": "\"React\" \"TypeScript\" \"web\" \"development\" (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+        "country": "us",
+        "language": "en",
+        "freshness": "month"
+      },
+      {
+        "page": 1,
+        "limit": 10,
+        "query": "\"React\" \"TypeScript\" \"web\" \"development\" filetype:pdf (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+        "country": "us",
+        "language": "en",
+        "freshness": "month"
+      }
+    ],
+    "category": "services",
+    "exploration": {
+      "remote": true,
+      "target": "React TypeScript web development",
+      "queryPolicy": "client-demand-v7",
+      "maximumDepth": 3,
+      "maximumRounds": 8,
+      "maximumSearches": 6,
+      "maximumSourcePages": 2
+    },
+    "continuation": "explore_on_next_run",
+    "scoutVersion": 1,
+    "blockedReason": null,
+    "deadlineSeconds": 240,
+    "maximumDocuments": 6
+  },
+  "reader": "worker",
+  "renderingEnabled": true,
+  "status": "captured_without_ai",
+  "aiEnabled": false,
+  "deliveryOutcome": "no_eligible_digest",
+  "reasoning": [],
+  "sourceReviewsCompleted": 0,
+  "intelligence": [],
+  "rejectedFits": [],
+  "rejectedReviews": [],
+  "reviewFailures": [],
+  "matchingState": {
+    "status": "not_tested_ai_disabled",
+    "match_count": 0
+  },
+  "taskStates": [],
+  "eligiblePostings": [],
+  "reviewAttempts": [],
+  "opportunities": [],
+  "deliveries": [],
+  "durationMs": 19084,
+  "search": {
+    "goal": "Find remote freelance React development projects",
+    "category": "services",
+    "target": "React TypeScript web development",
+    "name": "Synthetic client-project scout",
+    "arrangement": "remote",
+    "arrangementRequired": true,
+    "residence": "New York, United States",
+    "workLocations": "United States or remote worldwide",
+    "authorizationLocations": "United States",
+    "authorizationConfirmed": true,
+    "sponsorshipNeed": "not_needed",
+    "background": "Five years delivering React and TypeScript web applications, API integrations and dashboards for clients",
+    "minimumPay": "",
+    "currency": "USD",
+    "payPeriod": "project",
+    "unknownEligibility": "review",
+    "undisclosedPay": "include"
+  },
+  "operations": [
+    {
+      "key": "df4fe4a968fb34935a5d047dd4e53d6a1a8a6593af8bb8eec33987f0c051e516",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "\"React\" \"TypeScript\" \"web\" \"development\" site:peopleperhour.com/freelance-jobs",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "retrieved_url": null,
+      "capture": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "d0afe4d3867b456e9bb5b064befc8ea0036855d2dfa25520cf21584267268226",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "\"React\" \"TypeScript\" \"web\" \"development\" site:workana.com inurl:job",
+          "country": "us",
+          "language": "en",
+          "freshness": "any"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "retrieved_url": null,
+      "capture": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "cb1235369ed0a5254e9b8ab1af58d3995b36e7a1f8673b4da6ee713c55794979",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "\"React\" \"TypeScript\" \"web\" \"development\" (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "retrieved_url": null,
+      "capture": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "2f49f44c95a3e51af17f20226f402b3fa1328765e4bfc9489ef79c4932ff98a0",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "\"React\" \"TypeScript\" \"web\" \"development\" filetype:pdf (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "retrieved_url": null,
+      "capture": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "76d96909f0d2c7cdb8666c195486958349f6a152722173740ccb213a3aa19e9e",
+      "kind": "document",
+      "input": {
+        "url": "https://www.itgenius.co.th/assets/frondend/instructor_profile/Ajarn-Kongnakorn-Jantakun-profile-y8dp00a8.pdf",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": [],
+      "feeds": null,
+      "sitemaps": [
+        {
+          "url": "https://www.itgenius.co.th/sitemap-index.xml",
+          "text": "Site-advertised sitemap"
+        }
+      ],
+      "retrieved_url": "https://www.itgenius.co.th/assets/frondend/instructor_profile/Ajarn-Kongnakorn-Jantakun-profile-y8dp00a8.pdf",
+      "capture": {
+        "bytes": 269941,
+        "method": "http",
+        "parser": "public-pdf-v2",
+        "complete": false,
+        "requests": 2
+      },
+      "captured_text": "[Page 1]\nข้ อ มู ลโดย ย่ อ \nตํา แห น่ ง ป� จ จุ บั น \nTechnical Lead / Full Stack\nSoftware Engineer \nประสบการ ณ์ \n17+   ป�   ในสาย วิ ศวกรรมซอฟ ต์ แว ร์ \nบ ริ หาร ที ม \n3   ที ม (Developer · Application\nSupport · DevOps) \nGitHub \ngithub.com/kongnakornna \nความเ ชี� ยวชาญห ลั ก \nClean Architecture   DDD \nMicroservices   Golang \nNode.js / TypeScript \nPython FastAPI \nJava Spring Boot   Angular \nReact / Next.js   Docker \nKubernetes   CI/CD   n8n \nUiPath RPA   Generative AI \nIoT \nติ ด ต่ อ จั ดอบรม \nสถา บั นไอ ที จี เ นี ยส \n02-570-8449 · 088-807-9770 \nอี เมล \ncontact@itgenius.co.th \nLINE \n@itgenius \nสถา บั นไอ ที จี เ นี ยส \nIT Genius Engineering Co., Ltd. \nwww.itgenius.co.th \nI N S T R U C T O R   P R O F I L E \nอาจาร ย์ คงนคร   จั นทะ คุ ณ \nKongnakorn Jantakun \nป ริ ญญาต รี   วิ ทยาการคอม พิ วเตอ ร์   มหา วิ ทยา ลั ยราช ภั ฏ พิ บู ลสงคราม ·   นิ ติ ศาสตร บั ณ ฑิ ต\nมหา วิ ทยา ลั ย สุ โข ทั ยธรรมา ธิ ราช \nจุ ด มุ่ งหมายในงาน   Career Objective \nตลอดก ว่ า 17   ป� ในสาย วิ ศวกรรมซอฟ ต์ แว ร์   เ ติ บโตจาก นั ก พั ฒนาเ ว็ บไซ ต์ สู่ \nTechnical Lead   ที� ออกแบบสถา ป� ตยกรรมซอฟ ต์ แว ร์   นํา ที ม ข้ ามสายงาน และ\nประสาน ที มเทค นิ ค กั บ ผู้ บ ริ หาร เ ชื� อ ว่ าซอฟ ต์ แว ร์ ที� ดี เ กิ ดจากความเ ข้ าใจ ผู � ใ ช้ \nสถา ป� ตยกรรม ที� ยื ดห ยุ่ น (Clean Architecture & DDD) และกระบวนการ ที� เ ป� น\nระบบ (Agile & DevOps)   จึ ง มุ่ ง นํา   Generative AI, RPA และ IoT มา ส่ งมอบ \nคุ ณ ค่ าจ ริ งใ ห้ อง ค์ กร \nประสบการ ณ์ ทํา งาน   Working Experience \nประ วั ติ การ ศึ กษา   Education \n2548   ป ริ ญญาต รี   วิ ทยาการคอม พิ วเตอ ร์ \nมหา วิ ทยา ลั ยราช ภั ฏ พิ บู ลสงคราม \n2561   นิ ติ ศาสตร บั ณ ฑิ ต \nมหา วิ ทยา ลั ย สุ โข ทั ยธรรมา ธิ ราช · ประกาศ นี ย บั ตรทนายความ สภาทนายความ \n04/2569 –   ป� จ จุ บั น   ป� จ จุ บั น \nTechnical Lead / Full Stack Software Engineer \nDiksha Tek Recruitment Co., Ltd. · Golang · Node.js · Python · Angular ·\nOpenAI · UiPath · n8n \n10/2566 – 12/2568 \nTechnical Lead / Full Stack Software Engineer \nCTC Global (Thailand) Co., Ltd. · Java Spring Boot · Angular · MSSQL ·\nOracle \n04/2559 – 09/2566 \nSenior Full Stack Developer \nบ ริ ษั ท ท รู   คอ ร์ ปอเร ชั� น   จํา กั ด (มหาชน) · ผลงาน connexted.org และ\ntrueplookpanya.com \n03/2552 – 03/2559 \nSenior Developer \nบ ริ ษั ท สยามสปอ ร์ ต   ซิ น ดิ เคท   จํา กั ด (มหาชน) · ผลงาน siamsport.co.th \n05/2549 – 01/2552 \nIT Support / PHP Web Developer \nControl Data (Thailand) Co., Ltd.\n\n[Page 2]\nแนวทางการ ทํา งาน \nAgile & Scrum (Sprint 2   สั ปดา ห์ ) · Code\nReview และ Quality Gates   ผ่ าน CI/CD \nDesign Thinking · Root Cause Analysis\n(5 Whys) · Business Model Canvas ·\nProof of Concept \nบ ริ หาร ที มแบบ Empower, Don't\nMicromanage และ จั ด Knowledge\nSharing เ ป� นประ จํา \nงาน ด้ าน ธุ ร กิ จ \nPresales   RFP / RFI \nProduct Owner   IT Manager \nสถา บั นไอ ที จี เ นี ยส \nIT Genius Engineering Co., Ltd. \nwww.itgenius.co.th \nทั กษะ ด้ านการอบรม   Training Expertise \nSoftware Architecture \nClean Architecture · Domain-\nDriven Design · Microservices ·\nEvent-Driven (Kafka, RabbitMQ) \nFull Stack Development \nGolang · Node.js / TypeScript ·\nPython FastAPI · Java Spring Boot\n· Angular · React / Next.js \nDevOps และ Cloud \nDocker · Kubernetes · Jenkins ·\nGitLab CI · GitHub Actions ·\nTerraform · Grafana · ELK \nAutomation, AI และ IoT \nUiPath RPA · n8n · OpenAI API ·\nGenerative AI · IoT Solutions\n(LoRaWAN, AWS IoT, Azure IoT) \nภาษาคอม พิ วเตอ ร์ และเค รื� อง มื อ ที� เ ชี� ยวชาญ   Computer Skills \nProgramming language \nTypeScript   JavaScript   Node.js   Python (FastAPI, Django)   Golang \nPHP (CodeIgniter)   Kotlin   Java Spring Boot   C / C# \nFrontend \nAngular   Vue.js   React.js \nNext.js \nAutomation และ AI \nUiPath RPA   n8n   OpenAI API \nChatGPT \nDatabase และ Messaging \nMySQL   PostgreSQL   MSSQL   Oracle   SQLite   MongoDB \nElasticsearch   InfluxDB   Redis   TimescaleDB   Kafka \nDevOps และ Observability \nDocker   Kubernetes   Jenkins   GitLab CI   GitHub Actions   Ansible \nTerraform   Grafana   Prometheus   ELK Stack   Node-RED \nห ลั ก สู ตร ที� ผ่ านการอบรม   Certifications \nผลงานบน GitHub   Portfolio \nGolang API   FastAPI Clean Architecture + DDD   Java Spring DDD \nAngular Clean Architecture   React / Next.js   C# DDD Clean Architecture \nPHP HMVC Backend   Node.js / TypeScript   IoT API Demo   ระบบ ซ่ อมรถ (PoC) \nดู โ ค้ ด ทั� งหมด ที�   github.com/kongnakornna \nData Science Bootcamp 2021 · Machine Learning และ Deep Learning   ด้ วย\nPython (Udemy) \nDocker & Kubernetes: The Practical Guide · DevOps Project: CI/CD with\nJenkins, Ansible, Kubernetes (Udemy) \nThe Complete Angular & NestJS Course (Udemy) \nBusiness Model Canvas · Design Thinking · Agile & Scrum · Digital\nFoundations (True Digital Academy / General Assembly, 2565)",
+      "source_status": "access_limited",
+      "source_reason": "source_pdf_invalid",
+      "observed_links": 0
+    },
+    {
+      "key": "7be502e0f3bee8bff42d9a7dae9d60f1d4edfc616d4d04295a3b595941c8bc1a",
+      "kind": "document",
+      "input": {
+        "url": "https://www.itgenius.co.th/sitemap-index.xml",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 1,
+      "links": [
+        {
+          "url": "https://www.itgenius.co.th/sitemap-0.xml",
+          "text": "Sitemap: /sitemap 0.xml"
+        }
+      ],
+      "feeds": null,
+      "sitemaps": [],
+      "retrieved_url": "https://www.itgenius.co.th/sitemap-index.xml",
+      "capture": {
+        "bytes": 659,
+        "method": "http",
+        "complete": true,
+        "requests": 2
+      },
+      "captured_text": "Sitemap directory: sitemap index\nEntries are unassessed links. Each source page needs a separate check.\nObserved 1 entries; retained 1 unique same-origin links; omitted 0.\nSitemap: /sitemap 0.xml",
+      "source_status": "fetched",
+      "source_reason": null,
+      "observed_links": 1
+    },
+    {
+      "key": "3bf744656f57d0f19fa26ae5780cac7a772d28a95a070a191439b7e03e547ef8",
+      "kind": "document",
+      "input": {
+        "url": "https://www.itgenius.co.th/sitemap-0.xml",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 2,
+      "links": null,
+      "feeds": null,
+      "sitemaps": [
+        {
+          "url": "https://www.itgenius.co.th/sitemap-index.xml",
+          "text": "Site-advertised sitemap"
+        }
+      ],
+      "retrieved_url": null,
+      "capture": {
+        "bytes": 427,
+        "method": "http",
+        "complete": false,
+        "requests": 2
+      },
+      "captured_text": null,
+      "source_status": "access_limited",
+      "source_reason": "source_response_too_large",
+      "observed_links": 0
+    },
+    {
+      "key": "aa1c6fbecc9450968d3432575b6919930f3a593b8735f07ec45b2d22174cf8ec",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "\"React\" \"TypeScript\" \"web\" \"development\" site:bsky.app/profile inurl:post (\"looking for\" OR \"need\" OR \"seeking\")",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "retrieved_url": null,
+      "capture": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "87c534fa0859d229aad3debb0050d67ed6376de455bd8b55c3761d7930049209",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "\"React\" \"TypeScript\" \"web\" \"development\" inurl:projects (\"budget\" OR \"bids\" OR \"proposals\")",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "retrieved_url": null,
+      "capture": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    }
+  ],
+  "decisions": [
+    {
+      "round": 0,
+      "reason": "follow_source_link",
+      "action": {
+        "url": "https://www.itgenius.co.th/sitemap-index.xml",
+        "kind": "document"
+      },
+      "depth": 1,
+      "parent_key": "76d96909f0d2c7cdb8666c195486958349f6a152722173740ccb213a3aa19e9e"
+    },
+    {
+      "round": 1,
+      "reason": "follow_source_link",
+      "action": {
+        "url": "https://www.itgenius.co.th/sitemap-0.xml",
+        "kind": "document"
+      },
+      "depth": 2,
+      "parent_key": "7be502e0f3bee8bff42d9a7dae9d60f1d4edfc616d4d04295a3b595941c8bc1a"
+    },
+    {
+      "round": 2,
+      "reason": "refine_demand_query",
+      "action": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "\"React\" \"TypeScript\" \"web\" \"development\" site:bsky.app/profile inurl:post (\"looking for\" OR \"need\" OR \"seeking\")",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "depth": 0,
+      "parent_key": "2f49f44c95a3e51af17f20226f402b3fa1328765e4bfc9489ef79c4932ff98a0"
+    },
+    {
+      "round": 3,
+      "reason": "refine_demand_query",
+      "action": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "\"React\" \"TypeScript\" \"web\" \"development\" inurl:projects (\"budget\" OR \"bids\" OR \"proposals\")",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "depth": 0,
+      "parent_key": "aa1c6fbecc9450968d3432575b6919930f3a593b8735f07ec45b2d22174cf8ec"
+    },
+    {
+      "round": 4,
+      "reason": "exploration_limit",
+      "action": null,
+      "depth": 0,
+      "parent_key": null
+    }
+  ],
+  "case": {
+    "id": "591ae9c7-04ff-49e3-afb4-8f7be1f346fd",
+    "scoutId": "ed83b5c5-8b81-4f6a-9c0a-3905a264a9d9",
+    "scoutName": "Synthetic client-project scout",
+    "scoutVersion": 1,
+    "provider": "recorded-capture-check",
+    "strategy": null,
+    "exploration": [
+      {
+        "kind": "document",
+        "reason": "follow_source_link",
+        "target": "https://www.itgenius.co.th/sitemap-index.xml"
+      },
+      {
+        "kind": "document",
+        "reason": "follow_source_link",
+        "target": "https://www.itgenius.co.th/sitemap-0.xml"
+      },
+      {
+        "kind": "search",
+        "reason": "refine_demand_query",
+        "target": "\"React\" \"TypeScript\" \"web\" \"development\" site:bsky.app/profile inurl:post (\"looking for\" OR \"need\" OR \"seeking\")"
+      },
+      {
+        "kind": "search",
+        "reason": "refine_demand_query",
+        "target": "\"React\" \"TypeScript\" \"web\" \"development\" inurl:projects (\"budget\" OR \"bids\" OR \"proposals\")"
+      },
+      {
+        "kind": null,
+        "reason": "exploration_limit",
+        "target": null
+      }
+    ],
+    "reviewStatus": null,
+    "reviewReason": null,
+    "status": "partial",
+    "reason": "some_sources_unavailable",
+    "startedAt": "2026-10-28 14:12:29.273817+00",
+    "finishedAt": "2026-10-28 14:12:48.107839+00",
+    "searchesCompleted": 6,
+    "documentsChecked": 3,
+    "leadCount": 3
+  },
+  "usage": [
+    {
+      "provider": "public-documents",
+      "requests": 3,
+      "reserved_micros": "0"
+    },
+    {
+      "provider": "recorded-capture-check",
+      "requests": 6,
+      "reserved_micros": "0"
+    }
+  ],
+  "aiBudget": [],
+  "dashboardLeadSampleSize": 3,
+  "leads": [
+    {
+      "url": "https://www.itgenius.co.th/assets/frondend/instructor_profile/Ajarn-Kongnakorn-Jantakun-profile-y8dp00a8.pdf",
+      "title": "Kongnakorn Jantakun Profile",
+      "contentStatus": "access_limited",
+      "contentReason": "source_pdf_invalid",
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.itgenius.co.th/sitemap-0.xml",
+      "title": "Sitemap: /sitemap 0.xml",
+      "contentStatus": "access_limited",
+      "contentReason": "source_response_too_large",
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.itgenius.co.th/sitemap-index.xml",
+      "title": "Site-advertised sitemap",
+      "contentStatus": "fetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    }
+  ],
+  "publication": [],
+  "checks": [
+    "deterministic live capture; AI review and recommendations not tested",
+    "bounded provider and model admission",
+    "observed parent provenance",
+    "current owner isolation",
+    "terminal replay without new spending"
+  ],
+  "emailsSent": 0,
+  "realAccountsUsed": 0,
+  "scopeNote": "AI is explicitly disabled: this measures live source discovery and capture, not source interpretation or recommendation quality. Seeded recapture regression: search observations replay previously recorded URLs; no search-provider request or new discovery/recall measurement. Bounded live synthetic case using production discovery, review, assessment and delivery use cases. Worker reader includes configured browser fallback and Ashby routing without shared Redis caching; HTTP reader is a controlled reduced-access path. Native X and marketplace connector loops are not exercised. All lead rows are measured separately from the dashboard's bounded sample. Matching can remain incomplete if retries exceed the check window. Model labels are not independent ground truth; precision, recall and global throughput remain unproven.",
+  "stages": {
+    "scenario": "projects",
+    "executionStatus": "captured_without_ai",
+    "successfulSearches": 6,
+    "failedSearches": 0,
+    "renderingEnabled": true,
+    "durationSeconds": 19.084,
+    "uniqueLeads": 3,
+    "recordedLeads": 3,
+    "completeLeadSet": true,
+    "searchRequests": 0,
+    "documentRequests": 3,
+    "capturedDocuments": 1,
+    "completeCaptures": 1,
+    "inaccessibleDocuments": 2,
+    "repeatedDestinations": 0,
+    "sourceReviewLabels": {},
+    "sourceReviewCountsAreComplete": true,
+    "promotedPostings": 0,
+    "matching": "not_tested_ai_disabled",
+    "completedFitAssessments": 0,
+    "dashboardRecommendations": 0,
+    "acceptedEmails": 0,
+    "aiEstimatedUsd": 0,
+    "attemptsWithoutCostEstimate": 0,
+    "searchReservedUsd": 0,
+    "aiReservedUsd": 0,
+    "estimatedAiPlusSearchReservationPerRecommendationUsd": null,
+    "independentlyUsefulResults": null,
+    "costPerIndependentlyUsefulResultUsd": null,
+    "precision": null,
+    "recall": null,
+    "limitations": "AI estimates exclude unpriced/failed attempts, infrastructure and billing adjustments. Search reservations are configured upper allowances, not invoices. Source labels and dashboard acceptance are not independent usefulness judgments. Distinct URLs may still describe the same opportunity; repeatedDestinations detects only observed redirect identity. Initial reports recorded a dashboard sample, not every source review."
+  }
+}

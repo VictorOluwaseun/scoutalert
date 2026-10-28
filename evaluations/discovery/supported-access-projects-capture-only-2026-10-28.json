@@ -1,0 +1,873 @@
+{
+  "checkedAt": "2026-10-28T14:03:22.363Z",
+  "scenario": "projects",
+  "recaptureCases": null,
+  "baseline": false,
+  "reasoningConfiguration": "openai:gpt-5.4-mini-2026-03-17:scout-planning-v13",
+  "plan": {
+    "policy": "public-intent-v2",
+    "queries": [
+      {
+        "page": 1,
+        "limit": 10,
+        "query": "\"React\" \"TypeScript\" \"web\" \"development\" site:peopleperhour.com/freelance-jobs",
+        "country": "us",
+        "language": "en",
+        "freshness": "month"
+      },
+      {
+        "page": 1,
+        "limit": 10,
+        "query": "\"React\" \"TypeScript\" \"web\" \"development\" site:workana.com inurl:job",
+        "country": "us",
+        "language": "en",
+        "freshness": "any"
+      },
+      {
+        "page": 1,
+        "limit": 10,
+        "query": "\"React\" \"TypeScript\" \"web\" \"development\" (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+        "country": "us",
+        "language": "en",
+        "freshness": "month"
+      },
+      {
+        "page": 1,
+        "limit": 10,
+        "query": "\"React\" \"TypeScript\" \"web\" \"development\" filetype:pdf (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+        "country": "us",
+        "language": "en",
+        "freshness": "month"
+      }
+    ],
+    "category": "services",
+    "exploration": {
+      "remote": true,
+      "target": "React TypeScript web development",
+      "queryPolicy": "client-demand-v7",
+      "maximumDepth": 3,
+      "maximumRounds": 8,
+      "maximumSearches": 6,
+      "maximumSourcePages": 2
+    },
+    "continuation": "explore_on_next_run",
+    "scoutVersion": 1,
+    "blockedReason": null,
+    "deadlineSeconds": 240,
+    "maximumDocuments": 6
+  },
+  "reader": "worker",
+  "renderingEnabled": true,
+  "status": "captured_without_ai",
+  "aiEnabled": false,
+  "deliveryOutcome": "no_eligible_digest",
+  "reasoning": [],
+  "sourceReviewsCompleted": 0,
+  "intelligence": [],
+  "rejectedFits": [],
+  "rejectedReviews": [],
+  "reviewFailures": [],
+  "matchingState": {
+    "status": "not_tested_ai_disabled",
+    "match_count": 0
+  },
+  "taskStates": [],
+  "eligiblePostings": [],
+  "reviewAttempts": [],
+  "opportunities": [],
+  "deliveries": [],
+  "durationMs": 70343,
+  "search": {
+    "goal": "Find remote freelance React development projects",
+    "category": "services",
+    "target": "React TypeScript web development",
+    "name": "Synthetic client-project scout",
+    "arrangement": "remote",
+    "arrangementRequired": true,
+    "residence": "New York, United States",
+    "workLocations": "United States or remote worldwide",
+    "authorizationLocations": "United States",
+    "authorizationConfirmed": true,
+    "sponsorshipNeed": "not_needed",
+    "background": "Five years delivering React and TypeScript web applications, API integrations and dashboards for clients",
+    "minimumPay": "",
+    "currency": "USD",
+    "payPeriod": "project",
+    "unknownEligibility": "review",
+    "undisclosedPay": "include"
+  },
+  "operations": [
+    {
+      "key": "b7ce1b60f3ac807f00076782bf15900e7be0e60164b394c09532493300e41a58",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "\"React\" \"TypeScript\" \"web\" \"development\" site:peopleperhour.com/freelance-jobs",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "retrieved_url": null,
+      "capture": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "c52cc56990a1c39b0931d40fac08d04aac95f3cbe28f1c24d9b2c548cef518a1",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "\"React\" \"TypeScript\" \"web\" \"development\" site:workana.com inurl:job",
+          "country": "us",
+          "language": "en",
+          "freshness": "any"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "retrieved_url": null,
+      "capture": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "3a3854f0e0cc734b04d12ca0b923fd9e55fa6f30c32d224357aa5f2686d7ca62",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "\"React\" \"TypeScript\" \"web\" \"development\" (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "retrieved_url": null,
+      "capture": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "e2e4ca4c2867fde1899d6c167a3ed8963c2c4ee2c296cd0e895b9c69ea5bcbdb",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "\"React\" \"TypeScript\" \"web\" \"development\" filetype:pdf (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "retrieved_url": null,
+      "capture": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "68d4b1e281b59565a8774ed550e935e560ca8e181b5d4cd24ac7260d525bbc88",
+      "kind": "document",
+      "input": {
+        "url": "https://www.workana.com/en/jobs?country=GT&skills=html",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": [
+        {
+          "url": "https://www.workana.com/signup",
+          "text": "Sign up"
+        }
+      ],
+      "feeds": [],
+      "sitemaps": [
+        {
+          "url": "https://www.workana.com/sitemap_index.xml",
+          "text": "Site-advertised sitemap"
+        }
+      ],
+      "retrieved_url": "https://www.workana.com/en/jobs?country=GT&skills=html",
+      "capture": {
+        "bytes": 1942969,
+        "method": "browser",
+        "complete": false,
+        "requests": 12
+      },
+      "captured_text": "Freelancers\nJobs\nHow it works\nBusiness\nRegister\nSign in\nSign up, create your profile and send your proposals. As easy as that!\nSign up",
+      "source_status": "fetched",
+      "source_reason": "browser_resource_unavailable",
+      "observed_links": 1
+    },
+    {
+      "key": "759f03af863d73ad386dbf87f0bb365f929748c333968e8b093370a73c96a8e5",
+      "kind": "document",
+      "input": {
+        "url": "https://www.workana.com/en/freelancer/5848af1aaf261fc992bc5228883bbd77",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": [],
+      "feeds": [],
+      "sitemaps": [
+        {
+          "url": "https://www.workana.com/sitemap_index.xml",
+          "text": "Site-advertised sitemap"
+        }
+      ],
+      "retrieved_url": "https://www.workana.com/en/freelancer/5848af1aaf261fc992bc5228883bbd77",
+      "capture": {
+        "bytes": 2091121,
+        "method": "browser",
+        "complete": false,
+        "requests": 12
+      },
+      "captured_text": "Freelancers\nJobs\nHow it works\nBusiness\nRegister\nSign in\n\nPost a project",
+      "source_status": "fetched",
+      "source_reason": "browser_resource_unavailable",
+      "observed_links": 0
+    },
+    {
+      "key": "7fa01248136891b750fef8e2cb3d6fe4c222cad1feebb806d9e3f3d2c6644a09",
+      "kind": "document",
+      "input": {
+        "url": "https://gainam.com/senior-net-full-stack-developer-new-york-ny",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": [
+        {
+          "url": "https://gainam.com/applynow?job=senior-net-full-stack-developer-new-york-ny",
+          "text": "Apply now"
+        },
+        {
+          "url": "https://gainam.com/careers-gainam",
+          "text": "View all open roles"
+        },
+        {
+          "url": "https://gainam.com/insights",
+          "text": "View all insights →"
+        },
+        {
+          "url": "https://gainam.com/insights/ai-consulting-airlines-loyalty-revenue-management-2026",
+          "text": "Industry – Travel & TransportationAI Consulting for Airlines: Loyalty & Revenue Management Transformation by 2026How airlines can use AI to modernize loyalty programs and revenue management, boost yield, personalize offers, and cut leakage by 2026.Read insight →"
+        },
+        {
+          "url": "https://gainam.com/insights/ai-consulting-clinical-workforce-optimization-2026",
+          "text": "Healthcare & Life SciencesAI Consulting for Clinical Workforce Optimization (2026 Playbook)2026 guide for health systems using AI to rebalance clinical workloads, cut burnout, and align staffing with acuity while staying compliant.Read insight →"
+        },
+        {
+          "url": "https://gainam.com/insights/ai-consulting-healthcare-workforce-optimization-2026",
+          "text": "Healthcare & Life SciencesAI Consulting for Healthcare Workforce Optimization (2026): Staffing, Scheduling, and Burnout ReductionHow hospitals and health systems can use AI to optimize staffing, scheduling, and workload, cut agency spend, and reduce clinician burnout in 2026.Read insight →"
+        },
+        {
+          "url": "https://gainam.com/insights/ai-consulting-climate-risk-and-esg-analytics-2026",
+          "text": "Financial Services AIAI Consulting for Climate Risk and ESG Analytics (2026): From Disclosure Compliance to Portfolio RepricingHow enterprises and asset managers can use AI for climate risk modeling and ESG analytics in 2026—beyond disclosure checklists to real balance-sheet impact.Read insight →"
+        },
+        {
+          "url": "https://gainam.com/insights/ai-consulting-payments-fraud-optimization-2026",
+          "text": "Financial Services & FintechAI Consulting for Payments Fraud & Transaction Optimization (2026 Guide)How banks and payment platforms use AI to cut fraud losses, reduce false positives, and optimize transaction flows without degrading customer experience.Read insight →"
+        },
+        {
+          "url": "https://gainam.com/insights/ai-data-centers-india-strategy-2030",
+          "text": "AI Data CentersAI Data Centers in India: Strategy, Site Selection, and Talent for 2030Guide for hyperscalers and enterprises planning AI data centers in India—covering power, cooling, regulation, incentives, and talent strategy to 2030.Read insight →"
+        },
+        {
+          "url": "https://gainam.com/insights/ai-consulting-quick-service-restaurants-qsr-operations-2026",
+          "text": "Industry AI ConsultingAI Consulting for Quick-Service Restaurants (QSR): Drive-Thru, Kitchen, and Labor Optimization in 2026How enterprise AI can cut wait times, optimize labor, and boost margins for quick-service restaurants through drive-thru, kitchen, and supply chain automation.Read insight →"
+        },
+        {
+          "url": "https://gainam.com/insights/ai-consulting-employee-benefits-and-hr-tech-platforms-2026",
+          "text": "Industry AI Use CasesAI Consulting for Employee Benefits and HR Tech Platforms (2026 Guide)How employee benefits and HR tech platforms can deploy AI for personalization, risk management, and operations without breaking compliance or trust.Read insight →"
+        },
+        {
+          "url": "https://gainam.com/insights/ai-consulting-fund-administrators-portfolio-operations-2026",
+          "text": "Financial Services & Capital MarketsAI Consulting for Fund Administrators: Modernizing Portfolio Operations by 2026How private fund administrators and fund services firms can use AI to modernize portfolio operations, investor reporting, and compliance by 2026.Read insight →"
+        },
+        {
+          "url": "https://gainam.com/insights/ai-consulting-renewable-energy-grid-integration-2026",
+          "text": "Energy & UtilitiesAI Consulting for Renewable Energy & Grid Integration (2026 Playbook)How utilities and IPPs can use AI to integrate renewables, stabilize grids, and cut balancing costs while meeting decarbonization and reliability targets.Read insight →"
+        },
+        {
+          "url": "https://gainam.com/insights/ai-consulting-banking-core-systems-modernization-2026",
+          "text": "Financial Services & BankingAI Consulting for Banking Core Systems Modernization (2026 Playbook)How banks can use AI to modernize legacy core systems, cut run costs, de-risk migrations, and accelerate digital product launches by 2026.Read insight →"
+        },
+        {
+          "url": "https://gainam.com/insights/ai-consulting-mining-metals-operations-2026",
+          "text": "Industry: Energy & Natural ResourcesAI Consulting for Mining & Metals Operations (2026): Safety, Throughput, and Energy OptimizationHow mining and metals firms can use AI to cut downtime, improve safety, and optimize energy usage across pits, plants, and supply chains in 2026.Read insight →"
+        },
+        {
+          "url": "https://gainam.com/enterprise/discuss-a-solution?source=ecosystem",
+          "text": "Get in touch"
+        }
+      ],
+      "feeds": [],
+      "sitemaps": [
+        {
+          "url": "https://gainam.com/sitemap.xml",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://gainam.com/jobs-sitemap.xml",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://gainam.com/news.xml",
+          "text": "Site-advertised sitemap"
+        }
+      ],
+      "retrieved_url": "https://gainam.com/senior-net-full-stack-developer-new-york-ny",
+      "capture": {
+        "bytes": 67504,
+        "method": "http",
+        "complete": true,
+        "requests": 2
+      },
+      "captured_text": "Skip to main content\nStart a project ↗\n\nCareers at Gain America\n\n\nSENIOR .NET / FULL STACK DEVELOPER — NEW YORK, NY\n\nLocationNew York, NY\nJob numbera9b2e587-87d4-4f0b-81d6-2a1021cd1c05\nDate posted2026-10-28\nSalary$114,400\nApply for this role\n\nRole overview\n\n\nJOB DESCRIPTION\n\nGain America is recruiting a Senior .NET / Full Stack Developer for contract and contract-to-hire engagements with our enterprise clients in the New York, NY market. Own enterprise web applications end to end on the Microsoft stack — building secure APIs and modern React front ends for high-traffic business systems.\n\nWork model: Hybrid / on-site in the New York, NY area\nCore stack: .NET, C#, ASP.NET Core, Azure, React/TypeScript, SQL Server\n\nWhat you'll do\n\n * Build and maintain ASP.NET Core services and RESTful APIs behind customer-facing applications\n * Develop responsive front ends in React/TypeScript against those APIs\n * Design and tune SQL Server schemas, queries, and stored procedures\n * Deploy and monitor workloads on Azure using App Services, Functions, and DevOps CI/CD\n\nWhat you bring\n\n * 5+ years shipping production software in C# / .NET\n * Strong ASP.NET Core, Web API, and Entity Framework experience\n * Front-end proficiency with React and TypeScript\n * Hands-on Azure and CI/CD experience\n\nGain America is a technology staffing partner placing skilled consultants with leading employers across financial services, insurance, healthcare, and the public sector. You'll work with a dedicated recruiter who advocates for you from first call through offer. Client names are shared once there is a mutual fit.\n\nApply today to be considered for this and related openings in the New York, NY market.\n\nInterested in this opportunity?\n\n\nSENIOR .NET / FULL STACK DEVELOPER — NEW YORK, NY\n\nApply nowView all open roles\nInsights\n\n\nEXPLORE OUR LATEST THINKING\n\nView all insights →\nIndustry – Travel & Transportation\n\n\nAI CONSULTING FOR AIRLINES: LOYALTY & REVENUE MANAGEMENT TRANSFORMATION BY 2026\n\nHow airlines can use AI to modernize loyalty programs and revenue management, boost yield, personalize offers, and cut leakage by 2026.\n\nRead insight →Healthcare & Life Sciences\n\n\nAI CONSULTING FOR CLINICAL WORKFORCE OPTIMIZATION (2026 PLAYBOOK)\n\n2026 guide for health systems using AI to rebalance clinical workloads, cut burnout, and align staffing with acuity while staying compliant.\n\nRead insight →Healthcare & Life Sciences\n\n\nAI CONSULTING FOR HEALTHCARE WORKFORCE OPTIMIZATION (2026): STAFFING, SCHEDULING, AND BURNOUT REDUCTION\n\nHow hospitals and health systems can use AI to optimize staffing, scheduling, and workload, cut agency spend, and reduce clinician burnout in 2026.\n\nRead insight →Financial Services AI\n\n\nAI CONSULTING FOR CLIMATE RISK AND ESG ANALYTICS (2026): FROM DISCLOSURE COMPLIANCE TO PORTFOLIO REPRICING\n\nHow enterprises and asset managers can use AI for climate risk modeling and ESG analytics in 2026—beyond disclosure checklists to real balance-sheet impact.\n\nRead insight →Financial Services & Fintech\n\n\nAI CONSULTING FOR PAYMENTS FRAUD & TRANSACTION OPTIMIZATION (2026 GUIDE)\n\nHow banks and payment platforms use AI to cut fraud losses, reduce false positives, and optimize transaction flows without degrading customer experience.\n\nRead insight →AI Data Centers\n\n\nAI DATA CENTERS IN INDIA: STRATEGY, SITE SELECTION, AND TALENT FOR 2030\n\nGuide for hyperscalers and enterprises planning AI data centers in India—covering power, cooling, regulation, incentives, and talent strategy to 2030.\n\nRead insight →Industry AI Consulting\n\n\nAI CONSULTING FOR QUICK-SERVICE RESTAURANTS (QSR): DRIVE-THRU, KITCHEN, AND LABOR OPTIMIZATION IN 2026\n\nHow enterprise AI can cut wait times, optimize labor, and boost margins for quick-service restaurants through drive-thru, kitchen, and supply chain automation.\n\nRead insight →Industry AI Use Cases\n\n\nAI CONSULTING FOR EMPLOYEE BENEFITS AND HR TECH PLATFORMS (2026 GUIDE)\n\nHow employee benefits and HR tech platforms can deploy AI for personalization, risk management, and operations without breaking compliance or trust.\n\nRead insight →Financial Services & Capital Markets\n\n\nAI CONSULTING FOR FUND ADMINISTRATORS: MODERNIZING PORTFOLIO OPERATIONS BY 2026\n\nHow private fund administrators and fund services firms can use AI to modernize portfolio operations, investor reporting, and compliance by 2026.\n\nRead insight →Energy & Utilities\n\n\nAI CONSULTING FOR RENEWABLE ENERGY & GRID INTEGRATION (2026 PLAYBOOK)\n\nHow utilities and IPPs can use AI to integrate renewables, stabilize grids, and cut balancing costs while meeting decarbonization and reliability targets.\n\nRead insight →Financial Services & Banking\n\n\nAI CONSULTING FOR BANKING CORE SYSTEMS MODERNIZATION (2026 PLAYBOOK)\n\nHow banks can use AI to modernize legacy core systems, cut run costs, de-risk migrations, and accelerate digital product launches by 2026.\n\nRead insight →Industry: Energy & Natural Resources\n\n\nAI CONSULTING FOR MINING & METALS OPERATIONS (2026): SAFETY, THROUGHPUT, AND ENERGY OPTIMIZATION\n\nHow mining and metals firms can use AI to cut downtime, improve safety, and optimize energy usage across pits, plants, and supply chains in 2026.\n\nRead insight →\n‹›\n\n\nLET’S BUILD IT TOGETHER\n\nGain America staffs and deploys the engineers behind enterprise AI — from data center teams to forward deployed engineers.\n\nGet in touchRead our insights\n\nGainAm is proudly a US based enterprise headquartered in New York, with over 15+ years of combined technology experience. We are proud of the fact that since our inception in 2006 all of our growth has been organic. We delivered private and state-owned enterprise projects on highly competitive procurement and delivery standards. With over 85% repeat customers and referrals, and less than .05% customer attrition rate, we stand out from our competition.\n\n\nCREDENTIALS & COMMITMENTS\n\nGain America is a certified Minority/Woman-Owned Business Enterprise (MWBE), an E-Verify participant, and an American-owned and operated enterprise.\n\n\nGet In Touch ↗\n\nAll Rights Reserved. © 2006–2026\n\nNew York, United States",
+      "source_status": "fetched",
+      "source_reason": null,
+      "observed_links": 16
+    },
+    {
+      "key": "809c2ed66e77823d0bae0c4c19b5814d6305b23182a468fa4d10a3277ad73570",
+      "kind": "document",
+      "input": {
+        "url": "https://www.samsstc.com/Jobs/job-description/consultant-international-notforprofit-organization-delhi/854",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": [
+        {
+          "url": "https://play.google.com/store/apps/details?id=com.samsstc.jobs&pcampaignid=web_share",
+          "text": "Download Jobseeker App"
+        },
+        {
+          "url": "https://www.ihubiitmandi.in/",
+          "text": "Incubated by IIT Mandi iHub & HCi Foundation"
+        },
+        {
+          "url": "https://www.samsstc.com/jobseeker/job/apply/application-preview/NOXwKyPrmM",
+          "text": "Apply via Registered Profile"
+        },
+        {
+          "url": "https://www.samsstc.com/Jobseeker",
+          "text": "Login"
+        },
+        {
+          "url": "https://www.samsstc.com/Jobseeker/Registration",
+          "text": "Register"
+        },
+        {
+          "url": "https://www.samsstc.com/jobs/job-list",
+          "text": "View all"
+        },
+        {
+          "url": "https://www.samsstc.com/Jobs/job-description/senior-manager-child-social-protection-evac-india-the-childrens-investment-fund-foundation-ciff-new-delhi-delhi/875",
+          "text": ""
+        },
+        {
+          "url": "https://www.samsstc.com/Jobs/job-description/accountant-international-notforprofit-organization-delhi/874",
+          "text": ""
+        },
+        {
+          "url": "https://www.samsstc.com/Jobs/job-description/district-consultantonehealth-strategic-alliance-management-services-private-limited-sangareddy-telangana/872",
+          "text": ""
+        },
+        {
+          "url": "https://www.samsstc.com/Jobs/job-description/consultant-international-notforprofit-organization-new-delhi-delhi/873",
+          "text": ""
+        },
+        {
+          "url": "https://www.samsstc.com/Jobs/job-description/talent-acquisition-assistant-consultant-consultant-sams-hr-consulting-new-delhi-delhi/870",
+          "text": ""
+        },
+        {
+          "url": "https://www.samsstc.com/Jobs/job-description/programme-coordinator-leading-philanthropic-organization-jharkhand-ranchi-jharkhand/871",
+          "text": ""
+        },
+        {
+          "url": "https://www.samsstc.com/Jobs/job-description/designer-international-notforprofit-organization-lucknow-uttar-pradesh/869",
+          "text": ""
+        },
+        {
+          "url": "https://www.samsstc.com/Jobs/job-description/consultant-international-notforprofit-organization-delhi-patna-bihar/868",
+          "text": ""
+        },
+        {
+          "url": "https://www.samsstc.com/Jobs/job-description/director-programme-excellence-india-the-childrens-investment-fund-foundation-ciff-new-delhi-delhi/867",
+          "text": ""
+        },
+        {
+          "url": "https://www.samsstc.com/Jobs/job-description/project-manager-health-icici-foundation-mumbai-maharashtra/864",
+          "text": ""
+        },
+        {
+          "url": "https://www.samsstc.com/Jobs/job-description/project-manager-heath-biomedical-equipment-reputed-csr-foundation-mumbai-maharashtra/862",
+          "text": ""
+        },
+        {
+          "url": "https://www.samsstc.com/Jobs/job-description/senior-leadership-role-energy-transition-industry-transformation-confidential-new-delhi-delhi/861",
+          "text": ""
+        },
+        {
+          "url": "https://www.samsstc.com/Jobs/job-description/senior-leadership-role-manufacturing-industrial-competitiveness-new-delhi-delhi/860",
+          "text": "Senior Leadership Role – Manufacturing & Industrial Competitiveness"
+        },
+        {
+          "url": "https://www.samsstc.com/Jobs/job-description/director-development-csr-partnerships-global-outreach-new-delhi-delhi/859",
+          "text": "Director – Development, CSR Partnerships & Global Outreach"
+        },
+        {
+          "url": "https://www.samsstc.com/Jobs/job-description/senior-leadership-role-infrastructure-sector-development-new-delhi-delhi/852",
+          "text": "Senior Leadership Role – Infrastructure & Sector Development"
+        },
+        {
+          "url": "https://www.samsstc.com/Jobs/job-description/lead-poisoning-surveillance-coordinator-vital-strategies-india-services-private-limited-rajasthan-jaipur-rajasthan/836",
+          "text": ""
+        },
+        {
+          "url": "https://www.samsstc.com/Jobs/job-description/lead-poisoning-surveillance-coordinator-vital-strategies-india-services-private-limited-assam-guwahati-assam/835",
+          "text": ""
+        },
+        {
+          "url": "https://in.linkedin.com/company/sams-social-talent-connect",
+          "text": "SAMS-STC Follow on LinkedIn"
+        },
+        {
+          "url": "https://www.instagram.com/sams_stc",
+          "text": "@sams_stc Follow on Instagram"
+        },
+        {
+          "url": "https://www.facebook.com/people/SAMS-Social-Talent-Connect/61574512903853/",
+          "text": "SAMS-STC Like us on Facebook"
+        }
+      ],
+      "feeds": [],
+      "sitemaps": [],
+      "retrieved_url": "https://www.samsstc.com/Jobs/job-description/consultant-international-notforprofit-organization-delhi/854",
+      "capture": {
+        "bytes": 168984,
+        "method": "http",
+        "complete": true,
+        "requests": 2
+      },
+      "captured_text": "Download Jobseeker App\nIncubated by IIT Mandi iHub & HCi Foundation\n\n\n\nCONSULTANT\n\nInternational Not-for-Profit Organization\nDelhi Short-Term Consultancy Contracts Mid 5-6 Years Apply by October 20, 2026\nShare\n\nEasy Apply\nApply via Registered Profile\nJob Description\n\n1. POSITIONS VACANT: Consultant, International Not-for-Profit Organization, Remote.\n\n \n\n2. ORGANISATIONAL BACKGROUND:\n\n \n\nOur client is a respected international not-for-profit, that works in public health, to improve the health of disadvantaged communities, across the globe.\n\n\n\n3. JOB DESCRIPTION/ RESPONSIBILITIES:\n\n \n\nThe Consultant will be responsible is to develop the web portal and backend services of the application. The consultant will build the web portal for the State, National, institute principals and administrator, develop the backend services and the APIs to be used by the mobile app. The consultant will work closely with the Client program and mobile app teams. S/he will be responsible for the following work;\n\n \n\nKey Job Responsibilities: \n\n \n\n(1) Web Portal Development - Design, develop, and deploy a comprehensive web portal for State, National, and Institute Principals and Administrators, incorporating institute registration and pairing, user enrolment, visit planning, work plan management, messaging, notifications, meeting and training management, and role based access control to ensure secure and efficient use of the platform;\n\n\n(2) Backend Services and API Development - Design, develop, and implement a microservices-based backend architecture with secure REST APIs to support the web portal and mobile application. The backend shall cover user authentication and access management, assessment tools and scoring mechanisms, visit management, work plans, notifications, and file management. Ensure seamless integration with the mobile application, troubleshoot technical issues, and resolve identified defects to maintain reliable system performance;\n\n\n(3) Dashboards and Reporting- Design, develop, and implement interactive dashboards and reporting modules covering visits, project progress, meetings, training activities, and feedback. Incorporate appropriate filters and data visualization features, with options to export and download reports in PDF and Excel formats;\n\n \n\n(4) Changes, Enhancements, and Refinements- Incorporate the changes, enhancements, and refinements communicated by Client throughout the consultancy engagement across the web portal, backend services, dashboards, reporting modules, and associated functionalities, including modifications and updates to the assessment tool, as required and mutually agreed upon;\n\n\n(5) Server Hosting and Maintenance- Provide, configure, host, and maintain the server infrastructure required to operate the web portal and backend services for a period of 12 months from the date of go-live. Ensure appropriate data setup, regular backups, system monitoring, and operational maintenance to support the availability, security, and performance of the platform. All data, user accounts, and associated information shall remain the exclusive property of Client;\n\n(6) Technical Documentation and Handover- Prepare and submit comprehensive technical documentation, including API specifications, system architecture details, deployment procedures, and relevant configuration and maintenance guidelines. Hand over the complet source code and technical assets to Client;\n\n4. QUALIFICATIONS, EXPERIENCE AND COMPETENCIES:\n\n \n\nQualifications and Experience:\n\n(1) Applicants must have Bachelor / master’s degree with relevant experience;\n(2) Minimum 5 years of experience in web application development, of which at least 3 years in backend development with Java and Spring Boot;\n(3) Must have developed and deployed at least two web portals with backend services, including APIs used by mobile applications;\n\n(4) Experience in hosting and maintaining applications on cloud servers;\n\n(5) Experience in health information technology projects for national, state or district government programs;\n\n \n\nSkills and Competencies:\n\n(1) Java, Spring Boot and Spring Cloud (API gateway, service registry) for microservices;\n\n(2) REST API design and documentation;\n\n(3) Security: JWT sign-in, role-based access control and secure handling of data;\n(4) PostgreSQL/SQL database design and optimization;\n\n(6) React with TypeScript for responsive web portals; Angular is an advantage;\n\n(7) Dashboards and reports with PDF and Excel export;\n\n(8) Cloud deployment (AWS, Azure or similar), Docker, backups and monitoring;\n\n(9) Proficient in Git and code versioning;\n\n(10) Excellent written and verbal communication skills;\n\n \n\n5. CONSULTANCY FEE: Gross compensation budgeted for the position is attractive. Please note that the offer made to the selected candidate shall be commensurate with qualifications, experience, and salary history.\n\n \n\n6. LOCATION: Remote\n\n7. REFERENCE: C-R-D-INPO\n\n \n\n8. NATURE OF CONTRACT:\n\n \n\nThe selected candidate shall be engaged as a Consultant on the rolls of SAMS, a third-party payrolling agency, for a full-time consultancy engagement initially offered for a period of Three months. The contract is extendable based on performance and project requirements. It is explicitly clarified that this consultancy engagement does not constitute a promise or guarantee of future employment, with SAMS, or our client, or any other organization associated with the project.\n\n\n\n9. CONTACT INFORMATION:\n\n \n\nTeam SAMS\nStrategic Alliance Management Services P Ltd.\n1/1B, Choudhary Hetram House, Bharat Nagar \nNew Friends Colony, New Delhi 110 025\n\nPhone Nos.: 011- 4081 9900; 4165 3612\n\n\n\n10. APPLICATION PROCESS:\n\nEligible candidates interested in the position are requested to urgently apply before October 20, 2026.\n\nEasy Apply\nApply via Registered Profile\nJob overview\nLevel: Mid\nFunction: Infrastructure Development\nExperience: 5-6 Years\nIndustries/ Sectors/ Thematic Areas: Public Health\nNo. of Vacancies: 1\nBudgeted Salary: Not Disclosed\nApply By: October 20, 2026\n\n\nLOGIN OR REGISTER TO\n\n * Apply for jobs\n * Get personalized job recommendations\n * Stay updated with job alerts\n * Avail benefits of career services\n\nLogin Register\nRecent Jobs View all\nThe Children’s Investment Fund Foundation (CIFF)\nSenior Manager, Child & Social Protection, EVAC, India\nFull Time Child Rights and Protection, Children Well Being, Program Management New Delhi, Delhi Posted today\n\nInternational Not-for-Profit Organization\nAccountant\nFull Time Public Health Delhi Posted today\n\nStrategic Alliance Management Services Private Limited\nDistrict Consultant-OneHealth\nContractual Public Health, Development Sector, Sustainable Development   Sangareddy, Telangana Posted yesterday\n\nInternational Not-for-Profit Organization\nConsultant\nShort-Term Consultancy Contracts Public Health New Delhi, Delhi Posted yesterday\n\nSAMS HR Consulting\nTalent Acquisition Assistant Consultant/ Consultant\nFull Time Social Impact New Delhi, Delhi Posted yesterday\n\nLeading Philanthropic Organization\nProgramme Coordinator\nFull Time Community Development, Gender Equality Jharkhand, Ranchi, Jharkhand Posted yesterday\n\nInternational Not-for-Profit Organization\nDesigner\nFull Time Public Health Lucknow, Uttar Pradesh Posted 2 days ago\n\nInternational Not-for-Profit Organization\nConsultant\nShort-Term Consultancy Contracts Public Health Delhi, Patna, Bihar Posted 2 days ago\n\nThe Children’s Investment Fund Foundation (CIFF)\nDirector, Programme Excellence, India\nFull Time Child Rights and Protection, Public Health Nutrition, Climate, Women and Child Development New Delhi, Delhi Posted 4 days ago\n\nicici foundation\nproject Manager - health\nFull Time Healthcare Mumbai, Maharashtra Posted 1 week ago\n\nReputed CSR Foundation\nProject Manager Heath - Biomedical Equipment\nFull Time Healthcare Mumbai, Maharashtra Posted 1 week ago\n\nConfidential\nSenior Leadership Role – Energy Transition & Industry Transformation\nFull Time Energy and Renewable Resources, Policy, Research and Innovation, Energy Transition New Delhi, Delhi Posted 1 week ago\n\nSenior Leadership Role – Manufacturing & Industrial Competitiveness\nFull Time Infrastructure Development, Research, Policy New Delhi, Delhi Posted 1 week ago\n\nDirector – Development, CSR Partnerships & Global Outreach\nFull Time Social Impact New Delhi, Delhi Posted 1 week ago\n\nSenior Leadership Role – Infrastructure & Sector Development\nFull Time Infrastructure Development, Policy, Research and Innovation New Delhi, Delhi Posted 2 weeks ago\n\nVital Strategies India Services Private Limited\nLead Poisoning Surveillance Coordinator\nFull Time Public Health, Environmental Health Rajasthan, Jaipur, Rajasthan Posted 3 weeks ago\n\nVital Strategies India Services Private Limited\nLead Poisoning Surveillance Coordinator\nFull Time Public Health, Environmental Health Assam, Guwahati, Assam Posted 3 weeks ago\n * \n * SAMS Social Talent Connect Pvt. Ltd.\n   1/1B Choudhary Hetram House\n   Bharat Nagar, New Friends Colony\n   New Delhi-110 025\n * +(011) 4081 9900; 4165 3612\n * info@samsstc.com\n * Incubated by IIT Mandi iHub & HCi Foundation\n\n\nIMPORTANT LINKS\n\n * About Us\n * Our Team\n * Pricing\n * Contact Us\n\n\nJOBSEEKERS\n\n * Browse Jobs\n * Submit Resume\n * Jobseeker Dashboard\n\n\nEMPLOYERS\n\n * Employer Dashboard\n * Post Job\n * ATS\n * Posting Plans\n\n\nSERVICES\n\n * Recruit360 – Empowered by Our Advanced ATS\n * RFP/Tender Posting\n * Social Impact Job Board\n\nCopyright © SAMS-STC. All Rights Reserved.\n\nSAMS-STC Follow on LinkedIn @sams_stc Follow on Instagram SAMS-STC Like us on Facebook",
+      "source_status": "fetched",
+      "source_reason": null,
+      "observed_links": 26
+    },
+    {
+      "key": "e19cac9eeb96ac148b2393e7b448dca9f88c44fd934bd9f97bcb0274e105305a",
+      "kind": "document",
+      "input": {
+        "url": "https://www.mrjrecruitment.com/job-search/122334-frontend-developer/",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": [
+        {
+          "url": "https://www.linkedin.com/shareArticle?mini=true&url=",
+          "text": ""
+        },
+        {
+          "url": "https://twitter.com/intent/tweet?url=",
+          "text": ""
+        },
+        {
+          "url": "https://www.facebook.com/sharer/sharer.php?u=",
+          "text": ""
+        },
+        {
+          "url": "https://www.mrjrecruitment.com/job-search/4465551657-senior-solution-architect-ai-automation/",
+          "text": "Manchester, UKSenior Solution Architect – AI & AutomationManchester, UK£80kPermanentAutomationAbout the job MRJ have partnered with one of the UK's leading technology driven organisations as they continue to invest heavily in AI, Automation and enterprise-wide digital transformation. This is an oppo"
+        },
+        {
+          "url": "https://www.mrjrecruitment.com/job-search/123-senior-javascript-engineer-contract/",
+          "text": "Senior Javascript Engineer (Contract) £550ContractEngineeringSenior Javascript Engineers (Contract) | UK based (Hybrid - Any Major UK City) | £550–£600 per day (Outside IR35) We're supporting a fast-growing digital business that's investing heavily in its engineering capability and is looking for an"
+        },
+        {
+          "url": "https://www.mrjrecruitment.com/job-search/1234-transformation-lead-martech/",
+          "text": "Manchester, UKTransformation Lead / MartechManchester, UK£500ContractTechnologyMarTech Transformation Lead | £500 per day | Outside IR35 | 3 months initially | Hybrid (Manchester two days per week) We’re looking for an experienced CRM and MarTech Transformation Lead to shape the future customer comm"
+        },
+        {
+          "url": "https://www.mrjrecruitment.com/ai-job-match-upload-cv/",
+          "text": "Elevate your job search AI Job MatchHarness the power of AI to seamlessly match your unique skills with exciting job opportunities."
+        },
+        {
+          "url": "https://www.mrjrecruitment.com/job-search/",
+          "text": "Browse all jobs"
+        }
+      ],
+      "feeds": [],
+      "sitemaps": [
+        {
+          "url": "https://www.mrjrecruitment.com/sitemap.xml",
+          "text": "Site-advertised sitemap"
+        }
+      ],
+      "retrieved_url": "https://www.mrjrecruitment.com/job-search/122334-frontend-developer/",
+      "capture": {
+        "bytes": 170514,
+        "method": "http",
+        "complete": true,
+        "requests": 2
+      },
+      "captured_text": "* Upload CV\n\n * Upload CV\n\n * Tech Recruitment\n * Go To Market\n\n * All Tech Recruitment\n * Commerce\n * Supply Chain\n * Workforce Technology\n\n * Contract Recruitment\n * Executive Search\n * Permanent Recruitment\n * Talent as a Service\n\n * Blog\n * Downloads\n\n * About Us\n * Join Us\n * Giving Back\n\n * \n * \n * \n\nBuild your team\n\nTell us what you're looking for and we'll connect you with the right talent.\n\n * Talk to an expert\n\n\nFRONTEND DEVELOPER\n\n * Manchester - Remote\n * £35K - £40K\n * Permanent\n * Engineering\n\n * Apply Now\n\n\nJOB DESCRIPTION\n\n\nFRONT-END DEVELOPER | £35K - £40K | REMOTE-FIRST | 1 DAY A MONTH IN MANCHESTER\n\n \n\nI'm working with a technology consultancy based in the North who are looking to add a Front-End Developer to their team.\n\n \n\nThey work with a range of businesses to build and improve digital solutions, so you'll get exposure to different projects, challenges and ways of working rather than being tied to the same product all the time.\n\n \n\nYou'll work alongside other developers and wider delivery teams, getting involved from the early stages of a project through to development and release.\n\n \n\nThe tech\n\n \n\n * React\n * JavaScript / TypeScript\n * Next.js\n * HTML / CSS / SCSS\n * Tailwind\n * REST APIs\n * Jest\n * Git\n\n \n\nWhat they're looking for\n\n \n\n * Commercial Front-End development experience\n * Strong React and JavaScript experience\n * Good understanding of modern web development\n * Comfortable working with APIs\n\n \n\nYou'll be joining a team where developers have the opportunity to contribute to technical decisions, work closely with clients and get involved in different types of projects.\n\n \n\nIf you're a Front-End Developer and open to hearing about something new, drop me a message or apply below.\n\n\nDAY-TO-DAY\n\nDevelop and maintain software applications to meet client requirements.\nCollaborate with cross-functional teams to design scalable solutions.\nTroubleshoot and resolve technical issues promptly.\nParticipate in code reviews to ensure code quality and standards.\nDocument software functionality and update technical manuals.\nMonitor system performance and implement improvements.\nStay updated with emerging technologies and integrate them as needed.\nProvide technical support and training to end-users.\n\nCameron Whitwam\nShare Job\n * \n * \n * \n * \n\n\nAPPLY TODAY\n\nOptional description for this form can help users understand the purpose of this section.\n\n\n\n\nSIMILAR JOBS\n\n\n * Manchester, UK\n   \n   \n   SENIOR SOLUTION ARCHITECT – AI & AUTOMATION\n   \n    * Manchester, UK\n    * £80k\n    * Permanent\n    * Automation\n   \n   About the job MRJ have partnered with one of the UK's leading technology driven organisations as they continue to invest heavily in AI, Automation and enterprise-wide digital transformation. This is an opportunity to shape the future architecture of the business is they look to embrace AI, automation and cloud technologies at scale. Working as part of a newly established AI Centre of Excellence, you'll design enterprise solutions that have genuine business impact across multiple functions. If you're passionate about AI, enterprise architecture and solving complex business challenges through technology, this is a fantastic opportunity to influence strategy while remaining close to delivery. The Role: We're looking for an experienced Senior Solution Architect to lead the design of AI-powered and Intelligent Automation solutions across a large-scale enterprise. You'll work closely with business stakeholders, Product Owners, Technical Architects and Engineering teams to translate complex business requirements into scalable technology solutions aligned with long-term strategic objectives. This is a highly influential role where you'll help define architectural standards, shape technology roadmaps and ensure AI solutions are secure, scalable and commercially effective. Day-to-day Responsibilities: Design end-to-end enterprise solutions across AI, Generative AI and Intelligent Automation. Define solution architectures that align with business strategy, architecture principles and technology standards. Partner with Product Owners, Engineering teams and senior stakeholders to translate business challenges into technology solutions. Design integration strategies across APIs, microservices, enterprise platforms and cloud environments. Guide engineering teams through delivery, ensuring solutions remain aligned with architectural standards. Define AI architecture principles, governance and best practice across the organisation. Produce high-level and detailed solution designs, technical documentation and architecture artefacts. Identify technical risks, security considerations and scalability challenges throughout delivery. Contribute to technology roadmaps and evaluate emerging technologies to support future innovation. Coach and mentor Solution Architects while helping develop the wider Architecture function. What They're Looking For: Proven experience as a Solution Architect, Software Architect or Enterprise Architect. Strong experience designing enterprise AI, Automation or Generative AI solutions. Excellent understanding of cloud platforms including Azure , AWS or Google Cloud . Experience designing large-scale distributed architectures using APIs, Microservices and modern integration patterns. Strong knowledge of Machine Learning, MLOps, DevOps and AI delivery practices. Knowledge of Enterprise Architecture frameworks such as TOGAF. Experience producing architecture documentation, standards and governance. Strong stakeholder management with the ability to communicate technical concepts to both technical and non-technical audiences. Passion for innovation with the ability to balance technical excellence against commercial delivery. Next Steps If you're passionate about Enterprise Architecture, AI and Intelligent Automation, and want to play a key role in delivering large-scale transformation programmes, we'd love to hear from you.\n   \n   Posted 1 month ago\n\n\n * SENIOR JAVASCRIPT ENGINEER (CONTRACT)\n   \n    * £550\n    * Contract\n    * Engineering\n   \n   Senior Javascript Engineers (Contract) | UK based (Hybrid - Any Major UK City) | £550–£600 per day (Outside IR35) We're supporting a fast-growing digital business that's investing heavily in its engineering capability and is looking for an experienced Senior Node.js Engineer to join a high-performing product team. This isn't a role for someone who only knows one language. They're looking for polyglot engineers who understand software engineering fundamentals and are comfortable working across different technologies to solve complex problems. You'll be: Building and evolving high-scale backend services with Node.js & TypeScript Designing clean, scalable and maintainable solutions Working closely with Product, Engineering and Platform teams Contributing to architecture and technical decision-making Writing high-quality, well-tested code Mentoring engineers and driving engineering best practice We're looking for: 10+ years' commercial software engineering experience Strong expertise with Node.js and TypeScript Experience building distributed, cloud-native applications A polyglot mindset with exposure to other languages (Java, Go, Python, C#, Kotlin or similar) Strong understanding of APIs, microservices and event-driven architectures Experience working within modern Agile product teams Excellent communication skills and a collaborative approach If you're an experienced contractor who enjoys solving complex engineering challenges and wants to work alongside some exceptional engineers, I'd love to hear from you.\n   \n   Posted 3 weeks ago\n\n * Manchester, UK\n   \n   \n   TRANSFORMATION LEAD / MARTECH\n   \n    * Manchester, UK\n    * £500\n    * Contract\n    * Technology\n   \n   MarTech Transformation Lead | £500 per day | Outside IR35 | 3 months initially | Hybrid (Manchester two days per week) We’re looking for an experienced CRM and MarTech Transformation Lead to shape the future customer communications ecosystem for a major European business. The current communications platform is approaching end of life, creating an immediate need to understand the existing landscape, define the future requirements and select the right replacement technology. This is a hands-on transformation role combining discovery, business analysis, platform strategy and vendor selection. Following the selection phase, there may also be an opportunity to lead or support the implementation and migration. What you’ll be doing Assess the current customer communications and MarTech landscape. Identify existing capabilities, dependencies, limitations and continuity risks. Gather requirements across Marketing, Technology, Data, Product and Operations. Map the as-is environment and define the future-state capabilities. Determine how customer data, identity and consent should support communications. Define requirements across marketing automation, transactional communications, journey orchestration, segmentation and personalisation. Lead the RFI/RFP and vendor-evaluation process. Coordinate demonstrations, technical assessments and proof-of-concepts. Evaluate platforms against capability, architecture, integrations, data, security, scalability, cost and implementation complexity. Produce a clear, evidence-based platform recommendation and implementation roadmap. Identify opportunities to use automation and AI to improve personalisation, efficiency and speed to market. Potentially support the subsequent implementation, migration, testing and launch. What we’re looking for You may currently work as a Transformation Lead, Senior Business Analyst, Delivery Manager, Product Manager, Programme Manager or MarTech Consultant. What matters is that you have: Strong CRM, MarTech or customer communications technology experience. Led current-state discovery and future-state requirements definition. Personally led or played a major role in an RFI/RFP and platform-selection process. Evaluated multiple technology vendors objectively. Experience with marketing and transactional customer communications. Strong knowledge of CRM/CDP, marketing automation and customer journey technology. An understanding of customer data, integrations, identity, consent, segmentation and personalisation. Experience implementing or migrating enterprise platforms. The confidence to influence senior stakeholders and challenge technology vendors. Experience maintaining business-critical communications during transformation. Exposure to platforms such as Salesforce Marketing Cloud, Salesforce Data Cloud/Data 360, Adobe Experience Cloud, Braze, HubSpot, Klaviyo, Dotdigital, Emarsys, Iterable or comparable technologies would be highly relevant. Important distinction This isn’t a campaign-management role or a traditional sales CRM implementation. We need someone who has helped an organisation decide what customer communications technology it needs, which platform it should select and how it should safely move away from its existing solution. Next steps We’re shortlisting immediately and expect a quick turnaround. Apply today with details of the MarTech or customer communications platforms you’ve evaluated, the RFP/vendor-selection processes you’ve led any\n   \n   Posted 3 weeks ago\n\nElevate your job search AI Job MatchHarness the power of AI to seamlessly match your unique skills with exciting job opportunities.\n * Browse all jobs",
+      "source_status": "fetched",
+      "source_reason": null,
+      "observed_links": 8
+    },
+    {
+      "key": "c945bcb99236e32cdf91301a70ecab09443ad8c90d9fb8207923f3fed8a2b2f1",
+      "kind": "document",
+      "input": {
+        "url": "https://www.itgenius.co.th/assets/frondend/instructor_profile/Ajarn-Kongnakorn-Jantakun-profile-y8dp00a8.pdf",
+        "kind": "document"
+      },
+      "state": "failed",
+      "failure": "provider_or_source_unavailable",
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "retrieved_url": null,
+      "capture": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    }
+  ],
+  "decisions": [
+    {
+      "round": 0,
+      "reason": "check_promising_result",
+      "action": {
+        "url": "https://www.samsstc.com/Jobs/job-description/consultant-international-notforprofit-organization-delhi/854",
+        "kind": "document"
+      },
+      "depth": 0,
+      "parent_key": "3a3854f0e0cc734b04d12ca0b923fd9e55fa6f30c32d224357aa5f2686d7ca62"
+    },
+    {
+      "round": 1,
+      "reason": "check_promising_result",
+      "action": {
+        "url": "https://www.mrjrecruitment.com/job-search/122334-frontend-developer/",
+        "kind": "document"
+      },
+      "depth": 0,
+      "parent_key": "3a3854f0e0cc734b04d12ca0b923fd9e55fa6f30c32d224357aa5f2686d7ca62"
+    },
+    {
+      "round": 2,
+      "reason": "check_promising_result",
+      "action": {
+        "url": "https://www.itgenius.co.th/assets/frondend/instructor_profile/Ajarn-Kongnakorn-Jantakun-profile-y8dp00a8.pdf",
+        "kind": "document"
+      },
+      "depth": 0,
+      "parent_key": "e2e4ca4c2867fde1899d6c167a3ed8963c2c4ee2c296cd0e895b9c69ea5bcbdb"
+    },
+    {
+      "round": 3,
+      "reason": "exploration_limit",
+      "action": null,
+      "depth": 0,
+      "parent_key": null
+    }
+  ],
+  "case": {
+    "id": "6a7dfa46-65d8-4484-b162-c7b102c821c3",
+    "scoutId": "745f8540-468e-4ff2-a305-cb939d2a47fa",
+    "scoutName": "Synthetic client-project scout",
+    "scoutVersion": 1,
+    "provider": "serper",
+    "strategy": null,
+    "exploration": [
+      {
+        "kind": "document",
+        "reason": "check_promising_result",
+        "target": "https://www.samsstc.com/Jobs/job-description/consultant-international-notforprofit-organization-delhi/854"
+      },
+      {
+        "kind": "document",
+        "reason": "check_promising_result",
+        "target": "https://www.mrjrecruitment.com/job-search/122334-frontend-developer/"
+      },
+      {
+        "kind": "document",
+        "reason": "check_promising_result",
+        "target": "https://www.itgenius.co.th/assets/frondend/instructor_profile/Ajarn-Kongnakorn-Jantakun-profile-y8dp00a8.pdf"
+      },
+      {
+        "kind": null,
+        "reason": "exploration_limit",
+        "target": null
+      }
+    ],
+    "reviewStatus": null,
+    "reviewReason": null,
+    "status": "partial",
+    "reason": "some_sources_unavailable",
+    "startedAt": "2026-10-28 14:02:13.102039+00",
+    "finishedAt": "2026-10-28 14:03:22.316664+00",
+    "searchesCompleted": 4,
+    "documentsChecked": 5,
+    "leadCount": 16
+  },
+  "usage": [
+    {
+      "provider": "public-documents",
+      "requests": 6,
+      "reserved_micros": "0"
+    },
+    {
+      "provider": "serper",
+      "requests": 4,
+      "reserved_micros": "40000"
+    }
+  ],
+  "aiBudget": [],
+  "dashboardLeadSampleSize": 16,
+  "leads": [
+    {
+      "url": "https://bidplus.gem.gov.in/bidding/bid/downloadBuyerDoc/9970827/17907768037575.pdf",
+      "title": "RFP No. INVIN/AON/26-27/1006 Date - GeM",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://careers.capgemini.com/job/Dallas%2C-TX-Lead-Frontend-Developer/1416460433/",
+      "title": "Lead Frontend Developer Job Details",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://careers.cognizant.com/us-en/jobs/43713/software-architect/",
+      "title": "Software Architect, Vilnius, Vilniaus, Lithuania",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://gainam.com/senior-net-full-stack-developer-new-york-ny",
+      "title": "Senior .NET / Full Stack Developer — New York, NY",
+      "contentStatus": "fetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://mirko.in.ua/services/web",
+      "title": "Web Development Services | Custom Web Platforms & Portals",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://negd-media.digitalindiacorporation.in/wp-content/uploads/2026/10/Vacancy-Advert.-NCIP-01.10.2026.pdf",
+      "title": "NeGD/57/2026-HR National e-Governance Division Digital ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://rfpdigital.com/services/website-development",
+      "title": "Video Production & Election Management Company",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://softwaremanifest.com/rfp",
+      "title": "Submit Project Brief - Anonymous Tech RFP Broadcast",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.innovation-insight.com/templates",
+      "title": "Free Software Project Templates",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.itgenius.co.th/assets/frondend/instructor_profile/Ajarn-Kongnakorn-Jantakun-profile-y8dp00a8.pdf",
+      "title": "Kongnakorn Jantakun Profile",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.linkedin.com/posts/manas-ippalpalli-84a694325_ai-generativeai-artificialintelligence-activity-7510750637853433859-0esK",
+      "title": "BidMemory AI Boosts RFP Response Intelligence with AI- ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.mrjrecruitment.com/job-search/122334-frontend-developer/",
+      "title": "Apply for the role of Frontend Developer",
+      "contentStatus": "fetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.samsstc.com/Jobs/job-description/consultant-international-notforprofit-organization-delhi/854",
+      "title": "Consultant at International Not-for-Profit Organization in Delhi",
+      "contentStatus": "fetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.workana.com/en/freelancer/472706caf03fd69524c4cd55333cd2b5",
+      "title": "DevZen.: professional freelance API expert in Nicaragua",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.workana.com/en/freelancer/5848af1aaf261fc992bc5228883bbd77",
+      "title": "professional freelance CSS expert in Dominican Republic",
+      "contentStatus": "fetched",
+      "contentReason": "browser_resource_unavailable",
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.workana.com/en/jobs?country=GT&skills=html",
+      "title": "HTML in Guatemala - Freelance Jobs Online",
+      "contentStatus": "fetched",
+      "contentReason": "browser_resource_unavailable",
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    }
+  ],
+  "publication": [],
+  "checks": [
+    "deterministic live capture; AI review and recommendations not tested",
+    "bounded provider and model admission",
+    "observed parent provenance",
+    "current owner isolation",
+    "terminal replay without new spending"
+  ],
+  "emailsSent": 0,
+  "realAccountsUsed": 0,
+  "scopeNote": "AI is explicitly disabled: this measures live source discovery and capture, not source interpretation or recommendation quality. Bounded live synthetic case using production discovery, review, assessment and delivery use cases. Worker reader includes configured browser fallback and Ashby routing without shared Redis caching; HTTP reader is a controlled reduced-access path. Native X and marketplace connector loops are not exercised. All lead rows are measured separately from the dashboard's bounded sample. Matching can remain incomplete if retries exceed the check window. Model labels are not independent ground truth; precision, recall and global throughput remain unproven.",
+  "stages": {
+    "scenario": "projects",
+    "executionStatus": "captured_without_ai",
+    "successfulSearches": 4,
+    "failedSearches": 0,
+    "renderingEnabled": true,
+    "durationSeconds": 70.343,
+    "uniqueLeads": 16,
+    "recordedLeads": 16,
+    "completeLeadSet": true,
+    "searchRequests": 4,
+    "documentRequests": 6,
+    "capturedDocuments": 5,
+    "completeCaptures": 3,
+    "inaccessibleDocuments": 1,
+    "repeatedDestinations": 0,
+    "sourceReviewLabels": {},
+    "sourceReviewCountsAreComplete": true,
+    "promotedPostings": 0,
+    "matching": "not_tested_ai_disabled",
+    "completedFitAssessments": 0,
+    "dashboardRecommendations": 0,
+    "acceptedEmails": 0,
+    "aiEstimatedUsd": 0,
+    "attemptsWithoutCostEstimate": 0,
+    "searchReservedUsd": 0.04,
+    "aiReservedUsd": 0,
+    "estimatedAiPlusSearchReservationPerRecommendationUsd": null,
+    "independentlyUsefulResults": null,
+    "costPerIndependentlyUsefulResultUsd": null,
+    "precision": null,
+    "recall": null,
+    "limitations": "AI estimates exclude unpriced/failed attempts, infrastructure and billing adjustments. Search reservations are configured upper allowances, not invoices. Source labels and dashboard acceptance are not independent usefulness judgments. Distinct URLs may still describe the same opportunity; repeatedDestinations detects only observed redirect identity. Initial reports recorded a dashboard sample, not every source review."
+  }
+}

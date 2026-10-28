@@ -1,0 +1,52 @@
+{
+  "checkedAt": "2026-10-28T13:57:53.459Z",
+  "scope": "One bounded production planning call; user confirmed restored credits and explicitly requested resuming live tests. No retries or real users.",
+  "result": {
+    "status": "failed",
+    "error": {
+      "name": "Error",
+      "status": 429,
+      "code": "credit_balance_exhausted"
+    }
+  },
+  "status": "blocked_credit_balance_exhausted",
+  "localChecks": {
+    "builds": [
+      "core",
+      "adapters",
+      "worker"
+    ],
+    "disposableDatabase": "passed",
+    "mailpitHttpStatus": 200,
+    "chromium": "launch_passed"
+  },
+  "configuration": {
+    "keyInheritedFromProcess": false,
+    "keyMatchesWorkerFile": true,
+    "apiFileHasModelKey": false,
+    "apiFileHasDifferentModelKey": false,
+    "endpointHost": "api.openai.com",
+    "endpointOverrideInherited": false,
+    "workerHasEndpointOverride": false,
+    "apiHasEndpointOverride": false,
+    "projectOverrideConfigured": false,
+    "organizationOverrideConfigured": false,
+    "workerEnvModifiedAt": "2026-10-27T11:43:58.432Z"
+  },
+  "modelAttempts": 1,
+  "searchRequests": 1,
+  "blockedTests": [
+    "fresh AI source review for projects and services",
+    "private fit assessment",
+    "live recommendation and local digest validation"
+  ],
+  "searchCheck": {
+    "status": "ready",
+    "httpStatus": 200,
+    "observations": 0,
+    "receipt": "supported-access-serper-preflight-2026-10-28.json"
+  },
+  "fullLiveScenariosStarted": 0,
+  "applicationCodeChanges": false,
+  "workerRestarted": false
+}

@@ -1,0 +1,23 @@
+{
+  "checkedAt": "2026-10-28T13:59:40.996Z",
+  "scope": "One live Serper connectivity check authorized as part of the requested project/service tests. No source reads, AI calls, matching, email or real users.",
+  "query": {
+    "query": "\"website redesign\" site:peopleperhour.com/freelance-jobs",
+    "language": "en",
+    "country": "us",
+    "freshness": "month",
+    "limit": 5,
+    "page": 1
+  },
+  "httpStatus": 200,
+  "requests": 1,
+  "configuredRequestAllowanceUsd": 0.01,
+  "result": {
+    "status": "ready",
+    "kind": "search",
+    "observations": [],
+    "checkedAt": "2026-10-28T13:59:40.994Z",
+    "completeness": "window",
+    "nextPage": null
+  }
+}

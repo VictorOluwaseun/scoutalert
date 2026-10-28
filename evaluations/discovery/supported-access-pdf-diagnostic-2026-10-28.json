@@ -1,0 +1,23 @@
+{
+  "checkedAt": "2026-10-28T14:05:01.790Z",
+  "scope": "One direct read of the exact PDF observed in the capture-only project run to diagnose its failed source operation. No AI, search or recommendation claim.",
+  "url": "https://www.itgenius.co.th/assets/frondend/instructor_profile/Ajarn-Kongnakorn-Jantakun-profile-y8dp00a8.pdf",
+  "result": {
+    "status": "fetched",
+    "reason": null,
+    "pdf": {
+      "pages": 2,
+      "extractedPages": 2
+    },
+    "capture": {
+      "method": "http",
+      "parser": "public-pdf-v1",
+      "requests": 2,
+      "bytes": 269941,
+      "complete": true
+    },
+    "characters": 4635,
+    "nullCharacters": 23,
+    "links": 0
+  }
+}

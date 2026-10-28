@@ -442,3 +442,24 @@ node scripts/evaluation/check-client-flow-fixture.mjs /tmp/new-outage-fixture.js
 node scripts/evaluation/check-live-scout-quality.mjs --scenario=projects --without-ai --output=/tmp/new-project-capture.json
 node scripts/evaluation/check-live-scout-quality.mjs --scenario=services --without-ai --output=/tmp/new-service-capture.json
 ```
+
+## Checks without AI and PDF persistence repair — 28 October
+
+The [current summary](supported-access-no-ai-summary-2026-10-28.json) records the available checks after the user asked to continue without AI. The earlier [model preflight](supported-access-preflight-2026-10-28.json) returned `429 credit_balance_exhausted`; no further model calls were made. Local database, Mailpit and Chromium readiness passed. These runs use synthetic profiles, disposable PostgreSQL schemas and the production discovery use cases.
+
+| Fresh capture run | Search calls | Leads | Complete captures / source reads | AI calls |
+| --- | ---: | ---: | ---: | ---: |
+| [Projects](supported-access-projects-capture-only-2026-10-28.json) | 4 | 16 | 3 / 6 | 0 |
+| [Services](supported-access-services-capture-only-2026-10-28.json) | 4 | 28 | 5 / 6 | 0 |
+
+The project run includes two incomplete browser captures and a failed PDF persistence operation. Its complete captures are employment/recruitment/consultancy pages, so useful project demand remains unproven. The service run captured two Workana briefs, an RFP guide, an Achievement First notice and a Saugatuck RFP PDF; Instagram remained restricted by crawl policy. Completeness does not establish current availability or fit. Both cases terminate and preserve owner isolation and replay without extra spending. Their Serper reservations total $0.08; this excludes the earlier search preflight, ordinary worker activity and billing adjustments.
+
+The [PDF diagnostic](supported-access-pdf-diagnostic-2026-10-28.json) found 23 U+0000 characters in the instructor-profile PDF encountered by the project run. PostgreSQL cannot store these characters in text/JSONB, so the capture had failed during persistence. `public-pdf-v2` preserves each position with U+FFFD and marks the capture `source_pdf_invalid` and incomplete. Shared document identity advances to `public-document-v11`; the HTML capture fingerprint remains unchanged. A real parser regression and a real database integration regression cover the defect.
+
+The [live recapture](supported-access-pdf-recapture-2026-10-28.json), seeded from the original report using this [case packet](supported-access-pdf-recapture-cases-2026-10-28.json), successfully persisted all 4,635 characters with 23 replacement markers and no null characters. The lead remained incomplete and unpromoted. The bounded flow also followed the site's advertised sitemap index and correctly limited an oversized child sitemap. Its six search operations replay recorded observations: there were zero search-provider requests and zero model calls. This is a persistence/access regression, not a new discovery or relevance measurement. The original failed receipt is retained.
+
+The [fallback fixture flow](supported-access-fallback-fixture-2026-10-28.json) passed both scenarios with authored search, HTTP and review/fit responses, real persistence and local Mailpit: one recommendation and one local digest each, no duplicate emails, seller/on-site exclusions and owner isolation. It proves orchestration without a planning provider; it does not validate live AI judgment.
+
+Verification passed 95 source/browser/planning checks before the PDF repair, including nine actual Chromium checks. After the repair, 31 focused PDF/Bluesky/planning checks and 57 isolated database checks passed. These counts overlap and must not be added as unique tests. Three report-summary checks, adapters/worker builds, architecture and whitespace checks also passed. No environment/budget edits or worker restart were performed during validation. Commit state in the dated receipts reflects the time of those checks.
+
+Fresh AI planning, source review, matching and recommendation-quality validation remain blocked by the recorded provider-credit error. Upwork, Guru and approved Facebook/LinkedIn access requirements remain as documented in the [provider guide](../../docs/engineering/scoutalert-provider-access.md); this increment does not establish new access to them or revalidate native X. No captured lead is claimed as a verified recommendation.

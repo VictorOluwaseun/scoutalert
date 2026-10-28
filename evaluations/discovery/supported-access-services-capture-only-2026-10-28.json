@@ -1,0 +1,1141 @@
+{
+  "checkedAt": "2026-10-28T14:04:32.660Z",
+  "scenario": "services",
+  "recaptureCases": null,
+  "baseline": false,
+  "reasoningConfiguration": "openai:gpt-5.4-mini-2026-03-17:scout-planning-v13",
+  "plan": {
+    "policy": "public-intent-v2",
+    "queries": [
+      {
+        "page": 1,
+        "limit": 10,
+        "query": "\"Website redesign\" site:peopleperhour.com/freelance-jobs",
+        "country": "us",
+        "language": "en",
+        "freshness": "month"
+      },
+      {
+        "page": 1,
+        "limit": 10,
+        "query": "\"Website redesign\" site:workana.com inurl:job",
+        "country": "us",
+        "language": "en",
+        "freshness": "any"
+      },
+      {
+        "page": 1,
+        "limit": 10,
+        "query": "\"Website redesign\" (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+        "country": "us",
+        "language": "en",
+        "freshness": "month"
+      },
+      {
+        "page": 1,
+        "limit": 10,
+        "query": "\"Website redesign\" filetype:pdf (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+        "country": "us",
+        "language": "en",
+        "freshness": "month"
+      }
+    ],
+    "category": "services",
+    "exploration": {
+      "remote": true,
+      "target": "Website redesign",
+      "queryPolicy": "client-demand-v7",
+      "maximumDepth": 3,
+      "maximumRounds": 8,
+      "maximumSearches": 6,
+      "maximumSourcePages": 2
+    },
+    "continuation": "explore_on_next_run",
+    "scoutVersion": 1,
+    "blockedReason": null,
+    "deadlineSeconds": 240,
+    "maximumDocuments": 6
+  },
+  "reader": "worker",
+  "renderingEnabled": true,
+  "status": "captured_without_ai",
+  "aiEnabled": false,
+  "deliveryOutcome": "no_eligible_digest",
+  "reasoning": [],
+  "sourceReviewsCompleted": 0,
+  "intelligence": [],
+  "rejectedFits": [],
+  "rejectedReviews": [],
+  "reviewFailures": [],
+  "matchingState": {
+    "status": "not_tested_ai_disabled",
+    "match_count": 0
+  },
+  "taskStates": [],
+  "eligiblePostings": [],
+  "reviewAttempts": [],
+  "opportunities": [],
+  "deliveries": [],
+  "durationMs": 53696,
+  "search": {
+    "goal": "Find clients requesting website redesign services",
+    "category": "services",
+    "target": "Website redesign",
+    "name": "Synthetic service-request scout",
+    "arrangement": "remote",
+    "arrangementRequired": true,
+    "residence": "New York, United States",
+    "workLocations": "United States or remote worldwide",
+    "authorizationLocations": "United States",
+    "authorizationConfirmed": true,
+    "sponsorshipNeed": "not_needed",
+    "background": "Five years delivering website redesign, responsive layouts, WordPress and accessible user interfaces for small businesses",
+    "minimumPay": "",
+    "currency": "USD",
+    "payPeriod": "project",
+    "unknownEligibility": "review",
+    "undisclosedPay": "include"
+  },
+  "operations": [
+    {
+      "key": "8e338bd0d37e9a3718b4a195e7320776f8baaf4d0261b745c092385543616311",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "\"Website redesign\" site:peopleperhour.com/freelance-jobs",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "retrieved_url": null,
+      "capture": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "830cc740b4cfedd78533de8cc5051315c500767fb9bad26ad76767c876da64cc",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "\"Website redesign\" site:workana.com inurl:job",
+          "country": "us",
+          "language": "en",
+          "freshness": "any"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "retrieved_url": null,
+      "capture": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "38d65d9f0278696ebb16616bceee0307f54ada6dcf1311ce7817170e5f4f9374",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "\"Website redesign\" (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "retrieved_url": null,
+      "capture": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "f9151500f2cb9923780a5b0997de013bc034bca5122bc19f73201a4cd49a711b",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "\"Website redesign\" filetype:pdf (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "retrieved_url": null,
+      "capture": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "812646ae45dd6402203ed7afa52c7507c0d125d2bae8950c4f460cb03186b43c",
+      "kind": "document",
+      "input": {
+        "url": "https://www.workana.com/job/expert-web-designer-needed-for-enterprise-b2b-website-redesign-and-enhanced-ux",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": [
+        {
+          "url": "https://www.workana.com/",
+          "text": "Workana"
+        },
+        {
+          "url": "https://www.workana.com/jobs",
+          "text": "Freelance Jobs"
+        },
+        {
+          "url": "https://www.workana.com/jobs?subcategory=web-design-1",
+          "text": "Web design jobs"
+        },
+        {
+          "url": "https://www.workana.com/job/insight/expert-web-designer-needed-for-enterprise-b2b-website-redesign-and-enhanced-ux",
+          "text": "Project Insights"
+        },
+        {
+          "url": "https://www.workana.com/jobs?skills=web-design-2",
+          "text": "Web design"
+        },
+        {
+          "url": "https://www.workana.com/jobs?skills=user-experience-design",
+          "text": "User Experience Design"
+        },
+        {
+          "url": "https://www.workana.com/jobs?skills=graphic-design",
+          "text": "Graphic Design"
+        },
+        {
+          "url": "https://www.workana.com/jobs?skills=corporate-brand-identity",
+          "text": "Corporate Brand Identity"
+        },
+        {
+          "url": "https://www.workana.com/jobs?skills=adobe-photoshop",
+          "text": "Adobe Photoshop"
+        },
+        {
+          "url": "https://www.workana.com/jobs?skills=adobe-illustrator",
+          "text": "Adobe Illustrator"
+        },
+        {
+          "url": "https://www.workana.com/jobs?skills=user-interface",
+          "text": "User Interface"
+        },
+        {
+          "url": "https://www.workana.com/jobs?skills=material-design",
+          "text": "Material Design"
+        },
+        {
+          "url": "https://www.workana.com/login",
+          "text": "Log into"
+        },
+        {
+          "url": "https://www.workana.com/signup/w",
+          "text": "Register"
+        },
+        {
+          "url": "https://www.workana.com/projects/add?clone=expert-web-designer-needed-for-enterprise-b2b-website-redesign-and-enhanced-ux",
+          "text": "Publish your own project"
+        },
+        {
+          "url": "https://www.workana.com/signup/w?r=https%3A%2F%2Fwww.workana.com%2Fjob%2Fexpert-web-designer-needed-for-enterprise-b2b-website-redesign-and-enhanced-ux",
+          "text": "Send your proposal now"
+        },
+        {
+          "url": "https://www.workana.com/e/c5ee2b5601f3cc2b4e9528d145f6d785",
+          "text": "Junaid A."
+        },
+        {
+          "url": "https://www.workana.com/job/kunal-neware-experienced-amazon-fba-specialist-for-premium-supplement-brand",
+          "text": "Previous project"
+        },
+        {
+          "url": "https://www.workana.com/job/development-of-a-comprehensive-logistics-web-portal-tms-erp-integration-with-ai-automation",
+          "text": "Next project"
+        }
+      ],
+      "feeds": [],
+      "sitemaps": [
+        {
+          "url": "https://www.workana.com/sitemap_index.xml",
+          "text": "Site-advertised sitemap"
+        }
+      ],
+      "retrieved_url": "https://www.workana.com/job/expert-web-designer-needed-for-enterprise-b2b-website-redesign-and-enhanced-ux",
+      "capture": {
+        "bytes": 39546,
+        "method": "http",
+        "complete": true,
+        "requests": 2
+      },
+      "captured_text": "1. Workana\n 2. Freelance Jobs\n 3. Web design jobs\n\nEvaluating bids\n\n\nEXPERT WEB DESIGNER NEEDED FOR ENTERPRISE B2B WEBSITE REDESIGN AND ENHANCED UX\n\nPublished on the April 26, 2026 in Design & Multimedia\n\n * Project\n * Project Insights\n\nABOUT THIS PROJECT\n\n\nDESIGN-MULTIMEDIA / WEB-DESIGN-1\n\nOPEN\n\n\n\nWe are seeking a highly skilled web designer for a complete redesign of our company website. The primary objective is to achieve a modern, international-grade user experience that aligns with enterprise software standards. We aim to significantly elevate our visual identity and overall user experience to accurately reflect the sophistication and scale of our products, thereby positioning our brand at a global standard. We are looking for a freelancer who can deliver a sophisticated and intuitive design for a B2B technology audience. Please provide your portfolio, highlighting any relevant enterprise or SaaS website projects you have completed, and outline your proposed approach to redesigning a B2B technology website.\n\n\n\nCategory Design & Multimedia\nSubcategory Web design\nWhat do you need? Small update to an existing design\n\n\nDelivery term: Not specified\n\nSkills needed\n\nWeb design User Experience Design Graphic Design Corporate Brand Identity Adobe Photoshop Adobe Illustrator User Interface Material Design\n\nWant to start working on this project?\n\nLog into your Workana account or Register today. Boost your freelance work!\n\n\nARE YOU LOOKING FOR A FREELANCER TO DO A SIMILAR PROJECT?\n\nCreate your project and get bids from the best freelancers.\n\nPublish your own project\nSend your proposal now\n\nJunaid A.\n\n\n\n1\n\nPublished projects\n\n0\n\nProjects paid\n\nMember since: July 2022\n\nProject activity\n\n4\n\nBids\n\n7\n\nInterested freelancers\n\nPrevious project\nNext project",
+      "source_status": "fetched",
+      "source_reason": null,
+      "observed_links": 19
+    },
+    {
+      "key": "ba8ef9b3d03268d17122ea51572003f2c24538315d77791dbdc01f2bfcc386a1",
+      "kind": "document",
+      "input": {
+        "url": "https://www.workana.com/job/healthcare-dental-company-website-redesign-for-enhanced-user-experience-and-lead-generation",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": [
+        {
+          "url": "https://www.workana.com/",
+          "text": "Workana"
+        },
+        {
+          "url": "https://www.workana.com/jobs",
+          "text": "Freelance Jobs"
+        },
+        {
+          "url": "https://www.workana.com/jobs?subcategory=web-development",
+          "text": "Web development jobs"
+        },
+        {
+          "url": "https://www.workana.com/job/insight/healthcare-dental-company-website-redesign-for-enhanced-user-experience-and-lead-generation",
+          "text": "Project Insights"
+        },
+        {
+          "url": "https://www.workana.com/jobs?skills=laravel",
+          "text": "Laravel"
+        },
+        {
+          "url": "https://www.workana.com/jobs?skills=php",
+          "text": "PHP"
+        },
+        {
+          "url": "https://www.workana.com/jobs?skills=react-js",
+          "text": "React.js"
+        },
+        {
+          "url": "https://www.workana.com/jobs?skills=api",
+          "text": "API"
+        },
+        {
+          "url": "https://www.workana.com/jobs?skills=natural-language-processing",
+          "text": "Natural Language Proce..."
+        },
+        {
+          "url": "https://www.workana.com/login",
+          "text": "Log into"
+        },
+        {
+          "url": "https://www.workana.com/signup/w",
+          "text": "Register"
+        },
+        {
+          "url": "https://www.workana.com/projects/add?clone=healthcare-dental-company-website-redesign-for-enhanced-user-experience-and-lead-generation",
+          "text": "Publish your own project"
+        },
+        {
+          "url": "https://www.workana.com/signup/w?r=https%3A%2F%2Fwww.workana.com%2Fjob%2Fhealthcare-dental-company-website-redesign-for-enhanced-user-experience-and-lead-generation",
+          "text": "Send your proposal now"
+        },
+        {
+          "url": "https://www.workana.com/e/5e590508f9e8d534a2614cd1b1c2abaa",
+          "text": "O. A."
+        },
+        {
+          "url": "https://www.workana.com/job/farm-management-automation-system-with-n8n-and-google-sheets",
+          "text": "Previous project"
+        },
+        {
+          "url": "https://www.workana.com/job/experienced-paid-social-operator-for-dtc-ecommerce-brand",
+          "text": "Next project"
+        },
+        {
+          "url": "https://www.workana.com/job/ai-agent-developer-for-rag-document-workflow-proof-of-concept-with-structured-reporting",
+          "text": "Ai Agent Developer for Rag Document Workflow Proof of Concept with Structured Reporting"
+        },
+        {
+          "url": "https://www.workana.com/job/experienced-frontend-developer-for-modern-responsive-landing-page",
+          "text": "Experienced Frontend Developer for Modern, Responsive Landing Page"
+        }
+      ],
+      "feeds": [],
+      "sitemaps": [
+        {
+          "url": "https://www.workana.com/sitemap_index.xml",
+          "text": "Site-advertised sitemap"
+        }
+      ],
+      "retrieved_url": "https://www.workana.com/job/healthcare-dental-company-website-redesign-for-enhanced-user-experience-and-lead-generation",
+      "capture": {
+        "bytes": 41906,
+        "method": "http",
+        "complete": true,
+        "requests": 2
+      },
+      "captured_text": "1. Workana\n 2. Freelance Jobs\n 3. Web development jobs\n\nEvaluating bids\n\n\nHEALTHCARE DENTAL COMPANY WEBSITE REDESIGN FOR ENHANCED USER EXPERIENCE AND LEAD GENERATION\n\nPublished on the September 25, 2026 in IT & Programming\n\n * Project\n * Project Insights\n\nABOUT THIS PROJECT\n\n\nIT-PROGRAMMING / WEB-DEVELOPMENT\n\nOPEN\n\n\n\nWe are seeking an experienced freelancer to undertake a comprehensive redesign of our healthcare dental company website. The primary goals are to significantly improve the user experience, modernize the overall aesthetic, and enhance the site's capabilities for lead generation. The scope of this project includes a complete overhaul of key sections such as the homepage, dental service listings, contact pages, and various internal information pages. The successful candidate will be responsible for creating a clean, responsive design that ensures optimal viewing across all devices. A crucial aspect of this redesign will be to improve site navigation, making it intuitive and user-friendly, and to implement strategies that make the website more conversion-focused. We are looking for a freelancer who can demonstrate a strong portfolio of similar redesign projects and articulate their approach to boosting site performance and user engagement. Our current website is hosted via GoDaddy, with domain support managed by Bluehost.\n\n\n\nCategory IT & Programming\nSubcategory Web development\nWhat is the scope of the project? Small change or bug\n\n\nDelivery term: Not specified\n\nSkills needed\n\nLaravel PHP React.js API Natural Language Proce...\n\nWant to start working on this project?\n\nLog into your Workana account or Register today. Boost your freelance work!\n\n\nARE YOU LOOKING FOR A FREELANCER TO DO A SIMILAR PROJECT?\n\nCreate your project and get bids from the best freelancers.\n\nPublish your own project\nSend your proposal now\n\nO. A.\n\n\n\n6\n\nPublished projects\n\n3\n\nProjects paid\n\nVerified payment method\n\nMember since: June 2026\n\nProject activity\n\n63\n\nBids\n\n75\n\nInterested freelancers\n\nPrevious project\nNext project\n\n\nOTHER PROJECTS POSTED BY O. A.\n\n * Ai Agent Developer for Rag Document Workflow Proof of Concept with Structured Reporting Evaluating bids\n   \n   95 proposals Fixed price\n   \n   View project\n * Experienced Frontend Developer for Modern, Responsive Landing Page Evaluating bids\n   \n   63 proposals Fixed price\n   \n   View project",
+      "source_status": "fetched",
+      "source_reason": null,
+      "observed_links": 18
+    },
+    {
+      "key": "4f3c423706032b4109cb3c45e1a70f99df0444aec1f2bf882535a1e9d8afdf9c",
+      "kind": "document",
+      "input": {
+        "url": "https://www.ifactory.com/insights/website-redesign-rfp-guide/",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": [
+        {
+          "url": "https://www.ifactory.com/insights/category/ia/",
+          "text": "IA"
+        },
+        {
+          "url": "https://www.ifactory.com/insights/category/design/",
+          "text": "Design"
+        },
+        {
+          "url": "https://www.ifactory.com/insights/category/strategy/",
+          "text": "Strategy"
+        },
+        {
+          "url": "https://www.ifactory.com/insights/category/development/",
+          "text": "Development"
+        },
+        {
+          "url": "https://www.ifactory.com/insights/category/analytics/",
+          "text": "Analytics"
+        },
+        {
+          "url": "https://www.ifactory.com/insights/category/web-development/",
+          "text": "Web Development"
+        },
+        {
+          "url": "https://www.ifactory.com/insights/3-tips-for-writing-a-great-website-redesign-rfp/",
+          "text": "basics"
+        },
+        {
+          "url": "https://www.ifactory.com/services/research-strategy/",
+          "text": "research"
+        },
+        {
+          "url": "https://www.ifactory.com/insights/what-does-a-higher-ed-website-redesign-cost/",
+          "text": "redesign cost post"
+        },
+        {
+          "url": "https://www.ifactory.com/services/ai-visibility/",
+          "text": "AI visibility"
+        },
+        {
+          "url": "https://www.ifactory.com/services/seo/",
+          "text": "SEO and GEO"
+        },
+        {
+          "url": "https://www.ifactory.com/insights/geo-vs-seo-a-higher-ed-marketers-guide-to-whats-actually-different-and-what-isnt/",
+          "text": "GEO vs. SEO"
+        },
+        {
+          "url": "https://www.ifactory.com/services/web-development/",
+          "text": "content management system"
+        },
+        {
+          "url": "https://www.ifactory.com/services/content-strategy/",
+          "text": "content model"
+        },
+        {
+          "url": "https://www.ifactory.com/services/accessibility/",
+          "text": "accessibility"
+        },
+        {
+          "url": "https://www.ifactory.com/insights/ifactory-is-now-soc2-type-2-certified-compliant/",
+          "text": "SOC 2 ourselves"
+        },
+        {
+          "url": "https://www.ifactory.com/services/analytics/",
+          "text": "measurement and reporting"
+        },
+        {
+          "url": "https://www.ifactory.com/contact/",
+          "text": "Contact us"
+        },
+        {
+          "url": "https://www.ifactory.com/wp-content/uploads/2026/10/Website_Redesign_RFP_Template.docx.zip",
+          "text": "RFP template"
+        },
+        {
+          "url": "https://www.ifactory.com/insights/5-predictions-for-higher-education-marketing-in-2026/",
+          "text": "5 Predictions for Higher Education Marketing in 2026"
+        },
+        {
+          "url": "https://www.ifactory.com/subscribe/",
+          "text": "Subscribe"
+        }
+      ],
+      "feeds": [
+        {
+          "url": "https://www.ifactory.com/feed/",
+          "text": "IFACTORY » Feed"
+        },
+        {
+          "url": "https://www.ifactory.com/comments/feed/",
+          "text": "IFACTORY » Comments Feed"
+        },
+        {
+          "url": "https://www.ifactory.com/insights/website-redesign-rfp-guide/feed/",
+          "text": "IFACTORY » The Ultimate Guide to Crafting Effective Website Redesign RFPs Comments Feed"
+        }
+      ],
+      "sitemaps": [
+        {
+          "url": "https://www.ifactory.com/sitemap_index.xml",
+          "text": "Site-advertised sitemap"
+        }
+      ],
+      "retrieved_url": "https://www.ifactory.com/insights/website-redesign-rfp-guide/",
+      "capture": {
+        "bytes": 223424,
+        "method": "http",
+        "complete": true,
+        "requests": 2
+      },
+      "captured_text": "Skip to content\nMain Menu\n\n\niFactory Insights\n\n\nTHE ULTIMATE GUIDE TO CRAFTING EFFECTIVE WEBSITE REDESIGN RFPS\n\n * October 26, 2026\n\n * IA, Design, Strategy, Development, Analytics, Web Development\n\n\nYou need a new website now, but you have a nagging feeling that the internet is going to look and feel like a very different place in a few years. Search is changing rapidly. Prospective students are asking ChatGPT or reading Google's AI Overviews about you before they visit. But you still need a new site. And you need to write an RFP to find the right partner to help build it.\n\n\nLast year we covered some RFP basics: outcomes over deliverables, real budgets, published weighting. This time we wanted to go section by section through what an RFP needs to contain, what to ask potential partners, especially with so many technology changes happening so rapidly. There is a downloadable website redesign RFP template at end to help get you started.\n\n\nUNDERSTANDING RFPS\n\n\nWHAT IS A WEBSITE REDESIGN RFP?\n\nA website redesign RFP (request for proposal) is the document a college, university or nonprofit issues to invite agencies to propose on a website project. You will also see it called a web design RFP or a website development RFP; same thing. At its simplest, it gives potential partners your current situation, your goals, your approximate budget, your timeline, and your selection criteria. They respond with a proposal: their approach, their team, their price.\n\nIt is your one chance to articulate to a bunch of vendors what you are trying to do clearly enough that they can provide a scope, timeline, process and cost. \n\n> You are hiring a partner precisely because you don’t know the solution yet.\n\n\nWHY THE RFP MATTERS IN WEB DEVELOPMENT\n\nThe RFP sets the stage for everything that follows. A vague RFP tends to get vague proposals, and a vague proposal becomes a contract with a lot of assumptions baked into it. And nobody wants that…\n\nBudgets make this hard. Budgeting cycles mean RFPs often have to ask for a fixed bid, even when the project isn’t very defined. And that is fair, because you are hiring a partner precisely because you don’t know the solution yet. We’ve read recent RFPs that ask the agency to recommend a CMS and, in the same document, give a fixed price for the build. Nobody can price a build on a platform that hasn’t been chosen. You can try…but you are going to receive numbers that are padded or full of assumptions. Most of what follows is about avoiding that.\n\n> You can’t price a site build on an undefined platform .\n\n\nKEY COMPONENTS OF A WEBSITE REDESIGN RFP\n\n\nEXECUTIVE SUMMARY\n\nA good opening is one page a potential partner can read quickly and understand the ask: who you are, what the project entails, why now, roughly what you can spend, and when proposals are due. Include the drivers behind the project: enrollment is down in two programs, the site is on a platform that is going end of life, the brand just changed. Partners write better proposals when they know your goals.\n\nAlso, state the unknowns. It is okay to not know everything. You may not be able to get a super accurate fixed bid if, say, you don’t actually know what CMS you want to be on, but it is better to be transparent and hear from a swath of potential partners about how they would help you make those decisions than to let partners ‘throw spaghetti at the wall and see what sticks’.\n\n> A 450-page site on twelve feature-rich templates and a 450-page newsroom site require different levels of effort.\n\n\nPROJECT SCOPE AND GOALS\n\nStart with goals. Framing them as the outcomes you need instead of the features you want gives agencies a chance to show you how they would meet those goals, and you may find some surprising, creative opportunities in the answers. “Increase inquiries from prospective graduate students” is a goal. “A program finder” is one of several ways to get there.\n\nThen say what success looks like. Goals tell an agency where you want to go; a short list of indicators tells them how you will know you got there, and it turns “is the new site working?” from a feeling into a question with an answer. Three to six is plenty: inquiries and applications started from the site, whether a prospective student can find a program’s deadline and cost in a couple of clicks, whether AI search tools cite your pages for program questions, accessibility conformance after launch, how long it takes an editor to publish a page. Capture a baseline before launch so there is something to compare against. Agencies will propose better measurement approaches if they know what you plan to measure, and it sets up the reporting conversation later in the RFP.\n\nThen scope. This is often where an RFP loses the plot: it gives a page count with no sense of the features, functionality or complexity behind it. It helps a lot to describe the site in page templates and features, not just pages. A 450-page site on twelve templates and a 450-page site that is mostly basic content with no unique features are different jobs, and “approximately 450 pages” on its own tells an agency very little. Think carefully about the content, too. Migrating it, rewriting it and writing it new are three different levels of effort, and if the RFP doesn’t say how you want content handled, agencies will make a lot of assumptions.\n\nIf the platform is undecided, we think the better move is to split the work. A short discovery RFP for research, maybe a content model, a platform recommendation and a scoped plan can help. The design and development RFP can then be fixed price. It feels like an extra step, but in our experience it gets you a clearer budget.\n\n> A site organized around the org chart serves nobody.\n\n\nBUDGET CONSIDERATIONS\n\nBe transparent with your budget. It helps everyone. It keeps vendors who cannot work within your budget from responding. With a number in hand, partners can tell you what it is possible and where you may have to make trade-offs. If you can’t publish a figure, publish a range, and say whether it includes CMS licensing, hosting and third-party fees. Our redesign cost post has ranges if you need a starting point.\n\nIt also helps to outline what can be budgeted separately: the post-launch retainer, any AI chatbot, content writing beyond a set number of pages, photography. If you ask for those as priced options so you can decide on those a la carte. \n\n> Without a budget, vendors guess, and the guesses range so widely that the proposals cannot be compared.\n\n\nTIMELINE AND MILESTONES\n\nIt helps to give two timelines. The procurement timeline and the project timeline. The procurement timeline includes: issue date, question deadline, when answers are published, proposal deadline, interviews, notice of selection. In our experience it is a few months from first draft to signed contract, longer at public institutions, so it is worth working backward from there.\n\nThe project timeline is tricky because you are asking your future partner to agree to a timeline before they really know your working style and your team’s availability. Share the constraints that are real: the admissions cycle, commencement, an accreditation visit, a platform contract that expires. Give a desired launch and say whether it is a hope or a hard date. Then ask each agency for their milestones and, more usefully, the decisions and materials they will need from you. \n\n\nCRAFTING YOUR WEBSITE DESIGN PROPOSAL\n\n\nDEFINING YOUR TARGET AUDIENCE\n\nStart by listing your audiences and their key goals on the site. Prospective undergraduates, their parents, transfer students, graduate prospects, current students, faculty and staff, alumni and donors, the community. \n\nIt also helps to say which audiences are the priority, because they can’t all be. If you have research, attach it. If you don’t, that is okay too; just say so.\n\n\nDESIGN CONCEPT EXPECTATIONS\n\nWe’d encourage you not to ask for design concepts in the proposal. Concepts produced in two weeks without research or your content are guesses, and they tend to reward the firm with the most free time rather than the best process. Case studies, an approach walkthrough and references will tell you more. If you really want to see design thinking before you sign, it is reasonable to pay a finalist for a short, scoped exercise.\n\n> ‘The site must support AI’ is not a clear requirement.”\n\n\nTECHNICAL SPECIFICATIONS AND REQUIREMENTS\n\nMost website RFPs cover the technical basics well: CMS, hosting, responsive design, integrations. Five areas have changed in the last few years and are worth some extra attention. \n\nAI search. Prospective students now ask ChatGPT, Google’s AI Mode, Perplexity and Copilot about you, so your site needs to be readable and quotable by those tools. Writing “the site must support AI” in the RFP won’t get you that, because agencies read it two different ways: some will propose an AI product, like a chatbot or AI personalization tools, and others will propose making your content visible to AI search. Be clear about what you want. If it is AI search, ask each agency what they would do to your most important pages, how they would measure whether AI tools cite you compared with peer institutions, and what they would report 90 days after launch. (Our AI visibility and SEO and GEO pages describe this work, and GEO vs. SEO explains the thinking behind it.) If you also want a chatbot, a personalization engine, or embedded AI/conversational search in the site, ask for it as a separately priced option so you can see its cost on its own.\n\nContent portability. Nobody knows which web platforms will matter in 2030, which makes committing to a content management system a somewhat anxiety provoking decision. Ask each agency to describe, in a page, how your content would be exported: in what format, how much effort it would take, and who owns the design system and code afterward. Ask, too, whether the content model (the definition of a course, a program, a person, an event) is documented separately from the CMS, so it can move with you. Structured content like that is also what AI search tools read best.\n\nAccessibility. The standard to require is WCAG 2.2 AA, which has been current since October 2023. The ADA Title II web deadlines were extended in April 2026, to April 2027 for larger public entities and April 2028 for smaller ones.  Who on the agency team does accessibility testing, how do they test, and do they test with real assistive technology or only automated tools. (Here is how we approach accessibility, including testing with people who use assistive technology.)\n\nSecurity and data. Your IT and procurement colleagues will need answers to these eventually, so it saves time to ask in the RFP. Does the agency hold a current SOC 2 Type 2 report, and will they share it under NDA? Where will your data be stored during the build? Which AI tools does the agency use in its own work, what of your content goes into them, and how long is it kept? We went through SOC 2 ourselves and it was a bit of a bear, but it means we now have a third-party verified report we can hand to a review committee.\n\nIntegrations. List every system the new site has to connect to: the CRM (Slate, Salesforce), the student information system, the course catalog, the events calendar, the giving platform, the directory. Ask each agency to state its assumptions and any third-party costs for each one. Integrations are the most common source of surprise costs in a fixed-price build, so the more detail you give here, the more accurate the proposals will be.\n\n> Integrations are where fixed bids go to die.\n\n\nEVALUATION CRITERIA FOR VENDORS\n\n\nSCORING FRAMEWORK\n\nWe recommend publishing your scoring criteria and their weights in the RFP. Agencies write to what you score, and a committee that has agreed on a rubric before the proposals arrive has an easier time choosing. The right criteria depend on your institution, but as a light example: an RFP might put the most weight on how well a ",
+      "source_status": "fetched",
+      "source_reason": null,
+      "observed_links": 21
+    },
+    {
+      "key": "fe118bea0d15120720ccb3a05800635b488255a3d7931b56078e3f942328d61b",
+      "kind": "document",
+      "input": {
+        "url": "https://www.achievementfirst.org/request-for-proposals-website-redesign-ecosystem-development/",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": [
+        {
+          "url": "https://www.achievementfirst.org/blog/",
+          "text": "Back to Achievement Forward"
+        },
+        {
+          "url": "https://www.achievementfirst.org/category/partnerships/",
+          "text": "Partnerships"
+        },
+        {
+          "url": "https://www.achievementfirst.org/author/isabellasenzamici/",
+          "text": "Isabella Senzamici"
+        },
+        {
+          "url": "https://www.addtoany.com/add_to/facebook?linkurl=https%3A%2F%2Fwww.achievementfirst.org%2Frequest-for-proposals-website-redesign-ecosystem-development%2F&linkname=Request%20for%20Proposals%3A%20Website%20Redesign%20%26%20Ecosystem%20Development",
+          "text": ""
+        },
+        {
+          "url": "https://www.addtoany.com/add_to/linkedin?linkurl=https%3A%2F%2Fwww.achievementfirst.org%2Frequest-for-proposals-website-redesign-ecosystem-development%2F&linkname=Request%20for%20Proposals%3A%20Website%20Redesign%20%26%20Ecosystem%20Development",
+          "text": ""
+        },
+        {
+          "url": "https://www.addtoany.com/add_to/twitter?linkurl=https%3A%2F%2Fwww.achievementfirst.org%2Frequest-for-proposals-website-redesign-ecosystem-development%2F&linkname=Request%20for%20Proposals%3A%20Website%20Redesign%20%26%20Ecosystem%20Development",
+          "text": ""
+        },
+        {
+          "url": "https://achievementfirst.org/",
+          "text": "achievementfirst.org"
+        },
+        {
+          "url": "https://www.achievementfirst.org/cdn-cgi/l/email-protection",
+          "text": "[email protected]"
+        },
+        {
+          "url": "https://www.achievementfirst.org/category/leadership/",
+          "text": "Leadership"
+        },
+        {
+          "url": "https://www.achievementfirst.org/celebrating-community-af-at-teach-for-americas-35th-anniversary-summit/",
+          "text": "Read More"
+        },
+        {
+          "url": "https://www.addtoany.com/add_to/facebook?linkurl=https%3A%2F%2Fwww.achievementfirst.org%2Fcelebrating-community-af-at-teach-for-americas-35th-anniversary-summit%2F&linkname=Celebrating%20Community%3A%20AF%20at%20Teach%20For%20America%E2%80%99s%2035th%20Anniversary%20Summit",
+          "text": ""
+        },
+        {
+          "url": "https://www.addtoany.com/add_to/linkedin?linkurl=https%3A%2F%2Fwww.achievementfirst.org%2Fcelebrating-community-af-at-teach-for-americas-35th-anniversary-summit%2F&linkname=Celebrating%20Community%3A%20AF%20at%20Teach%20For%20America%E2%80%99s%2035th%20Anniversary%20Summit",
+          "text": ""
+        },
+        {
+          "url": "https://www.addtoany.com/add_to/twitter?linkurl=https%3A%2F%2Fwww.achievementfirst.org%2Fcelebrating-community-af-at-teach-for-americas-35th-anniversary-summit%2F&linkname=Celebrating%20Community%3A%20AF%20at%20Teach%20For%20America%E2%80%99s%2035th%20Anniversary%20Summit",
+          "text": ""
+        },
+        {
+          "url": "https://www.achievementfirst.org/category/advocacy/",
+          "text": "Advocacy"
+        },
+        {
+          "url": "https://www.achievementfirst.org/category/families/",
+          "text": "Families"
+        },
+        {
+          "url": "https://www.achievementfirst.org/category/students/",
+          "text": "Students"
+        },
+        {
+          "url": "https://www.achievementfirst.org/rhode-island-partnership-spotlight-on-providence-promise-empowering-futures-through-education/",
+          "text": "Read More"
+        },
+        {
+          "url": "https://www.achievementfirst.org/author/melissalachman/",
+          "text": "Melissa"
+        },
+        {
+          "url": "https://www.addtoany.com/add_to/facebook?linkurl=https%3A%2F%2Fwww.achievementfirst.org%2Frhode-island-partnership-spotlight-on-providence-promise-empowering-futures-through-education%2F&linkname=Rhode%20Island%20Partnership%20Spotlight%20on%20Providence%20Promise%3A%20Empowering%20Futures%20Through%20Education",
+          "text": ""
+        },
+        {
+          "url": "https://www.addtoany.com/add_to/linkedin?linkurl=https%3A%2F%2Fwww.achievementfirst.org%2Frhode-island-partnership-spotlight-on-providence-promise-empowering-futures-through-education%2F&linkname=Rhode%20Island%20Partnership%20Spotlight%20on%20Providence%20Promise%3A%20Empowering%20Futures%20Through%20Education",
+          "text": ""
+        },
+        {
+          "url": "https://www.addtoany.com/add_to/twitter?linkurl=https%3A%2F%2Fwww.achievementfirst.org%2Frhode-island-partnership-spotlight-on-providence-promise-empowering-futures-through-education%2F&linkname=Rhode%20Island%20Partnership%20Spotlight%20on%20Providence%20Promise%3A%20Empowering%20Futures%20Through%20Education",
+          "text": ""
+        },
+        {
+          "url": "https://www.achievementfirst.org/achievement-first-cartwheel-partnership-provides-access-to-high-quality-mental-health-care/",
+          "text": "Read More"
+        },
+        {
+          "url": "https://www.achievementfirst.org/author/master_af_admin/",
+          "text": "Achievement First"
+        },
+        {
+          "url": "https://www.addtoany.com/add_to/facebook?linkurl=https%3A%2F%2Fwww.achievementfirst.org%2Fachievement-first-cartwheel-partnership-provides-access-to-high-quality-mental-health-care%2F&linkname=Achievement%20First%20%26%20Cartwheel%20Partnership%20%20Provides%20Access%20to%20High-Quality%20Mental%20Health%20Care",
+          "text": ""
+        },
+        {
+          "url": "https://www.addtoany.com/add_to/linkedin?linkurl=https%3A%2F%2Fwww.achievementfirst.org%2Fachievement-first-cartwheel-partnership-provides-access-to-high-quality-mental-health-care%2F&linkname=Achievement%20First%20%26%20Cartwheel%20Partnership%20%20Provides%20Access%20to%20High-Quality%20Mental%20Health%20Care",
+          "text": ""
+        },
+        {
+          "url": "https://www.addtoany.com/add_to/twitter?linkurl=https%3A%2F%2Fwww.achievementfirst.org%2Fachievement-first-cartwheel-partnership-provides-access-to-high-quality-mental-health-care%2F&linkname=Achievement%20First%20%26%20Cartwheel%20Partnership%20%20Provides%20Access%20to%20High-Quality%20Mental%20Health%20Care",
+          "text": ""
+        }
+      ],
+      "feeds": [],
+      "sitemaps": [],
+      "retrieved_url": "https://www.achievementfirst.org/request-for-proposals-website-redesign-ecosystem-development/",
+      "capture": {
+        "bytes": 106709,
+        "method": "http",
+        "complete": true,
+        "requests": 2
+      },
+      "captured_text": "Skip to Main Content\n\nSearch  \n\n \n\n\n\nREQUEST FOR PROPOSALS: WEBSITE REDESIGN & ECOSYSTEM DEVELOPMENT\n\n----------------------------------------\n\nCATEGORY: Partnerships\n\nIsabella Senzamici • Oct 6, 2026\n\n\nSHARE THIS STORY\n\n\n\nDigital Strategy, UX/UI Design, CMS Development, Migration, and Ongoing Technical Support\n\nTHE OPPORTUNITY AT A GLANCE\n\n\n\nAchievement First is seeking an experienced digital agency to architect and build a unified, scalable digital ecosystem. The solution will comprise a main network website, regional hubs, and 41 distinct school-specific websites under a central governance model. \n\n \n\nRFP Key Milestones Date / Timeline RFP Issuance Date October 5, 2026 Vendor Questions Due October 19, 2026 Proposal Submission Deadline November 9, 2026 Finalist Presentations & Demonstrations November 16-20 & November 30-December 4, 2026 Target Selection Notification By December 11, 2026 Project Kickoff January 2027\n\n\n1. EXECUTIVE OVERVIEW & BACKGROUND\n\nAchievement First (AF) is a non-profit charter school network serving more than 15,000 students across 41 schools in Connecticut, New York, and Rhode Island. As our network evolves, our digital presence must effectively communicate our mission, advance our organizational goals, empower local school communities, and streamline stakeholder engagement.\n\nAF is issuing this Request for Proposals (RFP) to select a qualified website strategy, design, and development partner to architect, redesign, rebuild, and migrate our primary digital footprint (currently hosted on WordPress at achievementfirst.org). In tandem with this web initiative, AF is finalizing an organization-wide visual brand refresh; the new digital platform will serve as the premier public presentation of our updated brand identity.\n\nThis initiative extends beyond a routine template redesign or standalone marketing site. AF requires a unified, flexible web ecosystem structured across three interdependent tiers:\n\n * Network Website: Representing Achievement First as a unified overarching organization.\n * Regional Hubs: Providing localized information, news, and regulatory resources for state and municipal contexts.\n * School Websites (41 Connected Micro Sites): Comprehensive pages for each school location within a single governed system, designed to adapt easily as schools open, expand, or relocate.\n\n\n2. CONTEXT & OPPORTUNITY\n\nOver years of rapid network growth, AF’s current website architecture has become fragmented. Prospective and current families encounter friction when identifying local schools or navigating enrollment pathways. Prospective educators experience challenges when applying for jobs. Donors and board members should be able to find the information they need and see clear opportunities to give and advocate for AF. Crucial school-level facts are often incomplete, while duplicated network-wide content creates operational overhead and risks content obsolescence.\n\nThe redesigned platform must deliver an exceptional user experience while introducing a sustainable content management model. Non-technical network and school staff must be empowered to publish routine updates easily within defined central guardrails for brand integrity, accessibility compliance, security, and performance.\n\n\n3. PROJECT OBJECTIVES\n\n * User Experience: Deliver an intuitive, mobile-first design allowing key users to complete priority tasks rapidly.\n * Brand Cohesion: Establish a recognizable AF network brand experience while honoring distinct regional and local school identities.\n * Robust Local Sites: Provide each of the 41 schools with a connected robust, functional site rather than a basic landing page.\n * Streamlined Publishing: Enable intuitive content management for non-technical users across network, regional, and school levels.\n * Governance & Workflows: Implement role-based permissions, editorial review workflows, content expiration rules, and structured approval paths.\n * Single-Source Content: Utilize structured data models so shared school and regional attributes are updated once and rendered consistently across the ecosystem.\n * Strategic Goals Support: Drive measurable conversions for student enrollment, staff recruitment, family involvement, philanthropy, and advocacy, including personalized donor engagement paths tailored to interest areas and giving levels.\n * Compliance & Standards: Exceed industry benchmarks for WCAG 2.2 AA accessibility, multilingual localization, privacy, security, page speed, SEO, and Answer Engine Optimization (AEO).\n * Scalability: Build a technical architecture that expands seamlessly as new schools, integrations, or custom tools are introduced.\n\n\n4. PRIORITY AUDIENCES\n\nKey audiences include prospective and enrolled families, prospective and current staff, alumni, philanthropic partners, board members, community advocates, public school authorizers, and news media. Discovery will focus on optimizing user journeys for top-priority interactions rather than treating all pages and audiences equally.\n\nThe end-user experience must be heavily optimized for mobile devices, low-bandwidth connections, assistive technology devices, and multilingual users (primarily English and Spanish speakers).\n\n\n5. DETAILED SCOPE OF WORK\n\nThe selected vendor will lead eight primary workstreams. Vendors should outline their proposed methodology, recommended technical stack, key assumptions, trade-offs, and explicit exclusions for each stream.\n\n\n5.1 DISCOVERY, STRATEGY, & USER EXPERIENCE\n\n * Facilitate stakeholder alignment on goals, KPIs, audience prioritization, governance, and risk mitigation.\n * Perform comprehensive technical, content, SEO, accessibility, and analytics audits of the existing web footprint.\n * Conduct user research with key demographics including multilingual families, staff, and mobile users.\n * Develop information architecture, user flows, navigation structures, and search strategies.\n * Produce and usability-test interactive prototypes and responsive wireframes prior to front-end engineering.\n\n\n5.2 VISUAL DESIGN & BRAND SYSTEM\n\n * Translate AF’s refreshed visual brand guidelines into an engaging, modern, and accessible digital design system.\n * Create responsive page designs across mobile, tablet, and desktop breakpoints for all tier templates.\n * Build a component-based design library enabling modular page creation without breaking layout rules.\n * Partner with AF’s internal design team and hand off fully documented Figma or equivalent design assets.\n\n\n5.3 MULTI-TIER ARCHITECTURE & ECOSYSTEM STRUCTURE\n\nThe architecture must seamlessly support three connected tiers while maintaining central governance and eliminating redundant data entry:\n\n \n\nEcosystem Tier Scope & Functional Capabilities Network Level Overall mission, educational model, organizational stories, network leadership and boards, careers/recruitment, giving/philanthropy, press releases, and network-wide compliance resources. Regional Hubs Region-specific directory of schools, state and city enrollment guidelines, regional leadership, news, community partnerships, public notices, localized events, and targeted emergency alerts. 41 School Pages Dedicated pages for each school featuring local navigation, school leadership, academic programming, enrollment steps, school-level volunteer sign-up and management workflows, calendars, family portals, local news, and school geography and contact information.\n\nThe platform must allow AF administrators to provision, reconfigure, or archive school sites effortlessly as the network evolves, without requiring software developer intervention.\n\n\n5.4 CONTENT STRATEGY, MIGRATION, & GOVERNANCE\n\n * Audit legacy web content, documents, media assets, active forms, and URL redirect patterns.\n * Develop a content migration strategy identifying content for retention, rewriting, consolidation, or archiving.\n * Define content taxonomies, structured fields, editorial ownership models, and review intervals.\n * Execute migration and QA for all approved network content, regional hubs, and all 41 school websites.\n * Configure granular role-based permissions (central admin, regional editor, school publisher) with approval workflows.\n * Enable cascading content distribution (e.g., syndicate a network update to all schools or specific regions).\n * Implement an organized document library for required school policies, forms, and regulatory disclosures.\n\n\n5.5 CORE FUNCTIONALITY & TECHNICAL INTEGRATIONS\n\n * Find a School & Volunteer Portal: Interactive map and list interface with geolocation, grade-level filtering, school tour videos embedded, direct enrollment routing, and localized volunteer sign-up capabilities across individual school sites.\n * Site Search: Indexed global and scoped search across pages, documents, news, and school profiles with facet filters.\n * Forms & System Integration: Embed web forms connected to key third-party platforms (SchoolMint, HubSpot, Greenhouse, etc.).\n * Alert Banners: Targeted notification banners for emergency closures or notices at network, regional, or school levels.\n * Enhanced Funder & Donor Experience: Sophisticated, tiered donor pathways going beyond a single landing page to present customized content, impact stories, high-impact video storytelling capabilities, digital Annual Report (AR) vision integration, and engagement opportunities based on donor interest areas and giving levels.\n * Technical SEO & Answer Engine Optimization (AEO): Structured schema markup, XML sitemaps, semantic tags, automated redirect handling, and AEO strategies to optimize content discovery across AI search engines and conversational assistants.\n * Analytics & Tracking: Google Tag Manager & GA4 setup supporting rollup and property-level event/conversion reporting, including custom GA4 reports and event tracking dashboards tailored to core functional areas such as student enrollment and talent recruitment.\n\nCurrent and anticipated integrations include SchoolMint/HubSpot (Enrollment CRM), Greenhouse (Careers), Salesforce & Fundraise Up (Fundraising), ParentSquare, Infinite Campus, Google Maps API, and Google Analytics. Vendors should detail experience integrating these or similar systems.\n\n\n5.6 ACCESSIBILITY, LOCALIZATION, & WEB PERFORMANCE\n\n * WCAG 2.2 AA Compliance: Full adherence to WCAG 2.2 Level AA standards verified via automated tools and manual screen-reader/keyboard testing.\n * Multilingual Architecture: Seamless multi-language framework supporting human translations, intuitive language selectors, and localized metadata.\n * Document Accessibility: Strategy for handling non-compliant legacy PDFs/documents, identifying core scope vs. optional remediation.\n * Core Web Vitals Performance: Target mobile metrics at the 75th percentile: LCP ≤ 2.5s, INP ≤ 200ms, CLS ≤ 0.1.\n * Lighthouse Benchmarks: Target scores of 90+ across Performance, Accessibility, Best Practices, and SEO for key page templates.\n\n\n5.7 PLATFORM, ARCHITECTURE, & SECURITY\n\n * CMS Selection: Recommend a modern, secure CMS (e.g., Enterprise WordPress, WordPress Multisite, Drupal, or Headless solution) suitable for non-profit scale.\n * Editing Experience: Structured block-based authoring experience preventing accidental layout breaking or accessibility non-compliance.\n * Security Protocols: Role-based access controls, SSO/MFA/SCIM capability, SSL, automated backups (vendor must specify backup frequency, retention period, and storage location [on-platform vs. offsite/geo-redundant]; minimum requirements include daily automated backups across all 41 school sites plus network and regional tiers, 30-day retention minimum, Recovery Point Objective [RPO] of 24 hours or less, and Recovery Time Objective [RTO] of 8 hours or less for full platform restore; vendor must describe restore process and confirm testing), vulnerability scanning, and DDoS protection.\n * Environments & Deployment: Isolated Dev, Staging, and Production environments with Git-based CI/CD deployment workflows.\n * Full Owne",
+      "source_status": "fetched",
+      "source_reason": null,
+      "observed_links": 26
+    },
+    {
+      "key": "60f572a6f5722c5b770f0ba5bb6ae4cc67a385f808b0d50072bbb91d05ef990e",
+      "kind": "document",
+      "input": {
+        "url": "https://www.saugatuckcity.com/uploads/1/3/3/9/133977444/city_of_saugatuck_website_rfp_2026.pdf",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": [],
+      "feeds": null,
+      "sitemaps": [
+        {
+          "url": "https://www.saugatuckcity.com/sitemap.xml",
+          "text": "Site-advertised sitemap"
+        }
+      ],
+      "retrieved_url": "https://www.saugatuckcity.com/uploads/1/3/3/9/133977444/city_of_saugatuck_website_rfp_2026.pdf",
+      "capture": {
+        "bytes": 328894,
+        "method": "http",
+        "parser": "public-pdf-v1",
+        "complete": true,
+        "requests": 2
+      },
+      "captured_text": "[Page 1]\nCITY OF SAUGATUCK | WEBSITE REDESIGN & DEVELOPMENT RFP \nCITY OF SAUGATUCK   • 1 \nRequest for Proposal: \nWebsite Redesign & Development \nCity Clerk’s Office: \n102 Butler Street, PO Box 86, Saugatuck, MI 49453 \nProposals Due: \nOctober 29, 2026, 5:00 p.m. Eastern Time\n\n[Page 2]\nCITY OF SAUGATUCK | WEBSITE REDESIGN & DEVELOPMENT RFP \nCITY OF SAUGATUCK   • 2 \nINTRODUCTION \nThe City of Saugatuck is a small but highly active waterfront community whose digital audience\nextends well beyond its year-round population of approximately 865 residents. Covering\napproximately 1.47 square miles with 11.5 miles of roads, the City serves a diverse audience of\nresidents, property owners, businesses, seasonal residents, voters, applicants, and visitors.\nSaugatuck maintains approximately 500 acres of parks, natural areas, and recreational spaces,\nincluding nationally recognized Oval Beach, Mt. Baldhead Park, the 173-acre Saugatuck Harbor\nNatural Area, the approximately 169-acre Saugatuck Wilds Nature Preserve, and numerous\ncommunity parks and public spaces such as Coghlin Park, Wicks Park, Jones Park, Cook Park,\nWillow Park, Peterson Preserve, and Village Square Park. These facilities, along with the City's\nactive calendar of events and seasonal activities, make the City website an essential resource\nfor communicating municipal services, recreational opportunities, community information, and\ntimely seasonal updates. \nSaugatuck is a nationally recognized and award-winning community known for its natural beauty,\narts, culture, waterfront, distinctive character, and celebration of human diversity. The City's\nwebsite must effectively serve both its local community and its significant seasonal and visitor\naudiences through mobile-friendly design, intuitive and task-based navigation, accessible online\nservices, effective search capabilities, and timely information. Through this project, the City\nseeks more than a functional municipal website—it seeks an innovative, engaging, accessible,\nand memorable digital experience that reflects the unique character of Saugatuck and provides\nan exceptional level of service to everyone who interacts with the City. Simply stated, the City\nwants a website as exceptional as Saugatuck itself. \nPROJECT BACKGROUND AND OVERVIEW \nThe City of Saugatuck's current website was redesigned in 2021 using a general-purpose\nwebsite-building platform that has allowed City staff to independently create, publish, and\nmaintain a substantial amount of municipal information. As the City's digital presence has\ngrown, so have the volume and complexity of documents, meeting records, forms, public\nnotices, seasonal information, and online services that must be organized and maintained. \nThe City seeks an experienced municipal website partner to plan, design, develop, migrate,\nimplement, host, secure, and provide ongoing support and maintenance for saugatuckcity.com.\nThe selected firm will work collaboratively with City staff to evaluate existing content and develop\nan improved information architecture, modern design, and enhanced functionality. The new\nwebsite must be responsive, accessible, secure, intuitive, visually engaging, and easy for City\nstaff to manage. \nThe website should effectively serve the City's diverse audiences, including residents and\nseasonal residents; property owners; visitors; businesses; elected and appointed officials;\nboards and committees; community organizations; media; contractors; permit and license\napplicants; and others seeking City services and information. The website should emphasize\nuser-centered and task-based navigation, allowing users to quickly find services, forms, public\n\n[Page 3]\nCITY OF SAUGATUCK | WEBSITE REDESIGN & DEVELOPMENT RFP \nCITY OF SAUGATUCK   • 3 \nrecords, meetings, alerts, and other information without needing to understand the City's\norganizational structure. \nThe selected firm will be expected to improve upon—not simply replicate—the existing website.\nThe City welcomes professional recommendations that reduce repetitive staff maintenance,\nimprove search and document management, enhance accessibility and mobile usability,\nsupport online services and future integrations, and incorporate best practices for modern\nmunicipal websites. The City seeks a long-term digital partner capable of delivering a flexible and\nscalable website that can evolve with the City's future needs. \nCURRENT WEBSITE CHALLENGES \nOver time, the City's website has grown to include a significant amount of information, resulting\nin a complex navigation structure with multiple levels of menus, submenus, departments,\nboards, committees, and year-specific pages. Much of the current navigation is organized\naround the City's organizational structure rather than the tasks users are trying to accomplish.\nThis can require users to know which department, board, or commission is responsible for a\nservice before locating the information they need. Long, information-heavy pages and a\nhomepage containing numerous competing priorities can also make frequently requested\ninformation more difficult to identify quickly. \nThe growing volume of City records presents additional challenges. Years of agendas, packets,\nminutes, videos, forms, plans, reports, ordinances, budgets, and other documents are\nmaintained across individual webpages, links, and annual archives. Forms and applications are\nalso available through a combination of PDFs, City-hosted forms, external forms, and third-party\nresources. As this content continues to grow, improved site-wide search, centralized document\nmanagement, and a more organized approach to forms and public records are increasingly\nimportant. \nThe current structure also requires considerable manual maintenance by City staff. Meeting\nrecords, seasonal information, schedules, election information, annual documents, and other\ntime-sensitive content require frequent updates. Information appearing in multiple locations\nmay need to be updated separately rather than entered once and automatically displayed\nwherever appropriate. The redesign provides an opportunity to inventory, consolidate, archive,\nand reorganize existing content while reducing repetitive administrative tasks. \nFinally, the City's digital needs have evolved beyond those of a general-purpose website\nplatform. The website must effectively serve year-round and seasonal residents, property\nowners, businesses, visitors, applicants, voters, meeting participants, and other users with\nvarying needs and devices. The new website presents an opportunity to improve mobile usability,\naccessibility, search functionality, content management, automation, integrations, and online\nservices while providing a more flexible municipal platform capable of supporting the City's\nfuture needs.\n\n[Page 4]\nCITY OF SAUGATUCK | WEBSITE REDESIGN & DEVELOPMENT RFP \nCITY OF SAUGATUCK   • 4 \nNEW WEBSITE OBJECTIVES AND REQUIRED CAPABILITIES \n•   Intuitive, User-Centered Navigation : Create a simplified information architecture based on\nwhat users are trying to accomplish rather than requiring users to understand the City's\norganizational structure. Provide task-based navigation and clear pathways to frequently\nrequested information, services, forms, and documents. \n•   Responsive Design, Performance, and Mobile Accessibility:   Provide a fully responsive\nwebsite optimized for current major browsers and common desktop, tablet, and mobile\ndevices. Optimize photographs, graphics, video, and other media to maintain visual quality\nwhile providing fast page loading and strong website performance. \n•   Distinctive Saugatuck Design:   Create a modern, visually engaging digital presence that\nreflects Saugatuck's unique character, natural resources, waterfront, arts, culture, and\ncommunity identity. The City seeks a website that is not only functional but as exceptional as\nthe community it represents. \n•   Accessibility:   Conform to WCAG 2.1 Level AA and applicable ADA requirements. Conduct\naccessibility testing, address identified issues, provide remediation documentation, and\nprovide guidance and training to help City staff maintain accessibility after launch. \n•   Content Management System (CMS) and Efficient Administration : Provide a secure,\nintuitive CMS that allows authorized City staff to create, edit, schedule, publish, archive, and\nmanage content without HTML or specialized technical knowledge. The CMS should support\nrole-based permissions, workflows, audit logs, version history, rollback capabilities, and\nmultiple editors. Content should be structured so information can be entered once and\ndisplayed automatically in appropriate areas of the website, reducing repetitive staff\nmaintenance. \n•   Centralized Meeting and Calendar Management:   Provide a unified calendar filterable by\ndepartment, board, commission, committee, event type, or other category. Meeting\nfunctionality should support agendas, packets, minutes, notices, video links, recurring\nmeetings, and automated organization and archiving of meeting records. \n•   Advanced Site and Document Search:   Provide fast, accurate, intuitive site-wide search\ncapable of indexing webpages, PDFs, forms, meeting records, and other approved content.\nSearch functionality should appropriately manage archived, expired, or removed content in\naccordance with City requirements. \n•   Centralized Document and Media Management:   Provide centralized libraries for\ndocuments, photographs, graphics, video, and other media with logical organization,\nmetadata, accessibility support, bulk-management capabilities, and tools for identifying\nbroken links. \n•   Forms and Online Services:   Provide a centralized Forms & Applications Center supporting\ndownloadable and fillable forms, secure online forms and surveys, file uploads, confirmation\nnotifications, exportable data, and department-specific workflows where approved by the\nCity. The vendor should identify how sensitive information submitted through online forms\nwill be protected.\n\n[Page 5]\nCITY OF SAUGATUCK | WEBSITE REDESIGN & DEVELOPMENT RFP \nCITY OF SAUGATUCK   • 5 \n•   Online Payment Services:   Provide a secure, mobile-friendly payment portal or integration\nallowing users to conveniently make online payments for applicable City services, permits,\nfees, taxes, recreation, and other charges. The solution should integrate with existing or\nfuture City payment providers, provide payment confirmations, and clearly identify\ntransaction fees, third-party fees, and recurring costs. \n•   News, Public Notices, Alerts, and Subscriptions:   Provide a structured system for\npublishing City news, public notices, emergency or priority alerts, and other time-sensitive\ninformation. Support scheduling and expiration of content and provide or integrate opt-in\nemail and SMS notifications, newsletter distribution, list management, reusable templates,\nconsent controls, and unsubscribe/opt-out management. All associated third-party and\nrecurring costs should be clearly identified. \n•   Department and Staff Information:   Provide standardized department profiles containing\nservices, staff contacts, telephone numbers, frequently asked questions, forms, and related\nresources. Staff and contact information should be centrally managed whenever possible so\nupdates automatically appear throughout the website. \n•   Third-Party Integrations:   Support current and future integration or embedding of City\nsystems and services, including GIS and mapping, social media, ordinances, parcel and tax\nrecords, recreation software, shared calendars, video, and other approved third-party\napplications. The solution should be flexible enough to accommodate additional integrations\nas City needs evolve. \n•   Secure Managed Hosting:   Provide secure managed hosting and appropriate protection\nagainst spam, bots, harvesting, and common website abuse. Services should include\nSSL/TLS, monitoring, backups, disaster recovery, incident response, software patching,\nvulnerability management, up",
+      "source_status": "fetched",
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "c61a78a870d3b8b9113b1d5a01d2ec0ac8cf4949d49165a409cc428fbea29558",
+      "kind": "document",
+      "input": {
+        "url": "https://www.instagram.com/p/DeZUIC5BGCm/",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": [
+        {
+          "url": "https://www.instagram.com/sitemap/ig_places_sitemap.xml.gz",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.instagram.com/sitemap/ig_seo_profile_sitemap.xml.gz",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.instagram.com/sitemap/ig_seo_profile_sitemap_non_media_eligible.xml.gz",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.instagram.com/sitemap/dim_ig_logged_out_web_keyword_ent.xml.gz",
+          "text": "Site-advertised sitemap"
+        }
+      ],
+      "retrieved_url": null,
+      "capture": {
+        "bytes": 6260,
+        "method": "http",
+        "complete": false,
+        "requests": 1
+      },
+      "captured_text": null,
+      "source_status": "access_limited",
+      "source_reason": "crawl_policy_denied",
+      "observed_links": 0
+    }
+  ],
+  "decisions": [
+    {
+      "round": 0,
+      "reason": "check_promising_result",
+      "action": {
+        "url": "https://www.achievementfirst.org/request-for-proposals-website-redesign-ecosystem-development/",
+        "kind": "document"
+      },
+      "depth": 0,
+      "parent_key": "38d65d9f0278696ebb16616bceee0307f54ada6dcf1311ce7817170e5f4f9374"
+    },
+    {
+      "round": 1,
+      "reason": "check_promising_result",
+      "action": {
+        "url": "https://www.saugatuckcity.com/uploads/1/3/3/9/133977444/city_of_saugatuck_website_rfp_2026.pdf",
+        "kind": "document"
+      },
+      "depth": 0,
+      "parent_key": "38d65d9f0278696ebb16616bceee0307f54ada6dcf1311ce7817170e5f4f9374"
+    },
+    {
+      "round": 2,
+      "reason": "check_promising_result",
+      "action": {
+        "url": "https://www.instagram.com/p/DeZUIC5BGCm/",
+        "kind": "document"
+      },
+      "depth": 0,
+      "parent_key": "38d65d9f0278696ebb16616bceee0307f54ada6dcf1311ce7817170e5f4f9374"
+    },
+    {
+      "round": 3,
+      "reason": "exploration_limit",
+      "action": null,
+      "depth": 0,
+      "parent_key": null
+    }
+  ],
+  "case": {
+    "id": "98d93247-c8fe-43f4-8f46-3550c9f9568c",
+    "scoutId": "15b3f3fe-4dc0-46b6-aa15-ba1133d1acba",
+    "scoutName": "Synthetic service-request scout",
+    "scoutVersion": 1,
+    "provider": "serper",
+    "strategy": null,
+    "exploration": [
+      {
+        "kind": "document",
+        "reason": "check_promising_result",
+        "target": "https://www.achievementfirst.org/request-for-proposals-website-redesign-ecosystem-development/"
+      },
+      {
+        "kind": "document",
+        "reason": "check_promising_result",
+        "target": "https://www.saugatuckcity.com/uploads/1/3/3/9/133977444/city_of_saugatuck_website_rfp_2026.pdf"
+      },
+      {
+        "kind": "document",
+        "reason": "check_promising_result",
+        "target": "https://www.instagram.com/p/DeZUIC5BGCm/"
+      },
+      {
+        "kind": null,
+        "reason": "exploration_limit",
+        "target": null
+      }
+    ],
+    "reviewStatus": null,
+    "reviewReason": null,
+    "status": "partial",
+    "reason": "some_sources_unavailable",
+    "startedAt": "2026-10-28 14:03:39.180639+00",
+    "finishedAt": "2026-10-28 14:04:32.585568+00",
+    "searchesCompleted": 4,
+    "documentsChecked": 6,
+    "leadCount": 28
+  },
+  "usage": [
+    {
+      "provider": "public-documents",
+      "requests": 6,
+      "reserved_micros": "0"
+    },
+    {
+      "provider": "serper",
+      "requests": 4,
+      "reserved_micros": "40000"
+    }
+  ],
+  "aiBudget": [],
+  "dashboardLeadSampleSize": 28,
+  "leads": [
+    {
+      "url": "https://3my.org/website-redesign-rfp/",
+      "title": "Website Redesign RFP: A One-Page Brief for Small Business",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://berkeleyca.gov/sites/default/files/2026-10-13%20Item%2006%20Contract%20No.%2031900122-1%20Amendment.pdf",
+      "title": "Contract No. 31900122-1 Amendment: Rolling Orange, Inc. ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://joinactivecare.trs.texas.gov/files/migrated/trs_solicitation_calendar.pdf",
+      "title": "TRS Upcoming Solicitations",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://pixelgravitas.com/resources/website-redesign-rfp-template/",
+      "title": "Website Redesign RFP Template + Example (Free)",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://thegigresource.com/website-redesign-request-for-proposal/",
+      "title": "Website Redesign RFP Template: How to Brief a Designer or ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://upscalemethod.com/wp-content/uploads/2026/10/New-Opportunity-5k-Budget-City-of-Tustin-California-Seeks-Agency-for-Graphic-Design-Branding-Website-Design-Services.2.pdf",
+      "title": "City of Tustin, California Seeks Agency for Graphic Design, ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://woodburyct.govoffice3.com/vertical/Sites/%7B59751637-3DF2-41D3-B20A-866E470B1D1D%7D/uploads/8-26-26_Bd_of_Finance_Minutes.pdf",
+      "title": "Board of Finance - Woodbury, CT",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.achievementfirst.org/request-for-proposals-website-redesign-ecosystem-development/",
+      "title": "Request for Proposals: Website Redesign & Ecosystem ...",
+      "contentStatus": "fetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.aura-astronomy.org/wp-content/uploads/2026/10/N00061838C_RFP_Website-Redesign.v5.pdf",
+      "title": "instructions to offerors",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.aura-astronomy.org/wp-content/uploads/2026/10/QA-Addendum_NSO-Website-Redesign-RFP-N00061838C11_10.13.26.pdf",
+      "title": "Vendor Questions Tracker 10.13.26.xlsx",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.camtranbus.com/wp-content/uploads/RFP-26-05-Website-Redesign-Development-Hosting-and-Support-Service.pdf",
+      "title": "Request for Proposal",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.ifactory.com/insights/website-redesign-rfp-guide/",
+      "title": "The Ultimate Guide to Crafting Effective Website Redesign RFPs",
+      "contentStatus": "fetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.instagram.com/p/DeZUIC5BGCm/",
+      "title": "📢 Request for Proposal (RFP) - Website Development We ...",
+      "contentStatus": "access_limited",
+      "contentReason": "crawl_policy_denied",
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.linkedin.com/posts/247digitalmarketingagency_webdesign-websiteredesign-rfp-activity-7515406513205805056-fBgp",
+      "title": "Website Redesign RFP Essentials: Goals, Scope, and ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.linnmar.k12.ia.us/wp-content/uploads/2026/10/Website-RFP-Vendor-Questions-Response.pdf",
+      "title": "Website RFP - Vendor Questions Response",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.saugatuckcity.com/uploads/1/3/3/9/133977444/city_of_saugatuck_website_rfp_2026.pdf",
+      "title": "City of Saugatuck Website Redesign & Development RFP",
+      "contentStatus": "fetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.wavetransit.com/wp-content/uploads/2026/10/Wave_Transit_Website_RFPPub10.1.26.pdf",
+      "title": "Cape Fear Public Transportation Authority (dba ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.workana.com/en/job/expert-wix-studio-website-design-review-and-responsive-optimization",
+      "title": "Expert wix studio website design review and...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.workana.com/en/job/jesus-galaviz-healthcare-dental-company-website-redesign-for-enhanced-user-experience-and-lead-generation",
+      "title": "Jesus galaviz healthcare dental company... - Freelance Job in ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.workana.com/en/job/website-redesign-and-optimization-for-us-telecom-smart-hands-provider-bilingual-en-pt",
+      "title": "Website redesign and optimization for us... - Freelance Job in ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.workana.com/job/complete-branding-and-responsive-website-design-for-manufacturing-company",
+      "title": "Complete Branding and Responsive Website Design ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.workana.com/job/design-of-a-website-for-a-childrens-9?ref=projects_1",
+      "title": "Design of a website for a childrens 9 - Freelance Job in ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.workana.com/job/expert-branding-ux-ui-and-responsive-web-design-for-new-business-launch",
+      "title": "Expert Branding, Ux/Ui, and Responsive Web Design for New ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.workana.com/job/expert-web-designer-needed-for-enterprise-b2b-website-redesign-and-enhanced-ux",
+      "title": "Expert web designer needed for enterprise b2b...",
+      "contentStatus": "fetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.workana.com/job/healthcare-dental-company-website-redesign-for-enhanced-user-experience-and-lead-generation",
+      "title": "Healthcare dental company website redesign for...",
+      "contentStatus": "fetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.workana.com/job/professional-restaurant-website-design-and-development-1?ref=projects_1",
+      "title": "Professional Restaurant Website Design and Development",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.workana.com/job/web-redesign-y-logo?ref=projects_1",
+      "title": "Web redesign y logo - Freelance Job in Web design",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.youtube.com/shorts/na1fc3mVlo0",
+      "title": "Website redesign RFP: what agencies check first",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    }
+  ],
+  "publication": [],
+  "checks": [
+    "deterministic live capture; AI review and recommendations not tested",
+    "bounded provider and model admission",
+    "observed parent provenance",
+    "current owner isolation",
+    "terminal replay without new spending"
+  ],
+  "emailsSent": 0,
+  "realAccountsUsed": 0,
+  "scopeNote": "AI is explicitly disabled: this measures live source discovery and capture, not source interpretation or recommendation quality. Bounded live synthetic case using production discovery, review, assessment and delivery use cases. Worker reader includes configured browser fallback and Ashby routing without shared Redis caching; HTTP reader is a controlled reduced-access path. Native X and marketplace connector loops are not exercised. All lead rows are measured separately from the dashboard's bounded sample. Matching can remain incomplete if retries exceed the check window. Model labels are not independent ground truth; precision, recall and global throughput remain unproven.",
+  "stages": {
+    "scenario": "services",
+    "executionStatus": "captured_without_ai",
+    "successfulSearches": 4,
+    "failedSearches": 0,
+    "renderingEnabled": true,
+    "durationSeconds": 53.696,
+    "uniqueLeads": 28,
+    "recordedLeads": 28,
+    "completeLeadSet": true,
+    "searchRequests": 4,
+    "documentRequests": 6,
+    "capturedDocuments": 5,
+    "completeCaptures": 5,
+    "inaccessibleDocuments": 1,
+    "repeatedDestinations": 0,
+    "sourceReviewLabels": {},
+    "sourceReviewCountsAreComplete": true,
+    "promotedPostings": 0,
+    "matching": "not_tested_ai_disabled",
+    "completedFitAssessments": 0,
+    "dashboardRecommendations": 0,
+    "acceptedEmails": 0,
+    "aiEstimatedUsd": 0,
+    "attemptsWithoutCostEstimate": 0,
+    "searchReservedUsd": 0.04,
+    "aiReservedUsd": 0,
+    "estimatedAiPlusSearchReservationPerRecommendationUsd": null,
+    "independentlyUsefulResults": null,
+    "costPerIndependentlyUsefulResultUsd": null,
+    "precision": null,
+    "recall": null,
+    "limitations": "AI estimates exclude unpriced/failed attempts, infrastructure and billing adjustments. Search reservations are configured upper allowances, not invoices. Source labels and dashboard acceptance are not independent usefulness judgments. Distinct URLs may still describe the same opportunity; repeatedDestinations detects only observed redirect identity. Initial reports recorded a dashboard sample, not every source review."
+  }
+}

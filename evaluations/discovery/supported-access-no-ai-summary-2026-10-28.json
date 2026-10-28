@@ -1,0 +1,131 @@
+{
+  "checkedAt": "2026-10-28T14:14:48.801Z",
+  "scope": "Available non-AI checks requested after the failed model preflight. Synthetic users and isolated scoutalert_test schemas; fixture delivery uses local Mailpit only. No model calls after the user requested checks without AI.",
+  "status": "non_ai_checks_passed_pdf_persistence_repaired_ai_validation_blocked",
+  "earlierPreflight": {
+    "receipt": "supported-access-preflight-2026-10-28.json",
+    "modelAttempts": 1,
+    "result": "429 credit_balance_exhausted",
+    "localDatabase": "passed",
+    "mailpitHttpStatus": 200,
+    "chromiumLaunch": "passed",
+    "separateSerperRequests": 1
+  },
+  "liveCaptureRuns": [
+    {
+      "scenario": "projects",
+      "receipt": "supported-access-projects-capture-only-2026-10-28.json",
+      "searchRequests": 4,
+      "leads": 16,
+      "sourceReads": 6,
+      "completeCaptures": 3,
+      "incompleteCaptures": 2,
+      "failedOperations": 1,
+      "searchReservedUsd": 0.04,
+      "modelCalls": 0,
+      "recommendations": 0,
+      "emails": 0,
+      "ownerIsolation": "passed",
+      "terminalReplay": "passed"
+    },
+    {
+      "scenario": "services",
+      "receipt": "supported-access-services-capture-only-2026-10-28.json",
+      "searchRequests": 4,
+      "leads": 28,
+      "sourceReads": 6,
+      "completeCaptures": 5,
+      "incompleteCaptures": 1,
+      "failedOperations": 0,
+      "searchReservedUsd": 0.04,
+      "modelCalls": 0,
+      "recommendations": 0,
+      "emails": 0,
+      "ownerIsolation": "passed",
+      "terminalReplay": "passed"
+    }
+  ],
+  "budget": {
+    "liveCaptureSerperRequests": 8,
+    "liveCaptureSearchReservedUsd": 0.08,
+    "modelCallsAfterNonAiInstruction": 0,
+    "modelReservedUsd": 0,
+    "note": "Configured search reservations, not provider invoices. Excludes earlier preflight and ordinary worker activity."
+  },
+  "pdfRepair": {
+    "priorDiagnostic": "supported-access-pdf-diagnostic-2026-10-28.json",
+    "recaptureReceipt": "supported-access-pdf-recapture-2026-10-28.json",
+    "source": "https://www.itgenius.co.th/assets/frondend/instructor_profile/Ajarn-Kongnakorn-Jantakun-profile-y8dp00a8.pdf",
+    "oldNullCharacters": 23,
+    "persistedCharacters": 4635,
+    "persistedReplacementMarkers": 23,
+    "remainingNullCharacters": 0,
+    "operationState": "succeeded",
+    "sourceStatus": "access_limited",
+    "reason": "source_pdf_invalid",
+    "captureComplete": false,
+    "promoted": false,
+    "parser": "public-pdf-v2",
+    "sharedDocumentIdentity": "public-document-v11",
+    "searchProviderCalls": 0,
+    "modelCalls": 0,
+    "observedSitemapReads": 2,
+    "note": "Seeded recapture follows the original URL and observed sitemap links. Six recorded search operations make no search-provider requests. No new discovery or usefulness measurement."
+  },
+  "fixtureFlow": {
+    "receipt": "supported-access-fallback-fixture-2026-10-28.json",
+    "beforePdfRepair": true,
+    "scenarios": [
+      {
+        "scenario": "projects",
+        "recommendations": 1,
+        "localEmails": 1,
+        "duplicateEmails": 0,
+        "planningUnavailable": true
+      },
+      {
+        "scenario": "services",
+        "recommendations": 1,
+        "localEmails": 1,
+        "duplicateEmails": 0,
+        "planningUnavailable": true
+      }
+    ],
+    "note": "Search, HTTP and review/fit responses are authored; persistence, orchestration and local delivery are real. This is not live recommendation-quality validation."
+  },
+  "verification": {
+    "beforeRepairSourceBrowserPlanning": {
+      "passed": 95,
+      "files": 7,
+      "actualChromiumChecks": 9
+    },
+    "afterRepairPdfBlueskyPlanning": {
+      "passed": 31,
+      "files": 3
+    },
+    "afterRepairDatabase": {
+      "passed": 57,
+      "files": 3
+    },
+    "reportSummaryTests": {
+      "passed": 3
+    },
+    "builds": ["core (preflight)", "adapters", "worker"],
+    "architecture": "passed",
+    "diffWhitespace": "passed",
+    "note": "Test counts overlap; do not add them as unique tests."
+  },
+  "limitations": [
+    "AI planning, source review, private fit, and live recommendation quality remain untested after the recorded provider-credit failure.",
+    "Project captures include employment/recruitment pages and incomplete directory/profile reads; useful client project demand is unproven.",
+    "Complete service captures do not establish current availability or private fit.",
+    "Upwork, Guru and approved Facebook/LinkedIn access requirements are unchanged; native X was not revalidated in this increment."
+  ],
+  "changes": {
+    "applicationCode": "PDF null-glyph handling, parser/shared-document versions, regression coverage and documentation",
+    "environmentOrBudgetEdited": false,
+    "workerRestarted": false,
+    "committed": false,
+    "pushed": false
+  }
+}
