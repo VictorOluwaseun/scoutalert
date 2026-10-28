@@ -1,10 +1,23 @@
-/** Builds a small authored PDF with real cross-reference offsets for parser tests, without any network or external generator. */
-export function fixturePdf(pages: string[], link?: string): Uint8Array {
+/** Builds an authored PDF with valid offsets; an optional font map reproduces real PDFs that decode a visible hash glyph as U+0000. */
+export function fixturePdf(
+  pages: string[],
+  link?: string,
+  nullGlyph = false,
+): Uint8Array {
   const objects: string[] = [
     "<< /Type /Catalog /Pages 2 0 R >>",
     "",
     "<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>",
   ];
+  if (nullGlyph) {
+    const map =
+      "/CIDInit /ProcSet findresource begin 12 dict begin begincmap /CIDSystemInfo << /Registry (Adobe) /Ordering (UCS) /Supplement 0 >> def /CMapName /BrokenUnicode def /CMapType 2 def 1 begincodespacerange <00> <FF> endcodespacerange 1 beginbfchar <23> <0000> endbfchar endcmap CMapName currentdict /CMap defineresource pop end end";
+    objects[2] =
+      "<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /ToUnicode 4 0 R >>";
+    objects.push(
+      `<< /Length ${Buffer.byteLength(map)} >>\nstream\n${map}\nendstream`,
+    );
+  }
   const kids: number[] = [];
   for (const text of pages) {
     const page = objects.length + 1;

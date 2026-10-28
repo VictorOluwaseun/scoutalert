@@ -13,6 +13,8 @@ import {
   PostgresLeadReviewRepository,
   PostgresWebAvailabilitySource,
   PostgresWebDiscoveryCatalogRepository,
+  PublicHttpRepository,
+  PublicSourceDocumentRepository,
 } from "@repo/adapters/discovery";
 import {
   ActivateScout,
@@ -44,6 +46,7 @@ import {
 } from "@repo/adapters/scouting";
 import { ScoutOpportunities, EvaluateCandidates } from "@repo/core/scouting";
 import { parseFormalPosting } from "@repo/adapters/discovery";
+import { fixturePdf } from "./fixtures/pdf.js";
 
 import {
   FixtureLeadProvider,
@@ -190,6 +193,65 @@ describe.skipIf(!enabled)(
       }
       throw new Error("adaptive_fixture_did_not_settle");
     }
+
+    it("persists an unreadable PDF as incomplete instead of losing its source operation to a JSONB encoding error", async () => {
+      const request = await fixture();
+      const url = "https://pdf-null.example.org/product-design.pdf";
+      const binary = fixturePdf(
+        ["Product # designer. Remote job."],
+        undefined,
+        true,
+      );
+      const http = new PublicHttpRepository();
+      /** Serves authored PDF bytes and robots policy only; this regression makes no network request. */
+      http.read = async (target) =>
+        target.endsWith("/robots.txt")
+          ? { status: 404, contentType: "text/plain", body: "" }
+          : { status: 200, contentType: "application/pdf", body: "", binary };
+      const documents = new PublicSourceDocumentRepository(http);
+      await open(request, { ...capability, id: randomUUID() });
+      let documentKey: string | null = null;
+      for (let step = 0; step < 16; step++) {
+        const claim = await records.claim(request, limits);
+        if (claim.status !== "claimed") {
+          continue;
+        }
+        if (claim.operation.kind === "search") {
+          await records.complete(claim.key, claim.token, result(url));
+          continue;
+        }
+        await records.complete(
+          claim.key,
+          claim.token,
+          await documents.read(claim.operation.url),
+        );
+        documentKey = claim.key;
+        break;
+      }
+      expect(documentKey).not.toBeNull();
+      const operation = await sql<{
+        state: string;
+        failure: string | null;
+      }>`SELECT state,failure FROM web_discovery_operations WHERE key=${documentKey}`.execute(
+        db,
+      );
+      expect(operation.rows[0]).toEqual({ state: "succeeded", failure: null });
+      const saved = await sql<{
+        content_status: string;
+        reason: string;
+        text: string;
+        posting_id: string | null;
+      }>`SELECT content_status,document->>'reason' AS reason,document->>'text' AS text,posting_id FROM web_discovery_leads WHERE url=${url}`.execute(
+        db,
+      );
+      expect(saved.rows[0]).toMatchObject({
+        content_status: "access_limited",
+        reason: "source_pdf_invalid",
+        posting_id: null,
+      });
+      expect(saved.rows[0]!.text).toContain("Product \uFFFD designer");
+      expect(saved.rows[0]!.text).not.toContain("\u0000");
+    });
 
     it("persists a contextual source choice without admitting forged URLs or duplicate replay", async () => {
       const request = await fixture();

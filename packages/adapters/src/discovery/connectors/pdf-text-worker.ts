@@ -3,7 +3,7 @@ import { getDocument } from "pdfjs-dist/legacy/build/pdf.mjs";
 import { feedUrl } from "./document-feeds.js";
 import type { PdfTextResult } from "./pdf-text.js";
 
-/** Reads only transferred bytes; scripts, external fonts, images and linked documents are never fetched. */
+/** Reads only transferred bytes; invalid null-mapped glyphs retain replacement markers and keep the capture incomplete. No linked resources are fetched. */
 async function extract(bytes: Uint8Array): Promise<PdfTextResult> {
   const result: PdfTextResult = {
     text: "",
@@ -30,14 +30,20 @@ async function extract(bytes: Uint8Array): Promise<PdfTextResult> {
     for (let number = 1; number <= result.pages; number++) {
       const page = await document.getPage(number);
       const content = await page.getTextContent();
-      const text = content.items
+      const decoded = content.items
         .map((item) =>
           "str" in item ? `${item.str}${item.hasEOL ? "\n" : " "}` : "",
         )
         .join("")
         .trim();
+      // PDF font maps can emit U+0000, which PostgreSQL text/JSONB cannot store.
+      // Preserve its position as an unreadable glyph instead of silently joining words.
+      const text = decoded.replaceAll("\u0000", "\uFFFD");
+      if (text !== decoded) {
+        result.reason = "source_pdf_invalid";
+      }
       if (!text) {
-        result.reason = "source_pdf_ocr_required";
+        result.reason ??= "source_pdf_ocr_required";
       }
       const next = `${result.text}${result.text ? "\n\n" : ""}[Page ${number}]\n${text}`;
       if (next.length > 64_000) {

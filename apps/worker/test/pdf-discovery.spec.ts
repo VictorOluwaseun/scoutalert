@@ -33,6 +33,25 @@ class PdfHttp extends PublicHttpRepository {
 }
 
 describe("permitted PDF discovery", () => {
+  it("marks null-mapped PDF glyphs incomplete while preserving text that PostgreSQL can store", async () => {
+    const result = await new PublicSourceDocumentRepository(
+      new PdfHttp({
+        status: 200,
+        contentType: "application/pdf",
+        body: "",
+        binary: fixturePdf(["Website # redesign RFP"], undefined, true),
+      }),
+    ).read(url);
+    expect(result).toMatchObject({
+      status: "access_limited",
+      reason: "source_pdf_invalid",
+      truncated: true,
+      capture: { complete: false },
+    });
+    expect(result.text).toContain("Website \uFFFD redesign RFP");
+    expect(result.text).not.toContain("\u0000");
+  });
+
   it("extracts ordered pages and only observed public links using the real PDF parser", async () => {
     const parsed = await new PdfTextRepository().read(
       fixturePdf(
@@ -99,7 +118,7 @@ describe("permitted PDF discovery", () => {
       truncated: false,
       capture: {
         method: "http",
-        parser: "public-pdf-v1",
+        parser: "public-pdf-v2",
         requests: 2,
         bytes: binary.length,
         complete: true,
