@@ -1,0 +1,504 @@
+{
+  "checkedAt": "2026-10-29T18:32:52.391Z",
+  "scope": "Authored sources and mini baselines with live GPT-5.4 review and domain validation. Zero mini generations; not a comparative quality benchmark or fresh project/service discovery.",
+  "cases": [
+    {
+      "name": "restricted-contractor",
+      "reason": "conditional_requirements",
+      "passed": true,
+      "valid": true,
+      "accepted": false,
+      "criteria": {
+        "role": "meets",
+        "category": "meets",
+        "arrangement": "meets",
+        "location": "conflicts",
+        "experience": "meets",
+        "authorization": "unknown",
+        "compensation": "meets"
+      },
+      "fit": {
+        "criteria": [
+          {
+            "criterion": "role",
+            "status": "meets",
+            "explanation": "The requested work matches the brief target: a React/TypeScript website redesign (p0, p2; b1).",
+            "quotes": [
+              "React TypeScript website redesign",
+              "We need a React TypeScript website redesign delivered as a fixed-price project."
+            ],
+            "briefQuotes": [
+              "React TypeScript website redesign"
+            ]
+          },
+          {
+            "criterion": "category",
+            "status": "meets",
+            "explanation": "This is a project-based contractor/services request, which matches the brief category (p2; b3).",
+            "quotes": [
+              "We need a React TypeScript website redesign delivered as a fixed-price project."
+            ],
+            "briefQuotes": [
+              "services"
+            ]
+          },
+          {
+            "criterion": "arrangement",
+            "status": "meets",
+            "explanation": "The listing explicitly says the work is fully remote, matching the required remote arrangement (p3; b4).",
+            "quotes": [
+              "All work is fully remote."
+            ],
+            "briefQuotes": [
+              "remote"
+            ]
+          },
+          {
+            "criterion": "location",
+            "status": "conflicts",
+            "explanation": "Although the work is remote, the listing adds a specific residence restriction: contractors must reside in Canada. The brief says the buyer's residence/work location is Nigeria, so this conflicts (p3, p4; b5, b6).",
+            "quotes": [
+              "All work is fully remote.",
+              "Contractors must reside in Canada."
+            ],
+            "briefQuotes": [
+              "Nigeria",
+              "Nigeria"
+            ]
+          },
+          {
+            "criterion": "experience",
+            "status": "meets",
+            "explanation": "The listing requires at least 3 years building React and TypeScript websites, and the brief states 5 years of that background (p5; b7).",
+            "quotes": [
+              "At least 3 years building React and TypeScript websites is required."
+            ],
+            "briefQuotes": [
+              "5 years building React and TypeScript websites"
+            ]
+          },
+          {
+            "criterion": "authorization",
+            "status": "unknown",
+            "explanation": "No work-authorization or sponsorship terms are stated. The Canada residence requirement is a location restriction, not explicit authorization evidence (p4; b10).",
+            "quotes": [
+              "Contractors must reside in Canada."
+            ],
+            "briefQuotes": [
+              "review"
+            ]
+          },
+          {
+            "criterion": "compensation",
+            "status": "meets",
+            "explanation": "Compensation is undisclosed and will be agreed before work starts, but the brief says undisclosed pay should be included and gives no minimum pay requirement (p6; b11).",
+            "quotes": [
+              "Budget and payment terms will be agreed before work starts."
+            ],
+            "briefQuotes": [
+              "include"
+            ]
+          }
+        ]
+      },
+      "usage": {
+        "model": "gpt-5.4-2026-03-05",
+        "inputTokens": 1816,
+        "cachedInputTokens": 0,
+        "outputTokens": 939,
+        "durationMs": 11458,
+        "responseId": "resp_0064acb899916e28016ae3911c821087d2ab36de468f9fadfc"
+      }
+    },
+    {
+      "name": "eligible-contractor",
+      "reason": "conditional_requirements",
+      "passed": true,
+      "valid": true,
+      "accepted": true,
+      "criteria": {
+        "role": "meets",
+        "category": "meets",
+        "arrangement": "meets",
+        "location": "meets",
+        "experience": "meets",
+        "authorization": "unknown",
+        "compensation": "unknown"
+      },
+      "fit": {
+        "criteria": [
+          {
+            "criterion": "role",
+            "status": "meets",
+            "explanation": "The listing directly matches the target role in b1: it is a React TypeScript website redesign project (p0, p2, b1).",
+            "quotes": [
+              "React TypeScript website redesign",
+              "We need a React TypeScript website redesign delivered as a fixed-price project."
+            ],
+            "briefQuotes": [
+              "React TypeScript website redesign"
+            ]
+          },
+          {
+            "criterion": "category",
+            "status": "meets",
+            "explanation": "A fixed-price website redesign project is a services engagement, which matches the brief category in b3 (p2, b3).",
+            "quotes": [
+              "We need a React TypeScript website redesign delivered as a fixed-price project."
+            ],
+            "briefQuotes": [
+              "services"
+            ]
+          },
+          {
+            "criterion": "arrangement",
+            "status": "meets",
+            "explanation": "The brief requires remote work in b4, and the listing states all work is fully remote in p3.",
+            "quotes": [
+              "All work is fully remote."
+            ],
+            "briefQuotes": [
+              "remote"
+            ]
+          },
+          {
+            "criterion": "location",
+            "status": "meets",
+            "explanation": "The contractor residence restriction matches the brief's Nigeria requirement. The controlling eligibility statement is that contractors must reside in Nigeria (p4), which aligns with b5 and b6.",
+            "quotes": [
+              "Contractors must reside in Nigeria."
+            ],
+            "briefQuotes": [
+              "Nigeria",
+              "Nigeria"
+            ]
+          },
+          {
+            "criterion": "experience",
+            "status": "meets",
+            "explanation": "The listing requires at least 3 years of React and TypeScript website experience in p5, and the brief states 5 years in b7, so the requirement is satisfied.",
+            "quotes": [
+              "At least 3 years building React and TypeScript websites is required."
+            ],
+            "briefQuotes": [
+              "5 years building React and TypeScript websites"
+            ]
+          },
+          {
+            "criterion": "authorization",
+            "status": "unknown",
+            "explanation": "The source gives a residence restriction in p4 but does not state work authorization or sponsorship terms. Residence is not the same as authorization, so eligibility on this criterion remains unknown (p4, b10).",
+            "quotes": [
+              "Contractors must reside in Nigeria."
+            ],
+            "briefQuotes": [
+              "review"
+            ]
+          },
+          {
+            "criterion": "compensation",
+            "status": "unknown",
+            "explanation": "No pay amount is disclosed; the source only says budget and payment terms will be agreed before work starts (p6). Because the brief has no minimum pay and allows undisclosed pay in b11, this is not a conflict, but compensation fit is still unknown.",
+            "quotes": [
+              "Budget and payment terms will be agreed before work starts."
+            ],
+            "briefQuotes": [
+              "include"
+            ]
+          }
+        ]
+      },
+      "usage": {
+        "model": "gpt-5.4-2026-03-05",
+        "inputTokens": 1816,
+        "cachedInputTokens": 0,
+        "outputTokens": 1952,
+        "durationMs": 24509,
+        "responseId": "resp_0d0b903d04bef035016ae39127cd5087d2afaeeed0f755f8d1"
+      }
+    },
+    {
+      "name": "unstated-remote",
+      "reason": "sample_audit",
+      "passed": true,
+      "valid": true,
+      "accepted": false,
+      "criteria": {
+        "role": "meets",
+        "category": "meets",
+        "arrangement": "unknown",
+        "location": "meets",
+        "experience": "meets",
+        "authorization": "unknown",
+        "compensation": "meets"
+      },
+      "fit": {
+        "criteria": [
+          {
+            "criterion": "role",
+            "status": "meets",
+            "explanation": "The listing role matches the brief target: a React TypeScript website redesign (p2; b1).",
+            "quotes": [
+              "We need a React TypeScript website redesign delivered as a fixed-price project."
+            ],
+            "briefQuotes": [
+              "React TypeScript website redesign"
+            ]
+          },
+          {
+            "criterion": "category",
+            "status": "meets",
+            "explanation": "This is a website redesign offered as a fixed-price project, which fits the brief's services category (p2; b3).",
+            "quotes": [
+              "We need a React TypeScript website redesign delivered as a fixed-price project."
+            ],
+            "briefQuotes": [
+              "services"
+            ]
+          },
+          {
+            "criterion": "arrangement",
+            "status": "unknown",
+            "explanation": "The source says this is a fixed-price project and is open to contractors in Nigeria, but it does not state remote work. Remote cannot be inferred, and the brief requires remote (p2, p3; b4).",
+            "quotes": [
+              "We need a React TypeScript website redesign delivered as a fixed-price project.",
+              "Open to contractors in Nigeria."
+            ],
+            "briefQuotes": [
+              "remote"
+            ]
+          },
+          {
+            "criterion": "location",
+            "status": "meets",
+            "explanation": "The listing is explicitly open to contractors in Nigeria, which matches the brief's Nigeria location/residence constraint (p3; b5, b6).",
+            "quotes": [
+              "Open to contractors in Nigeria."
+            ],
+            "briefQuotes": [
+              "Nigeria",
+              "Nigeria"
+            ]
+          },
+          {
+            "criterion": "experience",
+            "status": "meets",
+            "explanation": "The listing requires at least 3 years building React and TypeScript websites, and the brief states 5 years of that background (p4; b7).",
+            "quotes": [
+              "At least 3 years building React and TypeScript websites is required."
+            ],
+            "briefQuotes": [
+              "5 years building React and TypeScript websites"
+            ]
+          },
+          {
+            "criterion": "authorization",
+            "status": "unknown",
+            "explanation": "No source passage states work authorization or sponsorship terms. The Nigeria contractor restriction is a location filter, not authorization evidence (p3; b10).",
+            "quotes": [
+              "Open to contractors in Nigeria."
+            ],
+            "briefQuotes": [
+              "review"
+            ]
+          },
+          {
+            "criterion": "compensation",
+            "status": "meets",
+            "explanation": "Compensation is undisclosed in the listing, but the brief allows undisclosed pay and sets no minimum pay floor, so there is no shown pay conflict (p5; b11).",
+            "quotes": [
+              "Budget and payment terms will be agreed before work starts."
+            ],
+            "briefQuotes": [
+              "include"
+            ]
+          }
+        ]
+      },
+      "usage": {
+        "model": "gpt-5.4-2026-03-05",
+        "inputTokens": 1659,
+        "cachedInputTokens": 0,
+        "outputTokens": 1634,
+        "durationMs": 21168,
+        "responseId": "resp_06a2529c99d557fb016ae3914019d487d2a429d869a39059dc"
+      }
+    }
+  ],
+  "sharedTokenBudget": {
+    "before": {
+      "day": "2026-10-29",
+      "inputTokens": 2174233,
+      "outputTokens": 229615,
+      "cachedInputTokens": 703232,
+      "reservedTokens": 0,
+      "usedTokens": 2403848,
+      "dailyLimit": 2650000,
+      "remainingTokens": 246152,
+      "unknownReservations": 0,
+      "models": [
+        {
+          "day": "2026-10-29",
+          "model": "gpt-5.4",
+          "dailyLimit": 250000,
+          "inputTokens": 4408,
+          "outputTokens": 1398,
+          "cachedInputTokens": 0,
+          "usedTokens": 5806,
+          "reservedTokens": 0,
+          "remainingTokens": 244194,
+          "unknownReservations": 0,
+          "allocations": [
+            {
+              "purpose": "standard",
+              "dailyLimit": 225000,
+              "usedTokens": 5806,
+              "reservedTokens": 0,
+              "remainingTokens": 219194
+            },
+            {
+              "purpose": "audit",
+              "dailyLimit": 25000,
+              "usedTokens": 0,
+              "reservedTokens": 0,
+              "remainingTokens": 25000
+            }
+          ]
+        },
+        {
+          "day": "2026-10-29",
+          "model": "gpt-5.4-mini",
+          "dailyLimit": 2400000,
+          "inputTokens": 2169825,
+          "outputTokens": 228217,
+          "cachedInputTokens": 703232,
+          "usedTokens": 2398042,
+          "reservedTokens": 0,
+          "remainingTokens": 1958,
+          "unknownReservations": 0,
+          "allocations": [
+            {
+              "purpose": "standard",
+              "dailyLimit": 2400000,
+              "usedTokens": 2398042,
+              "reservedTokens": 0,
+              "remainingTokens": 1958
+            },
+            {
+              "purpose": "audit",
+              "dailyLimit": 0,
+              "usedTokens": 0,
+              "reservedTokens": 0,
+              "remainingTokens": 0
+            }
+          ]
+        }
+      ]
+    },
+    "after": {
+      "day": "2026-10-29",
+      "inputTokens": 2179524,
+      "outputTokens": 234140,
+      "cachedInputTokens": 703232,
+      "reservedTokens": 0,
+      "usedTokens": 2413664,
+      "dailyLimit": 2650000,
+      "remainingTokens": 236336,
+      "unknownReservations": 0,
+      "models": [
+        {
+          "day": "2026-10-29",
+          "model": "gpt-5.4",
+          "dailyLimit": 250000,
+          "inputTokens": 9699,
+          "outputTokens": 5923,
+          "cachedInputTokens": 0,
+          "usedTokens": 15622,
+          "reservedTokens": 0,
+          "remainingTokens": 234378,
+          "unknownReservations": 0,
+          "allocations": [
+            {
+              "purpose": "standard",
+              "dailyLimit": 225000,
+              "usedTokens": 12329,
+              "reservedTokens": 0,
+              "remainingTokens": 212671
+            },
+            {
+              "purpose": "audit",
+              "dailyLimit": 25000,
+              "usedTokens": 3293,
+              "reservedTokens": 0,
+              "remainingTokens": 21707
+            }
+          ]
+        },
+        {
+          "day": "2026-10-29",
+          "model": "gpt-5.4-mini",
+          "dailyLimit": 2400000,
+          "inputTokens": 2169825,
+          "outputTokens": 228217,
+          "cachedInputTokens": 703232,
+          "usedTokens": 2398042,
+          "reservedTokens": 0,
+          "remainingTokens": 1958,
+          "unknownReservations": 0,
+          "allocations": [
+            {
+              "purpose": "standard",
+              "dailyLimit": 2400000,
+              "usedTokens": 2398042,
+              "reservedTokens": 0,
+              "remainingTokens": 1958
+            },
+            {
+              "purpose": "audit",
+              "dailyLimit": 0,
+              "usedTokens": 0,
+              "reservedTokens": 0,
+              "remainingTokens": 0
+            }
+          ]
+        }
+      ]
+    },
+    "attempts": [
+      {
+        "model": "gpt-5.4-2026-03-05",
+        "purpose": "standard",
+        "reservedTokens": 5816,
+        "state": "completed",
+        "usage": {
+          "inputTokens": 1816,
+          "outputTokens": 939,
+          "cachedInputTokens": 0
+        }
+      },
+      {
+        "model": "gpt-5.4-2026-03-05",
+        "purpose": "standard",
+        "reservedTokens": 5816,
+        "state": "completed",
+        "usage": {
+          "inputTokens": 1816,
+          "outputTokens": 1952,
+          "cachedInputTokens": 0
+        }
+      },
+      {
+        "model": "gpt-5.4-2026-03-05",
+        "purpose": "audit",
+        "reservedTokens": 5659,
+        "state": "completed",
+        "usage": {
+          "inputTokens": 1659,
+          "outputTokens": 1634,
+          "cachedInputTokens": 0
+        }
+      }
+    ],
+    "scope": "Evaluation generations share the configured worker database's daily allowance. Before/after snapshots include background worker activity; attempts contain this evaluation only. Counting failures before reservation do not appear as generation attempts."
+  }
+}

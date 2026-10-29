@@ -1,0 +1,27 @@
+{
+  "checkedAt": "2026-10-29T18:31:41.831Z",
+  "migration": "20261029-selective-model-review",
+  "usagePreserved": true,
+  "before": [
+    {
+      "day": "2026-10-29",
+      "input_tokens": "2174233",
+      "output_tokens": "229615",
+      "reserved_tokens": "0"
+    }
+  ],
+  "after": [
+    {
+      "day": "2026-10-29",
+      "input_tokens": "2174233",
+      "output_tokens": "229615",
+      "reserved_tokens": "0"
+    }
+  ],
+  "limits": {
+    "full": 250000,
+    "mini": 2400000,
+    "combined": 2650000,
+    "audit": 25000
+  }
+}

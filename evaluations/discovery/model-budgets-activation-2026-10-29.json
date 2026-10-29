@@ -1,0 +1,142 @@
+{
+  "startedAt": "2026-10-29T15:33:51.416818+00:00",
+  "pid": 33053,
+  "previousPid": 23365,
+  "logPath": "/tmp/scoutalert-worker-model-budgets-2026-10-29.log",
+  "configuration": {
+    "planningModel": "gpt-5.4-2026-03-05",
+    "extractionModel": "gpt-5.4-mini-2026-03-17",
+    "fitModel": "gpt-5.4-mini-2026-03-17",
+    "dailyTokenLimit": 2650000,
+    "maximumOutputTokens": 4000
+  },
+  "before": {
+    "day": "2026-10-29",
+    "inputTokens": 2169825,
+    "outputTokens": 228217,
+    "cachedInputTokens": 703232,
+    "reservedTokens": 0,
+    "usedTokens": 2398042,
+    "dailyLimit": 2650000,
+    "remainingTokens": 251958,
+    "unknownReservations": 0,
+    "models": [
+      {
+        "day": "2026-10-29",
+        "model": "gpt-5.4",
+        "dailyLimit": 250000,
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "cachedInputTokens": 0,
+        "usedTokens": 0,
+        "reservedTokens": 0,
+        "remainingTokens": 250000,
+        "unknownReservations": 0
+      },
+      {
+        "day": "2026-10-29",
+        "model": "gpt-5.4-mini",
+        "dailyLimit": 2400000,
+        "inputTokens": 2169825,
+        "outputTokens": 228217,
+        "cachedInputTokens": 703232,
+        "usedTokens": 2398042,
+        "reservedTokens": 0,
+        "remainingTokens": 1958,
+        "unknownReservations": 0
+      }
+    ],
+    "maximumOutputTokens": 4000,
+    "planningModel": "gpt-5.4-2026-03-05",
+    "extractionModel": "gpt-5.4-mini-2026-03-17",
+    "fitModel": "gpt-5.4-mini-2026-03-17",
+    "resetTimezone": "UTC",
+    "scope": "This deployment's guarded worker and shared-budget evaluation calls; counting begins when the guard is activated."
+  },
+  "migrationRequired": false,
+  "validation": {
+    "focusedTestsPassed": 80,
+    "databaseTestsPassed": 12,
+    "evaluationIntegrationTestsPassed": 2,
+    "reportTestsPassed": 3,
+    "architecturePassed": true,
+    "buildsPassed": [
+      "core",
+      "adapters",
+      "worker"
+    ],
+    "modelAccess": [
+      "gpt-5.4-2026-03-05",
+      "gpt-5.4-mini-2026-03-17"
+    ],
+    "liveGenerationTestsRun": false,
+    "testModelTokens": 0
+  },
+  "verifiedAt": "2026-10-29T15:35:03.213157+00:00",
+  "processAlive": true,
+  "runningQueues": [
+    "scout-delivery-v1",
+    "scout-matching-v1",
+    "scout-private-mail-v1",
+    "scout-research-v1",
+    "scout-social-discovery-v1",
+    "scout-source-monitoring-v1",
+    "scout-sources-v1",
+    "scout-web-discovery-v1",
+    "scout-workflows-v1"
+  ],
+  "startupErrorCount": 0,
+  "previousQueuesStopped": 9,
+  "after": {
+    "day": "2026-10-29",
+    "inputTokens": 2170165,
+    "outputTokens": 228386,
+    "cachedInputTokens": 703232,
+    "reservedTokens": 0,
+    "usedTokens": 2398551,
+    "dailyLimit": 2650000,
+    "remainingTokens": 251449,
+    "unknownReservations": 0,
+    "models": [
+      {
+        "day": "2026-10-29",
+        "model": "gpt-5.4",
+        "dailyLimit": 250000,
+        "inputTokens": 340,
+        "outputTokens": 169,
+        "cachedInputTokens": 0,
+        "usedTokens": 509,
+        "reservedTokens": 0,
+        "remainingTokens": 249491,
+        "unknownReservations": 0
+      },
+      {
+        "day": "2026-10-29",
+        "model": "gpt-5.4-mini",
+        "dailyLimit": 2400000,
+        "inputTokens": 2169825,
+        "outputTokens": 228217,
+        "cachedInputTokens": 703232,
+        "usedTokens": 2398042,
+        "reservedTokens": 0,
+        "remainingTokens": 1958,
+        "unknownReservations": 0
+      }
+    ],
+    "maximumOutputTokens": 4000,
+    "planningModel": "gpt-5.4-2026-03-05",
+    "extractionModel": "gpt-5.4-mini-2026-03-17",
+    "fitModel": "gpt-5.4-mini-2026-03-17",
+    "resetTimezone": "UTC",
+    "scope": "This deployment's guarded worker and shared-budget evaluation calls; counting begins when the guard is activated."
+  },
+  "backgroundUsageDuringActivation": {
+    "gpt-5.4": 509,
+    "gpt-5.4-mini": 0
+  },
+  "limitations": [
+    "Automated checks used fixture model responses; read-only API retrieval verified access, not generation quality.",
+    "Background worker usage is reported separately from test usage. GPT-5.4 response validity and recommendation usefulness were not independently evaluated.",
+    "Mini retains today's earlier spending; fresh AI discovery validation remains pending within its independent cap."
+  ]
+}

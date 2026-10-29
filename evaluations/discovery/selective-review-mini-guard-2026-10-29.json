@@ -1,0 +1,143 @@
+{
+  "checkedAt": "2026-10-29T18:33:38.678Z",
+  "blockedBeforeGeneration": true,
+  "usageUnchanged": true,
+  "before": {
+    "day": "2026-10-29",
+    "inputTokens": 2179524,
+    "outputTokens": 234140,
+    "cachedInputTokens": 703232,
+    "reservedTokens": 0,
+    "usedTokens": 2413664,
+    "dailyLimit": 2650000,
+    "remainingTokens": 236336,
+    "unknownReservations": 0,
+    "models": [
+      {
+        "day": "2026-10-29",
+        "model": "gpt-5.4",
+        "dailyLimit": 250000,
+        "inputTokens": 9699,
+        "outputTokens": 5923,
+        "cachedInputTokens": 0,
+        "usedTokens": 15622,
+        "reservedTokens": 0,
+        "remainingTokens": 234378,
+        "unknownReservations": 0,
+        "allocations": [
+          {
+            "purpose": "standard",
+            "dailyLimit": 225000,
+            "usedTokens": 12329,
+            "reservedTokens": 0,
+            "remainingTokens": 212671
+          },
+          {
+            "purpose": "audit",
+            "dailyLimit": 25000,
+            "usedTokens": 3293,
+            "reservedTokens": 0,
+            "remainingTokens": 21707
+          }
+        ]
+      },
+      {
+        "day": "2026-10-29",
+        "model": "gpt-5.4-mini",
+        "dailyLimit": 2400000,
+        "inputTokens": 2169825,
+        "outputTokens": 228217,
+        "cachedInputTokens": 703232,
+        "usedTokens": 2398042,
+        "reservedTokens": 0,
+        "remainingTokens": 1958,
+        "unknownReservations": 0,
+        "allocations": [
+          {
+            "purpose": "standard",
+            "dailyLimit": 2400000,
+            "usedTokens": 2398042,
+            "reservedTokens": 0,
+            "remainingTokens": 1958
+          },
+          {
+            "purpose": "audit",
+            "dailyLimit": 0,
+            "usedTokens": 0,
+            "reservedTokens": 0,
+            "remainingTokens": 0
+          }
+        ]
+      }
+    ]
+  },
+  "after": {
+    "day": "2026-10-29",
+    "inputTokens": 2179524,
+    "outputTokens": 234140,
+    "cachedInputTokens": 703232,
+    "reservedTokens": 0,
+    "usedTokens": 2413664,
+    "dailyLimit": 2650000,
+    "remainingTokens": 236336,
+    "unknownReservations": 0,
+    "models": [
+      {
+        "day": "2026-10-29",
+        "model": "gpt-5.4",
+        "dailyLimit": 250000,
+        "inputTokens": 9699,
+        "outputTokens": 5923,
+        "cachedInputTokens": 0,
+        "usedTokens": 15622,
+        "reservedTokens": 0,
+        "remainingTokens": 234378,
+        "unknownReservations": 0,
+        "allocations": [
+          {
+            "purpose": "standard",
+            "dailyLimit": 225000,
+            "usedTokens": 12329,
+            "reservedTokens": 0,
+            "remainingTokens": 212671
+          },
+          {
+            "purpose": "audit",
+            "dailyLimit": 25000,
+            "usedTokens": 3293,
+            "reservedTokens": 0,
+            "remainingTokens": 21707
+          }
+        ]
+      },
+      {
+        "day": "2026-10-29",
+        "model": "gpt-5.4-mini",
+        "dailyLimit": 2400000,
+        "inputTokens": 2169825,
+        "outputTokens": 228217,
+        "cachedInputTokens": 703232,
+        "usedTokens": 2398042,
+        "reservedTokens": 0,
+        "remainingTokens": 1958,
+        "unknownReservations": 0,
+        "allocations": [
+          {
+            "purpose": "standard",
+            "dailyLimit": 2400000,
+            "usedTokens": 2398042,
+            "reservedTokens": 0,
+            "remainingTokens": 1958
+          },
+          {
+            "purpose": "audit",
+            "dailyLimit": 0,
+            "usedTokens": 0,
+            "reservedTokens": 0,
+            "remainingTokens": 0
+          }
+        ]
+      }
+    ]
+  }
+}
