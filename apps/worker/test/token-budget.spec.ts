@@ -178,6 +178,34 @@ describe("token limits at the native model boundary", () => {
     expect(f.calls).toHaveLength(0);
   });
 
+  it("checks the requested model before counting, even when the global allowance has room", async () => {
+    const budget = new TokenBudget(100_000);
+    const snapshot = vi.spyOn(budget, "snapshot").mockResolvedValue({
+      ...(await budget.snapshot()),
+      remainingTokens: 0,
+      dailyLimit: 250,
+    });
+    const f = fixture(budget);
+    await expect(
+      f.client.responses.create({ ...request, model: "gpt-5.4" }),
+    ).rejects.toThrow();
+    expect(snapshot).toHaveBeenLastCalledWith("gpt-5.4", "standard");
+    expect(f.calls).toEqual([]);
+    expect(budget.reservations).toEqual([]);
+  });
+
+  it("does not count or generate for an unconfigured model family", async () => {
+    const budget = new TokenBudget();
+    vi.spyOn(budget, "snapshot").mockRejectedValue(
+      new Error("unconfigured_model_token_budget"),
+    );
+    const f = fixture(budget);
+    await expect(
+      f.client.responses.create({ ...request, model: "unreviewed-model" }),
+    ).rejects.toThrow();
+    expect(f.calls).toEqual([]);
+  });
+
   it("does not generate when exact input plus output does not fit", async () => {
     const f = fixture(new TokenBudget(300));
     await expect(f.client.responses.create(request)).rejects.toThrow();

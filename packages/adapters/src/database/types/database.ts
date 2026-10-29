@@ -225,6 +225,7 @@ export interface ScoutAlertDatabase {
     id: string;
     kind: "extraction" | "research" | "fit";
     analysis_task_id: Generated<string | null>;
+    review_of: Generated<string | null>;
     configuration: string;
     posting_id: string;
     posting_version: number;

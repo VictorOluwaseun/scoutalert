@@ -6,7 +6,10 @@ import { fileURLToPath } from "node:url";
 import { afterAll, beforeAll, beforeEach, describe, expect, it } from "vitest";
 import { sql } from "kysely";
 import { createPostgresClient, migrateDatabase } from "@repo/adapters/database";
-import { PostgresModelTokenBudgetRepository } from "@repo/adapters/scouting";
+import {
+  PostgresModelTokenBudgetRepository,
+  modelTokenBudgetPolicies,
+} from "@repo/adapters/scouting";
 
 describe.skipIf(process.env.SCOUTING_INTEGRATION !== "1")(
   "atomic model token budgets",
@@ -58,6 +61,163 @@ describe.skipIf(process.env.SCOUTING_INTEGRATION !== "1")(
         reservedTokens: 1000,
         remainingTokens: 0,
       });
+    });
+
+    it("protects audit capacity inside the full-model cap and retains it across restarts", async () => {
+      const policies = modelTokenBudgetPolicies(250, 2400, 25);
+      const repo = new PostgresModelTokenBudgetRepository(db, 2650, policies);
+      const standard = await Promise.all(
+        Array.from({ length: 20 }, () => repo.reserve("gpt-5.4", 5, 20)),
+      );
+      expect(standard.filter(Boolean)).toHaveLength(9);
+      expect(await repo.reserve("gpt-5.4-2026-03-05", 0, 16)).toBeNull();
+      expect(await repo.reserve("gpt-5.4", 5, 20, "audit")).not.toBeNull();
+      expect(await repo.reserve("gpt-5.4", 0, 16, "audit")).toBeNull();
+      const snapshot = await new PostgresModelTokenBudgetRepository(
+        db,
+        2650,
+        policies,
+      ).snapshot();
+      expect(snapshot.models?.[0]).toMatchObject({
+        reservedTokens: 250,
+        remainingTokens: 0,
+        allocations: [
+          {
+            purpose: "standard",
+            dailyLimit: 225,
+            reservedTokens: 225,
+            remainingTokens: 0,
+          },
+          {
+            purpose: "audit",
+            dailyLimit: 25,
+            reservedTokens: 25,
+            remainingTokens: 0,
+          },
+        ],
+      });
+      expect(await repo.reserve("gpt-5.4-mini", 0, 16, "audit")).toBeNull();
+      expect(await repo.reserve("gpt-5.4-mini", 0, 16)).not.toBeNull();
+    });
+
+    it("enforces two independent caps under concurrent aliases without borrowing", async () => {
+      const policy = modelTokenBudgetPolicies(250, 2400);
+      const claims = await Promise.all(
+        Array.from({ length: 40 }, (_, index) => {
+          const full = index % 2 === 0;
+          const model = full
+            ? index % 4
+              ? "gpt-5.4"
+              : "gpt-5.4-2026-03-05"
+            : index % 4 === 1
+              ? "gpt-5.4-mini"
+              : "gpt-5.4-mini-2026-03-17";
+          return new PostgresModelTokenBudgetRepository(
+            db,
+            2650,
+            policy,
+          ).reserve(model, full ? 5 : 220, 20);
+        }),
+      );
+      expect(claims.filter((id, index) => id && index % 2 === 0)).toHaveLength(
+        10,
+      );
+      expect(claims.filter((id, index) => id && index % 2 === 1)).toHaveLength(
+        10,
+      );
+      const repo = new PostgresModelTokenBudgetRepository(db, 2650, policy);
+      expect(await repo.snapshot()).toMatchObject({
+        reservedTokens: 2650,
+        remainingTokens: 0,
+        models: [
+          {
+            model: "gpt-5.4",
+            dailyLimit: 250,
+            reservedTokens: 250,
+            remainingTokens: 0,
+          },
+          {
+            model: "gpt-5.4-mini",
+            dailyLimit: 2400,
+            reservedTokens: 2400,
+            remainingTokens: 0,
+          },
+        ],
+      });
+    });
+
+    it("counts pre-existing usage and unknown calls without resetting a model on rollout or alias changes", async () => {
+      const old = new PostgresModelTokenBudgetRepository(db, 2650);
+      const completed = (await old.reserve(
+        "gpt-5.4-mini-2026-03-17",
+        2000,
+        400,
+      ))!;
+      await old.settle(completed, {
+        inputTokens: 2000,
+        outputTokens: 350,
+        cachedInputTokens: 1000,
+      });
+      const uncertain = (await old.reserve("gpt-5.4-mini", 20, 30))!;
+      await old.settle(uncertain, null);
+      const repo = new PostgresModelTokenBudgetRepository(
+        db,
+        2650,
+        modelTokenBudgetPolicies(250, 2400),
+      );
+      expect(await repo.snapshot("gpt-5.4-mini")).toMatchObject({
+        usedTokens: 2350,
+        cachedInputTokens: 1000,
+        reservedTokens: 50,
+        remainingTokens: 0,
+        unknownReservations: 1,
+      });
+      expect(await repo.reserve("gpt-5.4-mini-2026-03-17", 0, 16)).toBeNull();
+      expect(await repo.reserve("gpt-5.4", 100, 150)).not.toBeNull();
+      expect((await repo.snapshot()).reservedTokens).toBe(300);
+    });
+
+    it("leaves global capacity untouched when a family is full and honors a stricter global ceiling", async () => {
+      const repo = new PostgresModelTokenBudgetRepository(
+        db,
+        500,
+        modelTokenBudgetPolicies(100, 900),
+      );
+      const id = (await repo.reserve("gpt-5.4", 50, 50))!;
+      expect(await repo.reserve("gpt-5.4-2026-03-05", 0, 16)).toBeNull();
+      expect((await repo.snapshot()).reservedTokens).toBe(100);
+      const usage = {
+        inputTokens: 40,
+        outputTokens: 10,
+        cachedInputTokens: 20,
+      };
+      await Promise.all([repo.settle(id, usage), repo.settle(id, usage)]);
+      expect(await repo.snapshot("gpt-5.4")).toMatchObject({
+        usedTokens: 50,
+        remainingTokens: 50,
+        reservedTokens: 0,
+      });
+      expect(await repo.reserve("gpt-5.4-mini", 400, 50)).not.toBeNull();
+      expect(await repo.snapshot("gpt-5.4")).toMatchObject({
+        remainingTokens: 0,
+      });
+      expect(await repo.reserve("gpt-5.4", 0, 16)).toBeNull();
+    });
+
+    it("denies unknown model versions and supports disabling the full model independently", async () => {
+      const repo = new PostgresModelTokenBudgetRepository(
+        db,
+        2400,
+        modelTokenBudgetPolicies(0, 2400),
+      );
+      await expect(
+        repo.reserve("gpt-5.4-other-version", 1, 16),
+      ).rejects.toThrow("unconfigured_model_token_budget");
+      await expect(repo.snapshot("gpt-5.4-other-version")).rejects.toThrow(
+        "unconfigured_model_token_budget",
+      );
+      expect(await repo.reserve("gpt-5.4", 1, 16)).toBeNull();
+      expect(await repo.reserve("gpt-5.4-mini", 1, 16)).not.toBeNull();
     });
 
     it("releases unused allowance and settles once under concurrent replay", async () => {

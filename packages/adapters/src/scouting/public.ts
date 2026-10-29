@@ -10,6 +10,7 @@ export {
 } from "./intelligence/openai-intelligence.js";
 export { PostgresIntelligenceRepository } from "./intelligence/postgres-intelligence.js";
 export { PostgresModelTokenBudgetRepository } from "./intelligence/postgres-token-budget.js";
+export { modelTokenBudgetPolicies } from "./intelligence/model-token-policies.js";
 
 export { PostgresAvailabilityRepository } from "./research/postgres-availability.js";
 export { GreenhouseAvailabilitySource } from "./research/greenhouse-availability.js";

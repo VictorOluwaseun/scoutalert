@@ -58,7 +58,11 @@ export class OpenAITokenBudgetTransport {
       body.max_output_tokens,
       this.budget.maximumOutputTokens,
     );
-    const snapshot = await this.budget.repository.snapshot();
+    const purpose = body.metadata?.scout_budget_purpose ?? "standard";
+    if (purpose !== "standard" && purpose !== "audit") {
+      throw new Error("unsupported_model_budget_purpose");
+    }
+    const snapshot = await this.budget.repository.snapshot(body.model, purpose);
     if (snapshot.remainingTokens < maximumOutputTokens) {
       throw new Error("daily_token_budget_exhausted");
     }
@@ -78,6 +82,7 @@ export class OpenAITokenBudgetTransport {
       body.model,
       counted.input_tokens,
       maximumOutputTokens,
+      purpose,
     );
     if (!id) {
       throw new Error("daily_token_budget_exhausted");

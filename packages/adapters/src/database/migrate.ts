@@ -1,5 +1,6 @@
 import * as privateMail from "./migrations/20261005-private-mail.js";
 import * as tokenBudget from "./migrations/20261029-intelligence-token-budget.js";
+import * as selectiveReview from "./migrations/20261029-selective-model-review.js";
 import * as sourceNavigationBounds from "./migrations/20261004-source-navigation-bounds.js";
 import * as reviewRecovery from "./migrations/20261004-review-recovery.js";
 import * as discoveryPerformance from "./migrations/20261003-yield-scheduling.js";
@@ -35,6 +36,7 @@ export async function migrateDatabase(
     provider: {
       getMigrations: async () => ({
         "20261029-intelligence-token-budget": tokenBudget,
+        "20261029-selective-model-review": selectiveReview,
         "20261005-private-mail": privateMail,
         "20261004-source-navigation-bounds": sourceNavigationBounds,
         "20261004-review-recovery": reviewRecovery,
