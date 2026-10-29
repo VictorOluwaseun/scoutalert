@@ -35,7 +35,12 @@ export function OpportunityDetail({
           <h1>{opportunity.title}</h1>
           <p>{opportunity.author}</p>
         </div>
-        <SaveOpportunity opportunity={opportunity} />
+        <div className="dp-detail-actions">
+          <a className="dp-button dp-button-primary" href="#source-evidence">
+            Read sample source <Icon name="arrowRight" size={17} />
+          </a>
+          <SaveOpportunity opportunity={opportunity} />
+        </div>
       </header>
       <div className="dp-detail-facts">
         <span>

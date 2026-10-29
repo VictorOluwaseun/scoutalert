@@ -1,10 +1,10 @@
 .discovery-preview {
-  --dp-ink: #191c22;
-  --dp-slate: #526173;
-  --dp-paper: #f6f7f8;
-  --dp-white: #fff;
-  --dp-citron: #d9ef70;
-  --dp-leaf: #eff5de;
+  --dp-ink: var(--foreground);
+  --dp-slate: var(--muted-foreground);
+  --dp-paper: var(--background);
+  --dp-white: var(--card);
+  --dp-citron: var(--accent);
+  --dp-leaf: var(--surface-soft);
   color: var(--dp-ink);
   background: var(--dp-paper);
   min-height: 100vh;
@@ -750,6 +750,12 @@
 .dp-detail-heading {
   align-items: flex-start;
 }
+.dp-detail-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  flex-shrink: 0;
+}
 .dp-detail-heading h1 {
   max-width: 26ch;
   font-size: clamp(30px, 2.8vw, 39px);
@@ -1143,6 +1149,9 @@
     flex-wrap: wrap;
     gap: 18px;
   }
+  .dp-detail-actions {
+    width: 100%;
+  }
   .dp-detail-heading > .dp-button {
     margin-top: 0;
   }
@@ -1245,6 +1254,14 @@
   }
   .dp-page-heading h1 + p {
     font-size: 15px;
+  }
+  .dp-detail-actions {
+    flex-direction: column;
+  }
+  .dp-detail-actions > .dp-button {
+    justify-content: center;
+    min-height: 46px;
+    width: 100%;
   }
   .dp-heading-compass {
     display: none;
