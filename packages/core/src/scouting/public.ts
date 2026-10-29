@@ -24,6 +24,7 @@ export { ReadOpportunityFeed } from "./application/read-opportunity-feed.js";
 
 export * from "./intelligence/contracts.js";
 export * from "./intelligence/token-budget.js";
+export * from "./intelligence/fit-review.js";
 export {
   validAnalysis,
   validFit,

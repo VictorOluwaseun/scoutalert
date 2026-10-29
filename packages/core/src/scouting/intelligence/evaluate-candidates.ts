@@ -16,6 +16,13 @@ import {
   EmployerResearchProvider,
   needsEmployerResearch,
 } from "../research/employer-evidence.js";
+import {
+  FitReviewProvider,
+  fitReviewReason,
+  fitReviewRequest,
+  validReviewedFit,
+} from "./fit-review.js";
+import type { PersonalFit, PostingAnalysis } from "./contracts.js";
 
 /** Reuses shared public extraction and private versioned fit, spending at most one provider call per activity attempt. */
 export class EvaluateCandidates extends CandidateEvaluator {
@@ -24,6 +31,8 @@ export class EvaluateCandidates extends CandidateEvaluator {
     private readonly records: IntelligenceRepository,
     private readonly provider: IntelligenceProvider,
     private readonly researcher?: EmployerResearchProvider,
+    private readonly reviewer?: FitReviewProvider,
+    private readonly auditPercent = 5,
   ) {
     super();
   }
@@ -51,14 +60,13 @@ export class EvaluateCandidates extends CandidateEvaluator {
           previous.analysis,
         ) &&
         validAnalysis(posting, previous.analysis)
-          ? {
-              status: "ready" as const,
-              assessment: assessPersonalFit(
-                context.search,
-                previous.analysis,
-                previous.result.fit,
-              ),
-            }
+          ? await this.review(
+              context,
+              posting,
+              previous.analysis,
+              previous.result,
+              selected.has(posting.id),
+            )
           : selected.has(posting.id)
             ? await this.assess(context, posting)
             : { status: "unavailable" as const };
@@ -84,9 +92,12 @@ export class EvaluateCandidates extends CandidateEvaluator {
 
   /** Research policy changes invalidate prior fit without discarding reusable posting versions. */
   private get configuration(): string {
-    return this.researcher
+    const base = this.researcher
       ? `${this.provider.configuration}:${this.researcher.configuration}`
       : this.provider.configuration;
+    return this.reviewer
+      ? `${base}:${this.reviewer.configuration}:audit-${this.auditPercent}:selective-review-v1`
+      : base;
   }
 
   /** Keeps shared analysis free of personal context; fit keys include the exact owner, scout revision and analysis. */
@@ -136,10 +147,60 @@ export class EvaluateCandidates extends CandidateEvaluator {
       return { status: "unavailable" };
     }
 
-    return {
-      status: "ready",
-      assessment: assessPersonalFit(context.search, analysis, evaluated.fit),
-    };
+    return this.review(context, posting, analysis, evaluated, true);
+  }
+
+  /** Reviews flagged mini verdicts once through a separate private lease; hard cases stay unpublished if review cannot complete. */
+  private async review(
+    context: RunContext,
+    posting: Posting,
+    analysis: PostingAnalysis,
+    baseline: IntelligenceResult & { kind: "fit" },
+    admitted: boolean,
+  ): Promise<
+    | { status: "waiting" | "progress" }
+    | { status: "ready"; assessment: Assessment | null }
+  > {
+    const assessment = (fit: PersonalFit) => ({
+      status: "ready" as const,
+      assessment: assessPersonalFit(context.search, analysis, fit),
+    });
+    if (!this.reviewer || baseline.review?.status !== "pending") {
+      return assessment(baseline.fit);
+    }
+    const required = baseline.review.reason !== "sample_audit";
+    if (!admitted) {
+      return required
+        ? { status: "ready", assessment: null }
+        : assessment(baseline.fit);
+    }
+    const review = fitReviewRequest(
+      posting,
+      analysis,
+      baseline.fit,
+      baseline.review.reason,
+    );
+    const result = await this.resolve({
+      kind: "fit",
+      posting,
+      context,
+      analysis,
+      configuration: this.configuration,
+      review,
+    });
+    if (result === "progress" || result === "waiting") {
+      return { status: result };
+    }
+    if (
+      typeof result === "string" ||
+      result.kind !== "fit" ||
+      !validReviewedFit(posting, context.search, analysis, review, result.fit)
+    ) {
+      return required
+        ? { status: "ready", assessment: null }
+        : assessment(baseline.fit);
+    }
+    return assessment(result.fit);
   }
 
   /** Supplements admitted candidates only; missing research cannot turn an unknown into a match. */
@@ -203,7 +264,17 @@ export class EvaluateCandidates extends CandidateEvaluator {
               task.analysis,
             );
 
-      if (!valid) {
+      const reviewValid =
+        !task.review ||
+        (result.kind === "fit" &&
+          validReviewedFit(
+            task.posting,
+            task.context!.search,
+            task.analysis!,
+            task.review,
+            result.fit,
+          ));
+      if (!valid || !reviewValid) {
         await this.records.fail(claim.token, "invalid_evidence");
 
         return "progress";
@@ -229,12 +300,38 @@ export class EvaluateCandidates extends CandidateEvaluator {
       return this.researcher!.investigate(task.posting, task.analysis!);
     }
 
+    if (task.review) {
+      const result = await this.reviewer!.review(
+        task.context!.search,
+        task.analysis!,
+        task.review,
+      );
+      return {
+        ...result,
+        analysis: task.analysis,
+        review: { reason: task.review.reason, status: "completed" },
+      };
+    }
+
     const result = await this.provider.assess(
       task.posting,
       task.context!.search,
       task.analysis!,
     );
 
-    return { ...result, analysis: task.analysis };
+    const reason = this.reviewer
+      ? fitReviewReason(
+          task.posting,
+          task.context!.search,
+          task.analysis!,
+          result.fit,
+          this.auditPercent,
+        )
+      : null;
+    return {
+      ...result,
+      analysis: task.analysis,
+      ...(reason ? { review: { reason, status: "pending" as const } } : {}),
+    };
   }
 }

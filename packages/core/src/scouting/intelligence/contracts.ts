@@ -67,6 +67,11 @@ export type IntelligenceResult =
       kind: "fit";
       fit: PersonalFit;
       analysis?: PostingAnalysis;
+      /** Pending expert checks are never confused with completed private verdicts in the cache. */
+      review?: {
+        reason: import("./fit-review.js").FitReviewReason;
+        status: "pending" | "completed";
+      };
       usage: AnalysisUsage;
     };
 /** Exact immutable inputs determine cache identity, including provider/model/prompt/schema configuration. */
@@ -78,6 +83,8 @@ export interface IntelligenceTask {
   posting: Posting;
   context?: RunContext;
   analysis?: PostingAnalysis;
+  /** A separate immutable private task, admitted once for this source/brief/baseline. */
+  review?: import("./fit-review.js").FitReviewRequest;
 }
 export type TaskClaim =
   | { status: "ready"; result: IntelligenceResult }

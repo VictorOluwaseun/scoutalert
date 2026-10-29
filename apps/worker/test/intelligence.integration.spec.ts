@@ -23,6 +23,7 @@ import {
   type IntelligenceTask,
   type IntelligenceResult,
   type RunContext,
+  fitReviewRequest,
 } from "@repo/core/scouting";
 import { search, posting, analysis, fit } from "./fixtures/intelligence.js";
 
@@ -156,6 +157,158 @@ describe.skipIf(process.env.SCOUTING_INTEGRATION !== "1")(
       await repository.complete(acquired.token, result);
       expect((await repository.claim(task)).status).toBe("ready");
     });
+
+    it.each([
+      "required",
+      "failed_required",
+      "failed_audit",
+      "expired_required",
+    ])(
+      "persists and fences a %s review without retries or unsafe publication",
+      async (mode) => {
+        const sourceId = `selective-${mode}`;
+        const condition = "Applicants must reside in Canada.";
+        const candidate = {
+          ...posting,
+          id: `${sourceId}:1`,
+          source: sourceId,
+          fingerprint: sourceId,
+          text:
+            mode === "failed_audit"
+              ? posting.text
+              : `${posting.text}\n${condition}`,
+        };
+        const source = new PostgresSourceRepository(db);
+        const lease = await source.claim(sourceId, new Date());
+        await source.publish(
+          {
+            source: sourceId,
+            checkedAt: new Date().toISOString(),
+            postings: [candidate],
+          },
+          lease!,
+        );
+        const run = {
+          ...context,
+          request: { ...context.request, runId: randomUUID() },
+        };
+        await new PostgresScoutingRepository(db).begin(run.request);
+        const records = new PostgresIntelligenceRepository(db, 1000);
+        let miniCalls = 0;
+        let expertCalls = 0;
+        const evaluator = new EvaluateCandidates(
+          records,
+          {
+            configuration: sourceId,
+            /** Authored public extraction avoids network requests in the persistence check. */
+            async extract() {
+              miniCalls++;
+              return result;
+            },
+            /** The authored mini verdict deliberately misses the added country condition. */
+            async assess() {
+              miniCalls++;
+              return { kind: "fit" as const, fit, usage };
+            },
+          },
+          undefined,
+          {
+            configuration: `${sourceId}-expert`,
+            /** Simulates a correction, terminal failure or late response after the worker loses its lease. */
+            async review() {
+              expertCalls++;
+              if (mode.startsWith("failed")) {
+                throw new Error("fixture_unavailable");
+              }
+              if (mode === "expired_required") {
+                await sql`UPDATE intelligence_tasks SET lease_until=now()-interval '1 second' WHERE posting_id=${candidate.id} AND review_of IS NOT NULL`.execute(
+                  db,
+                );
+              }
+              return {
+                kind: "fit" as const,
+                usage,
+                fit: {
+                  criteria: fit.criteria.map((item) =>
+                    item.criterion === "location"
+                      ? {
+                          ...item,
+                          status: "conflicts" as const,
+                          quotes: [condition],
+                          briefQuotes: [search.workLocations],
+                        }
+                      : item,
+                  ),
+                },
+              };
+            },
+          },
+          mode === "failed_audit" ? 100 : 0,
+        );
+        let state: Awaited<ReturnType<EvaluateCandidates["evaluate"]>> =
+          "progress";
+        for (let step = 0; step < 8 && typeof state === "string"; step++) {
+          state = await evaluator.evaluate(run, [candidate]);
+        }
+        expect(state).toHaveLength(mode === "failed_audit" ? 1 : 0);
+        expect(miniCalls).toBe(2);
+        expect(expertCalls).toBe(1);
+        const saved = await sql<{
+          configuration: string;
+          status: string;
+          attempts: number;
+          review_of: string;
+        }>`SELECT configuration,status,attempts,review_of FROM intelligence_tasks WHERE posting_id=${candidate.id} AND review_of IS NOT NULL`.execute(
+          db,
+        );
+        expect(saved.rows).toHaveLength(1);
+        expect(saved.rows[0]!.attempts).toBe(1);
+        expect(saved.rows[0]!.status).toBe(
+          mode === "required"
+            ? "ready"
+            : mode === "expired_required"
+              ? "running"
+              : "failed",
+        );
+        const next = {
+          ...run,
+          request: { ...run.request, runId: randomUUID() },
+        };
+        await new PostgresScoutingRepository(db).begin(next.request);
+        expect(
+          (await records.plan(next, [candidate], saved.rows[0]!.configuration))
+            .selected,
+        ).toEqual([]);
+        expect(await evaluator.evaluate(next, [candidate])).toHaveLength(
+          mode === "failed_audit" ? 1 : 0,
+        );
+        expect(expertCalls).toBe(1);
+        const review = fitReviewRequest(
+          candidate,
+          analysis,
+          fit,
+          mode === "failed_audit" ? "sample_audit" : "conditional_requirements",
+        );
+        expect(
+          (
+            await records.claim({
+              kind: "fit",
+              posting: candidate,
+              analysis,
+              configuration: saved.rows[0]!.configuration,
+              review,
+              context: {
+                ...run,
+                request: { ...run.request, ownerId: randomUUID() },
+              },
+            })
+          ).status,
+        ).toBe("unavailable");
+        await sql`UPDATE opportunity_postings SET open=false WHERE id=${candidate.id}`.execute(
+          db,
+        );
+      },
+    );
     it("rejects foreign private cache reads and stale revisions", async () => {
       const repository = new PostgresIntelligenceRepository(db, 50);
       const privateTask = { ...task, kind: "fit" as const, context, analysis };

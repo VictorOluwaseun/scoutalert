@@ -1,6 +1,7 @@
 import {
   estimateIntelligenceCost,
   intelligenceAttemptReserveMicrousd,
+  expertAttemptReserveMicrousd,
 } from "./usage-cost.js";
 import { createHash, randomUUID } from "node:crypto";
 import { sql, type Kysely, type Transaction } from "kysely";
@@ -66,6 +67,7 @@ export class PostgresIntelligenceRepository extends IntelligenceRepository {
                     version: request?.version,
                     search: task.context?.search,
                     analysis: task.analysis,
+                    review: task.review,
                   }
                 : null,
           }),
@@ -152,15 +154,25 @@ export class PostgresIntelligenceRepository extends IntelligenceRepository {
         postingId: string;
         result: IntelligenceResult & { kind: "fit" };
         analysis: PostingAnalysis;
+        reviewTerminal: boolean;
       }>`
-        SELECT DISTINCT ON(t.posting_id) t.posting_id AS "postingId",t.result,e.result->'analysis' AS analysis FROM intelligence_tasks t
+        SELECT DISTINCT ON(t.posting_id) t.posting_id AS "postingId",t.result,e.result->'analysis' AS analysis,
+          EXISTS(SELECT 1 FROM intelligence_tasks r WHERE r.review_of=t.id AND r.attempts>=1
+            AND (r.status='failed' OR (r.status='running' AND r.lease_until<=now()))) AS "reviewTerminal" FROM intelligence_tasks t
         JOIN intelligence_tasks e ON e.id=t.analysis_task_id AND e.status='ready'
         JOIN jsonb_to_recordset(${JSON.stringify(captured)}::jsonb) AS p(id text,version integer) ON p.id=t.posting_id AND p.version=t.posting_version
         WHERE t.kind='fit' AND t.owner_id=${context.request.ownerId}::uuid AND t.scout_id=${context.request.scoutId}::uuid AND t.scout_version=${context.request.version} AND t.configuration=${configuration} AND t.status='ready'
           AND (e.result->'analysis'->'research' IS NULL OR (e.result->'analysis'->'research'->>'expiresAt')::timestamptz>now())
         ORDER BY t.posting_id,t.updated_at DESC
       `.execute(tx);
-      const ready = new Set(found.rows.map((row) => row.postingId));
+      const ready = new Set(
+        found.rows
+          .filter(
+            (row) =>
+              row.result.review?.status !== "pending" || row.reviewTerminal,
+          )
+          .map((row) => row.postingId),
+      );
       const selected = postings
         .filter((posting) => !ready.has(posting.id))
         .slice(0, 8)
@@ -269,13 +281,24 @@ export class PostgresIntelligenceRepository extends IntelligenceRepository {
       }
 
       const id = this.identity(task);
+      const reviewOf = task.review
+        ? this.identity({ ...task, review: undefined })
+        : null;
+      const baseline = reviewOf
+        ? await sql`SELECT id FROM intelligence_tasks WHERE id=${reviewOf} AND status='ready'
+        AND result->'fit'=${JSON.stringify(task.review!.baseline)}::jsonb AND result->'review'->>'status'='pending'
+        AND result->'review'->>'reason'=${task.review!.reason}`.execute(tx)
+        : null;
+      if (reviewOf && !baseline?.rows.length) {
+        return { status: "unavailable" };
+      }
       const extraction = await this.reusableLeadExtraction(tx, task, id);
       if (extraction) {
         return { status: "ready", result: extraction };
       }
       const request = task.kind === "fit" ? task.context!.request : undefined;
-      await sql`INSERT INTO intelligence_tasks(id,kind,configuration,posting_id,posting_version,owner_id,scout_id,scout_version,analysis_task_id)
-        VALUES(${id},${task.kind},${task.configuration},${task.posting.id},${task.posting.version},${request?.ownerId ?? null}::uuid,${request?.scoutId ?? null}::uuid,${request?.version ?? null},${analysisId}) ON CONFLICT(id) DO NOTHING`.execute(
+      await sql`INSERT INTO intelligence_tasks(id,kind,configuration,posting_id,posting_version,owner_id,scout_id,scout_version,analysis_task_id,review_of)
+        VALUES(${id},${task.kind},${task.configuration},${task.posting.id},${task.posting.version},${request?.ownerId ?? null}::uuid,${request?.scoutId ?? null}::uuid,${request?.version ?? null},${analysisId},${reviewOf}) ON CONFLICT(id) DO NOTHING`.execute(
         tx,
       );
       const row = await tx
@@ -310,7 +333,7 @@ export class PostgresIntelligenceRepository extends IntelligenceRepository {
       }
 
       if (
-        row.attempts >= 2 ||
+        row.attempts >= (task.review ? 1 : 2) ||
         (row.retry_at && new Date(row.retry_at).getTime() > now)
       ) {
         return { status: "unavailable" };
@@ -325,12 +348,14 @@ export class PostgresIntelligenceRepository extends IntelligenceRepository {
       }>`SELECT requests,reserved_microusd::text AS reserved FROM intelligence_daily_budget WHERE day=(now() AT TIME ZONE 'UTC')::date FOR UPDATE`.execute(
         tx,
       );
+      const reserve = task.review
+        ? expertAttemptReserveMicrousd
+        : intelligenceAttemptReserveMicrousd;
 
       if (
         (budget.rows[0]?.requests ?? this.dailyRequests) >=
           this.dailyRequests ||
-        Number(budget.rows[0]?.reserved ?? this.dailyMicrousd) +
-          intelligenceAttemptReserveMicrousd >
+        Number(budget.rows[0]?.reserved ?? this.dailyMicrousd) + reserve >
           this.dailyMicrousd
       ) {
         return { status: "unavailable" };
@@ -347,7 +372,7 @@ export class PostgresIntelligenceRepository extends IntelligenceRepository {
       }
 
       const token = randomUUID();
-      await sql`UPDATE intelligence_daily_budget SET requests=requests+1,reserved_microusd=reserved_microusd+${intelligenceAttemptReserveMicrousd} WHERE day=(now() AT TIME ZONE 'UTC')::date`.execute(
+      await sql`UPDATE intelligence_daily_budget SET requests=requests+1,reserved_microusd=reserved_microusd+${reserve} WHERE day=(now() AT TIME ZONE 'UTC')::date`.execute(
         tx,
       );
       await sql`UPDATE intelligence_attempts SET outcome='superseded',finished_at=now() WHERE task_id=${id} AND finished_at IS NULL`.execute(
@@ -369,7 +394,12 @@ export class PostgresIntelligenceRepository extends IntelligenceRepository {
   async complete(token: string, result: IntelligenceResult): Promise<void> {
     const stored =
       result.kind === "fit"
-        ? { kind: result.kind, fit: result.fit, usage: result.usage }
+        ? {
+            kind: result.kind,
+            fit: result.fit,
+            usage: result.usage,
+            ...(result.review ? { review: result.review } : {}),
+          }
         : result;
     await this.db.transaction().execute(async (tx) => {
       const saved =
