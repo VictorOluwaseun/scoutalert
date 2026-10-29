@@ -1,0 +1,3378 @@
+{
+  "checkedAt": "2026-10-29T10:45:01.221Z",
+  "scenario": "services",
+  "recaptureCases": [
+    {
+      "url": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648",
+      "sourceReport": "evaluations/discovery/source-expansion-services-verified-2026-10-15.json",
+      "priorReason": null,
+      "priorCapture": {
+        "bytes": 136622,
+        "scope": "buyer_brief",
+        "method": "http",
+        "parser": "peopleperhour-public-html-v2",
+        "complete": true,
+        "requests": 2
+      },
+      "title": "Redesign of caterers website UK",
+      "snippet": null
+    }
+  ],
+  "baseline": false,
+  "reasoningConfiguration": "openai:gpt-5.4-mini-2026-03-17:scout-planning-v13",
+  "plan": {
+    "policy": "public-intent-v3",
+    "queries": [
+      {
+        "page": 1,
+        "limit": 10,
+        "query": "\"Website redesign\" site:peopleperhour.com/freelance-jobs",
+        "country": "us",
+        "language": "en",
+        "freshness": "month"
+      },
+      {
+        "page": 1,
+        "limit": 10,
+        "query": "\"Website redesign\" site:workana.com inurl:job",
+        "country": "us",
+        "language": "en",
+        "freshness": "any"
+      },
+      {
+        "page": 1,
+        "limit": 10,
+        "query": "\"Website redesign\" (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+        "country": "us",
+        "language": "en",
+        "freshness": "month"
+      },
+      {
+        "page": 1,
+        "limit": 10,
+        "query": "\"Website redesign\" filetype:pdf (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+        "country": "us",
+        "language": "en",
+        "freshness": "month"
+      }
+    ],
+    "category": "services",
+    "strategy": {
+      "targets": [
+        "Website redesign"
+      ],
+      "explanation": "I kept the service as one coherent deliverable so searches stay focused on the full project type. Remote is handled separately in matching rather than added to the search target."
+    },
+    "exploration": {
+      "remote": true,
+      "target": "Website redesign",
+      "queryPolicy": "client-demand-v7",
+      "maximumDepth": 3,
+      "maximumRounds": 8,
+      "candidatePolicy": "contextual-v1",
+      "maximumSearches": 6,
+      "maximumSourcePages": 2
+    },
+    "continuation": "explore_on_next_run",
+    "scoutVersion": 1,
+    "blockedReason": null,
+    "deadlineSeconds": 240,
+    "maximumDocuments": 6
+  },
+  "reader": "worker",
+  "renderingEnabled": true,
+  "status": "measured",
+  "aiEnabled": true,
+  "deliveryOutcome": "submitted_to_mailpit",
+  "reasoning": [
+    {
+      "input": {
+        "kind": "strategy",
+        "intent": {
+          "remote": true,
+          "target": "Website redesign",
+          "category": "services"
+        }
+      },
+      "output": {
+        "kind": "strategy",
+        "strategy": {
+          "targets": [
+            "Website redesign"
+          ],
+          "explanation": "I kept the service as one coherent deliverable so searches stay focused on the full project type. Remote is handled separately in matching rather than added to the search target."
+        }
+      },
+      "rejected_output": null,
+      "failure": null,
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 2517,
+        "responseId": "resp_09f1c3ce6ad932b2016ae32388c46887d2bbc6ef336ebca6ed",
+        "inputTokens": 337,
+        "outputTokens": 144,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 901
+      }
+    },
+    {
+      "input": {
+        "kind": "choice",
+        "intent": {
+          "remote": true,
+          "target": "Website redesign",
+          "category": "services"
+        },
+        "choices": [
+          {
+            "depth": 0,
+            "title": "Redesign of caterers website UK",
+            "action": {
+              "url": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648",
+              "kind": "document"
+            },
+            "reason": "check_promising_result",
+            "parentKey": "5130069e8b0482a8d3cd39118ad5dae9ff7f1062d2fb10f3d4f26e486387d2f8"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"Website redesign\" site:bsky.app/profile inurl:post (\"looking for\" OR \"need\" OR \"seeking\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "5130069e8b0482a8d3cd39118ad5dae9ff7f1062d2fb10f3d4f26e486387d2f8"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"Website redesign\" inurl:projects (\"budget\" OR \"bids\" OR \"proposals\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "5130069e8b0482a8d3cd39118ad5dae9ff7f1062d2fb10f3d4f26e486387d2f8"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"Website redesign\" (\"I need\" OR \"we need\" OR \"looking for\") (\"freelancer\" OR \"budget\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "5130069e8b0482a8d3cd39118ad5dae9ff7f1062d2fb10f3d4f26e486387d2f8"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"Website redesign\" (\"project details\" OR \"project description\" OR \"open for bidding\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "5130069e8b0482a8d3cd39118ad5dae9ff7f1062d2fb10f3d4f26e486387d2f8"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"Website redesign\" (\"seeking\" OR \"hiring\") (\"freelance\" OR \"contractor\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "5130069e8b0482a8d3cd39118ad5dae9ff7f1062d2fb10f3d4f26e486387d2f8"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"Website redesign\" (\"project\" OR \"brief\") (\"budget\" OR \"fixed price\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "5130069e8b0482a8d3cd39118ad5dae9ff7f1062d2fb10f3d4f26e486387d2f8"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"Website redesign\" (\"project\" OR \"brief\") (\"proposals\" OR \"bids\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "5130069e8b0482a8d3cd39118ad5dae9ff7f1062d2fb10f3d4f26e486387d2f8"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"Website redesign\" site:x.com (\"hiring\" OR \"need\") (\"project\" OR \"freelance\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "5130069e8b0482a8d3cd39118ad5dae9ff7f1062d2fb10f3d4f26e486387d2f8"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"Website redesign\" site:linkedin.com/posts (\"hiring\" OR \"need\") (\"project\" OR \"freelance\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "5130069e8b0482a8d3cd39118ad5dae9ff7f1062d2fb10f3d4f26e486387d2f8"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": null,
+            "reason": "no_further_action",
+            "parentKey": null
+          }
+        ],
+        "evidence": [
+          {
+            "url": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Redesign of caterers website UK "
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Redesign of caterers website UK "
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Redesign of caterers website UK "
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648",
+            "label": "unreviewed",
+            "scope": "search_excerpt",
+            "unknowns": [
+              "source evidence not yet checked"
+            ],
+            "explanation": "Redesign of caterers website UK "
+          }
+        ],
+        "candidates": [
+          {
+            "text": "Redesign of caterers website UK ",
+            "query": "\"Website redesign\" filetype:pdf (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+            "choice": 0,
+            "origin": "search_result",
+            "parentUrl": null
+          }
+        ]
+      },
+      "output": {
+        "kind": "choice",
+        "index": 0,
+        "explanation": "Relevant buyer brief for website redesign; checking the specific project page is the best next step to confirm scope, requirements, and whether it is a client request rather than a seller listing."
+      },
+      "rejected_output": null,
+      "failure": null,
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 1978,
+        "responseId": "resp_0c4de12454a1a6ee016ae3238b031487d29e57b8f36c4bbf0b",
+        "inputTokens": 2228,
+        "outputTokens": 73,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 2000
+      }
+    },
+    {
+      "input": {
+        "kind": "choice",
+        "intent": {
+          "remote": true,
+          "target": "Website redesign",
+          "category": "services"
+        },
+        "choices": [
+          {
+            "depth": 1,
+            "title": "Óscar P.",
+            "action": {
+              "url": "https://www.peopleperhour.com/freelancer/technology-programming/%C3%93scar-palomar-python-ai-automation-developer-zxxvxxvm",
+              "kind": "document"
+            },
+            "reason": "follow_source_link",
+            "parentKey": "56293036aa9feb800f151c8a4e5f31d87a4d7f55fb55c51d87d86b6349499e06"
+          },
+          {
+            "depth": 1,
+            "title": "Bisma I.",
+            "action": {
+              "url": "https://www.peopleperhour.com/freelancer/design/bisma-iqbal-top-cert-graphic-designer-expert-nvmjxyv",
+              "kind": "document"
+            },
+            "reason": "follow_source_link",
+            "parentKey": "56293036aa9feb800f151c8a4e5f31d87a4d7f55fb55c51d87d86b6349499e06"
+          },
+          {
+            "depth": 1,
+            "title": "Riffat B.",
+            "action": {
+              "url": "https://www.peopleperhour.com/freelancer/technology-programming/riffat-baig-advanced-ai-custom-development-xxawzjv",
+              "kind": "document"
+            },
+            "reason": "follow_source_link",
+            "parentKey": "56293036aa9feb800f151c8a4e5f31d87a4d7f55fb55c51d87d86b6349499e06"
+          },
+          {
+            "depth": 1,
+            "title": "Isha S.",
+            "action": {
+              "url": "https://www.peopleperhour.com/freelancer/design/isha-sharma-8-years-experienced-full-stack-web-zznqjqnz",
+              "kind": "document"
+            },
+            "reason": "follow_source_link",
+            "parentKey": "56293036aa9feb800f151c8a4e5f31d87a4d7f55fb55c51d87d86b6349499e06"
+          },
+          {
+            "depth": 1,
+            "title": "Pavlo H.",
+            "action": {
+              "url": "https://www.peopleperhour.com/freelancer/technology-programming/pavlo-hordiienko-full-stack-web-mobile-blockchain-zzanmaxm",
+              "kind": "document"
+            },
+            "reason": "follow_source_link",
+            "parentKey": "56293036aa9feb800f151c8a4e5f31d87a4d7f55fb55c51d87d86b6349499e06"
+          },
+          {
+            "depth": 1,
+            "title": "Isaac O.",
+            "action": {
+              "url": "https://www.peopleperhour.com/freelancer/social-media/isaac-web-designer-wordpress-developer-zyyamajx",
+              "kind": "document"
+            },
+            "reason": "follow_source_link",
+            "parentKey": "56293036aa9feb800f151c8a4e5f31d87a4d7f55fb55c51d87d86b6349499e06"
+          },
+          {
+            "depth": 1,
+            "title": "Emmanuel T.",
+            "action": {
+              "url": "https://www.peopleperhour.com/freelancer/technology-programming/emmanuel-tunde_borode-wordpress-shopify-expert-zyanqqmz",
+              "kind": "document"
+            },
+            "reason": "follow_source_link",
+            "parentKey": "56293036aa9feb800f151c8a4e5f31d87a4d7f55fb55c51d87d86b6349499e06"
+          },
+          {
+            "depth": 1,
+            "title": "Gabriel G.",
+            "action": {
+              "url": "https://www.peopleperhour.com/freelancer/technology-programming/gabriel-gradinaru-web-developer-fast-seo-ready-zxynaqyq",
+              "kind": "document"
+            },
+            "reason": "follow_source_link",
+            "parentKey": "56293036aa9feb800f151c8a4e5f31d87a4d7f55fb55c51d87d86b6349499e06"
+          },
+          {
+            "depth": 1,
+            "title": "Maria H.",
+            "action": {
+              "url": "https://www.peopleperhour.com/freelancer/design/maria-top-cert-experienced-team-of-wjawjq",
+              "kind": "document"
+            },
+            "reason": "follow_source_link",
+            "parentKey": "56293036aa9feb800f151c8a4e5f31d87a4d7f55fb55c51d87d86b6349499e06"
+          },
+          {
+            "depth": 1,
+            "title": "Muhammad H.",
+            "action": {
+              "url": "https://www.peopleperhour.com/freelancer/technology-programming/muhammad-huraira-wordpress-shopify-wix-square-space-zxamanzm",
+              "kind": "document"
+            },
+            "reason": "follow_source_link",
+            "parentKey": "56293036aa9feb800f151c8a4e5f31d87a4d7f55fb55c51d87d86b6349499e06"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"Website redesign\" site:bsky.app/profile inurl:post (\"looking for\" OR \"need\" OR \"seeking\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "5130069e8b0482a8d3cd39118ad5dae9ff7f1062d2fb10f3d4f26e486387d2f8"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"Website redesign\" inurl:projects (\"budget\" OR \"bids\" OR \"proposals\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "5130069e8b0482a8d3cd39118ad5dae9ff7f1062d2fb10f3d4f26e486387d2f8"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"Website redesign\" (\"I need\" OR \"we need\" OR \"looking for\") (\"freelancer\" OR \"budget\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "5130069e8b0482a8d3cd39118ad5dae9ff7f1062d2fb10f3d4f26e486387d2f8"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"Website redesign\" (\"project details\" OR \"project description\" OR \"open for bidding\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "5130069e8b0482a8d3cd39118ad5dae9ff7f1062d2fb10f3d4f26e486387d2f8"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"Website redesign\" (\"seeking\" OR \"hiring\") (\"freelance\" OR \"contractor\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "5130069e8b0482a8d3cd39118ad5dae9ff7f1062d2fb10f3d4f26e486387d2f8"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": null,
+            "reason": "no_further_action",
+            "parentKey": null
+          }
+        ],
+        "evidence": [
+          {
+            "url": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648",
+            "label": "client_request",
+            "scope": "source",
+            "unknowns": [
+              "location",
+              "sponsorship",
+              "authorization"
+            ],
+            "explanation": "A buyer is requesting a specific website redesign project, not offering employment. The post describes the work to be done and invites proposals for a fixed-price project. Subject: experienced web designer/developer. Evidence: REDESIGN OF CATERERS WEBSITE UK"
+          }
+        ],
+        "candidates": [
+          {
+            "text": "Óscar P.\nLinked page unread; the parent page does not establish this child's demand, availability or fit.",
+            "query": null,
+            "choice": 0,
+            "origin": "source_link",
+            "parentUrl": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648"
+          },
+          {
+            "text": "Bisma I.\nLinked page unread; the parent page does not establish this child's demand, availability or fit.",
+            "query": null,
+            "choice": 1,
+            "origin": "source_link",
+            "parentUrl": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648"
+          },
+          {
+            "text": "Riffat B.\nLinked page unread; the parent page does not establish this child's demand, availability or fit.",
+            "query": null,
+            "choice": 2,
+            "origin": "source_link",
+            "parentUrl": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648"
+          },
+          {
+            "text": "Isha S.\nLinked page unread; the parent page does not establish this child's demand, availability or fit.",
+            "query": null,
+            "choice": 3,
+            "origin": "source_link",
+            "parentUrl": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648"
+          },
+          {
+            "text": "Pavlo H.\nLinked page unread; the parent page does not establish this child's demand, availability or fit.",
+            "query": null,
+            "choice": 4,
+            "origin": "source_link",
+            "parentUrl": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648"
+          },
+          {
+            "text": "Isaac O.\nLinked page unread; the parent page does not establish this child's demand, availability or fit.",
+            "query": null,
+            "choice": 5,
+            "origin": "source_link",
+            "parentUrl": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648"
+          },
+          {
+            "text": "Emmanuel T.\nLinked page unread; the parent page does not establish this child's demand, availability or fit.",
+            "query": null,
+            "choice": 6,
+            "origin": "source_link",
+            "parentUrl": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648"
+          },
+          {
+            "text": "Gabriel G.\nLinked page unread; the parent page does not establish this child's demand, availability or fit.",
+            "query": null,
+            "choice": 7,
+            "origin": "source_link",
+            "parentUrl": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648"
+          },
+          {
+            "text": "Maria H.\nLinked page unread; the parent page does not establish this child's demand, availability or fit.",
+            "query": null,
+            "choice": 8,
+            "origin": "source_link",
+            "parentUrl": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648"
+          },
+          {
+            "text": "Muhammad H.\nLinked page unread; the parent page does not establish this child's demand, availability or fit.",
+            "query": null,
+            "choice": 9,
+            "origin": "source_link",
+            "parentUrl": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648"
+          }
+        ]
+      },
+      "output": {
+        "kind": "choice",
+        "index": 3,
+        "explanation": "Search for concrete buyer briefs or bidding pages about website redesign, which is more useful than opening seller profiles and can surface specific project details."
+      },
+      "rejected_output": null,
+      "failure": null,
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 3132,
+        "responseId": "resp_03c5734699cd6d76016ae32394922c87d2ba1f453adf590548",
+        "inputTokens": 3171,
+        "outputTokens": 357,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 3985
+      }
+    },
+    {
+      "input": {
+        "kind": "choice",
+        "intent": {
+          "remote": true,
+          "target": "Website redesign",
+          "category": "services"
+        },
+        "choices": [
+          {
+            "depth": 1,
+            "title": "Óscar P.",
+            "action": {
+              "url": "https://www.peopleperhour.com/freelancer/technology-programming/%C3%93scar-palomar-python-ai-automation-developer-zxxvxxvm",
+              "kind": "document"
+            },
+            "reason": "follow_source_link",
+            "parentKey": "56293036aa9feb800f151c8a4e5f31d87a4d7f55fb55c51d87d86b6349499e06"
+          },
+          {
+            "depth": 1,
+            "title": "Bisma I.",
+            "action": {
+              "url": "https://www.peopleperhour.com/freelancer/design/bisma-iqbal-top-cert-graphic-designer-expert-nvmjxyv",
+              "kind": "document"
+            },
+            "reason": "follow_source_link",
+            "parentKey": "56293036aa9feb800f151c8a4e5f31d87a4d7f55fb55c51d87d86b6349499e06"
+          },
+          {
+            "depth": 1,
+            "title": "Riffat B.",
+            "action": {
+              "url": "https://www.peopleperhour.com/freelancer/technology-programming/riffat-baig-advanced-ai-custom-development-xxawzjv",
+              "kind": "document"
+            },
+            "reason": "follow_source_link",
+            "parentKey": "56293036aa9feb800f151c8a4e5f31d87a4d7f55fb55c51d87d86b6349499e06"
+          },
+          {
+            "depth": 1,
+            "title": "Pavlo H.",
+            "action": {
+              "url": "https://www.peopleperhour.com/freelancer/technology-programming/pavlo-hordiienko-full-stack-web-mobile-blockchain-zzanmaxm",
+              "kind": "document"
+            },
+            "reason": "follow_source_link",
+            "parentKey": "56293036aa9feb800f151c8a4e5f31d87a4d7f55fb55c51d87d86b6349499e06"
+          },
+          {
+            "depth": 1,
+            "title": "Isaac O.",
+            "action": {
+              "url": "https://www.peopleperhour.com/freelancer/social-media/isaac-web-designer-wordpress-developer-zyyamajx",
+              "kind": "document"
+            },
+            "reason": "follow_source_link",
+            "parentKey": "56293036aa9feb800f151c8a4e5f31d87a4d7f55fb55c51d87d86b6349499e06"
+          },
+          {
+            "depth": 1,
+            "title": "Emmanuel T.",
+            "action": {
+              "url": "https://www.peopleperhour.com/freelancer/technology-programming/emmanuel-tunde_borode-wordpress-shopify-expert-zyanqqmz",
+              "kind": "document"
+            },
+            "reason": "follow_source_link",
+            "parentKey": "56293036aa9feb800f151c8a4e5f31d87a4d7f55fb55c51d87d86b6349499e06"
+          },
+          {
+            "depth": 1,
+            "title": "Gabriel G.",
+            "action": {
+              "url": "https://www.peopleperhour.com/freelancer/technology-programming/gabriel-gradinaru-web-developer-fast-seo-ready-zxynaqyq",
+              "kind": "document"
+            },
+            "reason": "follow_source_link",
+            "parentKey": "56293036aa9feb800f151c8a4e5f31d87a4d7f55fb55c51d87d86b6349499e06"
+          },
+          {
+            "depth": 1,
+            "title": "Maria H.",
+            "action": {
+              "url": "https://www.peopleperhour.com/freelancer/design/maria-top-cert-experienced-team-of-wjawjq",
+              "kind": "document"
+            },
+            "reason": "follow_source_link",
+            "parentKey": "56293036aa9feb800f151c8a4e5f31d87a4d7f55fb55c51d87d86b6349499e06"
+          },
+          {
+            "depth": 1,
+            "title": "Muhammad H.",
+            "action": {
+              "url": "https://www.peopleperhour.com/freelancer/technology-programming/muhammad-huraira-wordpress-shopify-wix-square-space-zxamanzm",
+              "kind": "document"
+            },
+            "reason": "follow_source_link",
+            "parentKey": "56293036aa9feb800f151c8a4e5f31d87a4d7f55fb55c51d87d86b6349499e06"
+          },
+          {
+            "depth": 1,
+            "title": "Cornelius O.",
+            "action": {
+              "url": "https://www.peopleperhour.com/freelancer/technology-programming/cornelius-oke-top-rated-website-developer-mobile-zxzvxyjm",
+              "kind": "document"
+            },
+            "reason": "follow_source_link",
+            "parentKey": "56293036aa9feb800f151c8a4e5f31d87a4d7f55fb55c51d87d86b6349499e06"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"Website redesign\" site:bsky.app/profile inurl:post (\"looking for\" OR \"need\" OR \"seeking\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "5130069e8b0482a8d3cd39118ad5dae9ff7f1062d2fb10f3d4f26e486387d2f8"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"Website redesign\" inurl:projects (\"budget\" OR \"bids\" OR \"proposals\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "5130069e8b0482a8d3cd39118ad5dae9ff7f1062d2fb10f3d4f26e486387d2f8"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"Website redesign\" (\"I need\" OR \"we need\" OR \"looking for\") (\"freelancer\" OR \"budget\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "5130069e8b0482a8d3cd39118ad5dae9ff7f1062d2fb10f3d4f26e486387d2f8"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"Website redesign\" (\"project details\" OR \"project description\" OR \"open for bidding\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "5130069e8b0482a8d3cd39118ad5dae9ff7f1062d2fb10f3d4f26e486387d2f8"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"Website redesign\" (\"seeking\" OR \"hiring\") (\"freelance\" OR \"contractor\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "5130069e8b0482a8d3cd39118ad5dae9ff7f1062d2fb10f3d4f26e486387d2f8"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": null,
+            "reason": "no_further_action",
+            "parentKey": null
+          }
+        ],
+        "evidence": [
+          {
+            "url": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648",
+            "label": "client_request",
+            "scope": "source",
+            "unknowns": [
+              "location",
+              "sponsorship",
+              "authorization"
+            ],
+            "explanation": "A buyer is requesting a specific website redesign project, not offering employment. The post describes the work to be done and invites proposals for a fixed-price project. Subject: experienced web designer/developer. Evidence: REDESIGN OF CATERERS WEBSITE UK"
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelancer/design/isha-sharma-8-years-experienced-full-stack-web-zznqjqnz",
+            "label": "service_offer",
+            "scope": "source",
+            "unknowns": [
+              "arrangement",
+              "sponsorship",
+              "authorization"
+            ],
+            "explanation": "This is a freelancer profile advertising services and pricing, not a buyer request or job opening. The page says the person is a \"Senior Full-Stack Web Developer and Designer\" and lists offers such as \"BUILD A RESPONSIVE HOTEL WEBSITE WITH BOOKING FEATURES\" with prices and delivery times. Subject: Senior Full-Stack Web Developer and Designer. Evidence: I’m a Senior Full-Stack Web Developer and Designer with 8+ years of experience helping businesses build fast, modern, and conversion-focused websites. I work across frontend,...Read moreI’m a Senior Full-Stack Web Developer and Designer with 8+ years of experience helping businesses build fast, modern, and conversion-focused websites."
+          }
+        ],
+        "candidates": [
+          {
+            "text": "Óscar P.\nLinked page unread; the parent page does not establish this child's demand, availability or fit.",
+            "query": null,
+            "choice": 0,
+            "origin": "source_link",
+            "parentUrl": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648"
+          },
+          {
+            "text": "Bisma I.\nLinked page unread; the parent page does not establish this child's demand, availability or fit.",
+            "query": null,
+            "choice": 1,
+            "origin": "source_link",
+            "parentUrl": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648"
+          },
+          {
+            "text": "Riffat B.\nLinked page unread; the parent page does not establish this child's demand, availability or fit.",
+            "query": null,
+            "choice": 2,
+            "origin": "source_link",
+            "parentUrl": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648"
+          },
+          {
+            "text": "Pavlo H.\nLinked page unread; the parent page does not establish this child's demand, availability or fit.",
+            "query": null,
+            "choice": 3,
+            "origin": "source_link",
+            "parentUrl": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648"
+          },
+          {
+            "text": "Isaac O.\nLinked page unread; the parent page does not establish this child's demand, availability or fit.",
+            "query": null,
+            "choice": 4,
+            "origin": "source_link",
+            "parentUrl": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648"
+          },
+          {
+            "text": "Emmanuel T.\nLinked page unread; the parent page does not establish this child's demand, availability or fit.",
+            "query": null,
+            "choice": 5,
+            "origin": "source_link",
+            "parentUrl": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648"
+          },
+          {
+            "text": "Gabriel G.\nLinked page unread; the parent page does not establish this child's demand, availability or fit.",
+            "query": null,
+            "choice": 6,
+            "origin": "source_link",
+            "parentUrl": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648"
+          },
+          {
+            "text": "Maria H.\nLinked page unread; the parent page does not establish this child's demand, availability or fit.",
+            "query": null,
+            "choice": 7,
+            "origin": "source_link",
+            "parentUrl": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648"
+          },
+          {
+            "text": "Muhammad H.\nLinked page unread; the parent page does not establish this child's demand, availability or fit.",
+            "query": null,
+            "choice": 8,
+            "origin": "source_link",
+            "parentUrl": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648"
+          },
+          {
+            "text": "Cornelius O.\nLinked page unread; the parent page does not establish this child's demand, availability or fit.",
+            "query": null,
+            "choice": 9,
+            "origin": "source_link",
+            "parentUrl": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648"
+          }
+        ]
+      },
+      "output": {
+        "kind": "choice",
+        "index": 10,
+        "explanation": "The available buyer brief is already sufficient: a specific PeoplePerHour client request for a website redesign. The other options are freelancer profile pages or generic query refinements, so they are less useful than stopping here."
+      },
+      "rejected_output": null,
+      "failure": null,
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 2966,
+        "responseId": "resp_0ebe1d38c45f6e76016ae3239f09bc87d2b78abaa1a6274db0",
+        "inputTokens": 3369,
+        "outputTokens": 283,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 3801
+      }
+    },
+    {
+      "input": {
+        "kind": "choice",
+        "intent": {
+          "remote": true,
+          "target": "Website redesign",
+          "category": "services"
+        },
+        "choices": [
+          {
+            "depth": 1,
+            "title": "Óscar P.",
+            "action": {
+              "url": "https://www.peopleperhour.com/freelancer/technology-programming/%C3%93scar-palomar-python-ai-automation-developer-zxxvxxvm",
+              "kind": "document"
+            },
+            "reason": "follow_source_link",
+            "parentKey": "56293036aa9feb800f151c8a4e5f31d87a4d7f55fb55c51d87d86b6349499e06"
+          },
+          {
+            "depth": 1,
+            "title": "Bisma I.",
+            "action": {
+              "url": "https://www.peopleperhour.com/freelancer/design/bisma-iqbal-top-cert-graphic-designer-expert-nvmjxyv",
+              "kind": "document"
+            },
+            "reason": "follow_source_link",
+            "parentKey": "56293036aa9feb800f151c8a4e5f31d87a4d7f55fb55c51d87d86b6349499e06"
+          },
+          {
+            "depth": 1,
+            "title": "Riffat B.",
+            "action": {
+              "url": "https://www.peopleperhour.com/freelancer/technology-programming/riffat-baig-advanced-ai-custom-development-xxawzjv",
+              "kind": "document"
+            },
+            "reason": "follow_source_link",
+            "parentKey": "56293036aa9feb800f151c8a4e5f31d87a4d7f55fb55c51d87d86b6349499e06"
+          },
+          {
+            "depth": 1,
+            "title": "Pavlo H.",
+            "action": {
+              "url": "https://www.peopleperhour.com/freelancer/technology-programming/pavlo-hordiienko-full-stack-web-mobile-blockchain-zzanmaxm",
+              "kind": "document"
+            },
+            "reason": "follow_source_link",
+            "parentKey": "56293036aa9feb800f151c8a4e5f31d87a4d7f55fb55c51d87d86b6349499e06"
+          },
+          {
+            "depth": 1,
+            "title": "Isaac O.",
+            "action": {
+              "url": "https://www.peopleperhour.com/freelancer/social-media/isaac-web-designer-wordpress-developer-zyyamajx",
+              "kind": "document"
+            },
+            "reason": "follow_source_link",
+            "parentKey": "56293036aa9feb800f151c8a4e5f31d87a4d7f55fb55c51d87d86b6349499e06"
+          },
+          {
+            "depth": 1,
+            "title": "Emmanuel T.",
+            "action": {
+              "url": "https://www.peopleperhour.com/freelancer/technology-programming/emmanuel-tunde_borode-wordpress-shopify-expert-zyanqqmz",
+              "kind": "document"
+            },
+            "reason": "follow_source_link",
+            "parentKey": "56293036aa9feb800f151c8a4e5f31d87a4d7f55fb55c51d87d86b6349499e06"
+          },
+          {
+            "depth": 1,
+            "title": "Gabriel G.",
+            "action": {
+              "url": "https://www.peopleperhour.com/freelancer/technology-programming/gabriel-gradinaru-web-developer-fast-seo-ready-zxynaqyq",
+              "kind": "document"
+            },
+            "reason": "follow_source_link",
+            "parentKey": "56293036aa9feb800f151c8a4e5f31d87a4d7f55fb55c51d87d86b6349499e06"
+          },
+          {
+            "depth": 1,
+            "title": "Maria H.",
+            "action": {
+              "url": "https://www.peopleperhour.com/freelancer/design/maria-top-cert-experienced-team-of-wjawjq",
+              "kind": "document"
+            },
+            "reason": "follow_source_link",
+            "parentKey": "56293036aa9feb800f151c8a4e5f31d87a4d7f55fb55c51d87d86b6349499e06"
+          },
+          {
+            "depth": 1,
+            "title": "Muhammad H.",
+            "action": {
+              "url": "https://www.peopleperhour.com/freelancer/technology-programming/muhammad-huraira-wordpress-shopify-wix-square-space-zxamanzm",
+              "kind": "document"
+            },
+            "reason": "follow_source_link",
+            "parentKey": "56293036aa9feb800f151c8a4e5f31d87a4d7f55fb55c51d87d86b6349499e06"
+          },
+          {
+            "depth": 1,
+            "title": "Cornelius O.",
+            "action": {
+              "url": "https://www.peopleperhour.com/freelancer/technology-programming/cornelius-oke-top-rated-website-developer-mobile-zxzvxyjm",
+              "kind": "document"
+            },
+            "reason": "follow_source_link",
+            "parentKey": "56293036aa9feb800f151c8a4e5f31d87a4d7f55fb55c51d87d86b6349499e06"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"Website redesign\" inurl:projects (\"budget\" OR \"bids\" OR \"proposals\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "893c7078fc5c025b45dc0045c80c1e2167f7fffb41ece250d276d52aa7e8de73"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"Website redesign\" (\"I need\" OR \"we need\" OR \"looking for\") (\"freelancer\" OR \"budget\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "893c7078fc5c025b45dc0045c80c1e2167f7fffb41ece250d276d52aa7e8de73"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"Website redesign\" (\"project details\" OR \"project description\" OR \"open for bidding\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "893c7078fc5c025b45dc0045c80c1e2167f7fffb41ece250d276d52aa7e8de73"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"Website redesign\" (\"seeking\" OR \"hiring\") (\"freelance\" OR \"contractor\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "893c7078fc5c025b45dc0045c80c1e2167f7fffb41ece250d276d52aa7e8de73"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": {
+              "kind": "search",
+              "query": {
+                "page": 1,
+                "limit": 10,
+                "query": "\"Website redesign\" (\"project\" OR \"brief\") (\"budget\" OR \"fixed price\")",
+                "country": "us",
+                "language": "en",
+                "freshness": "month"
+              }
+            },
+            "reason": "refine_demand_query",
+            "parentKey": "893c7078fc5c025b45dc0045c80c1e2167f7fffb41ece250d276d52aa7e8de73"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": null,
+            "reason": "no_further_action",
+            "parentKey": null
+          }
+        ],
+        "evidence": [
+          {
+            "url": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648",
+            "label": "client_request",
+            "scope": "source",
+            "unknowns": [
+              "location",
+              "sponsorship",
+              "authorization"
+            ],
+            "explanation": "A buyer is requesting a specific website redesign project, not offering employment. The post describes the work to be done and invites proposals for a fixed-price project. Subject: experienced web designer/developer. Evidence: REDESIGN OF CATERERS WEBSITE UK"
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelancer/design/isha-sharma-8-years-experienced-full-stack-web-zznqjqnz",
+            "label": "service_offer",
+            "scope": "source",
+            "unknowns": [
+              "arrangement",
+              "sponsorship",
+              "authorization"
+            ],
+            "explanation": "This is a freelancer profile advertising services and pricing, not a buyer request or job opening. The page says the person is a \"Senior Full-Stack Web Developer and Designer\" and lists offers such as \"BUILD A RESPONSIVE HOTEL WEBSITE WITH BOOKING FEATURES\" with prices and delivery times. Subject: Senior Full-Stack Web Developer and Designer. Evidence: I’m a Senior Full-Stack Web Developer and Designer with 8+ years of experience helping businesses build fast, modern, and conversion-focused websites. I work across frontend,...Read moreI’m a Senior Full-Stack Web Developer and Designer with 8+ years of experience helping businesses build fast, modern, and conversion-focused websites."
+          }
+        ],
+        "candidates": [
+          {
+            "text": "Óscar P.\nLinked page unread; the parent page does not establish this child's demand, availability or fit.",
+            "query": null,
+            "choice": 0,
+            "origin": "source_link",
+            "parentUrl": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648"
+          },
+          {
+            "text": "Bisma I.\nLinked page unread; the parent page does not establish this child's demand, availability or fit.",
+            "query": null,
+            "choice": 1,
+            "origin": "source_link",
+            "parentUrl": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648"
+          },
+          {
+            "text": "Riffat B.\nLinked page unread; the parent page does not establish this child's demand, availability or fit.",
+            "query": null,
+            "choice": 2,
+            "origin": "source_link",
+            "parentUrl": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648"
+          },
+          {
+            "text": "Pavlo H.\nLinked page unread; the parent page does not establish this child's demand, availability or fit.",
+            "query": null,
+            "choice": 3,
+            "origin": "source_link",
+            "parentUrl": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648"
+          },
+          {
+            "text": "Isaac O.\nLinked page unread; the parent page does not establish this child's demand, availability or fit.",
+            "query": null,
+            "choice": 4,
+            "origin": "source_link",
+            "parentUrl": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648"
+          },
+          {
+            "text": "Emmanuel T.\nLinked page unread; the parent page does not establish this child's demand, availability or fit.",
+            "query": null,
+            "choice": 5,
+            "origin": "source_link",
+            "parentUrl": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648"
+          },
+          {
+            "text": "Gabriel G.\nLinked page unread; the parent page does not establish this child's demand, availability or fit.",
+            "query": null,
+            "choice": 6,
+            "origin": "source_link",
+            "parentUrl": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648"
+          },
+          {
+            "text": "Maria H.\nLinked page unread; the parent page does not establish this child's demand, availability or fit.",
+            "query": null,
+            "choice": 7,
+            "origin": "source_link",
+            "parentUrl": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648"
+          },
+          {
+            "text": "Muhammad H.\nLinked page unread; the parent page does not establish this child's demand, availability or fit.",
+            "query": null,
+            "choice": 8,
+            "origin": "source_link",
+            "parentUrl": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648"
+          },
+          {
+            "text": "Cornelius O.\nLinked page unread; the parent page does not establish this child's demand, availability or fit.",
+            "query": null,
+            "choice": 9,
+            "origin": "source_link",
+            "parentUrl": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648"
+          }
+        ]
+      },
+      "output": {
+        "kind": "choice",
+        "index": 10,
+        "explanation": "The unread child pages are freelancer profiles, which are seller pages and unlikely to add demand evidence. A focused query refinement is the best next step to find additional buyer briefs for website redesign."
+      },
+      "rejected_output": null,
+      "failure": null,
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 3636,
+        "responseId": "resp_05c633ffc839cf32016ae323a21a4887d2ab3595adf054f3ee",
+        "inputTokens": 3343,
+        "outputTokens": 364,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 4146
+      }
+    },
+    {
+      "input": {
+        "kind": "choice",
+        "intent": {
+          "remote": true,
+          "target": "Website redesign",
+          "category": "services"
+        },
+        "choices": [
+          {
+            "depth": 1,
+            "title": "Óscar P.",
+            "action": {
+              "url": "https://www.peopleperhour.com/freelancer/technology-programming/%C3%93scar-palomar-python-ai-automation-developer-zxxvxxvm",
+              "kind": "document"
+            },
+            "reason": "follow_source_link",
+            "parentKey": "56293036aa9feb800f151c8a4e5f31d87a4d7f55fb55c51d87d86b6349499e06"
+          },
+          {
+            "depth": 1,
+            "title": "Bisma I.",
+            "action": {
+              "url": "https://www.peopleperhour.com/freelancer/design/bisma-iqbal-top-cert-graphic-designer-expert-nvmjxyv",
+              "kind": "document"
+            },
+            "reason": "follow_source_link",
+            "parentKey": "56293036aa9feb800f151c8a4e5f31d87a4d7f55fb55c51d87d86b6349499e06"
+          },
+          {
+            "depth": 1,
+            "title": "Riffat B.",
+            "action": {
+              "url": "https://www.peopleperhour.com/freelancer/technology-programming/riffat-baig-advanced-ai-custom-development-xxawzjv",
+              "kind": "document"
+            },
+            "reason": "follow_source_link",
+            "parentKey": "56293036aa9feb800f151c8a4e5f31d87a4d7f55fb55c51d87d86b6349499e06"
+          },
+          {
+            "depth": 1,
+            "title": "Pavlo H.",
+            "action": {
+              "url": "https://www.peopleperhour.com/freelancer/technology-programming/pavlo-hordiienko-full-stack-web-mobile-blockchain-zzanmaxm",
+              "kind": "document"
+            },
+            "reason": "follow_source_link",
+            "parentKey": "56293036aa9feb800f151c8a4e5f31d87a4d7f55fb55c51d87d86b6349499e06"
+          },
+          {
+            "depth": 1,
+            "title": "Isaac O.",
+            "action": {
+              "url": "https://www.peopleperhour.com/freelancer/social-media/isaac-web-designer-wordpress-developer-zyyamajx",
+              "kind": "document"
+            },
+            "reason": "follow_source_link",
+            "parentKey": "56293036aa9feb800f151c8a4e5f31d87a4d7f55fb55c51d87d86b6349499e06"
+          },
+          {
+            "depth": 1,
+            "title": "Emmanuel T.",
+            "action": {
+              "url": "https://www.peopleperhour.com/freelancer/technology-programming/emmanuel-tunde_borode-wordpress-shopify-expert-zyanqqmz",
+              "kind": "document"
+            },
+            "reason": "follow_source_link",
+            "parentKey": "56293036aa9feb800f151c8a4e5f31d87a4d7f55fb55c51d87d86b6349499e06"
+          },
+          {
+            "depth": 1,
+            "title": "Gabriel G.",
+            "action": {
+              "url": "https://www.peopleperhour.com/freelancer/technology-programming/gabriel-gradinaru-web-developer-fast-seo-ready-zxynaqyq",
+              "kind": "document"
+            },
+            "reason": "follow_source_link",
+            "parentKey": "56293036aa9feb800f151c8a4e5f31d87a4d7f55fb55c51d87d86b6349499e06"
+          },
+          {
+            "depth": 1,
+            "title": "Maria H.",
+            "action": {
+              "url": "https://www.peopleperhour.com/freelancer/design/maria-top-cert-experienced-team-of-wjawjq",
+              "kind": "document"
+            },
+            "reason": "follow_source_link",
+            "parentKey": "56293036aa9feb800f151c8a4e5f31d87a4d7f55fb55c51d87d86b6349499e06"
+          },
+          {
+            "depth": 1,
+            "title": "Muhammad H.",
+            "action": {
+              "url": "https://www.peopleperhour.com/freelancer/technology-programming/muhammad-huraira-wordpress-shopify-wix-square-space-zxamanzm",
+              "kind": "document"
+            },
+            "reason": "follow_source_link",
+            "parentKey": "56293036aa9feb800f151c8a4e5f31d87a4d7f55fb55c51d87d86b6349499e06"
+          },
+          {
+            "depth": 1,
+            "title": "Cornelius O.",
+            "action": {
+              "url": "https://www.peopleperhour.com/freelancer/technology-programming/cornelius-oke-top-rated-website-developer-mobile-zxzvxyjm",
+              "kind": "document"
+            },
+            "reason": "follow_source_link",
+            "parentKey": "56293036aa9feb800f151c8a4e5f31d87a4d7f55fb55c51d87d86b6349499e06"
+          },
+          {
+            "depth": 0,
+            "title": null,
+            "action": null,
+            "reason": "no_further_action",
+            "parentKey": null
+          }
+        ],
+        "evidence": [
+          {
+            "url": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648",
+            "label": "client_request",
+            "scope": "source",
+            "unknowns": [
+              "location",
+              "sponsorship",
+              "authorization"
+            ],
+            "explanation": "A buyer is requesting a specific website redesign project, not offering employment. The post describes the work to be done and invites proposals for a fixed-price project. Subject: experienced web designer/developer. Evidence: REDESIGN OF CATERERS WEBSITE UK"
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelancer/design/isha-sharma-8-years-experienced-full-stack-web-zznqjqnz",
+            "label": "service_offer",
+            "scope": "source",
+            "unknowns": [
+              "arrangement",
+              "sponsorship",
+              "authorization"
+            ],
+            "explanation": "This is a freelancer profile advertising services and pricing, not a buyer request or job opening. The page says the person is a \"Senior Full-Stack Web Developer and Designer\" and lists offers such as \"BUILD A RESPONSIVE HOTEL WEBSITE WITH BOOKING FEATURES\" with prices and delivery times. Subject: Senior Full-Stack Web Developer and Designer. Evidence: I’m a Senior Full-Stack Web Developer and Designer with 8+ years of experience helping businesses build fast, modern, and conversion-focused websites. I work across frontend,...Read moreI’m a Senior Full-Stack Web Developer and Designer with 8+ years of experience helping businesses build fast, modern, and conversion-focused websites."
+          }
+        ],
+        "candidates": [
+          {
+            "text": "Óscar P.\nLinked page unread; the parent page does not establish this child's demand, availability or fit.",
+            "query": null,
+            "choice": 0,
+            "origin": "source_link",
+            "parentUrl": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648"
+          },
+          {
+            "text": "Bisma I.\nLinked page unread; the parent page does not establish this child's demand, availability or fit.",
+            "query": null,
+            "choice": 1,
+            "origin": "source_link",
+            "parentUrl": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648"
+          },
+          {
+            "text": "Riffat B.\nLinked page unread; the parent page does not establish this child's demand, availability or fit.",
+            "query": null,
+            "choice": 2,
+            "origin": "source_link",
+            "parentUrl": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648"
+          },
+          {
+            "text": "Pavlo H.\nLinked page unread; the parent page does not establish this child's demand, availability or fit.",
+            "query": null,
+            "choice": 3,
+            "origin": "source_link",
+            "parentUrl": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648"
+          },
+          {
+            "text": "Isaac O.\nLinked page unread; the parent page does not establish this child's demand, availability or fit.",
+            "query": null,
+            "choice": 4,
+            "origin": "source_link",
+            "parentUrl": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648"
+          },
+          {
+            "text": "Emmanuel T.\nLinked page unread; the parent page does not establish this child's demand, availability or fit.",
+            "query": null,
+            "choice": 5,
+            "origin": "source_link",
+            "parentUrl": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648"
+          },
+          {
+            "text": "Gabriel G.\nLinked page unread; the parent page does not establish this child's demand, availability or fit.",
+            "query": null,
+            "choice": 6,
+            "origin": "source_link",
+            "parentUrl": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648"
+          },
+          {
+            "text": "Maria H.\nLinked page unread; the parent page does not establish this child's demand, availability or fit.",
+            "query": null,
+            "choice": 7,
+            "origin": "source_link",
+            "parentUrl": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648"
+          },
+          {
+            "text": "Muhammad H.\nLinked page unread; the parent page does not establish this child's demand, availability or fit.",
+            "query": null,
+            "choice": 8,
+            "origin": "source_link",
+            "parentUrl": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648"
+          },
+          {
+            "text": "Cornelius O.\nLinked page unread; the parent page does not establish this child's demand, availability or fit.",
+            "query": null,
+            "choice": 9,
+            "origin": "source_link",
+            "parentUrl": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648"
+          }
+        ]
+      },
+      "output": {
+        "kind": "choice",
+        "index": 10,
+        "explanation": "The parent already provides the relevant buyer request for a website redesign, and the remaining links are freelancer profiles rather than additional buyer briefs. No further action is the most efficient next step here."
+      },
+      "rejected_output": null,
+      "failure": null,
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 2842,
+        "responseId": "resp_06d46aefb945b3aa016ae323a5d1d887d2b6210f5aa07cdb40",
+        "inputTokens": 2776,
+        "outputTokens": 199,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 2978
+      }
+    }
+  ],
+  "sourceReviewsCompleted": 2,
+  "intelligence": [
+    {
+      "id": "9b07b468d6ecaa35147ad4c3bb3d2ed795f7f72561f679d34bc8ca08f28ad834",
+      "posting_id": "web:70334c0026db3a1880bce27551fb69fb305746efaef55dd0b7ee7801e56a485f",
+      "kind": "research",
+      "result": {
+        "kind": "research",
+        "usage": {
+          "model": "no-provider-call",
+          "durationMs": 1,
+          "responseId": "",
+          "inputTokens": 0,
+          "outputTokens": 0
+        },
+        "analysis": {
+          "pay": {
+            "period": null,
+            "maximum": null,
+            "minimum": null,
+            "currency": null
+          },
+          "facts": {
+            "role": {
+              "value": "experienced web designer/developer",
+              "quotes": [
+                "We’re looking for an experienced web designer/developer to redesign an established Indian & Asian catering and events business website."
+              ],
+              "status": "stated"
+            },
+            "category": {
+              "value": "client_request",
+              "quotes": [
+                " * OPPORTUNITY",
+                "We’re looking for an experienced web designer/developer to redesign an established Indian & Asian catering and events business website."
+              ],
+              "status": "stated"
+            },
+            "location": {
+              "value": "",
+              "quotes": [],
+              "status": "unknown"
+            },
+            "arrangement": {
+              "value": "remote",
+              "quotes": [
+                " * Remote"
+              ],
+              "status": "stated"
+            },
+            "sponsorship": {
+              "value": "",
+              "quotes": [],
+              "status": "unknown"
+            },
+            "compensation": {
+              "value": "Fixed Price £500 (approx. $664)",
+              "quotes": [
+                "Fixed Price",
+                "£500(approx. $664)"
+              ],
+              "status": "stated"
+            },
+            "requirements": {
+              "value": "redesign an established Indian & Asian catering and events business website; modern, mobile-friendly design; strong visual presentation; clear navigation; redesigned enquiry form; smooth enquiry journey; clear calls-to-action; consideration of SEO, speed and UX; proven experience in hospitality/catering/events websites",
+              "quotes": [
+                "We’re looking for an experienced web designer/developer to redesign an established Indian & Asian catering and events business website.",
+                "The existing website is dated and needs a complete refresh in terms of layout, visual design, user experience and enquiry journey.",
+                "The main objective is simple: make it look professional, modern and premium,while making it much easier for potential customers to enquire and book catering services.",
+                "- Modern, attractive and mobile-friendly website design"
+              ],
+              "status": "stated"
+            },
+            "authorization": {
+              "value": "",
+              "quotes": [],
+              "status": "unknown"
+            }
+          },
+          "research": {
+            "findings": [
+              {
+                "fact": "location",
+                "value": "",
+                "quotes": [],
+                "status": "unresolved",
+                "sourceUrl": null,
+                "explanation": "Approved employer sources did not provide usable evidence for this question.",
+                "applicability": "unclear"
+              },
+              {
+                "fact": "authorization",
+                "value": "",
+                "quotes": [],
+                "status": "unresolved",
+                "sourceUrl": null,
+                "explanation": "Approved employer sources did not provide usable evidence for this question.",
+                "applicability": "unclear"
+              },
+              {
+                "fact": "sponsorship",
+                "value": "",
+                "quotes": [],
+                "status": "unresolved",
+                "sourceUrl": null,
+                "explanation": "Approved employer sources did not provide usable evidence for this question.",
+                "applicability": "unclear"
+              },
+              {
+                "fact": "requirements",
+                "value": "",
+                "quotes": [],
+                "status": "unresolved",
+                "sourceUrl": null,
+                "explanation": "Approved employer sources did not provide usable evidence for this question.",
+                "applicability": "unclear"
+              },
+              {
+                "fact": "deadline",
+                "value": "",
+                "quotes": [],
+                "status": "unresolved",
+                "sourceUrl": null,
+                "explanation": "Approved employer sources did not provide usable evidence for this question.",
+                "applicability": "unclear"
+              }
+            ],
+            "checkedAt": "2026-10-29T10:44:55.946Z",
+            "documents": [],
+            "expiresAt": "2026-10-29T10:59:55.946Z"
+          }
+        }
+      },
+      "analysis_task_id": null,
+      "outcome": "ready",
+      "usage": {
+        "model": "no-provider-call",
+        "durationMs": 1,
+        "responseId": "",
+        "inputTokens": 0,
+        "outputTokens": 0
+      },
+      "cost": {
+        "source": "none",
+        "currency": "USD",
+        "pricingVersion": "no-provider-call",
+        "estimatedMicrousd": 0
+      }
+    },
+    {
+      "id": "9eec651e91fee71347cd335f5e6d4abaffa6ed592ef1f73cb562d0984aa0b43d",
+      "posting_id": "web:70334c0026db3a1880bce27551fb69fb305746efaef55dd0b7ee7801e56a485f",
+      "kind": "fit",
+      "result": {
+        "fit": {
+          "criteria": [
+            {
+              "quotes": [
+                "Website Redesign – Indian & Asian Catering & Events Business UK",
+                "We’re looking for an experienced web designer/developer to redesign an established Indian & Asian catering and events business website.",
+                "The existing website is dated and needs a complete refresh in terms of layout, visual design, user experience and enquiry journey."
+              ],
+              "status": "meets",
+              "criterion": "role",
+              "briefQuotes": [
+                "Find clients requesting website redesign services",
+                "Website redesign"
+              ],
+              "explanation": "This is a website redesign request, which matches the target work."
+            },
+            {
+              "quotes": [
+                " * OPPORTUNITY",
+                "Website Redesign – Indian & Asian Catering & Events Business UK",
+                "We’re looking for an experienced web designer/developer to redesign an established Indian & Asian catering and events business website."
+              ],
+              "status": "meets",
+              "criterion": "category",
+              "briefQuotes": [
+                "Synthetic service-request scout",
+                "services"
+              ],
+              "explanation": "It is a client request/service opportunity rather than a different job type."
+            },
+            {
+              "quotes": [
+                " * Remote"
+              ],
+              "status": "meets",
+              "criterion": "arrangement",
+              "briefQuotes": [
+                "remote"
+              ],
+              "explanation": "The posting explicitly states remote work, which matches the brief’s remote arrangement."
+            },
+            {
+              "quotes": [],
+              "status": "unknown",
+              "criterion": "location",
+              "briefQuotes": [
+                "United States or remote worldwide",
+                "United States"
+              ],
+              "explanation": "No applicant work location restriction is stated in the posting, so location fit cannot be determined from the evidence."
+            },
+            {
+              "quotes": [
+                "Experience Level: Intermediate",
+                "You should have proven experience designing websites for hospitality, catering, food, events or similar service businesses.",
+                "Please provide examples of previous websites you have designed, particularly projects where you have improved the customer journey or increased enquiries/conversions."
+              ],
+              "status": "unknown",
+              "criterion": "experience",
+              "briefQuotes": [
+                "Five years delivering website redesign, responsive layouts, WordPress and accessible user interfaces for small businesses",
+                "Website redesign"
+              ],
+              "explanation": "The posting asks for proven experience with hospitality, catering, food, events or similar service businesses, but the brief only confirms website redesign-related experience and does not clearly show that niche background."
+            },
+            {
+              "quotes": [],
+              "status": "unknown",
+              "criterion": "authorization",
+              "briefQuotes": [
+                "not_needed",
+                "United States"
+              ],
+              "explanation": "No work authorization or sponsorship requirement is stated in the posting, so authorization fit cannot be assessed."
+            },
+            {
+              "quotes": [
+                "Fixed Price",
+                "£500(approx. $664)"
+              ],
+              "status": "unknown",
+              "criterion": "compensation",
+              "briefQuotes": [
+                "USD",
+                "project"
+              ],
+              "explanation": "The pay is a fixed project price, but the brief does not set a minimum pay floor, so there is no basis for a compensation match or conflict."
+            }
+          ]
+        },
+        "kind": "fit",
+        "usage": {
+          "model": "gpt-5.4-mini-2026-03-17",
+          "durationMs": 5125,
+          "responseId": "resp_041ea95a42600937016ae323a8beb887d2afc681633845a075",
+          "inputTokens": 2149,
+          "outputTokens": 722,
+          "cachedInputTokens": 0
+        }
+      },
+      "analysis_task_id": "9b07b468d6ecaa35147ad4c3bb3d2ed795f7f72561f679d34bc8ca08f28ad834",
+      "outcome": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 5125,
+        "responseId": "resp_041ea95a42600937016ae323a8beb887d2afc681633845a075",
+        "inputTokens": 2149,
+        "outputTokens": 722,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 4861
+      }
+    }
+  ],
+  "rejectedFits": [],
+  "rejectedReviews": [],
+  "reviewFailures": [],
+  "matchingState": {
+    "status": "completed",
+    "match_count": 1
+  },
+  "taskStates": [
+    {
+      "kind": "extraction",
+      "status": "ready",
+      "count": 1
+    },
+    {
+      "kind": "fit",
+      "status": "ready",
+      "count": 1
+    },
+    {
+      "kind": "research",
+      "status": "ready",
+      "count": 1
+    }
+  ],
+  "eligiblePostings": [
+    {
+      "id": "web:70334c0026db3a1880bce27551fb69fb305746efaef55dd0b7ee7801e56a485f",
+      "kind": "client_request",
+      "title": "experienced web designer/developer",
+      "url": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648"
+    }
+  ],
+  "reviewAttempts": [
+    {
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 4601,
+        "responseId": "resp_014c4a3d7fd529b6016ae3238ffc9c87d2b820eac1aacb327b",
+        "inputTokens": 2177,
+        "outputTokens": 568,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 4189
+      }
+    },
+    {
+      "state": "ready",
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "durationMs": 3720,
+        "responseId": "resp_0c5fd518b741ec50016ae3239b431487d2a45bcc1459d1cc4c",
+        "inputTokens": 4270,
+        "outputTokens": 515,
+        "cachedInputTokens": 0
+      },
+      "cost": {
+        "source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+        "currency": "USD",
+        "pricingVersion": "openai-standard-2026-10-01",
+        "estimatedMicrousd": 5520
+      }
+    }
+  ],
+  "opportunities": [
+    {
+      "id": "web:70334c0026db3a1880bce27551fb69fb305746efaef55dd0b7ee7801e56a485f",
+      "kind": "client_request",
+      "title": "experienced web designer/developer",
+      "company": null,
+      "location": null,
+      "url": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648",
+      "checkedAt": "2026-10-29 10:45:01.130985+00",
+      "scouts": [
+        "Synthetic service-request scout"
+      ],
+      "feedback": {
+        "value": "none",
+        "version": 0
+      },
+      "reasons": [
+        "This is a website redesign request, which matches the target work.",
+        "It is a client request/service opportunity rather than a different job type.",
+        "The posting explicitly states remote work, which matches the brief’s remote arrangement."
+      ],
+      "uncertainties": [
+        "No applicant work location restriction is stated in the posting, so location fit cannot be determined from the evidence.",
+        "The posting asks for proven experience with hospitality, catering, food, events or similar service businesses, but the brief only confirms website redesign-related experience and does not clearly show that niche background.",
+        "No work authorization or sponsorship requirement is stated in the posting, so authorization fit cannot be assessed.",
+        "The pay is a fixed project price, but the brief does not set a minimum pay floor, so there is no basis for a compensation match or conflict."
+      ],
+      "detail": {
+        "criteria": [
+          {
+            "quotes": [
+              "Website Redesign – Indian & Asian Catering & Events Business UK",
+              "We’re looking for an experienced web designer/developer to redesign an established Indian & Asian catering and events business website.",
+              "The existing website is dated and needs a complete refresh in terms of layout, visual design, user experience and enquiry journey."
+            ],
+            "status": "meets",
+            "criterion": "role",
+            "briefQuotes": [
+              "Find clients requesting website redesign services",
+              "Website redesign"
+            ],
+            "explanation": "This is a website redesign request, which matches the target work."
+          },
+          {
+            "quotes": [
+              " * OPPORTUNITY",
+              "Website Redesign – Indian & Asian Catering & Events Business UK",
+              "We’re looking for an experienced web designer/developer to redesign an established Indian & Asian catering and events business website."
+            ],
+            "status": "meets",
+            "criterion": "category",
+            "briefQuotes": [
+              "Synthetic service-request scout",
+              "services"
+            ],
+            "explanation": "It is a client request/service opportunity rather than a different job type."
+          },
+          {
+            "quotes": [
+              " * Remote"
+            ],
+            "status": "meets",
+            "criterion": "arrangement",
+            "briefQuotes": [
+              "remote"
+            ],
+            "explanation": "The posting explicitly states remote work, which matches the brief’s remote arrangement."
+          },
+          {
+            "quotes": [],
+            "status": "unknown",
+            "criterion": "location",
+            "briefQuotes": [
+              "United States or remote worldwide",
+              "United States"
+            ],
+            "explanation": "No applicant work location restriction is stated in the posting, so location fit cannot be determined from the evidence."
+          },
+          {
+            "quotes": [
+              "Experience Level: Intermediate",
+              "You should have proven experience designing websites for hospitality, catering, food, events or similar service businesses.",
+              "Please provide examples of previous websites you have designed, particularly projects where you have improved the customer journey or increased enquiries/conversions."
+            ],
+            "status": "unknown",
+            "criterion": "experience",
+            "briefQuotes": [
+              "Five years delivering website redesign, responsive layouts, WordPress and accessible user interfaces for small businesses",
+              "Website redesign"
+            ],
+            "explanation": "The posting asks for proven experience with hospitality, catering, food, events or similar service businesses, but the brief only confirms website redesign-related experience and does not clearly show that niche background."
+          },
+          {
+            "quotes": [],
+            "status": "unknown",
+            "criterion": "authorization",
+            "briefQuotes": [
+              "not_needed",
+              "United States"
+            ],
+            "explanation": "No work authorization or sponsorship requirement is stated in the posting, so authorization fit cannot be assessed."
+          },
+          {
+            "quotes": [
+              "Fixed Price",
+              "£500(approx. $664)"
+            ],
+            "status": "unknown",
+            "criterion": "compensation",
+            "briefQuotes": [
+              "USD",
+              "project"
+            ],
+            "explanation": "The pay is a fixed project price, but the brief does not set a minimum pay floor, so there is no basis for a compensation match or conflict."
+          }
+        ],
+        "research": [
+          {
+            "status": "unresolved",
+            "question": "No applicant work location restriction is stated in the posting, so location fit cannot be determined from the evidence.",
+            "criterion": "location"
+          },
+          {
+            "status": "unresolved",
+            "question": "The posting asks for proven experience with hospitality, catering, food, events or similar service businesses, but the brief only confirms website redesign-related experience and does not clearly show that niche background.",
+            "criterion": "experience"
+          },
+          {
+            "status": "unresolved",
+            "question": "No work authorization or sponsorship requirement is stated in the posting, so authorization fit cannot be assessed.",
+            "criterion": "authorization"
+          },
+          {
+            "status": "unresolved",
+            "question": "The pay is a fixed project price, but the brief does not set a minimum pay floor, so there is no basis for a compensation match or conflict.",
+            "criterion": "compensation"
+          }
+        ],
+        "assessedBy": "ai",
+        "employerResearch": {
+          "findings": [
+            {
+              "fact": "location",
+              "value": "",
+              "quotes": [],
+              "status": "unresolved",
+              "sourceUrl": null,
+              "explanation": "Approved employer sources did not provide usable evidence for this question.",
+              "applicability": "unclear"
+            },
+            {
+              "fact": "authorization",
+              "value": "",
+              "quotes": [],
+              "status": "unresolved",
+              "sourceUrl": null,
+              "explanation": "Approved employer sources did not provide usable evidence for this question.",
+              "applicability": "unclear"
+            },
+            {
+              "fact": "sponsorship",
+              "value": "",
+              "quotes": [],
+              "status": "unresolved",
+              "sourceUrl": null,
+              "explanation": "Approved employer sources did not provide usable evidence for this question.",
+              "applicability": "unclear"
+            },
+            {
+              "fact": "requirements",
+              "value": "",
+              "quotes": [],
+              "status": "unresolved",
+              "sourceUrl": null,
+              "explanation": "Approved employer sources did not provide usable evidence for this question.",
+              "applicability": "unclear"
+            },
+            {
+              "fact": "deadline",
+              "value": "",
+              "quotes": [],
+              "status": "unresolved",
+              "sourceUrl": null,
+              "explanation": "Approved employer sources did not provide usable evidence for this question.",
+              "applicability": "unclear"
+            }
+          ],
+          "checkedAt": "2026-10-29T10:44:55.946Z",
+          "documents": [],
+          "expiresAt": "2026-10-29T10:59:55.946Z"
+        },
+        "verificationPolicy": "supported-criteria-v4"
+      },
+      "assessmentScout": "Synthetic service-request scout",
+      "availability": {
+        "status": "available",
+        "checkedAt": "2026-10-29T10:44:31.076Z",
+        "sourceUrl": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648",
+        "validUntil": "2026-10-29T10:59:31.076Z",
+        "fingerprint": "a070ad1f6a1b8f98b3108aad6245b2f10a4d632e1d06d44c8bcfbc6e1f3c238d"
+      }
+    }
+  ],
+  "deliveries": [
+    {
+      "status": "accepted",
+      "provider_message_id": "<f97a2ad7-6f37-4691-a4aa-1e53f7471402@scoutalert.test>"
+    }
+  ],
+  "durationMs": 37811,
+  "search": {
+    "goal": "Find clients requesting website redesign services",
+    "category": "services",
+    "target": "Website redesign",
+    "name": "Synthetic service-request scout",
+    "arrangement": "remote",
+    "arrangementRequired": true,
+    "residence": "New York, United States",
+    "workLocations": "United States or remote worldwide",
+    "authorizationLocations": "United States",
+    "authorizationConfirmed": true,
+    "sponsorshipNeed": "not_needed",
+    "background": "Five years delivering website redesign, responsive layouts, WordPress and accessible user interfaces for small businesses",
+    "minimumPay": "",
+    "currency": "USD",
+    "payPeriod": "project",
+    "unknownEligibility": "review",
+    "undisclosedPay": "include"
+  },
+  "operations": [
+    {
+      "key": "cbe3e9ae3c4548b6bc0d037ffe37ad538d6d340de9991b1b34fa2db1efbc6cfd",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "\"Website redesign\" site:peopleperhour.com/freelance-jobs",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "retrieved_url": null,
+      "capture": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "da129a165ac8e8d6faa6f303160c2a0c067726847b90373b5da58f968fd8152d",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "\"Website redesign\" site:workana.com inurl:job",
+          "country": "us",
+          "language": "en",
+          "freshness": "any"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "retrieved_url": null,
+      "capture": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "a7a23a0111a69b127d0a0a31076cfa13b9dd799ba93c315f2c804e72841a86e0",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "\"Website redesign\" (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "retrieved_url": null,
+      "capture": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "5130069e8b0482a8d3cd39118ad5dae9ff7f1062d2fb10f3d4f26e486387d2f8",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "\"Website redesign\" filetype:pdf (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "retrieved_url": null,
+      "capture": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "56293036aa9feb800f151c8a4e5f31d87a4d7f55fb55c51d87d86b6349499e06",
+      "kind": "document",
+      "input": {
+        "url": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": [
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/%C3%93scar-palomar-python-ai-automation-developer-zxxvxxvm",
+          "text": "Óscar P."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/design/bisma-iqbal-top-cert-graphic-designer-expert-nvmjxyv",
+          "text": "Bisma I."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/riffat-baig-advanced-ai-custom-development-xxawzjv",
+          "text": "Riffat B."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/design/isha-sharma-8-years-experienced-full-stack-web-zznqjqnz",
+          "text": "Isha S."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/pavlo-hordiienko-full-stack-web-mobile-blockchain-zzanmaxm",
+          "text": "Pavlo H."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/social-media/isaac-web-designer-wordpress-developer-zyyamajx",
+          "text": "Isaac O."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/emmanuel-tunde_borode-wordpress-shopify-expert-zyanqqmz",
+          "text": "Emmanuel T."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/gabriel-gradinaru-web-developer-fast-seo-ready-zxynaqyq",
+          "text": "Gabriel G."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/design/maria-top-cert-experienced-team-of-wjawjq",
+          "text": "Maria H."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/muhammad-huraira-wordpress-shopify-wix-square-space-zxamanzm",
+          "text": "Muhammad H."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/cornelius-oke-top-rated-website-developer-mobile-zxzvxyjm",
+          "text": "Cornelius O."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/marketing-seo/micheal-endurance-fast-delivery-website-designer-zyanxqjv",
+          "text": "Micheal E."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648?Members_page=2",
+          "text": "2"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648?Members_page=3",
+          "text": "3"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648?Members_page=4",
+          "text": "4"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648?Members_page=5",
+          "text": "5"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648?Members_page=6",
+          "text": "6"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648?Members_page=7",
+          "text": "7"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648?Members_page=8",
+          "text": "8"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648?Members_page=10",
+          "text": "10"
+        },
+        {
+          "url": "https://x.com/intent/tweet",
+          "text": ""
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/zameer-dabhad-senior-business-consultant-wmnwym?ref=buyer",
+          "text": "Zameer D."
+        },
+        {
+          "url": "https://www.peopleperhour.com/site/register?next=https%3A%2F%2Fwww.peopleperhour.com%2Ffreelance-jobs%2Fdesign%2Fweb-design%2Fredesign-of-caterers-website-uk-4525648",
+          "text": "Sign up"
+        },
+        {
+          "url": "https://www.peopleperhour.com/job/new?id=4525648&ref=similar",
+          "text": "Post a project like this"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Building+design",
+          "text": "Building design"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Catering",
+          "text": "Catering"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Development",
+          "text": "Development"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Homepage",
+          "text": "Homepage"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Search+engine+optimization+%28seo%29",
+          "text": "Search engine optimization (seo)"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Website+design",
+          "text": "Website design"
+        },
+        {
+          "url": "https://www.peopleperhour.com/cookies",
+          "text": "Cookie Policy"
+        }
+      ],
+      "feeds": [],
+      "sitemaps": [
+        {
+          "url": "https://www.peopleperhour.com/pphsitemaps/sitemap.live.hire_freelancers.index.xml",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.peopleperhour.com/pphsitemaps/sitemap.live.topcert.index.xml",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.peopleperhour.com/pphsitemaps/sitemap.live.cert5.index.xml",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.peopleperhour.com/pphsitemaps/sitemap.live.cert4.index.xml",
+          "text": "Site-advertised sitemap"
+        }
+      ],
+      "retrieved_url": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648",
+      "capture": {
+        "bytes": 136856,
+        "scope": "buyer_brief",
+        "method": "http",
+        "parser": "peopleperhour-public-html-v2",
+        "complete": true,
+        "requests": 2
+      },
+      "captured_text": "REDESIGN OF CATERERS WEBSITE UK\n\n- or -\n\nPost a project like this\nEnds in 9 days\nFixed Price\n£500(approx. $664)\n * Posted: 3 weeks ago\n * Proposals: 115\n * Remote\n * #4525648\n * OPPORTUNITY\n * Open for Proposals\n\nExperience Level: Intermediate\n\nWebsite Redesign – Indian & Asian Catering & Events Business UK\n\nWe’re looking for an experienced web designer/developer to redesign an established Indian & Asian catering and events business website.\n\nThe existing website is dated and needs a complete refresh in terms of layout, visual design, user experience and enquiry journey.\n\nThe main objective is simple: make it look professional, modern and premium,while making it much easier for potential customers to enquire and book catering services.\n\nWhat we need\n\n- Modern, attractive and mobile-friendly website design\n- Strong visual presentation of Indian & Asian catering, food and events\n- Clear navigation and service structure\n- A redesigned catering/enquiry menu form that is quick and simple to complete\n- A smooth enquiry journey that captures the key information needed to qualify a potential customer\n- Clear calls-to-action throughout the website\n- Design that builds trust and encourages customers to make an enquiry\n- Consideration of SEO, speed and overall user experience\n\nThe website needs to work particularly well for customers looking for weddings, private functions, corporate events, parties and Asian/Indian catering in the UK..\n\nWho we're looking for\n\nYou should have proven experience designing websites for hospitality, catering, food, events or similar service businesses.\n\nPlease provide examples of previous websites you have designed, particularly projects where you have improved the customer journey or increased enquiries/conversions.\n\nWe are looking for someone who can bring ideas and initiative, not simply follow instructions or apply a generic template.\n\nOnce you have submitted you previous designs and work is to the standard we desire we will send further information on the clients website fo you to submit a draft proposal and mock up of the homepage.\n\nThanks",
+      "source_status": "fetched",
+      "source_reason": null,
+      "observed_links": 31
+    },
+    {
+      "key": "fd23eaff098a51260aed35f21f7faa86456fbb29c0f5dfaf2e00d6cbc8406c7d",
+      "kind": "document",
+      "input": {
+        "url": "https://www.peopleperhour.com/freelancer/design/isha-sharma-8-years-experienced-full-stack-web-zznqjqnz",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 1,
+      "links": [
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?languages=en",
+          "text": "English"
+        },
+        {
+          "url": "https://www.peopleperhour.com/marketing/member/contact?id=11957591",
+          "text": "Contact"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=graphics+design",
+          "text": "Graphics design"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=squarespace",
+          "text": "Squarespace"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=banner+design",
+          "text": "Banner design"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=e-commerce+platform+development",
+          "text": "E-commerce platform development"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=full+stack+developer",
+          "text": "Full stack developer"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=javascript+programming+language",
+          "text": "JavaScript programming language"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=logo+design",
+          "text": "Logo design"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=mockup+generator",
+          "text": "Mockup generator"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=node+js",
+          "text": "Node js"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=php+programming+language",
+          "text": "PHP programming language"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=webflow",
+          "text": "Webflow"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=website+development",
+          "text": "Website development"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=wordpress+development",
+          "text": "Wordpress development"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=wordpress+e-commerce",
+          "text": "Wordpress e-commerce"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=shopify",
+          "text": "Shopify"
+        },
+        {
+          "url": "https://www.peopleperhour.com/site/proxypartner?target=https%3A%2F%2Ftry.web.clickup.com%2Fsg00fzv0kk0k-ftpxvl",
+          "text": "Get Started Free"
+        },
+        {
+          "url": "https://www.peopleperhour.com/services?mem_id=11957591&ref=member_profile",
+          "text": "View All (650)"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hourlie/build-a-responsive-hotel-website-with-booking-features/1136468?ref=member",
+          "text": "Build a responsive hotel website with booking features"
+        },
+        {
+          "url": "https://www.peopleperhour.com/marketing/member/contact?id=11957591&job=H1136468",
+          "text": "or contact"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hourlie/build-and-customize-your-hubspot-business-website/1136467?ref=member",
+          "text": "Build and customize your HubSpot business website"
+        },
+        {
+          "url": "https://www.peopleperhour.com/marketing/member/contact?id=11957591&job=H1136467",
+          "text": "or contact"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hourlie/build-a-professional-aesthetics-clinic-website-for-you/1136465?ref=member",
+          "text": "Build a professional aesthetics clinic website for you"
+        },
+        {
+          "url": "https://www.peopleperhour.com/marketing/member/contact?id=11957591&job=H1136465",
+          "text": "or contact"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hourlie/design-a-modern-website-prototype-in-figma/1136462?ref=member",
+          "text": "Design a modern website prototype in Figma"
+        },
+        {
+          "url": "https://www.peopleperhour.com/marketing/member/contact?id=11957591&job=H1136462",
+          "text": "or contact"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hourlie/design-creative-packaging-and-labels-for-your-pens/1136458?ref=member",
+          "text": "Design creative packaging and labels for your pens"
+        },
+        {
+          "url": "https://www.peopleperhour.com/marketing/member/contact?id=11957591&job=H1136458",
+          "text": "or contact"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hourlie/design-a-professional-a5-magazine-ready-for-print/1136420?ref=member",
+          "text": "Design a professional A5 magazine ready for print"
+        },
+        {
+          "url": "https://www.peopleperhour.com/marketing/member/contact?id=11957591&job=H1136420",
+          "text": "or contact"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/design/isha-sharma-8-years-experienced-full-stack-web-zznqjqnz?type=provider&feedback=0&Projects_page=0&activityType=reviews&0=%2Fmember%2Fprofile",
+          "text": "Hide feedback"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/marek-zxmwyyyy",
+          "text": "Marek S."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/website-hacked-4502141",
+          "text": "Website hacked"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/mauro-vergani-qymyzm",
+          "text": "Mauro V."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/matthew-zxqwjmna",
+          "text": "Matthew B."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/design/web-design/create-a-shopify-store-4494152",
+          "text": "Create a Shopify Store"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/ajay-bhudia-director-jjqqaw",
+          "text": "Ajay B."
+        },
+        {
+          "url": "https://www.peopleperhour.com/hourlie/creative-logo-design-that-represents-your-brand/1097189",
+          "text": "Creative logo design that represents your brand"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/website-migration-site-structure-audit-and-content-inventory-4471002",
+          "text": "Website Migration:Site Structure Audit and Content Inventory"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/vai-zxyyxvnw",
+          "text": "Vai D."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/design/web-design/rebuild-existing-homepage-on-wordpress-elementor-no-re-4470093",
+          "text": "Rebuild existing homepage on WordPress (Elementor) – no redesign"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/mohamed-mahmoud-strategic-communication-growth-zxzmvajy",
+          "text": "Mohamed M."
+        },
+        {
+          "url": "https://www.peopleperhour.com/hourlie/develop-modern-intuitive-ui-ux-for-apps-and-websites/1097161",
+          "text": "Develop modern, intuitive UI/UX for apps and websites."
+        },
+        {
+          "url": "https://www.peopleperhour.com/hourlie/any-wordpress-problem-solved/1096933",
+          "text": "Any WordPress Problem, Solved"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hourlie/design-anything-website-logo-banner-vectors/1096937",
+          "text": "Design Anything: Website, Logo, Banner & Vectors"
+        },
+        {
+          "url": "https://www.peopleperhour.com/cookies",
+          "text": "Cookie Policy"
+        }
+      ],
+      "feeds": [],
+      "sitemaps": [
+        {
+          "url": "https://www.peopleperhour.com/pphsitemaps/sitemap.live.hire_freelancers.index.xml",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.peopleperhour.com/pphsitemaps/sitemap.live.topcert.index.xml",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.peopleperhour.com/pphsitemaps/sitemap.live.cert5.index.xml",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.peopleperhour.com/pphsitemaps/sitemap.live.cert4.index.xml",
+          "text": "Site-advertised sitemap"
+        }
+      ],
+      "retrieved_url": "https://www.peopleperhour.com/freelancer/design/isha-sharma-8-years-experienced-full-stack-web-zznqjqnz",
+      "capture": {
+        "bytes": 159210,
+        "method": "http",
+        "complete": true,
+        "requests": 2
+      },
+      "captured_text": "Phoenix - Your AI Assistant\n\n\nInactive session will be ended in 24 hours\nEnd Session\n\n\n\nISHA SHARMA\n\n8+ YEARS EXPERIENCED FULL-STACK WEB DEVELOPER, DESIGNER & GRAPHIC EXPER...\n\nBay Minette, AL, United States\n\nEnglish speaking\n\n\n\nI’m a Senior Full-Stack Web Developer and Designer with 8+ years of experience helping businesses build fast, modern, and conversion-focused websites. I work across frontend,...Read moreI’m a Senior Full-Stack Web Developer and Designer with 8+ years of experience helping businesses build fast, modern, and conversion-focused websites.\n\nI work across frontend, backend, CMS platforms, and design, so you get everything under one roof — from idea to launch.\n\nWhat I can help you with\n=====================\nCustom website development (frontend + backend)\n\nWordPress, Shopify, Squarespace & Webflow development\n\nPHP, Node.js, MERN & MEAN stack applications\n\nWebsite redesigns, speed optimization & bug fixing\n\nUI/UX design, wireframes & mockups (Figma, Canva, Photoshop)\n\nLogo design, banners, landing pages & brand visuals\n\nTechnologies & Platforms\n=====================\nHTML, CSS, JavaScript, PHP, Node.js, React, MongoDB, MySQL, WordPress, Shopify, Webflow, Squarespace, MERN, MEAN, and other modern frameworks & CMS.\n\nI focus on clean code, responsive design, performance, and clear communication.\nIf you need a reliable developer who understands both design and development, let’s talk.\n\n\n\n *  * \n    * \n    * \n    * \n    * \n   \n   5.0\n   (4)\n   $20\n   /hr\n\nContact\n\n\nSKILLS\n\nGraphics designSquarespaceBanner designE-commerce platform developmentFull stack developerJavaScript programming languageLogo designMockup generatorNode jsPHP programming language +5\nWebflowWebsite developmentWordpress developmentWordpress e-commerceShopify\n\n\n\nINSIGHTS\n\nFreelancer Buyer\nProjects listed\n2\nFreelancers worked with\n7\nLast active\nOct 29 2026\nResponse time\nwithin a few hours\n\n\nINSIGHTS\n\nFreelancer Buyer\nProjects worked on\n10\nBuyers worked with\n9\nLast active\nOct 29 2026\nResponse time\nwithin a few hours\n\n\n\nSKILLS\n\nGraphics designSquarespaceBanner designE-commerce platform developmentFull stack developerJavaScript programming languageLogo designMockup generatorNode jsPHP programming language +5\nWebflowWebsite developmentWordpress developmentWordpress e-commerceShopify\n\n\n\nINSIGHTS\n\nFreelancer Buyer\nProjects listed\n2\nFreelancers worked with\n7\nLast active\nOct 29 2026\nResponse time\nwithin a few hours\n\n\nINSIGHTS\n\nFreelancer Buyer\nProjects worked on\n10\nBuyers worked with\n9\nLast active\nOct 29 2026\nResponse time\nwithin a few hours\n\nNEVER LOSE TRACK OF A DELIVERABLE\n\nAutomatic reminders and status updates chase the work for you, so deadlines stop slipping.\n\nGet Started Free * Promoted i About this ad Advertiser: Mango Technologies, Inc. dba ClickUp\n\nSkills Insights\n\n\nINSIGHTS\n\nFreelancer Buyer\nProjects listed\n2\nFreelancers worked with\n7\nLast active\nOct 29 2026\nResponse time\nwithin a few hours\n\n\nINSIGHTS\n\nFreelancer Buyer\nProjects worked on\n10\nBuyers worked with\n9\nLast active\nOct 29 2026\nResponse time\nwithin a few hours\nSkills Insights\nGraphics designSquarespaceBanner designE-commerce platform developmentFull stack developerJavaScript programming languageLogo designMockup generatorNode jsPHP programming language +5\nWebflowWebsite developmentWordpress developmentWordpress e-commerceShopify\n\n\nPLAN THE WORK BEFORE IT STARTS\n\nMap scope, steps and owners on one shared board, so everyone agrees what is included up front.\n\nGet Started Free * Promoted i About this ad Advertiser: Mango Technologies, Inc. dba ClickUp\n\n * Portfolio (6)\n * Offers (650)\n\nView All (6)\n\n\n\n\n\n\nView All (650)\n\nBUILD A RESPONSIVE HOTEL WEBSITE WITH BOOKING FEATURES\n\n$410\nIsha S. United States\nView\nor contact\n * Delivery in 2 days\n\nBUILD AND CUSTOMIZE YOUR HUBSPOT BUSINESS WEBSITE\n\n$40\nIsha S. United States\nView\nor contact\n * Delivery in 1 day\n\nBUILD A PROFESSIONAL AESTHETICS CLINIC WEBSITE FOR YOU\n\n$410\nIsha S. United States\nView\nor contact\n * Delivery in 2 days\n\nDESIGN A MODERN WEBSITE PROTOTYPE IN FIGMA\n\n$340\nIsha S. United States\nView\nor contact\n * Delivery in 1 day\n\nDESIGN CREATIVE PACKAGING AND LABELS FOR YOUR PENS\n\n$45\nIsha S. United States\nView\nor contact\n * Delivery in 1 day\n\nDESIGN A PROFESSIONAL A5 MAGAZINE READY FOR PRINT\n\n$130\nIsha S. United States\nView\nor contact\n * Delivery in 1 day\n\n * Reviews\n * Purchases\n * Endorsements\n\nHide feedback\n\nWORDPRESS WOO-COMMERCE WEB SITE REVIEW\n\n * by Marek S.\n * Posted: 28 Sep 2026\n * 0\n\n\nNo result found\n\nWEBSITE HACKED\n\n * by Mauro V.\n * Posted: 12 Jun 2026\n * 8\n\n\n * 12 Jun 2026\n   \n   \n   MAURO V.\n   \n   London, GB\n    * \n    * \n    * \n    * \n    * \n   \n   Great job\n   \n   ISHA S.\n   \n   Always happy to help with your wordpress website!\n   \n   \n\nEMAIL BANNER\n\n * by Matthew B.\n * Posted: 10 Jun 2026\n * 0\n\n\nNo result found\n\nCREATE A SHOPIFY STORE\n\n * by Ajay B.\n * Posted: 8 May 2026\n * 6\n\n\nNo result found\n\nCREATIVE LOGO DESIGN THAT REPRESENTS YOUR BRAND\n\n$30\n * Posted: 12 Apr 2026\n * Not rated\n * Sold: 1\n * 0\n\n\n\nNo result found\n\nWEBSITE MIGRATION:SITE STRUCTURE AUDIT AND CONTENT INVENTORY\n\n * by Vai D.\n * Posted: 6 Feb 2026\n * 3\n\n\nNo result found\n\nREBUILD EXISTING HOMEPAGE ON WORDPRESS (ELEMENTOR) – NO REDESIGN\n\n * by Mohamed M.\n * Posted: 3 Feb 2026\n * 1\n\n\nNo result found\n\nDEVELOP MODERN, INTUITIVE UI/UX FOR APPS AND WEBSITES.\n\n$80\n * Posted: 27 Jan 2026\n * Not rated\n * Sold: 0\n * 0\n\n\n\nNo result found\n\nANY WORDPRESS PROBLEM, SOLVED\n\n$10\n * Posted: 16 Jan 2026\n * 100% Positive\n * Sold: 1\n * 0\n\n\n\n * 25 Jan 2026\n   \n   \n   SAPNA D.\n   \n   Bay Minette, AL, US\n    * \n    * \n    * \n    * \n    * \n   \n   I hired Isha for WordPress-related tasks on my websites. Initially, I was hesitant because he didn’t have a PPH track record, but I decided to give him a chance—and I’m very glad I did. Isha proved to be one of the best professionals I’ve worked with. He resolved all issues quickly and ensured everything was running smoothly. I don’t usually write detailed feedback, but Isha truly deserves it. Thank you, and I look forward to working with you again on my next project.\n   \n   \n\nDESIGN ANYTHING: WEBSITE, LOGO, BANNER & VECTORS\n\n$10\n * Posted: 16 Jan 2026\n * 100% Positive\n * Sold: 1\n * 1\n\n\n\n * 25 Jan 2026\n   \n   \n   24H DEVELOPERS\n   \n   Chandigarh, IN\n    * \n    * \n    * \n    * \n    * \n   \n   Great design service.Fast, attentive, and very professional. The final result fully met our expectations. Highly recommended!\n   \n   \n\n4523931450214145016444494152448786044710024470093446795144647194464717\n\n\n\n\nPRODUCT\n\n * About\n * Team\n\n\nSUPPORT\n\n * How it works\n * Trust & Safety\n * Help Centre\n\n\nDISCOVER\n\n * GuidesStoriesNews\n\n\nRESOURCES\n\n * Global Payroll\n * Startup Cities\n\n\nBROWSE\n\n * Freelance Services\n * Freelance Skills\n\n * \n * \n * \n * \n\n\n * Terms\n * Privacy\n * Sitemap\n * Company Details\n * © 2026 People Per Hour Ltd\n\nWe collect cookies to enable the proper functioning and security of our website, and to enhance your experience. By clicking on 'Accept All Cookies', you consent to the use of these cookies. You can change your 'Cookies Settings' at any time. For more information, please read ourCookie Policy\nCookie Settings\nAccept All Cookies",
+      "source_status": "fetched",
+      "source_reason": null,
+      "observed_links": 47
+    },
+    {
+      "key": "893c7078fc5c025b45dc0045c80c1e2167f7fffb41ece250d276d52aa7e8de73",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "\"Website redesign\" site:bsky.app/profile inurl:post (\"looking for\" OR \"need\" OR \"seeking\")",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "retrieved_url": null,
+      "capture": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "2f5b99ca908f0b1bda3b38c2ebcca83c17a98efe720819a11df2181b1d23653d",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "\"Website redesign\" inurl:projects (\"budget\" OR \"bids\" OR \"proposals\")",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "retrieved_url": null,
+      "capture": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    }
+  ],
+  "decisions": [
+    {
+      "round": 0,
+      "reason": "check_promising_result",
+      "action": {
+        "url": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648",
+        "kind": "document"
+      },
+      "depth": 0,
+      "parent_key": "5130069e8b0482a8d3cd39118ad5dae9ff7f1062d2fb10f3d4f26e486387d2f8"
+    },
+    {
+      "round": 1,
+      "reason": "follow_source_link",
+      "action": {
+        "url": "https://www.peopleperhour.com/freelancer/design/isha-sharma-8-years-experienced-full-stack-web-zznqjqnz",
+        "kind": "document"
+      },
+      "depth": 1,
+      "parent_key": "56293036aa9feb800f151c8a4e5f31d87a4d7f55fb55c51d87d86b6349499e06"
+    },
+    {
+      "round": 2,
+      "reason": "refine_demand_query",
+      "action": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "\"Website redesign\" site:bsky.app/profile inurl:post (\"looking for\" OR \"need\" OR \"seeking\")",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "depth": 0,
+      "parent_key": "5130069e8b0482a8d3cd39118ad5dae9ff7f1062d2fb10f3d4f26e486387d2f8"
+    },
+    {
+      "round": 3,
+      "reason": "refine_demand_query",
+      "action": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "\"Website redesign\" inurl:projects (\"budget\" OR \"bids\" OR \"proposals\")",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "depth": 0,
+      "parent_key": "893c7078fc5c025b45dc0045c80c1e2167f7fffb41ece250d276d52aa7e8de73"
+    },
+    {
+      "round": 4,
+      "reason": "no_further_action",
+      "action": null,
+      "depth": 0,
+      "parent_key": null
+    }
+  ],
+  "case": {
+    "id": "16d97254-def7-4e89-ae50-6dffd176bc4d",
+    "scoutId": "48feb2da-323e-47f6-9630-77c4b3568b8a",
+    "scoutName": "Synthetic service-request scout",
+    "scoutVersion": 1,
+    "provider": "recorded-capture-check",
+    "strategy": {
+      "targets": [
+        "Website redesign"
+      ],
+      "explanation": "I kept the service as one coherent deliverable so searches stay focused on the full project type. Remote is handled separately in matching rather than added to the search target."
+    },
+    "exploration": [
+      {
+        "kind": "document",
+        "reason": "check_promising_result",
+        "target": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648"
+      },
+      {
+        "kind": "document",
+        "reason": "follow_source_link",
+        "target": "https://www.peopleperhour.com/freelancer/design/isha-sharma-8-years-experienced-full-stack-web-zznqjqnz"
+      },
+      {
+        "kind": "search",
+        "reason": "refine_demand_query",
+        "target": "\"Website redesign\" site:bsky.app/profile inurl:post (\"looking for\" OR \"need\" OR \"seeking\")"
+      },
+      {
+        "kind": "search",
+        "reason": "refine_demand_query",
+        "target": "\"Website redesign\" inurl:projects (\"budget\" OR \"bids\" OR \"proposals\")"
+      },
+      {
+        "kind": null,
+        "reason": "no_further_action",
+        "target": null
+      }
+    ],
+    "reviewStatus": "complete",
+    "reviewReason": "source_reviews_complete",
+    "status": "completed",
+    "reason": "bounded_search_window",
+    "startedAt": "2026-10-29 10:44:26.129991+00",
+    "finishedAt": "2026-10-29 10:44:55.911709+00",
+    "searchesCompleted": 6,
+    "documentsChecked": 2,
+    "leadCount": 2
+  },
+  "usage": [
+    {
+      "provider": "public-documents",
+      "requests": 2,
+      "reserved_micros": "0"
+    },
+    {
+      "provider": "recorded-capture-check",
+      "requests": 6,
+      "reserved_micros": "0"
+    }
+  ],
+  "aiBudget": [
+    {
+      "requests": 10,
+      "reserved_microusd": "750000"
+    }
+  ],
+  "dashboardLeadSampleSize": 2,
+  "leads": [
+    {
+      "url": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648",
+      "title": "Redesign of caterers website UK",
+      "contentStatus": "fetched",
+      "contentReason": null,
+      "postingId": "web:70334c0026db3a1880bce27551fb69fb305746efaef55dd0b7ee7801e56a485f",
+      "promoted": true,
+      "review": {
+        "facts": {
+          "role": {
+            "value": "experienced web designer/developer",
+            "quotes": [
+              "We’re looking for an experienced web designer/developer to redesign an established Indian & Asian catering and events business website."
+            ],
+            "status": "stated"
+          },
+          "category": {
+            "value": "client_request",
+            "quotes": [
+              " * OPPORTUNITY",
+              "We’re looking for an experienced web designer/developer to redesign an established Indian & Asian catering and events business website."
+            ],
+            "status": "stated"
+          },
+          "location": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "arrangement": {
+            "value": "remote",
+            "quotes": [
+              " * Remote"
+            ],
+            "status": "stated"
+          },
+          "sponsorship": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "compensation": {
+            "value": "Fixed Price £500 (approx. $664)",
+            "quotes": [
+              "Fixed Price",
+              "£500(approx. $664)"
+            ],
+            "status": "stated"
+          },
+          "requirements": {
+            "value": "redesign an established Indian & Asian catering and events business website; modern, mobile-friendly design; strong visual presentation; clear navigation; redesigned enquiry form; smooth enquiry journey; clear calls-to-action; consideration of SEO, speed and UX; proven experience in hospitality/catering/events websites",
+            "quotes": [
+              "We’re looking for an experienced web designer/developer to redesign an established Indian & Asian catering and events business website.",
+              "The existing website is dated and needs a complete refresh in terms of layout, visual design, user experience and enquiry journey.",
+              "The main objective is simple: make it look professional, modern and premium,while making it much easier for potential customers to enquire and book catering services.",
+              "- Modern, attractive and mobile-friendly website design"
+            ],
+            "status": "stated"
+          },
+          "authorization": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          }
+        },
+        "label": "client_request",
+        "scope": "source",
+        "quotes": [
+          "REDESIGN OF CATERERS WEBSITE UK",
+          "Fixed Price",
+          "£500(approx. $664)",
+          "We’re looking for an experienced web designer/developer to redesign an established Indian & Asian catering and events business website."
+        ],
+        "explanation": "A buyer is requesting a specific website redesign project, not offering employment. The post describes the work to be done and invites proposals for a fixed-price project."
+      }
+    },
+    {
+      "url": "https://www.peopleperhour.com/freelancer/design/isha-sharma-8-years-experienced-full-stack-web-zznqjqnz",
+      "title": "Isha S.",
+      "contentStatus": "fetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": {
+        "facts": {
+          "role": {
+            "value": "Senior Full-Stack Web Developer and Designer",
+            "quotes": [
+              "I’m a Senior Full-Stack Web Developer and Designer with 8+ years of experience helping businesses build fast, modern, and conversion-focused websites. I work across frontend,...Read moreI’m a Senior Full-Stack Web Developer and Designer with 8+ years of experience helping businesses build fast, modern, and conversion-focused websites."
+            ],
+            "status": "stated"
+          },
+          "category": {
+            "value": "contract",
+            "quotes": [
+              "I’m a Senior Full-Stack Web Developer and Designer with 8+ years of experience helping businesses build fast, modern, and conversion-focused websites. I work across frontend,...Read moreI’m a Senior Full-Stack Web Developer and Designer with 8+ years of experience helping businesses build fast, modern, and conversion-focused websites.",
+              "BUILD A RESPONSIVE HOTEL WEBSITE WITH BOOKING FEATURES",
+              "$410"
+            ],
+            "status": "stated"
+          },
+          "location": {
+            "value": "Bay Minette, AL, United States",
+            "quotes": [
+              "Bay Minette, AL, United States"
+            ],
+            "status": "stated"
+          },
+          "arrangement": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "sponsorship": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          },
+          "compensation": {
+            "value": "$20/hr",
+            "quotes": [
+              "   $20",
+              "   /hr"
+            ],
+            "status": "stated"
+          },
+          "requirements": {
+            "value": "8+ years of experience; frontend, backend, CMS platforms, and design",
+            "quotes": [
+              "8+ YEARS EXPERIENCED FULL-STACK WEB DEVELOPER, DESIGNER & GRAPHIC EXPER...",
+              "I’m a Senior Full-Stack Web Developer and Designer with 8+ years of experience helping businesses build fast, modern, and conversion-focused websites. I work across frontend,...Read moreI’m a Senior Full-Stack Web Developer and Designer with 8+ years of experience helping businesses build fast, modern, and conversion-focused websites.",
+              "I work across frontend, backend, CMS platforms, and design, so you get everything under one roof — from idea to launch.",
+              "Custom website development (frontend + backend)"
+            ],
+            "status": "stated"
+          },
+          "authorization": {
+            "value": "",
+            "quotes": [],
+            "status": "unknown"
+          }
+        },
+        "label": "service_offer",
+        "scope": "source",
+        "quotes": [
+          "I’m a Senior Full-Stack Web Developer and Designer with 8+ years of experience helping businesses build fast, modern, and conversion-focused websites. I work across frontend,...Read moreI’m a Senior Full-Stack Web Developer and Designer with 8+ years of experience helping businesses build fast, modern, and conversion-focused websites.",
+          "If you need a reliable developer who understands both design and development, let’s talk.",
+          "BUILD A RESPONSIVE HOTEL WEBSITE WITH BOOKING FEATURES",
+          "$410"
+        ],
+        "explanation": "This is a freelancer profile advertising services and pricing, not a buyer request or job opening. The page says the person is a \"Senior Full-Stack Web Developer and Designer\" and lists offers such as \"BUILD A RESPONSIVE HOTEL WEBSITE WITH BOOKING FEATURES\" with prices and delivery times."
+      }
+    }
+  ],
+  "publication": [
+    {
+      "url": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648",
+      "linkedPostingId": "web:70334c0026db3a1880bce27551fb69fb305746efaef55dd0b7ee7801e56a485f",
+      "reviewedPostingId": "web:70334c0026db3a1880bce27551fb69fb305746efaef55dd0b7ee7801e56a485f",
+      "publishable": true,
+      "input": {
+        "id": "70334c0026db3a1880bce27551fb69fb305746efaef55dd0b7ee7801e56a485f",
+        "url": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648",
+        "text": "REDESIGN OF CATERERS WEBSITE UK\n\n- or -\n\nPost a project like this\nEnds in 9 days\nFixed Price\n£500(approx. $664)\n * Posted: 3 weeks ago\n * Proposals: 115\n * Remote\n * #4525648\n * OPPORTUNITY\n * Open for Proposals\n\nExperience Level: Intermediate\n\nWebsite Redesign – Indian & Asian Catering & Events Business UK\n\nWe’re looking for an experienced web designer/developer to redesign an established Indian & Asian catering and events business website.\n\nThe existing website is dated and needs a complete refresh in terms of layout, visual design, user experience and enquiry journey.\n\nThe main objective is simple: make it look professional, modern and premium,while making it much easier for potential customers to enquire and book catering services.\n\nWhat we need\n\n- Modern, attractive and mobile-friendly website design\n- Strong visual presentation of Indian & Asian catering, food and events\n- Clear navigation and service structure\n- A redesigned catering/enquiry menu form that is quick and simple to complete\n- A smooth enquiry journey that captures the key information needed to qualify a potential customer\n- Clear calls-to-action throughout the website\n- Design that builds trust and encourages customers to make an enquiry\n- Consideration of SEO, speed and overall user experience\n\nThe website needs to work particularly well for customers looking for weddings, private functions, corporate events, parties and Asian/Indian catering in the UK..\n\nWho we're looking for\n\nYou should have proven experience designing websites for hospitality, catering, food, events or similar service businesses.\n\nPlease provide examples of previous websites you have designed, particularly projects where you have improved the customer journey or increased enquiries/conversions.\n\nWe are looking for someone who can bring ideas and initiative, not simply follow instructions or apply a generic template.\n\nOnce you have submitted you previous designs and work is to the standard we desire we will send further information on the clients website fo you to submit a draft proposal and mock up of the homepage.\n\nThanks",
+        "scope": "source",
+        "truncated": false,
+        "observedAt": "2026-10-29T10:44:31.076Z",
+        "sourceKind": "buyer_brief",
+        "fingerprint": "1c5acc06b28d37f95f8493e2580c4f7f151485cd6998e1239a3da2757a267fd0",
+        "documentFingerprint": "8b8392040037a655fbd4157567e69c171ee343a19aef89a4777ca9cc6b251f64"
+      },
+      "review": {
+        "label": "client_request",
+        "quotes": [
+          "REDESIGN OF CATERERS WEBSITE UK",
+          "Fixed Price",
+          "£500(approx. $664)",
+          "We’re looking for an experienced web designer/developer to redesign an established Indian & Asian catering and events business website."
+        ],
+        "company": {
+          "value": "",
+          "quotes": [],
+          "status": "unknown"
+        },
+        "analysis": {
+          "pay": {
+            "period": null,
+            "maximum": null,
+            "minimum": null,
+            "currency": null
+          },
+          "facts": {
+            "role": {
+              "value": "experienced web designer/developer",
+              "quotes": [
+                "We’re looking for an experienced web designer/developer to redesign an established Indian & Asian catering and events business website."
+              ],
+              "status": "stated"
+            },
+            "category": {
+              "value": "client_request",
+              "quotes": [
+                " * OPPORTUNITY",
+                "We’re looking for an experienced web designer/developer to redesign an established Indian & Asian catering and events business website."
+              ],
+              "status": "stated"
+            },
+            "location": {
+              "value": "",
+              "quotes": [],
+              "status": "unknown"
+            },
+            "arrangement": {
+              "value": "remote",
+              "quotes": [
+                " * Remote"
+              ],
+              "status": "stated"
+            },
+            "sponsorship": {
+              "value": "",
+              "quotes": [],
+              "status": "unknown"
+            },
+            "compensation": {
+              "value": "Fixed Price £500 (approx. $664)",
+              "quotes": [
+                "Fixed Price",
+                "£500(approx. $664)"
+              ],
+              "status": "stated"
+            },
+            "requirements": {
+              "value": "redesign an established Indian & Asian catering and events business website; modern, mobile-friendly design; strong visual presentation; clear navigation; redesigned enquiry form; smooth enquiry journey; clear calls-to-action; consideration of SEO, speed and UX; proven experience in hospitality/catering/events websites",
+              "quotes": [
+                "We’re looking for an experienced web designer/developer to redesign an established Indian & Asian catering and events business website.",
+                "The existing website is dated and needs a complete refresh in terms of layout, visual design, user experience and enquiry journey.",
+                "The main objective is simple: make it look professional, modern and premium,while making it much easier for potential customers to enquire and book catering services.",
+                "- Modern, attractive and mobile-friendly website design"
+              ],
+              "status": "stated"
+            },
+            "authorization": {
+              "value": "",
+              "quotes": [],
+              "status": "unknown"
+            }
+          }
+        },
+        "deadline": {
+          "value": "",
+          "quotes": [],
+          "status": "unknown"
+        },
+        "application": {
+          "value": "Open for proposals; submit previous designs and a draft proposal/mockup after initial review",
+          "quotes": [
+            " * Open for Proposals",
+            "Please provide examples of previous websites you have designed, particularly projects where you have improved the customer journey or increased enquiries/conversions.",
+            "Once you have submitted you previous designs and work is to the standard we desire we will send further information on the clients website fo you to submit a draft proposal and mock up of the homepage."
+          ],
+          "status": "stated"
+        },
+        "explanation": "A buyer is requesting a specific website redesign project, not offering employment. The post describes the work to be done and invites proposals for a fixed-price project."
+      }
+    },
+    {
+      "url": "https://www.peopleperhour.com/freelancer/design/isha-sharma-8-years-experienced-full-stack-web-zznqjqnz",
+      "linkedPostingId": null,
+      "reviewedPostingId": null,
+      "publishable": false,
+      "input": {
+        "id": "5b765520fbbd13a0960859c0492cc373f5c58d893c93414289c02e8b15e0721a",
+        "url": "https://www.peopleperhour.com/freelancer/design/isha-sharma-8-years-experienced-full-stack-web-zznqjqnz",
+        "text": "Phoenix - Your AI Assistant\n\n\nInactive session will be ended in 24 hours\nEnd Session\n\n\n\nISHA SHARMA\n\n8+ YEARS EXPERIENCED FULL-STACK WEB DEVELOPER, DESIGNER & GRAPHIC EXPER...\n\nBay Minette, AL, United States\n\nEnglish speaking\n\n\n\nI’m a Senior Full-Stack Web Developer and Designer with 8+ years of experience helping businesses build fast, modern, and conversion-focused websites. I work across frontend,...Read moreI’m a Senior Full-Stack Web Developer and Designer with 8+ years of experience helping businesses build fast, modern, and conversion-focused websites.\n\nI work across frontend, backend, CMS platforms, and design, so you get everything under one roof — from idea to launch.\n\nWhat I can help you with\n=====================\nCustom website development (frontend + backend)\n\nWordPress, Shopify, Squarespace & Webflow development\n\nPHP, Node.js, MERN & MEAN stack applications\n\nWebsite redesigns, speed optimization & bug fixing\n\nUI/UX design, wireframes & mockups (Figma, Canva, Photoshop)\n\nLogo design, banners, landing pages & brand visuals\n\nTechnologies & Platforms\n=====================\nHTML, CSS, JavaScript, PHP, Node.js, React, MongoDB, MySQL, WordPress, Shopify, Webflow, Squarespace, MERN, MEAN, and other modern frameworks & CMS.\n\nI focus on clean code, responsive design, performance, and clear communication.\nIf you need a reliable developer who understands both design and development, let’s talk.\n\n\n\n *  * \n    * \n    * \n    * \n    * \n   \n   5.0\n   (4)\n   $20\n   /hr\n\nContact\n\n\nSKILLS\n\nGraphics designSquarespaceBanner designE-commerce platform developmentFull stack developerJavaScript programming languageLogo designMockup generatorNode jsPHP programming language +5\nWebflowWebsite developmentWordpress developmentWordpress e-commerceShopify\n\n\n\nINSIGHTS\n\nFreelancer Buyer\nProjects listed\n2\nFreelancers worked with\n7\nLast active\nOct 29 2026\nResponse time\nwithin a few hours\n\n\nINSIGHTS\n\nFreelancer Buyer\nProjects worked on\n10\nBuyers worked with\n9\nLast active\nOct 29 2026\nResponse time\nwithin a few hours\n\n\n\nSKILLS\n\nGraphics designSquarespaceBanner designE-commerce platform developmentFull stack developerJavaScript programming languageLogo designMockup generatorNode jsPHP programming language +5\nWebflowWebsite developmentWordpress developmentWordpress e-commerceShopify\n\n\n\nINSIGHTS\n\nFreelancer Buyer\nProjects listed\n2\nFreelancers worked with\n7\nLast active\nOct 29 2026\nResponse time\nwithin a few hours\n\n\nINSIGHTS\n\nFreelancer Buyer\nProjects worked on\n10\nBuyers worked with\n9\nLast active\nOct 29 2026\nResponse time\nwithin a few hours\n\nNEVER LOSE TRACK OF A DELIVERABLE\n\nAutomatic reminders and status updates chase the work for you, so deadlines stop slipping.\n\nGet Started Free * Promoted i About this ad Advertiser: Mango Technologies, Inc. dba ClickUp\n\nSkills Insights\n\n\nINSIGHTS\n\nFreelancer Buyer\nProjects listed\n2\nFreelancers worked with\n7\nLast active\nOct 29 2026\nResponse time\nwithin a few hours\n\n\nINSIGHTS\n\nFreelancer Buyer\nProjects worked on\n10\nBuyers worked with\n9\nLast active\nOct 29 2026\nResponse time\nwithin a few hours\nSkills Insights\nGraphics designSquarespaceBanner designE-commerce platform developmentFull stack developerJavaScript programming languageLogo designMockup generatorNode jsPHP programming language +5\nWebflowWebsite developmentWordpress developmentWordpress e-commerceShopify\n\n\nPLAN THE WORK BEFORE IT STARTS\n\nMap scope, steps and owners on one shared board, so everyone agrees what is included up front.\n\nGet Started Free * Promoted i About this ad Advertiser: Mango Technologies, Inc. dba ClickUp\n\n * Portfolio (6)\n * Offers (650)\n\nView All (6)\n\n\n\n\n\n\nView All (650)\n\nBUILD A RESPONSIVE HOTEL WEBSITE WITH BOOKING FEATURES\n\n$410\nIsha S. United States\nView\nor contact\n * Delivery in 2 days\n\nBUILD AND CUSTOMIZE YOUR HUBSPOT BUSINESS WEBSITE\n\n$40\nIsha S. United States\nView\nor contact\n * Delivery in 1 day\n\nBUILD A PROFESSIONAL AESTHETICS CLINIC WEBSITE FOR YOU\n\n$410\nIsha S. United States\nView\nor contact\n * Delivery in 2 days\n\nDESIGN A MODERN WEBSITE PROTOTYPE IN FIGMA\n\n$340\nIsha S. United States\nView\nor contact\n * Delivery in 1 day\n\nDESIGN CREATIVE PACKAGING AND LABELS FOR YOUR PENS\n\n$45\nIsha S. United States\nView\nor contact\n * Delivery in 1 day\n\nDESIGN A PROFESSIONAL A5 MAGAZINE READY FOR PRINT\n\n$130\nIsha S. United States\nView\nor contact\n * Delivery in 1 day\n\n * Reviews\n * Purchases\n * Endorsements\n\nHide feedback\n\nWORDPRESS WOO-COMMERCE WEB SITE REVIEW\n\n * by Marek S.\n * Posted: 28 Sep 2026\n * 0\n\n\nNo result found\n\nWEBSITE HACKED\n\n * by Mauro V.\n * Posted: 12 Jun 2026\n * 8\n\n\n * 12 Jun 2026\n   \n   \n   MAURO V.\n   \n   London, GB\n    * \n    * \n    * \n    * \n    * \n   \n   Great job\n   \n   ISHA S.\n   \n   Always happy to help with your wordpress website!\n   \n   \n\nEMAIL BANNER\n\n * by Matthew B.\n * Posted: 10 Jun 2026\n * 0\n\n\nNo result found\n\nCREATE A SHOPIFY STORE\n\n * by Ajay B.\n * Posted: 8 May 2026\n * 6\n\n\nNo result found\n\nCREATIVE LOGO DESIGN THAT REPRESENTS YOUR BRAND\n\n$30\n * Posted: 12 Apr 2026\n * Not rated\n * Sold: 1\n * 0\n\n\n\nNo result found\n\nWEBSITE MIGRATION:SITE STRUCTURE AUDIT AND CONTENT INVENTORY\n\n * by Vai D.\n * Posted: 6 Feb 2026\n * 3\n\n\nNo result found\n\nREBUILD EXISTING HOMEPAGE ON WORDPRESS (ELEMENTOR) – NO REDESIGN\n\n * by Mohamed M.\n * Posted: 3 Feb 2026\n * 1\n\n\nNo result found\n\nDEVELOP MODERN, INTUITIVE UI/UX FOR APPS AND WEBSITES.\n\n$80\n * Posted: 27 Jan 2026\n * Not rated\n * Sold: 0\n * 0\n\n\n\nNo result found\n\nANY WORDPRESS PROBLEM, SOLVED\n\n$10\n * Posted: 16 Jan 2026\n * 100% Positive\n * Sold: 1\n * 0\n\n\n\n * 25 Jan 2026\n   \n   \n   SAPNA D.\n   \n   Bay Minette, AL, US\n    * \n    * \n    * \n    * \n    * \n   \n   I hired Isha for WordPress-related tasks on my websites. Initially, I was hesitant because he didn’t have a PPH track record, but I decided to give him a chance—and I’m very glad I did. Isha proved to be one of the best professionals I’ve worked with. He resolved all issues quickly and ensured everything was running smoothly. I don’t usually write detailed feedback, but Isha truly deserves it. Thank you, and I look forward to working with you again on my next project.\n   \n   \n\nDESIGN ANYTHING: WEBSITE, LOGO, BANNER & VECTORS\n\n$10\n * Posted: 16 Jan 2026\n * 100% Positive\n * Sold: 1\n * 1\n\n\n\n * 25 Jan 2026\n   \n   \n   24H DEVELOPERS\n   \n   Chandigarh, IN\n    * \n    * \n    * \n    * \n    * \n   \n   Great design service.Fast, attentive, and very professional. The final result fully met our expectations. Highly recommended!\n   \n   \n\n4523931450214145016444494152448786044710024470093446795144647194464717\n\n\n\n\nPRODUCT\n\n * About\n * Team\n\n\nSUPPORT\n\n * How it works\n * Trust & Safety\n * Help Centre\n\n\nDISCOVER\n\n * GuidesStoriesNews\n\n\nRESOURCES\n\n * Global Payroll\n * Startup Cities\n\n\nBROWSE\n\n * Freelance Services\n * Freelance Skills\n\n * \n * \n * \n * \n\n\n * Terms\n * Privacy\n * Sitemap\n * Company Details\n * © 2026 People Per Hour Ltd\n\nWe collect cookies to enable the proper functioning and security of our website, and to enhance your experience. By clicking on 'Accept All Cookies', you consent to the use of these cookies. You can change your 'Cookies Settings' at any time. For more information, please read ourCookie Policy\nCookie Settings\nAccept All Cookies",
+        "scope": "source",
+        "truncated": false,
+        "observedAt": "2026-10-29T10:44:42.397Z",
+        "fingerprint": "1c5bc016b7e1aeec1851d3e3bfa0e02ac419cc9db819a2f9b73ca013b814f9c1",
+        "documentFingerprint": "fb2ef374e510728e03303ed8a3a839ee78e62afd498a2fa5159c77e6779961fa"
+      },
+      "review": {
+        "label": "service_offer",
+        "quotes": [
+          "I’m a Senior Full-Stack Web Developer and Designer with 8+ years of experience helping businesses build fast, modern, and conversion-focused websites. I work across frontend,...Read moreI’m a Senior Full-Stack Web Developer and Designer with 8+ years of experience helping businesses build fast, modern, and conversion-focused websites.",
+          "If you need a reliable developer who understands both design and development, let’s talk.",
+          "BUILD A RESPONSIVE HOTEL WEBSITE WITH BOOKING FEATURES",
+          "$410"
+        ],
+        "company": {
+          "value": "ISHA SHARMA",
+          "quotes": [
+            "ISHA SHARMA"
+          ],
+          "status": "stated"
+        },
+        "analysis": {
+          "pay": {
+            "period": null,
+            "maximum": null,
+            "minimum": null,
+            "currency": null
+          },
+          "facts": {
+            "role": {
+              "value": "Senior Full-Stack Web Developer and Designer",
+              "quotes": [
+                "I’m a Senior Full-Stack Web Developer and Designer with 8+ years of experience helping businesses build fast, modern, and conversion-focused websites. I work across frontend,...Read moreI’m a Senior Full-Stack Web Developer and Designer with 8+ years of experience helping businesses build fast, modern, and conversion-focused websites."
+              ],
+              "status": "stated"
+            },
+            "category": {
+              "value": "contract",
+              "quotes": [
+                "I’m a Senior Full-Stack Web Developer and Designer with 8+ years of experience helping businesses build fast, modern, and conversion-focused websites. I work across frontend,...Read moreI’m a Senior Full-Stack Web Developer and Designer with 8+ years of experience helping businesses build fast, modern, and conversion-focused websites.",
+                "BUILD A RESPONSIVE HOTEL WEBSITE WITH BOOKING FEATURES",
+                "$410"
+              ],
+              "status": "stated"
+            },
+            "location": {
+              "value": "Bay Minette, AL, United States",
+              "quotes": [
+                "Bay Minette, AL, United States"
+              ],
+              "status": "stated"
+            },
+            "arrangement": {
+              "value": "",
+              "quotes": [],
+              "status": "unknown"
+            },
+            "sponsorship": {
+              "value": "",
+              "quotes": [],
+              "status": "unknown"
+            },
+            "compensation": {
+              "value": "$20/hr",
+              "quotes": [
+                "   $20",
+                "   /hr"
+              ],
+              "status": "stated"
+            },
+            "requirements": {
+              "value": "8+ years of experience; frontend, backend, CMS platforms, and design",
+              "quotes": [
+                "8+ YEARS EXPERIENCED FULL-STACK WEB DEVELOPER, DESIGNER & GRAPHIC EXPER...",
+                "I’m a Senior Full-Stack Web Developer and Designer with 8+ years of experience helping businesses build fast, modern, and conversion-focused websites. I work across frontend,...Read moreI’m a Senior Full-Stack Web Developer and Designer with 8+ years of experience helping businesses build fast, modern, and conversion-focused websites.",
+                "I work across frontend, backend, CMS platforms, and design, so you get everything under one roof — from idea to launch.",
+                "Custom website development (frontend + backend)"
+              ],
+              "status": "stated"
+            },
+            "authorization": {
+              "value": "",
+              "quotes": [],
+              "status": "unknown"
+            }
+          }
+        },
+        "deadline": {
+          "value": "",
+          "quotes": [],
+          "status": "unknown"
+        },
+        "application": {
+          "value": "Contact",
+          "quotes": [
+            "Contact",
+            "View",
+            "or contact",
+            "View"
+          ],
+          "status": "stated"
+        },
+        "explanation": "This is a freelancer profile advertising services and pricing, not a buyer request or job opening. The page says the person is a \"Senior Full-Stack Web Developer and Designer\" and lists offers such as \"BUILD A RESPONSIVE HOTEL WEBSITE WITH BOOKING FEATURES\" with prices and delivery times."
+      }
+    }
+  ],
+  "checks": [
+    "recorded URLs recaptured and reassessed, no new discovery search",
+    "bounded provider and model admission",
+    "observed parent provenance",
+    "current owner isolation",
+    "terminal replay without new spending"
+  ],
+  "emailsSent": 1,
+  "realAccountsUsed": 0,
+  "scopeNote": "Seeded recapture regression: search observations replay previously recorded URLs; no search-provider request or new discovery/recall measurement. Bounded live synthetic case using production discovery, review, assessment and delivery use cases. Worker reader includes configured browser fallback and Ashby routing without shared Redis caching; HTTP reader is a controlled reduced-access path. Native X and marketplace connector loops are not exercised. All lead rows are measured separately from the dashboard's bounded sample. Matching can remain incomplete if retries exceed the check window. Model labels are not independent ground truth; precision, recall and global throughput remain unproven.",
+  "sharedTokenBudget": {
+    "before": {
+      "day": "2026-10-29",
+      "inputTokens": 1680143,
+      "outputTokens": 172319,
+      "cachedInputTokens": 428416,
+      "reservedTokens": 0,
+      "usedTokens": 1852462,
+      "dailyLimit": 2400000,
+      "remainingTokens": 547538,
+      "unknownReservations": 0
+    },
+    "after": {
+      "day": "2026-10-29",
+      "inputTokens": 1724470,
+      "outputTokens": 178349,
+      "cachedInputTokens": 428416,
+      "reservedTokens": 0,
+      "usedTokens": 1902819,
+      "dailyLimit": 2400000,
+      "remainingTokens": 497181,
+      "unknownReservations": 0
+    },
+    "attempts": [
+      {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "reservedTokens": 2337,
+        "state": "completed",
+        "usage": {
+          "inputTokens": 337,
+          "outputTokens": 144,
+          "cachedInputTokens": 0
+        }
+      },
+      {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "reservedTokens": 4228,
+        "state": "completed",
+        "usage": {
+          "inputTokens": 2228,
+          "outputTokens": 73,
+          "cachedInputTokens": 0
+        }
+      },
+      {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "reservedTokens": 6177,
+        "state": "completed",
+        "usage": {
+          "inputTokens": 2177,
+          "outputTokens": 568,
+          "cachedInputTokens": 0
+        }
+      },
+      {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "reservedTokens": 5171,
+        "state": "completed",
+        "usage": {
+          "inputTokens": 3171,
+          "outputTokens": 357,
+          "cachedInputTokens": 0
+        }
+      },
+      {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "reservedTokens": 8270,
+        "state": "completed",
+        "usage": {
+          "inputTokens": 4270,
+          "outputTokens": 515,
+          "cachedInputTokens": 0
+        }
+      },
+      {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "reservedTokens": 5369,
+        "state": "completed",
+        "usage": {
+          "inputTokens": 3369,
+          "outputTokens": 283,
+          "cachedInputTokens": 0
+        }
+      },
+      {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "reservedTokens": 5343,
+        "state": "completed",
+        "usage": {
+          "inputTokens": 3343,
+          "outputTokens": 364,
+          "cachedInputTokens": 0
+        }
+      },
+      {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "reservedTokens": 4776,
+        "state": "completed",
+        "usage": {
+          "inputTokens": 2776,
+          "outputTokens": 199,
+          "cachedInputTokens": 0
+        }
+      },
+      {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "reservedTokens": 6149,
+        "state": "completed",
+        "usage": {
+          "inputTokens": 2149,
+          "outputTokens": 722,
+          "cachedInputTokens": 0
+        }
+      }
+    ],
+    "scope": "Evaluation generations share the configured worker database's daily allowance. Before/after snapshots include background worker activity; attempts contain this evaluation only. Counting failures before reservation do not appear as generation attempts."
+  },
+  "stages": {
+    "scenario": "services",
+    "executionStatus": "measured",
+    "successfulSearches": 6,
+    "failedSearches": 0,
+    "renderingEnabled": true,
+    "durationSeconds": 37.811,
+    "uniqueLeads": 2,
+    "recordedLeads": 2,
+    "completeLeadSet": true,
+    "searchRequests": 0,
+    "documentRequests": 2,
+    "capturedDocuments": 2,
+    "completeCaptures": 2,
+    "inaccessibleDocuments": 0,
+    "repeatedDestinations": 0,
+    "sourceReviewLabels": {
+      "client_request": 1,
+      "service_offer": 1
+    },
+    "sourceReviewCountsAreComplete": true,
+    "promotedPostings": 1,
+    "matching": "completed",
+    "completedFitAssessments": 1,
+    "dashboardRecommendations": 1,
+    "acceptedEmails": 1,
+    "aiEstimatedUsd": 0.032381,
+    "attemptsWithoutCostEstimate": 0,
+    "searchReservedUsd": 0,
+    "aiReservedUsd": 0.75,
+    "estimatedAiPlusSearchReservationPerRecommendationUsd": 0.032381,
+    "independentlyUsefulResults": null,
+    "costPerIndependentlyUsefulResultUsd": null,
+    "precision": null,
+    "recall": null,
+    "limitations": "AI estimates exclude unpriced/failed attempts, infrastructure and billing adjustments. Search reservations are configured upper allowances, not invoices. Source labels and dashboard acceptance are not independent usefulness judgments. Distinct URLs may still describe the same opportunity; repeatedDestinations detects only observed redirect identity. Initial reports recorded a dashboard sample, not every source review."
+  }
+}

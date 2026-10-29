@@ -1,0 +1,1651 @@
+{
+  "checkedAt": "2026-10-29T12:14:06.581Z",
+  "scenario": "services",
+  "recaptureCases": null,
+  "baseline": false,
+  "reasoningConfiguration": "openai:gpt-5.4-mini-2026-03-17:scout-planning-v14",
+  "plan": {
+    "policy": "public-intent-v3",
+    "queries": [
+      {
+        "page": 1,
+        "limit": 10,
+        "query": "\"Website redesign\" site:peopleperhour.com/freelance-jobs \"remote\"",
+        "country": "us",
+        "language": "en",
+        "freshness": "any"
+      },
+      {
+        "page": 1,
+        "limit": 10,
+        "query": "\"Website redesign\" \"remote\" (\"freelance\" OR \"proposals\" OR \"bids\")",
+        "country": "us",
+        "language": "en",
+        "freshness": "month"
+      },
+      {
+        "page": 1,
+        "limit": 10,
+        "query": "\"Website redesign\" site:workana.com inurl:job",
+        "country": "us",
+        "language": "en",
+        "freshness": "any"
+      },
+      {
+        "page": 1,
+        "limit": 10,
+        "query": "\"Website redesign\" (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+        "country": "us",
+        "language": "en",
+        "freshness": "month"
+      }
+    ],
+    "category": "services",
+    "strategy": {
+      "targets": [
+        "Website redesign"
+      ],
+      "explanation": "Using the confirmed target; model planning was unavailable."
+    },
+    "exploration": {
+      "remote": true,
+      "target": "Website redesign",
+      "queryPolicy": "client-demand-v8",
+      "maximumDepth": 3,
+      "maximumRounds": 8,
+      "candidatePolicy": "contextual-v1",
+      "maximumSearches": 6,
+      "maximumSourcePages": 2
+    },
+    "continuation": "explore_on_next_run",
+    "scoutVersion": 1,
+    "blockedReason": null,
+    "deadlineSeconds": 240,
+    "maximumDocuments": 6
+  },
+  "reader": "worker",
+  "renderingEnabled": true,
+  "status": "captured_without_ai",
+  "aiEnabled": false,
+  "planningFallback": true,
+  "deliveryOutcome": "no_eligible_digest",
+  "reasoning": [],
+  "sourceReviewsCompleted": 0,
+  "intelligence": [],
+  "rejectedFits": [],
+  "rejectedReviews": [],
+  "reviewFailures": [],
+  "matchingState": {
+    "status": "not_tested_ai_disabled",
+    "match_count": 0
+  },
+  "taskStates": [],
+  "eligiblePostings": [],
+  "reviewAttempts": [],
+  "opportunities": [],
+  "deliveries": [],
+  "durationMs": 25325,
+  "search": {
+    "goal": "Find clients requesting website redesign services",
+    "category": "services",
+    "target": "Website redesign",
+    "name": "Synthetic service-request scout",
+    "arrangement": "remote",
+    "arrangementRequired": true,
+    "residence": "New York, United States",
+    "workLocations": "United States or remote worldwide",
+    "authorizationLocations": "United States",
+    "authorizationConfirmed": true,
+    "sponsorshipNeed": "not_needed",
+    "background": "Five years delivering website redesign, responsive layouts, WordPress and accessible user interfaces for small businesses",
+    "minimumPay": "",
+    "currency": "USD",
+    "payPeriod": "project",
+    "unknownEligibility": "review",
+    "undisclosedPay": "include"
+  },
+  "operations": [
+    {
+      "key": "eb3fcf5c0ac2d8491836218c5ca36312c84d14f5c42024ef9c9283142f50f750",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "\"Website redesign\" site:peopleperhour.com/freelance-jobs \"remote\"",
+          "country": "us",
+          "language": "en",
+          "freshness": "any"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "retrieved_url": null,
+      "capture": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "886b0522f3c389a3a4e0d2518eaa6710ee631406c34ef3287f83e6885c8f525f",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "\"Website redesign\" \"remote\" (\"freelance\" OR \"proposals\" OR \"bids\")",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "retrieved_url": null,
+      "capture": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "8eb4ce7a3d3d5538a8b891d8e26a29fc61131abcce1a6d7491c9655efece61ed",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "\"Website redesign\" site:workana.com inurl:job",
+          "country": "us",
+          "language": "en",
+          "freshness": "any"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "retrieved_url": null,
+      "capture": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "cafe049667fe062b9bae37a0435441422fb2b13b5a139511d040a049c16fd7d5",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "\"Website redesign\" (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "retrieved_url": null,
+      "capture": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "4aa0ae2ec71a9a2fd3530df46087b31b055ffe6e5fba94da8a1645c78020f416",
+      "kind": "document",
+      "input": {
+        "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/backend-net-ai-integration-4516587",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": [
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs",
+          "text": "Search projects"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/ellie-zxjwmvnz?ref=buyer",
+          "text": "Ellie T."
+        },
+        {
+          "url": "https://www.peopleperhour.com/cookies",
+          "text": "Cookie Policy"
+        }
+      ],
+      "feeds": [],
+      "sitemaps": [
+        {
+          "url": "https://www.peopleperhour.com/pphsitemaps/sitemap.live.hire_freelancers.index.xml",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.peopleperhour.com/pphsitemaps/sitemap.live.topcert.index.xml",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.peopleperhour.com/pphsitemaps/sitemap.live.cert5.index.xml",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.peopleperhour.com/pphsitemaps/sitemap.live.cert4.index.xml",
+          "text": "Site-advertised sitemap"
+        }
+      ],
+      "retrieved_url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/backend-net-ai-integration-4516587",
+      "capture": {
+        "bytes": 60459,
+        "scope": "buyer_brief",
+        "method": "http",
+        "parser": "peopleperhour-public-html-v3",
+        "complete": true,
+        "requests": 2
+      },
+      "captured_text": "THIS PROJECT IS NO LONGER AVAILABLE\n\nELLIE T.\n\n0% (0)\nProjects Completed\n-\nFreelancers worked with\n-\nProjects awarded\n0%\nLast project\n29 Oct 2026\n\nThis project has been canceled\n\nWhy not search for other projects that may interest you!\n\nSearch projects",
+      "source_status": "fetched",
+      "source_reason": null,
+      "observed_links": 3
+    },
+    {
+      "key": "4c9c5d87a847ccd04bd701b3d2a528c2f4cc9be63a6a6c2ce0ac1ef182e80999",
+      "kind": "document",
+      "input": {
+        "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/programming-coding/i-need-a-web-developer-to-update-our-google-analytics-code-1950167",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": [
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/kashif-web-mobile-applications-developer-zmxzqvz",
+          "text": "Kashif K."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/marketing-seo/profit_by_clix-clix-no-1-certified-google-analytics-qymany",
+          "text": "PROFIT BY CLIX"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/mohamed-gaber-iam-mo-gaber-expert-magento-zjzvqmn",
+          "text": "Mohamed G."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/bart-z-magento-2-certificated-developer-jzymzq",
+          "text": "Bart Z."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/kailash-web-marketing-automation-data-znxxxvn",
+          "text": "Kailash L."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/megha-chabhadiya-graphic-designer-branding-logo-zymvxmv",
+          "text": "Megha C."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/sumiti-monga-shopify-theme-development-shopify-znwzqaw",
+          "text": "Sumiti M."
+        },
+        {
+          "url": "https://x.com/intent/tweet",
+          "text": ""
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/arfan-khan-yanyjv?ref=buyer",
+          "text": "Arfan K."
+        },
+        {
+          "url": "https://www.peopleperhour.com/site/register?next=https%3A%2F%2Fwww.peopleperhour.com%2Ffreelance-jobs%2Ftechnology-programming%2Fprogramming-coding%2Fi-need-a-web-developer-to-update-our-google-analytics-code-1950167",
+          "text": "Sign up"
+        },
+        {
+          "url": "https://www.peopleperhour.com/job/new?id=1950167&ref=similar",
+          "text": "Post a project like this"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Google+analytics",
+          "text": "Google analytics"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Magento+%28cms%29",
+          "text": "Magento (cms)"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Customization",
+          "text": "Customization"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Google+tag+management",
+          "text": "Google tag management"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Website+development",
+          "text": "Website development"
+        },
+        {
+          "url": "https://www.peopleperhour.com/cookies",
+          "text": "Cookie Policy"
+        }
+      ],
+      "feeds": [],
+      "sitemaps": [
+        {
+          "url": "https://www.peopleperhour.com/pphsitemaps/sitemap.live.hire_freelancers.index.xml",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.peopleperhour.com/pphsitemaps/sitemap.live.topcert.index.xml",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.peopleperhour.com/pphsitemaps/sitemap.live.cert5.index.xml",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.peopleperhour.com/pphsitemaps/sitemap.live.cert4.index.xml",
+          "text": "Site-advertised sitemap"
+        }
+      ],
+      "retrieved_url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/programming-coding/i-need-a-web-developer-to-update-our-google-analytics-code-1950167",
+      "capture": {
+        "bytes": 118596,
+        "scope": "buyer_brief",
+        "method": "http",
+        "parser": "peopleperhour-public-html-v3",
+        "complete": true,
+        "requests": 2
+      },
+      "captured_text": "I NEED A WEB DEVELOPER TO UPDATE OUR GOOGLE ANALYTICS CODE\n\n- or -\n\nPost a project like this\nEnds in 3110 days\nFixed Price\n£200(approx. $266)\n * Posted: 9 years ago\n * Proposals: 7\n * Remote\n * #1950167\n * OPPORTUNITY\n * PRE-FUNDED\n * Awarded\n\nExperience Level: Expert\n\nWe need a developer to assist in removing two erroneous Google Analytics tags that have been added incorrectly to the body section on our site, which is causing a data quality issue. We will need the tags removing and then Google Tag Manager adding to all pages.\n\nThere is some additional google code relating to the purchase on the payment confirmation page, which needs to be replaced with a data layer so it is compatible with Google Tag Manager\n \nThis should be completed without inhibiting the site’s usability and also in sync with publishing and testing the new Google Tag Manager container from our side.\n \nThe developer should also be able to conduct the work via Teamviewer remote control software.\n\nThis is a custom platform rather than something like Magento",
+      "source_status": "fetched",
+      "source_reason": null,
+      "observed_links": 17
+    },
+    {
+      "key": "f8fc8b1bedc318d76544f55e369d024af622a852c139d71ec38618ce811ffa79",
+      "kind": "document",
+      "input": {
+        "url": "https://www.facebook.com/groups/Picyourdesigner/posts/4555313604753572/",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": [
+        {
+          "url": "https://www.facebook.com/sitemap/groups_gp_i18n_titles_1_posts_0.xml.gz",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.facebook.com/sitemap/cpg_offplat_future_public_events_sitemap.xml.gz",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.facebook.com/sitemap/public_active_groups_sitemap.xml.gz",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.facebook.com/sitemap/groups_popular_posts_sitemap_qe.xml.gz",
+          "text": "Site-advertised sitemap"
+        }
+      ],
+      "retrieved_url": null,
+      "capture": {
+        "bytes": 42476,
+        "method": "http",
+        "complete": false,
+        "requests": 1
+      },
+      "captured_text": null,
+      "source_status": "access_limited",
+      "source_reason": "crawl_policy_denied",
+      "observed_links": 0
+    },
+    {
+      "key": "ffaa42de275bf35b06f36bf9b082a91a76af540d266872e6e1944d717ef268f3",
+      "kind": "document",
+      "input": {
+        "url": "https://jobs.minnesotanonprofits.org/job/web-developer-designer-111617",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": [
+        {
+          "url": "https://www.minnesotanonprofits.org/",
+          "text": ""
+        },
+        {
+          "url": "https://www.minnesotanonprofits.org/subscribe",
+          "text": "Subscribe"
+        },
+        {
+          "url": "https://www.minnesotanonprofits.org/membership/join-mcn",
+          "text": "Join / Renew"
+        },
+        {
+          "url": "https://jobs.minnesotanonprofits.org/company/artstart-65607",
+          "text": "ArtStart"
+        },
+        {
+          "url": "https://www.addtoany.com/share",
+          "text": "Share"
+        },
+        {
+          "url": "https://jobs.minnesotanonprofits.org/sign-in",
+          "text": "Save Job"
+        },
+        {
+          "url": "https://jobs.minnesotanonprofits.org/cdn-cgi/l/email-protection",
+          "text": "[email protected]"
+        },
+        {
+          "url": "https://jobs.minnesotanonprofits.org/job/office-manager-minneapolis-minnesota-111614",
+          "text": "Office Manager"
+        },
+        {
+          "url": "https://jobs.minnesotanonprofits.org/job/pediatric-speech-language-pathologist-minneapolis-minnesota-111584",
+          "text": "Pediatric Speech Language Pathologist"
+        },
+        {
+          "url": "https://jobs.minnesotanonprofits.org/job/youth-fellow-minneapolis-minnesota-110910",
+          "text": "Youth Fellow"
+        },
+        {
+          "url": "https://jobs.minnesotanonprofits.org/job/pride-drop-in-coordinator-minneapolis-minnesota-110279",
+          "text": "PRIDE Drop-In Coordinator"
+        },
+        {
+          "url": "https://jobs.minnesotanonprofits.org/job/communities-program-associate-minneapolis-minnesota-111551",
+          "text": "Communities Program Associate"
+        },
+        {
+          "url": "https://jobs.minnesotanonprofits.org/job/building-grounds-worker-minneapolis-minnesota-111543",
+          "text": "Building & Grounds Worker"
+        },
+        {
+          "url": "https://jobs.minnesotanonprofits.org/q-web-developer-jobs.html",
+          "text": "Show More Jobs"
+        },
+        {
+          "url": "https://jobs.minnesotanonprofits.org/job/q-program-manager-jobs.html",
+          "text": "Program Manager"
+        },
+        {
+          "url": "https://jobs.minnesotanonprofits.org/job/q-intervention-specialist-jobs.html",
+          "text": "Intervention Specialist"
+        },
+        {
+          "url": "https://jobs.minnesotanonprofits.org/job/q-development-officer-jobs.html",
+          "text": "Development Officer"
+        },
+        {
+          "url": "https://jobs.minnesotanonprofits.org/job/q-dentist-jobs.html",
+          "text": "Dentist"
+        },
+        {
+          "url": "https://jobs.minnesotanonprofits.org/job/q-registered-public-health-nurse-jobs.html",
+          "text": "Registered Public Health Nurse"
+        },
+        {
+          "url": "https://jobs.minnesotanonprofits.org/job/q-mental-health-practitioner-jobs.html",
+          "text": "Mental Health Practitioner"
+        },
+        {
+          "url": "https://jobs.minnesotanonprofits.org/job/q-mental-health-therapist-jobs.html",
+          "text": "Mental Health Therapist"
+        },
+        {
+          "url": "https://jobs.minnesotanonprofits.org/job/q-program-director-jobs.html",
+          "text": "Program Director"
+        },
+        {
+          "url": "https://jobs.minnesotanonprofits.org/job/q-shelter-advocate-jobs.html",
+          "text": "Shelter Advocate"
+        },
+        {
+          "url": "https://jobs.minnesotanonprofits.org/job/q-program-supervisor-jobs.html",
+          "text": "Program Supervisor"
+        },
+        {
+          "url": "https://jobs.minnesotanonprofits.org/job/q-speech-language-pathologist-slp-jobs.html",
+          "text": "Speech-Language Pathologist (SLP)"
+        },
+        {
+          "url": "https://jobs.minnesotanonprofits.org/job/q-outpatient-therapist-jobs.html",
+          "text": "Outpatient Therapist"
+        },
+        {
+          "url": "https://jobs.minnesotanonprofits.org/job/q-math-tutor-jobs.html",
+          "text": "Math Tutor"
+        },
+        {
+          "url": "https://jobs.minnesotanonprofits.org/job/q-development-director-jobs.html",
+          "text": "Development Director"
+        },
+        {
+          "url": "https://jobs.minnesotanonprofits.org/job/q-resident-jobs.html",
+          "text": "Resident"
+        },
+        {
+          "url": "https://jobs.minnesotanonprofits.org/job/q-managing-editor-jobs.html",
+          "text": "Managing Editor"
+        },
+        {
+          "url": "https://jobs.minnesotanonprofits.org/job/q-school-therapist-jobs.html",
+          "text": "School Therapist"
+        },
+        {
+          "url": "https://jobs.minnesotanonprofits.org/job/q-program-coordinator-jobs.html",
+          "text": "Program Coordinator"
+        },
+        {
+          "url": "https://jobs.minnesotanonprofits.org/job/q-summer-camp-counselor-jobs.html",
+          "text": "Summer Camp Counselor"
+        },
+        {
+          "url": "https://jobs.minnesotanonprofits.org/job/q-direct-support-professional-dsp-jobs.html",
+          "text": "Direct Support Professional (DSP)"
+        },
+        {
+          "url": "https://jobs.minnesotanonprofits.org/job/q-coach-jobs.html",
+          "text": "Coach"
+        },
+        {
+          "url": "https://jobs.minnesotanonprofits.org/job/q-housekeeping-attendant-jobs.html",
+          "text": "Housekeeping Attendant"
+        },
+        {
+          "url": "https://jobs.minnesotanonprofits.org/job/q-major-gifts-officer-jobs.html",
+          "text": "Major Gifts Officer"
+        },
+        {
+          "url": "https://jobs.minnesotanonprofits.org/job/q-licensed-dental-hygienist-jobs.html",
+          "text": "Licensed Dental Hygienist"
+        },
+        {
+          "url": "https://jobs.minnesotanonprofits.org/job/q-executive-director-jobs.html",
+          "text": "Executive Director"
+        },
+        {
+          "url": "https://jobs.minnesotanonprofits.org/job/q-internship-coordinator-jobs.html",
+          "text": "Internship Coordinator"
+        },
+        {
+          "url": "https://jobs.minnesotanonprofits.org/job/q-operations-manager-jobs.html",
+          "text": "Operations Manager"
+        },
+        {
+          "url": "https://jobs.minnesotanonprofits.org/job/q-advocate-jobs.html",
+          "text": "Advocate"
+        },
+        {
+          "url": "https://jobs.minnesotanonprofits.org/job/q-controller-jobs.html",
+          "text": "Controller"
+        },
+        {
+          "url": "https://jobs.minnesotanonprofits.org/job/q-hr-generalist-human-resources-generalist-jobs.html",
+          "text": "HR Generalist (Human Resources Generalist)"
+        },
+        {
+          "url": "https://jobs.minnesotanonprofits.org/job/q-support-specialist-jobs.html",
+          "text": "Support Specialist"
+        },
+        {
+          "url": "https://jobs.minnesotanonprofits.org/job/q-student-success-counselor-jobs.html",
+          "text": "Student Success Counselor"
+        },
+        {
+          "url": "https://jobs.minnesotanonprofits.org/job/q-early-childhood-teacher-jobs.html",
+          "text": "Early Childhood Teacher"
+        },
+        {
+          "url": "https://jobs.minnesotanonprofits.org/job/q-case-manager-jobs.html",
+          "text": "Case Manager"
+        },
+        {
+          "url": "https://jobs.minnesotanonprofits.org/job/q-director-of-development-jobs.html",
+          "text": "Director of Development"
+        },
+        {
+          "url": "https://jobs.minnesotanonprofits.org/job/q-social-services-assistant-jobs.html",
+          "text": "Social Services Assistant"
+        },
+        {
+          "url": "https://jobs.minnesotanonprofits.org/job/q-kettle-operator-jobs.html",
+          "text": "Kettle Operator"
+        },
+        {
+          "url": "https://jobs.minnesotanonprofits.org/job/q-community-support-specialist-jobs.html",
+          "text": "Community Support Specialist"
+        },
+        {
+          "url": "https://jobs.minnesotanonprofits.org/job/q-youth-development-specialist-jobs.html",
+          "text": "Youth Development Specialist"
+        },
+        {
+          "url": "https://jobs.minnesotanonprofits.org/job/q-grants-administrator-jobs.html",
+          "text": "Grants Administrator"
+        },
+        {
+          "url": "https://jobs.minnesotanonprofits.org/job/q-youth-advocate-jobs.html",
+          "text": "Youth Advocate"
+        },
+        {
+          "url": "https://jobs.minnesotanonprofits.org/job/q-attorney-jobs.html",
+          "text": "Attorney"
+        },
+        {
+          "url": "https://jobs.minnesotanonprofits.org/job/q-volunteer-coordinator-jobs.html",
+          "text": "Volunteer Coordinator"
+        },
+        {
+          "url": "https://jobs.minnesotanonprofits.org/job/q-group-work-program-aide-jobs.html",
+          "text": "Group Work Program Aide"
+        },
+        {
+          "url": "https://jobs.minnesotanonprofits.org/job/q-treatment-counselor-jobs.html",
+          "text": "Treatment Counselor"
+        },
+        {
+          "url": "https://jobs.minnesotanonprofits.org/job/q-administrator-jobs.html",
+          "text": "Administrator"
+        },
+        {
+          "url": "https://jobs.minnesotanonprofits.org/job/q-licensed-therapist-jobs.html",
+          "text": "Licensed Therapist"
+        },
+        {
+          "url": "https://jobs.minnesotanonprofits.org/job/q-bookkeeper-jobs.html",
+          "text": "Bookkeeper"
+        },
+        {
+          "url": "https://jobs.minnesotanonprofits.org/job/q-guide-jobs.html",
+          "text": "Guide"
+        },
+        {
+          "url": "https://jobs.minnesotanonprofits.org/job/q-administrative-assistant-jobs.html",
+          "text": "Administrative Assistant"
+        },
+        {
+          "url": "https://jobs.minnesotanonprofits.org/job/q-housing-manager-jobs.html",
+          "text": "Housing Manager"
+        },
+        {
+          "url": "https://jobs.minnesotanonprofits.org/job/q-independent-living-specialist-jobs.html",
+          "text": "Independent Living Specialist"
+        },
+        {
+          "url": "https://jobs.minnesotanonprofits.org/job/q-development-manager-jobs.html",
+          "text": "Development Manager"
+        },
+        {
+          "url": "https://jobs.minnesotanonprofits.org/job/q-maintenance-technician-jobs.html",
+          "text": "Maintenance Technician"
+        },
+        {
+          "url": "https://jobs.minnesotanonprofits.org/job/q-office-manager-jobs.html",
+          "text": "Office Manager"
+        },
+        {
+          "url": "https://jobs.minnesotanonprofits.org/job/q-intern-jobs.html",
+          "text": "Intern"
+        },
+        {
+          "url": "https://jobs.minnesotanonprofits.org/job/q-inclusion-specialist-jobs.html",
+          "text": "Inclusion Specialist"
+        },
+        {
+          "url": "https://jobs.minnesotanonprofits.org/job/q-cook-jobs.html",
+          "text": "Cook"
+        },
+        {
+          "url": "https://jobs.minnesotanonprofits.org/job/q-board-finisher-jobs.html",
+          "text": "Board Finisher"
+        },
+        {
+          "url": "https://jobs.minnesotanonprofits.org/job/q-occupational-therapist-jobs.html",
+          "text": "Occupational Therapist"
+        },
+        {
+          "url": "https://jobs.minnesotanonprofits.org/job/l-maplewood,-minnesota-jobs.html",
+          "text": "Maplewood, Minnesota"
+        },
+        {
+          "url": "https://jobs.minnesotanonprofits.org/job/l-saint-paul,-minnesota-jobs.html",
+          "text": "Saint Paul, Minnesota"
+        },
+        {
+          "url": "https://jobs.minnesotanonprofits.org/job/l-new-brighton,-minnesota-jobs.html",
+          "text": "New Brighton, Minnesota"
+        },
+        {
+          "url": "https://jobs.minnesotanonprofits.org/job/l-minneapolis,-minnesota-jobs.html",
+          "text": "Minneapolis, Minnesota"
+        },
+        {
+          "url": "https://jobs.minnesotanonprofits.org/job/l-victoria,-minnesota-jobs.html",
+          "text": "Victoria, Minnesota"
+        },
+        {
+          "url": "https://jobs.minnesotanonprofits.org/job/l-medina,-minnesota-jobs.html",
+          "text": "Medina, Minnesota"
+        }
+      ],
+      "feeds": [],
+      "sitemaps": [
+        {
+          "url": "https://jobs.minnesotanonprofits.org/sitemap.xml",
+          "text": "Site-advertised sitemap"
+        }
+      ],
+      "retrieved_url": "https://jobs.minnesotanonprofits.org/job/web-developer-designer-111617",
+      "capture": {
+        "bytes": 185541,
+        "method": "http",
+        "complete": true,
+        "requests": 2
+      },
+      "captured_text": "* Minnesota Budget Project\n * Subscribe\n\nJoin / Renew\nMenu\n\n\n\nWEB DEVELOPER/DESIGNER\n\nArtStart\nRemote\nShare Save Job\nApply for This Job\n\n----------------------------------------\n\nRequest for Proposal: \n\nArtStart Website Redesign Project Overview ArtStart is seeking proposals from web developers/designers for a comprehensive redesign of the artstart.org website. The objective of this project is to transition ArtStart's online presence into a dynamic, user-centric, and conversion-focused marketing tool that drives community engagement, program registration, donations, and store visits. Key project milestones and deadlines are as follows:\n\n\n\n\n\n\n\n\n•Proposal Submission Deadline November 13, 2026\n\n•Vendor Selection December 4, 2026\n\n•Final Draft for Review February 5, 2027\n\n•Public Launch February 19, 2027\n\n\n\n\nScope of Work\n\n\n\n\nDesign & UX Modernization\n\n● Clean and Modern Design: Redesign site with modern, standard-compliant HTML5/CSS3 components.\n\n● Mobile Responsive Architecture: Ensure seamless functionality, typography scaling, and touch-friendly navigation across modern mobile, tablet, and desktop.\n\n● Accessibility Compliance: Implement full accessibility standard best practices, including keyboard navigation, ARIA labels, semantic markup, and high-contrast text.\n\n● Action-Driven Navigation: Simplify user journeys to maximize key conversion metrics (camp and class signups, donations, store visits, and educator bookings).\n\n\n\n\nUpdated Homepage Architecture\n\n● Sticky Header: Persistent top navigation bar containing primary links and a prominent call-to-action button.\n\n● Seasonal Hero Section: A dynamic banner area configured to highlight seasonal priorities (e.g., Summer Camp registration launch).\n\n● Mini-Features Block: Highlight key organizational pillars directly on the homepage (ArtScraps store, upcoming class and camps, and community events).\n\n● Email Capture System: Integrated newsletter sign-up module to support ongoing donor and participant re-engagement.\n\n● Comprehensive Footer: Standard secondary navigation, contact information, social links, and physical address details.\n\n● Funder Acknowledgments: Dedicated, visually distinct section in the site footer to acknowledge key sponsors and grant funders.\n\nClient-Provided Assets\n\n● All copywriting, photography, and brand guidelines will be provided by ArtStart and delivered to the selected designer/developer.\n\n\n\n\nNew Navigation Structure\n\nThe redesigned site will adopt a streamlined architecture designed to shorten time-to-task for visitors.\n\n● About Us\n\n● Visit ArtScraps\n\n● Camps & Classes\n\n● For Educators\n\n● Events\n\n● [ Support ] (Primary Call-to-Action Button)\n\n\n\n\nBackend & Maintenance Requirements\n\n\n\n\nContent Management\n\nImplement an easy-to-use publishing workflow within the CMS allowing non-technical staff to quickly post content. Designer/developer available for more complex updates.\n\n\n\n\nConversion Tracking & SEO Infrastructure\n\n● Integrate Meta Pixel and Google Tag Manager for event tracking (clicks, form completions, outbound registration tracking).\n\n● Set up foundational technical SEO, including automated XML sitemaps, structured metadata capabilities, and clean URL redirects from old site pages.\n\n\n\n\nOngoing Maintenance\n\n● Provide training sessions and documentation to guarantee complete internal staff access for content additions and routine modifications.\n\n● Provide services as needed for more design-heavy requests.\n\n\n\n\nProposal Submission Details\n\nInterested parties should submit their proposals electronically no later than November 13, 2026. Proposals should include:\n\n● Designer/developer overview and relevant portfolio samples (specifically non-profit, arts, or educational work, if available).\n\n● Proposed technical architecture and CMS recommendation.\n\n● Detailed timeline matching the target completion date of Feb. 19, 2027. ● Itemized cost breakdown covering design, development, content migration, initial training, and ongoing rate for back-end management and design updates as needed.\n\nSubmissions and inquiries regarding this RFP should be directed to Anne Sawyer at [email protected].\n\n\n\n\n\nJOB INFORMATION\n\nJOB CATEGORY:\n\nMarketing / Communications\n\nSALARY:\n\n$60.00 - $75.00 Per Hour\n\nPOSITION TYPE:\n\nContract\n\n\nRELATED JOBS\n\nOffice Manager\n\nSEIU Local 26\nMinneapolis, Minnesota\nPosted - October 28, 2026\nView\nPediatric Speech Language Pathologist\n\nThe Family Partnership\nMinneapolis, Minnesota\nPosted - October 28, 2026\nView\nYouth Fellow\n\nIgnite Afterschool\nMinneapolis, Minnesota\nPosted - October 27, 2026\nView\nPRIDE Drop-In Coordinator\n\nThe Family Partnership\nMinneapolis, Minnesota\nPosted - October 27, 2026\nView\nCommunities Program Associate\n\nGreat Plains Institute\nMinneapolis, Minnesota (Hybrid)\nPosted - October 26, 2026\nView\nBuilding & Grounds Worker\n\nV3 Sports\nMinneapolis, Minnesota\nPosted - October 26, 2026\nView\nShow More Jobs\n\nTRENDING JOB TITLES\n\n * Program Manager\n * Intervention Specialist\n * Development Officer\n * Dentist\n * Registered Public Health Nurse\n * Mental Health Practitioner\n * Mental Health Therapist\n * Program Director\n * Shelter Advocate\n * Program Supervisor\n * Speech-Language Pathologist (SLP)\n * Outpatient Therapist\n * Math Tutor\n * Development Director\n * Resident\n * Managing Editor\n * School Therapist\n * Program Coordinator\n * Summer Camp Counselor\n * Direct Support Professional (DSP)\n * Coach\n * Housekeeping Attendant\n * Major Gifts Officer\n * Licensed Dental Hygienist\n * Executive Director\n * Internship Coordinator\n * Operations Manager\n * Advocate\n * Controller\n * HR Generalist (Human Resources Generalist)\n * Support Specialist\n * Student Success Counselor\n * Early Childhood Teacher\n * Case Manager\n * Director of Development\n * Social Services Assistant\n * Kettle Operator\n * Community Support Specialist\n * Youth Development Specialist\n * Grants Administrator\n * Youth Advocate\n * Attorney\n * Volunteer Coordinator\n * Group Work Program Aide\n * Treatment Counselor\n * Administrator\n * Licensed Therapist\n * Bookkeeper\n * Guide\n * Administrative Assistant\n * Housing Manager\n * Independent Living Specialist\n * Development Manager\n * Maintenance Technician\n * Office Manager\n * Intern\n * Inclusion Specialist\n * Cook\n * Board Finisher\n * Occupational Therapist\n\nTRENDING LOCATIONS\n\n * Maplewood, Minnesota\n * Saint Paul, Minnesota\n * New Brighton, Minnesota\n * Minneapolis, Minnesota\n * Victoria, Minnesota\n * Medina, Minnesota\n * Oakdale, Minnesota\n * Minneapolis, MN, USA, Minnesota\n * Northfield, Minnesota\n * Shoreview, Minnesota\n * West St. Paul, Minnesota\n * Golden Valley, Minnesota\n * Richfield, Minnesota\n * Faribault, Minnesota\n * St. Paul, Minnesota\n * Edina, Minnesota\n * Fergus Falls, Minnesota\n * Brooklyn Park, Minnesota\n * mankato, Minnesota\n * Chanhassen, Minnesota\n * Eagan, Minnesota\n * Plymouth, Minnesota\n * Collegeville, Minnesota\n * Moorhead, Minnesota\n * Minnetonka, Minnesota\n * Annandale, Minnesota\n * Minnesota\n * White Bear Lake, Minnesota\n * Rochester, Minnesota\n * Saint Cloud, Minnesota\n * Minneapolis, MN, Minnesota\n * Finlayson, Minnesota\n * Shakopee, Minnesota\n * Eden Prairie, Minnesota\n * Duluth, Minnesota\n * Mendota Heights, Minnesota\n * St Paul, Minnesota\n * Savage, Minnesota\n * Bloomington, Minnesota\n * Little Canada, Minnesota\n * Hawley, Minnesota\n * Minniapolis, Minnesota\n\nTRENDING COMPANIES\n\n * FamilyMeans\n * 360 Communities\n * Guild\n * Center for Energy and Environment\n * Hennepin County\n * Tubman\n * Canvas Health\n * Goodwill-Easter Seals Minnesota\n * JFCS of Minnesota\n * Amherst H. Wilder Foundation\n * Immigrant Law Center of Minnesota\n * Native American Community Clinic\n * Relate Counseling Center\n * Apple Tree Dental\n * Think Small\n * V3 Sports\n * FreedomWorks\n * The Family Partnership\n * Northeast Youth & Family Services\n * Big Brothers Big Sisters of the Greater Twin Cities\n * St David's Center\n * Agate Housing and Services\n * Ampact\n * FamilyWise Services\n * Project for Pride in Living\n * CAPLP\n * The Sanneh Foundation\n * The Salvation Army - Northern Division\n * Nexus Family Healing\n * Guthrie Theater\n * Transform Minnesota\n * Planned Parenthood North Central States\n * Sustainable Resources Center\n * Southside Community Health Services\n * The Employment Network\n * Solid Ground\n * LifeSource\n * St. Paul Youth Services (SPYS)\n * People Serving People, Inc.\n * Carleton College\n * Minnesota PBS\n * St. Catherine University\n * 180 Degrees\n * Emma Norton Services\n * Minnesota Alliance With Youth\n * Northside Economic Opportunity Network (NEON)\n * People Incorporated\n * Reach for Resources, Inc.\n * Missions Inc. Programs\n * Senior Community Services\n * MSS (Midwest Special Services)\n * Keystone Community Services\n * True Friends\n * PACER Center, Inc.\n * Opportunity Partners\n * Avivo\n * Minnesota Historical Society\n * Fraser\n * Women's Advocates\n * Comunidades Latinas Unidas En Servicio\n\nTRENDING CATEGORIES\n\n * Administrative / Support\n * Direct Service / Social Service\n * Human Resources\n * Housing\n * Event Management\n * Legal Services\n * Executive Director / CEO\n * Marketing / Communications\n * Program / Project Management\n * Customer Service\n * Public Policy / Government Relations\n * Fundraising / Development\n * Education / Teaching\n * Food Service\n * Community Engagement\n * Health / Medical / Counseling\n * Accounting / Finance\n\nAPPLY FOR THIS JOB\n\n\n\n\n\n\nFind Jobs By Category\n * Accounting / Finance\n * Administrative / Support\n * Community Engagement\n * Consulting Services\n * Customer Service\n * Direct Service / Social Service\n\n * Education / Teaching\n * Event Management\n * Executive Director / CEO\n * Facilities / Equipment\n * Food Service\n * Fundraising / Development\n\n * Health / Medical / Counseling\n * Housing\n * Human Resources\n * Legal Services\n * Marketing / Communications\n * Program / Project Management\n\n * Public Policy / Government Relations\n * Research\n * Social Work / Counseling\n * Technology / Data Management\n * Volunteer Services\n\nPowered by Web Scribble Solutions, Inc.\n\nMinnesota Council of Nonprofits\n2314 University Ave. West #20\nSt. Paul, MN 55114\n * Membership\n * Career Center\n * Events\n * Resources & Tools\n * Public Policy\n * About MCN\n\n * Privacy Policy\n * Terms of Use\n * Advertise\n * Press Room\n * Contact Us\n\nCONNECT WITH MCN:\n\nFacebook Twitter YouTube Instagram LinkedIn\n© Minnesota Council of Nonprofits. All Rights Reserved.\nClose\n * Minnesota Budget Project\n * Subscribe\n\n * Membership\n * Career Center\n * Events\n * Resources & Tools\n * Public Policy\n * About MCN\n\n\nJob Seekers Employers Sign In\n\n\nALREADY REGISTERED?\n\n\nALREADY REGISTERED?\n\nSIGN IN HERE\n\nSign In\n\nSIGN IN HERE\n\nSign In\n2026",
+      "source_status": "fetched",
+      "source_reason": null,
+      "observed_links": 80
+    },
+    {
+      "key": "df683de89df6b6f09c9202dfcce4a3cd20abc9531935b834d7fcf3ab237ff4d1",
+      "kind": "document",
+      "input": {
+        "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/simple-wix-website-build-4519616",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": [
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/sharifuzzaman-mia-wordpress-woocommerce-shopify-zxwxaay",
+          "text": "Sharifuzzaman M."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/design/bisma-iqbal-top-cert-graphic-designer-expert-nvmjxyv",
+          "text": "Bisma I."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/social-media/isaac-web-designer-wordpress-developer-zyyamajx",
+          "text": "Isaac O."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/robin-solanki-full-stack-web-developer-yvwvway",
+          "text": "Robin S."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/md_masul-molla-wordpress-custom-web-development-nvajwyj",
+          "text": "MD.MASUL M."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/pelumi-website-developer-wordpress-zzjmqxxj",
+          "text": "Pelumi I."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/awais-ali-top-cert-full-stack-developer-ai-qqnmxw",
+          "text": "Awais A."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/design/isaac-wix-website-designer-website-zzjmnmnv",
+          "text": "Isaac J."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/lalit-kumar-full-stack-developer-wordpress-zzjamjzy",
+          "text": "Lalit K."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/design/testimony-balogun-an-award-winning-uk-graphic-zyzwvyxj",
+          "text": "Testimony B."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/eweb_a1professionals_pvt_ltd-gurna-full-stack-php-laravel-react-js-mmqnjj",
+          "text": "eWeb A1professionals Pvt Ltd"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/marketing-seo/micheal-endurance-fast-delivery-website-designer-zyanxqjv",
+          "text": "Micheal E."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/simple-wix-website-build-4519616?Members_page=2",
+          "text": "2"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/simple-wix-website-build-4519616?Members_page=3",
+          "text": "3"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/simple-wix-website-build-4519616?Members_page=4",
+          "text": "4"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/simple-wix-website-build-4519616?Members_page=5",
+          "text": "5"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/simple-wix-website-build-4519616?Members_page=6",
+          "text": "6"
+        },
+        {
+          "url": "https://x.com/intent/tweet",
+          "text": ""
+        },
+        {
+          "url": "https://dw3i9sxi97owk.cloudfront.net/uploads/jobAttachments/dP2KvVzRSzeADvwYRcKR_Logo.png",
+          "text": ""
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/paul-lewis-zznyqxnx?ref=buyer",
+          "text": "Paul L."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/video-photography/image-editing/promo-video-for-app-4528751",
+          "text": "Promo Video for App"
+        },
+        {
+          "url": "https://www.peopleperhour.com/site/register?next=https%3A%2F%2Fwww.peopleperhour.com%2Ffreelance-jobs%2Ftechnology-programming%2Fwebsite-development%2Fsimple-wix-website-build-4519616",
+          "text": "Sign up"
+        },
+        {
+          "url": "https://www.peopleperhour.com/job/new?id=4519616&ref=similar",
+          "text": "Post a project like this"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Editing",
+          "text": "Editing"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Logo",
+          "text": "Logo"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Artificial+Intelligence+%2F+AI",
+          "text": "Artificial Intelligence / AI"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Wix",
+          "text": "Wix"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Adobe+portable+document+format+%28pdf%29",
+          "text": "Adobe portable document format (pdf)"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Advice%2Fconsult+and+guidance",
+          "text": "Advice/consult and guidance"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Blog",
+          "text": "Blog"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Booking",
+          "text": "Booking"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Electrician",
+          "text": "Electrician"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Homepage",
+          "text": "Homepage"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Mobile",
+          "text": "Mobile"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Search+engine+optimization+article+%28seo+article%29",
+          "text": "Search engine optimization article (seo article)"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Website+development",
+          "text": "Website development"
+        },
+        {
+          "url": "https://www.peopleperhour.com/cookies",
+          "text": "Cookie Policy"
+        }
+      ],
+      "feeds": [],
+      "sitemaps": [
+        {
+          "url": "https://www.peopleperhour.com/pphsitemaps/sitemap.live.hire_freelancers.index.xml",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.peopleperhour.com/pphsitemaps/sitemap.live.topcert.index.xml",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.peopleperhour.com/pphsitemaps/sitemap.live.cert5.index.xml",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.peopleperhour.com/pphsitemaps/sitemap.live.cert4.index.xml",
+          "text": "Site-advertised sitemap"
+        }
+      ],
+      "retrieved_url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/simple-wix-website-build-4519616",
+      "capture": {
+        "bytes": 150412,
+        "scope": "buyer_brief",
+        "method": "http",
+        "parser": "peopleperhour-public-html-v3",
+        "complete": true,
+        "requests": 2
+      },
+      "captured_text": "SIMPLE WIX WEBSITE BUILD\n\n- or -\n\nPost a project like this\nEnds in 24 days\nFixed Price\n£250(approx. $332)\n * Posted: 2 months ago\n * Proposals: 70\n * Remote\n * #4519616\n * OPPORTUNITY\n * Awarded\n\nExperience Level: Expert\n\nWix Website Developer Brief — Electrical Advice UK\n\nProject: Build a simple, professional Wix website for a new UK consumer service called Electrical Advice UK.\n\nThe business provides independent electrical advice to homeowners. It does not carry out electrical installation work. Customers will pay for help with electrical faults, electrician quotations, EICRs and second opinions on proposed electrical work.\n\nThe website should look trustworthy, modern and straightforward. It must feel like an independent consumer advice service, not an electrical contractor website.\n\nMain pages and functionality\nHome — clear introduction and four main services.\nElectrical Fault Help — customer completes a short questionnaire, pays online and then books a 15-minute callback/online consultation using Wix Bookings. This is the ONLY service that should use Wix Bookings.\nCheck My Quote — customer completes a form, uploads an electrician's quotation/photos, pays a fixed fee and receives the review later by email. No appointment booking.\nSecond Opinion — for customers who have been told they need a rewire, new consumer unit or significant remedial work. Form + document/photo upload + payment. Response by email. No appointment booking.\nEICR Help — customer uploads an EICR, completes a form and pays. The report is reviewed and explained by email. No appointment booking.\nHelp & Advice — Wix Blog or equivalent, presented to customers as “Help & Advice”. This will contain SEO articles about common electrical problems and costs.\nAbout — explain the electrical industry experience behind the service and emphasise that the business does not sell installation work.\nMain navigation\n\nHome | Fault Help | Check My Quote | Second Opinion | EICR Help | Help & Advice | About\n\nA single Get Help button can also appear in the header.\n\nDo not add Shop, Get a Quote, Notifications or a general Book Online menu item.\n\nInitial pricing\n\nElectrical Fault Help: £12.95–£14.95\nCheck My Quote: £19.95\nElectrical Second Opinion: £19.95\nEICR Help: £19.95\n\nPrices should be easy for me to change later.\n\nForms\n\nForms should support name, email, telephone where relevant, postcode, description of the problem, relevant background questions, photograph upload and PDF/document upload.\n\nPayment must be collected online before the service is submitted/booked.\n\nFault Help booking\n\nOnly Electrical Fault Help requires appointments.\n\nCustomer journey:\n\nFault Help page → questionnaire → payment → select available 15-minute appointment → callback/online consultation\n\nI do not want my personal telephone number displayed publicly.\n\nWebsite style\n\nUse a clean white background, dark navy text and electric-blue accents. Avoid yellow, orange and typical “electrician” branding such as flames, large lightning bolts, spanners or tradespeople posing with tools.\n\nThe site needs to look professional and reassuring to ordinary UK homeowners and work especially well on mobile phones.\n\nI will provide the Electrical Advice UK logo.\n\nHomepage message\n\nMain headline:\n\nElectrical Problem? Unsure What Your Electrician Is Telling You?\n\nSupporting text:\n\nGet independent electrical advice before paying for a call-out or committing to expensive work.\n\nDisplay four prominent service cards:\n\nElectrical Fault Help\nCheck My Electrician's Quote\nDo I Really Need This Work?\nExplain My EICR\n\nA prominent trust message should say:\n\nIndependent Advice — We Don't Sell Electrical Installation Work\n\nSEO / Help & Advice\n\nThe website should be set up correctly for Google indexing and basic on-page SEO.\n\nInitial Help & Advice topics will include:\n\nRCD Keeps Tripping, Fuse Box Keeps Tripping, MCB Keeps Tripping, Sockets Not Working, Electrician Call-Out Charges, Electrician Hourly Rates, House Rewire Cost, Consumer Unit Replacement Cost, EICR Cost, and Does My House Need Rewiring?\n\nI will provide the article content separately.\n\nLegal/footer pages\n\nPlease create placeholders/pages for:\n\nContact | Terms & Conditions | Privacy Policy | Disclaimer | Safety Information | Refund/Cancellation Policy\n\nThe site must make clear that remote advice cannot replace physical inspection and electrical testing where necessary.\n\nImportant instruction\n\nDo not use Wix AI to automatically create or restructure the services. Do not add Wix Bookings to Quote Check, Second Opinion or EICR Help. Wix Bookings is ONLY for Electrical Fault Help.\n\nThe finished website should be simple enough for me to update prices, text, blog articles and booking availability myself after handover.\n\nQuote required\n\nPlease quote a fixed price for completing the site and confirm:\n\n1. Examples of Wix sites you have built\n2. Whether Wix forms, payments, uploads and Bookings are included\n3. Number of revisions included\n4. Delivery time\n5. That I retain full ownership and editing access to the Wix site",
+      "source_status": "fetched",
+      "source_reason": null,
+      "observed_links": 37
+    },
+    {
+      "key": "963d899b96179fff30d9caa637951f91480445ccb4fb992339e342544649156a",
+      "kind": "document",
+      "input": {
+        "url": "https://www.peopleperhour.com/freelance-jobs/video-photography/videography/egocentric-video-data-collection-4470035",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": [
+        {
+          "url": "https://www.peopleperhour.com/freelancer/design/maazam-ali-video-editing-creative-design-zywavzny",
+          "text": "Maazam A."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/writing-translation/victoria-walsh-copywriter-writer-content-creator-zwwjayw",
+          "text": "Victoria W."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/design/isaac-wix-website-designer-website-zzjmnmnv",
+          "text": "Isaac J."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/video-photo-audio/ashish-singh-video-editing-audio-editor-audio-zyywvvvq",
+          "text": "Ashish S."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/design/sajid-nadaf-video-editor-cinematographer-vfx-zjqvxvq",
+          "text": "Sajid N."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/akinwumi-kolade-web-designer-developer-wordpress-zxamjyxv",
+          "text": "Akinwumi K."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/marketing-seo/priyankar-research-content-and-data-pro-zajmzvym",
+          "text": "Priyankar .."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/design/olivia-sophia-professional-freelancer-multi-zxazvyza",
+          "text": "Olivia S."
+        },
+        {
+          "url": "https://x.com/intent/tweet",
+          "text": ""
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/pov-objectways-zxyzynwz?ref=buyer",
+          "text": "Pov O."
+        },
+        {
+          "url": "https://www.peopleperhour.com/site/register?next=https%3A%2F%2Fwww.peopleperhour.com%2Ffreelance-jobs%2Fvideo-photography%2Fvideography%2Fegocentric-video-data-collection-4470035",
+          "text": "Sign up"
+        },
+        {
+          "url": "https://www.peopleperhour.com/job/new?id=4470035&ref=similar",
+          "text": "Post a project like this"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Editing",
+          "text": "Editing"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Audio",
+          "text": "Audio"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Video",
+          "text": "Video"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Videography",
+          "text": "Videography"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Footage",
+          "text": "Footage"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=FP+programming+language",
+          "text": "FP programming language"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Image",
+          "text": "Image"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Smartphone",
+          "text": "Smartphone"
+        },
+        {
+          "url": "https://www.peopleperhour.com/cookies",
+          "text": "Cookie Policy"
+        }
+      ],
+      "feeds": [],
+      "sitemaps": [
+        {
+          "url": "https://www.peopleperhour.com/pphsitemaps/sitemap.live.hire_freelancers.index.xml",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.peopleperhour.com/pphsitemaps/sitemap.live.topcert.index.xml",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.peopleperhour.com/pphsitemaps/sitemap.live.cert5.index.xml",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.peopleperhour.com/pphsitemaps/sitemap.live.cert4.index.xml",
+          "text": "Site-advertised sitemap"
+        }
+      ],
+      "retrieved_url": "https://www.peopleperhour.com/freelance-jobs/video-photography/videography/egocentric-video-data-collection-4470035",
+      "capture": {
+        "bytes": 123182,
+        "scope": "buyer_brief",
+        "method": "http",
+        "parser": "peopleperhour-public-html-v3",
+        "complete": true,
+        "requests": 2
+      },
+      "captured_text": "EGOCENTRIC VIDEO DATA COLLECTION\n\n- or -\n\nPost a project like this\nEnded at: 06/03/2026\nFixed Price\n$50\n * Posted: 9 months ago\n * Proposals: 8\n * Remote\n * #4470035\n * Expired\n\nExperience Level: Entry\n\nProject Overview:\n\nWe are collecting egocentric (first-person POV) video data of everyday household tasks recorded in real residential environments. These videos will be used for human-to-robot / humanoid training datasets.\n\nRecording Requirements (Mandatory):\n\nFirst-person (POV) recording using a head-mounted smartphone or equivalent device\nRecording must reflect natural human viewpoint\nHandheld, tripod, or surface-mounted recordings are NOT allowed\n\nVideo Specifications:\n\nResolution: Minimum 1920×1080 (1080p)\nOrientation: Landscape only\nFrame Rate: 30 FPS minimum (60 FPS preferred)\nNo slow motion\nNo vertical videos\n\nVisibility & Framing Rules:\n\nHands and objects must be clearly visible at all times\nCamera angle slightly downward\nNo blurred or out-of-focus footage\nNo faces visible (including mirrors, photos, reflections)\nNo IDs, documents, personal data\n\nContent Rules:\n\nMinimum video duration: 4–5 minutes per video\nNo idle time longer than 3 seconds\nOnly meaningful household tasks (kitchen, living room, bedroom, bathroom.)\nNo eating, drinking, washing hands, sitting idle, or unrelated activities\n\nEditing Rules:\n\nRaw video files only accepted\nNo trimming\nNo filters\nNo overlays, effects, or text, audio\n\nRejection Criteria - Videos will be rejected if they include:\n\nVertical videos\nSlow-motion recording\nPhone held by hand or placed on a surface\nCamera zoomed in too much\nBlurry, unfocused, or unstable footage\nIdle time longer than 3 seconds\nEdited or trimmed videos\n\nEligibility:\n\nOpen to international freelancers\nMust have access to a residential home environment\nAbility to follow strict technical guidelines is required\n\nBefore Applying - Applicants must confirm:\n\nThey have a head-mounted recording setup\nTheir device supports 1080p @ 30 FPS and above.\nThey agree to follow all recording rules strictly\n\nDeliverables:\n\nRaw video files only\nUploaded to assigned cloud folder, sorted by environment\n\nPayment Details:\n\nPayment only for approved hours and rejected video hours are not paid.\nJob Types: Part-time, Fresher, Contractual / Temporary, Freelance, Volunteer\n\nContract length: 6 weeks\n\nBenefits:\n\nFlexible schedule\nWork from home\n\nWork Location: Remote",
+      "source_status": "fetched",
+      "source_reason": null,
+      "observed_links": 21
+    }
+  ],
+  "decisions": [
+    {
+      "round": 0,
+      "reason": "check_promising_result",
+      "action": {
+        "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/backend-net-ai-integration-4516587",
+        "kind": "document"
+      },
+      "depth": 0,
+      "parent_key": "eb3fcf5c0ac2d8491836218c5ca36312c84d14f5c42024ef9c9283142f50f750"
+    },
+    {
+      "round": 1,
+      "reason": "check_promising_result",
+      "action": {
+        "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/programming-coding/i-need-a-web-developer-to-update-our-google-analytics-code-1950167",
+        "kind": "document"
+      },
+      "depth": 0,
+      "parent_key": "eb3fcf5c0ac2d8491836218c5ca36312c84d14f5c42024ef9c9283142f50f750"
+    },
+    {
+      "round": 2,
+      "reason": "check_promising_result",
+      "action": {
+        "url": "https://www.facebook.com/groups/Picyourdesigner/posts/4555313604753572/",
+        "kind": "document"
+      },
+      "depth": 0,
+      "parent_key": "886b0522f3c389a3a4e0d2518eaa6710ee631406c34ef3287f83e6885c8f525f"
+    },
+    {
+      "round": 3,
+      "reason": "check_promising_result",
+      "action": {
+        "url": "https://jobs.minnesotanonprofits.org/job/web-developer-designer-111617",
+        "kind": "document"
+      },
+      "depth": 0,
+      "parent_key": "886b0522f3c389a3a4e0d2518eaa6710ee631406c34ef3287f83e6885c8f525f"
+    },
+    {
+      "round": 4,
+      "reason": "check_promising_result",
+      "action": {
+        "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/simple-wix-website-build-4519616",
+        "kind": "document"
+      },
+      "depth": 0,
+      "parent_key": "eb3fcf5c0ac2d8491836218c5ca36312c84d14f5c42024ef9c9283142f50f750"
+    },
+    {
+      "round": 5,
+      "reason": "check_promising_result",
+      "action": {
+        "url": "https://www.peopleperhour.com/freelance-jobs/video-photography/videography/egocentric-video-data-collection-4470035",
+        "kind": "document"
+      },
+      "depth": 0,
+      "parent_key": "eb3fcf5c0ac2d8491836218c5ca36312c84d14f5c42024ef9c9283142f50f750"
+    },
+    {
+      "round": 6,
+      "reason": "exploration_limit",
+      "action": null,
+      "depth": 0,
+      "parent_key": null
+    }
+  ],
+  "case": {
+    "id": "15c3dd2f-af1b-4723-851a-4027b34cb14c",
+    "scoutId": "4d3e620f-cce3-4e54-b917-e2f4ef8d66bf",
+    "scoutName": "Synthetic service-request scout",
+    "scoutVersion": 1,
+    "provider": "serper",
+    "strategy": {
+      "targets": [
+        "Website redesign"
+      ],
+      "explanation": "Using the confirmed target; model planning was unavailable."
+    },
+    "exploration": [
+      {
+        "kind": "document",
+        "reason": "check_promising_result",
+        "target": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/backend-net-ai-integration-4516587"
+      },
+      {
+        "kind": "document",
+        "reason": "check_promising_result",
+        "target": "https://www.peopleperhour.com/freelance-jobs/technology-programming/programming-coding/i-need-a-web-developer-to-update-our-google-analytics-code-1950167"
+      },
+      {
+        "kind": "document",
+        "reason": "check_promising_result",
+        "target": "https://www.facebook.com/groups/Picyourdesigner/posts/4555313604753572/"
+      },
+      {
+        "kind": "document",
+        "reason": "check_promising_result",
+        "target": "https://jobs.minnesotanonprofits.org/job/web-developer-designer-111617"
+      },
+      {
+        "kind": "document",
+        "reason": "check_promising_result",
+        "target": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/simple-wix-website-build-4519616"
+      },
+      {
+        "kind": "document",
+        "reason": "check_promising_result",
+        "target": "https://www.peopleperhour.com/freelance-jobs/video-photography/videography/egocentric-video-data-collection-4470035"
+      },
+      {
+        "kind": null,
+        "reason": "exploration_limit",
+        "target": null
+      }
+    ],
+    "reviewStatus": null,
+    "reviewReason": null,
+    "status": "partial",
+    "reason": "some_sources_unavailable",
+    "startedAt": "2026-10-29 12:13:41.4568+00",
+    "finishedAt": "2026-10-29 12:14:06.544792+00",
+    "searchesCompleted": 4,
+    "documentsChecked": 6,
+    "leadCount": 40
+  },
+  "usage": [
+    {
+      "provider": "public-documents",
+      "requests": 6,
+      "reserved_micros": "0"
+    },
+    {
+      "provider": "serper",
+      "requests": 4,
+      "reserved_micros": "40000"
+    }
+  ],
+  "aiBudget": [],
+  "dashboardLeadSampleSize": 40,
+  "leads": [
+    {
+      "url": "https://3my.org/website-redesign-rfp/",
+      "title": "Website Redesign RFP: A One-Page Brief for Small Business",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://bampfa.org/page/web-copywriter",
+      "title": "Web Copywriter",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://creativecommsboard.substack.com/p/earn-55hour-as-a-marketing-manager",
+      "title": "Earn $55/hour as a marketing manager, $1,500/month as a ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://jobs.minnesotanonprofits.org/job/web-developer-designer-111617",
+      "title": "Web Developer/Designer in Remote - Nonprofit Job Board",
+      "contentStatus": "fetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://marcus-mendy.com/en",
+      "title": "Freelance web designer in Rouen",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://nonprofit-jobs.org/RFP-Work-Hub/",
+      "title": "Nonprofit RFP Work Hub | Consulting, Fractional & Project ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://pixelgravitas.com/resources/website-redesign-rfp-template/",
+      "title": "Website Redesign RFP Template + Example (Free)",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://thegigresource.com/website-redesign-request-for-proposal/",
+      "title": "Website Redesign RFP Template: How to Brief a Designer or ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.achievementfirst.org/request-for-proposals-website-redesign-ecosystem-development/",
+      "title": "Request for Proposals: Website Redesign & Ecosystem ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.chulbuldesign.com/blog/toronto-website-redesign-rfp-agency-quote-template",
+      "title": "Toronto Website Redesign RFP & Agency Quote Checklist",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.facebook.com/groups/Picyourdesigner/posts/4555313604753572/",
+      "title": "Looking for a Talented Web Designer & Graphic Designer!",
+      "contentStatus": "access_limited",
+      "contentReason": "crawl_policy_denied",
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.ifactory.com/insights/website-redesign-rfp-guide/",
+      "title": "The Ultimate Guide to Crafting Effective Website Redesign RFPs",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.instagram.com/p/DekebUTjf0A/",
+      "title": "I'm open for freelance projects. If you're building a SaaS ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.instagram.com/p/DeZUIC5BGCm/",
+      "title": "📢 Request for Proposal (RFP) - Website Development We ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.instagram.com/reel/De2oIZXy8R3/",
+      "title": "If you're looking for bigger website projects, here's where to ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.instantmarkets.com/q/website_design",
+      "title": "website design Bids, RFP & Government Contracts",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.linkedin.com/posts/247digitalmarketingagency_webdesign-websiteredesign-rfp-activity-7515406513205805056-fBgp",
+      "title": "Website Redesign RFP Essentials: Goals, Scope, and ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.peopleperhour.com/freelance-jobs/design/web-design",
+      "title": "Web Design Projects in Oct 2026",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.peopleperhour.com/freelance-jobs/digital-marketing/sem-google-ads-ppc/digital-marketing-specialist-google-ads-saas-b2b-focu-4384495",
+      "title": "Digital Marketing Specialist – Google Ads (SaaS | B2B Focus)",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.peopleperhour.com/freelance-jobs/marketing-branding-sales/strategy-research/uae-shopify-store-sales-marketing-support-needed-4459832",
+      "title": "UAE Shopify Store – Sales & Marketing Support Needed",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming",
+      "title": "Technology & Programming Projects in 2026",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/cms-development",
+      "title": "CMS Development Projects in Oct 2026",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/programming-coding/i-need-a-web-developer-to-update-our-google-analytics-code-1950167",
+      "title": "I need a web developer to update our google analytics code",
+      "contentStatus": "fetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development",
+      "title": "Website Development Projects in Oct 2026",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/backend-net-ai-integration-4516587",
+      "title": "Backend .NET AI Integration",
+      "contentStatus": "fetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/simple-wix-website-build-4519616",
+      "title": "Simple Wix Website Build",
+      "contentStatus": "fetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.peopleperhour.com/freelance-jobs/video-photography/videography/egocentric-video-data-collection-4470035",
+      "title": "Egocentric Video Data Collection",
+      "contentStatus": "fetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.rfpmart.com/1179077-usa-louisiana-global-website-redesign-development-implementation-and-migration-service-using-cms-rfp.html",
+      "title": "Website Redesign, Development, Implementation and ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.upwork.com/freelance-jobs/apply/Web-Developer-for-Website-Redesign_~022112606312471060505/",
+      "title": "Web Developer for Website Redesign",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.wavetransit.com/wp-content/uploads/2026/10/Wave_Transit_Website_RFPPub10.1.26.pdf",
+      "title": "Cape Fear Public Transportation Authority (dba ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.workana.com/en/job/expert-wix-studio-website-design-review-and-responsive-optimization",
+      "title": "Expert wix studio website design review and...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.workana.com/en/job/jesus-galaviz-healthcare-dental-company-website-redesign-for-enhanced-user-experience-and-lead-generation",
+      "title": "Jesus galaviz healthcare dental company... - Freelance Job in ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.workana.com/en/job/website-redesign-and-optimization-for-us-telecom-smart-hands-provider-bilingual-en-pt",
+      "title": "Website redesign and optimization for us... - Freelance Job in ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.workana.com/job/complete-branding-and-responsive-website-design-for-manufacturing-company",
+      "title": "Complete Branding and Responsive Website Design ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.workana.com/job/design-of-a-website-for-a-childrens-9?ref=projects_1",
+      "title": "Design of a website for a childrens 9 - Freelance Job in ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.workana.com/job/expert-branding-ux-ui-and-responsive-web-design-for-new-business-launch",
+      "title": "Expert Branding, Ux/Ui, and Responsive Web Design for New ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.workana.com/job/expert-web-designer-needed-for-enterprise-b2b-website-redesign-and-enhanced-ux",
+      "title": "Expert web designer needed for enterprise b2b...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.workana.com/job/healthcare-dental-company-website-redesign-for-enhanced-user-experience-and-lead-generation",
+      "title": "Healthcare dental company website redesign for...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.workana.com/job/professional-restaurant-website-design-and-development-1?ref=projects_1",
+      "title": "Professional Restaurant Website Design and Development",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.workana.com/job/web-redesign-y-logo?ref=projects_1",
+      "title": "Web redesign y logo - Freelance Job in Web design",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    }
+  ],
+  "publication": [],
+  "checks": [
+    "deterministic live capture; AI review and recommendations not tested",
+    "bounded provider and model admission",
+    "observed parent provenance",
+    "current owner isolation",
+    "terminal replay without new spending"
+  ],
+  "emailsSent": 0,
+  "realAccountsUsed": 0,
+  "scopeNote": "AI is explicitly disabled: this measures live source discovery and capture, not source interpretation or recommendation quality. Bounded live synthetic case using production discovery, review, assessment and delivery use cases. Worker reader includes configured browser fallback and Ashby routing without shared Redis caching; HTTP reader is a controlled reduced-access path. Native X and marketplace connector loops are not exercised. All lead rows are measured separately from the dashboard's bounded sample. Matching can remain incomplete if retries exceed the check window. Model labels are not independent ground truth; precision, recall and global throughput remain unproven.",
+  "stages": {
+    "scenario": "services",
+    "executionStatus": "captured_without_ai",
+    "successfulSearches": 4,
+    "failedSearches": 0,
+    "renderingEnabled": true,
+    "durationSeconds": 25.325,
+    "uniqueLeads": 40,
+    "recordedLeads": 40,
+    "completeLeadSet": true,
+    "searchRequests": 4,
+    "documentRequests": 6,
+    "capturedDocuments": 5,
+    "completeCaptures": 5,
+    "inaccessibleDocuments": 1,
+    "repeatedDestinations": 0,
+    "sourceReviewLabels": {},
+    "sourceReviewCountsAreComplete": true,
+    "promotedPostings": 0,
+    "matching": "not_tested_ai_disabled",
+    "completedFitAssessments": 0,
+    "dashboardRecommendations": 0,
+    "acceptedEmails": 0,
+    "aiEstimatedUsd": 0,
+    "attemptsWithoutCostEstimate": 0,
+    "searchReservedUsd": 0.04,
+    "aiReservedUsd": 0,
+    "estimatedAiPlusSearchReservationPerRecommendationUsd": null,
+    "independentlyUsefulResults": null,
+    "costPerIndependentlyUsefulResultUsd": null,
+    "precision": null,
+    "recall": null,
+    "limitations": "AI estimates exclude unpriced/failed attempts, infrastructure and billing adjustments. Search reservations are configured upper allowances, not invoices. Source labels and dashboard acceptance are not independent usefulness judgments. Distinct URLs may still describe the same opportunity; repeatedDestinations detects only observed redirect identity. Initial reports recorded a dashboard sample, not every source review."
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "checkedAt": "2026-10-29T12:05:11.473Z",
+  "status": "blocked_by_configured_daily_token_cap",
+  "reason": "daily_token_budget_exhausted",
+  "providerCalls": 0,
+  "modelTokensUsed": 0,
+  "minimumPlanningOutputReservation": 2000,
+  "scope": "The production guard rejected the updated planning request before input counting or generation. No cap increase or reset.",
+  "nextResetLocal": "2026-10-30T01:00:00+01:00",
+  "sharedTokenBudget": {
+    "before": {
+      "day": "2026-10-29",
+      "inputTokens": 2169825,
+      "outputTokens": 228217,
+      "cachedInputTokens": 703232,
+      "reservedTokens": 0,
+      "usedTokens": 2398042,
+      "dailyLimit": 2400000,
+      "remainingTokens": 1958,
+      "unknownReservations": 0
+    },
+    "after": {
+      "day": "2026-10-29",
+      "inputTokens": 2169825,
+      "outputTokens": 228217,
+      "cachedInputTokens": 703232,
+      "reservedTokens": 0,
+      "usedTokens": 2398042,
+      "dailyLimit": 2400000,
+      "remainingTokens": 1958,
+      "unknownReservations": 0
+    },
+    "attempts": [],
+    "scope": "Evaluation generations share the configured worker database's daily allowance. Before/after snapshots include background worker activity; attempts contain this evaluation only. Counting failures before reservation do not appear as generation attempts."
+  }
+}

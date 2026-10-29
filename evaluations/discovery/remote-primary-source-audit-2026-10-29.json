@@ -1,0 +1,282 @@
+{
+  "checkedAt": "2026-10-29T12:14:44.812Z",
+  "modelCalls": 0,
+  "sourceReads": 2,
+  "scope": "Exact URLs observed in public query/directory results, freshly read through the supported reader. No model review, private fit or recommendations.",
+  "results": [
+    {
+      "scenario": "projects",
+      "provenance": "remote-query-probes-2026-10-29.json",
+      "document": {
+        "kind": "document",
+        "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/full-stack-engineer-needed-for-a-staking-project-4528429",
+        "checkedAt": "2026-10-29T12:14:42.133Z",
+        "status": "fetched",
+        "reason": null,
+        "text": "THIS PROJECT IS NO LONGER AVAILABLE\n\nSTEPHEN W.\n\n0% (0)\nProjects Completed\n-\nFreelancers worked with\n-\nProjects awarded\n0%\nLast project\n29 Oct 2026\n\nThis project has been canceled\n\nWhy not search for other projects that may interest you!\n\nSearch projects",
+        "fingerprint": "e2da47564eeefc61e4b6884bc3cebe90f51570f7a706d4a1414584ca07108db1",
+        "posting": null,
+        "hostDelaySeconds": 2,
+        "retrievedUrl": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/full-stack-engineer-needed-for-a-staking-project-4528429",
+        "sitemaps": [
+          {
+            "url": "https://www.peopleperhour.com/pphsitemaps/sitemap.live.hire_freelancers.index.xml",
+            "text": "Site-advertised sitemap"
+          },
+          {
+            "url": "https://www.peopleperhour.com/pphsitemaps/sitemap.live.topcert.index.xml",
+            "text": "Site-advertised sitemap"
+          },
+          {
+            "url": "https://www.peopleperhour.com/pphsitemaps/sitemap.live.cert5.index.xml",
+            "text": "Site-advertised sitemap"
+          },
+          {
+            "url": "https://www.peopleperhour.com/pphsitemaps/sitemap.live.cert4.index.xml",
+            "text": "Site-advertised sitemap"
+          }
+        ],
+        "truncated": false,
+        "links": [
+          {
+            "url": "https://www.peopleperhour.com/freelance-jobs",
+            "text": "Search projects"
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelancer/stephen-business-partner-hiring-manager-zxnvwjmv?ref=buyer",
+            "text": "Stephen W."
+          },
+          {
+            "url": "https://www.peopleperhour.com/cookies",
+            "text": "Cookie Policy"
+          }
+        ],
+        "feeds": [],
+        "searchForms": [],
+        "pagination": {
+          "next": [],
+          "contentFingerprint": "5f3cef2395874ca641afa742212c79e279585d2663988909da06d31665989762"
+        },
+        "capture": {
+          "method": "http",
+          "requests": 2,
+          "bytes": 60645,
+          "complete": true,
+          "scope": "buyer_brief",
+          "parser": "peopleperhour-public-html-v3"
+        }
+      }
+    },
+    {
+      "scenario": "services",
+      "provenance": "remote-services-capture-2026-10-29.json",
+      "document": {
+        "kind": "document",
+        "url": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-fm-services-website-4527472",
+        "checkedAt": "2026-10-29T12:14:44.811Z",
+        "status": "fetched",
+        "reason": null,
+        "text": "REDESIGN OF FM SERVICES WEBSITE\n\n- or -\n\nPost a project like this\nEnds in 20 days\nFixed Price\n£150(approx. $199)\n * Posted: 1 week ago\n * Proposals: 93\n * Remote\n * #4527472\n * OPPORTUNITY\n * Open for Proposals\n\nExperience Level: Expert\n\nI am looking to redesign and modernise my existing services website, which is built on WordPress and hosted through SiteGround.\nThe aim is to create a modern, professional, visually appealing website that clearly communicates my services, improves the user experience, and makes it easier for potential clients to find information and get in touch.\nI would like to retain WordPress as the website platform while improving the overall design, layout, navigation, and functionality.\n\n1. Website Redesign\nModernise the existing website with a clean, professional, contemporary design.\nImprove the layout, typography, colours, imagery, and overall visual consistency.\nEnsure the website is fully responsive and works seamlessly across desktop, tablet, and mobile devices.\nImprove navigation and make key information easy to find.\n2. Additional Pages\nCreate new pages for specific services and other relevant information.\nDevelop clear, well-structured page layouts that showcase each service effectively.\nEnsure consistency in design and branding across all pages.\nImprove calls to action to encourage enquiries and potential client conversions.\n3. User Experience & Functionality\nSimplify the website structure and improve the visitor journey.\nReview existing functionality and recommend improvements where appropriate.\nEnsure contact forms and enquiry routes work correctly.\nMake the website easy for me to update and maintain independently.\n4. SEO & Performance\nPreserve existing SEO value wherever possible.\nReview page titles, headings, URLs, metadata, and internal linking.\nImprove website speed and performance where practical.\nEnsure the website follows SEO-friendly design and development practices.\n5. WordPress & SiteGround Compatibility\nWork within my existing WordPress installation and SiteGround hosting environment.\nReview the current theme, plugins, and setup before recommending significant changes.\nEnsure the redesigned website remains secure, stable, and compatible with the existing hosting environment.\nProvide a backup before making significant changes.\n\nwant a modern, professional, easy-to-navigate website that reflects the quality of my services, builds trust with visitors, and generates more enquiries.\nI am looking for someone who can review the existing website, suggest improvements, implement the redesign, and create the additional pages required.\nPlease include examples of previous WordPress redesign projects, your recommended approach, estimated timescale, and a breakdown of costs.\nThe existing website is built on WordPress and hosted by SiteGround.",
+        "fingerprint": "34c0908803bb8ae650b2f77e5dbd8a98028b58523163de324d00be377d6bed23",
+        "posting": null,
+        "hostDelaySeconds": 2,
+        "retrievedUrl": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-fm-services-website-4527472",
+        "sitemaps": [
+          {
+            "url": "https://www.peopleperhour.com/pphsitemaps/sitemap.live.hire_freelancers.index.xml",
+            "text": "Site-advertised sitemap"
+          },
+          {
+            "url": "https://www.peopleperhour.com/pphsitemaps/sitemap.live.topcert.index.xml",
+            "text": "Site-advertised sitemap"
+          },
+          {
+            "url": "https://www.peopleperhour.com/pphsitemaps/sitemap.live.cert5.index.xml",
+            "text": "Site-advertised sitemap"
+          },
+          {
+            "url": "https://www.peopleperhour.com/pphsitemaps/sitemap.live.cert4.index.xml",
+            "text": "Site-advertised sitemap"
+          }
+        ],
+        "truncated": false,
+        "links": [
+          {
+            "url": "https://www.peopleperhour.com/freelancer/technology-programming/%C3%93scar-palomar-python-ai-automation-developer-zxxvxxvm",
+            "text": "Óscar P."
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelancer/social-media/isaac-web-designer-wordpress-developer-zyyamajx",
+            "text": "Isaac O."
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelancer/design/sahil-bhatia-top-rated-most-trusted-freelancer-nnavjjy",
+            "text": "Sahil B."
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelancer/technology-programming/david-olusanya-top-rated-website-and-mobile-app-zymjwajy",
+            "text": "David O."
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelancer/design/micheal-bada-fast-turnaround-website-designer-zyzwmvnx",
+            "text": "Micheal B."
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelancer/technology-programming/hamza-akram-web-desktop-development-graphics-ywazxjj",
+            "text": "Hamza A."
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelancer/design/shahbaz-tahir-brand-identity-framer-shopify-xaqxyma",
+            "text": "Shahbaz T."
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelancer/technology-programming/awais-ali-top-cert-full-stack-developer-ai-qqnmxw",
+            "text": "Awais A."
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelancer/technology-programming/amaneet-brar-most-trusted-1-team-19-years-of-zymxvy",
+            "text": "Amaneet B."
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelancer/technology-programming/yassine-aboulouafa-integration-developer-woocommerce-qavzqnz",
+            "text": "Yassine A."
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelancer/technology-programming/samuel-folorunso-full-stack-developer-website-zxjxwvvv",
+            "text": "Samuel F."
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelancer/technology-programming/zain-arshad-software-website-app-developer-zyyavzym",
+            "text": "Zain A."
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-fm-services-website-4527472?Members_page=2",
+            "text": "2"
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-fm-services-website-4527472?Members_page=3",
+            "text": "3"
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-fm-services-website-4527472?Members_page=4",
+            "text": "4"
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-fm-services-website-4527472?Members_page=5",
+            "text": "5"
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-fm-services-website-4527472?Members_page=6",
+            "text": "6"
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-fm-services-website-4527472?Members_page=7",
+            "text": "7"
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-fm-services-website-4527472?Members_page=8",
+            "text": "8"
+          },
+          {
+            "url": "https://x.com/intent/tweet",
+            "text": ""
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelancer/drew-zzyjawyv?ref=buyer",
+            "text": "Drew C."
+          },
+          {
+            "url": "https://www.peopleperhour.com/site/register?next=https%3A%2F%2Fwww.peopleperhour.com%2Ffreelance-jobs%2Fdesign%2Fweb-design%2Fredesign-of-fm-services-website-4527472",
+            "text": "Sign up"
+          },
+          {
+            "url": "https://www.peopleperhour.com/job/new?id=4527472&ref=similar",
+            "text": "Post a project like this"
+          },
+          {
+            "url": "https://www.peopleperhour.com/hire-freelancers?skills=Typography",
+            "text": "Typography"
+          },
+          {
+            "url": "https://www.peopleperhour.com/hire-freelancers?skills=Brand+design",
+            "text": "Brand design"
+          },
+          {
+            "url": "https://www.peopleperhour.com/hire-freelancers?skills=Communication",
+            "text": "Communication"
+          },
+          {
+            "url": "https://www.peopleperhour.com/hire-freelancers?skills=Desktop",
+            "text": "Desktop"
+          },
+          {
+            "url": "https://www.peopleperhour.com/hire-freelancers?skills=Layout+design",
+            "text": "Layout design"
+          },
+          {
+            "url": "https://www.peopleperhour.com/hire-freelancers?skills=Mobile",
+            "text": "Mobile"
+          },
+          {
+            "url": "https://www.peopleperhour.com/hire-freelancers?skills=Page+layout",
+            "text": "Page layout"
+          },
+          {
+            "url": "https://www.peopleperhour.com/hire-freelancers?skills=Search+engine+optimization+%28seo%29",
+            "text": "Search engine optimization (seo)"
+          },
+          {
+            "url": "https://www.peopleperhour.com/hire-freelancers?skills=Showcasing",
+            "text": "Showcasing"
+          },
+          {
+            "url": "https://www.peopleperhour.com/hire-freelancers?skills=Themes%2Ftemplates%2Fadd-ons%2Fplug-ins",
+            "text": "Themes/templates/add-ons/plug-ins"
+          },
+          {
+            "url": "https://www.peopleperhour.com/hire-freelancers?skills=Timescale",
+            "text": "Timescale"
+          },
+          {
+            "url": "https://www.peopleperhour.com/hire-freelancers?skills=User+experience+%28UX%29",
+            "text": "User experience (UX)"
+          },
+          {
+            "url": "https://www.peopleperhour.com/hire-freelancers?skills=Website+development",
+            "text": "Website development"
+          },
+          {
+            "url": "https://www.peopleperhour.com/hire-freelancers?skills=Website+design",
+            "text": "Website design"
+          },
+          {
+            "url": "https://www.peopleperhour.com/hire-freelancers?skills=Wordpress+%28cms%29",
+            "text": "Wordpress (cms)"
+          },
+          {
+            "url": "https://www.peopleperhour.com/hire-freelancers?skills=Site+review",
+            "text": "Site review"
+          },
+          {
+            "url": "https://www.peopleperhour.com/cookies",
+            "text": "Cookie Policy"
+          }
+        ],
+        "feeds": [],
+        "searchForms": [],
+        "pagination": {
+          "next": [],
+          "contentFingerprint": "3ca4888a7b4bf176b57a9bf06cd4e83814366263ce85fd901ea4be95130a3c5c"
+        },
+        "capture": {
+          "method": "http",
+          "requests": 2,
+          "bytes": 143810,
+          "complete": true,
+          "scope": "buyer_brief",
+          "parser": "peopleperhour-public-html-v3"
+        }
+      }
+    }
+  ]
+}

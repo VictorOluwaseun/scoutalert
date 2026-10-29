@@ -1,0 +1,283 @@
+{
+  "checkedAt": "2026-10-29T10:46:19.699Z",
+  "status": "live_ai_and_seeded_delivery_checks_completed",
+  "dailyTokenLimit": 2400000,
+  "configurationChanged": false,
+  "runs": [
+    {
+      "report": "token-budget-model-preflight-2026-10-29.json",
+      "scenario": "preflight",
+      "mode": "model-preflight",
+      "stages": null,
+      "modelGenerations": 1,
+      "tokens": {
+        "input": 337,
+        "output": 144,
+        "cachedInput": 0,
+        "total": 481
+      },
+      "reviewFailures": 0,
+      "rejectedReviews": 0,
+      "rejectedFits": 0,
+      "recommendations": []
+    },
+    {
+      "report": "token-budget-projects-live-2026-10-29.json",
+      "scenario": "projects",
+      "mode": "fresh-live-search",
+      "stages": {
+        "scenario": "projects",
+        "executionStatus": "measured",
+        "successfulSearches": 4,
+        "failedSearches": 0,
+        "renderingEnabled": true,
+        "durationSeconds": 93.379,
+        "uniqueLeads": 23,
+        "recordedLeads": 23,
+        "completeLeadSet": true,
+        "searchRequests": 4,
+        "documentRequests": 6,
+        "capturedDocuments": 6,
+        "completeCaptures": 6,
+        "inaccessibleDocuments": 0,
+        "repeatedDestinations": 0,
+        "sourceReviewLabels": {
+          "client_request": 6
+        },
+        "sourceReviewCountsAreComplete": true,
+        "promotedPostings": 6,
+        "matching": "completed",
+        "completedFitAssessments": 6,
+        "dashboardRecommendations": 0,
+        "acceptedEmails": 0,
+        "aiEstimatedUsd": 0.076306,
+        "attemptsWithoutCostEstimate": 0,
+        "searchReservedUsd": 0.04,
+        "aiReservedUsd": 1.875,
+        "estimatedAiPlusSearchReservationPerRecommendationUsd": null,
+        "independentlyUsefulResults": null,
+        "costPerIndependentlyUsefulResultUsd": null,
+        "precision": null,
+        "recall": null,
+        "limitations": "AI estimates exclude unpriced/failed attempts, infrastructure and billing adjustments. Search reservations are configured upper allowances, not invoices. Source labels and dashboard acceptance are not independent usefulness judgments. Distinct URLs may still describe the same opportunity; repeatedDestinations detects only observed redirect identity. Initial reports recorded a dashboard sample, not every source review."
+      },
+      "modelGenerations": 19,
+      "tokens": {
+        "input": 52807,
+        "output": 8154,
+        "cachedInput": 0,
+        "total": 60961
+      },
+      "reviewFailures": 0,
+      "rejectedReviews": 0,
+      "rejectedFits": 0,
+      "recommendations": []
+    },
+    {
+      "report": "token-budget-services-live-2026-10-29.json",
+      "scenario": "services",
+      "mode": "fresh-live-search",
+      "stages": {
+        "scenario": "services",
+        "executionStatus": "measured",
+        "successfulSearches": 4,
+        "failedSearches": 0,
+        "renderingEnabled": true,
+        "durationSeconds": 115.421,
+        "uniqueLeads": 29,
+        "recordedLeads": 29,
+        "completeLeadSet": true,
+        "searchRequests": 4,
+        "documentRequests": 6,
+        "capturedDocuments": 5,
+        "completeCaptures": 5,
+        "inaccessibleDocuments": 1,
+        "repeatedDestinations": 0,
+        "sourceReviewLabels": {
+          "client_request": 5
+        },
+        "sourceReviewCountsAreComplete": true,
+        "promotedPostings": 4,
+        "matching": "completed",
+        "completedFitAssessments": 4,
+        "dashboardRecommendations": 0,
+        "acceptedEmails": 0,
+        "aiEstimatedUsd": 0.092806,
+        "attemptsWithoutCostEstimate": 0,
+        "searchReservedUsd": 0.04,
+        "aiReservedUsd": 1.5,
+        "estimatedAiPlusSearchReservationPerRecommendationUsd": null,
+        "independentlyUsefulResults": null,
+        "costPerIndependentlyUsefulResultUsd": null,
+        "precision": null,
+        "recall": null,
+        "limitations": "AI estimates exclude unpriced/failed attempts, infrastructure and billing adjustments. Search reservations are configured upper allowances, not invoices. Source labels and dashboard acceptance are not independent usefulness judgments. Distinct URLs may still describe the same opportunity; repeatedDestinations detects only observed redirect identity. Initial reports recorded a dashboard sample, not every source review."
+      },
+      "modelGenerations": 16,
+      "tokens": {
+        "input": 86370,
+        "output": 6227,
+        "cachedInput": 0,
+        "total": 92597
+      },
+      "reviewFailures": 0,
+      "rejectedReviews": 0,
+      "rejectedFits": 0,
+      "recommendations": []
+    },
+    {
+      "report": "token-budget-projects-recapture-2026-10-29.json",
+      "scenario": "projects",
+      "mode": "recorded-source-live-recapture",
+      "stages": {
+        "scenario": "projects",
+        "executionStatus": "measured",
+        "successfulSearches": 6,
+        "failedSearches": 0,
+        "renderingEnabled": true,
+        "durationSeconds": 64.025,
+        "uniqueLeads": 4,
+        "recordedLeads": 4,
+        "completeLeadSet": true,
+        "searchRequests": 0,
+        "documentRequests": 4,
+        "capturedDocuments": 4,
+        "completeCaptures": 4,
+        "inaccessibleDocuments": 0,
+        "repeatedDestinations": 0,
+        "sourceReviewLabels": {
+          "client_request": 1,
+          "service_offer": 3
+        },
+        "sourceReviewCountsAreComplete": true,
+        "promotedPostings": 1,
+        "matching": "completed",
+        "completedFitAssessments": 1,
+        "dashboardRecommendations": 1,
+        "acceptedEmails": 1,
+        "aiEstimatedUsd": 0.058227,
+        "attemptsWithoutCostEstimate": 0,
+        "searchReservedUsd": 0,
+        "aiReservedUsd": 1.05,
+        "estimatedAiPlusSearchReservationPerRecommendationUsd": 0.058227,
+        "independentlyUsefulResults": null,
+        "costPerIndependentlyUsefulResultUsd": null,
+        "precision": null,
+        "recall": null,
+        "limitations": "AI estimates exclude unpriced/failed attempts, infrastructure and billing adjustments. Search reservations are configured upper allowances, not invoices. Source labels and dashboard acceptance are not independent usefulness judgments. Distinct URLs may still describe the same opportunity; repeatedDestinations detects only observed redirect identity. Initial reports recorded a dashboard sample, not every source review."
+      },
+      "modelGenerations": 13,
+      "tokens": {
+        "input": 42447,
+        "output": 5864,
+        "cachedInput": 0,
+        "total": 48311
+      },
+      "reviewFailures": 0,
+      "rejectedReviews": 0,
+      "rejectedFits": 0,
+      "recommendations": [
+        {
+          "title": "Full Stack Developer",
+          "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/react-js-node-js-developer-for-existing-management-system-4526654",
+          "availability": "available"
+        }
+      ]
+    },
+    {
+      "report": "token-budget-services-recapture-2026-10-29.json",
+      "scenario": "services",
+      "mode": "recorded-source-live-recapture",
+      "stages": {
+        "scenario": "services",
+        "executionStatus": "measured",
+        "successfulSearches": 6,
+        "failedSearches": 0,
+        "renderingEnabled": true,
+        "durationSeconds": 37.811,
+        "uniqueLeads": 2,
+        "recordedLeads": 2,
+        "completeLeadSet": true,
+        "searchRequests": 0,
+        "documentRequests": 2,
+        "capturedDocuments": 2,
+        "completeCaptures": 2,
+        "inaccessibleDocuments": 0,
+        "repeatedDestinations": 0,
+        "sourceReviewLabels": {
+          "client_request": 1,
+          "service_offer": 1
+        },
+        "sourceReviewCountsAreComplete": true,
+        "promotedPostings": 1,
+        "matching": "completed",
+        "completedFitAssessments": 1,
+        "dashboardRecommendations": 1,
+        "acceptedEmails": 1,
+        "aiEstimatedUsd": 0.032381,
+        "attemptsWithoutCostEstimate": 0,
+        "searchReservedUsd": 0,
+        "aiReservedUsd": 0.75,
+        "estimatedAiPlusSearchReservationPerRecommendationUsd": 0.032381,
+        "independentlyUsefulResults": null,
+        "costPerIndependentlyUsefulResultUsd": null,
+        "precision": null,
+        "recall": null,
+        "limitations": "AI estimates exclude unpriced/failed attempts, infrastructure and billing adjustments. Search reservations are configured upper allowances, not invoices. Source labels and dashboard acceptance are not independent usefulness judgments. Distinct URLs may still describe the same opportunity; repeatedDestinations detects only observed redirect identity. Initial reports recorded a dashboard sample, not every source review."
+      },
+      "modelGenerations": 9,
+      "tokens": {
+        "input": 23820,
+        "output": 3225,
+        "cachedInput": 0,
+        "total": 27045
+      },
+      "reviewFailures": 0,
+      "rejectedReviews": 0,
+      "rejectedFits": 0,
+      "recommendations": [
+        {
+          "title": "experienced web designer/developer",
+          "url": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648",
+          "availability": "available"
+        }
+      ]
+    }
+  ],
+  "totalTestTokens": 229395,
+  "totalTestGenerations": 58,
+  "sharedBudgetAfterTests": {
+    "day": "2026-10-29",
+    "inputTokens": 1746410,
+    "outputTokens": 181408,
+    "cachedInputTokens": 428416,
+    "reservedTokens": 0,
+    "usedTokens": 1927818,
+    "dailyLimit": 2400000,
+    "remainingTokens": 472182,
+    "unknownReservations": 0
+  },
+  "checks": [
+    "Shared production ledger integration: 2 tests passed; scenario data remains isolated",
+    "Existing report summary tests: 3 passed",
+    "Architecture: 10 workspaces and 395 sources passed",
+    "Every live generation completed with usage accounting",
+    "All scenario planning and matching completed; zero source-review failures or rejected review/fit outputs",
+    "All four flows passed owner isolation and terminal replay without extra search spending",
+    "Two recapture digests accepted by local Mailpit; repeat delivery sent zero duplicates"
+  ],
+  "findings": [
+    "Fresh project search captured six Workana buyer briefs; all six fit assessments left mandatory remote arrangement unknown.",
+    "Fresh service search captured five sources including two PDFs; four postings reached fit, all with remote arrangement unknown.",
+    "AURA PDF review input was truncated at 43,200 characters and remained unpromoted. CamTran PDF hit the existing page limit and remained incomplete.",
+    "Two Workana URLs appear to describe the same dental redesign request; distinct URLs are not established as distinct opportunities.",
+    "Observed PeoplePerHour project and service URLs were re-read and reassessed live, each producing one available recommendation and one local digest. These seeded checks measure downstream behavior, not fresh search recall."
+  ],
+  "limitations": [
+    "No independent human relevance labels: precision, recall and usefulness remain unmeasured.",
+    "Upwork, Guru, approved Facebook/LinkedIn access and native social discovery were not exercised by these runs.",
+    "Shared before/after usage includes ordinary worker activity; totalTestTokens is calculated from attributed model attempts only."
+  ],
+  "activationReceipt": "token-budget-live-activation-2026-10-29.json",
+  "workerRestartVerified": true
+}

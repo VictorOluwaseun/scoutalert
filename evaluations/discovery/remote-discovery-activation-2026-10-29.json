@@ -1,0 +1,39 @@
+{
+  "startedAt": "2026-10-29T12:18:15.713Z",
+  "pid": 23365,
+  "previousPid": 17822,
+  "previousQueuesStopped": 9,
+  "logPath": "/tmp/scoutalert-worker-remote-discovery-2026-10-29.log",
+  "dailyTokenLimit": 2400000,
+  "maximumOutputTokens": 4000,
+  "aiEnabled": true,
+  "configurationChanged": false,
+  "queryPolicy": "client-demand-v8",
+  "planningPolicy": "scout-planning-v14",
+  "readerVersion": "public-document-v12",
+  "verifiedAt": "2026-10-29T12:19:07.490Z",
+  "processAlive": true,
+  "runningQueues": [
+    "scout-delivery-v1",
+    "scout-matching-v1",
+    "scout-private-mail-v1",
+    "scout-research-v1",
+    "scout-social-discovery-v1",
+    "scout-source-monitoring-v1",
+    "scout-sources-v1",
+    "scout-web-discovery-v1",
+    "scout-workflows-v1"
+  ],
+  "startupErrorCount": 0,
+  "sharedTokenBudget": {
+    "day": "2026-10-29",
+    "inputTokens": 2169825,
+    "outputTokens": 228217,
+    "cachedInputTokens": 703232,
+    "reservedTokens": 0,
+    "usedTokens": 2398042,
+    "dailyLimit": 2400000,
+    "remainingTokens": 1958,
+    "unknownReservations": 0
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "checkedAt": "2026-10-29T12:02:40.133Z",
+  "providerCalls": 2,
+  "modelCalls": 0,
+  "searchReservedUsd": 0.02,
+  "scope": "Open/remote query wording diagnostic only; source availability still requires capture and review.",
+  "results": [
+    {
+      "query": "React TypeScript web development site:peopleperhour.com/freelance-jobs \"remote\" (\"open for proposals\" OR \"ends in\")",
+      "result": {
+        "kind": "search",
+        "observations": [
+          {
+            "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/data-science-analysis/capture-1st-click-last-click-parameters-react-typescript-4084071",
+            "title": "Capture 1st click last click parameters - React | typescript",
+            "snippet": "Ends in (days). 1078. Fixed Price. £50(approx. $67). Posted: 3 years ago; Proposals: 10; Remote; #4084071; Awarded. Smit B. PHP | Python | NodeJS | Laravel | ...",
+            "rank": 1
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/programming-coding/senior-react-node-developer-live-booking-platform-takeover-4526001",
+            "title": "Senior React/Node Developer: Live Booking Platform Takeover",
+            "snippet": "Ends in (days). 16. Fixed Price. £500(approx. $668). Posted: 2 weeks ago; Proposals: 56; Remote; #4526001; OPPORTUNITY; Paused. Abdul G. Full Stack Developer.",
+            "rank": 2
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelance-jobs/design/web-design/freelance-wordpress-developer-web-support-4523936",
+            "title": "Freelance WordPress Developer / Web Support",
+            "snippet": "Ends in (days). 6. Per Hour. £25/hr(approx. $34/hr). Posted: 3 weeks ago; Proposals: 105; Remote; #4523936; Open for Proposals ... React.js. Top ...",
+            "rank": 3
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/full-stack-engineer-needed-for-a-staking-project-4528429",
+            "title": "Full-Stack Engineer Needed for a Staking Project",
+            "snippet": "Ends in (days). 29. Fixed Price. $2.5k. Posted: 11 hours ago; Proposals: 38; Remote; #4528429; Open for Proposals. Aurel H. AI Engineer ...",
+            "rank": 4
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/e-commerce-cms-development/php-shopping-cart-code-80301",
+            "title": "PHP shopping cart code",
+            "snippet": "PHP shopping cart code. Ends in (days). 5520. Fixed Price. £50(approx. $67). Posted: 15 years ago; Proposals: 11; Remote ... React | JavaScript | TypeScript | API ...",
+            "rank": 5
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/software-testing/qa-engineer-ai-saas-platform-manual-automation-testing-4510225",
+            "title": "QA Engineer (AI SaaS Platform) Manual & Automation ...",
+            "snippet": "Ends in (days). 67. Fixed Price. £60(approx. $80). Posted: 3 months ago; Proposals: 22; Remote ... Nisar Ahmed R. Full-Stack AI Developer | Web ...",
+            "rank": 6
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/programming-coding/integration-between-timeneye-and-freeagent-for-time-tracking-4302807",
+            "title": "Integration between Timeneye and FreeAgent for Time Tracking",
+            "snippet": "Ends in (days). 599. Fixed Price. £330(approx. $443). Posted: 2 years ago; Proposals: 19; Remote ... Web App Developer (Flutter, React, Node.js). India Indore.",
+            "rank": 7
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/mobile-app-development/mobile-app-developer-flutterflow-supabase-south-wales-4527099",
+            "title": "Mobile App Developer (FlutterFlow + Supabase)",
+            "snippet": "Ends in (days). 19. Fixed Price. £1.0k(approx. $1.3k). Posted: 1 week ago; Proposals: 42; Remote ... TypeScript, PostgreSQL, Hasura, Svelte,React ...",
+            "rank": 8
+          }
+        ],
+        "checkedAt": "2026-10-29T12:02:38.679Z",
+        "completeness": "window",
+        "nextPage": null
+      }
+    },
+    {
+      "query": "\"Website redesign\" site:peopleperhour.com/freelance-jobs \"remote\" (\"open for proposals\" OR \"ends in\")",
+      "result": {
+        "kind": "search",
+        "observations": [
+          {
+            "url": "https://www.peopleperhour.com/freelance-jobs/design/web-design/final-15-of-our-new-website-4526014",
+            "title": "Final 15% of Our New Website",
+            "snippet": "Ends in (days). 29. Fixed Price. £500(approx. $671). Posted: 5 hours ago; Proposals: 26; Remote; #4526014; OPPORTUNITY; Open for Proposals ... WEBSITE REDESIGN ...",
+            "rank": 1
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/backend-net-ai-integration-4516587",
+            "title": "Backend .NET AI Integration",
+            "snippet": "Ends in (days). 29. Fixed Price. $600. Posted: 1 hour ago; Proposals: 14; Remote; #4516587; Open for Proposals ... Website Redesign landing page| Figma. Top ...",
+            "rank": 2
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/simple-wix-website-build-4519616",
+            "title": "Simple Wix Website Build",
+            "snippet": "Ends in (days). 14. Fixed Price. £250(approx. $336). Posted: 1 month ago; Proposals: 70; Remote ... WEBSITE REDESIGN ➡️ SQUARESPACE. Top Endorsed ... Ends in ( ...",
+            "rank": 3
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/programming-coding/i-need-a-web-developer-to-update-our-google-analytics-code-1950167",
+            "title": "I need a web developer to update our google analytics code",
+            "snippet": "Ends in (days). 3100. Fixed Price. £200(approx. $268). Posted: 9 years ago; Proposals: 7; Remote ... Website Redesign. India Ludhiana. 1831541528092 ... Ends in ( ...",
+            "rank": 4
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelance-jobs/marketing-branding-sales/strategy-research/uae-shopify-store-sales-marketing-support-needed-4459832",
+            "title": "UAE Shopify Store – Sales & Marketing Support Needed",
+            "snippet": "Ends in (days). 249. Fixed Price. $50. Posted: 9 months ago; Proposals: 18; Remote ... WEBSITE REDESIGN ➡️ SQUARESPACE. Top Endorsed. United ...",
+            "rank": 5
+          }
+        ],
+        "checkedAt": "2026-10-29T12:02:40.133Z",
+        "completeness": "window",
+        "nextPage": null
+      }
+    }
+  ]
+}

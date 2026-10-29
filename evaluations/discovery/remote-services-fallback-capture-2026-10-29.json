@@ -1,0 +1,933 @@
+{
+  "checkedAt": "2026-10-29T12:07:14.861Z",
+  "scenario": "services",
+  "recaptureCases": null,
+  "baseline": false,
+  "reasoningConfiguration": "openai:gpt-5.4-mini-2026-03-17:scout-planning-v14",
+  "plan": {
+    "policy": "public-intent-v3",
+    "queries": [
+      {
+        "page": 1,
+        "limit": 10,
+        "query": "\"Website redesign\" site:peopleperhour.com/freelance-jobs \"remote\"",
+        "country": "us",
+        "language": "en",
+        "freshness": "any"
+      },
+      {
+        "page": 1,
+        "limit": 10,
+        "query": "\"Website redesign\" \"remote\" (\"freelance\" OR \"proposals\" OR \"bids\")",
+        "country": "us",
+        "language": "en",
+        "freshness": "month"
+      },
+      {
+        "page": 1,
+        "limit": 10,
+        "query": "\"Website redesign\" site:workana.com inurl:job",
+        "country": "us",
+        "language": "en",
+        "freshness": "any"
+      },
+      {
+        "page": 1,
+        "limit": 10,
+        "query": "\"Website redesign\" (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+        "country": "us",
+        "language": "en",
+        "freshness": "month"
+      }
+    ],
+    "category": "services",
+    "strategy": {
+      "targets": [
+        "Website redesign"
+      ],
+      "explanation": "Using the confirmed target; model planning was unavailable."
+    },
+    "exploration": {
+      "remote": true,
+      "target": "Website redesign",
+      "queryPolicy": "client-demand-v8",
+      "maximumDepth": 3,
+      "maximumRounds": 8,
+      "candidatePolicy": "contextual-v1",
+      "maximumSearches": 6,
+      "maximumSourcePages": 2
+    },
+    "continuation": "explore_on_next_run",
+    "scoutVersion": 1,
+    "blockedReason": null,
+    "deadlineSeconds": 240,
+    "maximumDocuments": 6
+  },
+  "reader": "worker",
+  "renderingEnabled": true,
+  "status": "captured_without_ai",
+  "aiEnabled": false,
+  "planningFallback": true,
+  "deliveryOutcome": "no_eligible_digest",
+  "reasoning": [],
+  "sourceReviewsCompleted": 0,
+  "intelligence": [],
+  "rejectedFits": [],
+  "rejectedReviews": [],
+  "reviewFailures": [],
+  "matchingState": {
+    "status": "not_tested_ai_disabled",
+    "match_count": 0
+  },
+  "taskStates": [],
+  "eligiblePostings": [],
+  "reviewAttempts": [],
+  "opportunities": [],
+  "deliveries": [],
+  "durationMs": 16297,
+  "search": {
+    "goal": "Find clients requesting website redesign services",
+    "category": "services",
+    "target": "Website redesign",
+    "name": "Synthetic service-request scout",
+    "arrangement": "remote",
+    "arrangementRequired": true,
+    "residence": "New York, United States",
+    "workLocations": "United States or remote worldwide",
+    "authorizationLocations": "United States",
+    "authorizationConfirmed": true,
+    "sponsorshipNeed": "not_needed",
+    "background": "Five years delivering website redesign, responsive layouts, WordPress and accessible user interfaces for small businesses",
+    "minimumPay": "",
+    "currency": "USD",
+    "payPeriod": "project",
+    "unknownEligibility": "review",
+    "undisclosedPay": "include"
+  },
+  "operations": [
+    {
+      "key": "eb3fcf5c0ac2d8491836218c5ca36312c84d14f5c42024ef9c9283142f50f750",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "\"Website redesign\" site:peopleperhour.com/freelance-jobs \"remote\"",
+          "country": "us",
+          "language": "en",
+          "freshness": "any"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "retrieved_url": null,
+      "capture": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "886b0522f3c389a3a4e0d2518eaa6710ee631406c34ef3287f83e6885c8f525f",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "\"Website redesign\" \"remote\" (\"freelance\" OR \"proposals\" OR \"bids\")",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "retrieved_url": null,
+      "capture": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "8eb4ce7a3d3d5538a8b891d8e26a29fc61131abcce1a6d7491c9655efece61ed",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "\"Website redesign\" site:workana.com inurl:job",
+          "country": "us",
+          "language": "en",
+          "freshness": "any"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "retrieved_url": null,
+      "capture": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "cafe049667fe062b9bae37a0435441422fb2b13b5a139511d040a049c16fd7d5",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "\"Website redesign\" (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "retrieved_url": null,
+      "capture": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "4aa0ae2ec71a9a2fd3530df46087b31b055ffe6e5fba94da8a1645c78020f416",
+      "kind": "document",
+      "input": {
+        "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/backend-net-ai-integration-4516587",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": [
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs",
+          "text": "Search projects"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/ellie-zxjwmvnz?ref=buyer",
+          "text": "Ellie T."
+        },
+        {
+          "url": "https://www.peopleperhour.com/cookies",
+          "text": "Cookie Policy"
+        }
+      ],
+      "feeds": [],
+      "sitemaps": [
+        {
+          "url": "https://www.peopleperhour.com/pphsitemaps/sitemap.live.hire_freelancers.index.xml",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.peopleperhour.com/pphsitemaps/sitemap.live.topcert.index.xml",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.peopleperhour.com/pphsitemaps/sitemap.live.cert5.index.xml",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.peopleperhour.com/pphsitemaps/sitemap.live.cert4.index.xml",
+          "text": "Site-advertised sitemap"
+        }
+      ],
+      "retrieved_url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/backend-net-ai-integration-4516587",
+      "capture": {
+        "bytes": 60459,
+        "scope": "buyer_brief",
+        "method": "http",
+        "parser": "peopleperhour-public-html-v3",
+        "complete": true,
+        "requests": 2
+      },
+      "captured_text": "THIS PROJECT IS NO LONGER AVAILABLE\n\nELLIE T.\n\n0% (0)\nProjects Completed\n-\nFreelancers worked with\n-\nProjects awarded\n0%\nLast project\n29 Oct 2026\n\nThis project has been canceled\n\nWhy not search for other projects that may interest you!\n\nSearch projects",
+      "source_status": "fetched",
+      "source_reason": null,
+      "observed_links": 3
+    },
+    {
+      "key": "4c9c5d87a847ccd04bd701b3d2a528c2f4cc9be63a6a6c2ce0ac1ef182e80999",
+      "kind": "document",
+      "input": {
+        "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/programming-coding/i-need-a-web-developer-to-update-our-google-analytics-code-1950167",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": [
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/kashif-web-mobile-applications-developer-zmxzqvz",
+          "text": "Kashif K."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/marketing-seo/profit_by_clix-clix-no-1-certified-google-analytics-qymany",
+          "text": "PROFIT BY CLIX"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/mohamed-gaber-iam-mo-gaber-expert-magento-zjzvqmn",
+          "text": "Mohamed G."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/bart-z-magento-2-certificated-developer-jzymzq",
+          "text": "Bart Z."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/kailash-web-marketing-automation-data-znxxxvn",
+          "text": "Kailash L."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/megha-chabhadiya-graphic-designer-branding-logo-zymvxmv",
+          "text": "Megha C."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/sumiti-monga-shopify-theme-development-shopify-znwzqaw",
+          "text": "Sumiti M."
+        },
+        {
+          "url": "https://x.com/intent/tweet",
+          "text": ""
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/arfan-khan-yanyjv?ref=buyer",
+          "text": "Arfan K."
+        },
+        {
+          "url": "https://www.peopleperhour.com/site/register?next=https%3A%2F%2Fwww.peopleperhour.com%2Ffreelance-jobs%2Ftechnology-programming%2Fprogramming-coding%2Fi-need-a-web-developer-to-update-our-google-analytics-code-1950167",
+          "text": "Sign up"
+        },
+        {
+          "url": "https://www.peopleperhour.com/job/new?id=1950167&ref=similar",
+          "text": "Post a project like this"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Google+analytics",
+          "text": "Google analytics"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Magento+%28cms%29",
+          "text": "Magento (cms)"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Customization",
+          "text": "Customization"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Google+tag+management",
+          "text": "Google tag management"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Website+development",
+          "text": "Website development"
+        },
+        {
+          "url": "https://www.peopleperhour.com/cookies",
+          "text": "Cookie Policy"
+        }
+      ],
+      "feeds": [],
+      "sitemaps": [
+        {
+          "url": "https://www.peopleperhour.com/pphsitemaps/sitemap.live.hire_freelancers.index.xml",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.peopleperhour.com/pphsitemaps/sitemap.live.topcert.index.xml",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.peopleperhour.com/pphsitemaps/sitemap.live.cert5.index.xml",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.peopleperhour.com/pphsitemaps/sitemap.live.cert4.index.xml",
+          "text": "Site-advertised sitemap"
+        }
+      ],
+      "retrieved_url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/programming-coding/i-need-a-web-developer-to-update-our-google-analytics-code-1950167",
+      "capture": {
+        "bytes": 118596,
+        "scope": "buyer_brief",
+        "method": "http",
+        "parser": "peopleperhour-public-html-v3",
+        "complete": true,
+        "requests": 2
+      },
+      "captured_text": "I NEED A WEB DEVELOPER TO UPDATE OUR GOOGLE ANALYTICS CODE\n\n- or -\n\nPost a project like this\nEnds in 3110 days\nFixed Price\n£200(approx. $266)\n * Posted: 9 years ago\n * Proposals: 7\n * Remote\n * #1950167\n * OPPORTUNITY\n * PRE-FUNDED\n * Awarded\n\nExperience Level: Expert\n\nWe need a developer to assist in removing two erroneous Google Analytics tags that have been added incorrectly to the body section on our site, which is causing a data quality issue. We will need the tags removing and then Google Tag Manager adding to all pages.\n\nThere is some additional google code relating to the purchase on the payment confirmation page, which needs to be replaced with a data layer so it is compatible with Google Tag Manager\n \nThis should be completed without inhibiting the site’s usability and also in sync with publishing and testing the new Google Tag Manager container from our side.\n \nThe developer should also be able to conduct the work via Teamviewer remote control software.\n\nThis is a custom platform rather than something like Magento",
+      "source_status": "fetched",
+      "source_reason": null,
+      "observed_links": 17
+    },
+    {
+      "key": "f8fc8b1bedc318d76544f55e369d024af622a852c139d71ec38618ce811ffa79",
+      "kind": "document",
+      "input": {
+        "url": "https://www.facebook.com/groups/Picyourdesigner/posts/4555313604753572/",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": [
+        {
+          "url": "https://www.facebook.com/sitemap/groups_gp_i18n_titles_1_posts_0.xml.gz",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.facebook.com/sitemap/cpg_offplat_future_public_events_sitemap.xml.gz",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.facebook.com/sitemap/public_active_groups_sitemap.xml.gz",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.facebook.com/sitemap/groups_popular_posts_sitemap_qe.xml.gz",
+          "text": "Site-advertised sitemap"
+        }
+      ],
+      "retrieved_url": null,
+      "capture": {
+        "bytes": 42476,
+        "method": "http",
+        "complete": false,
+        "requests": 1
+      },
+      "captured_text": null,
+      "source_status": "access_limited",
+      "source_reason": "crawl_policy_denied",
+      "observed_links": 0
+    }
+  ],
+  "decisions": [
+    {
+      "round": 0,
+      "reason": "check_promising_result",
+      "action": {
+        "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/backend-net-ai-integration-4516587",
+        "kind": "document"
+      },
+      "depth": 0,
+      "parent_key": "eb3fcf5c0ac2d8491836218c5ca36312c84d14f5c42024ef9c9283142f50f750"
+    },
+    {
+      "round": 1,
+      "reason": "check_promising_result",
+      "action": {
+        "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/programming-coding/i-need-a-web-developer-to-update-our-google-analytics-code-1950167",
+        "kind": "document"
+      },
+      "depth": 0,
+      "parent_key": "eb3fcf5c0ac2d8491836218c5ca36312c84d14f5c42024ef9c9283142f50f750"
+    },
+    {
+      "round": 2,
+      "reason": "check_promising_result",
+      "action": {
+        "url": "https://www.facebook.com/groups/Picyourdesigner/posts/4555313604753572/",
+        "kind": "document"
+      },
+      "depth": 0,
+      "parent_key": "886b0522f3c389a3a4e0d2518eaa6710ee631406c34ef3287f83e6885c8f525f"
+    },
+    {
+      "round": 3,
+      "reason": "no_further_action",
+      "action": null,
+      "depth": 0,
+      "parent_key": null
+    }
+  ],
+  "case": {
+    "id": "7558f66b-dd4f-4431-ae33-9aece4309f88",
+    "scoutId": "199aead6-27bb-4639-84d7-83169a5338c3",
+    "scoutName": "Synthetic service-request scout",
+    "scoutVersion": 1,
+    "provider": "serper",
+    "strategy": {
+      "targets": [
+        "Website redesign"
+      ],
+      "explanation": "Using the confirmed target; model planning was unavailable."
+    },
+    "exploration": [
+      {
+        "kind": "document",
+        "reason": "check_promising_result",
+        "target": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/backend-net-ai-integration-4516587"
+      },
+      {
+        "kind": "document",
+        "reason": "check_promising_result",
+        "target": "https://www.peopleperhour.com/freelance-jobs/technology-programming/programming-coding/i-need-a-web-developer-to-update-our-google-analytics-code-1950167"
+      },
+      {
+        "kind": "document",
+        "reason": "check_promising_result",
+        "target": "https://www.facebook.com/groups/Picyourdesigner/posts/4555313604753572/"
+      },
+      {
+        "kind": null,
+        "reason": "no_further_action",
+        "target": null
+      }
+    ],
+    "reviewStatus": null,
+    "reviewReason": null,
+    "status": "partial",
+    "reason": "some_sources_unavailable",
+    "startedAt": "2026-10-29 12:06:58.773887+00",
+    "finishedAt": "2026-10-29 12:07:14.797467+00",
+    "searchesCompleted": 4,
+    "documentsChecked": 3,
+    "leadCount": 40
+  },
+  "usage": [
+    {
+      "provider": "public-documents",
+      "requests": 3,
+      "reserved_micros": "0"
+    },
+    {
+      "provider": "serper",
+      "requests": 4,
+      "reserved_micros": "40000"
+    }
+  ],
+  "aiBudget": [],
+  "dashboardLeadSampleSize": 40,
+  "leads": [
+    {
+      "url": "https://3my.org/website-redesign-rfp/",
+      "title": "Website Redesign RFP: A One-Page Brief for Small Business",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://bampfa.org/page/web-copywriter",
+      "title": "Web Copywriter",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://creativecommsboard.substack.com/p/earn-55hour-as-a-marketing-manager",
+      "title": "Earn $55/hour as a marketing manager, $1,500/month as a ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://deeprfp.com/opportunities/",
+      "title": "Contract Opportunities by Service and Country",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://jobs.minnesotanonprofits.org/job/web-developer-designer-111617",
+      "title": "Web Developer/Designer in Remote - Nonprofit Job Board",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://marcus-mendy.com/en",
+      "title": "Freelance web designer in Rouen",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://nonprofit-jobs.org/RFP-Work-Hub/",
+      "title": "Nonprofit RFP Work Hub | Consulting, Fractional & Project ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://pixelgravitas.com/resources/website-redesign-rfp-template/",
+      "title": "Website Redesign RFP Template + Example (Free)",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://starbridge.ai/rfp/website-redesign-and-development-request-for-proposal-0",
+      "title": "Website Redesign and Development (Request for Proposal)",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://thegigresource.com/website-redesign-request-for-proposal/",
+      "title": "Website Redesign RFP Template: How to Brief a Designer or ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.achievementfirst.org/request-for-proposals-website-redesign-ecosystem-development/",
+      "title": "Request for Proposals: Website Redesign & Ecosystem ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.facebook.com/groups/Picyourdesigner/posts/4555313604753572/",
+      "title": "Looking for a Talented Web Designer & Graphic Designer!",
+      "contentStatus": "access_limited",
+      "contentReason": "crawl_policy_denied",
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.ifactory.com/insights/website-redesign-rfp-guide/",
+      "title": "The Ultimate Guide to Crafting Effective Website Redesign RFPs",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.instagram.com/p/DekebUTjf0A/",
+      "title": "I'm open for freelance projects. If you're building a SaaS ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.instagram.com/p/DeZUIC5BGCm/",
+      "title": "📢 Request for Proposal (RFP) - Website Development We ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.instagram.com/reel/De2oIZXy8R3/",
+      "title": "If you're looking for bigger website projects, here's where to ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.linkedin.com/posts/247digitalmarketingagency_webdesign-websiteredesign-rfp-activity-7515406513205805056-fBgp",
+      "title": "Website Redesign RFP Essentials: Goals, Scope, and ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.peopleperhour.com/freelance-jobs/design/web-design",
+      "title": "Web Design Projects in Oct 2026",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.peopleperhour.com/freelance-jobs/digital-marketing/sem-google-ads-ppc/digital-marketing-specialist-google-ads-saas-b2b-focu-4384495",
+      "title": "Digital Marketing Specialist – Google Ads (SaaS | B2B Focus)",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.peopleperhour.com/freelance-jobs/marketing-branding-sales/strategy-research/uae-shopify-store-sales-marketing-support-needed-4459832",
+      "title": "UAE Shopify Store – Sales & Marketing Support Needed",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming",
+      "title": "Technology & Programming Projects in 2026",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/cms-development",
+      "title": "CMS Development Projects in Oct 2026",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/programming-coding/i-need-a-web-developer-to-update-our-google-analytics-code-1950167",
+      "title": "I need a web developer to update our google analytics code",
+      "contentStatus": "fetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development",
+      "title": "Website Development Projects in Oct 2026",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/backend-net-ai-integration-4516587",
+      "title": "Backend .NET AI Integration",
+      "contentStatus": "fetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/simple-wix-website-build-4519616",
+      "title": "Simple Wix Website Build",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.peopleperhour.com/freelance-jobs/video-photography/videography/egocentric-video-data-collection-4470035",
+      "title": "Egocentric Video Data Collection",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.rfpmart.com/1179077-usa-louisiana-global-website-redesign-development-implementation-and-migration-service-using-cms-rfp.html",
+      "title": "Website Redesign, Development, Implementation and ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.upwork.com/freelance-jobs/apply/Web-Developer-for-Website-Redesign_~022112606312471060505/",
+      "title": "Web Developer for Website Redesign",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.wavetransit.com/wp-content/uploads/2026/10/Wave_Transit_Website_RFPPub10.1.26.pdf",
+      "title": "Cape Fear Public Transportation Authority (dba ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.workana.com/en/job/expert-wix-studio-website-design-review-and-responsive-optimization",
+      "title": "Expert wix studio website design review and...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.workana.com/en/job/jesus-galaviz-healthcare-dental-company-website-redesign-for-enhanced-user-experience-and-lead-generation",
+      "title": "Jesus galaviz healthcare dental company... - Freelance Job in ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.workana.com/en/job/website-redesign-and-optimization-for-us-telecom-smart-hands-provider-bilingual-en-pt",
+      "title": "Website redesign and optimization for us... - Freelance Job in ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.workana.com/job/complete-branding-and-responsive-website-design-for-manufacturing-company",
+      "title": "Complete Branding and Responsive Website Design ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.workana.com/job/design-of-a-website-for-a-childrens-9?ref=projects_1",
+      "title": "Design of a website for a childrens 9 - Freelance Job in ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.workana.com/job/expert-branding-ux-ui-and-responsive-web-design-for-new-business-launch",
+      "title": "Expert Branding, Ux/Ui, and Responsive Web Design for New ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.workana.com/job/expert-web-designer-needed-for-enterprise-b2b-website-redesign-and-enhanced-ux",
+      "title": "Expert web designer needed for enterprise b2b...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.workana.com/job/healthcare-dental-company-website-redesign-for-enhanced-user-experience-and-lead-generation",
+      "title": "Healthcare dental company website redesign for...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.workana.com/job/professional-restaurant-website-design-and-development-1?ref=projects_1",
+      "title": "Professional Restaurant Website Design and Development",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.workana.com/job/web-redesign-y-logo?ref=projects_1",
+      "title": "Web redesign y logo - Freelance Job in Web design",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    }
+  ],
+  "publication": [],
+  "checks": [
+    "deterministic live capture; AI review and recommendations not tested",
+    "bounded provider and model admission",
+    "observed parent provenance",
+    "current owner isolation",
+    "terminal replay without new spending"
+  ],
+  "emailsSent": 0,
+  "realAccountsUsed": 0,
+  "scopeNote": "AI is explicitly disabled: this measures live source discovery and capture, not source interpretation or recommendation quality. Bounded live synthetic case using production discovery, review, assessment and delivery use cases. Worker reader includes configured browser fallback and Ashby routing without shared Redis caching; HTTP reader is a controlled reduced-access path. Native X and marketplace connector loops are not exercised. All lead rows are measured separately from the dashboard's bounded sample. Matching can remain incomplete if retries exceed the check window. Model labels are not independent ground truth; precision, recall and global throughput remain unproven.",
+  "stages": {
+    "scenario": "services",
+    "executionStatus": "captured_without_ai",
+    "successfulSearches": 4,
+    "failedSearches": 0,
+    "renderingEnabled": true,
+    "durationSeconds": 16.297,
+    "uniqueLeads": 40,
+    "recordedLeads": 40,
+    "completeLeadSet": true,
+    "searchRequests": 4,
+    "documentRequests": 3,
+    "capturedDocuments": 2,
+    "completeCaptures": 2,
+    "inaccessibleDocuments": 1,
+    "repeatedDestinations": 0,
+    "sourceReviewLabels": {},
+    "sourceReviewCountsAreComplete": true,
+    "promotedPostings": 0,
+    "matching": "not_tested_ai_disabled",
+    "completedFitAssessments": 0,
+    "dashboardRecommendations": 0,
+    "acceptedEmails": 0,
+    "aiEstimatedUsd": 0,
+    "attemptsWithoutCostEstimate": 0,
+    "searchReservedUsd": 0.04,
+    "aiReservedUsd": 0,
+    "estimatedAiPlusSearchReservationPerRecommendationUsd": null,
+    "independentlyUsefulResults": null,
+    "costPerIndependentlyUsefulResultUsd": null,
+    "precision": null,
+    "recall": null,
+    "limitations": "AI estimates exclude unpriced/failed attempts, infrastructure and billing adjustments. Search reservations are configured upper allowances, not invoices. Source labels and dashboard acceptance are not independent usefulness judgments. Distinct URLs may still describe the same opportunity; repeatedDestinations detects only observed redirect identity. Initial reports recorded a dashboard sample, not every source review."
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "startedAt": "2026-10-29T10:46:44.699Z",
+  "pid": 17822,
+  "previousPid": 16770,
+  "previousQueuesStopped": 9,
+  "logPath": "/tmp/scoutalert-worker-live-tests-2026-10-29.log",
+  "dailyTokenLimit": 2400000,
+  "maximumOutputTokens": 4000,
+  "aiEnabled": true,
+  "configurationChanged": false,
+  "verifiedAt": "2026-10-29T10:47:52.436Z",
+  "processAlive": true,
+  "runningQueues": [
+    "scout-delivery-v1",
+    "scout-matching-v1",
+    "scout-private-mail-v1",
+    "scout-research-v1",
+    "scout-social-discovery-v1",
+    "scout-source-monitoring-v1",
+    "scout-sources-v1",
+    "scout-web-discovery-v1",
+    "scout-workflows-v1"
+  ],
+  "startupErrorCount": 0,
+  "sharedTokenBudget": {
+    "day": "2026-10-29",
+    "inputTokens": 1847128,
+    "outputTokens": 194223,
+    "cachedInputTokens": 495104,
+    "reservedTokens": 15683,
+    "usedTokens": 2041351,
+    "dailyLimit": 2400000,
+    "remainingTokens": 342966,
+    "unknownReservations": 0
+  }
+}

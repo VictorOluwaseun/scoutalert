@@ -1,0 +1,59 @@
+{
+  "checkedAt": "2026-10-29T10:38:29.075Z",
+  "status": "ready",
+  "scope": "One production planning call guarded by the same token ledger as the running worker. No search or real user mutation.",
+  "output": {
+    "kind": "strategy",
+    "strategy": {
+      "targets": [
+        "Website redesign"
+      ],
+      "explanation": "I kept the full service deliverable intact as the main search concept. Remote is not added to the target phrase for a services search and can be handled separately in matching."
+    }
+  },
+  "usage": {
+    "model": "gpt-5.4-mini-2026-03-17",
+    "inputTokens": 337,
+    "cachedInputTokens": 0,
+    "outputTokens": 144,
+    "durationMs": 3263,
+    "responseId": "resp_0dbcecb543ac63b2016ae32223cfe487d2995561585c4542f1"
+  },
+  "sharedTokenBudget": {
+    "before": {
+      "day": "2026-10-29",
+      "inputTokens": 849376,
+      "outputTokens": 88673,
+      "cachedInputTokens": 219904,
+      "reservedTokens": 22668,
+      "usedTokens": 938049,
+      "dailyLimit": 2400000,
+      "remainingTokens": 1439283,
+      "unknownReservations": 0
+    },
+    "after": {
+      "day": "2026-10-29",
+      "inputTokens": 855436,
+      "outputTokens": 89951,
+      "cachedInputTokens": 219904,
+      "reservedTokens": 25668,
+      "usedTokens": 945387,
+      "dailyLimit": 2400000,
+      "remainingTokens": 1428945,
+      "unknownReservations": 0
+    },
+    "attempts": [
+      {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "reservedTokens": 2337,
+        "state": "completed",
+        "usage": {
+          "inputTokens": 337,
+          "outputTokens": 144,
+          "cachedInputTokens": 0
+        }
+      }
+    ],
+    "scope": "Evaluation generations share the configured worker database's daily allowance. Before/after snapshots include background worker activity; attempts contain this evaluation only. Counting failures before reservation do not appear as generation attempts."
+  }
+}

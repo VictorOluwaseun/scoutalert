@@ -1,0 +1,1487 @@
+{
+  "checkedAt": "2026-10-29T12:04:11.731Z",
+  "scenario": "projects",
+  "recaptureCases": null,
+  "baseline": false,
+  "reasoningConfiguration": "openai:gpt-5.4-mini-2026-03-17:scout-planning-v14",
+  "plan": {
+    "policy": "public-intent-v2",
+    "queries": [
+      {
+        "page": 1,
+        "limit": 10,
+        "query": "React TypeScript web development site:peopleperhour.com/freelance-jobs \"remote\"",
+        "country": "us",
+        "language": "en",
+        "freshness": "any"
+      },
+      {
+        "page": 1,
+        "limit": 10,
+        "query": "React TypeScript web development \"remote\" (\"freelance\" OR \"proposals\" OR \"bids\")",
+        "country": "us",
+        "language": "en",
+        "freshness": "month"
+      },
+      {
+        "page": 1,
+        "limit": 10,
+        "query": "\"React\" \"TypeScript\" \"web\" \"development\" site:workana.com inurl:job",
+        "country": "us",
+        "language": "en",
+        "freshness": "any"
+      },
+      {
+        "page": 1,
+        "limit": 10,
+        "query": "\"React\" \"TypeScript\" \"web\" \"development\" (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+        "country": "us",
+        "language": "en",
+        "freshness": "month"
+      }
+    ],
+    "category": "services",
+    "exploration": {
+      "remote": true,
+      "target": "React TypeScript web development",
+      "queryPolicy": "client-demand-v8",
+      "maximumDepth": 3,
+      "maximumRounds": 8,
+      "maximumSearches": 6,
+      "maximumSourcePages": 2
+    },
+    "continuation": "explore_on_next_run",
+    "scoutVersion": 1,
+    "blockedReason": null,
+    "deadlineSeconds": 240,
+    "maximumDocuments": 6
+  },
+  "reader": "worker",
+  "renderingEnabled": true,
+  "status": "captured_without_ai",
+  "aiEnabled": false,
+  "deliveryOutcome": "no_eligible_digest",
+  "reasoning": [],
+  "sourceReviewsCompleted": 0,
+  "intelligence": [],
+  "rejectedFits": [],
+  "rejectedReviews": [],
+  "reviewFailures": [],
+  "matchingState": {
+    "status": "not_tested_ai_disabled",
+    "match_count": 0
+  },
+  "taskStates": [],
+  "eligiblePostings": [],
+  "reviewAttempts": [],
+  "opportunities": [],
+  "deliveries": [],
+  "durationMs": 23046,
+  "search": {
+    "goal": "Find remote freelance React development projects",
+    "category": "services",
+    "target": "React TypeScript web development",
+    "name": "Synthetic client-project scout",
+    "arrangement": "remote",
+    "arrangementRequired": true,
+    "residence": "New York, United States",
+    "workLocations": "United States or remote worldwide",
+    "authorizationLocations": "United States",
+    "authorizationConfirmed": true,
+    "sponsorshipNeed": "not_needed",
+    "background": "Five years delivering React and TypeScript web applications, API integrations and dashboards for clients",
+    "minimumPay": "",
+    "currency": "USD",
+    "payPeriod": "project",
+    "unknownEligibility": "review",
+    "undisclosedPay": "include"
+  },
+  "operations": [
+    {
+      "key": "bf5bb517ff304ef2749a44f4b2e5c75e76487b93bedaaeb2464e479a38eb94a1",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "React TypeScript web development site:peopleperhour.com/freelance-jobs \"remote\"",
+          "country": "us",
+          "language": "en",
+          "freshness": "any"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "retrieved_url": null,
+      "capture": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "de702ee7a216cacc807d8ba68eabac0f7cce547b3a65241104b7292bb11620f3",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "React TypeScript web development \"remote\" (\"freelance\" OR \"proposals\" OR \"bids\")",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "retrieved_url": null,
+      "capture": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "2342280c70daf544009e97328cc8186f48c5af7d1143cdc1566176301aef86b3",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "\"React\" \"TypeScript\" \"web\" \"development\" site:workana.com inurl:job",
+          "country": "us",
+          "language": "en",
+          "freshness": "any"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "retrieved_url": null,
+      "capture": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "6eead27f34b58a40ef8f225cb1188430b080c8710ea312bb5b5fecc16b6f8999",
+      "kind": "search",
+      "input": {
+        "kind": "search",
+        "query": {
+          "page": 1,
+          "limit": 10,
+          "query": "\"React\" \"TypeScript\" \"web\" \"development\" (\"request for proposal\" OR \"request for quotation\" OR \"RFP\")",
+          "country": "us",
+          "language": "en",
+          "freshness": "month"
+        }
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": null,
+      "retrieved_url": null,
+      "capture": null,
+      "captured_text": null,
+      "source_status": null,
+      "source_reason": null,
+      "observed_links": 0
+    },
+    {
+      "key": "13e8fa75cc227b7b05672b91e5694a46c4d0fcd277782ec7a54b0905219b2134",
+      "kind": "document",
+      "input": {
+        "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/experienced-full-stack-developer-needed-for-e-commerce-web-a-4427920",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": [
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/muhammad-haseeb-ai-chatbot-automation-developer-zyzyywwj",
+          "text": "Muhammad H."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/globiz_technology-sharma-web-developer-mobile-application-znmnnwv",
+          "text": "Globiz Technology"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/adam-pitera-react-developer-platforms-that-zymqzwmv",
+          "text": "Adam P."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/shariar-sheikh-web-developer-zzyanaqz",
+          "text": "Shariar S."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/naresh-shaw-expert-in-php-python-devops-nodejs-wwvm",
+          "text": "Naresh S."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/ravinder-puri-react-js-javascript-node-php-zzqavvy",
+          "text": "Ravinder P."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/nomena_faliana-soloniaina-expert-mobile-react-native-flutter-qjmjzqa",
+          "text": "Nomena Faliana S."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/matthew-sudderick-full-stack-engineer-zyjmxwam",
+          "text": "Matthew S."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/aresedge_technology_private_limited-sharma-full-stack-developer-vmanmj",
+          "text": "Aresedge Technology Private Limited"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/mohamed-cheriet-senior-full-stack-developer-zzmxvaqw",
+          "text": "Mohamed C."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/prakash-thapa-php-laravel-developer-saas-apis-wwjmnna",
+          "text": "Prakash T."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/ammad-waseem-full-stack-developer-zzqzvnnn",
+          "text": "Ammad W."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/experienced-full-stack-developer-needed-for-e-commerce-web-a-4427920?Members_page=2",
+          "text": "2"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/experienced-full-stack-developer-needed-for-e-commerce-web-a-4427920?Members_page=3",
+          "text": "3"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/experienced-full-stack-developer-needed-for-e-commerce-web-a-4427920?Members_page=4",
+          "text": "4"
+        },
+        {
+          "url": "https://x.com/intent/tweet",
+          "text": ""
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/katsuyito-zymwnvzq?ref=buyer",
+          "text": "Katsuyito H."
+        },
+        {
+          "url": "https://www.peopleperhour.com/site/register?next=https%3A%2F%2Fwww.peopleperhour.com%2Ffreelance-jobs%2Ftechnology-programming%2Fwebsite-development%2Fexperienced-full-stack-developer-needed-for-e-commerce-web-a-4427920",
+          "text": "Sign up"
+        },
+        {
+          "url": "https://www.peopleperhour.com/job/new?id=4427920&ref=similar",
+          "text": "Post a project like this"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Amazon+web+services",
+          "text": "Amazon web services"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Paypal",
+          "text": "Paypal"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Git",
+          "text": "Git"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Github",
+          "text": "Github"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Heroku",
+          "text": "Heroku"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Postgresql",
+          "text": "Postgresql"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Authentication",
+          "text": "Authentication"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Back+end+developer",
+          "text": "Back end developer"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Cascading+style+sheets+%28css%29",
+          "text": "Cascading style sheets (css)"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Catalog",
+          "text": "Catalog"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Database",
+          "text": "Database"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Docker",
+          "text": "Docker"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=E-commerce+website",
+          "text": "E-commerce website"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Front+end+developer",
+          "text": "Front end developer"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Full+stack+developer",
+          "text": "Full stack developer"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Inventory+management",
+          "text": "Inventory management"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=JavaScript+programming+language",
+          "text": "JavaScript programming language"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Mongo+db",
+          "text": "Mongo db"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Node+js",
+          "text": "Node js"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Payment+gateway+integration",
+          "text": "Payment gateway integration"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=React+js",
+          "text": "React js"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Rest+api",
+          "text": "Rest api"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Shopping+cart",
+          "text": "Shopping cart"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=TypeScript+programming+language",
+          "text": "TypeScript programming language"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=User+interface%2Fexperience+%28UI%2FUX%29",
+          "text": "User interface/experience (UI/UX)"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Web",
+          "text": "Web"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Website+development",
+          "text": "Website development"
+        },
+        {
+          "url": "https://www.peopleperhour.com/cookies",
+          "text": "Cookie Policy"
+        }
+      ],
+      "feeds": [],
+      "sitemaps": [
+        {
+          "url": "https://www.peopleperhour.com/pphsitemaps/sitemap.live.hire_freelancers.index.xml",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.peopleperhour.com/pphsitemaps/sitemap.live.topcert.index.xml",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.peopleperhour.com/pphsitemaps/sitemap.live.cert5.index.xml",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.peopleperhour.com/pphsitemaps/sitemap.live.cert4.index.xml",
+          "text": "Site-advertised sitemap"
+        }
+      ],
+      "retrieved_url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/experienced-full-stack-developer-needed-for-e-commerce-web-a-4427920",
+      "capture": {
+        "bytes": 134906,
+        "scope": "buyer_brief",
+        "method": "http",
+        "parser": "peopleperhour-public-html-v3",
+        "complete": true,
+        "requests": 2
+      },
+      "captured_text": "EXPERIENCED FULL STACK DEVELOPER NEEDED FOR E-COMMERCE WEB APP\n\n- or -\n\nPost a project like this\nEnded at: 14/10/2025\nFixed Price\n$2.5k\n * Posted: 1 year ago\n * Proposals: 41\n * Remote\n * #4427920\n * Expired\n\nExperience Level: Expert\n\nWe are a growing e-commerce startup aiming to build and launch a scalable online store platform.\nWe are seeking a skilled full stack developer for end-to-end development, covering front-end UI/UX as well as back-end logic and database integration.\nThe project is remote and freelance, with potential for ongoing work. The scope includes developing a responsive e-commerce website with user authentication, product catalog, shopping cart, payment integration with Stripe/PayPal, and an admin dashboard.\nYou will integrate third-party APIs for inventory management and email notifications, ensure mobile-friendliness, SEO optimization, and secure the application using HTTPS and data encryption. Deployment will be to AWS or Heroku, with CI/CD pipelines for future updates.\n\nYou will design the frontend using React.js (or Vue.js if you prefer), Redux, and Tailwind CSS. The backend should be built with Node.js and Express, with RESTful APIs and real-time features via Socket.io, and use either MongoDB or PostgreSQL for data.\nStrong experience in JavaScript/TypeScript, React, Node, Express, and cloud deployment is required, as well as proficiency with Git, Docker, and testing tools.\n\nThings to include in your proposal.\n\n1. CV or resume (LinkedIn and GitHub link)\n2. Your portfolio projects.",
+      "source_status": "fetched",
+      "source_reason": null,
+      "observed_links": 47
+    },
+    {
+      "key": "9bfefd845a9b46cc205e2e6232ef2ce846a174816058c64fadec611bc700708c",
+      "kind": "document",
+      "input": {
+        "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": [
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs",
+          "text": "All Categories"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/artificial-intelligence",
+          "text": "AI Services"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming",
+          "text": "Technology & Programming"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/cms-development",
+          "text": "CMS Development"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/data-science-analysis",
+          "text": "Data Science & Analysis"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/databases",
+          "text": "Databases"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/e-commerce-cms-development",
+          "text": "eCommerce CMS Development"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/erp-crm-development",
+          "text": "ERP/CRM Development"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/game-development",
+          "text": "Game Development"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/mobile-app-development",
+          "text": "Mobile App Development"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/programming-coding",
+          "text": "Programming & Coding"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/software-testing",
+          "text": "Software Testing"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/writing-translation",
+          "text": "Writing & Translation"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/design",
+          "text": "Design"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/digital-marketing",
+          "text": "Digital Marketing"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/video-photography",
+          "text": "Video, Photo & Image"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/business",
+          "text": "Business"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/music-audio",
+          "text": "Music & Audio"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/marketing-branding-sales",
+          "text": "Marketing, Branding & Sales"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/social-media",
+          "text": "Social Media"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/martin-zxnqxvqw",
+          "text": "by Martin P."
+        },
+        {
+          "url": "https://www.peopleperhour.com/site/login?next=%2Ffreelance-jobs%2Ftechnology-programming%2Fwebsite-development",
+          "text": ""
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/urgent-security-patching-for-a-laravel-nova-site-on-linode-4528862",
+          "text": "Urgent: Security Patching for a Laravel Nova site on Linode"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/terry-zxnynxvv",
+          "text": "by Terry C."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/3d-web-developer-three-js-r3f-4528803",
+          "text": "3D Web Developer (Three.js / R3F)"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/liam-zzvzvxwy",
+          "text": "by Liam N."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/need-someone-to-take-existing-wordpress-website-edit-and-pub-4528544",
+          "text": "Need someone to take existing wordpress website edit and publish"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/design/yevgeniy-grytsenko-professional-marketer-and-yxqxjmx",
+          "text": "by Yevgeniy G."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/urgent-website-transfer-needed-4528479",
+          "text": "Urgent website transfer needed"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/design/pushpa-devi-expert-logo-designer-zywyqnv",
+          "text": "by Pushpa D."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/landing-page-developer-needed-for-ai-expense-tracker-4528367",
+          "text": "Landing Page Developer Needed for AI Expense Tracker"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/strivre-operations-manager-zyaynqnv",
+          "text": "by Strivre A."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/we-are-looking-for-cloud-infrastructure-specialist-4528355",
+          "text": "We Are Looking for Cloud Infrastructure Specialist"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/olayinka-esther-freelance-marketing-consultant-ai-zxynwzwj",
+          "text": "by Olayinka E."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/wordpress-theme-migration-mobile-responsiveness-fix-4528146",
+          "text": "WordPress Theme Migration & Mobile Responsiveness Fix"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/savannah-zxnvyzyz",
+          "text": "by Savannah R."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/tiktok-follow-automation-4528145",
+          "text": "TikTok Follow Automation"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/leon-zxnvaaqq",
+          "text": "by Leon F."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/change-saas-domain-from-ai-to-si-4528033",
+          "text": "Change SaaS Domain from .ai to .si"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/kevin-zxnxwxxn",
+          "text": "by Kevin Z."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/looking-for-an-experienced-software-engineer-4527806",
+          "text": "Looking for an experienced software engineer"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/lee-touhig-nmqj",
+          "text": "by Lee T."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/transfer-laravel-nova-website-and-nginx-config-to-updated-se-4527766",
+          "text": "Transfer Laravel Nova website and nginx config to updated server"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/john-zxnxqywn",
+          "text": "by John C."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/website-design-mockup-for-a-modern-business-website-4527716",
+          "text": "Website Design Mockup for a Modern Business Website"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/matt-zavnayym",
+          "text": "by Matt B."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/daily-i-t-support-4527588",
+          "text": "Daily I.T Support"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/ronal-sami-manager-zzjaxjw",
+          "text": "by Ronal S."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/local-seo-partner-wanted-4527513",
+          "text": "Local SEO Partner Wanted"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/nick-pridham-control-systems-engineer-vxqnzx",
+          "text": "by Nick P."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/freelance-web-hmi-developer-uk-citizens-only-4527419",
+          "text": "Freelance Web HMI Developer - UK Citizens Only"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/mark-zxnxamzz",
+          "text": "by Mark F."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/fix-layout-shift-cls-roboto-font-flash-in-oxygen-4527404",
+          "text": "Fix Layout Shift (CLS) & Roboto Font Flash in Oxygen"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/dan-zxvznqam",
+          "text": "by Dan S."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/looking-for-someone-to-review-my-site-and-improve-speed-4527398",
+          "text": "Looking for someone to review my site and improve speed"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/kirushanth-surendirarasa-senior-web-mobile-app-developer-vynwvmz",
+          "text": "by Kirushanth S."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/seeking-senior-full-stack-developer-for-ongoing-project-4527379",
+          "text": "Seeking Senior Full-Stack Developer for Ongoing Project"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/mukesh-qnjqjay",
+          "text": "by Mukesh Y."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/framer-portfolio-website-customization-4527353",
+          "text": "Framer Portfolio Website Customization"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/yashwi-kumawat-zxnyjjzn",
+          "text": "by Yashwi K."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/ai-ml-web-application-development-using-python-and-flask-4527228",
+          "text": "AI/ML Web Application Development Using Python and Flask"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development?page=2",
+          "text": "2"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development?page=3",
+          "text": "3"
+        },
+        {
+          "url": "https://www.peopleperhour.com/cookies",
+          "text": "Cookie Policy"
+        }
+      ],
+      "feeds": [],
+      "sitemaps": [
+        {
+          "url": "https://www.peopleperhour.com/pphsitemaps/sitemap.live.hire_freelancers.index.xml",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.peopleperhour.com/pphsitemaps/sitemap.live.topcert.index.xml",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.peopleperhour.com/pphsitemaps/sitemap.live.cert5.index.xml",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.peopleperhour.com/pphsitemaps/sitemap.live.cert4.index.xml",
+          "text": "Site-advertised sitemap"
+        }
+      ],
+      "retrieved_url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development",
+      "capture": {
+        "bytes": 339510,
+        "method": "http",
+        "complete": true,
+        "requests": 2
+      },
+      "captured_text": "Phoenix - Your AI Assistant\n\n\nInactive session will be ended in 24 hours\nEnd Session\n\n\n\nWEBSITE DEVELOPMENT PROJECTS\n\n\nLOOKING FOR FREELANCE WEBSITE DEVELOPMENT JOBS AND PROJECT WORK? PEOPLEPERHOUR HAS YOU COVERED.\n\nWebsite Development\n * * All Categories\n   * AI Services\n   * Technology & Programming\n     * CMS Development\n     * Data Science & Analysis\n     * Databases\n     * eCommerce CMS Development\n     * ERP/CRM Development\n     * Game Development\n     * Mobile App Development\n     * Programming & Coding\n     * Software Testing\n     * Website Development\n   * Writing & Translation\n   * Design\n   * Digital Marketing\n   * Video, Photo & Image\n   * Business\n   * Music & Audio\n   * Marketing, Branding & Sales\n   * Social Media\n\nAll CategoriesAI ServicesTechnology & ProgrammingCMS DevelopmentData Science & AnalysisDatabaseseCommerce CMS DevelopmentERP/CRM DevelopmentGame DevelopmentMobile App DevelopmentProgramming & CodingSoftware TestingWebsite DevelopmentWriting & TranslationDesignDigital MarketingVideo, Photo & ImageBusinessMusic & AudioMarketing, Branding & SalesSocial Media\n\n\n----------------------------------------\n\n\nFILTERS\n\n\nEXPERIENCE\n\nEntry ($)22Intermediate ($$)4Expert ($$$)24\n\n----------------------------------------\n\n\nLOCATION\n\nRemote projects only47On-site projects near me\n\n----------------------------------------\n\n\nPROJECT TYPE\n\nUrgentWith No ProposalsPre-funded1FeaturedOpportunity18\n\n----------------------------------------\n\n\nPRICE\n\nFixed45Per Hour4\n\n----------------------------------------\n\nWANT FULL-TIME HIGH-QUALITY JOBS? SIGN UP FOR WWR.\n\nExplore Remote Jobs Now\nSAVED SEARCHES\nFILTER\nPopularityLatestEnding SoonBudget\n50 results\n * by Martin P.\n   $239\n   \n   \n   URGENT: SECURITY PATCHING FOR A LARAVEL NOVA SITE ON LINODE\n   \n   We are a UK charity with a Laravel / Laravel Nova website hosted on a Linode (Akamai) server. Our previous developers no longer support it. We need an experienced Laravel and Linux server professional to patch the site against the critical October 2026 vulnerabilities, ideally within the next few days. Scope: 1. Take a full Linode snapshot or backup before making any changes. 2. Update PHP to a version that fixes CVE-2026-109618, CVE-2026-109619 and CVE-2026-115560. If the server runs PHP 8.1 or older, advise on the upgrade needed. 3. Check the Laravel framework version, and update it to fix CVE-2026-114509 (TokenGuard authentication bypass) where needed. 4. Apply outstanding operating system security updates. 5. Check the server and application logs for signs of compromise since 20 October 2026, and report what you find. 6. Switch on automatic security updates for the operating system, where safe to do so. 7. Write a short plain-English report: what versions you found, what you changed, anything still at risk, and recommended next steps. Please include in your reply: relevant Laravel / server experience, your availability in the next week, and a fixed price. Optional follow-on: we may want an ongoing monthly maintenance arrangement. Please say if you offer this.\n   \n   \n   an hour ago34 proposalsRemote\n * by Terry C.\n   $20/hr\n   \n   \n   3D WEB DEVELOPER (THREE.JS / R3F)\n   \n   We’re looking for a 3D web developer, ideally one who also models, to build a small, beautiful, explorable 3D scene that runs in a phone’s browser. It’s for an upcoming launch, and most visitors will arrive from social media on their phones, so mobile performance is the top priority. Solo developers who also model, duos, and small studios are all welcome. Tell us who does what. What you’ll build - One small, stylized 3D island scene (explorable in about 60 seconds), built mobile web first - Navigation, with smooth camera movement - 6–10 interactive objects that glow when the visitor is nearby and open links, embedded media or content when tapped (e.g. a jukebox plays audio, a screen plays a video) - A persistent call-to-action button that opens a simple sign-up form (one text field + email/phone), connected to a form or analytics tool we’ll provide - Basic analytics events (time in scene, objects tapped, button clicks) Must-haves - Loads in under 3 seconds and runs smoothly inside social app in-app browsers (Instagram, TikTok), on iPhone and mid-range Android -Optimized assets (glTF, compressed textures, low poly count) - Delivered as a hosted web page, with full source code and assets handed over Tech: Three.js or React Three Fiber preferred. Open to PlayCanvas, Spline or Needle if you can show strong mobile performance. Assets in Blender, and AI tools (Meshy, Tripo) are fine for rough drafts as long as everything is polished to one consistent style. To apply, please include: - Links to live web 3D projects we can open on a phone (not just videos or renders) - Examples of 3D models or scenes you made, or who on your team would handle the art - In 2–3 sentences: how would you keep a 3D scene loading fast inside Instagram’s in-app browser? - Your rough price and timeline for the full scope\n   \n   \n   15 hours ago25 proposalsRemote\n * by Liam N.\n   $33\n   \n   \n   NEED SOMEONE TO TAKE EXISTING WORDPRESS WEBSITE EDIT AND PUBLISH\n   \n   as per discription, existing wordpress website on freelancer word press account. Need someone to take it, make minor edits, put on own wordpress site with domain so i can easily edit in future if needed.\n   \n   \n   2 days ago60 proposalsRemote\n * by Yevgeniy G.\n   $40\n   \n   \n   pre-funded\n   \n   URGENT WEBSITE TRANSFER NEEDED\n   \n   I need to transfer a website plutocraft.com betwenn fastcomet.com hosting (cpanel) and to hosting.com, no c panel along with databasesm orders, forms, plugins, etc. I have wp-access to the website I can give you cpanel access to fastcomet.com and deligate you an access to hosting.com for the transfer Wesite needs little repaird to go live and be fullu functional. Store must be adjustde with plutocrat.com/store link on the seci=ond menu item and WoooCommerce must be functional. Job must be done in 24 hours I will update nameservers in like 5 minutes with an A Record. Thank you.\n   \n   \n   2 days ago61 proposalsRemote\n * by Pushpa D.\n   $53\n   \n   \n   LANDING PAGE DEVELOPER NEEDED FOR AI EXPENSE TRACKER\n   \n   ## Project Overview I am looking for an experienced landing page developer to design and develop a modern, professional, and conversion-focused landing page for my product, **SpendMic AI — an AI-powered personal expense tracker**. SpendMic AI helps users track daily expenses, manage budgets, set savings goals, and record transactions using voice input. The goal of this landing page is to clearly communicate the product's benefits, build trust, and convert visitors into paying customers. ## Scope of Work The freelancer will be responsible for: - Designing and developing a modern, responsive landing page. - Creating a compelling hero section with a clear headline, subheadline, and CTA buttons. - Showcasing key features, including AI voice expense tracking, budget management, savings goals, recurring bills, and expense categorization. - Highlighting the product's benefits, ease of use, and offline-first functionality. - Adding app screenshots, product mockups, feature sections, and suitable visuals. - Creating pricing and purchase sections with clear calls to action. - Integrating the existing payment or checkout link. - Adding FAQ, contact, and footer sections. - Optimizing the page for mobile, tablet, and desktop. - Implementing basic SEO, performance optimization, and analytics integration if required. ## Design Requirements - Premium, clean, modern SaaS design. - Professional typography and consistent brand colors. - Smooth scrolling and subtle animations. - Mobile-first, user-friendly experience. - Clear content hierarchy and conversion-focused layout. - Fast loading and optimized images. ## Preferred Skills - Landing page design and development. - HTML, CSS, JavaScript, React, or a suitable modern framework. - Experience with Lovable, Framer, Webflow, or similar platforms. - Responsive design and website performance optimization. - Experience integrating payment links and analytics. ## Deliverables 1. Fully functional, responsive landing page. 2. Source code or editable project files. 3. Integration of the provided purchase/checkout link. 4. Basic SEO and performance optimization. 5. Testing across desktop and mobile devices. 6. Deployment support and handover instructions. ## Budget and Timeline Please share your estimated cost, delivery timeline, relevant portfolio, and recommended technology stack. I prefer a freelancer who can deliver a high-quality landing page within a reasonable budget. ## Existing Website Current landing page: https://spendmic-ai.lovable.app/ Please review the existing page before submitting your proposal and explain how you would improve its design, usability, and conversion rate. **Important:** Please provide a fixed-price quote and clearly mention what is included in the cost. Any additional backend development or paid third-party integrations should be quoted separately.\n   \n   \n   3 days ago73 proposalsRemote\n * by Strivre A.\n   $339\n   \n   \n   WE ARE LOOKING FOR CLOUD INFRASTRUCTURE SPECIALIST\n   \n   We are looking for an experienced cloud infrastructure specialist to help us plan and build the foundation for a major technology project with long-term growth potential. We want to explore the best cloud hosting and database solutions to support multiple applications, with a focus on reliability, performance, security and scalability. What We’re Looking For: 1. Experience with cloud hosting and database architecture. 2. Knowledge of platforms such as AWS, Microsoft Azure, DigitalOcean or others. 3. Ability to recommend suitable infrastructure for large-scale applications. 4. Understanding of scalability, performance optimisation and cost efficiency. 5. A forward-thinking approach to building reliable technology infrastructure. How to Apply We would like to hear about your experience with similar projects, your preferred approach to cloud infrastructure, and how you would plan the foundation for a project with significant long-term growth potential. Please share relevant experience, your initial thoughts, and your availability to discuss the project further.\n   \n   \n   3 days ago37 proposalsRemote\n * by Olayinka E.\n   $20\n   \n   \n   WORDPRESS THEME MIGRATION & MOBILE RESPONSIVENESS FIX\n   \n   WordPress Theme Migration & Mobile Responsiveness Fix Budget: $15–$20 fixed price Project type: Small WordPress development task Project Overview I'm looking for an experienced WordPress developer to help update an existing website that uses an outdated theme. The website has approximately 44 published pages and uses two gallery plugins: NextGEN Gallery and Thumbnail Gallery. The goal is to move to a suitable modern WordPress theme, improve mobile navigation, and preserve the existing website content and functionality. Scope of Work - Review the existing WordPress theme, plugins, and site structure. - Create a full backup of the website files and database before making changes. - Recommend and configure a suitable modern, mobile-responsive theme. - Update or rebuild the navigation menu for desktop and mobile devices. - Check that all 44 published pages retain their content and display correctly. - Test both gallery plugins, contact forms, links, and other key functions. - Fix migration-related layout issues within the agreed scope. - Provide a brief summary of the changes made. ### Important Requirements - Proven experience with WordPress theme migration and responsive design. - Experience troubleshooting older themes and plugin compatibility. - Ability to work carefully on a staging site where available. - No deletion of existing pages, content, or plugins without approval. - A backup and rollback plan must be in place before changes begin. ### Please Include in Your Proposal 1. Your experience with similar WordPress migration projects. 2. What you can realistically comp",
+      "source_status": "fetched",
+      "source_reason": null,
+      "observed_links": 64
+    },
+    {
+      "key": "972692201b26fe37cfda838ca8bf9bd074b67738b2df0ae8dd29aaf578045a57",
+      "kind": "document",
+      "input": {
+        "url": "https://www.facebook.com/groups/4478714448882966/posts/28690808477246892/",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": [
+        {
+          "url": "https://www.facebook.com/sitemap/groups_gp_i18n_titles_1_posts_0.xml.gz",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.facebook.com/sitemap/cpg_offplat_future_public_events_sitemap.xml.gz",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.facebook.com/sitemap/public_active_groups_sitemap.xml.gz",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.facebook.com/sitemap/groups_popular_posts_sitemap_qe.xml.gz",
+          "text": "Site-advertised sitemap"
+        }
+      ],
+      "retrieved_url": null,
+      "capture": {
+        "bytes": 42476,
+        "method": "http",
+        "complete": false,
+        "requests": 1
+      },
+      "captured_text": null,
+      "source_status": "access_limited",
+      "source_reason": "crawl_policy_denied",
+      "observed_links": 0
+    },
+    {
+      "key": "118d50ecd688ab45cb13ddc49b9c485baec51aaca15614976dde22ff5452f2b4",
+      "kind": "document",
+      "input": {
+        "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/programming-coding/senior-full-stack-developer-needed-for-saas-development-4517560",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": [
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/joshua-awoyemi-web-developer-web-designer-ui-ux-zxvzvnay",
+          "text": "Joshua A."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/emmanuel-tunde_borode-wordpress-shopify-expert-zyanqqmz",
+          "text": "Emmanuel T."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/thompson-jeje-website-designer-developer-zxvyzwqq",
+          "text": "Thompson J."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/mototive-web_solution-full-stack-developer-jxzqnzx",
+          "text": "Mototive W."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/parkarben-ashokbhai_joshi-mobile-games-ar-vr-ai-python-data-zwzjjwm",
+          "text": "Parkarben A."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/peter-folarinde-user-experience-interface-zyzjzqzy",
+          "text": "Peter F."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/adnan-muhammad_shafi-full-stack-developer-ai-automation-zzjynvnz",
+          "text": "Adnan M."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/sahil-kataria-ai-automation-full-stack-solutions-zzxjvjj",
+          "text": "Sahil K."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/mitul-full-stack-ai-development-ai-zzxmmmv",
+          "text": "Mitul G."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/coderkube_technologies-technologies-uk-s-no-1-wordpress-magento-php-zxqynn",
+          "text": "CoderKube Technologies"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/amaneet-brar-most-trusted-1-team-19-years-of-zymxvy",
+          "text": "Amaneet B."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/technology-programming/rupert-lorenz-software-engineer-ai-engineer-full-zxawymnq",
+          "text": "Rupert L."
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/programming-coding/senior-full-stack-developer-needed-for-saas-development-4517560?Members_page=2",
+          "text": "2"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/programming-coding/senior-full-stack-developer-needed-for-saas-development-4517560?Members_page=3",
+          "text": "3"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/programming-coding/senior-full-stack-developer-needed-for-saas-development-4517560?Members_page=4",
+          "text": "4"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/programming-coding/senior-full-stack-developer-needed-for-saas-development-4517560?Members_page=5",
+          "text": "5"
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/programming-coding/senior-full-stack-developer-needed-for-saas-development-4517560?Members_page=6",
+          "text": "6"
+        },
+        {
+          "url": "https://x.com/intent/tweet",
+          "text": ""
+        },
+        {
+          "url": "https://www.peopleperhour.com/freelancer/b%C3%A1lint-zxjmvway?ref=buyer",
+          "text": "Bálint B."
+        },
+        {
+          "url": "https://www.peopleperhour.com/site/register?next=https%3A%2F%2Fwww.peopleperhour.com%2Ffreelance-jobs%2Ftechnology-programming%2Fprogramming-coding%2Fsenior-full-stack-developer-needed-for-saas-development-4517560",
+          "text": "Sign up"
+        },
+        {
+          "url": "https://www.peopleperhour.com/job/new?id=4517560&ref=similar",
+          "text": "Post a project like this"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Artificial+Intelligence+%2F+AI",
+          "text": "Artificial Intelligence / AI"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Amazon+web+services",
+          "text": "Amazon web services"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Postgresql",
+          "text": "Postgresql"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Application+programming+interface+%28API%29",
+          "text": "Application programming interface (API)"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Back+end+developer",
+          "text": "Back end developer"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Communication",
+          "text": "Communication"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Django-cms",
+          "text": "Django-cms"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Docker",
+          "text": "Docker"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Engineering",
+          "text": "Engineering"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Front+end+developer",
+          "text": "Front end developer"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Full+stack+developer",
+          "text": "Full stack developer"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=JavaScript+programming+language",
+          "text": "JavaScript programming language"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Mongo+db",
+          "text": "Mongo db"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Node+js",
+          "text": "Node js"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Python+programming+language",
+          "text": "Python programming language"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=React+js",
+          "text": "React js"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Software+as+a+service+%28SaaS%29",
+          "text": "Software as a service (SaaS)"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=TypeScript+programming+language",
+          "text": "TypeScript programming language"
+        },
+        {
+          "url": "https://www.peopleperhour.com/hire-freelancers?skills=Web+application+development",
+          "text": "Web application development"
+        },
+        {
+          "url": "https://www.peopleperhour.com/cookies",
+          "text": "Cookie Policy"
+        }
+      ],
+      "feeds": [],
+      "sitemaps": [
+        {
+          "url": "https://www.peopleperhour.com/pphsitemaps/sitemap.live.hire_freelancers.index.xml",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.peopleperhour.com/pphsitemaps/sitemap.live.topcert.index.xml",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.peopleperhour.com/pphsitemaps/sitemap.live.cert5.index.xml",
+          "text": "Site-advertised sitemap"
+        },
+        {
+          "url": "https://www.peopleperhour.com/pphsitemaps/sitemap.live.cert4.index.xml",
+          "text": "Site-advertised sitemap"
+        }
+      ],
+      "retrieved_url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/programming-coding/senior-full-stack-developer-needed-for-saas-development-4517560",
+      "capture": {
+        "bytes": 136114,
+        "scope": "buyer_brief",
+        "method": "http",
+        "parser": "peopleperhour-public-html-v3",
+        "complete": true,
+        "requests": 2
+      },
+      "captured_text": "SENIOR FULL STACK DEVELOPER NEEDED FOR SAAS DEVELOPMENT\n\n- or -\n\nPost a project like this\nEnded at: 24/09/2026\nPer Hour\n£50/hr(approx. $66/hr)\n * Posted: 2 months ago\n * Proposals: 65\n * Remote\n * #4517560\n * Expired\n\nExperience Level: Expert\n\nWe are looking for an experienced Full Stack Developer to support the growth and development of SaaS applications targeting the European market.\n\nThis is a long-term collaboration opportunity for a skilled engineer who enjoys building scalable products, improving existing platforms, and working with modern technologies.\n\nYou will contribute to the development of web applications, AI-powered features, and cloud-based solutions used by international customers.\n\nKey Responsibilities\n\nDevelop and improve SaaS platform features\nBuild modern frontend applications using React.js and TypeScript\nDevelop backend services using Node.js and Python\nDesign and integrate APIs\nWork with PostgreSQL, MongoDB, and cloud infrastructure\nImprove application performance, scalability, and reliability\nCollaborate remotely with product and engineering stakeholders\n\nRequired Experience\n\nStrong full-stack development background\nAdvanced React.js, JavaScript/TypeScript skills\nProfessional Node.js experience\nPython experience (FastAPI, Django, or similar)\nExperience with AWS, Docker, and CI/CD\nExperience building SaaS products\nKnowledge of AI/LLM integrations is a plus\nGood English communication skills\n\nProject Details\n\nLong-term remote collaboration\nSaaS products for international/EU markets\nContinuous feature development\nFlexible working arrangement\n\nWhen applying, please include:\n\nSimilar SaaS projects you have worked on\nYour availability\nYour hourly rate\nShort summary of your technical experience",
+      "source_status": "fetched",
+      "source_reason": null,
+      "observed_links": 41
+    },
+    {
+      "key": "293d3c24584e83b9416b435ce0a83a46e0aa484ab371525c29440dbe698bd2e3",
+      "kind": "document",
+      "input": {
+        "url": "https://www.linkedin.com/posts/tarun-korat_webdevelopment-fullstack-laravel-activity-7513463432617279488-3eqM",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": [],
+      "retrieved_url": null,
+      "capture": {
+        "bytes": 120190,
+        "method": "http",
+        "complete": false,
+        "requests": 1
+      },
+      "captured_text": null,
+      "source_status": "access_limited",
+      "source_reason": "crawl_policy_denied",
+      "observed_links": 0
+    },
+    {
+      "key": "dac5397938ffa75177555aafcb0f743e1e695f1c6b87e2adf4633d3071bae13a",
+      "kind": "document",
+      "input": {
+        "url": "https://rs.linkedin.com/jobs/view/next-js-developer-react-typescript-%241-000-month-~20h-week-remote-contract-at-svs-americas-4478787156",
+        "kind": "document"
+      },
+      "state": "succeeded",
+      "failure": null,
+      "depth": 0,
+      "links": null,
+      "feeds": null,
+      "sitemaps": [],
+      "retrieved_url": null,
+      "capture": {
+        "bytes": 120190,
+        "method": "http",
+        "complete": false,
+        "requests": 1
+      },
+      "captured_text": null,
+      "source_status": "access_limited",
+      "source_reason": "crawl_policy_denied",
+      "observed_links": 0
+    }
+  ],
+  "decisions": [
+    {
+      "round": 0,
+      "reason": "check_promising_result",
+      "action": {
+        "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/programming-coding/senior-full-stack-developer-needed-for-saas-development-4517560",
+        "kind": "document"
+      },
+      "depth": 0,
+      "parent_key": "bf5bb517ff304ef2749a44f4b2e5c75e76487b93bedaaeb2464e479a38eb94a1"
+    },
+    {
+      "round": 1,
+      "reason": "check_promising_result",
+      "action": {
+        "url": "https://www.linkedin.com/posts/tarun-korat_webdevelopment-fullstack-laravel-activity-7513463432617279488-3eqM",
+        "kind": "document"
+      },
+      "depth": 0,
+      "parent_key": "6eead27f34b58a40ef8f225cb1188430b080c8710ea312bb5b5fecc16b6f8999"
+    },
+    {
+      "round": 2,
+      "reason": "check_promising_result",
+      "action": {
+        "url": "https://rs.linkedin.com/jobs/view/next-js-developer-react-typescript-%241-000-month-~20h-week-remote-contract-at-svs-americas-4478787156",
+        "kind": "document"
+      },
+      "depth": 0,
+      "parent_key": "de702ee7a216cacc807d8ba68eabac0f7cce547b3a65241104b7292bb11620f3"
+    },
+    {
+      "round": 3,
+      "reason": "exploration_limit",
+      "action": null,
+      "depth": 0,
+      "parent_key": null
+    }
+  ],
+  "case": {
+    "id": "bc47f5d1-cd65-4ce6-a4af-423b90eb28a7",
+    "scoutId": "82203c90-65f4-4440-a88a-2757419933ae",
+    "scoutName": "Synthetic client-project scout",
+    "scoutVersion": 1,
+    "provider": "serper",
+    "strategy": null,
+    "exploration": [
+      {
+        "kind": "document",
+        "reason": "check_promising_result",
+        "target": "https://www.peopleperhour.com/freelance-jobs/technology-programming/programming-coding/senior-full-stack-developer-needed-for-saas-development-4517560"
+      },
+      {
+        "kind": "document",
+        "reason": "check_promising_result",
+        "target": "https://www.linkedin.com/posts/tarun-korat_webdevelopment-fullstack-laravel-activity-7513463432617279488-3eqM"
+      },
+      {
+        "kind": "document",
+        "reason": "check_promising_result",
+        "target": "https://rs.linkedin.com/jobs/view/next-js-developer-react-typescript-%241-000-month-~20h-week-remote-contract-at-svs-americas-4478787156"
+      },
+      {
+        "kind": null,
+        "reason": "exploration_limit",
+        "target": null
+      }
+    ],
+    "reviewStatus": null,
+    "reviewReason": null,
+    "status": "partial",
+    "reason": "some_sources_unavailable",
+    "startedAt": "2026-10-29 12:03:48.899419+00",
+    "finishedAt": "2026-10-29 12:04:11.689568+00",
+    "searchesCompleted": 4,
+    "documentsChecked": 6,
+    "leadCount": 34
+  },
+  "usage": [
+    {
+      "provider": "public-documents",
+      "requests": 6,
+      "reserved_micros": "0"
+    },
+    {
+      "provider": "serper",
+      "requests": 4,
+      "reserved_micros": "40000"
+    }
+  ],
+  "aiBudget": [],
+  "dashboardLeadSampleSize": 34,
+  "leads": [
+    {
+      "url": "https://arc.dev/en-fr/hire-developers",
+      "title": "Hire the Best Freelance Developers in France (Oct 2026) - Arc",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://careers.capgemini.com/job/Irving%2C-TX-Lead-Frontend-Developer-TX-75014/1416460433/",
+      "title": "Lead Frontend Developer Job Details",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://careers.cognizant.com/us-en/jobs/43713/software-architect/",
+      "title": "Software Architect, Vilnius, Vilniaus, Lithuania",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://euremotejobs.com/job/frontend-developer-react-js-next-js-2/",
+      "title": "Frontend Developer (React Js / Next Js)",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://gainam.com/senior-net-full-stack-developer-new-york-ny",
+      "title": "Senior .NET / Full Stack Developer — New York, NY",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://hiringcafe.com/job/senior-application-developer-prime-health-services-franklin-tennessee-h9e9hplafwsfwyua",
+      "title": "Senior Application Developer at Prime Health Services",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://jobgether.com/remote-jobs/emea/react-developer",
+      "title": "Remote React Developer Jobs in EMEA",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://mirko.in.ua/services/web",
+      "title": "Web Development Services | Custom Web Platforms & Portals",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://rs.linkedin.com/jobs/view/next-js-developer-react-typescript-%241-000-month-~20h-week-remote-contract-at-svs-americas-4478787156",
+      "title": "SVS Americas hiring Next.js Developer (React / TypeScript)",
+      "contentStatus": "access_limited",
+      "contentReason": "crawl_policy_denied",
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.aerologictechnologies.com/services/custom-software-development",
+      "title": "Custom Software Development Dubai | Aero Logic",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.facebook.com/groups/4478714448882966/posts/28690808477246892/",
+      "title": "Hi there! I'm open to freelance and project-based work!",
+      "contentStatus": "access_limited",
+      "contentReason": "crawl_policy_denied",
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.indeed.com/q-remote-react-developer-jobs.html",
+      "title": "Flexible Remote React Developer Jobs",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.innovation-insight.com/templates/software-rfp-template",
+      "title": "Software Development RFP Template",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.jobleads.com/nl/job/freelance-front-end-engineer-react-typescript-growth-scope--amsterdam--efb20ae3bdb393762a69f2ca2ea29718e",
+      "title": "Freelance Front-End Engineer: React/TypeScript, Growth ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.linkedin.com/posts/tarun-korat_webdevelopment-fullstack-laravel-activity-7513463432617279488-3eqM",
+      "title": "Signquence End-to-End Digital Signature Platform Built ...",
+      "contentStatus": "access_limited",
+      "contentReason": "crawl_policy_denied",
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.peopleperhour.com/freelance-jobs?page=2&ref=topmenu_loggedout",
+      "title": "Freelance Jobs, Work & Projects in Oct 2026",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/data-science-analysis/capture-1st-click-last-click-parameters-react-typescript-4084071",
+      "title": "Capture 1st click last click parameters - React | typescript",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/e-commerce-cms-development/full-stack-developer-needed-to-build-scalable-e-commerce-4433300",
+      "title": "Full Stack Developer Needed to Build Scalable E-Commerce",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/mobile-app-development",
+      "title": "Mobile App Development Projects in Oct 2026",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/programming-coding/senior-full-stack-developer-needed-for-saas-development-4517560",
+      "title": "Senior Full Stack Developer Needed for SaaS Development",
+      "contentStatus": "fetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/programming-coding/senior-react-node-developer-live-booking-platform-takeover-4526001",
+      "title": "Senior React/Node Developer: Live Booking Platform Takeover",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development",
+      "title": "Website Development Projects in Oct 2026",
+      "contentStatus": "fetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/experienced-full-stack-developer-needed-for-e-commerce-web-a-4427920",
+      "title": "Experienced Full Stack Developer Needed for E-Commerce Web ...",
+      "contentStatus": "fetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/full-stack-engineer-needed-for-a-staking-project-4528429",
+      "title": "Full-Stack Engineer Needed for a Staking Project",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/talented-react-js-developer-with-vision-4419248",
+      "title": "Talented React.js developer with vision",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.reddit.com/r/hiredev/comments/1xexva3/available_for_freelancing_projects_on/",
+      "title": "Available for freelancing projects on React/next/node/ ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.remotejobassistant.com/blog/remote-web-developer-jobs",
+      "title": "Remote Web Developer Jobs: What 3937 Postings Pay ...",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.samsstc.com/Jobs/job-description/consultant-international-notforprofit-organization-delhi/854",
+      "title": "Consultant at International Not-for-Profit Organization in Delhi",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.upwork.com/hire/front-end-developers/us/chicago-il/",
+      "title": "Hire the Best Front-End Developers in Chicago, IL",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.workana.com/en/freelancer/472706caf03fd69524c4cd55333cd2b5",
+      "title": "DevZen.: professional freelance API expert in Nicaragua",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.workana.com/en/freelancer/5848af1aaf261fc992bc5228883bbd77",
+      "title": "professional freelance CSS expert in Dominican Republic",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.workana.com/en/jobs?country=GT&skills=html",
+      "title": "HTML in Guatemala - Freelance Jobs Online",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.workana.com/es/freelancer/173d164558069b94df23e92099daa3a1",
+      "title": "Freelancer profesional experto en HTML: Angel C. de México",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    },
+    {
+      "url": "https://www.ziprecruiter.com/Jobs/React-Remote/-in-Detroit,MI",
+      "title": "React Remote Jobs in Detroit, MI (NOW HIRING)",
+      "contentStatus": "unfetched",
+      "contentReason": null,
+      "postingId": null,
+      "promoted": false,
+      "review": null
+    }
+  ],
+  "publication": [],
+  "checks": [
+    "deterministic live capture; AI review and recommendations not tested",
+    "bounded provider and model admission",
+    "observed parent provenance",
+    "current owner isolation",
+    "terminal replay without new spending"
+  ],
+  "emailsSent": 0,
+  "realAccountsUsed": 0,
+  "scopeNote": "AI is explicitly disabled: this measures live source discovery and capture, not source interpretation or recommendation quality. Bounded live synthetic case using production discovery, review, assessment and delivery use cases. Worker reader includes configured browser fallback and Ashby routing without shared Redis caching; HTTP reader is a controlled reduced-access path. Native X and marketplace connector loops are not exercised. All lead rows are measured separately from the dashboard's bounded sample. Matching can remain incomplete if retries exceed the check window. Model labels are not independent ground truth; precision, recall and global throughput remain unproven.",
+  "stages": {
+    "scenario": "projects",
+    "executionStatus": "captured_without_ai",
+    "successfulSearches": 4,
+    "failedSearches": 0,
+    "renderingEnabled": true,
+    "durationSeconds": 23.046,
+    "uniqueLeads": 34,
+    "recordedLeads": 34,
+    "completeLeadSet": true,
+    "searchRequests": 4,
+    "documentRequests": 6,
+    "capturedDocuments": 3,
+    "completeCaptures": 3,
+    "inaccessibleDocuments": 3,
+    "repeatedDestinations": 0,
+    "sourceReviewLabels": {},
+    "sourceReviewCountsAreComplete": true,
+    "promotedPostings": 0,
+    "matching": "not_tested_ai_disabled",
+    "completedFitAssessments": 0,
+    "dashboardRecommendations": 0,
+    "acceptedEmails": 0,
+    "aiEstimatedUsd": 0,
+    "attemptsWithoutCostEstimate": 0,
+    "searchReservedUsd": 0.04,
+    "aiReservedUsd": 0,
+    "estimatedAiPlusSearchReservationPerRecommendationUsd": null,
+    "independentlyUsefulResults": null,
+    "costPerIndependentlyUsefulResultUsd": null,
+    "precision": null,
+    "recall": null,
+    "limitations": "AI estimates exclude unpriced/failed attempts, infrastructure and billing adjustments. Search reservations are configured upper allowances, not invoices. Source labels and dashboard acceptance are not independent usefulness judgments. Distinct URLs may still describe the same opportunity; repeatedDestinations detects only observed redirect identity. Initial reports recorded a dashboard sample, not every source review."
+  }
+}

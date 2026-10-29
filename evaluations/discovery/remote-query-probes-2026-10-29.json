@@ -1,0 +1,293 @@
+{
+  "checkedAt": "2026-10-29T11:51:12.841Z",
+  "providerCalls": 4,
+  "modelCalls": 0,
+  "searchReservedUsd": 0.04,
+  "scope": "Bounded public search probe; no accounts, model calls or source verification. Search snippets are routing hints only.",
+  "reports": [
+    {
+      "query": "React TypeScript web development site:peopleperhour.com/freelance-jobs \"remote\"",
+      "result": {
+        "kind": "search",
+        "observations": [
+          {
+            "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/experienced-full-stack-developer-needed-for-e-commerce-web-a-4427920",
+            "title": "Experienced Full Stack Developer Needed for E-Commerce Web ...",
+            "snippet": "The project is remote and freelance, with potential for ongoing work. The scope includes developing a responsive e-commerce website with user authentication, ...",
+            "rank": 1
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development",
+            "title": "Website Development Projects in Oct 2026",
+            "snippet": "Responsibilities - Develop and maintain responsive web applications using React. ... Remote - **Duration:** To be agreed based on project scope - **Budget ...",
+            "rank": 2
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/data-science-analysis/capture-1st-click-last-click-parameters-react-typescript-4084071",
+            "title": "Capture 1st click last click parameters - React | typescript",
+            "snippet": "Capture 1st click last click parameters - React | typescript · Posted: 3 years ago · Proposals: · Remote · #4084071 · Awarded.",
+            "rank": 3
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/talented-react-js-developer-with-vision-4419248",
+            "title": "Talented React.js developer with vision",
+            "snippet": "We're looking for a talented React.js developer to help build a simple advertising website for a metal goods factory. This is a remote, short-term ...",
+            "rank": 4
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/mobile-app-development",
+            "title": "Mobile App Development Projects in Oct 2026",
+            "snippet": "What you will work on - React Native and TypeScript development across ... Mark as “Pending upload”. a month ago48 proposalsRemote. Gerry's avatar by ...",
+            "rank": 5
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/programming-coding/senior-full-stack-developer-needed-for-saas-development-4517560",
+            "title": "Senior Full Stack Developer Needed for SaaS Development",
+            "snippet": "... React.js and TypeScript ... Long-term remote collaboration SaaS products for ... React js Software as a service (SaaS) TypeScript programming language Web ...",
+            "rank": 6
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/programming-coding/senior-react-node-developer-live-booking-platform-takeover-4526001",
+            "title": "Senior React/Node Developer: Live Booking Platform Takeover",
+            "snippet": "Senior React/Node Developer: Live Booking Platform Takeover · Posted: 2 weeks ago · Proposals: · Remote · #4526001 · OPPORTUNITY · Paused.",
+            "rank": 7
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/full-stack-engineer-needed-for-a-staking-project-4528429",
+            "title": "Full-Stack Engineer Needed for a Staking Project",
+            "snippet": "Full-Stack Engineer Needed for a Staking Project ; Ends in (days). 29 ; Fixed Price. $2.5k ; Proposals: · Remote ; Description · Project Overview We ...",
+            "rank": 8
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelance-jobs?page=2&ref=topmenu_loggedout",
+            "title": "Freelance Jobs, Work & Projects in Oct 2026",
+            "snippet": "Responsibilities - Develop and maintain responsive web applications using React.js or Next.js. ... - UK-based preferred; remote support acceptable, with on-site ...",
+            "rank": 9
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/shopify-hydrogen-developer-4455400",
+            "title": "Shopify Hydrogen Developer",
+            "snippet": "You'll be responsible for building a custom headless storefront using Hydrogen that delivers an exceptional user experience. Location:Remote",
+            "rank": 10
+          }
+        ],
+        "checkedAt": "2026-10-29T11:51:09.304Z",
+        "completeness": "window",
+        "nextPage": 2
+      }
+    },
+    {
+      "query": "React TypeScript web development \"remote\" (\"project\" OR \"budget\" OR \"proposals\")",
+      "result": {
+        "kind": "search",
+        "observations": [
+          {
+            "url": "https://www.indeed.com/q-mid-level-react-developer-remote-l-remote-jobs.html",
+            "title": "Mid Level React Developer Remote jobs in Remote",
+            "snippet": "Project language: English (min. B2+ level for comfortable communication ... Software Engineer: Frontend. Swiftlane. Remote. Swiftlane provides the ability ...",
+            "rank": 1
+          },
+          {
+            "url": "https://jobgether.com/remote-jobs/emea/react-developer",
+            "title": "Remote React Developer Jobs in EMEA",
+            "snippet": "Project & Program Management. 3494 remote jobs. e.g.: Senior Project Manager, Senior/Lead Project Manager · +49 new. Product. 3434 remote jobs. e.g.: Senior/ ...",
+            "rank": 2
+          },
+          {
+            "url": "https://www.jobleads.com/us/job/junior-frontend-engineer-remote-react-typescript--united-states--ea835fdec2db89d4d2c6de263f7703e8b",
+            "title": "Junior Frontend Engineer – Remote (React/TypeScript)",
+            "snippet": "... TypeScript, with opportunities to explore backend tasks as the project evolves. ... Remote Junior Frontend Dev (React/TypeScript). Remote • San Francisco (CA).",
+            "rank": 3
+          },
+          {
+            "url": "https://www.facebook.com/codeninety/posts/-hiring-reactjs-developer-remote-build-responsive-high-performance-interfaces-fo/1157579873263563/",
+            "title": "React.js developer remote job at Code90",
+            "snippet": "React JS (remote, Project Based) We're seeking a react.js developer with solid experience for a project-based frontend development project. Candidates must.",
+            "rank": 4
+          },
+          {
+            "url": "https://web3.career/react+typescript-jobs",
+            "title": "React Typescript Jobs in Web3 - Oct 2026 (6 New)",
+            "snippet": "... project manager react refi research ruby rust sales smart contract ... Remote Web3 Jobs Remote Non-Tech Web3 Jobs Web3 Salaries Web3 Non-Tech ...",
+            "rank": 5
+          },
+          {
+            "url": "https://www.wearedevelopers.com/jobs/ext/3773304-remote-react-front-end-developer-next-js-typescript",
+            "title": "Remote React Front-End Developer - Next.Js/Typescript",
+            "snippet": "Job description. Talan is seeking a React Frontend Developer to join our team in Spain for a 4-month project. ... Remote React Front-End Developer - Next.Js/ ...",
+            "rank": 6
+          },
+          {
+            "url": "https://www.remoterocketship.com/us/company/govserviceshub/jobs/ui-developer-reactjs-united-states-remote/",
+            "title": "UI Developer, ReactJS at Gov Services Hub",
+            "snippet": "Frontend Engineer / Web Developer. Ghost score 39 ... Remote project manager jobsRemote recruiter jobsRemote sales jobsRemote software engineer jobs.",
+            "rank": 7
+          },
+          {
+            "url": "https://www.remotejobassistant.com/blog/remote-web-developer-jobs",
+            "title": "Remote Web Developer Jobs: What 3937 Postings Pay ...",
+            "snippet": "... web analytics, content and project titles, instructors and interns. 151 ... In a Website seat, the site is a cost line in a marketing budget, measured ...",
+            "rank": 8
+          },
+          {
+            "url": "https://trulyremotework.com/remote-react-jobs",
+            "title": "Remote React Jobs Worldwide 2026 | TrulyRemoteWork",
+            "snippet": "Remote React developer jobs worldwide. Frontend and full-stack roles open to applicants from any country. 1 open roles (Oct 2026).",
+            "rank": 9
+          },
+          {
+            "url": "https://www.linkedin.com/jobs/view/4479214616/",
+            "title": "React + TypeScript Developer - Remote Work | REF#305656",
+            "snippet": "Nuxt.js Frontend Developer (Contentful) - Remote Work. BairesDev. Ecuador 6 days ago. Senior IT Project Manager - Remote Work. Senior IT Project Manager - ...",
+            "rank": 10
+          }
+        ],
+        "checkedAt": "2026-10-29T11:51:10.745Z",
+        "completeness": "window",
+        "nextPage": 2
+      }
+    },
+    {
+      "query": "Website redesign site:peopleperhour.com/freelance-jobs \"remote\"",
+      "result": {
+        "kind": "search",
+        "observations": [
+          {
+            "url": "https://www.peopleperhour.com/freelance-jobs/design/web-design",
+            "title": "Web Design Projects in Oct 2026",
+            "snippet": "Website Redesign Modernise the existing website with a clean, professional, contemporary design. ... The position offers flexible hours, remote work, and paid ...",
+            "rank": 1
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelance-jobs/digital-marketing/affiliate-marketers/i-require-remote-staff-for-a-new-digital-academy-4525449",
+            "title": "I require remote staff for a new digital academy",
+            "snippet": "Seeking remote creatives for a new digital academy to produce and promote TikTok content and continuously update six course programs.",
+            "rank": 2
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelance-jobs/design/web-design/design-set-up-my-website-33770",
+            "title": "Design & set-up my website",
+            "snippet": "Design & set-up my website. Ends in (days). 5854. Fixed Price. £100(approx. $134). Posted: 16 years ago; Proposals: 23; Remote; #33770; Archived.",
+            "rank": 3
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelance-jobs/design",
+            "title": "Design Projects in Oct 2026",
+            "snippet": "We look forward to hearing from you! 8 hours ago30 proposalsRemote. Cathal's ... design and build the website, so please no agencies or web development companies.",
+            "rank": 4
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development",
+            "title": "Website Development Projects in Oct 2026",
+            "snippet": "Need someone to take it, make minor edits, put on own wordpress site with domain so i can easily edit in future if needed. 26 minutes ago24 proposalsRemote.",
+            "rank": 5
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelance-jobs/marketing-branding-sales/sales-calls/qualified-lead-generation-for-uk-website-design-business-4523421",
+            "title": "Qualified Lead Generation for UK Website Design Business",
+            "snippet": "Qualified Lead Generation for UK Website Design Business · Posted: 1 month ago · Proposals: · Remote · #4523421 · Expired.",
+            "rank": 6
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming",
+            "title": "Technology & Programming Projects in 2026",
+            "snippet": "-Step-by-step setup instructions. -Full remote management and technical support. -Fast equipment replacement if needed. -Monthly compensation for hosting the ...",
+            "rank": 7
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelance-jobs/design/web-design/joomla-drupal-content-managed-website-development-51605",
+            "title": "Joomla / Drupal Content Managed Website Development",
+            "snippet": "Fixed Price. £1.2k(approx. $1.6k) ; Proposals: · Remote ; Description. Experience Level: Expert. Development of Content Managed Website using Joomla or Drupal ...",
+            "rank": 8
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelance-jobs",
+            "title": "Freelance Jobs, Work & Projects in Oct 2026",
+            "snippet": "I will provide a visual reference for the desired homepage design. a minute ago2 proposalsRemote.",
+            "rank": 9
+          },
+          {
+            "url": "https://www.peopleperhour.com/freelance-jobs/business/administration-assistance/remote-receptionist-4502438",
+            "title": "Remote receptionist",
+            "snippet": "Business freelance job: Remote receptionist . Discover more freelance jobs or hire some expert freelancers online on PeoplePerHour!",
+            "rank": 10
+          }
+        ],
+        "checkedAt": "2026-10-29T11:51:11.821Z",
+        "completeness": "window",
+        "nextPage": 2
+      }
+    },
+    {
+      "query": "Website redesign \"remote\" (\"project\" OR \"budget\" OR \"proposals\")",
+      "result": {
+        "kind": "search",
+        "observations": [
+          {
+            "url": "https://www.designrush.com/best-designs/websites/remote-website-design",
+            "title": "Remote Website Design",
+            "snippet": "Project Brief: Redesign Remote's finance website to communicate its global payroll platform through a modular visual identity, currency-inspired colors, clear ...",
+            "rank": 1
+          },
+          {
+            "url": "https://www.instagram.com/reel/De7vk0WyswV/",
+            "title": "You don't have to convince every client to spend ...",
+            "snippet": "New website build project, open to agencies worldwide • Nonprofit foundation in New York, USA • Est. budget: $35K–$70K • Scope: responsive CMS website ...",
+            "rank": 2
+          },
+          {
+            "url": "https://jobs.minnesotanonprofits.org/job/web-developer-designer-111617",
+            "title": "Web Developer/Designer in Remote - Nonprofit Job Board",
+            "snippet": "Remote. Share Save Job. Apply for This Job. Request for Proposal: ArtStart Website Redesign Project Overview ArtStart is seeking proposals from web developers ...",
+            "rank": 3
+          },
+          {
+            "url": "https://www.dice.com/job-detail/fcfba5cd-869c-4721-80d6-7f164b3e6a6c",
+            "title": "Project Manager - - MS - Medicaid(REMOTE)",
+            "snippet": "Project Manager - Website Modernization Project Lead - MS - Medicaid(167478). Jackson,MS. 12+ Months. Remote. Website Redevelopment Execution.",
+            "rank": 4
+          },
+          {
+            "url": "https://www.instagram.com/reel/De2oIZXy8R3/",
+            "title": "If you're looking for bigger website projects, here's where to ...",
+            "snippet": "Looking for bigger budget web design projects? What are you waiting on ... - Proposals due: October 22, 2026 - Leeds ID: WD-26281. Note on scope ...",
+            "rank": 5
+          },
+          {
+            "url": "https://www.facebook.com/MattDarmAgency/posts/a-website-redesign-proposal-should-make-responsibility-clear-before-the-work-bec/1467139258802094/",
+            "title": "A website redesign proposal should make responsibility ...",
+            "snippet": "DEVELOPING A FLEXIBLE TIMELINE A good schedule keeps your project on track and within budget: * Break Down the Project: Divide the redesign into smaller steps ...",
+            "rank": 6
+          },
+          {
+            "url": "https://oit.princeton.edu/services/web-design-development/tier-2-low-cost-website",
+            "title": "Tier 2: Low Cost Website - Princeton OIT",
+            "snippet": "Wi-Fi & Remote Access; Related Services Related Services Submenu. Data ... website project. Simple design changes, such as the addition of photography ...",
+            "rank": 7
+          },
+          {
+            "url": "https://nexthireinc.com/hire-website-redesign-specialists/",
+            "title": "hire website redesign consultants - Next Hire Inc",
+            "snippet": "Remote website redesign specialists available globally with ... Most businesses outsource website redesign services because redesigns are project ...",
+            "rank": 8
+          },
+          {
+            "url": "https://nonprofit-jobs.org/RFP-Work-Hub/opportunities/techequity-collaborative-request-for-proposals-w-2026/",
+            "title": "Request for Proposals: Website Design and Development",
+            "snippet": "RFPRemote. Request for Proposals: Website Design and Development. TechEquity Collaborative. Remote across the United States · Verified open October 2026.",
+            "rank": 9
+          },
+          {
+            "url": "https://www.remoterocketship.com/us/company/urbaninsight/jobs/director-of-business-development-web-digital-agency-united-states-remote/",
+            "title": "Director of Business Development, Web & Digital Agency",
+            "snippet": "... Remote product designer jobsRemote product manager jobsRemote project manager jobsRemote recruiter jobsRemote sales jobsRemote software engineer jobs.",
+            "rank": 10
+          }
+        ],
+        "checkedAt": "2026-10-29T11:51:12.840Z",
+        "completeness": "window",
+        "nextPage": 2
+      }
+    }
+  ]
+}
