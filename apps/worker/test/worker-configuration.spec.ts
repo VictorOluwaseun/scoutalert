@@ -8,8 +8,14 @@ const environment = {
 describe("configured daily budget limits", () => {
   it("defaults the shared token cap and permits explicitly blocking generation", () => {
     const config = readWorkerConfiguration(environment);
-    expect(config.SCOUT_AI_DAILY_TOKENS).toBe(100_000);
+    expect(config.SCOUT_AI_DAILY_TOKENS).toBe(2_650_000);
+    expect(config.SCOUT_AI_GPT54_DAILY_TOKENS).toBe(250_000);
+    expect(config.SCOUT_AI_GPT54_MINI_DAILY_TOKENS).toBe(2_400_000);
+    expect(config.SCOUT_AI_PLANNING_MODEL).toBe("gpt-5.4-mini-2026-03-17");
     expect(config.SCOUT_AI_MAX_OUTPUT_TOKENS).toBe(4_000);
+    expect(config.SCOUT_AI_EXPERT_MODEL).toBe("gpt-5.4-2026-03-05");
+    expect(config.SCOUT_AI_AUDIT_DAILY_TOKENS).toBe(25_000);
+    expect(config.SCOUT_AI_AUDIT_PERCENT).toBe(5);
     expect(
       readWorkerConfiguration({
         ...environment,
@@ -23,6 +29,10 @@ describe("configured daily budget limits", () => {
   });
 
   it.each([
+    ["SCOUT_AI_AUDIT_PERCENT", "11"],
+    ["SCOUT_AI_AUDIT_DAILY_TOKENS", "-1"],
+    ["SCOUT_AI_GPT54_DAILY_TOKENS", "-1"],
+    ["SCOUT_AI_GPT54_MINI_DAILY_TOKENS", "1.5"],
     ["SCOUT_AI_DAILY_TOKENS", "-1"],
     ["SCOUT_AI_DAILY_TOKENS", "1.5"],
     ["SCOUT_AI_DAILY_TOKENS", "2147483648"],
@@ -42,6 +52,69 @@ describe("configured daily budget limits", () => {
 
     expect(config.SCOUT_AI_DAILY_REQUESTS).toBe(50);
     expect(config.SCOUT_AI_DAILY_USD).toBe(5);
+  });
+
+  it("keeps an explicit global ceiling and supports disabling both families", () => {
+    expect(
+      readWorkerConfiguration({ ...environment, SCOUT_AI_DAILY_TOKENS: "1000" })
+        .SCOUT_AI_DAILY_TOKENS,
+    ).toBe(1000);
+    expect(
+      readWorkerConfiguration({
+        ...environment,
+        SCOUT_AI_GPT54_DAILY_TOKENS: "0",
+        SCOUT_AI_GPT54_MINI_DAILY_TOKENS: "0",
+      }).SCOUT_AI_DAILY_TOKENS,
+    ).toBe(0);
+    expect(
+      readWorkerConfiguration({
+        ...environment,
+        SCOUT_AI_GPT54_DAILY_TOKENS: "100",
+        SCOUT_AI_GPT54_MINI_DAILY_TOKENS: "900",
+      }).SCOUT_AI_DAILY_TOKENS,
+    ).toBe(1000);
+  });
+
+  it.each(["0", "249999", "250000"])(
+    "rejects a mini allowance no larger than the full-model allowance: %s",
+    (value) => {
+      expect(() =>
+        readWorkerConfiguration({
+          ...environment,
+          SCOUT_AI_GPT54_MINI_DAILY_TOKENS: value,
+        }),
+      ).toThrow(
+        "SCOUT_AI_GPT54_MINI_DAILY_TOKENS above SCOUT_AI_GPT54_DAILY_TOKENS",
+      );
+    },
+  );
+
+  it("keeps routine planning on mini and limits expert work to the full model", () => {
+    const enabled = {
+      ...environment,
+      SCOUT_AI_ENABLED: "true",
+      OPENAI_API_KEY: "fixture-no-network",
+    };
+    expect(readWorkerConfiguration(enabled).SCOUT_AI_PLANNING_MODEL).toBe(
+      "gpt-5.4-mini-2026-03-17",
+    );
+    expect(
+      readWorkerConfiguration({
+        ...enabled,
+        SCOUT_AI_PLANNING_MODEL: "gpt-5.4-mini",
+      }).SCOUT_AI_PLANNING_MODEL,
+    ).toBe("gpt-5.4-mini");
+    for (const field of ["SCOUT_AI_EXTRACTION_MODEL", "SCOUT_AI_FIT_MODEL"]) {
+      expect(() =>
+        readWorkerConfiguration({ ...enabled, [field]: "gpt-5.4" }),
+      ).toThrow("reviewed pricing policy");
+    }
+    expect(() =>
+      readWorkerConfiguration({
+        ...enabled,
+        SCOUT_AI_PLANNING_MODEL: "gpt-5.4-unknown",
+      }),
+    ).toThrow("reviewed pricing policy");
   });
 
   it("keeps navigation within database bounds without raising the document or spending defaults", () => {

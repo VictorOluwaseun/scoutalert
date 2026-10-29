@@ -53,6 +53,8 @@ import {
   createIntelligenceClient,
   PostgresIntelligenceRepository,
   PostgresModelTokenBudgetRepository,
+  modelTokenBudgetPolicies,
+  OpenAIFitReviewProvider,
   PostgresSourceRepository,
   PostgresScoutingRepository,
   PostgresDiscoveryIntentRepository,
@@ -111,6 +113,11 @@ export const WORKER_RESOURCES = Symbol("WORKER_RESOURCES");
                 repository: new PostgresModelTokenBudgetRepository(
                   db,
                   config.SCOUT_AI_DAILY_TOKENS,
+                  modelTokenBudgetPolicies(
+                    config.SCOUT_AI_GPT54_DAILY_TOKENS,
+                    config.SCOUT_AI_GPT54_MINI_DAILY_TOKENS,
+                    config.SCOUT_AI_AUDIT_DAILY_TOKENS,
+                  ),
                 ),
                 maximumOutputTokens: config.SCOUT_AI_MAX_OUTPUT_TOKENS,
               })
@@ -181,7 +188,10 @@ export const WORKER_RESOURCES = Symbol("WORKER_RESOURCES");
                 new OpenAIDiscoveryReasoningProvider(
                   intelligenceClient!,
                   config.SCOUT_AI_EXTRACTION_MODEL,
+                  config.SCOUT_AI_PLANNING_MODEL,
+                  config.SCOUT_AI_EXPERT_MODEL,
                 ),
+                config.SCOUT_AI_EXPERT_ENABLED === "true",
               )
             : undefined;
         const evaluator =
@@ -206,6 +216,13 @@ export const WORKER_RESOURCES = Symbol("WORKER_RESOURCES");
                   ),
                   "employer-pages-2026-10-01",
                 ),
+                config.SCOUT_AI_EXPERT_ENABLED === "true"
+                  ? new OpenAIFitReviewProvider(
+                      intelligenceClient!,
+                      config.SCOUT_AI_EXPERT_MODEL,
+                    )
+                  : undefined,
+                config.SCOUT_AI_AUDIT_PERCENT,
               )
             : undefined;
         const matching = new ScoutOpportunities(

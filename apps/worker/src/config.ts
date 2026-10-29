@@ -90,6 +90,19 @@ export function readWorkerConfiguration(environment = process.env) {
       SCOUT_WEB_CONCURRENCY: z.coerce.number().int().min(1).max(20).default(2),
       OPENAI_API_KEY: z.string().min(1).optional(),
       SCOUT_AI_ENABLED: z.enum(["true", "false"]).default("false"),
+      SCOUT_AI_PLANNING_MODEL: z
+        .string()
+        .min(1)
+        .default("gpt-5.4-mini-2026-03-17"),
+      SCOUT_AI_EXPERT_MODEL: z.string().min(1).default("gpt-5.4-2026-03-05"),
+      SCOUT_AI_EXPERT_ENABLED: z.enum(["true", "false"]).default("true"),
+      SCOUT_AI_AUDIT_PERCENT: z.coerce.number().int().min(0).max(10).default(5),
+      SCOUT_AI_AUDIT_DAILY_TOKENS: z.coerce
+        .number()
+        .int()
+        .min(0)
+        .max(maximumDailyRequests)
+        .optional(),
       SCOUT_AI_EXTRACTION_MODEL: z
         .string()
         .min(1)
@@ -106,7 +119,19 @@ export function readWorkerConfiguration(environment = process.env) {
         .int()
         .min(0)
         .max(maximumDailyRequests)
-        .default(100_000),
+        .optional(),
+      SCOUT_AI_GPT54_DAILY_TOKENS: z.coerce
+        .number()
+        .int()
+        .min(0)
+        .max(maximumDailyRequests)
+        .default(250_000),
+      SCOUT_AI_GPT54_MINI_DAILY_TOKENS: z.coerce
+        .number()
+        .int()
+        .min(0)
+        .max(maximumDailyRequests)
+        .default(2_400_000),
       SCOUT_AI_MAX_OUTPUT_TOKENS: z.coerce
         .number()
         .int()
@@ -167,6 +192,24 @@ export function readWorkerConfiguration(environment = process.env) {
   }
 
   const priced = ["gpt-5.4-mini", "gpt-5.4-mini-2026-03-17"];
+  const expertModels = ["gpt-5.4", "gpt-5.4-2026-03-05"];
+  const fullTokens = result.data.SCOUT_AI_GPT54_DAILY_TOKENS;
+  const miniTokens = result.data.SCOUT_AI_GPT54_MINI_DAILY_TOKENS;
+  const auditTokens =
+    result.data.SCOUT_AI_AUDIT_DAILY_TOKENS ?? Math.floor(fullTokens / 10);
+  if (auditTokens > fullTokens) {
+    throw new Error(
+      "SCOUT_AI_AUDIT_DAILY_TOKENS must fit inside SCOUT_AI_GPT54_DAILY_TOKENS.",
+    );
+  }
+  if (
+    (fullTokens > 0 && miniTokens <= fullTokens) ||
+    fullTokens + miniTokens > maximumDailyRequests
+  ) {
+    throw new Error(
+      "Configure SCOUT_AI_GPT54_MINI_DAILY_TOKENS above SCOUT_AI_GPT54_DAILY_TOKENS, or set both to zero; their sum must fit the supported daily ceiling.",
+    );
+  }
 
   if (result.data.SCOUT_X_ENABLED === "true" && !result.data.X_BEARER_TOKEN) {
     throw new Error(
@@ -181,14 +224,21 @@ export function readWorkerConfiguration(environment = process.env) {
   if (
     result.data.SCOUT_AI_ENABLED === "true" &&
     (!priced.includes(result.data.SCOUT_AI_EXTRACTION_MODEL) ||
-      !priced.includes(result.data.SCOUT_AI_FIT_MODEL))
+      !priced.includes(result.data.SCOUT_AI_FIT_MODEL) ||
+      !priced.includes(result.data.SCOUT_AI_PLANNING_MODEL) ||
+      !expertModels.includes(result.data.SCOUT_AI_EXPERT_MODEL))
   ) {
     throw new Error(
-      "Configure a reviewed pricing policy before using another assessment model.",
+      "Use GPT-5.4 mini for routine planning, discovery, extraction, research and fit, and GPT-5.4 for expert review. Other routes require a reviewed pricing policy.",
     );
   }
 
-  return result.data;
+  return {
+    ...result.data,
+    SCOUT_AI_DAILY_TOKENS:
+      result.data.SCOUT_AI_DAILY_TOKENS ?? fullTokens + miniTokens,
+    SCOUT_AI_AUDIT_DAILY_TOKENS: auditTokens,
+  };
 }
 
 export type WorkerConfiguration = ReturnType<typeof readWorkerConfiguration>;
