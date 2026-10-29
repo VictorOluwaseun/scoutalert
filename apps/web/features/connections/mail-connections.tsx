@@ -246,6 +246,7 @@ export function MailConnections({
                     </p>
                   )}
                   <Button
+                    type="submit"
                     disabled={
                       busy ||
                       !selected ||
