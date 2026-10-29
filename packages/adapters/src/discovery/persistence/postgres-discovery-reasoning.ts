@@ -12,6 +12,7 @@ import type { ScoutAlertDatabase } from "../../database/types/database.js";
 import {
   estimateIntelligenceCost,
   intelligenceAttemptReserveMicrousd,
+  expertAttemptReserveMicrousd,
 } from "../../scouting/intelligence/usage-cost.js";
 import { discoveryKey } from "./discovery-identities.js";
 
@@ -116,7 +117,12 @@ export class PostgresDiscoveryReasoningRepository extends DiscoveryReasoningRepo
       if (task.state === "running") {
         return { status: "waiting" };
       }
-      const admission = await this.reserve(tx);
+      const admission = await this.reserve(
+        tx,
+        input.kind === "choice" && input.expertReview
+          ? expertAttemptReserveMicrousd
+          : intelligenceAttemptReserveMicrousd,
+      );
       if (admission !== "admitted") {
         return { status: admission };
       }
@@ -131,6 +137,7 @@ export class PostgresDiscoveryReasoningRepository extends DiscoveryReasoningRepo
   /** Serializes all AI admission so added planning cannot exceed existing global request, USD or concurrency ceilings. */
   private async reserve(
     tx: Kysely<ScoutAlertDatabase>,
+    reserve: number,
   ): Promise<"admitted" | "waiting" | "unavailable"> {
     await sql`INSERT INTO intelligence_daily_budget(day,requests) VALUES((now() AT TIME ZONE 'UTC')::date,0) ON CONFLICT DO NOTHING`.execute(
       tx,
@@ -147,7 +154,7 @@ export class PostgresDiscoveryReasoningRepository extends DiscoveryReasoningRepo
       return "waiting";
     }
     const saved =
-      await sql`UPDATE intelligence_daily_budget SET requests=requests+1,reserved_microusd=reserved_microusd+${intelligenceAttemptReserveMicrousd} WHERE day=(now() AT TIME ZONE 'UTC')::date AND requests<${this.dailyRequests} AND reserved_microusd+${intelligenceAttemptReserveMicrousd}<=${this.dailyMicrousd} RETURNING day`.execute(
+      await sql`UPDATE intelligence_daily_budget SET requests=requests+1,reserved_microusd=reserved_microusd+${reserve} WHERE day=(now() AT TIME ZONE 'UTC')::date AND requests<${this.dailyRequests} AND reserved_microusd+${reserve}<=${this.dailyMicrousd} RETURNING day`.execute(
         tx,
       );
     return saved.rows.length ? "admitted" : "unavailable";

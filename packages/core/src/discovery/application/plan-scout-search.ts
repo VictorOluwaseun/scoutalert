@@ -25,6 +25,7 @@ export class PlanScoutSearch {
   constructor(
     private readonly records: DiscoveryReasoningRepository,
     private readonly provider: DiscoveryReasoningProvider,
+    private readonly expertRecovery = false,
   ) {}
 
   /** Separates alternative public targets, preserving the complete private brief for later assessment. */
@@ -170,6 +171,29 @@ export class PlanScoutSearch {
           })),
       ],
     };
+    const expert =
+      this.expertRecovery && needsExpertRecovery(snapshot)
+        ? await this.resolve(request, "expert-recovery", {
+            ...input,
+            expertReview: "stalled_discovery",
+            candidates: input.candidates?.map((candidate) => ({
+              ...candidate,
+              text: candidate.text.slice(0, 400),
+            })),
+            evidence: input.evidence
+              .slice(-12)
+              .map((item) => ({
+                ...item,
+                explanation: item.explanation.slice(0, 400),
+              })),
+          })
+        : null;
+    if (expert === "progress" || expert === "waiting") {
+      return expert;
+    }
+    if (expert?.kind === "choice") {
+      return choices[expert.index]!;
+    }
     const result = await this.resolve(
       request,
       `choice:${snapshot.round}`,
@@ -224,6 +248,24 @@ export class PlanScoutSearch {
     }
     return "progress";
   }
+}
+
+/** Escalates observed retrieval failure, never a missing review caused by a provider outage or exhausted mini allowance. */
+function needsExpertRecovery(snapshot: DiscoveryExploration): boolean {
+  const searches = snapshot.operations.filter(
+    (operation) => operation.result?.kind === "search",
+  );
+  const reviewed = (snapshot.reviews ?? []).filter(
+    (review) => review.scope === "source",
+  );
+  const useful = reviewed.some(
+    ({ review }) =>
+      (review.label === "client_request" || review.label === "job_opening") &&
+      (!snapshot.plan.exploration?.remote ||
+        (review.analysis.facts.arrangement.status === "stated" &&
+          /\bremote\b/iu.test(review.analysis.facts.arrangement.value))),
+  );
+  return searches.length >= 2 && reviewed.length >= 2 && !useful;
 }
 
 /** Reconciles a conservative fallback with the current grounded menu without copying stale provenance or expanding its bounds. */

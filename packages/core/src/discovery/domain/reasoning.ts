@@ -19,6 +19,8 @@ export type DiscoveryReasoningInput =
   | { kind: "strategy"; intent: PublicScoutIntent }
   | {
       kind: "choice";
+      /** One bounded expert phase per case after completed source reviews show repeated unproductive searches. */
+      expertReview?: "stalled_discovery";
       intent: PublicScoutIntent;
       choices: DiscoveryDecision[];
       /** Bounded hints for supplied document choices, not proof of relevance, eligibility or availability. */

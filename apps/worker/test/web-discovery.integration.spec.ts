@@ -763,6 +763,71 @@ describe.skipIf(!enabled)(
       expect(capture.rows[0]!.result.capture.complete).toBe(false);
     });
 
+    it("binds one terminal expert recovery attempt to a case even when later evidence changes", async () => {
+      const request = await fixture();
+      await open(request);
+      const repository = new PostgresDiscoveryReasoningRepository(
+        db,
+        1000,
+        100_000_000,
+      );
+      const configuration = randomUUID();
+      const input: DiscoveryReasoningInput = {
+        kind: "choice",
+        expertReview: "stalled_discovery",
+        intent: {
+          target: "Product designer",
+          category: "employment",
+          remote: true,
+        },
+        choices: [],
+        evidence: [],
+      };
+      const claim = await repository.claim(
+        request,
+        "expert-recovery",
+        configuration,
+        input,
+      );
+      expect(claim.status).toBe("claimed");
+      if (claim.status !== "claimed") {
+        throw new Error("missing_recovery_lease");
+      }
+      await repository.fail(claim.token);
+      expect(
+        (
+          await repository.claim(
+            request,
+            "expert-recovery",
+            configuration,
+            input,
+          )
+        ).status,
+      ).toBe("unavailable");
+      expect(
+        (
+          await repository.claim(request, "expert-recovery", configuration, {
+            ...input,
+            evidence: [
+              {
+                url: "https://example.org/new",
+                scope: "source",
+                label: "service_offer",
+                explanation: "Another seller page",
+                unknowns: [],
+              },
+            ],
+          })
+        ).status,
+      ).toBe("unavailable");
+      const attempts = await sql<{
+        count: number;
+      }>`SELECT count(*)::int AS count FROM web_reasoning_tasks WHERE configuration=${configuration} AND lease_token IS NOT NULL`.execute(
+        db,
+      );
+      expect(attempts.rows[0]!.count).toBe(1);
+    });
+
     it("shares public strategy across owners, fences leases and keeps all planning inside the common AI budget", async () => {
       const first = await fixture("Android engineer");
       const second = await fixture("Android engineer");

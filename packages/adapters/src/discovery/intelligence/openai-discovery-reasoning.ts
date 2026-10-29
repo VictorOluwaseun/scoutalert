@@ -23,15 +23,21 @@ export class OpenAIDiscoveryReasoningProvider extends DiscoveryReasoningProvider
   constructor(
     private readonly client: OpenAI,
     private readonly model: string,
+    private readonly planningModel: string = model,
+    private readonly expertModel: string = planningModel,
   ) {
     super();
-    this.configuration = `openai:${model}:scout-planning-v14`;
+    this.configuration = `openai:${model}:strategy:${planningModel}:expert:${expertModel}:scout-planning-v16`;
   }
 
   /** Bounds input, output and timeout to the shared conservative AI reservation. */
   async reason(input: DiscoveryReasoningInput) {
     const serialized = JSON.stringify(input);
-    if (Buffer.byteLength(serialized) > 60_000) {
+    const expert =
+      input.kind === "choice" && input.expertReview === "stalled_discovery";
+    const maximumInputBytes =
+      input.kind === "strategy" ? 2_000 : expert ? 24_000 : 60_000;
+    if (Buffer.byteLength(serialized) > maximumInputBytes) {
       throw new Error("discovery_reasoning_input_too_large");
     }
     const instructions =
@@ -41,12 +47,19 @@ export class OpenAIDiscoveryReasoningProvider extends DiscoveryReasoningProvider
     const started = Date.now();
     const response = await this.client.responses.parse(
       {
-        model: this.model,
+        model:
+          input.kind === "strategy"
+            ? this.planningModel
+            : expert
+              ? this.expertModel
+              : this.model,
         store: false,
         service_tier: "default",
-        reasoning: { effort: "low" },
+        reasoning: { effort: expert ? "medium" : "low" },
         max_output_tokens: 2000,
-        instructions,
+        instructions: expert
+          ? `${instructions} This is the case's one expert recovery decision. Diagnose why completed source reviews have not produced useful candidates, and choose the supplied action most likely to resolve that specific gap. Missing evidence requires a source read, never an invented fact. Excerpts may be shortened; use them only to route investigation. You cannot add a query, expand limits, retry denied access, or authorize a recommendation.`
+          : instructions,
         input: serialized,
         text: {
           format:
