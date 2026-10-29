@@ -1,0 +1,482 @@
+{
+  "checkedAt": "2026-10-29T19:18:43.888Z",
+  "scope": "Live GPT-5.4 private reviews and recovery decisions through durable production use cases. Mini baselines and public search snapshots are authored or replayed from named receipts. No fresh retrieval, mini generation, availability checks or emails. Expected labels were fixed before generation; this is a small regression corpus, not independent quality benchmarking.",
+  "cases": [
+    {
+      "name": "recorded-projects",
+      "origin": "token-budget-projects-recapture-2026-10-29.json",
+      "passed": true,
+      "valid": true,
+      "expectationsPassed": true,
+      "durablePassed": true,
+      "accepted": true,
+      "expected": {
+        "reason": "sample_audit",
+        "criteria": {
+          "role": [
+            "meets"
+          ],
+          "category": [
+            "meets"
+          ],
+          "arrangement": [
+            "meets"
+          ],
+          "location": [
+            "unknown"
+          ],
+          "authorization": [
+            "unknown"
+          ],
+          "compensation": [
+            "unknown",
+            "meets"
+          ]
+        }
+      },
+      "criteria": {
+        "role": "meets",
+        "category": "meets",
+        "arrangement": "meets",
+        "location": "unknown",
+        "experience": "unknown",
+        "authorization": "unknown",
+        "compensation": "unknown"
+      },
+      "durationMs": 37689,
+      "source": {
+        "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/react-js-node-js-developer-for-existing-management-system-4526654",
+        "observedAt": "2026-10-29T10:44:34.925Z",
+        "complete": true
+      },
+      "fit": {
+        "criteria": [
+          {
+            "criterion": "role",
+            "status": "meets",
+            "explanation": "The listing is a React-focused full-stack web development project, which matches the brief’s React development goal and target. TypeScript is not mentioned in the listing, but the role itself is aligned (p1, p14, p16; b0, b2).",
+            "quotes": [
+              "REACT.JS & NODE.JS DEVELOPER FOR EXISTING MANAGEMENT SYSTEM",
+              "We are looking for an experienced Full Stack Developer to carry out modifications and improvements to our existing internal business management system, Central Station.",
+              "- Frontend: React.js"
+            ],
+            "briefQuotes": [
+              "Find remote freelance React development projects",
+              "React TypeScript web development"
+            ]
+          },
+          {
+            "criterion": "category",
+            "status": "meets",
+            "explanation": "This is a client-requested service project: the buyer is seeking a developer to modify an existing system and asks for a fixed-price quotation (p14, p23; b1).",
+            "quotes": [
+              "We are looking for an experienced Full Stack Developer to carry out modifications and improvements to our existing internal business management system, Central Station.",
+              "We would prefer a fixed-price quotation covering all the requested modifications, including testing and necessary revisions until the agreed requirements are met."
+            ],
+            "briefQuotes": [
+              "services"
+            ]
+          },
+          {
+            "criterion": "arrangement",
+            "status": "meets",
+            "explanation": "The listing explicitly says the project is remote, matching the brief’s required remote arrangement (p9; b4).",
+            "quotes": [
+              " * Remote"
+            ],
+            "briefQuotes": [
+              "remote"
+            ]
+          },
+          {
+            "criterion": "location",
+            "status": "unknown",
+            "explanation": "The job is marked remote, but no applicant-location or contractor-eligibility restriction is stated. Remote alone does not prove worldwide eligibility, so location fit remains unknown (p9; b6, b12).",
+            "quotes": [
+              " * Remote"
+            ],
+            "briefQuotes": [
+              "United States or remote worldwide",
+              "review"
+            ]
+          },
+          {
+            "criterion": "experience",
+            "status": "unknown",
+            "explanation": "The listing asks for an experienced full-stack developer and specifically references React.js, Node.js/Express.js, PostgreSQL or MongoDB, and modifying existing web applications (p14, p16-p18, p22). The brief confirms React/TypeScript web apps, API integrations, and dashboards (b2, b9), but it does not confirm Node.js, Express.js, PostgreSQL, or MongoDB experience, so this cannot be upgraded to a full match.",
+            "quotes": [
+              "We are looking for an experienced Full Stack Developer to carry out modifications and improvements to our existing internal business management system, Central Station.",
+              "- Frontend: React.js",
+              "- Backend: Node.js (Express.js)",
+              "- Database: PostgreSQL or MongoDB"
+            ],
+            "briefQuotes": [
+              "React TypeScript web development",
+              "Five years delivering React and TypeScript web applications, API integrations and dashboards for clients"
+            ]
+          },
+          {
+            "criterion": "authorization",
+            "status": "unknown",
+            "explanation": "No work-authorization, residence, or sponsorship condition appears in the listing, so authorization fit cannot be assessed from the job side. The brief only confirms U.S. authorization and no sponsorship need (p0-p25 reviewed; b7, b8).",
+            "quotes": [],
+            "briefQuotes": [
+              "United States",
+              "not_needed"
+            ]
+          },
+          {
+            "criterion": "compensation",
+            "status": "unknown",
+            "explanation": "The listing discloses a fixed price of $200 (p5, p6). The brief includes project-based pay context and says undisclosed pay can still be included (b11, b13), but it does not provide a minimum pay floor, so compensation is neither a confirmed fit nor a conflict.",
+            "quotes": [
+              "Fixed Price",
+              "$200"
+            ],
+            "briefQuotes": [
+              "project",
+              "include"
+            ]
+          }
+        ]
+      },
+      "usage": {
+        "model": "gpt-5.4-2026-03-05",
+        "inputTokens": 1853,
+        "cachedInputTokens": 0,
+        "outputTokens": 2657,
+        "durationMs": 37689,
+        "responseId": "resp_061adc9d39a38b37016ae39bddcf3087d2849e83f9b021a03f"
+      },
+      "expertCalls": 1,
+      "baselineCalls": 2,
+      "taskStatus": "ready"
+    },
+    {
+      "name": "recorded-services",
+      "origin": "token-budget-services-recapture-2026-10-29.json",
+      "passed": true,
+      "valid": true,
+      "expectationsPassed": true,
+      "durablePassed": true,
+      "accepted": true,
+      "expected": {
+        "reason": "sample_audit",
+        "criteria": {
+          "role": [
+            "meets"
+          ],
+          "category": [
+            "meets"
+          ],
+          "arrangement": [
+            "meets"
+          ],
+          "location": [
+            "unknown"
+          ],
+          "authorization": [
+            "unknown"
+          ],
+          "compensation": [
+            "unknown",
+            "meets"
+          ],
+          "experience": [
+            "unknown"
+          ]
+        }
+      },
+      "criteria": {
+        "role": "meets",
+        "category": "meets",
+        "arrangement": "meets",
+        "location": "unknown",
+        "experience": "unknown",
+        "authorization": "unknown",
+        "compensation": "meets"
+      },
+      "durationMs": 17625,
+      "source": {
+        "url": "https://www.peopleperhour.com/freelance-jobs/design/web-design/redesign-of-caterers-website-uk-4525648",
+        "observedAt": "2026-10-29T10:44:31.076Z",
+        "complete": true
+      },
+      "fit": {
+        "criteria": [
+          {
+            "criterion": "role",
+            "status": "meets",
+            "explanation": "The request is explicitly for website redesign work, matching the brief target of website redesign services.",
+            "quotes": [
+              "Website Redesign – Indian & Asian Catering & Events Business UK",
+              "We’re looking for an experienced web designer/developer to redesign an established Indian & Asian catering and events business website.",
+              "The existing website is dated and needs a complete refresh in terms of layout, visual design, user experience and enquiry journey."
+            ],
+            "briefQuotes": [
+              "Find clients requesting website redesign services",
+              "Website redesign"
+            ]
+          },
+          {
+            "criterion": "category",
+            "status": "meets",
+            "explanation": "This is a client service opportunity, which matches the brief’s services category.",
+            "quotes": [
+              " * OPPORTUNITY",
+              " * Open for Proposals",
+              "We’re looking for an experienced web designer/developer to redesign an established Indian & Asian catering and events business website."
+            ],
+            "briefQuotes": [
+              "services",
+              "Synthetic service-request scout"
+            ]
+          },
+          {
+            "criterion": "arrangement",
+            "status": "meets",
+            "explanation": "The listing explicitly says the project is remote, satisfying the brief’s required remote arrangement.",
+            "quotes": [
+              " * Remote"
+            ],
+            "briefQuotes": [
+              "remote"
+            ]
+          },
+          {
+            "criterion": "location",
+            "status": "unknown",
+            "explanation": "The source references the buyer/market as UK, but it does not state any freelancer location restriction or worldwide eligibility. Remote alone does not prove remote-worldwide eligibility.",
+            "quotes": [
+              "REDESIGN OF CATERERS WEBSITE UK",
+              "Website Redesign – Indian & Asian Catering & Events Business UK",
+              "The website needs to work particularly well for customers looking for weddings, private functions, corporate events, parties and Asian/Indian catering in the UK.."
+            ],
+            "briefQuotes": [
+              "New York, United States",
+              "United States or remote worldwide",
+              "review"
+            ]
+          },
+          {
+            "criterion": "experience",
+            "status": "unknown",
+            "explanation": "The listing requires proven experience with hospitality, catering, food, events, or similar service businesses. The brief confirms website redesign experience, but does not confirm that specific industry background.",
+            "quotes": [
+              "Who we're looking for",
+              "You should have proven experience designing websites for hospitality, catering, food, events or similar service businesses.",
+              "Please provide examples of previous websites you have designed, particularly projects where you have improved the customer journey or increased enquiries/conversions."
+            ],
+            "briefQuotes": [
+              "Website redesign",
+              "Five years delivering website redesign, responsive layouts, WordPress and accessible user interfaces for small businesses"
+            ]
+          },
+          {
+            "criterion": "authorization",
+            "status": "unknown",
+            "explanation": "No work authorization, residency, or sponsorship condition is stated in the listing, so fit on this criterion cannot be confirmed from the evidence.",
+            "quotes": [],
+            "briefQuotes": [
+              "United States",
+              "not_needed"
+            ]
+          },
+          {
+            "criterion": "compensation",
+            "status": "meets",
+            "explanation": "The listing gives a fixed project price, and the brief’s pay period is project with no minimum pay floor specified. The GBP currency does not create a conflict when no minimum pay is set.",
+            "quotes": [
+              "Fixed Price",
+              "£500(approx. $664)"
+            ],
+            "briefQuotes": [
+              "USD",
+              "project",
+              "include"
+            ]
+          }
+        ]
+      },
+      "usage": {
+        "model": "gpt-5.4-2026-03-05",
+        "inputTokens": 2098,
+        "cachedInputTokens": 1792,
+        "outputTokens": 1247,
+        "durationMs": 17624,
+        "responseId": "resp_060c2ad26d3c4b89016ae39c032d7487d29d0fbf1ddcfb8bcb"
+      },
+      "expertCalls": 1,
+      "baselineCalls": 2,
+      "taskStatus": "ready"
+    }
+  ],
+  "recoveries": [],
+  "sharedTokenBudget": {
+    "before": {
+      "day": "2026-10-29",
+      "inputTokens": 2199165,
+      "outputTokens": 246525,
+      "cachedInputTokens": 703232,
+      "reservedTokens": 27937,
+      "usedTokens": 2445690,
+      "dailyLimit": 2650000,
+      "remainingTokens": 176373,
+      "unknownReservations": 5,
+      "models": [
+        {
+          "day": "2026-10-29",
+          "model": "gpt-5.4",
+          "dailyLimit": 250000,
+          "inputTokens": 29340,
+          "outputTokens": 18308,
+          "cachedInputTokens": 0,
+          "usedTokens": 47648,
+          "reservedTokens": 27937,
+          "remainingTokens": 174415,
+          "unknownReservations": 5,
+          "allocations": [
+            {
+              "purpose": "standard",
+              "dailyLimit": 210000,
+              "usedTokens": 38863,
+              "reservedTokens": 15986,
+              "remainingTokens": 155151
+            },
+            {
+              "purpose": "audit",
+              "dailyLimit": 40000,
+              "usedTokens": 8785,
+              "reservedTokens": 11951,
+              "remainingTokens": 19264
+            }
+          ]
+        },
+        {
+          "day": "2026-10-29",
+          "model": "gpt-5.4-mini",
+          "dailyLimit": 2400000,
+          "inputTokens": 2169825,
+          "outputTokens": 228217,
+          "cachedInputTokens": 703232,
+          "usedTokens": 2398042,
+          "reservedTokens": 0,
+          "remainingTokens": 1958,
+          "unknownReservations": 0,
+          "allocations": [
+            {
+              "purpose": "standard",
+              "dailyLimit": 2400000,
+              "usedTokens": 2398042,
+              "reservedTokens": 0,
+              "remainingTokens": 1958
+            },
+            {
+              "purpose": "audit",
+              "dailyLimit": 0,
+              "usedTokens": 0,
+              "reservedTokens": 0,
+              "remainingTokens": 0
+            }
+          ]
+        }
+      ]
+    },
+    "after": {
+      "day": "2026-10-29",
+      "inputTokens": 2203116,
+      "outputTokens": 250429,
+      "cachedInputTokens": 705024,
+      "reservedTokens": 27937,
+      "usedTokens": 2453545,
+      "dailyLimit": 2650000,
+      "remainingTokens": 168518,
+      "unknownReservations": 5,
+      "models": [
+        {
+          "day": "2026-10-29",
+          "model": "gpt-5.4",
+          "dailyLimit": 250000,
+          "inputTokens": 33291,
+          "outputTokens": 22212,
+          "cachedInputTokens": 1792,
+          "usedTokens": 55503,
+          "reservedTokens": 27937,
+          "remainingTokens": 166560,
+          "unknownReservations": 5,
+          "allocations": [
+            {
+              "purpose": "standard",
+              "dailyLimit": 210000,
+              "usedTokens": 38863,
+              "reservedTokens": 15986,
+              "remainingTokens": 155151
+            },
+            {
+              "purpose": "audit",
+              "dailyLimit": 40000,
+              "usedTokens": 16640,
+              "reservedTokens": 11951,
+              "remainingTokens": 11409
+            }
+          ]
+        },
+        {
+          "day": "2026-10-29",
+          "model": "gpt-5.4-mini",
+          "dailyLimit": 2400000,
+          "inputTokens": 2169825,
+          "outputTokens": 228217,
+          "cachedInputTokens": 703232,
+          "usedTokens": 2398042,
+          "reservedTokens": 0,
+          "remainingTokens": 1958,
+          "unknownReservations": 0,
+          "allocations": [
+            {
+              "purpose": "standard",
+              "dailyLimit": 2400000,
+              "usedTokens": 2398042,
+              "reservedTokens": 0,
+              "remainingTokens": 1958
+            },
+            {
+              "purpose": "audit",
+              "dailyLimit": 0,
+              "usedTokens": 0,
+              "reservedTokens": 0,
+              "remainingTokens": 0
+            }
+          ]
+        }
+      ]
+    },
+    "attempts": [
+      {
+        "model": "gpt-5.4-2026-03-05",
+        "purpose": "audit",
+        "reservedTokens": 5853,
+        "state": "completed",
+        "usage": {
+          "inputTokens": 1853,
+          "outputTokens": 2657,
+          "cachedInputTokens": 0
+        }
+      },
+      {
+        "model": "gpt-5.4-2026-03-05",
+        "purpose": "audit",
+        "reservedTokens": 6098,
+        "state": "completed",
+        "usage": {
+          "inputTokens": 2098,
+          "outputTokens": 1247,
+          "cachedInputTokens": 1792
+        }
+      }
+    ],
+    "evaluationTokenCeiling": 20037,
+    "evaluationAccountedTokens": 7855,
+    "scope": "Evaluation generations share the configured worker database's daily allowance. Before/after snapshots include background worker activity; attempts contain this evaluation only. Counting failures before reservation do not appear as generation attempts."
+  }
+}

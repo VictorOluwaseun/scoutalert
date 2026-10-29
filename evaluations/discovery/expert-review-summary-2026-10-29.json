@@ -1,0 +1,136 @@
+{
+  "checkedAt": "2026-10-29T19:09:55.720406+00:00",
+  "receipts": [
+    "expert-review-expanded-2026-10-29.json",
+    "expert-review-targeted-retest-2026-10-29.json",
+    "expert-review-timings-2026-10-29.json"
+  ],
+  "scenarios": {
+    "total": 14,
+    "passed": 12,
+    "pending": [
+      {
+        "name": "recorded-projects",
+        "reason": "Initial provider failure near the 25-second deadline; exact prior reservation exceeds the 4,264 tokens remaining in the protected audit allocation."
+      },
+      {
+        "name": "recorded-services",
+        "reason": "Initial provider failure near the 25-second deadline; exact prior reservation exceeds the 4,264 tokens remaining in the protected audit allocation."
+      }
+    ]
+  },
+  "testSpending": {
+    "generationAttempts": 17,
+    "completedGenerations": 12,
+    "unknownOutcomes": 5,
+    "reportedTokens": 32026,
+    "retainedTokens": 27937,
+    "accountedTokens": 59963,
+    "batchCeiling": 80000,
+    "miniGenerationTokens": 0
+  },
+  "fix": {
+    "expertFitTimeoutMs": 40000,
+    "previousTimeoutMs": 25000,
+    "durableLeaseMs": 55000,
+    "retries": 0,
+    "targetedRetestPassed": 3,
+    "longestPassingRetestMs": 28750
+  },
+  "verification": {
+    "focusedTests": 8,
+    "budgetIntegrationTests": 2,
+    "builds": [
+      "adapters",
+      "worker"
+    ],
+    "architectureSources": 405
+  },
+  "worker": {
+    "pid": 46825,
+    "log": "/tmp/scoutalert-worker-expert-timeout-ready-2026-10-29.log",
+    "previousPid": 40943,
+    "runningQueues": 9,
+    "errorLinesAtVerification": 0,
+    "previousStoppedQueues": 9,
+    "startupRecovery": "First launch failed because the documented Redis container was stopped. Restored the existing Redis and local Mailpit containers, checked readiness, then launched the worker successfully."
+  },
+  "usage": {
+    "day": "2026-10-29",
+    "inputTokens": 2199165,
+    "outputTokens": 246525,
+    "cachedInputTokens": 703232,
+    "reservedTokens": 27937,
+    "usedTokens": 2445690,
+    "dailyLimit": 2650000,
+    "remainingTokens": 176373,
+    "unknownReservations": 5,
+    "models": [
+      {
+        "day": "2026-10-29",
+        "model": "gpt-5.4",
+        "dailyLimit": 250000,
+        "inputTokens": 29340,
+        "outputTokens": 18308,
+        "cachedInputTokens": 0,
+        "usedTokens": 47648,
+        "reservedTokens": 27937,
+        "remainingTokens": 174415,
+        "unknownReservations": 5,
+        "allocations": [
+          {
+            "purpose": "standard",
+            "dailyLimit": 225000,
+            "usedTokens": 38863,
+            "reservedTokens": 15986,
+            "remainingTokens": 170151
+          },
+          {
+            "purpose": "audit",
+            "dailyLimit": 25000,
+            "usedTokens": 8785,
+            "reservedTokens": 11951,
+            "remainingTokens": 4264
+          }
+        ]
+      },
+      {
+        "day": "2026-10-29",
+        "model": "gpt-5.4-mini",
+        "dailyLimit": 2400000,
+        "inputTokens": 2169825,
+        "outputTokens": 228217,
+        "cachedInputTokens": 703232,
+        "usedTokens": 2398042,
+        "reservedTokens": 0,
+        "remainingTokens": 1958,
+        "unknownReservations": 0,
+        "allocations": [
+          {
+            "purpose": "standard",
+            "dailyLimit": 2400000,
+            "usedTokens": 2398042,
+            "reservedTokens": 0,
+            "remainingTokens": 1958
+          },
+          {
+            "purpose": "audit",
+            "dailyLimit": 0,
+            "usedTokens": 0,
+            "reservedTokens": 0,
+            "remainingTokens": 0
+          }
+        ]
+      }
+    ],
+    "maximumOutputTokens": 4000,
+    "planningModel": "gpt-5.4-mini-2026-03-17",
+    "expertModel": "gpt-5.4-2026-03-05",
+    "auditPercent": 5,
+    "extractionModel": "gpt-5.4-mini-2026-03-17",
+    "fitModel": "gpt-5.4-mini-2026-03-17",
+    "resetTimezone": "UTC",
+    "scope": "This deployment's guarded worker and shared-budget evaluation calls; counting begins when the guard is activated."
+  },
+  "scope": "Live expert providers and durable production review/recovery use cases. Authored or recorded mini baselines and source/search evidence, no fresh source retrieval, availability checks or email delivery by this evaluation. Expected labels were authored before model calls; independent human usefulness and comparative model accuracy remain unmeasured."
+}

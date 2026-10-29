@@ -1,0 +1,176 @@
+{
+  "checkedAt": "2026-10-29T19:04:59.756Z",
+  "scope": "Shared ledger timings; failed requests keep their reserved tokens. Four initial unknown outcomes finished near the 25-second SDK deadline; one had HTTP 520.",
+  "timings": [
+    {
+      "case": "conflicting-country-evidence",
+      "model": "gpt-5.4-2026-03-05",
+      "purpose": "standard",
+      "state": "completed",
+      "reserved_tokens": 5327,
+      "input_tokens": 1327,
+      "output_tokens": 965,
+      "duration_seconds": "11.55"
+    },
+    {
+      "case": "buyer-location-is-not-eligibility",
+      "model": "gpt-5.4-2026-03-05",
+      "purpose": "standard",
+      "state": "completed",
+      "reserved_tokens": 5344,
+      "input_tokens": 1344,
+      "output_tokens": 938,
+      "duration_seconds": "12.39"
+    },
+    {
+      "case": "mandatory-onsite-visit",
+      "model": "gpt-5.4-2026-03-05",
+      "purpose": "standard",
+      "state": "unknown",
+      "reserved_tokens": 5330,
+      "input_tokens": null,
+      "output_tokens": null,
+      "duration_seconds": "24.21"
+    },
+    {
+      "case": "mandatory-supplier-qualification",
+      "model": "gpt-5.4-2026-03-05",
+      "purpose": "standard",
+      "state": "completed",
+      "reserved_tokens": 5340,
+      "input_tokens": 1340,
+      "output_tokens": 1694,
+      "duration_seconds": "21.71"
+    },
+    {
+      "case": "optional-skill-is-not-mandatory",
+      "model": "gpt-5.4-2026-03-05",
+      "purpose": "standard",
+      "state": "unknown",
+      "reserved_tokens": 5344,
+      "input_tokens": null,
+      "output_tokens": null,
+      "duration_seconds": "24.55"
+    },
+    {
+      "case": "source-instructions-cannot-waive-restriction",
+      "model": "gpt-5.4-2026-03-05",
+      "purpose": "standard",
+      "state": "completed",
+      "reserved_tokens": 5357,
+      "input_tokens": 1357,
+      "output_tokens": 818,
+      "duration_seconds": "11.16"
+    },
+    {
+      "case": "partial-source-cannot-upgrade",
+      "model": "gpt-5.4-2026-03-05",
+      "purpose": "standard",
+      "state": "unknown",
+      "reserved_tokens": 5312,
+      "input_tokens": null,
+      "output_tokens": null,
+      "duration_seconds": "10.78"
+    },
+    {
+      "case": "audit-false-rejection",
+      "model": "gpt-5.4-2026-03-05",
+      "purpose": "audit",
+      "state": "completed",
+      "reserved_tokens": 5308,
+      "input_tokens": 1308,
+      "output_tokens": 915,
+      "duration_seconds": "12.26"
+    },
+    {
+      "case": "audit-false-approval",
+      "model": "gpt-5.4-2026-03-05",
+      "purpose": "audit",
+      "state": "completed",
+      "reserved_tokens": 5329,
+      "input_tokens": 1329,
+      "output_tokens": 1940,
+      "duration_seconds": "23.89"
+    },
+    {
+      "case": "recorded-projects",
+      "model": "gpt-5.4-2026-03-05",
+      "purpose": "audit",
+      "state": "unknown",
+      "reserved_tokens": 5853,
+      "input_tokens": null,
+      "output_tokens": null,
+      "duration_seconds": "24.59"
+    },
+    {
+      "case": "recorded-services",
+      "model": "gpt-5.4-2026-03-05",
+      "purpose": "audit",
+      "state": "unknown",
+      "reserved_tokens": 6098,
+      "input_tokens": null,
+      "output_tokens": null,
+      "duration_seconds": "24.28"
+    },
+    {
+      "case": "remote-buyer-over-sellers",
+      "model": "gpt-5.4-2026-03-05",
+      "purpose": "standard",
+      "state": "completed",
+      "reserved_tokens": 4583,
+      "input_tokens": 2583,
+      "output_tokens": 182,
+      "duration_seconds": "4.08"
+    },
+    {
+      "case": "readable-source-after-denial",
+      "model": "gpt-5.4-2026-03-05",
+      "purpose": "standard",
+      "state": "completed",
+      "reserved_tokens": 4628,
+      "input_tokens": 2628,
+      "output_tokens": 204,
+      "duration_seconds": "3.46"
+    },
+    {
+      "case": "remote-query-after-unknowns",
+      "model": "gpt-5.4-2026-03-05",
+      "purpose": "standard",
+      "state": "completed",
+      "reserved_tokens": 4439,
+      "input_tokens": 2439,
+      "output_tokens": 504,
+      "duration_seconds": "8.49"
+    },
+    {
+      "case": "mandatory-onsite-visit",
+      "model": "gpt-5.4-2026-03-05",
+      "purpose": "standard",
+      "state": "completed",
+      "reserved_tokens": 5330,
+      "input_tokens": 1330,
+      "output_tokens": 1102,
+      "duration_seconds": "14.42"
+    },
+    {
+      "case": "optional-skill-is-not-mandatory",
+      "model": "gpt-5.4-2026-03-05",
+      "purpose": "standard",
+      "state": "completed",
+      "reserved_tokens": 5344,
+      "input_tokens": 1344,
+      "output_tokens": 940,
+      "duration_seconds": "11.49"
+    },
+    {
+      "case": "partial-source-cannot-upgrade",
+      "model": "gpt-5.4-2026-03-05",
+      "purpose": "standard",
+      "state": "completed",
+      "reserved_tokens": 5312,
+      "input_tokens": 1312,
+      "output_tokens": 2183,
+      "duration_seconds": "28.25"
+    }
+  ]
+}

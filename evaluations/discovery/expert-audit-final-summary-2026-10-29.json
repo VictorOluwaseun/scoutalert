@@ -1,0 +1,126 @@
+{
+  "checkedAt": "2026-10-29T19:20:06.055797+00:00",
+  "supersedesPendingStatusIn": "expert-review-summary-2026-10-29.json",
+  "receipts": [
+    "expert-review-expanded-2026-10-29.json",
+    "expert-review-targeted-retest-2026-10-29.json",
+    "expert-audit-completion-2026-10-29.json",
+    "expert-audit-reallocation-2026-10-29.json"
+  ],
+  "scenarios": {
+    "total": 14,
+    "passed": 14,
+    "pending": []
+  },
+  "lastTwoAudits": {
+    "passed": 2,
+    "tokens": 7855,
+    "miniTokens": 0
+  },
+  "testSpending": {
+    "generationAttempts": 19,
+    "completedGenerations": 14,
+    "unknownOutcomes": 5,
+    "reportedTokens": 39881,
+    "retainedTokens": 27937,
+    "accountedTokens": 67818,
+    "batchCeiling": 80000,
+    "miniGenerationTokens": 0
+  },
+  "allocation": {
+    "previousAuditTokens": 25000,
+    "auditTokens": 40000,
+    "standardTokens": 210000,
+    "fullModelCap": 250000,
+    "miniCap": 2400000,
+    "combinedCap": 2650000,
+    "capsUnchanged": true,
+    "existingReservationsRetained": true
+  },
+  "worker": {
+    "pid": 48398,
+    "log": "/tmp/scoutalert-worker-audit-allocation-2026-10-29.log",
+    "previousPid": 46825,
+    "runningQueues": 9,
+    "errorLinesAtVerification": 0,
+    "previousStoppedQueues": 9
+  },
+  "usage": {
+    "day": "2026-10-29",
+    "inputTokens": 2203116,
+    "outputTokens": 250429,
+    "cachedInputTokens": 705024,
+    "reservedTokens": 27937,
+    "usedTokens": 2453545,
+    "dailyLimit": 2650000,
+    "remainingTokens": 168518,
+    "unknownReservations": 5,
+    "models": [
+      {
+        "day": "2026-10-29",
+        "model": "gpt-5.4",
+        "dailyLimit": 250000,
+        "inputTokens": 33291,
+        "outputTokens": 22212,
+        "cachedInputTokens": 1792,
+        "usedTokens": 55503,
+        "reservedTokens": 27937,
+        "remainingTokens": 166560,
+        "unknownReservations": 5,
+        "allocations": [
+          {
+            "purpose": "standard",
+            "dailyLimit": 210000,
+            "usedTokens": 38863,
+            "reservedTokens": 15986,
+            "remainingTokens": 155151
+          },
+          {
+            "purpose": "audit",
+            "dailyLimit": 40000,
+            "usedTokens": 16640,
+            "reservedTokens": 11951,
+            "remainingTokens": 11409
+          }
+        ]
+      },
+      {
+        "day": "2026-10-29",
+        "model": "gpt-5.4-mini",
+        "dailyLimit": 2400000,
+        "inputTokens": 2169825,
+        "outputTokens": 228217,
+        "cachedInputTokens": 703232,
+        "usedTokens": 2398042,
+        "reservedTokens": 0,
+        "remainingTokens": 1958,
+        "unknownReservations": 0,
+        "allocations": [
+          {
+            "purpose": "standard",
+            "dailyLimit": 2400000,
+            "usedTokens": 2398042,
+            "reservedTokens": 0,
+            "remainingTokens": 1958
+          },
+          {
+            "purpose": "audit",
+            "dailyLimit": 0,
+            "usedTokens": 0,
+            "reservedTokens": 0,
+            "remainingTokens": 0
+          }
+        ]
+      }
+    ],
+    "maximumOutputTokens": 4000,
+    "planningModel": "gpt-5.4-mini-2026-03-17",
+    "expertModel": "gpt-5.4-2026-03-05",
+    "auditPercent": 5,
+    "extractionModel": "gpt-5.4-mini-2026-03-17",
+    "fitModel": "gpt-5.4-mini-2026-03-17",
+    "resetTimezone": "UTC",
+    "scope": "This deployment's guarded worker and shared-budget evaluation calls; counting begins when the guard is activated."
+  },
+  "scope": "Completed all 14 expert-stage regression scenarios across recorded-source and authored cases, including durable cache replay. Does not establish current listing availability, fresh end-to-end discovery, independent human usefulness or representative model comparison."
+}

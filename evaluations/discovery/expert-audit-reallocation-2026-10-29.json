@@ -1,0 +1,160 @@
+{
+  "checkedAt": "2026-10-29T19:17:32.786512+00:00",
+  "reason": "User-authorized increase of audit capacity within the existing full-model limit to finish two pending tests.",
+  "capsUnchanged": true,
+  "usageAndReservationsPreserved": true,
+  "before": {
+    "day": "2026-10-29",
+    "inputTokens": 2199165,
+    "outputTokens": 246525,
+    "cachedInputTokens": 703232,
+    "reservedTokens": 27937,
+    "usedTokens": 2445690,
+    "dailyLimit": 2650000,
+    "remainingTokens": 176373,
+    "unknownReservations": 5,
+    "models": [
+      {
+        "day": "2026-10-29",
+        "model": "gpt-5.4",
+        "dailyLimit": 250000,
+        "inputTokens": 29340,
+        "outputTokens": 18308,
+        "cachedInputTokens": 0,
+        "usedTokens": 47648,
+        "reservedTokens": 27937,
+        "remainingTokens": 174415,
+        "unknownReservations": 5,
+        "allocations": [
+          {
+            "purpose": "standard",
+            "dailyLimit": 225000,
+            "usedTokens": 38863,
+            "reservedTokens": 15986,
+            "remainingTokens": 170151
+          },
+          {
+            "purpose": "audit",
+            "dailyLimit": 25000,
+            "usedTokens": 8785,
+            "reservedTokens": 11951,
+            "remainingTokens": 4264
+          }
+        ]
+      },
+      {
+        "day": "2026-10-29",
+        "model": "gpt-5.4-mini",
+        "dailyLimit": 2400000,
+        "inputTokens": 2169825,
+        "outputTokens": 228217,
+        "cachedInputTokens": 703232,
+        "usedTokens": 2398042,
+        "reservedTokens": 0,
+        "remainingTokens": 1958,
+        "unknownReservations": 0,
+        "allocations": [
+          {
+            "purpose": "standard",
+            "dailyLimit": 2400000,
+            "usedTokens": 2398042,
+            "reservedTokens": 0,
+            "remainingTokens": 1958
+          },
+          {
+            "purpose": "audit",
+            "dailyLimit": 0,
+            "usedTokens": 0,
+            "reservedTokens": 0,
+            "remainingTokens": 0
+          }
+        ]
+      }
+    ],
+    "maximumOutputTokens": 4000,
+    "planningModel": "gpt-5.4-mini-2026-03-17",
+    "expertModel": "gpt-5.4-2026-03-05",
+    "auditPercent": 5,
+    "extractionModel": "gpt-5.4-mini-2026-03-17",
+    "fitModel": "gpt-5.4-mini-2026-03-17",
+    "resetTimezone": "UTC",
+    "scope": "This deployment's guarded worker and shared-budget evaluation calls; counting begins when the guard is activated."
+  },
+  "after": {
+    "day": "2026-10-29",
+    "inputTokens": 2199165,
+    "outputTokens": 246525,
+    "cachedInputTokens": 703232,
+    "reservedTokens": 27937,
+    "usedTokens": 2445690,
+    "dailyLimit": 2650000,
+    "remainingTokens": 176373,
+    "unknownReservations": 5,
+    "models": [
+      {
+        "day": "2026-10-29",
+        "model": "gpt-5.4",
+        "dailyLimit": 250000,
+        "inputTokens": 29340,
+        "outputTokens": 18308,
+        "cachedInputTokens": 0,
+        "usedTokens": 47648,
+        "reservedTokens": 27937,
+        "remainingTokens": 174415,
+        "unknownReservations": 5,
+        "allocations": [
+          {
+            "purpose": "standard",
+            "dailyLimit": 210000,
+            "usedTokens": 38863,
+            "reservedTokens": 15986,
+            "remainingTokens": 155151
+          },
+          {
+            "purpose": "audit",
+            "dailyLimit": 40000,
+            "usedTokens": 8785,
+            "reservedTokens": 11951,
+            "remainingTokens": 19264
+          }
+        ]
+      },
+      {
+        "day": "2026-10-29",
+        "model": "gpt-5.4-mini",
+        "dailyLimit": 2400000,
+        "inputTokens": 2169825,
+        "outputTokens": 228217,
+        "cachedInputTokens": 703232,
+        "usedTokens": 2398042,
+        "reservedTokens": 0,
+        "remainingTokens": 1958,
+        "unknownReservations": 0,
+        "allocations": [
+          {
+            "purpose": "standard",
+            "dailyLimit": 2400000,
+            "usedTokens": 2398042,
+            "reservedTokens": 0,
+            "remainingTokens": 1958
+          },
+          {
+            "purpose": "audit",
+            "dailyLimit": 0,
+            "usedTokens": 0,
+            "reservedTokens": 0,
+            "remainingTokens": 0
+          }
+        ]
+      }
+    ],
+    "maximumOutputTokens": 4000,
+    "planningModel": "gpt-5.4-mini-2026-03-17",
+    "expertModel": "gpt-5.4-2026-03-05",
+    "auditPercent": 5,
+    "extractionModel": "gpt-5.4-mini-2026-03-17",
+    "fitModel": "gpt-5.4-mini-2026-03-17",
+    "resetTimezone": "UTC",
+    "scope": "This deployment's guarded worker and shared-budget evaluation calls; counting begins when the guard is activated."
+  }
+}
