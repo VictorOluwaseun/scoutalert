@@ -6,7 +6,7 @@ const filters = [
   { value: "all", label: "All results" },
   { value: "job", label: "Jobs & contracts" },
   { value: "client_request", label: "Client requests" },
-  { value: "assessed", label: "AI assessed" },
+  { value: "assessed", label: "Fit reviewed" },
 ] as const;
 
 type OpportunityFilter = (typeof filters)[number]["value"];

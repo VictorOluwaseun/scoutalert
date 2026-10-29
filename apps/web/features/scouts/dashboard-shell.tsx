@@ -14,7 +14,7 @@ export function DashboardShell({
 }: {
   account?: VerifiedAccount;
   examples?: boolean;
-  section?: "dashboard" | "discovery" | "connections";
+  section?: "dashboard" | "discovery" | "scouts" | "connections";
   children: ReactNode;
 }) {
   return (
@@ -33,15 +33,22 @@ export function DashboardShell({
               !examples && section === "dashboard" ? "page" : undefined
             }
           >
-            <Icon name="compass" size={21} />
-            Dashboard
+            <Icon name="briefcase" size={21} />
+            Opportunities
           </Link>
           <Link
             href="/dashboard/discovery"
             aria-current={section === "discovery" ? "page" : undefined}
           >
             <Icon name="globe" size={21} />
-            Web discovery
+            Web leads
+          </Link>
+          <Link
+            href="/dashboard/scouts"
+            aria-current={section === "scouts" ? "page" : undefined}
+          >
+            <Icon name="compass" size={21} />
+            Your scouts
           </Link>
           <Link
             href="/dashboard/connections"
@@ -49,14 +56,6 @@ export function DashboardShell({
           >
             <Icon name="mail" size={21} />
             Connections
-          </Link>
-          <Link href="/dashboard#scouts">
-            <Icon name="search" size={21} />
-            Your scouts
-          </Link>
-          <Link href="/dashboard#opportunities">
-            <Icon name="briefcase" size={21} />
-            Opportunities
           </Link>
         </nav>
         {account && (

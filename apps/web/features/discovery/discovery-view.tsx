@@ -19,7 +19,7 @@ export function WebDiscoveryView({ page }: { page: WebDiscoveryPage }) {
       <div className="web-discovery">
         <header className="web-discovery-header">
           <div>
-            <h1>Web discovery</h1>
+            <h1>Leads worth exploring.</h1>
             <p>Fresh leads from your scouts, ready for a closer look.</p>
           </div>
           <div className="web-discovery-actions">

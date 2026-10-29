@@ -4,10 +4,10 @@
 }
 
 .web-discovery {
-  --discovery-ink: #20262d;
-  --discovery-muted: #495565;
-  --discovery-line: #dce1e6;
-  --discovery-green: #476126;
+  --discovery-ink: var(--foreground);
+  --discovery-muted: var(--muted-foreground);
+  --discovery-line: var(--border);
+  --discovery-green: var(--accent-strong);
   color: var(--discovery-ink);
   font-size: 16px;
   line-height: 1.6;

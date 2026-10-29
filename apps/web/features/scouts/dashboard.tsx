@@ -97,8 +97,8 @@ export function Dashboard({
         )}
         <header className="dashboard-heading">
           <div>
-            <h1>Your dashboard</h1>
-            <p>Your opportunities and scouts, in one place.</p>
+            <h1>Your next opportunity.</h1>
+            <p>Work worth a closer look, brought together by your scouts.</p>
           </div>
           <div className="dashboard-heading-actions">
             <RefreshDashboard searching={searching} />
@@ -254,7 +254,12 @@ export function Dashboard({
             <section id="scouts" aria-labelledby="scouts-heading">
               <div className="dashboard-section-heading">
                 <h2 id="scouts-heading">Your scouts</h2>
-                <span>{page.items.length} shown</span>
+                <Link
+                  className="dashboard-manage-link"
+                  href="/dashboard/scouts"
+                >
+                  Manage <Icon name="arrowRight" size={15} />
+                </Link>
               </div>
               {olderPage && (
                 <p className="dashboard-earlier-note">

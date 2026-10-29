@@ -26,7 +26,7 @@ export default async function EditScoutPage({
 
   if (result.status === "ready") {
     return (
-      <DashboardShell account={result.account}>
+      <DashboardShell account={result.account} section="scouts">
         <EditScout
           key={`${result.scout.id}:${result.scout.version}`}
           scout={result.scout}
@@ -36,7 +36,7 @@ export default async function EditScoutPage({
   }
 
   return (
-    <DashboardShell>
+    <DashboardShell section="scouts">
       <div className="workspace-unavailable">
         <h1>We couldn’t load this scout.</h1>
         <p>

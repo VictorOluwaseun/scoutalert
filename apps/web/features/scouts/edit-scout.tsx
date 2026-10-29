@@ -51,13 +51,13 @@ export function EditScout({ scout }: { scout: ManagedScout }) {
       return;
     }
 
-    router.push("/dashboard?updated=1#scouts");
+    router.push("/dashboard/scouts?updated=1");
     router.refresh();
   }
 
   return (
     <div className="workspace-editor">
-      <Link className="workspace-back" href="/dashboard#scouts">
+      <Link className="workspace-back" href="/dashboard/scouts">
         <Icon name="arrowLeft" size={19} />
         Back to your scouts
       </Link>
@@ -333,7 +333,7 @@ export function EditScout({ scout }: { scout: ManagedScout }) {
           <div className="workspace-control-buttons">
             <Link
               className={buttonVariants({ variant: "secondary" })}
-              href="/dashboard#scouts"
+              href="/dashboard/scouts"
             >
               Cancel
             </Link>

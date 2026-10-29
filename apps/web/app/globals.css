@@ -21,6 +21,10 @@
   --input: #dde1e6;
   --ring: #191c22;
   --destructive: #a24534;
+  --surface-soft: #f1f5df;
+  --accent-strong: #476126;
+  --warning: #77521d;
+  --radius-surface: 14px;
   color-scheme: light;
 }
 

@@ -5,7 +5,7 @@ import { Dashboard } from "@/features/scouts/dashboard";
 import { DashboardShell } from "@/features/scouts/dashboard-shell";
 import { readScoutDashboard } from "@/server/api-client/scout-api";
 
-export const metadata = { title: "Your dashboard · ScoutAlert" };
+export const metadata = { title: "Your opportunities · ScoutAlert" };
 
 /** Server-renders fresh account-owned records; expired sessions redirect before any personal data is presented. */
 export default async function DashboardPage({
