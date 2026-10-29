@@ -41,7 +41,7 @@ describe("PeoplePerHour primary buyer capture", () => {
       capture: {
         scope: "buyer_brief",
         complete: true,
-        parser: "peopleperhour-public-html-v2",
+        parser: "peopleperhour-public-html-v3",
       },
     });
     const input = reviewInput({
@@ -62,7 +62,7 @@ describe("PeoplePerHour primary buyer capture", () => {
     expect(result).toMatchObject({
       complete: true,
       reason: null,
-      parser: "peopleperhour-public-html-v2",
+      parser: "peopleperhour-public-html-v3",
     });
     for (const text of [
       "WordPress",
@@ -147,5 +147,42 @@ describe("PeoplePerHour primary buyer capture", () => {
         url,
       ),
     ).toMatchObject({ complete: false, reason: "buyer_brief_too_large" });
+  });
+
+  it.each(["Expired", "Paused", "Archived", "Awarded"])(
+    "captures %s evidence when the exact project names its immediate category as canonical",
+    (status) => {
+      const category = url.slice(0, url.lastIndexOf("/"));
+      const body = html
+        .replace(url, category)
+        .replace("Open for Proposals", status);
+      const result = peoplePerHourRequestContent(body, url);
+      expect(result?.complete).toBe(true);
+      expect(result?.text).toContain(status);
+      expect(result?.text).toContain("#4526000");
+      expect(result?.text).not.toMatch(/TypeScript|London|Angular/);
+      expect(
+        peoplePerHourRequestContent(body.replace("#4526000", "#9999999"), url)
+          ?.complete,
+      ).toBe(false);
+    },
+  );
+
+  it("never accepts open demand, another category or another host via category canonical fallback", () => {
+    const category = url.slice(0, url.lastIndexOf("/"));
+    expect(
+      peoplePerHourRequestContent(html.replace(url, category), url)?.complete,
+    ).toBe(false);
+    for (const canonical of [
+      category.replace("website-development", "cms-development"),
+      category.replace("peopleperhour.com", "example.org"),
+    ]) {
+      expect(
+        peoplePerHourRequestContent(
+          html.replace(url, canonical).replace("Open for Proposals", "Expired"),
+          url,
+        )?.complete,
+      ).toBe(false);
+    }
   });
 });

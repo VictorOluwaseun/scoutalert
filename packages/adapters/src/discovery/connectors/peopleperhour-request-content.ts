@@ -22,7 +22,7 @@ export function peoplePerHourRequestContent(
     text: null,
     complete: false,
     reason: "buyer_brief_structure_unrecognized",
-    parser: "peopleperhour-public-html-v2",
+    parser: "peopleperhour-public-html-v3",
   };
   const dom = parseDocument(html, { withEndIndices: true });
   const canonical = DomUtils.findAll(
@@ -38,7 +38,6 @@ export function peoplePerHourRequestContent(
   );
   if (
     canonical.length !== 1 ||
-    projectUrl(canonical[0]!.attribs.href ?? "") !== url ||
     roots.length !== 1 ||
     hidden(roots[0]!) ||
     !explicitlyClosed(roots[0]!, html)
@@ -46,12 +45,15 @@ export function peoplePerHourRequestContent(
     return incomplete;
   }
   const root = roots[0]!;
+  const canonicalUrl = canonicalDiscoveryUrl(canonical[0]!.attribs.href ?? "");
+  const sameProject = canonicalUrl !== null && projectUrl(canonicalUrl) === url;
   const moderated = withClass(root, "view-moderated");
   if (moderated.length === 1) {
     const text = sectionText(moderated[0]!);
-    return /\b(?:project has been cancell?ed|project is no longer available)\b/iu.test(
-      text,
-    )
+    return sameProject &&
+      /\b(?:project has been cancell?ed|project is no longer available)\b/iu.test(
+        text,
+      )
       ? capture([moderated[0]!], html, incomplete)
       : incomplete;
   }
@@ -75,12 +77,22 @@ export function peoplePerHourRequestContent(
     titles.length !== 1 ||
     !DomUtils.textContent(titles[0]!).trim() ||
     statuses.length !== 1 ||
-    !/\b(?:Open for Proposals|Expired|Closed|Awarded|Cancell?ed|In Progress)\b/iu.test(
+    !/\b(?:Open for Proposals|Expired|Closed|Awarded|Cancell?ed|In Progress|Paused|Archived)\b/iu.test(
       sectionText(statuses[0]!),
     ) ||
     !new RegExp(`#${id}\\b`, "u").test(sectionText(header)) ||
     sectionText(descriptions[0]!).length < 40
   ) {
+    return incomplete;
+  }
+  // Expired pages advertise the category as canonical while retaining their exact project ID.
+  // Permit only that immediate same-origin parent and an explicit unavailable state; open demand still requires its own canonical identity.
+  const closedCategory =
+    canonicalUrl === url.slice(0, url.lastIndexOf("/")) &&
+    /^(?:Expired|Closed|Awarded|Cancell?ed|In Progress|Paused|Archived)$/iu.test(
+      sectionText(statuses[0]!).trim(),
+    );
+  if (!sameProject && !closedCategory) {
     return incomplete;
   }
   return capture([header, levels[0]!, descriptions[0]!], html, incomplete);
