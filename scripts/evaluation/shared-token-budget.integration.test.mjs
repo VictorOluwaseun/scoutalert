@@ -77,6 +77,40 @@ test(
         );
         assert.equal(result.sharedTokenBudget.attempts[0].state, "completed");
         assert.equal((await worker.snapshot()).remainingTokens, 870);
+        const bounded = await withSharedModelTokenBudget(
+          async (_db, budget) => {
+            const claims = await Promise.all([
+              budget.repository.reserve("gpt-5.4", 20, 50),
+              budget.repository.reserve("gpt-5.4", 20, 50),
+            ]);
+            assert.equal(claims.filter(Boolean).length, 1);
+            const id = claims.find(Boolean);
+            const usage = {
+              inputTokens: 10,
+              outputTokens: 10,
+              cachedInputTokens: 0,
+            };
+            await budget.repository.settle(id, usage);
+            await budget.repository.settle(id, usage);
+            await assert.rejects(
+              () => budget.repository.reserve("unknown-model", 1, 16),
+              /unconfigured_model_token_budget/,
+            );
+            const unknown = await budget.repository.reserve("gpt-5.4", 10, 50);
+            assert.ok(unknown);
+            await budget.repository.settle(unknown, null);
+            assert.equal(
+              await budget.repository.reserve("gpt-5.4", 5, 16),
+              null,
+            );
+            return {};
+          },
+          true,
+          100,
+        )(sharedDb);
+        assert.equal(bounded.sharedTokenBudget.evaluationAccountedTokens, 80);
+        assert.equal(bounded.sharedTokenBudget.evaluationTokenCeiling, 100);
+        assert.equal(bounded.sharedTokenBudget.attempts.length, 2);
       } finally {
         process.env.DATABASE_URL = originalUrl;
         if (originalLimit === undefined) {

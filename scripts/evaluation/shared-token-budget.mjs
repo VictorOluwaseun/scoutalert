@@ -9,30 +9,46 @@ import { readWorkerConfiguration } from "../../apps/worker/dist/config.js";
 /** Attributes this evaluation's reservations while delegating every admission and settlement to the worker's durable ledger. */
 class EvaluationTokenBudget extends ModelTokenBudgetRepository {
   attempts = new Map();
+  accountedTokens = 0;
 
   /** Receives the shared repository, never a fresh per-evaluation allowance. */
-  constructor(shared) {
+  constructor(shared, maximumTokens = Infinity) {
     super();
     this.shared = shared;
+    this.maximumTokens = maximumTokens;
   }
 
   /** Counts a test attempt only after the shared atomic reservation succeeds. */
   async reserve(model, inputTokens, maximumOutputTokens, purpose = "standard") {
-    const id = await this.shared.reserve(
-      model,
-      inputTokens,
-      maximumOutputTokens,
-      purpose,
-    );
-    if (id) {
-      this.attempts.set(id, {
-        model,
-        purpose,
-        reservedTokens: inputTokens + maximumOutputTokens,
-        state: "reserved",
-        usage: null,
-      });
+    const reservedTokens = inputTokens + maximumOutputTokens;
+    if (this.accountedTokens + reservedTokens > this.maximumTokens) {
+      return null;
     }
+    // Reserve locally before awaiting the shared ledger so concurrent calls cannot reuse test capacity.
+    this.accountedTokens += reservedTokens;
+    let id;
+    try {
+      id = await this.shared.reserve(
+        model,
+        inputTokens,
+        maximumOutputTokens,
+        purpose,
+      );
+    } catch (error) {
+      this.accountedTokens -= reservedTokens;
+      throw error;
+    }
+    if (!id) {
+      this.accountedTokens -= reservedTokens;
+      return null;
+    }
+    this.attempts.set(id, {
+      model,
+      purpose,
+      reservedTokens,
+      state: "reserved",
+      usage: null,
+    });
     return id;
   }
 
@@ -42,6 +58,9 @@ class EvaluationTokenBudget extends ModelTokenBudgetRepository {
     const attempt = this.attempts.get(id);
     if (attempt?.state === "reserved") {
       Object.assign(attempt, { state: usage ? "completed" : "unknown", usage });
+      this.accountedTokens += usage
+        ? usage.inputTokens + usage.outputTokens - attempt.reservedTokens
+        : 0;
     }
   }
 
@@ -51,8 +70,18 @@ class EvaluationTokenBudget extends ModelTokenBudgetRepository {
   }
 }
 
-/** Wraps an isolated-database evaluation with the configured worker database's token ledger; only budget counters are written there. */
-export function withSharedModelTokenBudget(action, enabled = true) {
+/** Shares the worker's authoritative ledger and optionally adds a stricter per-invocation test ceiling; unknown outcomes retain capacity under both limits. */
+export function withSharedModelTokenBudget(
+  action,
+  enabled = true,
+  maximumTokens = Infinity,
+) {
+  if (
+    maximumTokens !== Infinity &&
+    (!Number.isSafeInteger(maximumTokens) || maximumTokens < 0)
+  ) {
+    throw new Error("invalid_evaluation_token_ceiling");
+  }
   return async (evaluationDb) => {
     if (!enabled) {
       return action(evaluationDb, undefined);
@@ -72,6 +101,7 @@ export function withSharedModelTokenBudget(action, enabled = true) {
           config.SCOUT_AI_AUDIT_DAILY_TOKENS,
         ),
       ),
+      maximumTokens,
     );
     try {
       const before = await repository.snapshot();
@@ -85,6 +115,12 @@ export function withSharedModelTokenBudget(action, enabled = true) {
           before,
           after: await repository.snapshot(),
           attempts: [...repository.attempts.values()],
+          ...(Number.isFinite(maximumTokens)
+            ? {
+                evaluationTokenCeiling: maximumTokens,
+                evaluationAccountedTokens: repository.accountedTokens,
+              }
+            : {}),
           scope:
             "Evaluation generations share the configured worker database's daily allowance. Before/after snapshots include background worker activity; attempts contain this evaluation only. Counting failures before reservation do not appear as generation attempts.",
         },
