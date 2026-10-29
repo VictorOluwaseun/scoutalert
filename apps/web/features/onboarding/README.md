@@ -13,12 +13,14 @@ The opening headline cycles through three plain-language promises about finding 
 ## Flow
 
 1. Describe a goal in free text, or choose an editable example.
-2. Confirm the opportunity category, target work, and optional background.
-3. Choose work arrangement, must-have status, residence, hiring geography, compensation units, and policies for missing information. The Next.js route forwards these answers to the NestJS API, which checks the brief using the core onboarding use case.
+2. Confirm the opportunity category, target work, and optional background. The original goal remains part of the brief; only the exact examples prefill structured answers.
+3. Choose work arrangement, must-have status, residence, hiring geography and compensation units. Optional work authorization and missing-information policies use native expandable sections. The Next.js route forwards these answers to the NestJS API, which checks the brief using the core onboarding use case.
 4. Name and review the scout. Explore fictional opportunities as a guest before providing an email.
 5. Choose daily, weekly, or dashboard-only delivery. Email alerts require a separate unchecked consent control. Prompt alerts are optional.
 6. Request an actual Mailpit code, verify it, and save the confirmed scout. An existing signed-in account can save directly. The saved result records pending initial discovery rather than claiming a completed search.
 7. Open the account-owned dashboard through “Go to my dashboard.” The example preview remains an optional secondary link. “Add a scout” starts a fresh brief and a fresh activation request while retaining the verified account.
+
+Progress groups the screens into Brief, Preferences, Review, Alerts and Account. Account setup and verification have their own visible group rather than extending the final alert step.
 
 Only the exact built-in example briefs seed structured fields. Arbitrary requests remain editable and require the person to confirm their target. Examples are never described as live discoveries or personalized matches.
 

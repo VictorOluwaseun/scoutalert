@@ -107,12 +107,11 @@ export function FocusStep({ draft, update, next, error }: StepProps) {
   return (
     <section>
       <h1 className="scout-display" tabIndex={-1}>
-        Let’s give your scout
-        <br />a little direction.
+        Let’s focus your search.
       </h1>
       <p className="scout-lede">
-        A clear brief helps it look for the right things. Start with the kind of
-        opportunity you want.
+        Confirm the kind of work and a clear target. Your original goal stays
+        part of your scout’s brief.
       </p>
       <div className="scout-original-brief">
         <Icon name="sparkles" size={17} />
@@ -286,7 +285,6 @@ export function PreferencesStep({
             help="Remote roles can still have hiring restrictions."
           />
         </div>
-        <AuthorizationFields value={draft} update={update} />
         <fieldset className="scout-fieldset">
           <legend>
             {draft.category === "services"
@@ -335,6 +333,23 @@ export function PreferencesStep({
             </SelectInput>
           </div>
         </fieldset>
+        <details className="scout-details scout-optional-details">
+          <summary>
+            <Icon name="shield" size={17} />
+            <span>
+              {draft.category === "services"
+                ? "Work eligibility, if a client requires it"
+                : "Work authorization and sponsorship"}
+              <small>
+                {draft.authorizationConfirmed ? "Details added" : "Optional"}
+              </small>
+            </span>
+            <Icon name="chevronDown" size={18} />
+          </summary>
+          <div className="scout-details-content">
+            <AuthorizationFields value={draft} update={update} />
+          </div>
+        </details>
         <details className="scout-details">
           <summary>
             <Icon name="sliders" size={17} />
@@ -386,8 +401,8 @@ export function PreferencesStep({
         </details>
         <FormError>{error}</FormError>
         <p className="scout-subtle">
-          We’ll check these search details on the server before review. This
-          does not start a search.
+          You’ll review your brief next. Your search starts after you save your
+          scout.
         </p>
         <div className="scout-form-actions">
           <Button type="submit" disabled={pending} aria-busy={pending}>

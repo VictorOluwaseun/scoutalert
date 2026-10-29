@@ -23,14 +23,14 @@ import { scoutAlertSchedule } from "../scouts/scout-presentation";
 
 const stageIndex: Record<Stage, number> = {
   goal: 0,
-  focus: 1,
+  focus: 0,
   preferences: 1,
   review: 2,
   explore: 2,
   alerts: 3,
-  email: 3,
-  verify: 3,
-  ready: 4,
+  email: 4,
+  verify: 4,
+  ready: 5,
 };
 const backStages: Partial<Record<Stage, Stage>> = {
   focus: "goal",
@@ -42,10 +42,11 @@ const backStages: Partial<Record<Stage, Stage>> = {
   explore: "review",
 };
 const progress = [
-  { label: "Your goal", stage: "goal" },
-  { label: "The details", stage: "focus" },
-  { label: "Your scout", stage: "review" },
-  { label: "Your rhythm", stage: "alerts" },
+  { label: "Brief", stage: "goal" },
+  { label: "Preferences", stage: "preferences" },
+  { label: "Review", stage: "review" },
+  { label: "Alerts", stage: "alerts" },
+  { label: "Account", stage: "email" },
 ] as const;
 
 /** Composes server-reviewed onboarding with shared identity, durable activation and honest discovery status. */

@@ -1,5 +1,5 @@
 .scout-page {
-  --scout-soft: #f1f5df;
+  --scout-soft: var(--surface-soft);
   --scout-placeholder: #677382;
   min-height: 100svh;
   display: flex;
@@ -1624,7 +1624,8 @@ textarea.scout-input {
     padding-bottom: 38px;
   }
   .scout-goal-heading {
-    font-size: 55px;
+    font-size: clamp(36px, 8.5vw, 45px);
+    letter-spacing: -1.7px;
   }
   .scout-goal-step .scout-lede {
     font-size: 17px;
@@ -1703,7 +1704,7 @@ textarea.scout-input {
     gap: 6px;
   }
   .scout-progress button {
-    font-size: 14px;
+    font-size: 12px;
     flex-direction: column;
     gap: 7px;
   }
@@ -1854,7 +1855,7 @@ textarea.scout-input {
     width: calc(100% - 32px);
   }
   .scout-goal-heading {
-    font-size: 48px;
+    font-size: 36px;
   }
   .scout-prompt-box textarea {
     min-height: 145px;
@@ -1867,7 +1868,7 @@ textarea.scout-input {
     font-size: 36px;
   }
   .scout-progress button {
-    font-size: 13px;
+    font-size: 11px;
     gap: 7px;
   }
   .scout-progress-mark {
@@ -1914,4 +1915,14 @@ textarea.scout-input {
   margin-top: 4px;
   flex-shrink: 0;
   accent-color: var(--primary);
+}
+.scout-optional-details summary small {
+  display: block;
+  margin-top: 3px;
+  color: var(--muted-foreground);
+  font-size: 13px;
+  font-weight: 400;
+}
+.scout-optional-details summary > span {
+  min-width: 0;
 }
