@@ -1,4 +1,5 @@
 import "reflect-metadata";
+import { Logger } from "@nestjs/common";
 import { NestFactory } from "@nestjs/core";
 import {
   NativeConnection,
@@ -192,7 +193,16 @@ async function start(): Promise<void> {
 
   try {
     await ensureSchedules(resources);
-    await Promise.all(workers.map((worker) => worker.run()));
+    const running = Promise.all(workers.map((worker) => worker.run()));
+
+    if (workers.every((worker) => worker.getState() === "RUNNING")) {
+      Logger.log(
+        `Mailpit inbox: ${resources.config.MAILPIT_HTTP_URL}`,
+        "ScoutWorker",
+      );
+    }
+
+    await running;
   } finally {
     stopping = true;
     await polling;

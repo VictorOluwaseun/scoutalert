@@ -114,6 +114,19 @@ export function readWorkerConfiguration(environment = process.env) {
       TEMPORAL_ADDRESS: z.string().default("127.0.0.1:7233"),
       TEMPORAL_NAMESPACE: z.string().default("default"),
       MAILPIT_HOST: z.string().default("127.0.0.1"),
+      MAILPIT_HTTP_URL: z
+        .url()
+        .refine((value) => {
+          if (!URL.canParse(value)) {
+            return false;
+          }
+
+          const url = new URL(value);
+          return (
+            /^https?:$/.test(url.protocol) && !url.username && !url.password
+          );
+        })
+        .default("http://localhost:8025"),
       MAILPIT_SMTP_PORT: z.coerce
         .number()
         .int()

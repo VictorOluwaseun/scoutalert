@@ -12,6 +12,8 @@ docker start immureg-e2e-mailpit
 
 Open [the local inbox](http://localhost:8025). Sign-in codes captured there now verify local development accounts when submitted through the initiating onboarding browser. A successful code exchange establishes identity; scout activation remains a separate confirmed action.
 
+Once all worker queues are running, the worker logs `Mailpit inbox: http://localhost:8025`. Set `MAILPIT_HTTP_URL` in the worker environment if the inbox uses a different HTTP(S) address. This prints the configured inbox link; it does not perform an additional Mailpit health check.
+
 ## API configuration
 
 The API loads `apps/api/.env`. Its committed `.env.example` contains these settings:
