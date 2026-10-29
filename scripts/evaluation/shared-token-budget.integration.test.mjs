@@ -21,18 +21,14 @@ test(
       process.env.SCOUT_AI_DAILY_TOKENS = "1000";
       try {
         const worker = new PostgresModelTokenBudgetRepository(sharedDb, 1000);
-        await worker.reserve("fixture-worker", 50, 50);
+        await worker.reserve("gpt-5.4-mini", 50, 50);
         const result = await withEvaluationDatabase(
           withSharedModelTokenBudget(async (scenarioDb, budget) => {
             const scenarioSchema = (
               await sql`SELECT current_schema() AS name`.execute(scenarioDb)
             ).rows[0].name;
             assert.notEqual(scenarioSchema, sharedSchema);
-            const id = await budget.repository.reserve(
-              "fixture-evaluation",
-              20,
-              100,
-            );
+            const id = await budget.repository.reserve("gpt-5.4", 20, 100);
             assert.ok(id);
             await budget.repository.settle(id, {
               inputTokens: 20,
@@ -40,7 +36,7 @@ test(
               cachedInputTokens: 5,
             });
             assert.equal(
-              await budget.repository.reserve("fixture-denied", 871, 16),
+              await budget.repository.reserve("gpt-5.4", 871, 16),
               null,
             );
             assert.equal(
@@ -58,6 +54,27 @@ test(
         assert.equal(result.sharedTokenBudget.after.usedTokens, 30);
         assert.equal(result.sharedTokenBudget.after.remainingTokens, 870);
         assert.equal(result.sharedTokenBudget.attempts.length, 1);
+        assert.equal(
+          result.sharedTokenBudget.after.models.find(
+            (item) => item.model === "gpt-5.4",
+          ).usedTokens,
+          30,
+        );
+        assert.equal(
+          result.sharedTokenBudget.after.models.find(
+            (item) => item.model === "gpt-5.4-mini",
+          ).reservedTokens,
+          100,
+        );
+        await assert.rejects(
+          () =>
+            withEvaluationDatabase(
+              withSharedModelTokenBudget(async (_db, budget) =>
+                budget.repository.reserve("unknown-model", 1, 16),
+              ),
+            ),
+          /unconfigured_model_token_budget/,
+        );
         assert.equal(result.sharedTokenBudget.attempts[0].state, "completed");
         assert.equal((await worker.snapshot()).remainingTokens, 870);
       } finally {

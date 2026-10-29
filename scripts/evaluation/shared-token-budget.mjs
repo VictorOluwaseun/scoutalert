@@ -1,5 +1,8 @@
 import { createPostgresClient } from "../../packages/adapters/dist/database/public.js";
-import { PostgresModelTokenBudgetRepository } from "../../packages/adapters/dist/scouting/public.js";
+import {
+  PostgresModelTokenBudgetRepository,
+  modelTokenBudgetPolicies,
+} from "../../packages/adapters/dist/scouting/public.js";
 import { ModelTokenBudgetRepository } from "../../packages/core/dist/scouting/public.js";
 import { readWorkerConfiguration } from "../../apps/worker/dist/config.js";
 
@@ -14,15 +17,17 @@ class EvaluationTokenBudget extends ModelTokenBudgetRepository {
   }
 
   /** Counts a test attempt only after the shared atomic reservation succeeds. */
-  async reserve(model, inputTokens, maximumOutputTokens) {
+  async reserve(model, inputTokens, maximumOutputTokens, purpose = "standard") {
     const id = await this.shared.reserve(
       model,
       inputTokens,
       maximumOutputTokens,
+      purpose,
     );
     if (id) {
       this.attempts.set(id, {
         model,
+        purpose,
         reservedTokens: inputTokens + maximumOutputTokens,
         state: "reserved",
         usage: null,
@@ -41,8 +46,8 @@ class EvaluationTokenBudget extends ModelTokenBudgetRepository {
   }
 
   /** Returns the deployment budget, including concurrent worker activity. */
-  snapshot() {
-    return this.shared.snapshot();
+  snapshot(model, purpose) {
+    return this.shared.snapshot(model, purpose);
   }
 }
 
@@ -58,7 +63,15 @@ export function withSharedModelTokenBudget(action, enabled = true) {
       "scoutalert-evaluation-token-budget",
     );
     const repository = new EvaluationTokenBudget(
-      new PostgresModelTokenBudgetRepository(db, config.SCOUT_AI_DAILY_TOKENS),
+      new PostgresModelTokenBudgetRepository(
+        db,
+        config.SCOUT_AI_DAILY_TOKENS,
+        modelTokenBudgetPolicies(
+          config.SCOUT_AI_GPT54_DAILY_TOKENS,
+          config.SCOUT_AI_GPT54_MINI_DAILY_TOKENS,
+          config.SCOUT_AI_AUDIT_DAILY_TOKENS,
+        ),
+      ),
     );
     try {
       const before = await repository.snapshot();

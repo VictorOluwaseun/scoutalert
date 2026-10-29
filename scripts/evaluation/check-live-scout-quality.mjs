@@ -44,6 +44,7 @@ import {
   PostgresScoutingRepository,
   PostgresIntelligenceRepository,
   OpenAIIntelligenceProvider,
+  OpenAIFitReviewProvider,
   OpenAIEmployerResearchProvider,
   PostgresEmployerEvidenceRepository,
   PostgresAvailabilityRepository,
@@ -62,7 +63,7 @@ import {
   PostgresOpportunityDeliveryRepository,
 } from "../../packages/adapters/dist/notifications/public.js";
 
-// Per scenario: six searches ($0.06 reserved), six documents and at most 36 AI attempts ($2.70 reserved).
+// Per scenario: six searches ($0.06 reserved), six documents and at most 36 AI attempts (ordinary $0.075/expert $0.20 reserved, within the scenario USD ceiling).
 // Synthetic data stays in a disposable database; AI token reservations share the running worker's durable ledger.
 // One local Mailpit recipient only. Does not change any real scout.
 loadEnvFile(new URL("../../apps/worker/.env", import.meta.url));
@@ -218,8 +219,8 @@ const runScenario = async (db, tokenBudget) => {
     process.env.OPENAI_API_KEY ?? "disabled",
     tokenBudget,
   );
-  const model =
-    process.env.SCOUT_AI_EXTRACTION_MODEL ?? "gpt-5.4-mini-2026-03-17";
+  const aiConfig = readWorkerConfiguration();
+  const model = aiConfig.SCOUT_AI_EXTRACTION_MODEL;
   const reviewProvider = new OpenAILeadReviewProvider(client, model);
   const rejectedReviews = [];
   const reviewFailures = [];
@@ -253,7 +254,12 @@ const runScenario = async (db, tokenBudget) => {
       },
     },
   );
-  const reasoningProvider = new OpenAIDiscoveryReasoningProvider(client, model);
+  const reasoningProvider = new OpenAIDiscoveryReasoningProvider(
+    client,
+    model,
+    aiConfig.SCOUT_AI_PLANNING_MODEL,
+    aiConfig.SCOUT_AI_EXPERT_MODEL,
+  );
   const planner = new PlanScoutSearch(
     planningFallback
       ? {
@@ -272,6 +278,7 @@ const runScenario = async (db, tokenBudget) => {
         }
       : new PostgresDiscoveryReasoningRepository(db, 36, 2_700_000),
     reasoningProvider,
+    !withoutAi && aiConfig.SCOUT_AI_EXPERT_ENABLED === "true",
   );
   const http = new PublicHttpRepository();
   const renderingEnabled =
@@ -317,7 +324,7 @@ const runScenario = async (db, tokenBudget) => {
   const intelligenceProvider = new OpenAIIntelligenceProvider(
     client,
     model,
-    model,
+    aiConfig.SCOUT_AI_FIT_MODEL,
   );
   const rejectedFits = [];
   const matching = new ScoutOpportunities(
@@ -347,6 +354,10 @@ const runScenario = async (db, tokenBudget) => {
         new PostgresEmployerEvidenceRepository(db, {}),
         "observed-application-links-v1",
       ),
+      aiConfig.SCOUT_AI_EXPERT_ENABLED === "true"
+        ? new OpenAIFitReviewProvider(client, aiConfig.SCOUT_AI_EXPERT_MODEL)
+        : undefined,
+      aiConfig.SCOUT_AI_AUDIT_PERCENT,
     ),
   );
   const accepted =
