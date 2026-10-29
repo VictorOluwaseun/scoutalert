@@ -52,6 +52,7 @@ import {
   OpenAIIntelligenceProvider,
   createIntelligenceClient,
   PostgresIntelligenceRepository,
+  PostgresModelTokenBudgetRepository,
   PostgresSourceRepository,
   PostgresScoutingRepository,
   PostgresDiscoveryIntentRepository,
@@ -104,6 +105,16 @@ export const WORKER_RESOURCES = Symbol("WORKER_RESOURCES");
           secure: false,
         });
         const records = new PostgresScoutingRepository(db);
+        const intelligenceClient =
+          config.SCOUT_AI_ENABLED === "true"
+            ? createIntelligenceClient(config.OPENAI_API_KEY!, {
+                repository: new PostgresModelTokenBudgetRepository(
+                  db,
+                  config.SCOUT_AI_DAILY_TOKENS,
+                ),
+                maximumOutputTokens: config.SCOUT_AI_MAX_OUTPUT_TOKENS,
+              })
+            : null;
         const greenhouse = new GreenhouseSourceConnector(greenhouseBoards);
         const greenhouseAvailability = new GreenhouseAvailabilitySource(
           greenhouseBoards,
@@ -154,7 +165,7 @@ export const WORKER_RESOURCES = Symbol("WORKER_RESOURCES");
           ),
           config.SCOUT_AI_ENABLED === "true"
             ? new OpenAILeadReviewProvider(
-                createIntelligenceClient(config.OPENAI_API_KEY!),
+                intelligenceClient!,
                 config.SCOUT_AI_EXTRACTION_MODEL,
               )
             : null,
@@ -168,7 +179,7 @@ export const WORKER_RESOURCES = Symbol("WORKER_RESOURCES");
                   Math.floor(config.SCOUT_AI_DAILY_USD * 1_000_000),
                 ),
                 new OpenAIDiscoveryReasoningProvider(
-                  createIntelligenceClient(config.OPENAI_API_KEY!),
+                  intelligenceClient!,
                   config.SCOUT_AI_EXTRACTION_MODEL,
                 ),
               )
@@ -182,12 +193,12 @@ export const WORKER_RESOURCES = Symbol("WORKER_RESOURCES");
                   Math.floor(config.SCOUT_AI_DAILY_USD * 1_000_000),
                 ),
                 new OpenAIIntelligenceProvider(
-                  createIntelligenceClient(config.OPENAI_API_KEY!),
+                  intelligenceClient!,
                   config.SCOUT_AI_EXTRACTION_MODEL,
                   config.SCOUT_AI_FIT_MODEL,
                 ),
                 new OpenAIEmployerResearchProvider(
-                  createIntelligenceClient(config.OPENAI_API_KEY!),
+                  intelligenceClient!,
                   config.SCOUT_AI_EXTRACTION_MODEL,
                   new PostgresEmployerEvidenceRepository(
                     db,

@@ -6,6 +6,37 @@ const environment = {
 };
 
 describe("configured daily budget limits", () => {
+  it("defaults the shared token cap and permits explicitly blocking generation", () => {
+    const config = readWorkerConfiguration(environment);
+    expect(config.SCOUT_AI_DAILY_TOKENS).toBe(100_000);
+    expect(config.SCOUT_AI_MAX_OUTPUT_TOKENS).toBe(4_000);
+    expect(
+      readWorkerConfiguration({
+        ...environment,
+        SCOUT_AI_DAILY_TOKENS: "0",
+        SCOUT_AI_MAX_OUTPUT_TOKENS: "256",
+      }),
+    ).toMatchObject({
+      SCOUT_AI_DAILY_TOKENS: 0,
+      SCOUT_AI_MAX_OUTPUT_TOKENS: 256,
+    });
+  });
+
+  it.each([
+    ["SCOUT_AI_DAILY_TOKENS", "-1"],
+    ["SCOUT_AI_DAILY_TOKENS", "1.5"],
+    ["SCOUT_AI_DAILY_TOKENS", "2147483648"],
+    ["SCOUT_AI_DAILY_TOKENS", "Infinity"],
+    ["SCOUT_AI_MAX_OUTPUT_TOKENS", "0"],
+    ["SCOUT_AI_MAX_OUTPUT_TOKENS", "15"],
+    ["SCOUT_AI_MAX_OUTPUT_TOKENS", "4001"],
+    ["SCOUT_AI_MAX_OUTPUT_TOKENS", "NaN"],
+  ])("rejects an invalid token limit %s=%s", (key, value) => {
+    expect(() =>
+      readWorkerConfiguration({ ...environment, [key]: value }),
+    ).toThrow(`Invalid fields: ${key}`);
+  });
+
   it("retains conservative defaults when no allowance is supplied", () => {
     const config = readWorkerConfiguration(environment);
 

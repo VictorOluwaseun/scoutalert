@@ -23,6 +23,7 @@ export {
 export { ReadOpportunityFeed } from "./application/read-opportunity-feed.js";
 
 export * from "./intelligence/contracts.js";
+export * from "./intelligence/token-budget.js";
 export {
   validAnalysis,
   validFit,

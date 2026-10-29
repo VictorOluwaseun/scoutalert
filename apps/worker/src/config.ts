@@ -101,6 +101,18 @@ export function readWorkerConfiguration(environment = process.env) {
         .min(1)
         .max(maximumDailyRequests)
         .default(50),
+      SCOUT_AI_DAILY_TOKENS: z.coerce
+        .number()
+        .int()
+        .min(0)
+        .max(maximumDailyRequests)
+        .default(100_000),
+      SCOUT_AI_MAX_OUTPUT_TOKENS: z.coerce
+        .number()
+        .int()
+        .min(16)
+        .max(4_000)
+        .default(4_000),
       SCOUT_AI_DAILY_USD: z.coerce
         .number()
         .min(0.075)
