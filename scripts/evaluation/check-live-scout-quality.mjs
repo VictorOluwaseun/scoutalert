@@ -4,6 +4,7 @@ import { loadEnvFile } from "node:process";
 import { readFile, writeFile } from "node:fs/promises";
 import { setTimeout as delay } from "node:timers/promises";
 import { withEvaluationDatabase, sql } from "./database.mjs";
+import { withSharedModelTokenBudget } from "./shared-token-budget.mjs";
 import { summarizeLiveQuality } from "./live-quality-summary.mjs";
 import { readWorkerConfiguration } from "../../apps/worker/dist/config.js";
 import {
@@ -62,9 +63,15 @@ import {
 } from "../../packages/adapters/dist/notifications/public.js";
 
 // Per scenario: six searches ($0.06 reserved), six documents and at most 36 AI attempts ($2.70 reserved).
-// Disposable database, synthetic brief and one local Mailpit recipient only. Does not change any real scout.
+// Synthetic data stays in a disposable database; AI token reservations share the running worker's durable ledger.
+// One local Mailpit recipient only. Does not change any real scout.
 loadEnvFile(new URL("../../apps/worker/.env", import.meta.url));
 const withoutAi = process.argv.includes("--without-ai");
+const planningFallback = process.argv.includes("--planning-fallback");
+assert.ok(
+  !planningFallback || withoutAi,
+  "Planning fallback requires --without-ai",
+);
 assert.ok(
   withoutAi || process.env.OPENAI_API_KEY,
   "Configure a local AI key first",
@@ -170,7 +177,8 @@ const limits = {
   maximumDocuments: 6,
   exploration: { maximumDepth: 3, maximumRounds: 8, maximumSourcePages: 2 },
 };
-const report = await withEvaluationDatabase(async (db) => {
+/** Exercises production use cases with synthetic records and the shared model token guard. */
+const runScenario = async (db, tokenBudget) => {
   const ownerId = randomUUID();
   await db
     .insertInto("users")
@@ -208,6 +216,7 @@ const report = await withEvaluationDatabase(async (db) => {
   };
   const client = createIntelligenceClient(
     process.env.OPENAI_API_KEY ?? "disabled",
+    tokenBudget,
   );
   const model =
     process.env.SCOUT_AI_EXTRACTION_MODEL ?? "gpt-5.4-mini-2026-03-17";
@@ -246,7 +255,22 @@ const report = await withEvaluationDatabase(async (db) => {
   );
   const reasoningProvider = new OpenAIDiscoveryReasoningProvider(client, model);
   const planner = new PlanScoutSearch(
-    new PostgresDiscoveryReasoningRepository(db, 36, 2_700_000),
+    planningFallback
+      ? {
+          /** Exercises the production unavailable-planner path with no database admission or model call. */
+          async claim() {
+            return { status: "unavailable" };
+          },
+          /** Unavailable work cannot complete a provider attempt. */
+          async complete() {
+            throw new Error("unexpected_fallback_completion");
+          },
+          /** Unavailable work cannot record a provider failure. */
+          async fail() {
+            throw new Error("unexpected_fallback_failure");
+          },
+        }
+      : new PostgresDiscoveryReasoningRepository(db, 36, 2_700_000),
     reasoningProvider,
   );
   const http = new PublicHttpRepository();
@@ -268,7 +292,7 @@ const report = await withEvaluationDatabase(async (db) => {
     sourceDocuments,
     provider,
     limits,
-    withoutAi ? undefined : planner,
+    withoutAi && !planningFallback ? undefined : planner,
     withoutAi ? undefined : reviews,
   );
   for (let step = 0; step < 120; step++) {
@@ -523,6 +547,7 @@ const report = await withEvaluationDatabase(async (db) => {
     renderingEnabled: reader === "worker" && renderingEnabled,
     status: withoutAi ? "captured_without_ai" : "measured",
     aiEnabled: !withoutAi,
+    planningFallback,
     deliveryOutcome:
       submitted > 0 ? "submitted_to_mailpit" : "no_eligible_digest",
     reasoning: reasoning.rows,
@@ -576,7 +601,10 @@ const report = await withEvaluationDatabase(async (db) => {
         : "") +
       "Bounded live synthetic case using production discovery, review, assessment and delivery use cases. Worker reader includes configured browser fallback and Ashby routing without shared Redis caching; HTTP reader is a controlled reduced-access path. Native X and marketplace connector loops are not exercised. All lead rows are measured separately from the dashboard's bounded sample. Matching can remain incomplete if retries exceed the check window. Model labels are not independent ground truth; precision, recall and global throughput remain unproven.",
   };
-});
+};
+const report = await withEvaluationDatabase(
+  withSharedModelTokenBudget(runScenario, !withoutAi),
+);
 const stages = summarizeLiveQuality(report);
 await writeFile(output, JSON.stringify({ ...report, stages }, null, 2) + "\n", {
   flag: "wx",
@@ -593,6 +621,7 @@ console.log(
       emailsSent: report.emailsSent,
       usage: report.usage,
       aiBudget: report.aiBudget,
+      sharedTokenBudget: report.sharedTokenBudget,
       output,
     },
     null,
