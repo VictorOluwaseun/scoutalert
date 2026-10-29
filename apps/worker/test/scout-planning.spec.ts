@@ -140,7 +140,7 @@ describe("model planning boundaries", () => {
       parentKey: "later",
     });
   });
-  it("prepares complementary buyer queries without exposing private constraints or requiring remote wording", async () => {
+  it("prepares remote and broad buyer queries without exposing private constraints", async () => {
     const brief = {
       ...search,
       category: "services" as const,
@@ -196,20 +196,24 @@ describe("model planning boundaries", () => {
     }
     const text = JSON.stringify(result.queries);
     expect(result.queries).toHaveLength(4);
-    expect(text).toContain("filetype:pdf");
     expect(text).toContain("request for proposal");
     expect(text).toContain("site:peopleperhour.com/freelance-jobs");
     expect(text).toContain("site:workana.com");
     expect(result.queries[0]!.query).toContain('"React development"');
-    expect(text).not.toMatch(/Private|remote/);
-    expect(result.exploration?.queryPolicy).toBe("client-demand-v7");
+    expect(text).not.toMatch(/Private/);
+    expect(
+      result.queries.filter((query) => query.query.includes('"remote"')),
+    ).toHaveLength(2);
+    expect(result.exploration?.queryPolicy).toBe("client-demand-v8");
     expect(
       result.queries.find((query) => query.query.includes("site:workana.com"))
         ?.freshness,
     ).toBe("any");
     expect(
       result.queries
-        .filter((query) => !query.query.includes("site:workana.com"))
+        .filter(
+          (query) => !/site:(?:workana|peopleperhour)\.com/u.test(query.query),
+        )
         .every((query) => query.freshness === "month"),
     ).toBe(true);
     expect(result.strategy?.targets).toEqual([

@@ -30,7 +30,11 @@ export function planDiscovery(
     search.category === "employment" ? "jobs" : "freelance projects";
   const queries =
     search.category === "services"
-      ? clientRequestQueries([publicTarget]).slice(0, 4)
+      ? clientRequestQueries(
+          [publicTarget],
+          "client-demand-v8",
+          search.arrangement === "remote",
+        ).slice(0, 4)
       : [
           `${publicTarget}${arrangement} ${intent}`,
           `${publicTarget}${arrangement} ${demand}`,
@@ -50,7 +54,7 @@ export function planDiscovery(
           country: capability?.country ?? null,
           freshness:
             search.category === "services"
-              ? clientRequestFreshness(query, "client-demand-v7")
+              ? clientRequestFreshness(query, "client-demand-v8")
               : "month",
           page: 1,
           limit: 10,
@@ -63,7 +67,7 @@ export function planDiscovery(
       ? {
           exploration: {
             ...(search.category === "services"
-              ? { queryPolicy: "client-demand-v7" as const }
+              ? { queryPolicy: "client-demand-v8" as const }
               : {}),
             target: publicTarget,
             remote: search.arrangement === "remote",

@@ -7,6 +7,7 @@ import type {
 import type { DiscoveryReasoningInput } from "../domain/reasoning.js";
 import { publicDestination } from "../domain/public-destination.js";
 import { discoveryNavigation } from "./discovery-navigation.js";
+import { prefersRemoteClientRequests } from "./remote-client-discovery.js";
 import {
   clientRequestPriority,
   clientRequestRouteCoolingDown,
@@ -225,7 +226,11 @@ function clientRequestChoices(
   }
   const target = snapshot.plan.exploration!.target;
   const priority = diverse([...candidates.values()], 8, (candidate) =>
-    requestPriority(candidate, target),
+    requestPriority(
+      candidate,
+      target,
+      prefersRemoteClientRequests(snapshot.plan),
+    ),
   );
   const selected = new Set(priority.map((item) => item.decision.action.url));
   const extra = diverse(
@@ -234,16 +239,38 @@ function clientRequestChoices(
     ),
     2,
   );
-  return [...priority, ...extra].map((item) => item.decision);
+  const shortlist = [...priority, ...extra].map((item) => item.decision);
+  const fallback = preferred[0];
+  const fallbackAction = fallback?.action;
+  if (
+    snapshot.plan.exploration?.queryPolicy !== "client-demand-v8" ||
+    !fallback ||
+    fallbackAction?.kind !== "document" ||
+    shortlist.some(
+      (choice) =>
+        choice.action?.kind === "document" &&
+        choice.action.url === fallbackAction.url,
+    )
+  ) {
+    return shortlist;
+  }
+  // Preserve an already admitted deterministic route when diversity ranking fills the menu.
+  // Otherwise unavailable model reasoning can stop despite remaining useful read capacity.
+  return [...shortlist.slice(0, 9), fallback];
 }
 
 /** Ranks observed buyer language without authorizing publication or making private fit judgments. */
-function requestPriority(candidate: Candidate, target: string): number {
+function requestPriority(
+  candidate: Candidate,
+  target: string,
+  remote: boolean,
+): number {
   return clientRequestPriority(
     candidate.decision.action.url,
     candidate.decision.title ?? "",
     candidate.text,
     target,
+    remote,
   );
 }
 

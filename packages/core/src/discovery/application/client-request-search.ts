@@ -1,4 +1,9 @@
 import { publicDestination } from "../domain/public-destination.js";
+import {
+  remoteClientQueries,
+  remoteClientHint,
+  remoteClientNeedsSearch,
+} from "./remote-client-discovery.js";
 import type {
   DiscoveryExploration,
   DiscoveryPlan,
@@ -12,7 +17,8 @@ type QueryPolicy =
   | "client-demand-v4"
   | "client-demand-v5"
   | "client-demand-v6"
-  | "client-demand-v7";
+  | "client-demand-v7"
+  | "client-demand-v8";
 
 /** Recognizes frozen buyer-query versions so existing cases retain their original vocabulary. */
 export function usesClientRequestQueries(plan: DiscoveryPlan): boolean {
@@ -24,14 +30,20 @@ export function usesClientRequestQueries(plan: DiscoveryPlan): boolean {
     "client-demand-v5",
     "client-demand-v6",
     "client-demand-v7",
+    "client-demand-v8",
   ].includes(plan.exploration?.queryPolicy ?? "");
 }
 
-/** Builds complementary buyer-demand queries from approved public targets only. Remote and other personal constraints remain mandatory at private matching, even when a buyer omits them from their post. */
+/** Builds complementary buyer-demand queries from approved public targets only. Remote routing never substitutes for source evidence or private matching. */
 export function clientRequestQueries(
   targets: readonly string[],
-  policy: QueryPolicy = "client-demand-v7",
+  policy: QueryPolicy = "client-demand-v8",
+  remote = false,
 ): string[] {
+  if (policy === "client-demand-v8") {
+    const broad = clientRequestQueries(targets, "client-demand-v7");
+    return remote ? remoteClientQueries(targets, broad) : broad;
+  }
   const legacy = [
     '("project" OR "brief") ("budget" OR "fixed price")',
     '("looking for" OR "seeking" OR "need") ("freelancer" OR "contractor")',
@@ -125,6 +137,14 @@ export function clientRequestFreshness(
   query: string,
   policy?: string,
 ): WebSearchQuery["freshness"] {
+  if (
+    policy === "client-demand-v8" &&
+    /site:(?:workana\.com inurl:job|peopleperhour\.com\/freelance-jobs)/u.test(
+      query,
+    )
+  ) {
+    return "any";
+  }
   return ["client-demand-v5", "client-demand-v6", "client-demand-v7"].includes(
     policy ?? "",
   ) && query.includes("site:workana.com inurl:job")
@@ -132,25 +152,27 @@ export function clientRequestFreshness(
     : "month";
 }
 
-/** Reserves a query change after two consecutive inaccessible reads in new cases, before spending the remaining document allowance. A search or successful capture resets this local recovery trigger. */
+/** Reserves a query change after two inaccessible reads or two reviewed buyer briefs without remote evidence. A new search resets recovery, and callers retain all frozen search/read ceilings. */
 export function clientRequestNeedsSearch(
   snapshot: DiscoveryExploration,
 ): boolean {
   return (
-    [
+    remoteClientNeedsSearch(snapshot) ||
+    ([
       "client-demand-v3",
       "client-demand-v4",
       "client-demand-v5",
       "client-demand-v6",
       "client-demand-v7",
+      "client-demand-v8",
     ].includes(snapshot.plan.exploration?.queryPolicy ?? "") &&
-    snapshot.operations.length >= 2 &&
-    snapshot.operations
-      .slice(-2)
-      .every(
-        ({ result }) =>
-          result?.kind === "document" && result.status !== "fetched",
-      )
+      snapshot.operations.length >= 2 &&
+      snapshot.operations
+        .slice(-2)
+        .every(
+          ({ result }) =>
+            result?.kind === "document" && result.status !== "fetched",
+        ))
   );
 }
 
@@ -160,6 +182,7 @@ export function clientRequestPriority(
   title: string,
   text: string,
   target: string,
+  remote = false,
 ): number {
   if (!publicDestination(url)) {
     return -3;
@@ -172,6 +195,21 @@ export function clientRequestPriority(
   if (seller.test(title) || advice.test(`${title} ${address.pathname}`)) {
     return -3;
   }
+  if (
+    remote &&
+    /\b(?:i['’]?m open to freelance|i am open to freelance|available for freelancing|available for freelance projects|looking for clients)\b/iu.test(
+      `${title} ${text}`,
+    )
+  ) {
+    return -3;
+  }
+  const collection =
+    /^(?:www\.)?peopleperhour\.com$/iu.test(address.hostname) &&
+    address.pathname.startsWith("/freelance-jobs") &&
+    !/-\d+\/?$/u.test(address.pathname);
+  // Marketplace collections advertise remote work for many listings; that wording is not evidence about an individual request.
+  const remoteHint =
+    remote && !collection ? remoteClientHint(`${title} ${text}`) : 0;
   const request =
     /\b(?:(?:i|we) (?:need|want|require|am looking|are looking)|seeking|looking for|needed|request for (?:proposal|quotation)|rfp|rfq)\b/iu;
   const commercial =
@@ -197,6 +235,12 @@ export function clientRequestPriority(
       0,
     );
   const buyer = request.test(content) && !seller.test(content);
+  if (remote && topic === 0) {
+    return 0;
+  }
+  if (remote && collection) {
+    return Math.min(topic, 3);
+  }
   const specificity = detail.test(url) && commercial.test(content);
   const employment =
     /\b(?:full.time|join (?:our|the) team)\b/iu.test(content) ||
@@ -207,7 +251,8 @@ export function clientRequestPriority(
       3 +
       Number(commercial.test(content)) +
       Number(detail.test(url)) -
-      Number(employment) * 5
+      Number(employment) * 5 +
+      remoteHint
     );
   }
   if (
@@ -216,7 +261,7 @@ export function clientRequestPriority(
   ) {
     return -2;
   }
-  return topic;
+  return topic + (topic > 0 ? remoteHint : 0);
 }
 
 /** Pauses a repeatedly crawl-denied sibling route for this case after two attempts. This is a local efficiency limit, not a claim that every page or the host is forbidden; other paths and native connectors remain eligible. */

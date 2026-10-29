@@ -4,6 +4,7 @@ import { sourceSearchUrls } from "./source-search.js";
 import { publicDestination } from "../domain/public-destination.js";
 import { contextualDocumentChoices } from "./contextual-candidates.js";
 import { discoveryNavigation } from "./discovery-navigation.js";
+import { prefersRemoteClientRequests } from "./remote-client-discovery.js";
 import {
   clientRequestQueries,
   clientRequestFreshness,
@@ -130,6 +131,7 @@ function documentCandidates(
                   item.title ?? "",
                   item.snippet ?? "",
                   snapshot.plan.exploration!.target,
+                  prefersRemoteClientRequests(snapshot.plan),
                 ) * 5
               : 0),
         });
@@ -206,7 +208,16 @@ function documentCandidates(
           depth: operation.depth + 1,
           reason: "follow_source_link",
           score:
-            result.sitemap?.format === "index"
+            (prefersRemoteClientRequests(snapshot.plan)
+              ? clientRequestPriority(
+                  link.url,
+                  link.text,
+                  "",
+                  snapshot.plan.exploration!.target,
+                  true,
+                ) * 5
+              : 0) +
+            (result.sitemap?.format === "index"
               ? 9
               : snapshot.plan.policy === "public-intent-v3" &&
                   /\b(?:apply|application|eligibility|sponsorship|requirements|careers|hiring policy)\b/iu.test(
@@ -225,7 +236,7 @@ function documentCandidates(
                     result.url,
                     result.text ?? "",
                     words,
-                  ),
+                  )),
         });
       }
     }
@@ -342,6 +353,7 @@ export function planExploration(
     "client-demand-v5",
     "client-demand-v6",
     "client-demand-v7",
+    "client-demand-v8",
   ].includes(settings.queryPolicy ?? "")
     ? recovery[0]
     : (recovery.find(
@@ -434,7 +446,7 @@ function alternativeSearchChoices(
   const choices: DiscoveryDecision[] = [];
   const targets = snapshot.plan.strategy?.targets ?? [settings.target];
   const queries = usesClientRequestQueries(snapshot.plan)
-    ? clientRequestQueries(targets, settings.queryPolicy)
+    ? clientRequestQueries(targets, settings.queryPolicy, settings.remote)
     : targets.map(
         (target) =>
           `${target}${settings.remote ? " remote" : ""} ${snapshot.plan.category === "employment" ? '"apply"' : '"project" "budget"'}`,

@@ -60,6 +60,7 @@ export class PlanScoutSearch {
         ? clientRequestQueries(
             targets,
             plan.exploration.queryPolicy ?? "client-demand-v1",
+            plan.exploration.remote,
           )
         : [
             ...targets.map((target) => `${target}${suffix} ${demand}`),

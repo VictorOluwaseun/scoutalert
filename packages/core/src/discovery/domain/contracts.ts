@@ -131,7 +131,8 @@ export interface DiscoveryPlan {
       | "client-demand-v4"
       | "client-demand-v5"
       | "client-demand-v6"
-      | "client-demand-v7";
+      | "client-demand-v7"
+      | "client-demand-v8";
     target: string;
     remote: boolean;
     maximumRounds: number;
