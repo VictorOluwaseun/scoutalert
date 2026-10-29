@@ -74,7 +74,8 @@ export class OpenAIFitReviewProvider extends FitReviewProvider {
           format: zodTextFormat(personalFitSchema, "expert_personal_fit"),
         },
       },
-      { timeout: 25_000, maxRetries: 0 },
+      // Medium-reasoning reviews sometimes exceed 25 seconds; leave 15 seconds of the 55-second lease for settlement and persistence.
+      { timeout: 40_000, maxRetries: 0 },
     );
     if (response.status !== "completed" || !response.output_parsed) {
       throw new Error("expert_fit_unavailable");
