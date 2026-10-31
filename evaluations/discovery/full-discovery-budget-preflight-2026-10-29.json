@@ -1,0 +1,178 @@
+{
+  "checkedAt": "2026-10-29T19:28:19.980Z",
+  "status": "full_discovery_pending_insufficient_mini_allowance",
+  "scenarios": [
+    {
+      "scenario": "projects",
+      "target": "React TypeScript web development",
+      "status": "blocked_by_configured_mini_daily_cap",
+      "guardCheck": "passed",
+      "fullDiscoveryTest": "pending",
+      "reason": "daily_token_budget_exhausted"
+    },
+    {
+      "scenario": "services",
+      "target": "Website redesign",
+      "status": "blocked_by_configured_mini_daily_cap",
+      "guardCheck": "passed",
+      "fullDiscoveryTest": "pending",
+      "reason": "daily_token_budget_exhausted"
+    }
+  ],
+  "providerCalls": 0,
+  "modelTokensUsed": 0,
+  "minimumPlanningOutputReservation": 2000,
+  "planningModel": "gpt-5.4-mini-2026-03-17",
+  "expertModel": "gpt-5.4-2026-03-05",
+  "caps": {
+    "full": 250000,
+    "mini": 2400000,
+    "combined": 2650000,
+    "audit": 40000
+  },
+  "nextResetLocal": "2026-10-30T01:00:00+01:00",
+  "scope": "Live PostgreSQL allowance with production planner and token guard; HTTP is intercepted to prove zero counting or generation requests. Both required mini planning requests were blocked before any provider call. No fresh discovery, source review, matching, availability or delivery test was run. No caps, model routing, reservations or usage were changed.",
+  "sharedTokenBudget": {
+    "before": {
+      "day": "2026-10-29",
+      "inputTokens": 2203116,
+      "outputTokens": 250429,
+      "cachedInputTokens": 705024,
+      "reservedTokens": 27937,
+      "usedTokens": 2453545,
+      "dailyLimit": 2650000,
+      "remainingTokens": 168518,
+      "unknownReservations": 5,
+      "models": [
+        {
+          "day": "2026-10-29",
+          "model": "gpt-5.4",
+          "dailyLimit": 250000,
+          "inputTokens": 33291,
+          "outputTokens": 22212,
+          "cachedInputTokens": 1792,
+          "usedTokens": 55503,
+          "reservedTokens": 27937,
+          "remainingTokens": 166560,
+          "unknownReservations": 5,
+          "allocations": [
+            {
+              "purpose": "standard",
+              "dailyLimit": 210000,
+              "usedTokens": 38863,
+              "reservedTokens": 15986,
+              "remainingTokens": 155151
+            },
+            {
+              "purpose": "audit",
+              "dailyLimit": 40000,
+              "usedTokens": 16640,
+              "reservedTokens": 11951,
+              "remainingTokens": 11409
+            }
+          ]
+        },
+        {
+          "day": "2026-10-29",
+          "model": "gpt-5.4-mini",
+          "dailyLimit": 2400000,
+          "inputTokens": 2169825,
+          "outputTokens": 228217,
+          "cachedInputTokens": 703232,
+          "usedTokens": 2398042,
+          "reservedTokens": 0,
+          "remainingTokens": 1958,
+          "unknownReservations": 0,
+          "allocations": [
+            {
+              "purpose": "standard",
+              "dailyLimit": 2400000,
+              "usedTokens": 2398042,
+              "reservedTokens": 0,
+              "remainingTokens": 1958
+            },
+            {
+              "purpose": "audit",
+              "dailyLimit": 0,
+              "usedTokens": 0,
+              "reservedTokens": 0,
+              "remainingTokens": 0
+            }
+          ]
+        }
+      ]
+    },
+    "after": {
+      "day": "2026-10-29",
+      "inputTokens": 2203116,
+      "outputTokens": 250429,
+      "cachedInputTokens": 705024,
+      "reservedTokens": 27937,
+      "usedTokens": 2453545,
+      "dailyLimit": 2650000,
+      "remainingTokens": 168518,
+      "unknownReservations": 5,
+      "models": [
+        {
+          "day": "2026-10-29",
+          "model": "gpt-5.4",
+          "dailyLimit": 250000,
+          "inputTokens": 33291,
+          "outputTokens": 22212,
+          "cachedInputTokens": 1792,
+          "usedTokens": 55503,
+          "reservedTokens": 27937,
+          "remainingTokens": 166560,
+          "unknownReservations": 5,
+          "allocations": [
+            {
+              "purpose": "standard",
+              "dailyLimit": 210000,
+              "usedTokens": 38863,
+              "reservedTokens": 15986,
+              "remainingTokens": 155151
+            },
+            {
+              "purpose": "audit",
+              "dailyLimit": 40000,
+              "usedTokens": 16640,
+              "reservedTokens": 11951,
+              "remainingTokens": 11409
+            }
+          ]
+        },
+        {
+          "day": "2026-10-29",
+          "model": "gpt-5.4-mini",
+          "dailyLimit": 2400000,
+          "inputTokens": 2169825,
+          "outputTokens": 228217,
+          "cachedInputTokens": 703232,
+          "usedTokens": 2398042,
+          "reservedTokens": 0,
+          "remainingTokens": 1958,
+          "unknownReservations": 0,
+          "allocations": [
+            {
+              "purpose": "standard",
+              "dailyLimit": 2400000,
+              "usedTokens": 2398042,
+              "reservedTokens": 0,
+              "remainingTokens": 1958
+            },
+            {
+              "purpose": "audit",
+              "dailyLimit": 0,
+              "usedTokens": 0,
+              "reservedTokens": 0,
+              "remainingTokens": 0
+            }
+          ]
+        }
+      ]
+    },
+    "attempts": [],
+    "scope": "Evaluation generations share the configured worker database's daily allowance. Before/after snapshots include background worker activity; attempts contain this evaluation only. Counting failures before reservation do not appear as generation attempts."
+  },
+  "usageUnchanged": true
+}

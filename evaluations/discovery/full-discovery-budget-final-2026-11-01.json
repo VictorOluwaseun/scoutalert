@@ -1,0 +1,77 @@
+{
+  "day": "2026-10-31",
+  "inputTokens": 295037,
+  "outputTokens": 44296,
+  "cachedInputTokens": 0,
+  "reservedTokens": 0,
+  "usedTokens": 339333,
+  "dailyLimit": 2650000,
+  "remainingTokens": 2310667,
+  "unknownReservations": 0,
+  "models": [
+    {
+      "day": "2026-10-31",
+      "model": "gpt-5.4",
+      "dailyLimit": 250000,
+      "inputTokens": 11852,
+      "outputTokens": 7858,
+      "cachedInputTokens": 0,
+      "usedTokens": 19710,
+      "reservedTokens": 0,
+      "remainingTokens": 230290,
+      "unknownReservations": 0,
+      "allocations": [
+        {
+          "purpose": "standard",
+          "dailyLimit": 210000,
+          "usedTokens": 9059,
+          "reservedTokens": 0,
+          "remainingTokens": 200941
+        },
+        {
+          "purpose": "audit",
+          "dailyLimit": 40000,
+          "usedTokens": 10651,
+          "reservedTokens": 0,
+          "remainingTokens": 29349
+        }
+      ]
+    },
+    {
+      "day": "2026-10-31",
+      "model": "gpt-5.4-mini",
+      "dailyLimit": 2400000,
+      "inputTokens": 283185,
+      "outputTokens": 36438,
+      "cachedInputTokens": 0,
+      "usedTokens": 319623,
+      "reservedTokens": 0,
+      "remainingTokens": 2080377,
+      "unknownReservations": 0,
+      "allocations": [
+        {
+          "purpose": "standard",
+          "dailyLimit": 2400000,
+          "usedTokens": 319623,
+          "reservedTokens": 0,
+          "remainingTokens": 2080377
+        },
+        {
+          "purpose": "audit",
+          "dailyLimit": 0,
+          "usedTokens": 0,
+          "reservedTokens": 0,
+          "remainingTokens": 0
+        }
+      ]
+    }
+  ],
+  "maximumOutputTokens": 4000,
+  "planningModel": "gpt-5.4-mini-2026-03-17",
+  "expertModel": "gpt-5.4-2026-03-05",
+  "auditPercent": 5,
+  "extractionModel": "gpt-5.4-mini-2026-03-17",
+  "fitModel": "gpt-5.4-mini-2026-03-17",
+  "resetTimezone": "UTC",
+  "scope": "This deployment's guarded worker and shared-budget evaluation calls; counting begins when the guard is activated."
+}

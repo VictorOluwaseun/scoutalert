@@ -1,0 +1,334 @@
+{
+  "checkedAt": "2026-10-31T23:12:06.108Z",
+  "localDate": "2026-11-01",
+  "ledgerDay": "2026-10-31",
+  "dateNote": "Checks completed after midnight Africa/Lagos but before midnight UTC. Admissions remain charged to 31 October; the automatic reset is 01:00 Africa/Lagos. No counters were reset.",
+  "status": "full_flows_completed_with_partial_source_access",
+  "searchAccess": "The initial Serper request returned HTTP 400 for insufficient credits. After the user replaced the key locally, both fresh full flows succeeded without search failures.",
+  "initialEvidence": [
+    "search-provider-preflight-2026-10-31.json",
+    "full-projects-live-2026-10-31.json",
+    "full-projects-recapture-2026-10-31.json",
+    "full-projects-live-funded-2026-10-31.json",
+    "full-services-live-2026-10-31.json"
+  ],
+  "supersededResult": "The initial service run included a paused PeoplePerHour listing. Its three dashboard results are not three verified open recommendations; the final service run excludes that listing and another paused brief.",
+  "fixes": [
+    {
+      "area": "closed platform status",
+      "behavior": "Complete PeoplePerHour primary sections carry explicit closure through capture, public review and the independent domain publication guard. A later closed review withdraws a previously published posting.",
+      "versions": [
+        "peopleperhour-public-html-v4",
+        "public-document-v13",
+        "lead-evidence-v6"
+      ]
+    },
+    {
+      "area": "personal fit",
+      "behavior": "Employer location preferences cannot alone become hard conflicts. Unproven required skills remain unknown. Mandatory restrictions and source citation requirements remain enforced.",
+      "versions": [
+        "evidence-prompts-v10",
+        "expert-fit-v2"
+      ]
+    },
+    {
+      "area": "expert packet size",
+      "behavior": "Repeated exact quotations reference original passage IDs without dropping source text, provenance or completeness flags. The recorded case fell from 28,223 to 7,723 serialized bytes under the unchanged 24,000-byte cap.",
+      "receipt": "discovery-regressions-live-2026-11-01.json"
+    }
+  ],
+  "finalRuns": [
+    {
+      "scenario": "projects",
+      "receipt": "full-projects-verified-2026-11-01.json",
+      "checkedAt": "2026-10-31T23:12:03.088Z",
+      "caseStatus": "partial",
+      "caseReason": "some_sources_unavailable",
+      "stages": {
+        "scenario": "projects",
+        "executionStatus": "measured",
+        "successfulSearches": 6,
+        "failedSearches": 0,
+        "renderingEnabled": true,
+        "durationSeconds": 101.939,
+        "uniqueLeads": 48,
+        "recordedLeads": 48,
+        "completeLeadSet": true,
+        "searchRequests": 6,
+        "documentRequests": 6,
+        "capturedDocuments": 5,
+        "completeCaptures": 5,
+        "inaccessibleDocuments": 1,
+        "repeatedDestinations": 0,
+        "sourceReviewLabels": {
+          "directory": 1,
+          "client_request": 1,
+          "closed": 3
+        },
+        "sourceReviewCountsAreComplete": true,
+        "promotedPostings": 1,
+        "matching": "completed",
+        "completedFitAssessments": 1,
+        "dashboardRecommendations": 1,
+        "acceptedEmails": 1,
+        "aiEstimatedUsd": 0.087523,
+        "attemptsWithoutCostEstimate": 3,
+        "searchReservedUsd": 0.06,
+        "aiReservedUsd": 1.325,
+        "estimatedAiPlusSearchReservationPerRecommendationUsd": 0.14752300000000002,
+        "independentlyUsefulResults": null,
+        "costPerIndependentlyUsefulResultUsd": null,
+        "precision": null,
+        "recall": null,
+        "limitations": "AI estimates exclude unpriced/failed attempts, infrastructure and billing adjustments. Search reservations are configured upper allowances, not invoices. Source labels and dashboard acceptance are not independent usefulness judgments. Distinct URLs may still describe the same opportunity; repeatedDestinations detects only observed redirect identity. Initial reports recorded a dashboard sample, not every source review."
+      },
+      "closedListingsExcluded": [
+        "https://www.peopleperhour.com/freelance-jobs/technology-programming/data-science-analysis/capture-1st-click-last-click-parameters-react-typescript-4084071",
+        "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/experienced-full-stack-developer-needed-for-e-commerce-web-a-4427920",
+        "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/talented-react-js-developer-with-vision-4419248"
+      ],
+      "unavailableSources": [
+        {
+          "url": "https://freelancehunt.com/en/project/development-parser/1661786.html",
+          "reason": "source_access_denied"
+        }
+      ],
+      "recommendations": [
+        {
+          "title": "Web3 Frontend Engineer",
+          "url": "https://www.freelancer.com/projects/react-js/web-frontend-engineer-cross-chain-40794961",
+          "remoteEvidence": [
+            "Job Title: Web3 Frontend Engineer Project: Cross-Chain Staking Platform Job Type: Freelance / Contract Experience Level: Mid-Level to Senior Work Arrangement: Remote Budget: $35\u2013$65 USD/hour (negotiable) Project Duration:** 2\u20133 months, with potential for long-term collaboration Project Overview We are developing a cross-chain staking platform that allows users to connect their Web3 wallets, stake digital assets across supported blockchain networks, monitor staking positions, and manage staking rewards through a unified interface. We are looking for an experienced Web3 Frontend Engineer to build a responsive, intuitive, and reliable user interface for our platform. The ideal candidate should have hands-on experience developing DeFi applications, integrating smart contracts, and building frontend applications that interact with multiple blockchain networks. You will collaborate with backend and smart contract engineers to deliver a seamless staking experience across supported chains. Key",
+            "Remote project"
+          ],
+          "availability": {
+            "status": "available",
+            "checkedAt": "2026-10-31T23:11:36.518Z",
+            "sourceUrl": "https://www.freelancer.com/projects/react-js/web-frontend-engineer-cross-chain-40794961",
+            "validUntil": "2026-10-31T23:26:36.518Z",
+            "fingerprint": "fc29838ba79a33c00f8ccca6089da9d699b5471d789ad89ab6ab0d2a6cc74a3a"
+          },
+          "uncertainties": [
+            "No mandatory applicant location restriction is stated in the posting, so location eligibility cannot be determined from the supplied text.",
+            "The posting asks for mid-to-senior Web3 and DeFi staking experience, but the brief only confirms React/TypeScript web application experience and does not confirm the specific Web3 requirements.",
+            "There is no explicit work authorization or sponsorship requirement in the posting, so authorization cannot be assessed from the supplied text.",
+            "The posting provides an hourly budget, but the brief does not set a minimum pay floor, so there is no required compensation threshold to compare against."
+          ]
+        }
+      ],
+      "checks": [
+        "live adaptive decisions",
+        "bounded provider and model admission",
+        "observed parent provenance",
+        "current owner isolation",
+        "terminal replay without new spending",
+        "one local Mailpit digest; repeat delivery sends zero",
+        "closed primary-source status prevents publication",
+        "all final recommendations cite remote arrangement and have available status"
+      ]
+    },
+    {
+      "scenario": "services",
+      "receipt": "full-services-verified-2026-11-01.json",
+      "checkedAt": "2026-10-31T23:12:06.108Z",
+      "caseStatus": "partial",
+      "caseReason": "some_sources_unavailable",
+      "stages": {
+        "scenario": "services",
+        "executionStatus": "measured",
+        "successfulSearches": 4,
+        "failedSearches": 0,
+        "renderingEnabled": true,
+        "durationSeconds": 108.517,
+        "uniqueLeads": 40,
+        "recordedLeads": 40,
+        "completeLeadSet": true,
+        "searchRequests": 4,
+        "documentRequests": 6,
+        "capturedDocuments": 5,
+        "completeCaptures": 5,
+        "inaccessibleDocuments": 1,
+        "repeatedDestinations": 0,
+        "sourceReviewLabels": {
+          "client_request": 3,
+          "closed": 2
+        },
+        "sourceReviewCountsAreComplete": true,
+        "promotedPostings": 3,
+        "matching": "completed",
+        "completedFitAssessments": 3,
+        "dashboardRecommendations": 2,
+        "acceptedEmails": 1,
+        "aiEstimatedUsd": 0.0673,
+        "attemptsWithoutCostEstimate": 0,
+        "searchReservedUsd": 0.04,
+        "aiReservedUsd": 1.35,
+        "estimatedAiPlusSearchReservationPerRecommendationUsd": 0.05365,
+        "independentlyUsefulResults": null,
+        "costPerIndependentlyUsefulResultUsd": null,
+        "precision": null,
+        "recall": null,
+        "limitations": "AI estimates exclude unpriced/failed attempts, infrastructure and billing adjustments. Search reservations are configured upper allowances, not invoices. Source labels and dashboard acceptance are not independent usefulness judgments. Distinct URLs may still describe the same opportunity; repeatedDestinations detects only observed redirect identity. Initial reports recorded a dashboard sample, not every source review."
+      },
+      "closedListingsExcluded": [
+        "https://www.peopleperhour.com/freelance-jobs/design/web-design/final-15-of-our-new-website-4526014",
+        "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/wordpress-woocommerce-website-redesign-and-development-4529115"
+      ],
+      "unavailableSources": [
+        {
+          "url": "https://www.instagram.com/p/DfIbPufmhw8/",
+          "reason": "crawl_policy_denied"
+        }
+      ],
+      "recommendations": [
+        {
+          "title": "website design",
+          "url": "https://www.peopleperhour.com/freelance-jobs/design/web-design/fix-a-terribly-designed-website-4528812",
+          "remoteEvidence": [
+            " * Remote"
+          ],
+          "availability": {
+            "status": "available",
+            "checkedAt": "2026-10-31T23:10:44.932Z",
+            "sourceUrl": "https://www.peopleperhour.com/freelance-jobs/design/web-design/fix-a-terribly-designed-website-4528812",
+            "validUntil": "2026-10-31T23:25:44.932Z",
+            "fingerprint": "34f1d8bb0436bd24e26caa3ce0842232dcda5f87dffcde88e3d31310e0d1221a"
+          },
+          "uncertainties": [
+            "No mandatory applicant location or worksite restriction is stated in the posting, so location eligibility cannot be determined from the evidence.",
+            "The job location is not stated, so work authorization cannot be compared to the brief\u2019s authorization settings."
+          ]
+        },
+        {
+          "title": "full redesign",
+          "url": "https://www.peopleperhour.com/freelance-jobs/design/web-design/full-website-redesign-for-agnix-office-4528892",
+          "remoteEvidence": [
+            " * Remote"
+          ],
+          "availability": {
+            "status": "available",
+            "checkedAt": "2026-10-31T23:10:35.549Z",
+            "sourceUrl": "https://www.peopleperhour.com/freelance-jobs/design/web-design/full-website-redesign-for-agnix-office-4528892",
+            "validUntil": "2026-10-31T23:25:35.549Z",
+            "fingerprint": "64d51bacf368cb60b13d82cb542e0fbecff2f98e694700f44e26ce7baee09634"
+          },
+          "uncertainties": [
+            "No mandatory applicant location restriction is stated in the posting, so location eligibility cannot be determined from the evidence provided.",
+            "No explicit work-permission or sponsorship requirement is stated for this exact role and location, so authorization cannot be determined from the provided text."
+          ]
+        }
+      ],
+      "checks": [
+        "live adaptive decisions",
+        "bounded provider and model admission",
+        "observed parent provenance",
+        "current owner isolation",
+        "terminal replay without new spending",
+        "one local Mailpit digest; repeat delivery sends zero",
+        "closed primary-source status prevents publication",
+        "all final recommendations cite remote arrangement and have available status"
+      ]
+    }
+  ],
+  "targetedRegressions": {
+    "receipt": "discovery-regressions-live-2026-11-01.json",
+    "passed": 2,
+    "tokens": 6354,
+    "invocationCeiling": 20000
+  },
+  "validation": {
+    "focusedUnitTests": 51,
+    "databaseIntegrationTests": 28,
+    "builds": [
+      "core",
+      "adapters",
+      "worker"
+    ],
+    "workerTypecheck": "passed",
+    "architecture": "passed: 10 workspaces, 405 sources",
+    "whitespace": "passed"
+  },
+  "tokenBatch": {
+    "runs": [
+      {
+        "receipt": "full-projects-live-2026-10-31.json",
+        "generationCalls": 3,
+        "tokens": 5801,
+        "modelTokens": {
+          "gpt-5.4-mini-2026-03-17": 5801
+        }
+      },
+      {
+        "receipt": "full-projects-recapture-2026-10-31.json",
+        "generationCalls": 19,
+        "tokens": 66720,
+        "modelTokens": {
+          "gpt-5.4-mini-2026-03-17": 62374,
+          "gpt-5.4-2026-03-05": 4346
+        }
+      },
+      {
+        "receipt": "full-projects-live-funded-2026-10-31.json",
+        "generationCalls": 19,
+        "tokens": 71134,
+        "modelTokens": {
+          "gpt-5.4-mini-2026-03-17": 64829,
+          "gpt-5.4-2026-03-05": 6305
+        }
+      },
+      {
+        "receipt": "full-services-live-2026-10-31.json",
+        "generationCalls": 17,
+        "tokens": 66310,
+        "modelTokens": {
+          "gpt-5.4-mini-2026-03-17": 66310
+        }
+      },
+      {
+        "receipt": "discovery-regressions-live-2026-11-01.json",
+        "generationCalls": 2,
+        "tokens": 6354,
+        "modelTokens": {
+          "gpt-5.4-mini-2026-03-17": 2998,
+          "gpt-5.4-2026-03-05": 3356
+        }
+      },
+      {
+        "receipt": "full-projects-verified-2026-11-01.json",
+        "generationCalls": 15,
+        "tokens": 57461,
+        "modelTokens": {
+          "gpt-5.4-mini-2026-03-17": 51758,
+          "gpt-5.4-2026-03-05": 5703
+        }
+      },
+      {
+        "receipt": "full-services-verified-2026-11-01.json",
+        "generationCalls": 15,
+        "tokens": 59863,
+        "modelTokens": {
+          "gpt-5.4-mini-2026-03-17": 59863
+        }
+      }
+    ],
+    "generationCalls": 90,
+    "inputPlusOutputTokens": 333643,
+    "retainedUnknownTokens": 0,
+    "preexistingTokens": 5690,
+    "finalReceipt": "full-discovery-budget-final-2026-11-01.json",
+    "capsChanged": false,
+    "remaining": {
+      "gpt-5.4": 230290,
+      "gpt-5.4-mini": 2080377
+    },
+    "combinedRemaining": 2310667
+  },
+  "scope": "Synthetic confirmed US-based briefs in disposable PostgreSQL test schemas; production discovery, source review, matching, expert recovery/review, availability and delivery paths. Only local Mailpit emails, no real accounts or outbound applications. Background worker was already stopped and was not started by these evaluations.",
+  "limitations": [
+    "Freelancehunt denied source access; Instagram crawl policy denied capture. No access controls were bypassed.",
+    "Final recommendations include explicit remote evidence, but contractor eligibility/authorization and some required skills remain unknown and visible. These are recommendations for review under the synthetic briefs, not verified eligibility for the user.",
+    "Independent human usefulness, precision, recall and representative mini-versus-full accuracy remain unmeasured.",
+    "Upwork, Guru, approved Facebook/LinkedIn integrations, PDFs and native social discovery were not exercised by these final runs.",
+    "The project receipt retains three unattempted pending recovery task records after its one permitted expert recovery completed; they made no model calls and held no final token reservations."
+  ]
+}

@@ -1,0 +1,231 @@
+{
+  "checkedAt": "2026-10-31T23:10:10.263Z",
+  "cases": [
+    {
+      "name": "employer-location-preference",
+      "passed": true,
+      "sourceReceipt": "evaluations/discovery/full-services-live-2026-10-31.json",
+      "sourceUrl": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/wordpress-woocommerce-website-redesign-and-development-4529115",
+      "previousLocation": "conflicts",
+      "location": {
+        "criterion": "location",
+        "status": "unknown",
+        "explanation": "The posting only states a preference for a UK-based freelancer, not a mandatory location restriction, so eligibility cannot be determined from the provided information.",
+        "quotes": [
+          "Clear communication is important to us. We would prefer a UK-based freelancer who is available for a short telephone or video call."
+        ],
+        "briefQuotes": [
+          "United States or remote worldwide",
+          "review"
+        ]
+      },
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "inputTokens": 2331,
+        "cachedInputTokens": 0,
+        "outputTokens": 667,
+        "durationMs": 5227,
+        "responseId": "resp_0f953f1aeda0eedb016ae67540688c87d2b38b4e6443087d8d"
+      }
+    },
+    {
+      "name": "repeated-expert-citations",
+      "passed": true,
+      "sourceReceipt": "evaluations/discovery/full-projects-live-funded-2026-10-31.json",
+      "sourceUrl": "https://www.freelancer.com/projects/adobe-experience-manager/based-aem-react-front-end",
+      "previousPacketBytes": 28223,
+      "packetBytes": 7723,
+      "maximumPacketBytes": 24000,
+      "experience": {
+        "criterion": "experience",
+        "status": "unknown",
+        "explanation": "The brief confirms five years of React/TypeScript work, which supports part of the requirement, but the listing also requires 2+ years with AEM and other AEM-specific qualifications that the brief does not confirm. Because the brief does not establish those mandatory skills, this remains unknown rather than a confirmed match.",
+        "quotes": [
+          "AEM Front-End Developer (React) Location: Remote (candidates must be based in the United States) Employment type: Contract Experience: 5+ years About the Role We are looking for an experienced AEM Front-End Developer with strong React skills to build and enhance enterprise digital experiences on Adobe Experience Manager. You will work closely with designers, back-end developers, and product owners to deliver fast, accessible, and scalable web components in a fully remote team. Key Responsibilities Build and maintain responsive, reusable front-end components for Adobe Experience Manager (AEM Sites) using React, HTML5, CSS3, and JavaScript/TypeScript. Develop AEM components, templates, and client libraries (clientlibs) following Adobe best practices. Integrate React with AEM using the SPA Editor or headless approaches (Content Fragments, GraphQL, Experience Fragments). Translate UI/UX designs into pixel-perfect, accessible (WCAG 2.1) interfaces. Work with back-end AEM developers on Sling",
+          " Models, HTL (Sightly), and OSGi services where required. Optimize pages for performance, SEO, and cross-browser and cross-device compatibility. Write clean, testable code, participate in code reviews, and follow Git-based CI/CD workflows. Collaborate with content authors and stakeholders to make components easy to author and maintain. Take part in Agile ceremonies (sprint planning, stand-ups, retrospectives). Required Qualifications 5+ years of front-end development experience, including 2+ years working with AEM (6.5 or AEM as a Cloud Service). Strong hands-on experience with React (hooks, state management, component architecture), plus modern JavaScript (ES6+) and TypeScript. Solid knowledge of HTML5, CSS3/SASS/LESS, and responsive design. Experience with HTL (Sightly), AEM Core Components, Editable Templates, and clientlibs. Familiarity with AEM SPA Editor and/or headless AEM concepts. Experience with REST APIs, JSON, and consuming back-end services. Proficiency with Git, npm/Webpa",
+          "ck, and CI/CD pipelines. Good understanding of accessibility, web performance, and SEO. Excellent communication skills and the ability to work independently in a remote environment. Preferred Qualifications AEM certification (e.g., Adobe Certified Expert – AEM Sites Developer). Experience with [login to view URL], Redux, or Storybook. Knowledge of Sling, OSGi, and Maven. Experience with AEM Cloud Manager, Dispatcher, or Adobe Analytics/Target integrations. Experience in testing frameworks such as Jest and React Testing Library. Prior experience in enterprise, retail, healthcare, or financial services projects. Work Requirements Must reside in the United States and be legally authorized to work in the U.S. Ability to work during core U.S. business hours ([time zone, e.g., EST/CST overlap]). Reliable high-speed internet and a suitable remote workspace. What We Offer Fully remote work within the U.S. Competitive compensation / hourly rate Opportunity to work on large-scale enterprise AEM "
+        ],
+        "briefQuotes": [
+          "React TypeScript web development",
+          "Five years delivering React and TypeScript web applications, API integrations and dashboards for clients"
+        ]
+      },
+      "usage": {
+        "model": "gpt-5.4-2026-03-05",
+        "inputTokens": 2295,
+        "cachedInputTokens": 0,
+        "outputTokens": 1061,
+        "durationMs": 13952,
+        "responseId": "resp_03860efe818f5331016ae67545301887d2923937c745ac4385"
+      }
+    }
+  ],
+  "scope": "Live mini and expert reassessment of two earlier captured synthetic test cases. This does not refresh source availability or publish the paused preference example. Source text and daily caps are unchanged; source-review availability is verified by separate full-flow tests.",
+  "sharedTokenBudget": {
+    "before": {
+      "day": "2026-10-31",
+      "inputTokens": 185337,
+      "outputTokens": 30318,
+      "cachedInputTokens": 0,
+      "reservedTokens": 0,
+      "usedTokens": 215655,
+      "dailyLimit": 2650000,
+      "remainingTokens": 2434345,
+      "unknownReservations": 0,
+      "models": [
+        {
+          "day": "2026-10-31",
+          "model": "gpt-5.4",
+          "dailyLimit": 250000,
+          "inputTokens": 5100,
+          "outputTokens": 5551,
+          "cachedInputTokens": 0,
+          "usedTokens": 10651,
+          "reservedTokens": 0,
+          "remainingTokens": 239349,
+          "unknownReservations": 0,
+          "allocations": [
+            {
+              "purpose": "standard",
+              "dailyLimit": 210000,
+              "usedTokens": 0,
+              "reservedTokens": 0,
+              "remainingTokens": 210000
+            },
+            {
+              "purpose": "audit",
+              "dailyLimit": 40000,
+              "usedTokens": 10651,
+              "reservedTokens": 0,
+              "remainingTokens": 29349
+            }
+          ]
+        },
+        {
+          "day": "2026-10-31",
+          "model": "gpt-5.4-mini",
+          "dailyLimit": 2400000,
+          "inputTokens": 180237,
+          "outputTokens": 24767,
+          "cachedInputTokens": 0,
+          "usedTokens": 205004,
+          "reservedTokens": 0,
+          "remainingTokens": 2194996,
+          "unknownReservations": 0,
+          "allocations": [
+            {
+              "purpose": "standard",
+              "dailyLimit": 2400000,
+              "usedTokens": 205004,
+              "reservedTokens": 0,
+              "remainingTokens": 2194996
+            },
+            {
+              "purpose": "audit",
+              "dailyLimit": 0,
+              "usedTokens": 0,
+              "reservedTokens": 0,
+              "remainingTokens": 0
+            }
+          ]
+        }
+      ]
+    },
+    "after": {
+      "day": "2026-10-31",
+      "inputTokens": 189963,
+      "outputTokens": 32046,
+      "cachedInputTokens": 0,
+      "reservedTokens": 0,
+      "usedTokens": 222009,
+      "dailyLimit": 2650000,
+      "remainingTokens": 2427991,
+      "unknownReservations": 0,
+      "models": [
+        {
+          "day": "2026-10-31",
+          "model": "gpt-5.4",
+          "dailyLimit": 250000,
+          "inputTokens": 7395,
+          "outputTokens": 6612,
+          "cachedInputTokens": 0,
+          "usedTokens": 14007,
+          "reservedTokens": 0,
+          "remainingTokens": 235993,
+          "unknownReservations": 0,
+          "allocations": [
+            {
+              "purpose": "standard",
+              "dailyLimit": 210000,
+              "usedTokens": 3356,
+              "reservedTokens": 0,
+              "remainingTokens": 206644
+            },
+            {
+              "purpose": "audit",
+              "dailyLimit": 40000,
+              "usedTokens": 10651,
+              "reservedTokens": 0,
+              "remainingTokens": 29349
+            }
+          ]
+        },
+        {
+          "day": "2026-10-31",
+          "model": "gpt-5.4-mini",
+          "dailyLimit": 2400000,
+          "inputTokens": 182568,
+          "outputTokens": 25434,
+          "cachedInputTokens": 0,
+          "usedTokens": 208002,
+          "reservedTokens": 0,
+          "remainingTokens": 2191998,
+          "unknownReservations": 0,
+          "allocations": [
+            {
+              "purpose": "standard",
+              "dailyLimit": 2400000,
+              "usedTokens": 208002,
+              "reservedTokens": 0,
+              "remainingTokens": 2191998
+            },
+            {
+              "purpose": "audit",
+              "dailyLimit": 0,
+              "usedTokens": 0,
+              "reservedTokens": 0,
+              "remainingTokens": 0
+            }
+          ]
+        }
+      ]
+    },
+    "attempts": [
+      {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "purpose": "standard",
+        "reservedTokens": 6331,
+        "state": "completed",
+        "usage": {
+          "inputTokens": 2331,
+          "outputTokens": 667,
+          "cachedInputTokens": 0
+        }
+      },
+      {
+        "model": "gpt-5.4-2026-03-05",
+        "purpose": "standard",
+        "reservedTokens": 6295,
+        "state": "completed",
+        "usage": {
+          "inputTokens": 2295,
+          "outputTokens": 1061,
+          "cachedInputTokens": 0
+        }
+      }
+    ],
+    "evaluationTokenCeiling": 20000,
+    "evaluationAccountedTokens": 6354,
+    "scope": "Evaluation generations share the configured worker database's daily allowance. Before/after snapshots include background worker activity; attempts contain this evaluation only. Counting failures before reservation do not appear as generation attempts."
+  }
+}
