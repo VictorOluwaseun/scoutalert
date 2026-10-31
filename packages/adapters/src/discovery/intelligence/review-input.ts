@@ -13,7 +13,11 @@ export interface ReviewableLead {
   snippet: string | null;
   content_status: string;
   document: {
-    capture?: { scope?: "buyer_brief"; complete: boolean };
+    capture?: {
+      scope?: "buyer_brief";
+      complete: boolean;
+      availability?: "closed";
+    };
     sitemap?: { format: "urlset" | "index" };
     feed?: { format: "rss" | "atom" };
     nativePost?: NativePost;
@@ -55,9 +59,13 @@ export function reviewInput(lead: ReviewableLead): LeadReviewInput {
   const observedAt = source
     ? lead.document!.checkedAt!
     : new Date(lead.last_seen_at).toISOString();
+  const availability = sourceKind
+    ? lead.document?.capture?.availability
+    : undefined;
   return {
     collection,
     sourceKind,
+    availability,
     nativePost,
     nativeContext,
     id: lead.id,
@@ -83,6 +91,7 @@ export function reviewInput(lead: ReviewableLead): LeadReviewInput {
       ...(nativePost ? ["native-attribution-v1", nativePost] : []),
       ...(collection ? [`${collection}-directory-v1`] : []),
       ...(sourceKind ? ["primary-buyer-brief-v1"] : []),
+      ...(availability ? ["platform-availability-v1", availability] : []),
     ]),
   };
 }

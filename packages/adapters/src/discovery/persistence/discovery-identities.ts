@@ -1,7 +1,7 @@
 import { createHash } from "node:crypto";
 
 /** Shared source-reader version invalidates stale captures after parser or access-policy changes without rewriting historical evidence. */
-export const PUBLIC_DOCUMENT_VERSION = "public-document-v12";
+export const PUBLIC_DOCUMENT_VERSION = "public-document-v13";
 
 /** Stable public identity includes canonical semantic inputs rather than an account or profile. */
 export function discoveryKey(value: unknown): string {

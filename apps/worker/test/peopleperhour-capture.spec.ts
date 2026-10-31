@@ -1,4 +1,6 @@
 import { describe, expect, it, vi } from "vitest";
+import { mayPublishLead } from "@repo/core/discovery";
+import { demandReview } from "./fixtures/lead-review.js";
 import {
   peoplePerHourRequestContent,
   PublicHttpRepository,
@@ -20,6 +22,70 @@ const html = `<html><head><link rel="canonical" href="${url}"></head><body>
 <aside>Similar project: Office-only Java developer</aside></div></body></html>`;
 
 describe("PeoplePerHour primary buyer capture", () => {
+  it.each(["Paused", "Expired", "Archived", "Awarded", "In Progress"])(
+    "blocks a positive model verdict for parser-confirmed %s demand",
+    async (status) => {
+      const http = new PublicHttpRepository();
+      vi.spyOn(http, "read")
+        .mockResolvedValueOnce({
+          status: 404,
+          contentType: "text/plain",
+          body: "",
+        })
+        .mockResolvedValueOnce({
+          status: 200,
+          contentType: "text/html",
+          body: html.replace("Open for Proposals", status),
+        });
+      const document = await new PublicSourceDocumentRepository(http).read(url);
+      const input = reviewInput({
+        id: "closed-fixture",
+        url,
+        title: "Website redesign",
+        snippet: "Open buyer request",
+        content_status: document.status,
+        document,
+        last_seen_at: document.checkedAt,
+      });
+      const review = demandReview(input);
+      review.label = "client_request";
+      review.analysis.facts.role = {
+        status: "stated",
+        value: "Website redesign",
+        quotes: [input.text],
+      };
+      expect(document.capture?.availability).toBe("closed");
+      expect(input.availability).toBe("closed");
+      expect(mayPublishLead(input, review, new Date())).toBe(false);
+      expect(
+        mayPublishLead(
+          { ...input, availability: undefined },
+          review,
+          new Date(),
+        ),
+      ).toBe(true);
+      const excerpt = reviewInput({
+        id: input.id,
+        url,
+        title: "Website redesign",
+        snippet: "Open buyer request",
+        content_status: "access_limited",
+        document,
+        last_seen_at: document.checkedAt,
+      });
+      expect(excerpt.availability).toBeUndefined();
+    },
+  );
+
+  it("does not treat body text about a paused old website as platform closure", () => {
+    const result = peoplePerHourRequestContent(
+      html.replace("We need", "Our old website was paused. We need"),
+      url,
+    );
+    expect(result?.complete).toBe(true);
+    expect(result?.availability).toBeUndefined();
+  });
+
   it("passes only the complete buyer section into source review and suppresses employment schema", async () => {
     const http = new PublicHttpRepository();
     vi.spyOn(http, "read")
@@ -41,7 +107,7 @@ describe("PeoplePerHour primary buyer capture", () => {
       capture: {
         scope: "buyer_brief",
         complete: true,
-        parser: "peopleperhour-public-html-v3",
+        parser: "peopleperhour-public-html-v4",
       },
     });
     const input = reviewInput({
@@ -62,7 +128,7 @@ describe("PeoplePerHour primary buyer capture", () => {
     expect(result).toMatchObject({
       complete: true,
       reason: null,
-      parser: "peopleperhour-public-html-v3",
+      parser: "peopleperhour-public-html-v4",
     });
     for (const text of [
       "WordPress",
@@ -85,6 +151,10 @@ describe("PeoplePerHour primary buyer capture", () => {
     ["canonical mismatch", html.replace(url, `${url}-1`)],
     ["project ID mismatch", html.replace("#4526000", "#4526001")],
     ["missing status", html.replace("job-status", "unknown")],
+    [
+      "hidden status",
+      html.replace('class="info-label', 'hidden class="info-label'),
+    ],
     ["missing description", html.replace("project-description", "unknown")],
     [
       "duplicate description",
@@ -159,6 +229,7 @@ describe("PeoplePerHour primary buyer capture", () => {
       const result = peoplePerHourRequestContent(body, url);
       expect(result?.complete).toBe(true);
       expect(result?.text).toContain(status);
+      expect(result?.availability).toBe("closed");
       expect(result?.text).toContain("#4526000");
       expect(result?.text).not.toMatch(/TypeScript|London|Angular/);
       expect(

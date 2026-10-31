@@ -82,6 +82,7 @@ export function mayPublishLead(
   return (
     validLeadReview(input, review) &&
     input.scope === "source" &&
+    input.availability !== "closed" &&
     !input.collection &&
     !input.truncated &&
     ["job_opening", "client_request"].includes(review.label) &&

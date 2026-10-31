@@ -9,6 +9,8 @@ export interface BuyerRequestContent {
   complete: boolean;
   reason: string | null;
   parser: string;
+  /** Explicit platform closure from a complete primary section; absence makes no availability claim. */
+  availability?: "closed";
 }
 
 /** Uses complete class tokens, not substring matches that could accidentally select bidder or preview markup. */

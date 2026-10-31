@@ -20,6 +20,8 @@ export type LeadLabel = (typeof leadLabels)[number];
 export interface LeadReviewInput {
   /** Infrastructure-confirmed primary buyer sections, never inferred from a hostname, snippet or model label. */
   sourceKind?: "buyer_brief";
+  /** Parser-confirmed closed/paused demand cannot be published even if model classification is positive. */
+  availability?: "closed";
   /** Parser-confirmed collections cannot be classified or published as individual demand. */
   collection?: "feed" | "sitemap";
   nativePost?: import("./social-discovery.js").NativePost;

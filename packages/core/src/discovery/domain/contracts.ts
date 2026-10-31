@@ -95,6 +95,8 @@ export interface SourceDocumentResult {
     /** Provider-validated primary buyer sections exclude proposals, profiles and related-listing text. */
     scope?: "buyer_brief";
     parser?: string;
+    /** Explicit platform closure observed by the primary-section parser, independent of model classification. */
+    availability?: "closed";
     method: "http" | "browser" | "public_api";
     cacheHit?: boolean;
     requests: number;

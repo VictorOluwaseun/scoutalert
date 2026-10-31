@@ -215,6 +215,7 @@ export class PublicSourceDocumentRepository extends SourceDocumentRepository {
         feeds,
         reason,
         selected?.parser,
+        selected?.availability,
       ]),
       posting: reason || selected ? null : parseFormalPosting(html, url, now),
       truncated: reason !== null,
@@ -229,7 +230,13 @@ export class PublicSourceDocumentRepository extends SourceDocumentRepository {
         bytes: session.bytes,
         complete: reason === null,
         ...(selected
-          ? { scope: "buyer_brief" as const, parser: selected.parser }
+          ? {
+              scope: "buyer_brief" as const,
+              parser: selected.parser,
+              ...(selected.availability
+                ? { availability: selected.availability }
+                : {}),
+            }
           : {}),
       },
     };

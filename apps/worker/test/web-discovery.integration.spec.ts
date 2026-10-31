@@ -1434,7 +1434,7 @@ describe.skipIf(!enabled)(
       expect((await availability.check(posting)).status).toBe("unresolved");
     });
 
-    it("publishes a source-grounded client request into the services index without fabricated organization or dates", async () => {
+    it("publishes a source-grounded client request and withdraws it when the platform closes it despite a positive model review", async () => {
       const entry = await reviewFixture();
       const text =
         "Product designer needed for a one-off website project. Remote delivery. Apply through this page with your portfolio.";
@@ -1471,6 +1471,41 @@ describe.skipIf(!enabled)(
         company: null,
         date: null,
       });
+      const capture = {
+        scope: "buyer_brief",
+        complete: true,
+        availability: "closed",
+      };
+      await sql`UPDATE web_discovery_leads SET document=jsonb_set(document,'{capture}',${JSON.stringify(capture)}::jsonb) WHERE id=${entry.id}`.execute(
+        db,
+      );
+      const next = { ...entry.request, runId: randomUUID() };
+      await open(next);
+      await sql`INSERT INTO web_discovery_case_leads(case_id,lead_id) VALUES(${next.runId}::uuid,${entry.id})`.execute(
+        db,
+      );
+      await sql`UPDATE web_discovery_cases SET status='completed',finished_at=now() WHERE id=${next.runId}::uuid`.execute(
+        db,
+      );
+      const closed = await reviews.claim(next, "fixture-client-v1");
+      if (closed.status !== "claimed") {
+        throw new Error("expected_closed_client_claim");
+      }
+      expect(closed.inputs[0]).toMatchObject({ availability: "closed" });
+      expect(closed.inputs[0]!.fingerprint).not.toBe(
+        claim.inputs[0]!.fingerprint,
+      );
+      await reviews.complete(closed.token, {
+        reviews: [{ id: entry.id, review }],
+        usage: reviewUsage,
+      });
+      const withdrawn = await sql<{
+        open: boolean;
+        posting_id: string | null;
+      }>`SELECT p.open,l.posting_id FROM opportunity_postings p JOIN web_discovery_leads l ON l.id=${entry.id} WHERE p.id=${`web:${entry.id}`}`.execute(
+        db,
+      );
+      expect(withdrawn.rows[0]).toEqual({ open: false, posting_id: null });
     });
 
     it("coalesces concurrent equivalent searches across owners, charges once, and isolates observations", async () => {

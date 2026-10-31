@@ -22,7 +22,7 @@ export function peoplePerHourRequestContent(
     text: null,
     complete: false,
     reason: "buyer_brief_structure_unrecognized",
-    parser: "peopleperhour-public-html-v3",
+    parser: "peopleperhour-public-html-v4",
   };
   const dom = parseDocument(html, { withEndIndices: true });
   const canonical = DomUtils.findAll(
@@ -54,7 +54,7 @@ export function peoplePerHourRequestContent(
       /\b(?:project has been cancell?ed|project is no longer available)\b/iu.test(
         text,
       )
-      ? capture([moderated[0]!], html, incomplete)
+      ? capture([moderated[0]!], html, incomplete, "closed")
       : incomplete;
   }
   const headers = root.children.filter(
@@ -77,8 +77,9 @@ export function peoplePerHourRequestContent(
     titles.length !== 1 ||
     !DomUtils.textContent(titles[0]!).trim() ||
     statuses.length !== 1 ||
-    !/\b(?:Open for Proposals|Expired|Closed|Awarded|Cancell?ed|In Progress|Paused|Archived)\b/iu.test(
-      sectionText(statuses[0]!),
+    hidden(statuses[0]!) ||
+    !/^(?:Open for Proposals|Expired|Closed|Awarded|Cancell?ed|In Progress|Paused|Archived)$/iu.test(
+      sectionText(statuses[0]!).trim(),
     ) ||
     !new RegExp(`#${id}\\b`, "u").test(sectionText(header)) ||
     sectionText(descriptions[0]!).length < 40
@@ -95,7 +96,14 @@ export function peoplePerHourRequestContent(
   if (!sameProject && !closedCategory) {
     return incomplete;
   }
-  return capture([header, levels[0]!, descriptions[0]!], html, incomplete);
+  return capture(
+    [header, levels[0]!, descriptions[0]!],
+    html,
+    incomplete,
+    /^Open for Proposals$/iu.test(sectionText(statuses[0]!).trim())
+      ? undefined
+      : "closed",
+  );
 }
 
 /** Admits only public numeric project identities; collections, profiles and query routes retain their generic behavior. */
@@ -121,6 +129,7 @@ function capture(
   sections: Element[],
   html: string,
   incomplete: BuyerRequestContent,
+  availability?: "closed",
 ): BuyerRequestContent {
   if (sections.some((node) => hidden(node) || !explicitlyClosed(node, html))) {
     return incomplete;
@@ -136,5 +145,6 @@ function capture(
     text: complete ? text : text.slice(0, 48_000),
     complete,
     reason: complete ? null : "buyer_brief_too_large",
+    ...(complete && availability ? { availability } : {}),
   };
 }
