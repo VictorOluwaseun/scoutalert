@@ -9,6 +9,50 @@ import { search, posting, analysis, fit } from "./fixtures/intelligence.js";
 afterEach(() => vi.unstubAllGlobals());
 
 describe("native expert review boundary", () => {
+  it("references repeated quotations without dropping source text or increasing the packet ceiling", async () => {
+    const paragraphs = ["A", "B", "C", "D"].map((letter) =>
+      letter.repeat(1000),
+    );
+    const baseline = structuredClone(fit);
+    for (const criterion of baseline.criteria) {
+      criterion.quotes = [...paragraphs];
+    }
+    const facts = structuredClone(analysis);
+    for (const fact of Object.values(facts.facts)) {
+      fact.quotes = [...paragraphs];
+    }
+    const request = fitReviewRequest(posting, facts, baseline, "sample_audit");
+    request.sources = [
+      {
+        url: posting.url,
+        observedAt: null,
+        text: paragraphs.join("\n"),
+        complete: true,
+      },
+    ];
+    const client = createIntelligenceClient("fixture-no-network");
+    const parse = vi
+      .spyOn(client.responses, "parse")
+      .mockRejectedValue(new Error("captured"));
+    const provider = new OpenAIFitReviewProvider(client, "gpt-5.4-2026-03-05");
+    await expect(provider.review(search, facts, request)).rejects.toThrow(
+      "captured",
+    );
+    const input = parse.mock.calls[0]![0].input as string;
+    const packet = JSON.parse(input);
+    expect(Buffer.byteLength(input)).toBeLessThan(24_000);
+    expect(Object.values(packet.sources[0].passages)).toEqual(paragraphs);
+    expect(packet.sources[0].complete).toBe(true);
+    expect(packet.baseline.criteria[0].quotes).toEqual([
+      "p0",
+      "p1",
+      "p2",
+      "p3",
+    ]);
+    expect(packet.facts.role.quotes).toEqual(["p0", "p1", "p2", "p3"]);
+    expect(request.baseline.criteria[0]!.quotes).toEqual(paragraphs);
+  });
+
   it.each(["sample_audit", "conditional_requirements"] as const)(
     "preserves source citations and charges %s to its allocation",
     async (reason) => {
