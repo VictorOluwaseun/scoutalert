@@ -4,14 +4,13 @@ import {
   IntelligenceProvider,
   normalizeCompensation,
   postingEvidence,
-  researchText,
-  briefEvidence,
   type Posting,
   type PostingAnalysis,
   type IntelligenceResult,
 } from "@repo/core/scouting";
 import type { SearchDraft } from "@repo/core/onboarding";
 import { evidencePassages, resolveEvidence } from "./evidence-passages.js";
+import { fitPacket } from "./fit-packet.js";
 import { postingAnalysisSchema, personalFitSchema } from "./schemas.js";
 import {
   OpenAITokenBudgetTransport,
@@ -102,21 +101,11 @@ export class OpenAIIntelligenceProvider extends IntelligenceProvider {
     search: SearchDraft,
     analysis: PostingAnalysis,
   ): Promise<IntelligenceResult & { kind: "fit" }> {
-    const passages = evidencePassages(
-      `${postingEvidence(posting)}\n${researchText(analysis)}`,
-      "p",
-      3,
-    );
-    const briefPassages = Object.fromEntries(
-      briefEvidence(search).map((value, index) => [`b${index}`, value]),
-    );
-    const input = JSON.stringify({
-      passages,
-      kind: posting.kind ?? "job",
+    const { input, passages, briefPassages } = fitPacket(
+      posting,
+      search,
       analysis,
-      brief: search,
-      briefPassages,
-    });
+    );
     this.boundInput(input);
     const started = Date.now();
     const response = await this.client.responses.parse(
@@ -126,7 +115,7 @@ export class OpenAIIntelligenceProvider extends IntelligenceProvider {
         service_tier: "default",
         max_output_tokens: 4000,
         reasoning: { effort: "low" },
-        instructions: `${policy}\nFor client_request postings, services means buyer-posted projects and service requests, including hourly work. Do not classify those as employment merely because they are hourly. Compare requested deliverables to the target and professional background. Do not treat an indicative budget as a guaranteed minimum, or marketplace access as permission to fulfil the contract. Unknown supplier eligibility and authorization remain unknown. A buyer location or customer market is not a contractor-location restriction; only explicit worksite or applicant requirements constrain location. Return exactly one result per criterion. Compare the actual primary role (not incidental department words), opportunity category, arrangement, applicant location, required experience, authorization and compensation to the confirmed brief. Each meets/conflicts result needs source quotes AND brief passage IDs in briefQuotes supporting the comparison. Do not treat missing personal details as a conflict. Employer preferences such as preferred, ideally or nice-to-have are not mandatory eligibility restrictions. Do not mark a criterion conflicts solely because the user does not satisfy an employer preference. If no mandatory location restriction is stated, keep location unknown instead of inferring worldwide eligibility. Missing evidence that the user has a required skill is unknown, not proof that they lack it; only explicit contradictory user evidence supports conflicts. A role in one country is not automatically open worldwide. Unknown eligibility is unknown, not meets. Authorization is unknown unless authorizationConfirmed is true, authorizationLocations explicitly covers this job location, sponsorshipNeed is known, and matching employer requirements are stated. These inputs are user-declared, not independently verified. If sponsorshipNeed is needed, authorization can meet only when explicit applicable sponsorship support is stated for this exact role and location; conditional or possible sponsorship remains unknown. If sponsorshipNeed is not_needed, compare the stated work permission requirements with authorizationLocations. Research documents are supplemental: preserve role-specific restrictions; broad company recruiting statements cannot prove eligibility. Cite only evidence supporting this exact comparison. Onboarding residence does not establish work authorization. When minimumPay is set, compare compensation in the same currency and period; ranges crossing the user's floor remain unknown. When minimumPay is empty, currency and payPeriod are input defaults, not restrictions: never report a compensation conflict solely because a buyer uses another currency or payment period. Do not invent a pay floor or guaranteed earnings. Experience means actual stated required skills and seniority compared with stated experience, not a guessed biography. Distinguish supported matches from unresolved questions. No match percentages or claims of independent verification.`,
+        instructions: `${policy}\nFact and research quotations may reference p passage IDs; each research document lists its own passage IDs alongside its provenance. Unmatched literal quotations remain claims to check against the original source passages, not additional source evidence. For client_request postings, services means buyer-posted projects and service requests, including hourly work. Do not classify those as employment merely because they are hourly. Compare requested deliverables to the target and professional background. Do not treat an indicative budget as a guaranteed minimum, or marketplace access as permission to fulfil the contract. Unknown supplier eligibility and authorization remain unknown. A buyer location or customer market is not a contractor-location restriction; only explicit worksite or applicant requirements constrain location. Return exactly one result per criterion. Compare the actual primary role (not incidental department words), opportunity category, arrangement, applicant location, required experience, authorization and compensation to the confirmed brief. Each meets/conflicts result needs source quotes AND brief passage IDs in briefQuotes supporting the comparison. Do not treat missing personal details as a conflict. Employer preferences such as preferred, ideally or nice-to-have are not mandatory eligibility restrictions. Do not mark a criterion conflicts solely because the user does not satisfy an employer preference. If no mandatory location restriction is stated, keep location unknown instead of inferring worldwide eligibility. Missing evidence that the user has a required skill is unknown, not proof that they lack it; only explicit contradictory user evidence supports conflicts. A role in one country is not automatically open worldwide. Unknown eligibility is unknown, not meets. Authorization is unknown unless authorizationConfirmed is true, authorizationLocations explicitly covers this job location, sponsorshipNeed is known, and matching employer requirements are stated. These inputs are user-declared, not independently verified. If sponsorshipNeed is needed, authorization can meet only when explicit applicable sponsorship support is stated for this exact role and location; conditional or possible sponsorship remains unknown. If sponsorshipNeed is not_needed, compare the stated work permission requirements with authorizationLocations. Research documents are supplemental: preserve role-specific restrictions; broad company recruiting statements cannot prove eligibility. Cite only evidence supporting this exact comparison. Onboarding residence does not establish work authorization. When minimumPay is set, compare compensation in the same currency and period; ranges crossing the user's floor remain unknown. When minimumPay is empty, currency and payPeriod are input defaults, not restrictions: never report a compensation conflict solely because a buyer uses another currency or payment period. Do not invent a pay floor or guaranteed earnings. Experience means actual stated required skills and seniority compared with stated experience, not a guessed biography. Distinguish supported matches from unresolved questions. No match percentages or claims of independent verification.`,
         input,
         text: { format: zodTextFormat(personalFitSchema, "personal_fit") },
       },

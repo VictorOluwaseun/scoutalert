@@ -31,3 +31,4 @@ export {
 } from "./connectors/source-router.js";
 export { PostgresRelevanceFeedbackRepository } from "./persistence/postgres-relevance-feedback.js";
 export { evidencePassages } from "./intelligence/evidence-passages.js";
+export { fitPacket } from "./intelligence/fit-packet.js";

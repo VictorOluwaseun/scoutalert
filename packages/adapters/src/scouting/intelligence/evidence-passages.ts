@@ -50,3 +50,15 @@ export function resolveEvidence(
     return passages[id]!;
   });
 }
+
+/** References exact repeated quotations without dropping unmatched claims or changing original passage text. */
+export function referenceQuotes(
+  quotes: string[],
+  passages: Record<string, string>,
+): string[] {
+  return quotes.map(
+    (quote) =>
+      Object.entries(passages).find(([, passage]) => passage === quote)?.[0] ??
+      quote,
+  );
+}

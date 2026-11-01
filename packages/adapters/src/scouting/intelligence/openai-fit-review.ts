@@ -7,20 +7,12 @@ import {
   type FitReviewRequest,
 } from "@repo/core/scouting";
 import type { SearchDraft } from "@repo/core/onboarding";
-import { evidencePassages, resolveEvidence } from "./evidence-passages.js";
+import {
+  evidencePassages,
+  referenceQuotes,
+  resolveEvidence,
+} from "./evidence-passages.js";
 import { personalFitSchema } from "./schemas.js";
-
-/** References repeated exact quotations once; omitted or cross-passage quotations remain verbatim baseline claims, never fabricated evidence. */
-function referenceQuotes(
-  quotes: string[],
-  passages: Record<string, string>,
-): string[] {
-  return quotes.map(
-    (quote) =>
-      Object.entries(passages).find(([, passage]) => passage === quote)?.[0] ??
-      quote,
-  );
-}
 
 /** Reviews a narrow private evidence dispute with the full model; fetching, routing, budgets and final acceptance remain outside the provider. */
 export class OpenAIFitReviewProvider extends FitReviewProvider {
