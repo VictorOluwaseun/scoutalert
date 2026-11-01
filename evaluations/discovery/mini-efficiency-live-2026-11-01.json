@@ -1,0 +1,229 @@
+{
+  "checkedAt": "2026-10-31T23:54:38.126Z",
+  "cases": [
+    {
+      "scenario": "projects",
+      "sourceReceipt": "evaluations/discovery/full-projects-verified-2026-11-01.json",
+      "url": "https://www.freelancer.com/projects/react-js/web-frontend-engineer-cross-chain-40794961",
+      "passed": true,
+      "previousBytes": 15628,
+      "compactBytes": 8660,
+      "previousInputTokens": 3968,
+      "compactInputTokens": 2768,
+      "inputTokensSaved": 1200,
+      "criteria": {
+        "role": "meets",
+        "category": "meets",
+        "arrangement": "meets",
+        "location": "unknown",
+        "experience": "unknown",
+        "authorization": "unknown",
+        "compensation": "meets"
+      },
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "inputTokens": 2768,
+        "cachedInputTokens": 0,
+        "outputTokens": 761,
+        "durationMs": 5047,
+        "responseId": "resp_0d59ece437f04fce016ae67fb49e9887d29081854c2a2336e8"
+      }
+    },
+    {
+      "scenario": "services",
+      "sourceReceipt": "evaluations/discovery/full-services-verified-2026-11-01.json",
+      "url": "https://www.peopleperhour.com/freelance-jobs/design/web-design/fix-a-terribly-designed-website-4528812",
+      "passed": true,
+      "previousBytes": 5684,
+      "compactBytes": 4835,
+      "previousInputTokens": 2139,
+      "compactInputTokens": 2037,
+      "inputTokensSaved": 102,
+      "criteria": {
+        "role": "meets",
+        "category": "meets",
+        "arrangement": "meets",
+        "location": "unknown",
+        "experience": "meets",
+        "authorization": "unknown",
+        "compensation": "unknown"
+      },
+      "usage": {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "inputTokens": 2037,
+        "cachedInputTokens": 0,
+        "outputTokens": 642,
+        "durationMs": 4374,
+        "responseId": "resp_0222ef7ae6114a18016ae67fbaca1c87d285b8afeab6404be3"
+      }
+    }
+  ],
+  "scope": "Four native input-count calls compare only payload serialization with identical current instructions and schema; two guarded mini generations verify cited fit. No expert generations, fresh availability, searches, real account data or emails. Evidence and daily caps are unchanged.",
+  "sharedTokenBudget": {
+    "before": {
+      "day": "2026-10-31",
+      "inputTokens": 1188197,
+      "outputTokens": 211404,
+      "cachedInputTokens": 148224,
+      "reservedTokens": 25291,
+      "usedTokens": 1399601,
+      "dailyLimit": 2650000,
+      "remainingTokens": 1225108,
+      "unknownReservations": 4,
+      "models": [
+        {
+          "day": "2026-10-31",
+          "model": "gpt-5.4",
+          "dailyLimit": 250000,
+          "inputTokens": 95021,
+          "outputTokens": 85067,
+          "cachedInputTokens": 0,
+          "usedTokens": 180088,
+          "reservedTokens": 25291,
+          "remainingTokens": 44621,
+          "unknownReservations": 4,
+          "allocations": [
+            {
+              "purpose": "standard",
+              "dailyLimit": 210000,
+              "usedTokens": 166077,
+              "reservedTokens": 19618,
+              "remainingTokens": 24305
+            },
+            {
+              "purpose": "audit",
+              "dailyLimit": 40000,
+              "usedTokens": 14011,
+              "reservedTokens": 5673,
+              "remainingTokens": 20316
+            }
+          ]
+        },
+        {
+          "day": "2026-10-31",
+          "model": "gpt-5.4-mini",
+          "dailyLimit": 2400000,
+          "inputTokens": 1093176,
+          "outputTokens": 126337,
+          "cachedInputTokens": 148224,
+          "usedTokens": 1219513,
+          "reservedTokens": 0,
+          "remainingTokens": 1180487,
+          "unknownReservations": 0,
+          "allocations": [
+            {
+              "purpose": "standard",
+              "dailyLimit": 2400000,
+              "usedTokens": 1219513,
+              "reservedTokens": 0,
+              "remainingTokens": 1180487
+            },
+            {
+              "purpose": "audit",
+              "dailyLimit": 0,
+              "usedTokens": 0,
+              "reservedTokens": 0,
+              "remainingTokens": 0
+            }
+          ]
+        }
+      ]
+    },
+    "after": {
+      "day": "2026-10-31",
+      "inputTokens": 1193002,
+      "outputTokens": 212807,
+      "cachedInputTokens": 148224,
+      "reservedTokens": 25291,
+      "usedTokens": 1405809,
+      "dailyLimit": 2650000,
+      "remainingTokens": 1218900,
+      "unknownReservations": 4,
+      "models": [
+        {
+          "day": "2026-10-31",
+          "model": "gpt-5.4",
+          "dailyLimit": 250000,
+          "inputTokens": 95021,
+          "outputTokens": 85067,
+          "cachedInputTokens": 0,
+          "usedTokens": 180088,
+          "reservedTokens": 25291,
+          "remainingTokens": 44621,
+          "unknownReservations": 4,
+          "allocations": [
+            {
+              "purpose": "standard",
+              "dailyLimit": 210000,
+              "usedTokens": 166077,
+              "reservedTokens": 19618,
+              "remainingTokens": 24305
+            },
+            {
+              "purpose": "audit",
+              "dailyLimit": 40000,
+              "usedTokens": 14011,
+              "reservedTokens": 5673,
+              "remainingTokens": 20316
+            }
+          ]
+        },
+        {
+          "day": "2026-10-31",
+          "model": "gpt-5.4-mini",
+          "dailyLimit": 2400000,
+          "inputTokens": 1097981,
+          "outputTokens": 127740,
+          "cachedInputTokens": 148224,
+          "usedTokens": 1225721,
+          "reservedTokens": 0,
+          "remainingTokens": 1174279,
+          "unknownReservations": 0,
+          "allocations": [
+            {
+              "purpose": "standard",
+              "dailyLimit": 2400000,
+              "usedTokens": 1225721,
+              "reservedTokens": 0,
+              "remainingTokens": 1174279
+            },
+            {
+              "purpose": "audit",
+              "dailyLimit": 0,
+              "usedTokens": 0,
+              "reservedTokens": 0,
+              "remainingTokens": 0
+            }
+          ]
+        }
+      ]
+    },
+    "attempts": [
+      {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "purpose": "standard",
+        "reservedTokens": 6768,
+        "state": "completed",
+        "usage": {
+          "inputTokens": 2768,
+          "outputTokens": 761,
+          "cachedInputTokens": 0
+        }
+      },
+      {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "purpose": "standard",
+        "reservedTokens": 6037,
+        "state": "completed",
+        "usage": {
+          "inputTokens": 2037,
+          "outputTokens": 642,
+          "cachedInputTokens": 0
+        }
+      }
+    ],
+    "evaluationTokenCeiling": 20000,
+    "evaluationAccountedTokens": 6208,
+    "scope": "Evaluation generations share the configured worker database's daily allowance. Before/after snapshots include background worker activity; attempts contain this evaluation only. Counting failures before reservation do not appear as generation attempts."
+  }
+}

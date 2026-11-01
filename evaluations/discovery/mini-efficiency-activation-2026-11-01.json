@@ -1,0 +1,198 @@
+{
+  "checkedAt": "2026-10-31T23:58:52.841644+00:00",
+  "workerPid": 44392,
+  "log": "/tmp/scoutalert-worker-mini-efficiency-2026-11-01.log",
+  "runningQueues": [
+    "scout-delivery-v1",
+    "scout-matching-v1",
+    "scout-private-mail-v1",
+    "scout-research-v1",
+    "scout-social-discovery-v1",
+    "scout-source-monitoring-v1",
+    "scout-sources-v1",
+    "scout-web-discovery-v1",
+    "scout-workflows-v1"
+  ],
+  "startupErrorLines": 0,
+  "automaticRefreshMinutes": 60,
+  "tokenCapsUnchanged": true,
+  "modelsUnchanged": true,
+  "auditAllocationUnchanged": true,
+  "migrationRequired": false,
+  "beforeRestart": {
+    "day": "2026-10-31",
+    "inputTokens": 1193002,
+    "outputTokens": 212807,
+    "cachedInputTokens": 148224,
+    "reservedTokens": 25291,
+    "usedTokens": 1405809,
+    "dailyLimit": 2650000,
+    "remainingTokens": 1218900,
+    "unknownReservations": 4,
+    "models": [
+      {
+        "day": "2026-10-31",
+        "model": "gpt-5.4",
+        "dailyLimit": 250000,
+        "inputTokens": 95021,
+        "outputTokens": 85067,
+        "cachedInputTokens": 0,
+        "usedTokens": 180088,
+        "reservedTokens": 25291,
+        "remainingTokens": 44621,
+        "unknownReservations": 4,
+        "allocations": [
+          {
+            "purpose": "standard",
+            "dailyLimit": 210000,
+            "usedTokens": 166077,
+            "reservedTokens": 19618,
+            "remainingTokens": 24305
+          },
+          {
+            "purpose": "audit",
+            "dailyLimit": 40000,
+            "usedTokens": 14011,
+            "reservedTokens": 5673,
+            "remainingTokens": 20316
+          }
+        ]
+      },
+      {
+        "day": "2026-10-31",
+        "model": "gpt-5.4-mini",
+        "dailyLimit": 2400000,
+        "inputTokens": 1097981,
+        "outputTokens": 127740,
+        "cachedInputTokens": 148224,
+        "usedTokens": 1225721,
+        "reservedTokens": 0,
+        "remainingTokens": 1174279,
+        "unknownReservations": 0,
+        "allocations": [
+          {
+            "purpose": "standard",
+            "dailyLimit": 2400000,
+            "usedTokens": 1225721,
+            "reservedTokens": 0,
+            "remainingTokens": 1174279
+          },
+          {
+            "purpose": "audit",
+            "dailyLimit": 0,
+            "usedTokens": 0,
+            "reservedTokens": 0,
+            "remainingTokens": 0
+          }
+        ]
+      }
+    ],
+    "maximumOutputTokens": 4000,
+    "planningModel": "gpt-5.4-mini-2026-03-17",
+    "expertModel": "gpt-5.4-2026-03-05",
+    "auditPercent": 5,
+    "extractionModel": "gpt-5.4-mini-2026-03-17",
+    "fitModel": "gpt-5.4-mini-2026-03-17",
+    "resetTimezone": "UTC",
+    "scope": "This deployment's guarded worker and shared-budget evaluation calls; counting begins when the guard is activated."
+  },
+  "afterRestart": {
+    "day": "2026-10-31",
+    "inputTokens": 1231142,
+    "outputTokens": 217953,
+    "cachedInputTokens": 148224,
+    "reservedTokens": 37508,
+    "usedTokens": 1449095,
+    "dailyLimit": 2650000,
+    "remainingTokens": 1163397,
+    "unknownReservations": 4,
+    "models": [
+      {
+        "day": "2026-10-31",
+        "model": "gpt-5.4",
+        "dailyLimit": 250000,
+        "inputTokens": 96953,
+        "outputTokens": 86020,
+        "cachedInputTokens": 0,
+        "usedTokens": 182973,
+        "reservedTokens": 25291,
+        "remainingTokens": 41736,
+        "unknownReservations": 4,
+        "allocations": [
+          {
+            "purpose": "standard",
+            "dailyLimit": 210000,
+            "usedTokens": 168962,
+            "reservedTokens": 19618,
+            "remainingTokens": 21420
+          },
+          {
+            "purpose": "audit",
+            "dailyLimit": 40000,
+            "usedTokens": 14011,
+            "reservedTokens": 5673,
+            "remainingTokens": 20316
+          }
+        ]
+      },
+      {
+        "day": "2026-10-31",
+        "model": "gpt-5.4-mini",
+        "dailyLimit": 2400000,
+        "inputTokens": 1134189,
+        "outputTokens": 131933,
+        "cachedInputTokens": 148224,
+        "usedTokens": 1266122,
+        "reservedTokens": 12217,
+        "remainingTokens": 1121661,
+        "unknownReservations": 0,
+        "allocations": [
+          {
+            "purpose": "standard",
+            "dailyLimit": 2400000,
+            "usedTokens": 1266122,
+            "reservedTokens": 12217,
+            "remainingTokens": 1121661
+          },
+          {
+            "purpose": "audit",
+            "dailyLimit": 0,
+            "usedTokens": 0,
+            "reservedTokens": 0,
+            "remainingTokens": 0
+          }
+        ]
+      }
+    ],
+    "maximumOutputTokens": 4000,
+    "planningModel": "gpt-5.4-mini-2026-03-17",
+    "expertModel": "gpt-5.4-2026-03-05",
+    "auditPercent": 5,
+    "extractionModel": "gpt-5.4-mini-2026-03-17",
+    "fitModel": "gpt-5.4-mini-2026-03-17",
+    "resetTimezone": "UTC",
+    "scope": "This deployment's guarded worker and shared-budget evaluation calls; counting begins when the guard is activated."
+  },
+  "verification": {
+    "focusedTests": 61,
+    "isolatedDatabaseTests": 21,
+    "liveMiniCases": 2,
+    "liveMiniTokens": 6208,
+    "builds": [
+      "adapters",
+      "worker"
+    ],
+    "workerTypes": "passed",
+    "architectureSources": 408,
+    "whitespace": "passed"
+  },
+  "receipts": [
+    "mini-spending-audit-2026-11-01.json",
+    "mini-efficiency-live-2026-11-01.json"
+  ],
+  "limitations": [
+    "Payload reductions and historical duplicate-call estimates are measured; sustained production savings are not yet established.",
+    "Full rediscovery is hourly by default, while monitored-source/native-social updates and explicit activations retain their previous schedules.",
+    "Recorded live fit cases do not refresh source availability or establish independent recommendation usefulness."
+  ]
+}

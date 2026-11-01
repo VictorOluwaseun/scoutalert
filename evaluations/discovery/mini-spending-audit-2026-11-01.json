@@ -1,0 +1,586 @@
+{
+  "checkedAt": "2026-10-31T23:55:21.942Z",
+  "baseline": {
+    "checkedAt": "2026-10-31T23:45:47.528Z",
+    "ledger": [
+      {
+        "day": "2026-10-29",
+        "model": "gpt-5.4-2026-03-05",
+        "state": "completed",
+        "calls": 30,
+        "tokens": "55503",
+        "retained": "0"
+      },
+      {
+        "day": "2026-10-29",
+        "model": "gpt-5.4-2026-03-05",
+        "state": "unknown",
+        "calls": 5,
+        "tokens": "0",
+        "retained": "27937"
+      },
+      {
+        "day": "2026-10-29",
+        "model": "gpt-5.4-mini-2026-03-17",
+        "state": "completed",
+        "calls": 425,
+        "tokens": "2398042",
+        "retained": "0"
+      },
+      {
+        "day": "2026-10-30",
+        "model": "gpt-5.4-2026-03-05",
+        "state": "completed",
+        "calls": 36,
+        "tokens": "165622",
+        "retained": "0"
+      },
+      {
+        "day": "2026-10-30",
+        "model": "gpt-5.4-2026-03-05",
+        "state": "unknown",
+        "calls": 6,
+        "tokens": "0",
+        "retained": "41066"
+      },
+      {
+        "day": "2026-10-30",
+        "model": "gpt-5.4-mini-2026-03-17",
+        "state": "completed",
+        "calls": 584,
+        "tokens": "2254593",
+        "retained": "0"
+      },
+      {
+        "day": "2026-10-30",
+        "model": "gpt-5.4-mini-2026-03-17",
+        "state": "unknown",
+        "calls": 26,
+        "tokens": "0",
+        "retained": "143239"
+      },
+      {
+        "day": "2026-10-31",
+        "model": "gpt-5.4-2026-03-05",
+        "state": "completed",
+        "calls": 46,
+        "tokens": "180088",
+        "retained": "0"
+      },
+      {
+        "day": "2026-10-31",
+        "model": "gpt-5.4-2026-03-05",
+        "state": "unknown",
+        "calls": 4,
+        "tokens": "0",
+        "retained": "25291"
+      },
+      {
+        "day": "2026-10-31",
+        "model": "gpt-5.4-mini-2026-03-17",
+        "state": "completed",
+        "calls": 250,
+        "tokens": "1219513",
+        "retained": "0"
+      }
+    ],
+    "stages": [
+      {
+        "day": "2026-10-29",
+        "stage": "fit",
+        "model": "gpt-5.4-mini-2026-03-17",
+        "state": "ready",
+        "attempts": 194,
+        "tokens": "1336543"
+      },
+      {
+        "day": "2026-10-29",
+        "stage": "research",
+        "model": "gpt-5.4-mini-2026-03-17",
+        "state": "ready",
+        "attempts": 42,
+        "tokens": "277375"
+      },
+      {
+        "day": "2026-10-29",
+        "stage": "lead_review",
+        "model": "gpt-5.4-mini-2026-03-17",
+        "state": "ready",
+        "attempts": 44,
+        "tokens": "237134"
+      },
+      {
+        "day": "2026-10-29",
+        "stage": "choice",
+        "model": "gpt-5.4-mini-2026-03-17",
+        "state": "ready",
+        "attempts": 57,
+        "tokens": "195712"
+      },
+      {
+        "day": "2026-10-29",
+        "stage": "extraction",
+        "model": "gpt-5.4-mini-2026-03-17",
+        "state": "ready",
+        "attempts": 14,
+        "tokens": "27976"
+      },
+      {
+        "day": "2026-10-29",
+        "stage": "strategy",
+        "model": "gpt-5.4-2026-03-05",
+        "state": "ready",
+        "attempts": 13,
+        "tokens": "5806"
+      },
+      {
+        "day": "2026-10-29",
+        "stage": "strategy",
+        "model": "gpt-5.4-mini-2026-03-17",
+        "state": "ready",
+        "attempts": 7,
+        "tokens": "3684"
+      },
+      {
+        "day": "2026-10-29",
+        "stage": "research",
+        "model": "no-provider-call",
+        "state": "ready",
+        "attempts": 76,
+        "tokens": "0"
+      },
+      {
+        "day": "2026-10-30",
+        "stage": "fit",
+        "model": "gpt-5.4-mini-2026-03-17",
+        "state": "ready",
+        "attempts": 209,
+        "tokens": "1051301"
+      },
+      {
+        "day": "2026-10-30",
+        "stage": "lead_review",
+        "model": "gpt-5.4-mini-2026-03-17",
+        "state": "ready",
+        "attempts": 141,
+        "tokens": "691867"
+      },
+      {
+        "day": "2026-10-30",
+        "stage": "choice",
+        "model": "gpt-5.4-mini-2026-03-17",
+        "state": "ready",
+        "attempts": 126,
+        "tokens": "205913"
+      },
+      {
+        "day": "2026-10-30",
+        "stage": "fit",
+        "model": "gpt-5.4-2026-03-05",
+        "state": "ready",
+        "attempts": 33,
+        "tokens": "151630"
+      },
+      {
+        "day": "2026-10-30",
+        "stage": "extraction",
+        "model": "gpt-5.4-mini-2026-03-17",
+        "state": "ready",
+        "attempts": 24,
+        "tokens": "45720"
+      },
+      {
+        "day": "2026-10-30",
+        "stage": "fit",
+        "model": "gpt-5.4-mini-2026-03-17",
+        "state": "superseded",
+        "attempts": 11,
+        "tokens": "37584"
+      },
+      {
+        "day": "2026-10-30",
+        "stage": "lead_review",
+        "model": "gpt-5.4-mini-2026-03-17",
+        "state": "superseded",
+        "attempts": 6,
+        "tokens": "33646"
+      },
+      {
+        "day": "2026-10-30",
+        "stage": "research",
+        "model": "gpt-5.4-mini-2026-03-17",
+        "state": "ready",
+        "attempts": 5,
+        "tokens": "28250"
+      },
+      {
+        "day": "2026-10-30",
+        "stage": "strategy",
+        "model": "gpt-5.4-mini-2026-03-17",
+        "state": "ready",
+        "attempts": 11,
+        "tokens": "5195"
+      },
+      {
+        "day": "2026-10-30",
+        "stage": "strategy",
+        "model": "gpt-5.4-mini-2026-03-17",
+        "state": "failed",
+        "attempts": 2,
+        "tokens": "1070"
+      },
+      {
+        "day": "2026-10-30",
+        "stage": "choice",
+        "model": "gpt-5.4-mini-2026-03-17",
+        "state": "failed",
+        "attempts": 1,
+        "tokens": "1018"
+      },
+      {
+        "day": "2026-10-30",
+        "stage": "research",
+        "model": "no-provider-call",
+        "state": "ready",
+        "attempts": 40,
+        "tokens": "0"
+      },
+      {
+        "day": "2026-10-31",
+        "stage": "fit",
+        "model": "gpt-5.4-mini-2026-03-17",
+        "state": "ready",
+        "attempts": 55,
+        "tokens": "481430"
+      },
+      {
+        "day": "2026-10-31",
+        "stage": "research",
+        "model": "gpt-5.4-mini-2026-03-17",
+        "state": "ready",
+        "attempts": 30,
+        "tokens": "199093"
+      },
+      {
+        "day": "2026-10-31",
+        "stage": "fit",
+        "model": "gpt-5.4-2026-03-05",
+        "state": "ready",
+        "attempts": 30,
+        "tokens": "113085"
+      },
+      {
+        "day": "2026-10-31",
+        "stage": "lead_review",
+        "model": "gpt-5.4-mini-2026-03-17",
+        "state": "ready",
+        "attempts": 34,
+        "tokens": "104517"
+      },
+      {
+        "day": "2026-10-31",
+        "stage": "extraction",
+        "model": "gpt-5.4-mini-2026-03-17",
+        "state": "ready",
+        "attempts": 35,
+        "tokens": "96471"
+      },
+      {
+        "day": "2026-10-31",
+        "stage": "choice",
+        "model": "gpt-5.4-mini-2026-03-17",
+        "state": "ready",
+        "attempts": 3,
+        "tokens": "8914"
+      },
+      {
+        "day": "2026-10-31",
+        "stage": "choice",
+        "model": "gpt-5.4-2026-03-05",
+        "state": "ready",
+        "attempts": 1,
+        "tokens": "4080"
+      },
+      {
+        "day": "2026-10-31",
+        "stage": "strategy",
+        "model": "gpt-5.4-mini-2026-03-17",
+        "state": "ready",
+        "attempts": 4,
+        "tokens": "1882"
+      },
+      {
+        "day": "2026-10-31",
+        "stage": "research",
+        "model": "no-provider-call",
+        "state": "ready",
+        "attempts": 2,
+        "tokens": "0"
+      }
+    ],
+    "scouts": [
+      {
+        "status": "paused",
+        "count": 3
+      },
+      {
+        "status": "active",
+        "count": 20
+      }
+    ],
+    "runs": [
+      {
+        "day": "2026-10-29",
+        "origin": "native_social",
+        "status": "completed",
+        "count": 3088,
+        "scouts": 18
+      },
+      {
+        "day": "2026-10-29",
+        "origin": "search",
+        "status": "completed",
+        "count": 60,
+        "scouts": 17
+      },
+      {
+        "day": "2026-10-29",
+        "origin": "search",
+        "status": "partial",
+        "count": 621,
+        "scouts": 20
+      },
+      {
+        "day": "2026-10-29",
+        "origin": "search",
+        "status": "searching",
+        "count": 11,
+        "scouts": 10
+      },
+      {
+        "day": "2026-10-29",
+        "origin": "source_monitor",
+        "status": "completed",
+        "count": 750,
+        "scouts": 20
+      },
+      {
+        "day": "2026-10-30",
+        "origin": "native_social",
+        "status": "completed",
+        "count": 6906,
+        "scouts": 18
+      },
+      {
+        "day": "2026-10-30",
+        "origin": "search",
+        "status": "cancelled",
+        "count": 3,
+        "scouts": 3
+      },
+      {
+        "day": "2026-10-30",
+        "origin": "search",
+        "status": "partial",
+        "count": 744,
+        "scouts": 20
+      },
+      {
+        "day": "2026-10-30",
+        "origin": "search",
+        "status": "searching",
+        "count": 23,
+        "scouts": 16
+      },
+      {
+        "day": "2026-10-30",
+        "origin": "source_monitor",
+        "status": "completed",
+        "count": 567,
+        "scouts": 20
+      },
+      {
+        "day": "2026-10-31",
+        "origin": "native_social",
+        "status": "completed",
+        "count": 26,
+        "scouts": 13
+      },
+      {
+        "day": "2026-10-31",
+        "origin": "search",
+        "status": "partial",
+        "count": 1,
+        "scouts": 1
+      },
+      {
+        "day": "2026-10-31",
+        "origin": "search",
+        "status": "searching",
+        "count": 6,
+        "scouts": 4
+      },
+      {
+        "day": "2026-10-31",
+        "origin": "source_monitor",
+        "status": "completed",
+        "count": 15,
+        "scouts": 14
+      }
+    ],
+    "fitRepeats": [
+      {
+        "unique_inputs": 434,
+        "total_calls": 469,
+        "repeated_calls": 35,
+        "tokens_in_repeated_groups": "333737",
+        "most_repeats": 4,
+        "groups_with_different_analysis": 19
+      }
+    ],
+    "repeatExamples": [
+      {
+        "scout": "f42ed25d",
+        "posting_id": "web:1b1d2c6851011a9cf2de93a7a6fb8e5c39dbe19415ed4132aa1d6a2d5d2d0cc6",
+        "posting_version": 4,
+        "configuration": "openai:gpt-5.4-mini-2026-03-17:gpt-5.4-mini-2026-03-17:evidence-prompts-v9:reasoning-low:schema-v3:pay-normalizer-v1:supported-criteria-v3:employer-research-v2:gpt-5.4-mini-2026-03-17:employer-pages-2026-10-01:expert-fit-v1:gpt-5.4-2026-03-05:reasoning-medium:audit-5:selective-review-v1",
+        "calls": 4,
+        "analyses": 4,
+        "base_analyses": 1,
+        "research_findings": 1,
+        "research_documents": 1,
+        "first_at": "2026-10-30T00:16:21.398Z",
+        "last_at": "2026-10-30T01:08:08.985Z",
+        "tokens": "19508"
+      },
+      {
+        "scout": "ed6bccbd",
+        "posting_id": "web:1b1d2c6851011a9cf2de93a7a6fb8e5c39dbe19415ed4132aa1d6a2d5d2d0cc6",
+        "posting_version": 4,
+        "configuration": "openai:gpt-5.4-mini-2026-03-17:gpt-5.4-mini-2026-03-17:evidence-prompts-v9:reasoning-low:schema-v3:pay-normalizer-v1:supported-criteria-v3:employer-research-v2:gpt-5.4-mini-2026-03-17:employer-pages-2026-10-01:expert-fit-v1:gpt-5.4-2026-03-05:reasoning-medium:audit-5:selective-review-v1",
+        "calls": 4,
+        "analyses": 4,
+        "base_analyses": 1,
+        "research_findings": 1,
+        "research_documents": 1,
+        "first_at": "2026-10-30T00:17:21.840Z",
+        "last_at": "2026-10-30T01:08:39.868Z",
+        "tokens": "19766"
+      },
+      {
+        "scout": "18a115ec",
+        "posting_id": "web:1b1d2c6851011a9cf2de93a7a6fb8e5c39dbe19415ed4132aa1d6a2d5d2d0cc6",
+        "posting_version": 4,
+        "configuration": "openai:gpt-5.4-mini-2026-03-17:gpt-5.4-mini-2026-03-17:evidence-prompts-v9:reasoning-low:schema-v3:pay-normalizer-v1:supported-criteria-v3:employer-research-v2:gpt-5.4-mini-2026-03-17:employer-pages-2026-10-01:expert-fit-v1:gpt-5.4-2026-03-05:reasoning-medium:audit-5:selective-review-v1",
+        "calls": 4,
+        "analyses": 4,
+        "base_analyses": 1,
+        "research_findings": 1,
+        "research_documents": 1,
+        "first_at": "2026-10-30T00:16:16.552Z",
+        "last_at": "2026-10-30T01:08:39.896Z",
+        "tokens": "19639"
+      },
+      {
+        "scout": "70fe76c7",
+        "posting_id": "web:9e85f22e1aab7e25416cf80d40da159ba857424a4f5b98c8013822401f53275a",
+        "posting_version": 12,
+        "configuration": "openai:gpt-5.4-mini-2026-03-17:gpt-5.4-mini-2026-03-17:evidence-prompts-v9:reasoning-low:schema-v3:pay-normalizer-v1:supported-criteria-v3:employer-research-v2:gpt-5.4-mini-2026-03-17:employer-pages-2026-10-01:expert-fit-v1:gpt-5.4-2026-03-05:reasoning-medium:audit-5:selective-review-v1",
+        "calls": 3,
+        "analyses": 3,
+        "base_analyses": 1,
+        "research_findings": 1,
+        "research_documents": 1,
+        "first_at": "2026-10-30T02:10:38.379Z",
+        "last_at": "2026-10-30T07:13:51.695Z",
+        "tokens": "31377"
+      },
+      {
+        "scout": "0aa5a4df",
+        "posting_id": "web:1b1d2c6851011a9cf2de93a7a6fb8e5c39dbe19415ed4132aa1d6a2d5d2d0cc6",
+        "posting_version": 5,
+        "configuration": "openai:gpt-5.4-mini-2026-03-17:gpt-5.4-mini-2026-03-17:evidence-prompts-v9:reasoning-low:schema-v3:pay-normalizer-v1:supported-criteria-v3:employer-research-v2:gpt-5.4-mini-2026-03-17:employer-pages-2026-10-01:expert-fit-v1:gpt-5.4-2026-03-05:reasoning-medium:audit-5:selective-review-v1",
+        "calls": 3,
+        "analyses": 3,
+        "base_analyses": 1,
+        "research_findings": 1,
+        "research_documents": 1,
+        "first_at": "2026-10-30T01:53:12.306Z",
+        "last_at": "2026-10-30T02:27:11.747Z",
+        "tokens": "14998"
+      },
+      {
+        "scout": "bf6f8770",
+        "posting_id": "web:9e85f22e1aab7e25416cf80d40da159ba857424a4f5b98c8013822401f53275a",
+        "posting_version": 12,
+        "configuration": "openai:gpt-5.4-mini-2026-03-17:gpt-5.4-mini-2026-03-17:evidence-prompts-v9:reasoning-low:schema-v3:pay-normalizer-v1:supported-criteria-v3:employer-research-v2:gpt-5.4-mini-2026-03-17:employer-pages-2026-10-01:expert-fit-v1:gpt-5.4-2026-03-05:reasoning-medium:audit-5:selective-review-v1",
+        "calls": 3,
+        "analyses": 3,
+        "base_analyses": 1,
+        "research_findings": 1,
+        "research_documents": 1,
+        "first_at": "2026-10-30T02:08:14.894Z",
+        "last_at": "2026-10-30T07:13:30.021Z",
+        "tokens": "32490"
+      }
+    ]
+  },
+  "additionalMeasurements": {
+    "leadReviewRepeats": [
+      {
+        "scope": "search_excerpt",
+        "groups": 1,
+        "reviews": 1,
+        "repeated_identical_text": 0,
+        "multiple_fingerprints": 0
+      },
+      {
+        "scope": "source",
+        "groups": 216,
+        "reviews": 216,
+        "repeated_identical_text": 0,
+        "multiple_fingerprints": 0
+      }
+    ],
+    "postingVersionChanges": [
+      {
+        "groups": 406,
+        "calls": 469,
+        "multiple_versions": 22,
+        "most_versions": 4
+      }
+    ],
+    "fitPacketSizes": [
+      {
+        "count": 55,
+        "average_analysis_bytes": 14459,
+        "average_posting_bytes": 6702,
+        "input_tokens": "445429",
+        "output_tokens": "36001"
+      }
+    ]
+  },
+  "clockOnlyRepeatEstimate": {
+    "windowStart": "2026-10-29",
+    "successfulMiniFitCalls": 458,
+    "repeatedCalls": 30,
+    "repeatedTokens": 186248,
+    "scope": "Same scout revision, posting version, model/policy configuration, facts, findings and source content/fingerprints; only observation clocks may differ. Counterfactual reuse estimate, not a refund or guaranteed future saving."
+  },
+  "payloadReplay": {
+    "cases": 55,
+    "previousBytes": 1821470,
+    "compactBytes": 1274903,
+    "reductionPercent": 30.006917489719843,
+    "scope": "Offline replay of captured production evidence and current same-revision briefs. Only aggregate sizes are retained; no generation or private content is saved."
+  },
+  "scheduling": {
+    "activeScouts": 20,
+    "previousMinutes": 10,
+    "newDefaultMinutes": 60,
+    "maximumAutomaticRunsPerScoutPerDayBefore": 144,
+    "maximumAutomaticRunsPerScoutPerDayAfter": 24,
+    "sourceMonitoringUnchanged": true
+  },
+  "modelGenerations": 0
+}
