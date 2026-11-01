@@ -24,6 +24,8 @@ import {
   type IntelligenceResult,
   type RunContext,
   fitReviewRequest,
+  researchFacts,
+  type PostingAnalysis,
 } from "@repo/core/scouting";
 import { search, posting, analysis, fit } from "./fixtures/intelligence.js";
 
@@ -335,6 +337,194 @@ describe.skipIf(process.env.SCOUTING_INTEGRATION !== "1")(
         ).status,
       ).toBe("unavailable");
     });
+    it.each(["ordinary", "completed_expert", "pending_expert"])(
+      "reuses %s fit only after equivalent research is freshly checked, preserving legacy receipts",
+      async (mode) => {
+        const configuration = `refresh-${mode}`;
+        const repository = new PostgresIntelligenceRepository(db, 100);
+        const oldId = randomUUID();
+        const freshId = randomUUID();
+        const legacyId = randomUUID();
+        const checkedAt = new Date().toISOString();
+        const fresh: PostingAnalysis = {
+          ...analysis,
+          research: {
+            checkedAt,
+            expiresAt: new Date(Date.now() + 15 * 60_000).toISOString(),
+            documents: [
+              {
+                url: posting.url,
+                text: posting.text,
+                fingerprint: "research-1",
+                checkedAt,
+              },
+            ],
+            findings: researchFacts.map((fact) => ({
+              fact,
+              status: "unresolved",
+              applicability: "unclear",
+              value: "",
+              explanation: "Not established.",
+              quotes: [],
+              sourceUrl: null,
+            })),
+          },
+        };
+        const stale = structuredClone(fresh);
+        stale.research!.checkedAt = new Date(
+          Date.now() - 20 * 60_000,
+        ).toISOString();
+        stale.research!.expiresAt = new Date(
+          Date.now() - 5 * 60_000,
+        ).toISOString();
+        stale.research!.documents[0]!.checkedAt = stale.research!.checkedAt;
+        for (const [id, evidence] of [
+          [oldId, stale],
+          [freshId, fresh],
+        ] as const) {
+          await sql`INSERT INTO intelligence_tasks(id,kind,configuration,posting_id,posting_version,status,result) VALUES(${id},'research',${configuration},${posting.id},${posting.version},'ready',${JSON.stringify({ kind: "research", analysis: evidence, usage })}::jsonb)`.execute(
+            db,
+          );
+        }
+        const review =
+          mode === "ordinary"
+            ? {}
+            : {
+                review: {
+                  status: mode === "completed_expert" ? "completed" : "pending",
+                  reason: "conditional_requirements",
+                },
+              };
+        await sql`INSERT INTO intelligence_tasks(id,kind,configuration,posting_id,posting_version,owner_id,scout_id,scout_version,analysis_task_id,status,result) VALUES(${legacyId},'fit',${configuration},${posting.id},${posting.version},${context.request.ownerId}::uuid,${context.request.scoutId}::uuid,${context.request.version},${oldId},'ready',${JSON.stringify({ kind: "fit", fit, usage, ...review })}::jsonb)`.execute(
+          db,
+        );
+        const request: IntelligenceTask = {
+          kind: "fit",
+          posting,
+          configuration,
+          context,
+          analysis: fresh,
+        };
+        const firstRun = {
+          ...context,
+          request: { ...context.request, runId: randomUUID() },
+        };
+        await new PostgresScoutingRepository(db).begin(firstRun.request);
+        expect(
+          (await repository.plan(firstRun, [posting], configuration)).selected,
+        ).toEqual([posting.id]);
+        expect(
+          (await repository.claim({ ...request, analysis: stale })).status,
+        ).toBe("unavailable");
+        const claims = await Promise.all([
+          repository.claim(request),
+          repository.claim(request),
+        ]);
+        if (mode === "pending_expert") {
+          expect(claims.map((claim) => claim.status).sort()).toEqual([
+            "claimed",
+            "waiting",
+          ]);
+          const admitted = claims.find((claim) => claim.status === "claimed")!;
+          await repository.complete(admitted.token, {
+            kind: "fit",
+            fit,
+            usage,
+          });
+          return;
+        }
+        expect(claims.map((claim) => claim.status)).toEqual(["ready", "ready"]);
+        expect(
+          (
+            await repository.claim({
+              ...request,
+              context: {
+                ...context,
+                request: { ...context.request, ownerId: randomUUID() },
+              },
+            })
+          ).status,
+        ).toBe("unavailable");
+        expect(
+          (
+            await repository.claim({
+              ...request,
+              context: {
+                ...context,
+                search: {
+                  ...context.search,
+                  background: "Different private brief",
+                },
+              },
+            })
+          ).status,
+        ).toBe("unavailable");
+        const attempts =
+          await sql`SELECT 1 FROM intelligence_attempts a JOIN intelligence_tasks t ON t.id=a.task_id WHERE t.configuration=${configuration}`.execute(
+            db,
+          );
+        expect(attempts.rows).toHaveLength(0);
+        const nextRun = {
+          ...context,
+          request: { ...context.request, runId: randomUUID() },
+        };
+        await new PostgresScoutingRepository(db).begin(nextRun.request);
+        const cached = await repository.plan(nextRun, [posting], configuration);
+        expect(cached.selected).toEqual([]);
+        expect(cached.results[0]!.analysis).toEqual(fresh);
+        const renewed = structuredClone(fresh);
+        renewed.research!.checkedAt = new Date().toISOString();
+        renewed.research!.documents[0]!.checkedAt = renewed.research!.checkedAt;
+        renewed.research!.expiresAt = new Date(
+          Date.now() + 20 * 60_000,
+        ).toISOString();
+        const renewedId = randomUUID();
+        await sql`INSERT INTO intelligence_tasks(id,kind,configuration,posting_id,posting_version,status,result) VALUES(${renewedId},'research',${configuration},${posting.id},${posting.version},'ready',${JSON.stringify({ kind: "research", analysis: renewed, usage })}::jsonb)`.execute(
+          db,
+        );
+        expect(
+          (await repository.claim({ ...request, analysis: renewed })).status,
+        ).toBe("ready");
+        const renewedPlan = await repository.plan(
+          nextRun,
+          [posting],
+          configuration,
+        );
+        expect(renewedPlan.results[0]!.analysis).toEqual(renewed);
+        expect(
+          (
+            await sql`SELECT 1 FROM intelligence_attempts a JOIN intelligence_tasks t ON t.id=a.task_id WHERE t.configuration=${configuration}`.execute(
+              db,
+            )
+          ).rows,
+        ).toHaveLength(0);
+        const retained = await sql<{
+          analysis_task_id: string;
+        }>`SELECT analysis_task_id FROM intelligence_tasks WHERE id=${legacyId}`.execute(
+          db,
+        );
+        expect(retained.rows[0]!.analysis_task_id).toBe(oldId);
+        const changed = structuredClone(fresh);
+        changed.research!.documents[0]!.fingerprint = "research-2";
+        const changedId = randomUUID();
+        await sql`INSERT INTO intelligence_tasks(id,kind,configuration,posting_id,posting_version,status,result) VALUES(${changedId},'research',${configuration},${posting.id},${posting.version},'ready',${JSON.stringify({ kind: "research", analysis: changed, usage })}::jsonb)`.execute(
+          db,
+        );
+        const changedClaim = await repository.claim({
+          ...request,
+          analysis: changed,
+        });
+        expect(changedClaim.status).toBe("claimed");
+        if (changedClaim.status !== "claimed") {
+          throw new Error("missing_changed_evidence_lease");
+        }
+        await repository.complete(changedClaim.token, {
+          kind: "fit",
+          fit,
+          usage,
+        });
+      },
+    );
     it("publishes evidence-linked fit and includes the same conclusions in eligible digest contents", async () => {
       const repository = new PostgresIntelligenceRepository(db, 50);
       const provider = new FixtureProvider();

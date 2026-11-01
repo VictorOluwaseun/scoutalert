@@ -14,8 +14,10 @@ import {
   type Posting,
   type PostingAnalysis,
   validAnalysis,
+  validFit,
 } from "@repo/core/scouting";
 import type { ScoutAlertDatabase } from "../../database/types/database.js";
+import { fitEvidenceIdentity } from "./fit-evidence-identity.js";
 
 /** Canonical JSON avoids cache misses when PostgreSQL JSONB returns object keys in a different order. */
 function canonical(value: unknown): unknown {
@@ -45,7 +47,7 @@ export class PostgresIntelligenceRepository extends IntelligenceRepository {
     super();
   }
 
-  /** Includes immutable source/brief contents and provider policy in identity; no private material is copied to public extraction rows. */
+  /** Includes source/brief contents and provider policy, excluding only research observation clocks; current() independently enforces fresh evidence. Private inputs never enter public extraction rows. */
   private identity(task: IntelligenceTask): string {
     const request = task.context?.request;
 
@@ -66,8 +68,15 @@ export class PostgresIntelligenceRepository extends IntelligenceRepository {
                     scout: request?.scoutId,
                     version: request?.version,
                     search: task.context?.search,
-                    analysis: task.analysis,
-                    review: task.review,
+                    analysis: fitEvidenceIdentity(task.analysis),
+                    review: task.review
+                      ? {
+                          ...task.review,
+                          sources: task.review.sources.map(
+                            ({ observedAt: _observedAt, ...source }) => source,
+                          ),
+                        }
+                      : undefined,
                   }
                 : null,
           }),
@@ -100,7 +109,11 @@ export class PostgresIntelligenceRepository extends IntelligenceRepository {
 
     const context = task.context;
 
-    if (!context || !task.analysis) {
+    if (
+      !context ||
+      !task.analysis ||
+      !validAnalysis(task.posting, task.analysis)
+    ) {
       return false;
     }
 
@@ -121,6 +134,42 @@ export class PostgresIntelligenceRepository extends IntelligenceRepository {
       .executeTakeFirst();
 
     return !!scout;
+  }
+
+  /** Reuses earlier policy-compatible verdicts after a real fresh research check. Old clock-based keys remain readable, and private scopes or changed evidence can never share a result. */
+  private async reusableFit(
+    tx: Transaction<ScoutAlertDatabase>,
+    task: IntelligenceTask,
+  ): Promise<(IntelligenceResult & { kind: "fit" }) | null> {
+    if (task.kind !== "fit" || task.review || !task.context || !task.analysis) {
+      return null;
+    }
+    const prior = await sql<{
+      result: IntelligenceResult & { kind: "fit" };
+      analysis: PostingAnalysis;
+    }>`SELECT t.result,e.result->'analysis' AS analysis FROM intelligence_tasks t
+      JOIN intelligence_tasks e ON e.id=t.analysis_task_id AND e.status='ready'
+      WHERE t.kind='fit' AND t.status='ready' AND t.configuration=${task.configuration}
+      AND t.posting_id=${task.posting.id} AND t.posting_version=${task.posting.version}
+      AND t.owner_id=${task.context.request.ownerId}::uuid AND t.scout_id=${task.context.request.scoutId}::uuid AND t.scout_version=${task.context.request.version}
+      AND coalesce(t.result->'review'->>'status','completed')='completed'
+      ORDER BY t.updated_at DESC LIMIT 20`.execute(tx);
+    const evidence = JSON.stringify(
+      canonical(fitEvidenceIdentity(task.analysis)),
+    );
+    return (
+      prior.rows.find(
+        (row) =>
+          JSON.stringify(canonical(fitEvidenceIdentity(row.analysis))) ===
+            evidence &&
+          validFit(
+            task.posting,
+            task.context!.search,
+            row.result.fit,
+            task.analysis,
+          ),
+      )?.result ?? null
+    );
   }
 
   /** Freezes a bounded run batch while reusing successful and rejected private verdicts across later runs. */
@@ -297,8 +346,9 @@ export class PostgresIntelligenceRepository extends IntelligenceRepository {
         return { status: "ready", result: extraction };
       }
       const request = task.kind === "fit" ? task.context!.request : undefined;
-      await sql`INSERT INTO intelligence_tasks(id,kind,configuration,posting_id,posting_version,owner_id,scout_id,scout_version,analysis_task_id,review_of)
-        VALUES(${id},${task.kind},${task.configuration},${task.posting.id},${task.posting.version},${request?.ownerId ?? null}::uuid,${request?.scoutId ?? null}::uuid,${request?.version ?? null},${analysisId},${reviewOf}) ON CONFLICT(id) DO NOTHING`.execute(
+      const reused = await this.reusableFit(tx, task);
+      await sql`INSERT INTO intelligence_tasks(id,kind,configuration,posting_id,posting_version,owner_id,scout_id,scout_version,analysis_task_id,review_of,status,result)
+        VALUES(${id},${task.kind},${task.configuration},${task.posting.id},${task.posting.version},${request?.ownerId ?? null}::uuid,${request?.scoutId ?? null}::uuid,${request?.version ?? null},${analysisId},${reviewOf},${reused ? "ready" : "pending"},${reused ? JSON.stringify(reused) : null}::jsonb) ON CONFLICT(id) DO NOTHING`.execute(
         tx,
       );
       const row = await tx
@@ -314,8 +364,22 @@ export class PostgresIntelligenceRepository extends IntelligenceRepository {
       const expired =
         expires !== undefined && Date.parse(expires) <= Date.now();
 
-      if (row.status === "ready" && row.result && !expired) {
-        return { status: "ready", result: row.result };
+      const readyResult =
+        row.status === "ready" && !expired ? row.result : null;
+      // Point the reusable private verdict at freshly checked equivalent evidence; immutable public analyses and paid attempt history are retained.
+      if (
+        readyResult &&
+        task.kind === "fit" &&
+        row.analysis_task_id !== analysisId
+      ) {
+        await tx
+          .updateTable("intelligence_tasks")
+          .set({ analysis_task_id: analysisId })
+          .where("id", "=", id)
+          .execute();
+      }
+      if (readyResult) {
+        return { status: "ready", result: readyResult };
       }
 
       if (expired) {
