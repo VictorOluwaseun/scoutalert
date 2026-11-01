@@ -487,6 +487,48 @@ describe.skipIf(!enabled)(
       }
     });
 
+    it.each([60, 120])(
+      "paces automatic rediscovery at %i minutes while keeping explicit activation immediate",
+      async (minutes) => {
+        const { scouts } = await fixture();
+        const scout = scouts[0]!;
+        const paced = new PostgresScoutingRepository(db, minutes);
+        const initial = await db
+          .selectFrom("outbox_events")
+          .select("id")
+          .where("aggregate_id", "=", scout.id)
+          .execute();
+        expect(initial).toHaveLength(1);
+        await sql`UPDATE scouts SET discovery_requested_at=now()-make_interval(mins=>${minutes - 1}) WHERE id=${scout.id}::uuid`.execute(
+          db,
+        );
+        await paced.reconcile(randomUUID(), new Date());
+        expect(
+          await db
+            .selectFrom("outbox_events")
+            .select("id")
+            .where("aggregate_id", "=", scout.id)
+            .where("event_type", "=", "scout.refresh_requested")
+            .execute(),
+        ).toHaveLength(0);
+        await sql`UPDATE scouts SET discovery_requested_at=now()-make_interval(mins=>${minutes + 1}) WHERE id=${scout.id}::uuid`.execute(
+          db,
+        );
+        await Promise.all([
+          paced.reconcile(randomUUID(), new Date()),
+          paced.reconcile(randomUUID(), new Date()),
+        ]);
+        expect(
+          await db
+            .selectFrom("outbox_events")
+            .select("id")
+            .where("aggregate_id", "=", scout.id)
+            .where("event_type", "=", "scout.refresh_requested")
+            .execute(),
+        ).toHaveLength(1);
+      },
+    );
+
     it("reconciles orphaned runs and writes replay-safe refresh intents", async () => {
       const { ownerId, scouts } = await fixture();
       const request = {
@@ -499,7 +541,7 @@ describe.skipIf(!enabled)(
       await sql`UPDATE discovery_runs SET started_at=now()-interval '21 minutes' WHERE id=${request.runId}::uuid`.execute(
         db,
       );
-      await sql`UPDATE scouts SET discovery_requested_at=now()-interval '21 minutes' WHERE id=${request.scoutId}::uuid`.execute(
+      await sql`UPDATE scouts SET discovery_requested_at=now()-interval '61 minutes' WHERE id=${request.scoutId}::uuid`.execute(
         db,
       );
       const epoch = randomUUID();

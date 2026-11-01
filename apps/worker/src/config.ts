@@ -35,6 +35,12 @@ export function readWorkerConfiguration(environment = process.env) {
       SCOUT_X_POST_USD: z.coerce.number().min(0.005).max(1).default(0.005),
       SCOUT_X_PAGE_SIZE: z.coerce.number().int().min(10).max(100).default(10),
       SCOUT_MONITOR_ENABLED: z.enum(["true", "false"]).default("true"),
+      SCOUT_DISCOVERY_REFRESH_MINUTES: z.coerce
+        .number()
+        .int()
+        .min(10)
+        .max(1440)
+        .default(60),
       SCOUT_MONITOR_MAX_SOURCES: z.coerce
         .number()
         .int()

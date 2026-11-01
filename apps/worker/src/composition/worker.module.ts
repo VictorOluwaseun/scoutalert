@@ -106,7 +106,10 @@ export const WORKER_RESOURCES = Symbol("WORKER_RESOURCES");
           port: config.MAILPIT_SMTP_PORT,
           secure: false,
         });
-        const records = new PostgresScoutingRepository(db);
+        const records = new PostgresScoutingRepository(
+          db,
+          config.SCOUT_DISCOVERY_REFRESH_MINUTES,
+        );
         const intelligenceClient =
           config.SCOUT_AI_ENABLED === "true"
             ? createIntelligenceClient(config.OPENAI_API_KEY!, {

@@ -6,6 +6,26 @@ const environment = {
 };
 
 describe("configured daily budget limits", () => {
+  it("paces automatic discovery independently of token limits", () => {
+    expect(
+      readWorkerConfiguration(environment).SCOUT_DISCOVERY_REFRESH_MINUTES,
+    ).toBe(60);
+    expect(
+      readWorkerConfiguration({
+        ...environment,
+        SCOUT_DISCOVERY_REFRESH_MINUTES: "120",
+      }).SCOUT_DISCOVERY_REFRESH_MINUTES,
+    ).toBe(120);
+    for (const value of ["0", "9", "1441", "1.5", "NaN"]) {
+      expect(() =>
+        readWorkerConfiguration({
+          ...environment,
+          SCOUT_DISCOVERY_REFRESH_MINUTES: value,
+        }),
+      ).toThrow("SCOUT_DISCOVERY_REFRESH_MINUTES");
+    }
+  });
+
   it("defaults the shared token cap and permits explicitly blocking generation", () => {
     const config = readWorkerConfiguration(environment);
     expect(config.SCOUT_AI_DAILY_TOKENS).toBe(2_650_000);
