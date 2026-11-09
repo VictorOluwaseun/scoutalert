@@ -65,8 +65,8 @@ export abstract class DiscoveryReasoningRepository {
     output: DiscoveryReasoningOutput,
     usage: AnalysisUsage,
   ): Promise<void>;
-  /** Keeps a failed or ambiguous attempt terminal for its immutable public input window. */
-  abstract fail(token: string): Promise<void>;
+  /** Keeps ambiguous attempts terminal; retryAt marks a known unsent budget deferral that later current phases may retry. */
+  abstract fail(token: string, retryAt?: string): Promise<void>;
 }
 
 /** Structured model implementation cannot execute searches or invent fetch destinations. */
@@ -75,6 +75,7 @@ export abstract class DiscoveryReasoningProvider {
   /** Returns bounded public strategy or the index of a supplied action, plus provider usage. */
   abstract reason(
     input: DiscoveryReasoningInput,
+    scope?: import("../../scouting/public.js").ModelTokenScope,
   ): Promise<{ output: DiscoveryReasoningOutput; usage: AnalysisUsage }>;
 }
 

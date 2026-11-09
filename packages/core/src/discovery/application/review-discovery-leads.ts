@@ -1,3 +1,4 @@
+import { modelTokenRetryAt } from "../../scouting/public.js";
 import type { ScoutRunRequest } from "../../scouting/public.js";
 import {
   LeadReviewProvider,
@@ -30,7 +31,11 @@ export class ReviewDiscoveryLeads {
       return claim.status;
     }
     try {
-      const result = await this.provider.review(claim.inputs);
+      const result = await this.provider.review(
+        claim.inputs,
+        claim.work ?? "maintenance",
+        { scoutId: request.scoutId, version: request.version },
+      );
       const outputs = new Map(
         result.reviews.map((item) => {
           const input = claim.inputs.find((input) => input.id === item.id);
@@ -63,8 +68,12 @@ export class ReviewDiscoveryLeads {
           ),
         })),
       });
-    } catch {
-      await this.records.fail(claim.token, "provider_unavailable");
+    } catch (error) {
+      await this.records.fail(
+        claim.token,
+        "provider_unavailable",
+        modelTokenRetryAt(error),
+      );
     }
     return "progress";
   }

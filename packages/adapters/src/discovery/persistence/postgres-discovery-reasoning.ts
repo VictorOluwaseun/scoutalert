@@ -14,6 +14,7 @@ import {
   intelligenceAttemptReserveMicrousd,
   expertAttemptReserveMicrousd,
 } from "../../scouting/intelligence/usage-cost.js";
+import { refundUnsentAdmission } from "../../scouting/intelligence/postgres-unsent-admission.js";
 import { discoveryKey } from "./discovery-identities.js";
 
 /** Makes equivalent public snapshots stable across JavaScript and PostgreSQL JSONB object ordering. */
@@ -92,7 +93,8 @@ export class PostgresDiscoveryReasoningRepository extends DiscoveryReasoningRepo
         output: DiscoveryReasoningOutput | null;
         expired: boolean;
         deadline: boolean;
-      }>`SELECT t.*,t.lease_until<=now() AS expired,p.deadline<=now() AS deadline FROM web_reasoning_phases p JOIN web_reasoning_tasks t ON t.key=p.task_key WHERE p.run_id=${request.runId}::uuid AND p.phase=${phase} AND p.owner_id=${request.ownerId}::uuid AND p.scout_id=${request.scoutId}::uuid AND p.scout_version=${request.version} FOR UPDATE OF t`.execute(
+        deferred: boolean;
+      }>`SELECT t.*,t.retry_at>now() AS deferred,t.lease_until<=now() AS expired,p.deadline<=now() AS deadline FROM web_reasoning_phases p JOIN web_reasoning_tasks t ON t.key=p.task_key WHERE p.run_id=${request.runId}::uuid AND p.phase=${phase} AND p.owner_id=${request.ownerId}::uuid AND p.scout_id=${request.scoutId}::uuid AND p.scout_version=${request.version} FOR UPDATE OF t`.execute(
         tx,
       );
       const task = found.rows[0];
@@ -108,6 +110,7 @@ export class PostgresDiscoveryReasoningRepository extends DiscoveryReasoningRepo
         return { status: "ready", output: task.output };
       }
       if (
+        task.deferred ||
         task.state === "failed" ||
         task.deadline ||
         (task.state === "running" && task.expired)
@@ -127,7 +130,7 @@ export class PostgresDiscoveryReasoningRepository extends DiscoveryReasoningRepo
         return { status: admission };
       }
       const token = randomUUID();
-      await sql`UPDATE web_reasoning_tasks SET state='running',lease_token=${token}::uuid,lease_until=now()+interval '35 seconds' WHERE key=${task.key}`.execute(
+      await sql`UPDATE web_reasoning_tasks SET state='running',retry_at=NULL,admitted_at=now(),lease_token=${token}::uuid,lease_until=now()+interval '35 seconds' WHERE key=${task.key}`.execute(
         tx,
       );
       return { status: "claimed", token };
@@ -185,9 +188,36 @@ export class PostgresDiscoveryReasoningRepository extends DiscoveryReasoningRepo
   }
 
   /** Does not retry unknown provider outcomes or refund the conservative reserved amount. */
-  async fail(token: string): Promise<void> {
+  async fail(token: string, retryAt?: string): Promise<void> {
+    if (retryAt) {
+      await this.defer(token, retryAt);
+      return;
+    }
     await sql`UPDATE web_reasoning_tasks SET state='failed',failure='provider_unavailable',finished_at=now() WHERE lease_token=${token}::uuid AND state='running'`.execute(
       this.db,
     );
+  }
+
+  /** Defers only a known unsent request; subsequent current run phases may retry the public task after the window opens. */
+  private async defer(token: string, retryAt: string): Promise<void> {
+    await this.db.transaction().execute(async (tx) => {
+      const task = await sql<{
+        admitted_at: Date;
+        expert: boolean;
+      }>`UPDATE web_reasoning_tasks SET state='pending',failure='budget_deferred',lease_until=NULL,retry_at=${retryAt}::timestamptz
+        WHERE lease_token=${token}::uuid AND state='running' RETURNING admitted_at,input->>'expertReview' IS NOT NULL AS expert`.execute(
+        tx,
+      );
+      if (!task.rows[0]?.admitted_at) {
+        return;
+      }
+      await refundUnsentAdmission(
+        tx,
+        task.rows[0].admitted_at,
+        task.rows[0].expert
+          ? expertAttemptReserveMicrousd
+          : intelligenceAttemptReserveMicrousd,
+      );
+    });
   }
 }

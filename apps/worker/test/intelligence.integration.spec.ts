@@ -140,6 +140,114 @@ describe.skipIf(process.env.SCOUTING_INTEGRATION !== "1")(
 
       await admin?.destroy();
     });
+    it("prioritizes new evidence and defers policy backfill without spending provider retries", async () => {
+      const records = new PostgresIntelligenceRepository(db, 1000, 100_000_000);
+      const candidate = {
+        ...posting,
+        id: "pacing:1",
+        source: "pacing",
+        fingerprint: "pacing-1",
+      };
+      const source = new PostgresSourceRepository(db);
+      const lease = await source.claim(candidate.source, new Date());
+      await source.publish(
+        {
+          source: candidate.source,
+          checkedAt: new Date().toISOString(),
+          postings: [candidate],
+        },
+        lease!,
+      );
+      const extraction = {
+        ...task,
+        posting: candidate,
+        configuration: "pacing-old",
+      };
+      const first = await records.claim(extraction);
+      expect(first).toMatchObject({ status: "claimed", work: "discovery" });
+      if (first.status !== "claimed") {
+        throw new Error("fixture_missing_claim");
+      }
+      await records.complete(first.token, result);
+      const fitTask = {
+        ...extraction,
+        kind: "fit" as const,
+        context,
+        analysis,
+      };
+      const initialFit = await records.claim(fitTask);
+      expect(initialFit).toMatchObject({
+        status: "claimed",
+        work: "discovery",
+      });
+      if (initialFit.status !== "claimed") {
+        throw new Error("fixture_missing_fit");
+      }
+      await records.complete(initialFit.token, { kind: "fit", fit, usage });
+      const updated = { ...extraction, configuration: "pacing-new" };
+      const renewed = await records.claim(updated);
+      expect(renewed).toMatchObject({ status: "claimed", work: "maintenance" });
+      if (renewed.status !== "claimed") {
+        throw new Error("fixture_missing_renewal");
+      }
+      await records.complete(renewed.token, result);
+      const updatedFit = { ...fitTask, configuration: "pacing-new" };
+      const before = (
+        await sql`SELECT requests,reserved_microusd::text FROM intelligence_daily_budget WHERE day=(now() AT TIME ZONE 'UTC')::date`.execute(
+          db,
+        )
+      ).rows[0];
+      const backfill = await records.claim(updatedFit);
+      expect(backfill).toMatchObject({
+        status: "claimed",
+        work: "maintenance",
+      });
+      if (backfill.status !== "claimed") {
+        throw new Error("fixture_missing_backfill");
+      }
+      const retryAt = new Date(Date.now() + 60_000).toISOString();
+      await records.fail(backfill.token, "provider_unavailable", retryAt);
+      await records.fail(backfill.token, "provider_unavailable", retryAt);
+      expect(
+        (
+          await sql`SELECT requests,reserved_microusd::text FROM intelligence_daily_budget WHERE day=(now() AT TIME ZONE 'UTC')::date`.execute(
+            db,
+          )
+        ).rows[0],
+      ).toEqual(before);
+      expect((await records.claim(updatedFit)).status).toBe("unavailable");
+      expect(
+        (
+          await sql`SELECT t.status,t.attempts,a.outcome FROM intelligence_tasks t JOIN intelligence_attempts a ON a.task_id=t.id WHERE a.id=${backfill.token}::uuid`.execute(
+            db,
+          )
+        ).rows[0],
+      ).toEqual({ status: "pending", attempts: 0, outcome: "budget_deferred" });
+      const run = {
+        ...context,
+        request: { ...context.request, runId: randomUUID() },
+      };
+      await new PostgresScoutingRepository(db).begin(run.request);
+      const plan = await records.plan(run, [candidate, posting], "pacing-new");
+      expect(plan.selected).toEqual([posting.id, candidate.id]);
+      await sql`UPDATE intelligence_tasks SET retry_at=now()-interval '1 second' WHERE lease_token=${backfill.token}::uuid`.execute(
+        db,
+      );
+      const resumed = await records.claim(updatedFit);
+      expect(resumed.status).toBe("claimed");
+      if (resumed.status !== "claimed") {
+        throw new Error("fixture_missing_resume");
+      }
+      await records.complete(resumed.token, { kind: "fit", fit, usage });
+      expect((await records.claim(updatedFit)).status).toBe("ready");
+      await sql`UPDATE opportunity_postings SET open=false WHERE id=${candidate.id}`.execute(
+        db,
+      );
+      await sql`UPDATE discovery_runs SET status='completed',finished_at=now() WHERE id=${run.request.runId}::uuid`.execute(
+        db,
+      );
+    });
+
     it("fences duplicate shared attempts and reuses public extraction", async () => {
       const repository = new PostgresIntelligenceRepository(db, 50);
       const claims = await Promise.all([

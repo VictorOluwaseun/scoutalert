@@ -55,7 +55,12 @@ export interface LeadReviewResult {
 
 export type LeadReviewClaim =
   | { status: "done" | "waiting" }
-  | { status: "claimed"; token: string; inputs: LeadReviewInput[] };
+  | {
+      status: "claimed";
+      token: string;
+      inputs: LeadReviewInput[];
+      work?: import("../../scouting/public.js").ModelTokenWork;
+    };
 
 /** Owns shared review reuse, budget admission, current-revision checks and publication transactions. */
 export abstract class LeadReviewRepository {
@@ -66,10 +71,11 @@ export abstract class LeadReviewRepository {
   ): Promise<LeadReviewClaim>;
   /** Accepts only the exact unexpired input lease; snippets and stale documents cannot promote postings. */
   abstract complete(token: string, result: LeadReviewResult): Promise<void>;
-  /** Retains the reserved budget and a bounded failure code; no raw provider error or prompt is stored. */
+  /** Retains ambiguous spending and a bounded failure code. A retryAt denotes a never-sent budget deferral, preserving attempts and refunding request/USD admission only. */
   abstract fail(
     token: string,
     reason: "provider_unavailable" | "invalid_evidence",
+    retryAt?: string,
   ): Promise<void>;
 }
 
@@ -77,5 +83,9 @@ export abstract class LeadReviewRepository {
 export abstract class LeadReviewProvider {
   abstract readonly configuration: string;
   /** Returns passage-grounded public reviews without receiving an account or personal brief. */
-  abstract review(inputs: LeadReviewInput[]): Promise<LeadReviewResult>;
+  abstract review(
+    inputs: LeadReviewInput[],
+    work?: import("../../scouting/public.js").ModelTokenWork,
+    scope?: import("../../scouting/public.js").ModelTokenScope,
+  ): Promise<LeadReviewResult>;
 }

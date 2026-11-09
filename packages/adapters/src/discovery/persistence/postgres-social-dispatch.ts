@@ -47,12 +47,12 @@ export class PostgresSocialDispatchRepository {
           OR EXISTS(SELECT 1 FROM web_discovery_cases newer WHERE newer.scout_id=s.id AND newer.owner_id=s.owner_id AND newer.started_at>original.started_at)
           OR EXISTS(SELECT 1 FROM discovery_runs run WHERE run.id=original.id AND run.status IN ('completed','failed'))
         ))
-        OR (c.status='deferred' AND c.reason IN ('ai_budget_reached','review_window_ended'))
+        OR (c.status='deferred' AND c.reason IN ('ai_budget_reached','ai_budget_paced','review_window_ended'))
         OR (c.status IN ('pending','reviewing') AND c.deadline<=now())
         OR (c.status='complete' AND c.reason='some_reviews_unavailable')
       )
       AND (
-        review.state IS NULL OR review.state='pending'
+        review.state IS NULL OR (review.state='pending' AND (review.retry_at IS NULL OR review.retry_at<=now()))
         OR (review.state='ready' AND c.case_id IS NULL)
         OR (review.state='running' AND review.lease_until<=now() AND review.attempts<2)
         OR (review.state='failed' AND review.failure IN ('provider_unavailable','attempt_outcome_unknown') AND review.attempts<2 AND review.retry_at<=now())

@@ -1,4 +1,5 @@
 import OpenAI from "openai";
+import { tokenBudgetMetadata } from "../intelligence/openai-token-budget.js";
 import { z } from "zod";
 import { zodTextFormat } from "openai/helpers/zod";
 import {
@@ -9,6 +10,8 @@ import {
   validResearch,
   type EmployerResearch,
   type IntelligenceResult,
+  type ModelTokenWork,
+  type ModelTokenScope,
   type Posting,
   type PostingAnalysis,
 } from "@repo/core/scouting";
@@ -52,6 +55,8 @@ export class OpenAIEmployerResearchProvider extends EmployerResearchProvider {
   async investigate(
     posting: Posting,
     analysis: PostingAnalysis,
+    work: ModelTokenWork = "maintenance",
+    scope?: ModelTokenScope,
   ): Promise<IntelligenceResult & { kind: "research" }> {
     const started = Date.now();
     const documents = await this.documents.read(posting);
@@ -118,6 +123,7 @@ export class OpenAIEmployerResearchProvider extends EmployerResearchProvider {
       {
         model: this.model,
         store: false,
+        metadata: tokenBudgetMetadata(work, scope),
         service_tier: "default",
         max_output_tokens: 4000,
         reasoning: { effort: "low" },

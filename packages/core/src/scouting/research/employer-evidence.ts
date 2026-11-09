@@ -53,6 +53,8 @@ export abstract class EmployerResearchProvider {
   abstract investigate(
     posting: Posting,
     analysis: PostingAnalysis,
+    work?: import("../intelligence/token-budget.js").ModelTokenWork,
+    scope?: import("../intelligence/token-budget.js").ModelTokenScope,
   ): Promise<IntelligenceResult & { kind: "research" }>;
 }
 

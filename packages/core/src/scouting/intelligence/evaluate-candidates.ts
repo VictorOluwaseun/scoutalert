@@ -1,3 +1,5 @@
+import { modelTokenRetryAt } from "./token-deferral.js";
+import type { ModelTokenWork, ModelTokenScope } from "./token-budget.js";
 import { assessPosting } from "../domain/assess-posting.js";
 import type { Assessment, Posting, RunContext } from "../domain/discovery.js";
 import {
@@ -49,7 +51,11 @@ export class EvaluateCandidates extends CandidateEvaluator {
     const selected = new Set(plan.selected);
     const matches: { posting: Posting; assessment: Assessment }[] = [];
 
-    for (const posting of postings) {
+    const order = new Map(plan.selected.map((id, index) => [id, index]));
+    const prioritized = [...postings].sort(
+      (a, b) => (order.get(a.id) ?? Infinity) - (order.get(b.id) ?? Infinity),
+    );
+    for (const posting of prioritized) {
       const previous = cached.get(posting.id);
       const result =
         previous &&
@@ -109,7 +115,14 @@ export class EvaluateCandidates extends CandidateEvaluator {
     | { status: "ready"; assessment: Assessment | null }
   > {
     const common = { posting, configuration: this.configuration };
-    const extracted = await this.resolve({ ...common, kind: "extraction" });
+    const scope = {
+      scoutId: context.request.scoutId,
+      version: context.request.version,
+    };
+    const extracted = await this.resolve(
+      { ...common, kind: "extraction" },
+      scope,
+    );
 
     if (typeof extracted === "string") {
       return { status: extracted };
@@ -122,19 +135,22 @@ export class EvaluateCandidates extends CandidateEvaluator {
       return { status: "unavailable" };
     }
 
-    const researched = await this.research(common, extracted.analysis);
+    const researched = await this.research(common, extracted.analysis, scope);
 
     if (typeof researched === "string") {
       return { status: researched };
     }
 
     const analysis = researched;
-    const evaluated = await this.resolve({
-      ...common,
-      kind: "fit",
-      context,
-      analysis,
-    });
+    const evaluated = await this.resolve(
+      {
+        ...common,
+        kind: "fit",
+        context,
+        analysis,
+      },
+      scope,
+    );
 
     if (typeof evaluated === "string") {
       return { status: evaluated };
@@ -180,14 +196,17 @@ export class EvaluateCandidates extends CandidateEvaluator {
       baseline.fit,
       baseline.review.reason,
     );
-    const result = await this.resolve({
-      kind: "fit",
-      posting,
-      context,
-      analysis,
-      configuration: this.configuration,
-      review,
-    });
+    const result = await this.resolve(
+      {
+        kind: "fit",
+        posting,
+        context,
+        analysis,
+        configuration: this.configuration,
+        review,
+      },
+      { scoutId: context.request.scoutId, version: context.request.version },
+    );
     if (result === "progress" || result === "waiting") {
       return { status: result };
     }
@@ -207,6 +226,7 @@ export class EvaluateCandidates extends CandidateEvaluator {
   private async research(
     common: Pick<IntelligenceTask, "posting" | "configuration">,
     analysis: import("./contracts.js").PostingAnalysis,
+    scope: ModelTokenScope,
   ) {
     if (
       (common.posting.kind === "client_request" &&
@@ -217,12 +237,15 @@ export class EvaluateCandidates extends CandidateEvaluator {
       return analysis;
     }
 
-    const result = await this.resolve({
-      ...common,
-      kind: "research",
-      analysis,
-      evidenceEpoch: String(Math.floor(Date.now() / (15 * 60_000))),
-    });
+    const result = await this.resolve(
+      {
+        ...common,
+        kind: "research",
+        analysis,
+        evidenceEpoch: String(Math.floor(Date.now() / (15 * 60_000))),
+      },
+      scope,
+    );
 
     if (typeof result === "string") {
       return result;
@@ -241,6 +264,7 @@ export class EvaluateCandidates extends CandidateEvaluator {
   /** Leases fence duplicate calls; failures become bounded cooldowns, and provider output is validated before caching. */
   private async resolve(
     task: IntelligenceTask,
+    scope: ModelTokenScope,
   ): Promise<IntelligenceResult | "waiting" | "progress" | "unavailable"> {
     const claim = await this.records.claim(task);
 
@@ -253,7 +277,11 @@ export class EvaluateCandidates extends CandidateEvaluator {
     }
 
     try {
-      const result = await this.execute(task);
+      const result = await this.execute(
+        task,
+        claim.work ?? "maintenance",
+        scope,
+      );
       const valid =
         result.kind !== "fit"
           ? validAnalysis(task.posting, result.analysis)
@@ -283,21 +311,34 @@ export class EvaluateCandidates extends CandidateEvaluator {
       await this.records.complete(claim.token, result);
 
       return "progress";
-    } catch {
-      await this.records.fail(claim.token, "provider_unavailable");
+    } catch (error) {
+      await this.records.fail(
+        claim.token,
+        "provider_unavailable",
+        modelTokenRetryAt(error),
+      );
 
       return "progress";
     }
   }
 
   /** One admitted provider step per attempt; public research never receives a private brief. */
-  private async execute(task: IntelligenceTask): Promise<IntelligenceResult> {
+  private async execute(
+    task: IntelligenceTask,
+    work: ModelTokenWork,
+    scope: ModelTokenScope,
+  ): Promise<IntelligenceResult> {
     if (task.kind === "extraction") {
-      return this.provider.extract(task.posting);
+      return this.provider.extract(task.posting, work, scope);
     }
 
     if (task.kind === "research") {
-      return this.researcher!.investigate(task.posting, task.analysis!);
+      return this.researcher!.investigate(
+        task.posting,
+        task.analysis!,
+        work,
+        scope,
+      );
     }
 
     if (task.review) {
@@ -305,6 +346,7 @@ export class EvaluateCandidates extends CandidateEvaluator {
         task.context!.search,
         task.analysis!,
         task.review,
+        scope,
       );
       return {
         ...result,
@@ -317,6 +359,8 @@ export class EvaluateCandidates extends CandidateEvaluator {
       task.posting,
       task.context!.search,
       task.analysis!,
+      work,
+      scope,
     );
 
     const reason = this.reviewer

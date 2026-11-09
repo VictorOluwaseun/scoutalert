@@ -88,7 +88,11 @@ export interface IntelligenceTask {
 }
 export type TaskClaim =
   | { status: "ready"; result: IntelligenceResult }
-  | { status: "claimed"; token: string }
+  | {
+      status: "claimed";
+      token: string;
+      work?: import("./token-budget.js").ModelTokenWork;
+    }
   | { status: "waiting" | "unavailable" };
 /** Durable caching, fenced leases and global daily request admission live behind this inward port. */
 export abstract class IntelligenceRepository {
@@ -109,10 +113,11 @@ export abstract class IntelligenceRepository {
   abstract claim(task: IntelligenceTask): Promise<TaskClaim>;
   /** Stores a validated result only for the unexpired lease and current input versions. */
   abstract complete(token: string, result: IntelligenceResult): Promise<void>;
-  /** Retains a bounded failure code; retry cooldown prevents failures from causing spending loops. */
+  /** Retains a bounded failure code; retryAt identifies an unsent budget deferral that preserves provider attempts and refunds only request/USD admission. */
   abstract fail(
     token: string,
     code: "provider_unavailable" | "invalid_evidence",
+    retryAt?: string,
   ): Promise<void>;
 }
 /** Versioned intelligence tasks use native provider capabilities only inside their adapter. */
@@ -121,12 +126,16 @@ export abstract class IntelligenceProvider {
   /** Extracts public claims with strict output shape and bounded response time/size. */
   abstract extract(
     posting: Posting,
+    work?: import("./token-budget.js").ModelTokenWork,
+    scope?: import("./token-budget.js").ModelTokenScope,
   ): Promise<IntelligenceResult & { kind: "extraction" }>;
   /** Evaluates only the supplied brief and cited posting; no account identity or email is needed. */
   abstract assess(
     posting: Posting,
     search: SearchDraft,
     analysis: PostingAnalysis,
+    work?: import("./token-budget.js").ModelTokenWork,
+    scope?: import("./token-budget.js").ModelTokenScope,
   ): Promise<IntelligenceResult & { kind: "fit" }>;
 }
 /** A bounded run can yield while persistent tasks finish, without keeping activity memory alive. */

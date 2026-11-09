@@ -257,6 +257,7 @@ export interface ScoutAlertDatabase {
     >;
     outcome: Generated<
       | "ready"
+      | "budget_deferred"
       | "provider_unavailable"
       | "invalid_evidence"
       | "superseded"

@@ -27,6 +27,7 @@ import {
 import { discoveryKey } from "./discovery-identities.js";
 import { PostgresWebPostingRepository } from "./postgres-web-postings.js";
 
+import { refundUnsentAdmission } from "../../scouting/intelligence/postgres-unsent-admission.js";
 import { lockWebSources } from "./web-source-locks.js";
 
 type ReviewRow = {
@@ -37,6 +38,7 @@ type ReviewRow = {
   result: LeadReview | null;
   attempts: number;
   retry_at: Date | null;
+  previously_reviewed: boolean;
 };
 
 /** Shares immutable public reviews across scouts and admits them against the same global AI ledger as personal fit. */
@@ -138,7 +140,7 @@ export class PostgresLeadReviewRepository extends LeadReviewRepository {
         return { status: "done" };
       }
       const tasks =
-        await sql<ReviewRow>`SELECT key,input,state,lease_until,result,attempts,retry_at FROM web_lead_reviews WHERE key=ANY(${batch.rows[0].keys}::text[]) ORDER BY key FOR UPDATE`.execute(
+        await sql<ReviewRow>`SELECT r.key,r.input,r.state,r.lease_until,r.result,r.attempts,r.retry_at,EXISTS(SELECT 1 FROM web_lead_reviews p WHERE p.lead_id=r.lead_id AND p.state='ready' AND p.input->>'fingerprint'=r.input->>'fingerprint') AS previously_reviewed FROM web_lead_reviews r WHERE r.key=ANY(${batch.rows[0].keys}::text[]) ORDER BY key FOR UPDATE`.execute(
           tx,
         );
       await this.refreshReady(tx, tasks.rows);
@@ -154,7 +156,8 @@ export class PostgresLeadReviewRepository extends LeadReviewRepository {
       const pending = tasks.rows
         .filter(
           (row) =>
-            row.state === "pending" ||
+            (row.state === "pending" &&
+              (!row.retry_at || row.retry_at.getTime() <= now)) ||
             (row.state === "failed" &&
               row.attempts < 2 &&
               !!row.retry_at &&
@@ -163,9 +166,16 @@ export class PostgresLeadReviewRepository extends LeadReviewRepository {
         .sort(
           (a, b) =>
             Number(b.input.scope === "source") -
-            Number(a.input.scope === "source"),
+              Number(a.input.scope === "source") ||
+            Number(a.previously_reviewed) - Number(b.previously_reviewed),
         );
       if (!pending.length) {
+        const deferred = tasks.rows.some(
+          (row) =>
+            row.state === "pending" &&
+            row.retry_at &&
+            row.retry_at.getTime() > now,
+        );
         const active = tasks.rows.some(
           (row) =>
             row.state === "running" &&
@@ -175,12 +185,15 @@ export class PostgresLeadReviewRepository extends LeadReviewRepository {
         await this.progress(
           tx,
           request.runId,
-          active ? "reviewing" : "complete",
-          tasks.rows.some((row) => row.state === "failed") || expired.length > 0
-            ? "some_reviews_unavailable"
-            : batch.rows[0].source_only
-              ? "source_reviews_complete"
-              : null,
+          active ? "reviewing" : deferred ? "deferred" : "complete",
+          deferred
+            ? "ai_budget_paced"
+            : tasks.rows.some((row) => row.state === "failed") ||
+                expired.length > 0
+              ? "some_reviews_unavailable"
+              : batch.rows[0].source_only
+                ? "source_reviews_complete"
+                : null,
         );
         return { status: active ? "waiting" : "done" };
       }
@@ -213,6 +226,11 @@ export class PostgresLeadReviewRepository extends LeadReviewRepository {
         status: "claimed",
         token,
         inputs: selected.map((row) => row.input),
+        work: selected.every(
+          (row) => !row.previously_reviewed && row.input.scope === "source",
+        )
+          ? "discovery"
+          : "maintenance",
       };
     });
   }
@@ -414,13 +432,40 @@ export class PostgresLeadReviewRepository extends LeadReviewRepository {
   async fail(
     token: string,
     reason: "provider_unavailable" | "invalid_evidence",
+    retryAt?: string,
   ): Promise<void> {
+    if (retryAt) {
+      await this.defer(token, retryAt);
+      return;
+    }
     await this.db.transaction().execute(async (tx) => {
       await sql`UPDATE web_lead_reviews SET state='failed',failure=${reason},lease_until=NULL,retry_at=CASE WHEN ${reason}='provider_unavailable' THEN now()+interval '5 minutes' ELSE NULL END WHERE lease_token=${token}::uuid AND state='running'`.execute(
         tx,
       );
       await sql`UPDATE web_lead_review_attempts SET state='failed',finished_at=now(),failure=${reason} WHERE id=${token}::uuid AND state='running'`.execute(
         tx,
+      );
+    });
+  }
+
+  /** An unsent batch keeps every public input pending; replay cannot refund another attempt or erase real provider failures. */
+  private async defer(token: string, retryAt: string): Promise<void> {
+    await this.db.transaction().execute(async (tx) => {
+      await sql`UPDATE web_lead_reviews SET state='pending',attempts=greatest(0,attempts-1),failure='budget_deferred',lease_until=NULL,retry_at=${retryAt}::timestamptz
+        WHERE lease_token=${token}::uuid AND state='running'`.execute(tx);
+      const attempt = await sql<{
+        started_at: Date;
+      }>`UPDATE web_lead_review_attempts SET state='deferred',finished_at=now(),failure='budget_deferred'
+        WHERE id=${token}::uuid AND state='running' RETURNING started_at`.execute(
+        tx,
+      );
+      if (!attempt.rows[0]) {
+        return;
+      }
+      await refundUnsentAdmission(
+        tx,
+        attempt.rows[0].started_at,
+        intelligenceAttemptReserveMicrousd,
       );
     });
   }

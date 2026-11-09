@@ -1,3 +1,4 @@
+import { modelTokenRetryAt } from "../../scouting/public.js";
 import type { ScoutRunRequest } from "../../scouting/public.js";
 import type {
   DiscoveryPlan,
@@ -180,12 +181,10 @@ export class PlanScoutSearch {
               ...candidate,
               text: candidate.text.slice(0, 400),
             })),
-            evidence: input.evidence
-              .slice(-12)
-              .map((item) => ({
-                ...item,
-                explanation: item.explanation.slice(0, 400),
-              })),
+            evidence: input.evidence.slice(-12).map((item) => ({
+              ...item,
+              explanation: item.explanation.slice(0, 400),
+            })),
           })
         : null;
     if (expert === "progress" || expert === "waiting") {
@@ -236,15 +235,18 @@ export class PlanScoutSearch {
       return "waiting";
     }
     try {
-      const result = await this.provider.reason(input);
+      const result = await this.provider.reason(input, {
+        scoutId: request.scoutId,
+        version: request.version,
+      });
       const output = normalizeReasoning(input, result.output);
       if (!validReasoning(input, output)) {
         await this.records.complete(claim.token, output, result.usage);
         return "progress";
       }
       await this.records.complete(claim.token, output, result.usage);
-    } catch {
-      await this.records.fail(claim.token);
+    } catch (error) {
+      await this.records.fail(claim.token, modelTokenRetryAt(error));
     }
     return "progress";
   }

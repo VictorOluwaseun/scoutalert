@@ -37,6 +37,7 @@ export abstract class FitReviewProvider {
     search: SearchDraft,
     analysis: PostingAnalysis,
     request: FitReviewRequest,
+    scope?: import("./token-budget.js").ModelTokenScope,
   ): Promise<IntelligenceResult & { kind: "fit" }>;
 }
 

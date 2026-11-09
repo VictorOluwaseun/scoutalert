@@ -1,4 +1,5 @@
 import type OpenAI from "openai";
+import { tokenBudgetMetadata } from "./openai-token-budget.js";
 import { zodTextFormat } from "openai/helpers/zod";
 import {
   FitReviewProvider,
@@ -32,6 +33,7 @@ export class OpenAIFitReviewProvider extends FitReviewProvider {
     search: SearchDraft,
     analysis: PostingAnalysis,
     request: FitReviewRequest,
+    scope?: import("@repo/core/scouting").ModelTokenScope,
   ) {
     const passages: Record<string, string> = {};
     const sources = request.sources.map(({ text, ...source }) => {
@@ -78,6 +80,7 @@ export class OpenAIFitReviewProvider extends FitReviewProvider {
         store: false,
         service_tier: "default",
         metadata: {
+          ...tokenBudgetMetadata("discovery", scope),
           scout_budget_purpose:
             request.reason === "sample_audit" ? "audit" : "standard",
         },

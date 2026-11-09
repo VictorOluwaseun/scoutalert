@@ -17,6 +17,7 @@ import {
   validFit,
 } from "@repo/core/scouting";
 import type { ScoutAlertDatabase } from "../../database/types/database.js";
+import { refundUnsentAdmission } from "./postgres-unsent-admission.js";
 import { fitEvidenceIdentity } from "./fit-evidence-identity.js";
 
 /** Canonical JSON avoids cache misses when PostgreSQL JSONB returns object keys in a different order. */
@@ -222,8 +223,22 @@ export class PostgresIntelligenceRepository extends IntelligenceRepository {
           )
           .map((row) => row.postingId),
       );
+      const previouslyAssessed = await sql<{
+        posting_id: string;
+      }>`SELECT DISTINCT t.posting_id FROM intelligence_tasks t
+        JOIN jsonb_to_recordset(${JSON.stringify(captured)}::jsonb) AS p(id text,version integer) ON p.id=t.posting_id AND p.version=t.posting_version
+        WHERE t.kind='fit' AND t.status='ready' AND t.owner_id=${context.request.ownerId}::uuid AND t.scout_id=${context.request.scoutId}::uuid AND t.scout_version=${context.request.version}`.execute(
+        tx,
+      );
+      const maintenance = new Set(
+        previouslyAssessed.rows.map((row) => row.posting_id),
+      );
       const selected = postings
         .filter((posting) => !ready.has(posting.id))
+        .sort(
+          (a, b) =>
+            Number(maintenance.has(a.id)) - Number(maintenance.has(b.id)),
+        )
         .slice(0, 8)
         .map((posting) => posting.id);
       await sql`INSERT INTO intelligence_run_batches(run_id,configuration,selected) VALUES(${context.request.runId}::uuid,${configuration},${selected}::text[]) ON CONFLICT(run_id) DO NOTHING`.execute(
@@ -450,7 +465,16 @@ export class PostgresIntelligenceRepository extends IntelligenceRepository {
         .values({ id: token, task_id: id })
         .execute();
 
-      return { status: "claimed", token };
+      const prior =
+        await sql`SELECT id FROM intelligence_tasks WHERE kind=${task.kind} AND posting_id=${task.posting.id} AND posting_version=${task.posting.version} AND status='ready'
+        AND (${task.kind}<>'fit' OR (owner_id=${request?.ownerId ?? null}::uuid AND scout_id=${request?.scoutId ?? null}::uuid AND scout_version=${request?.version ?? null})) LIMIT 1`.execute(
+          tx,
+        );
+      return {
+        status: "claimed",
+        token,
+        work: prior.rows.length ? "maintenance" : "discovery",
+      };
     });
   }
 
@@ -491,7 +515,12 @@ export class PostgresIntelligenceRepository extends IntelligenceRepository {
   async fail(
     token: string,
     code: "provider_unavailable" | "invalid_evidence",
+    retryAt?: string,
   ): Promise<void> {
+    if (retryAt) {
+      await this.defer(token, retryAt);
+      return;
+    }
     await this.db.transaction().execute(async (tx) => {
       await sql`UPDATE intelligence_tasks SET status='failed',lease_until=NULL,retry_at=now()+interval '15 minutes',updated_at=now() WHERE lease_token=${token}::uuid AND status='running'`.execute(
         tx,
@@ -502,6 +531,37 @@ export class PostgresIntelligenceRepository extends IntelligenceRepository {
         .where("id", "=", token)
         .where("finished_at", "is", null)
         .execute();
+    });
+  }
+
+  /** Keeps an unsent task retryable and refunds only its fenced request/USD admission, on the original admission day. */
+  private async defer(token: string, retryAt: string): Promise<void> {
+    await this.db.transaction().execute(async (tx) => {
+      const task = await sql<{
+        review_of: string | null;
+      }>`UPDATE intelligence_tasks SET status='pending',attempts=greatest(0,attempts-1),lease_until=NULL,retry_at=${retryAt}::timestamptz,updated_at=now()
+        WHERE lease_token=${token}::uuid AND status='running' RETURNING review_of`.execute(
+        tx,
+      );
+      if (!task.rows[0]) {
+        return;
+      }
+      const attempt = await sql<{
+        started_at: Date;
+      }>`UPDATE intelligence_attempts SET outcome='budget_deferred',finished_at=now()
+        WHERE id=${token}::uuid AND finished_at IS NULL RETURNING started_at`.execute(
+        tx,
+      );
+      if (!attempt.rows[0]) {
+        return;
+      }
+      await refundUnsentAdmission(
+        tx,
+        attempt.rows[0].started_at,
+        task.rows[0].review_of
+          ? expertAttemptReserveMicrousd
+          : intelligenceAttemptReserveMicrousd,
+      );
     });
   }
 }

@@ -671,6 +671,16 @@ describe.skipIf(!enabled)("native X durable discovery", () => {
       dailyRequests: 2,
       dailyMicros: 150_000,
     });
+    await sql`UPDATE web_lead_review_cases SET reason='ai_budget_paced' WHERE status='deferred'`.execute(
+      db,
+    );
+    await sql`UPDATE web_lead_reviews SET retry_at=now()+interval '1 hour' WHERE state='pending'`.execute(
+      db,
+    );
+    expect(await raised.maintain()).toBe(0);
+    await sql`UPDATE web_lead_reviews SET retry_at=now()-interval '1 second' WHERE state='pending'`.execute(
+      db,
+    );
     expect(await raised.maintain()).toBe(1);
     expect(await raised.maintain()).toBe(0);
     const resumed = (

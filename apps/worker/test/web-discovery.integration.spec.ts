@@ -763,6 +763,79 @@ describe.skipIf(!enabled)(
       expect(capture.rows[0]!.result.capture.complete).toBe(false);
     });
 
+    it("keeps paced reasoning retryable and refunds only the unsent admission once", async () => {
+      const request = await fixture("Pacing engineer");
+      const repository = new PostgresDiscoveryReasoningRepository(
+        db,
+        1000,
+        100_000_000,
+      );
+      const configuration = randomUUID();
+      const input: DiscoveryReasoningInput = {
+        kind: "strategy",
+        intent: {
+          target: "Pacing engineer",
+          category: "employment",
+          remote: true,
+        },
+      };
+      const before = (
+        await sql`SELECT coalesce(sum(requests),0)::int AS requests,coalesce(sum(reserved_microusd),0)::text AS reserved FROM intelligence_daily_budget`.execute(
+          db,
+        )
+      ).rows[0];
+      const claim = await repository.claim(
+        request,
+        "strategy",
+        configuration,
+        input,
+      );
+      if (claim.status !== "claimed") {
+        throw new Error("fixture_missing_pacing_claim");
+      }
+      const retryAt = new Date(Date.now() + 60_000).toISOString();
+      await repository.fail(claim.token, retryAt);
+      await repository.fail(claim.token, retryAt);
+      expect(
+        (await repository.claim(request, "strategy", configuration, input))
+          .status,
+      ).toBe("unavailable");
+      expect(
+        (
+          await sql`SELECT coalesce(sum(requests),0)::int AS requests,coalesce(sum(reserved_microusd),0)::text AS reserved FROM intelligence_daily_budget`.execute(
+            db,
+          )
+        ).rows[0],
+      ).toEqual(before);
+      await sql`UPDATE web_reasoning_tasks SET retry_at=now()-interval '1 second' WHERE lease_token=${claim.token}::uuid`.execute(
+        db,
+      );
+      const resumed = await repository.claim(
+        request,
+        "strategy",
+        configuration,
+        input,
+      );
+      if (resumed.status !== "claimed") {
+        throw new Error("fixture_missing_reasoning_resume");
+      }
+      await repository.complete(
+        resumed.token,
+        {
+          kind: "strategy",
+          strategy: {
+            targets: ["Pacing engineer"],
+            explanation: "Confirmed target.",
+          },
+        },
+        reviewUsage,
+      );
+      expect(
+        (await repository.claim(request, "strategy", configuration, input))
+          .status,
+      ).toBe("ready");
+    });
+
     it("binds one terminal expert recovery attempt to a case even when later evidence changes", async () => {
       const request = await fixture();
       await open(request);
@@ -1218,6 +1291,65 @@ describe.skipIf(!enabled)(
           request.ownerId,
         ),
       ).toEqual([]);
+    });
+
+    it("preserves paced new-source reviews for a later window without exhausting their retry count", async () => {
+      const { request, id } = await reviewFixture();
+      const records = new PostgresLeadReviewRepository(db, 1000, 100_000_000);
+      const provider = new FixtureLeadProvider();
+      const before = (
+        await sql`SELECT coalesce(sum(requests),0)::int AS requests,coalesce(sum(reserved_microusd),0)::text AS reserved FROM intelligence_daily_budget`.execute(
+          db,
+        )
+      ).rows[0];
+      const claim = await records.claim(request, "pacing-review-old");
+      expect(claim).toMatchObject({ status: "claimed", work: "discovery" });
+      if (claim.status !== "claimed") {
+        throw new Error("fixture_missing_review_claim");
+      }
+      const retryAt = new Date(Date.now() + 60_000).toISOString();
+      await records.fail(claim.token, "provider_unavailable", retryAt);
+      await records.fail(claim.token, "provider_unavailable", retryAt);
+      expect((await records.claim(request, "pacing-review-old")).status).toBe(
+        "done",
+      );
+      expect(
+        (
+          await sql`SELECT coalesce(sum(requests),0)::int AS requests,coalesce(sum(reserved_microusd),0)::text AS reserved FROM intelligence_daily_budget`.execute(
+            db,
+          )
+        ).rows[0],
+      ).toEqual(before);
+      expect(
+        (
+          await sql`SELECT state,attempts,failure FROM web_lead_reviews WHERE lead_id=${id}`.execute(
+            db,
+          )
+        ).rows[0],
+      ).toEqual({ state: "pending", attempts: 0, failure: "budget_deferred" });
+      await sql`UPDATE web_lead_reviews SET retry_at=now()-interval '1 second' WHERE lead_id=${id}`.execute(
+        db,
+      );
+      const resumed = await records.claim(request, "pacing-review-old");
+      if (resumed.status !== "claimed") {
+        throw new Error("fixture_missing_review_resume");
+      }
+      await records.complete(
+        resumed.token,
+        await provider.review(resumed.inputs),
+      );
+      const upgraded = await records.claim(request, "pacing-review-new");
+      expect(upgraded).toMatchObject({
+        status: "claimed",
+        work: "maintenance",
+      });
+      if (upgraded.status !== "claimed") {
+        throw new Error("fixture_missing_policy_claim");
+      }
+      await records.complete(
+        upgraded.token,
+        await provider.review(upgraded.inputs),
+      );
     });
 
     it("reopens the same review round after a policy upgrade without reusing the previous policy's result", async () => {

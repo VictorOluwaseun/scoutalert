@@ -1,4 +1,5 @@
 import type OpenAI from "openai";
+import { tokenBudgetMetadata } from "../../scouting/intelligence/openai-token-budget.js";
 import { z } from "zod";
 import { zodTextFormat } from "openai/helpers/zod";
 import {
@@ -31,7 +32,10 @@ export class OpenAIDiscoveryReasoningProvider extends DiscoveryReasoningProvider
   }
 
   /** Bounds input, output and timeout to the shared conservative AI reservation. */
-  async reason(input: DiscoveryReasoningInput) {
+  async reason(
+    input: DiscoveryReasoningInput,
+    scope?: import("@repo/core/scouting").ModelTokenScope,
+  ) {
     const serialized = JSON.stringify(input);
     const expert =
       input.kind === "choice" && input.expertReview === "stalled_discovery";
@@ -54,6 +58,7 @@ export class OpenAIDiscoveryReasoningProvider extends DiscoveryReasoningProvider
               ? this.expertModel
               : this.model,
         store: false,
+        metadata: tokenBudgetMetadata("discovery", scope),
         service_tier: "default",
         reasoning: { effort: expert ? "medium" : "low" },
         max_output_tokens: 2000,

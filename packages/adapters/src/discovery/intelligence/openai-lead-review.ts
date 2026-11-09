@@ -1,4 +1,5 @@
 import type OpenAI from "openai";
+import { tokenBudgetMetadata } from "../../scouting/intelligence/openai-token-budget.js";
 import { z } from "zod";
 import { zodTextFormat } from "openai/helpers/zod";
 import {
@@ -76,7 +77,11 @@ export class OpenAILeadReviewProvider extends LeadReviewProvider {
   }
 
   /** Uses strict structured output, bounded size/time and no provider retries after durable admission. */
-  async review(inputs: LeadReviewInput[]): Promise<LeadReviewResult> {
+  async review(
+    inputs: LeadReviewInput[],
+    work: import("@repo/core/scouting").ModelTokenWork = "maintenance",
+    scope?: import("@repo/core/scouting").ModelTokenScope,
+  ): Promise<LeadReviewResult> {
     const contexts = new Map(
       inputs.map((input) => [input.id, evidencePassages(input.text, "p", 3)]),
     );
@@ -106,6 +111,7 @@ export class OpenAILeadReviewProvider extends LeadReviewProvider {
       {
         model: this.model,
         store: false,
+        metadata: tokenBudgetMetadata(work, scope),
         service_tier: "default",
         max_output_tokens: 4000,
         reasoning: { effort: "low" },
