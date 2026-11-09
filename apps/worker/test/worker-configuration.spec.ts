@@ -6,6 +6,31 @@ const environment = {
 };
 
 describe("configured daily budget limits", () => {
+  it("supports production SMTP for alerts without changing discovery or token limits", () => {
+    const local = readWorkerConfiguration(environment);
+    const production = readWorkerConfiguration({
+      ...environment,
+      NODE_ENV: "production",
+      EMAIL_PROVIDER: "smtp",
+      SMTP_HOST: "smtp.provider.example",
+      SMTP_USER: "fixture-user",
+      SMTP_PASSWORD: "fixture-password",
+      EMAIL_FROM_ADDRESS: "alerts@scoutalert.dev",
+      SCOUTALERT_WEB_ORIGIN: "https://app.scoutalert.dev",
+    });
+    expect(production.email).toMatchObject({
+      provider: "smtp",
+      transport: { secure: false, requireTLS: true },
+      sender: { address: "alerts@scoutalert.dev" },
+    });
+    expect(production.SCOUT_AI_DAILY_TOKENS).toBe(local.SCOUT_AI_DAILY_TOKENS);
+    expect(production.SCOUT_AI_GPT54_DAILY_TOKENS).toBe(250_000);
+    expect(production.SCOUT_AI_GPT54_MINI_DAILY_TOKENS).toBe(2_400_000);
+    expect(() =>
+      readWorkerConfiguration({ ...environment, NODE_ENV: "production" }),
+    ).toThrow("EMAIL_PROVIDER=smtp");
+  });
+
   it("paces automatic discovery independently of token limits", () => {
     expect(
       readWorkerConfiguration(environment).SCOUT_DISCOVERY_REFRESH_MINUTES,

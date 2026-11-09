@@ -197,7 +197,9 @@ async function start(): Promise<void> {
 
     if (workers.every((worker) => worker.getState() === "RUNNING")) {
       Logger.log(
-        `Mailpit inbox: ${resources.config.MAILPIT_HTTP_URL}`,
+        resources.config.email.provider === "mailpit"
+          ? `Mailpit inbox: ${resources.config.MAILPIT_HTTP_URL}`
+          : "Production SMTP email configured; provider acceptance is recorded separately from inbox delivery.",
         "ScoutWorker",
       );
     }

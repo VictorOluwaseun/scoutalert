@@ -7,22 +7,20 @@ import {
 import {
   createSmtpClient,
   SmtpEmailProvider,
+  readEmailConfiguration,
+  type EmailConfiguration,
   type SmtpClient,
 } from '@repo/adapters/notifications';
 import { EmailProvider } from '@repo/core/notifications';
-import {
-  readMailpitConfiguration,
-  type MailpitConfiguration,
-} from '../config/mailpit.configuration.js';
 
-const mailpitConfiguration = Symbol('Mailpit configuration');
-const smtpClient = Symbol('SMTP client');
+export const EMAIL_CONFIGURATION = Symbol('Email configuration');
+export const SMTP_CLIENT = Symbol('SMTP client');
 
 /** Owns the SMTP pool lifecycle in the composition root, outside application services. */
 @Injectable()
 class EmailTransportLifecycle implements OnApplicationShutdown {
   /** Receives the singleton client constructed by this module. */
-  constructor(@Inject(smtpClient) private readonly client: SmtpClient) {}
+  constructor(@Inject(SMTP_CLIENT) private readonly client: SmtpClient) {}
 
   /** Closes pooled connections when the Nest application or command shuts down. */
   onApplicationShutdown(): void {
@@ -30,34 +28,26 @@ class EmailTransportLifecycle implements OnApplicationShutdown {
   }
 }
 
-/** Composes local Mailpit email delivery behind the framework-independent email port. */
+/** Composes local capture or production SMTP behind the same framework-independent email port. */
 @Module({
   providers: [
-    { provide: mailpitConfiguration, useFactory: readMailpitConfiguration },
+    { provide: EMAIL_CONFIGURATION, useFactory: readEmailConfiguration },
     {
-      provide: smtpClient,
-      inject: [mailpitConfiguration],
-      useFactory: (configuration: MailpitConfiguration): SmtpClient =>
-        createSmtpClient({
-          host: configuration.MAILPIT_HOST,
-          port: configuration.MAILPIT_SMTP_PORT,
-          secure: false,
-        }),
+      provide: SMTP_CLIENT,
+      inject: [EMAIL_CONFIGURATION],
+      useFactory: (configuration: EmailConfiguration): SmtpClient =>
+        createSmtpClient(configuration.transport),
     },
     {
       provide: EmailProvider,
-      inject: [smtpClient, mailpitConfiguration],
+      inject: [SMTP_CLIENT, EMAIL_CONFIGURATION],
       useFactory: (
         client: SmtpClient,
-        configuration: MailpitConfiguration,
-      ): EmailProvider =>
-        new SmtpEmailProvider(client, {
-          address: configuration.EMAIL_FROM_ADDRESS,
-          name: configuration.EMAIL_FROM_NAME,
-        }),
+        configuration: EmailConfiguration,
+      ): EmailProvider => new SmtpEmailProvider(client, configuration.sender),
     },
     EmailTransportLifecycle,
   ],
-  exports: [EmailProvider],
+  exports: [EmailProvider, SMTP_CLIENT, EMAIL_CONFIGURATION],
 })
 export class EmailModule {}

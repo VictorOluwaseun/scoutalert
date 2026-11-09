@@ -29,6 +29,7 @@ describe.skipIf(process.env.MAILPIT_INTEGRATION !== '1')(
     let app: INestApplicationContext;
 
     beforeAll(async () => {
+      vi.stubEnv('EMAIL_PROVIDER', 'mailpit');
       app = await Test.createTestingModule({
         imports: [EmailModule],
       }).compile();
@@ -37,6 +38,7 @@ describe.skipIf(process.env.MAILPIT_INTEGRATION !== '1')(
 
     afterAll(async () => {
       await app.close();
+      vi.unstubAllEnvs();
     });
 
     it('captures the configured sender, single recipient, and both text and HTML through the real SMTP adapter', async () => {

@@ -38,7 +38,7 @@ Rates match the existing reviewed standard OpenAI rates: mini $0.75 input / $0.0
 5. Restart the API and worker after the checks pass. Read `pnpm --filter worker ai:usage`: base limits must still show 2.4M/250k, while paid commitments appear separately. No account or budget history should be reset.
 6. Admit users gradually, observing 7–14 days at 50 active accounts before considering 100. Track recommendation usefulness, source freshness, planned versus actual search cadence, token/money consumption, quota deferrals and unknown outcomes.
 
-Database and transport tests use synthetic usage in disposable schemas; they do not buy model tokens. These checks establish admission and accounting behavior, not real-world recommendation quality or sustained production capacity. The worker still requires a production email provider before deployment with NODE_ENV=production.
+Database and transport tests use synthetic usage in disposable schemas; they do not buy model tokens. These checks establish admission and accounting behavior, not real-world recommendation quality or sustained production capacity. [Production SMTP support](scoutalert-production-email.md) is implemented; deployment still requires provider credentials, a verified sender domain and a real-inbox delivery check. NODE_ENV=production refuses Mailpit or incomplete SMTP settings.
 
 ## Local activation — 9 November 2026
 

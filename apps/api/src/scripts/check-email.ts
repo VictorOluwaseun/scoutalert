@@ -1,28 +1,61 @@
 import { randomUUID } from 'node:crypto';
+import { parseArgs } from 'node:util';
 import { NestFactory } from '@nestjs/core';
+import { z } from 'zod';
+import type {
+  EmailConfiguration,
+  SmtpClient,
+} from '@repo/adapters/notifications';
 import { EmailProvider } from '@repo/core/notifications';
-import { EmailModule } from '../composition/email.module.js';
+import {
+  EmailModule,
+  EMAIL_CONFIGURATION,
+  SMTP_CLIENT,
+} from '../composition/email.module.js';
 import { loadLocalEnvironment } from '../config/environment.js';
 
-/** Sends a synthetic local message using the same module binding as the API, then closes its SMTP pool. */
+/** Verifies connectivity without sending; an explicit --to address authorizes one diagnostic email through the API binding. */
 async function checkEmail(): Promise<void> {
   loadLocalEnvironment();
+  const { values } = parseArgs({ options: { to: { type: 'string' } } });
+  if (values.to !== undefined && !z.email().safeParse(values.to).success) {
+    throw new Error('Provide one valid recipient with --to.');
+  }
   const app = await NestFactory.createApplicationContext(EmailModule, {
-    logger: ['error', 'warn'],
+    logger: false,
+    abortOnError: false,
   });
 
   try {
+    const configuration = app.get<EmailConfiguration>(EMAIL_CONFIGURATION);
+    await app.get<SmtpClient>(SMTP_CLIENT).verify();
+    console.log(
+      `${configuration.provider === 'smtp' ? 'Authenticated TLS SMTP' : 'Mailpit'} connection verified.`,
+    );
+    if (!values.to) {
+      console.log(
+        'No message sent. Use --to=your-address to test sender acceptance and inbox arrival.',
+      );
+      return;
+    }
     const result = await app.get(EmailProvider).send({
       id: randomUUID(),
-      recipient: 'email-check@scoutalert.test',
-      subject: 'ScoutAlert local email connection check',
-      text: 'ScoutAlert is connected to Mailpit. This is a local transport check, not an account verification or opportunity alert.',
-      html: '<p>ScoutAlert is connected to Mailpit.</p><p>This is a local transport check, not an account verification or opportunity alert.</p>',
+      recipient: values.to,
+      subject: 'ScoutAlert email connection check',
+      text: 'ScoutAlert email delivery is connected. This diagnostic message is not a sign-in code or an opportunity alert.',
+      html: '<p>ScoutAlert email delivery is connected.</p><p>This diagnostic message is not a sign-in code or an opportunity alert.</p>',
     });
-    console.log(`Mailpit accepted the test email: ${result.providerMessageId}`);
+    console.log(
+      `SMTP accepted the test email: ${result.providerMessageId}. Check the recipient inbox; acceptance does not prove delivery.`,
+    );
   } finally {
     await app.close();
   }
 }
 
-await checkEmail();
+await checkEmail().catch(() => {
+  console.error(
+    'Email check failed. Check email settings, recipient syntax, provider access and verified sender status. Provider errors and credentials are not printed.',
+  );
+  process.exitCode = 1;
+});

@@ -1,4 +1,5 @@
 import { readBetaConfiguration } from "@repo/adapters/onboarding";
+import { readEmailConfiguration } from "@repo/adapters/notifications";
 import { z } from "zod";
 
 /** Daily request counters are persisted as PostgreSQL integers. */
@@ -7,14 +8,9 @@ const maximumDailyRequests = 2_147_483_647;
 /** Dollar ceilings become integer microdollars at composition, before PostgreSQL bigint admission. */
 const maximumDailyUsd = Math.floor(Number.MAX_SAFE_INTEGER / 1_000_000);
 
-/** Validates execution settings before constructing clients; this host currently supports local Mailpit only. */
+/** Validates execution and shared email settings before constructing clients. */
 export function readWorkerConfiguration(environment = process.env) {
-  if (environment.NODE_ENV === "production") {
-    throw new Error(
-      "Configure a production email provider before deploying this worker.",
-    );
-  }
-
+  const email = readEmailConfiguration(environment);
   const result = z
     .object({
       SCOUT_X_ENABLED: z.enum(["true", "false"]).default("false"),
@@ -208,7 +204,6 @@ export function readWorkerConfiguration(environment = process.env) {
       DATABASE_URL: z.url().refine((value) => /^postgres(?:ql)?:/.test(value)),
       TEMPORAL_ADDRESS: z.string().default("127.0.0.1:7233"),
       TEMPORAL_NAMESPACE: z.string().default("default"),
-      MAILPIT_HOST: z.string().default("127.0.0.1"),
       MAILPIT_HTTP_URL: z
         .url()
         .refine((value) => {
@@ -222,14 +217,6 @@ export function readWorkerConfiguration(environment = process.env) {
           );
         })
         .default("http://localhost:8025"),
-      MAILPIT_SMTP_PORT: z.coerce
-        .number()
-        .int()
-        .min(1)
-        .max(65535)
-        .default(1025),
-      EMAIL_FROM_ADDRESS: z.email().default("no-reply@scoutalert.test"),
-      EMAIL_FROM_NAME: z.string().default("ScoutAlert"),
     })
     .safeParse(environment);
 
@@ -310,6 +297,7 @@ export function readWorkerConfiguration(environment = process.env) {
     );
   }
   return {
+    email,
     beta: readBetaConfiguration(environment),
     ...result.data,
     SCOUT_AI_DAILY_TOKENS:

@@ -109,11 +109,7 @@ export const WORKER_RESOURCES = Symbol("WORKER_RESOURCES");
           connection,
           namespace: config.TEMPORAL_NAMESPACE,
         });
-        const smtp = createSmtpClient({
-          host: config.MAILPIT_HOST,
-          port: config.MAILPIT_SMTP_PORT,
-          secure: false,
-        });
+        const smtp = createSmtpClient(config.email.transport);
         const records = new PostgresScoutingRepository(
           db,
           config.beta.enabled
@@ -245,10 +241,7 @@ export const WORKER_RESOURCES = Symbol("WORKER_RESOURCES");
         );
         const delivery = new DeliverOpportunityDigests(
           new PostgresOpportunityDeliveryRepository(db),
-          new SmtpEmailProvider(smtp, {
-            address: config.EMAIL_FROM_ADDRESS,
-            name: config.EMAIL_FROM_NAME,
-          }),
+          new SmtpEmailProvider(smtp, config.email.sender),
         );
 
         return {

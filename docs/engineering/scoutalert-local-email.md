@@ -1,6 +1,6 @@
 # Local email with Mailpit
 
-Mailpit is the local email capture destination for ScoutAlert. Identity and opportunity notifications use the SMTP adapter boundary; Mailpit remains a development dependency. A production provider is still a separate adoption decision. Broader discovery will reuse these notification contracts and the durable recipient/item ledger; see the [discovery acceptance gates](scoutalert-discovery-acceptance.md).
+Mailpit is the local email capture destination for ScoutAlert. Identity and opportunity notifications use the SMTP adapter boundary; Mailpit remains a development dependency. [Production email](scoutalert-production-email.md) uses the same port with authenticated TLS SMTP and explicit provider settings. Broader discovery reuses these notification contracts and the durable recipient/item ledger; see the [discovery acceptance gates](scoutalert-discovery-acceptance.md).
 
 ## Current local instance
 
@@ -19,6 +19,7 @@ Once all worker queues are running, the worker logs `Mailpit inbox: http://local
 The API loads `apps/api/.env`. Its committed `.env.example` contains these settings:
 
 ```dotenv
+EMAIL_PROVIDER=mailpit
 MAILPIT_HOST=127.0.0.1
 MAILPIT_SMTP_PORT=1025
 EMAIL_FROM_ADDRESS=no-reply@scoutalert.test
@@ -27,7 +28,7 @@ EMAIL_FROM_NAME=ScoutAlert
 
 Mailpit's default listener uses neither authentication nor TLS. The API currently runs on the host and uses the published port. If the API later runs in Docker, configure `MAILPIT_HOST` to a reachable container/service name on a shared network; container loopback points back to the API container. [Mailpit SMTP documentation](https://mailpit.axllent.org/docs/configuration/smtp/).
 
-Configuration is validated before client construction. Mailpit composition is refused under `NODE_ENV=production`; a real provider must be composed deliberately for deployment.
+Configuration is validated before client construction. Mailpit composition is refused under `NODE_ENV=production`; set `EMAIL_PROVIDER=smtp` with the settings in the production guide for deployment.
 
 ## Verify local delivery
 
@@ -37,7 +38,13 @@ From the repository root:
 pnpm --filter api email:check
 ```
 
-The command builds the relevant packages, uses the API's NestJS email composition, submits a synthetic text/HTML message to `email-check@scoutalert.test`, prints its MIME message ID, and closes the connection pool. Find the message with subject **ScoutAlert local email connection check** in Mailpit.
+The command builds the relevant packages, uses the API's NestJS email composition, verifies SMTP connectivity without sending a message, and closes the connection pool. To submit one explicit local test message after building:
+
+```sh
+node apps/api/dist/scripts/check-email.js --to=email-check@scoutalert.test
+```
+
+Find the message with subject **ScoutAlert email connection check** in Mailpit. Use the local address above only with `EMAIL_PROVIDER=mailpit`; production test sends require your real inbox address.
 
 For a real SMTP and inbox integration test:
 
@@ -53,7 +60,7 @@ The optional integration test reads only its own synthetic message by Message-ID
 
 - `@repo/core/notifications` owns the `EmailProvider` contract and provider-independent submission outcomes.
 - `@repo/adapters/notifications` implements that contract using Nodemailer SMTP.
-- The API's `composition/email.module.ts` validates configuration, constructs one shared pool, binds the port through NestJS DI, and closes it on shutdown.
+- The shared adapter configuration validates email settings for both hosts. The API's `composition/email.module.ts` constructs one pool, binds the port through NestJS DI, and closes it on shutdown.
 - Identity use cases own challenges, expiry, attempts, browser binding and session creation. Notification use cases own eligibility, durable dispatch and delivery outcome/reconciliation policy; activation records separate opportunity-alert consent. The worker composes opportunity delivery independently of the API's identity transport.
 
 The pool has bounded connection/greeting/socket waits, two connections by default, and automatic requeue disabled. Message IDs support tracing; they do not deduplicate SMTP deliveries. An accepted SMTP submission does not establish recipient delivery, and an uncertain failure must not be blindly retried. [Nodemailer pooled transport documentation](https://nodemailer.com/smtp/pooled).

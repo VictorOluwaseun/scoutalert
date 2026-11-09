@@ -10,15 +10,42 @@ const message = {
 };
 
 describe('SMTP email submission outcomes', () => {
-  it('keeps an incomplete acknowledgement uncertain rather than declaring rejection', async () => {
+  it('uses the verified sender, reply address and stable identity without adding credentials to messages', async () => {
     const client = {
       sendMail: vi
         .fn()
         .mockResolvedValue({
-          accepted: [],
+          accepted: [message.recipient],
           rejected: [],
-          messageId: '<submission-123@scoutalert.test>',
+          messageId: '<submission-123@scoutalert.dev>',
         }),
+    };
+    const provider = new SmtpEmailProvider(client, {
+      address: 'alerts@scoutalert.dev',
+      name: 'ScoutAlert',
+      replyTo: 'support@scoutalert.dev',
+    });
+    await expect(provider.send(message)).resolves.toEqual({
+      status: 'accepted',
+      providerMessageId: '<submission-123@scoutalert.dev>',
+    });
+    expect(client.sendMail).toHaveBeenCalledWith(
+      expect.objectContaining({
+        from: { address: 'alerts@scoutalert.dev', name: 'ScoutAlert' },
+        replyTo: 'support@scoutalert.dev',
+        envelope: { from: 'alerts@scoutalert.dev', to: [message.recipient] },
+        messageId: '<submission-123@scoutalert.dev>',
+      }),
+    );
+  });
+
+  it('keeps an incomplete acknowledgement uncertain rather than declaring rejection', async () => {
+    const client = {
+      sendMail: vi.fn().mockResolvedValue({
+        accepted: [],
+        rejected: [],
+        messageId: '<submission-123@scoutalert.test>',
+      }),
     };
     const provider = new SmtpEmailProvider(client, sender);
 

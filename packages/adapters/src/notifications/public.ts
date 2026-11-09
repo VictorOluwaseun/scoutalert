@@ -8,3 +8,7 @@ export {
 } from "./delivery/smtp-email-provider.js";
 
 export { PostgresOpportunityDeliveryRepository } from "./persistence/postgres-opportunity-delivery.js";
+export {
+  readEmailConfiguration,
+  type EmailConfiguration,
+} from "./email-configuration.js";

@@ -10,6 +10,7 @@ import type { SmtpClient } from "../../clients/email/smtp-client.js";
 export interface EmailSender {
   readonly address: string;
   readonly name: string;
+  readonly replyTo?: string;
 }
 
 /** Implements the core email port through SMTP; Mailpit captures this transport during local development. */
@@ -39,7 +40,8 @@ export class SmtpEmailProvider extends EmailProvider {
     const domain = this.sender.address.split("@")[1];
     const result = await this.client
       .sendMail({
-        from: this.sender,
+        from: { address: this.sender.address, name: this.sender.name },
+        ...(this.sender.replyTo ? { replyTo: this.sender.replyTo } : {}),
         to: { address: message.recipient, name: "" },
         envelope: { from: this.sender.address, to: [message.recipient] },
         messageId: `<${message.id}@${domain}>`,

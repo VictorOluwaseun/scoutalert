@@ -102,8 +102,10 @@ describe.skipIf(!enabled)(
   'identity and scout activation with PostgreSQL, Redis and Mailpit',
   () => {
     let app: INestApplication<App>;
+    let admin: ReturnType<typeof createPostgresClient>;
     let db: ReturnType<typeof createPostgresClient>;
     let network: string;
+    const schema = `identity_activation_${randomUUID().replaceAll('-', '')}`;
 
     /** Generates a distinct opaque browser and trusted host context for each synthetic flow. */
     function headers(
@@ -150,11 +152,18 @@ describe.skipIf(!enabled)(
 
     beforeAll(async () => {
       loadEnvFile(new URL('../.env', import.meta.url));
+      // This lifecycle suite covers unrestricted multi-scout behavior; beta admission has separate tests.
+      vi.stubEnv('SCOUT_BETA_ENABLED', 'false');
+      vi.stubEnv('EMAIL_PROVIDER', 'mailpit');
+      vi.stubEnv('EMAIL_FROM_ADDRESS', 'no-reply@scoutalert.test');
       const url = new URL(process.env.DATABASE_URL!);
       url.pathname = '/scoutalert_test';
-      process.env.DATABASE_URL = url.toString();
-      db = createPostgresClient(process.env.DATABASE_URL);
-      await migrateDatabase(db);
+      admin = createPostgresClient(url.toString());
+      await admin.schema.createSchema(schema).execute();
+      url.searchParams.set('options', `-c search_path=${schema}`);
+      vi.stubEnv('DATABASE_URL', url.toString());
+      db = createPostgresClient(url.toString());
+      await migrateDatabase(db, schema);
       network = `integration-${randomUUID()}`;
       const fixture = await Test.createTestingModule({ imports: [AppModule] })
         .overrideProvider(IdentityRateLimits)
@@ -171,6 +180,9 @@ describe.skipIf(!enabled)(
     afterAll(async () => {
       await app?.close();
       await db?.destroy();
+      await admin?.schema.dropSchema(schema).ifExists().cascade().execute();
+      await admin?.destroy();
+      vi.unstubAllEnvs();
     });
 
     it('creates one recoverable session, activates one scout under concurrent retry, and enforces ownership', async () => {

@@ -2,7 +2,7 @@
 
 This NestJS host exposes product HTTP routes and composes framework-independent use cases from `@repo/core`. Database, cache and provider operations live behind inward repository or capability contracts implemented in `@repo/adapters`.
 
-Connected routes cover stateless search review, shared email-code request/verification, account context/logout, transactional scout activation and owner-scoped saved-scout reads. Identity and activation routes require the private Next.js host key; they cannot be called by an untrusted browser directly. PostgreSQL owns durable identity/scout/consent/outbox records. Redis handles expiring atomic rate limits. Mailpit captures local verification emails.
+Connected routes cover stateless search review, shared email-code request/verification, account context/logout, transactional scout activation and owner-scoped saved-scout reads. Identity and activation routes require the private Next.js host key; they cannot be called by an untrusted browser directly. PostgreSQL owns durable identity/scout/consent/outbox records. Redis handles expiring atomic rate limits. Mailpit captures local verification emails; [production email](../../docs/engineering/scoutalert-production-email.md) uses authenticated TLS SMTP shared with the worker.
 
 Configure `.env` from `.env.example`, match `WEB_API_SECRET` in the web host, then run from the repository root:
 
