@@ -29,6 +29,8 @@ Use your provider's host and credentials if you choose another service. `EMAIL_F
 
 `SCOUTALERT_WEB_ORIGIN` is also required in SMTP mode. Set it to the real public HTTPS website origin, without a path, query or credentials. It supplies the dashboard and alert-settings links in the shared HTML and plain-text templates. Local Mailpit defaults to `http://localhost:3030`. A paid mailbox's SMTP service is only appropriate if its provider permits transactional sending; use the provider's transactional SMTP credentials for automated codes and alerts.
 
+Run `pnpm email:preview` to inspect all current email designs without sending anything. Open `dist/email-previews/index.html`; it includes mobile/desktop previews and individual HTML/plain-text files. See [email templates](scoutalert-email-templates.md) for presentation boundaries and verification.
+
 `SMTP_PORT` defaults to 587. `SMTP_SECURE` defaults to true on port 465 and false otherwise; set it explicitly for nonstandard TLS ports such as 2465. False always requires a successful STARTTLS upgrade in SMTP mode. Certificates are checked and TLS 1.2 or later is required; there is no insecure production fallback. Missing credentials, local/test sender domains and conflicting 465/587 security settings fail before any connection is created. See [Nodemailer SMTP configuration](https://nodemailer.com/smtp).
 
 Local development defaults to `EMAIL_PROVIDER=mailpit`, which continues using `MAILPIT_HOST`, `MAILPIT_SMTP_PORT` and the `.test` sender. Production refuses Mailpit. A reply address is optional; omit it or leave `EMAIL_REPLY_TO` empty to omit the header.
