@@ -13,6 +13,8 @@ const statuses: Record<string, string> = {
 };
 
 const reasons: Record<string, string> = {
+  account_refresh_scheduled:
+    "Your account’s next deep search is scheduled for later. Known-source monitoring and checks against saved opportunities can continue in the meantime.",
   native_posts_checked:
     "Posts were received directly from X and saved for review. Your scout’s requirements still apply before recommendations or alerts.",
   monitored_sources_checked:
@@ -48,6 +50,10 @@ const explorationLabels: Record<string, string> = {
 
 /** Explains review progress without implying that every lead or source has been verified. */
 function reviewDescription(run: WebDiscoveryCase): string {
+  if (run.reviewReason === "ai_budget_paced") {
+    return "Reviews are spread throughout the day. Saved leads can be checked when review capacity becomes available.";
+  }
+
   if (run.reviewReason === "ai_budget_reached") {
     return "Today’s AI review allowance has been reached. Saved leads can be reviewed after the allowance resets.";
   }

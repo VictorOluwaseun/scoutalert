@@ -1,3 +1,4 @@
+import { PostgresBetaAdmissionRecords } from "./postgres-beta-admission.js";
 import type { Kysely } from "kysely";
 import type {
   ActivatedScout,
@@ -9,7 +10,11 @@ import type { ScoutAlertDatabase } from "../../database/types/database.js";
 /** Activation repositories sharing the supplied transaction and verified-owner lock. */
 export class PostgresScoutActivationTransaction implements ScoutActivationTransaction {
   /** Receives a transaction client; no method escapes to the shared pool. */
-  constructor(private readonly db: Kysely<ScoutAlertDatabase>) {}
+  constructor(private readonly db: Kysely<ScoutAlertDatabase>) {
+    this.beta = new PostgresBetaAdmissionRecords(db);
+  }
+
+  readonly beta: PostgresBetaAdmissionRecords;
 
   /** Locks the verified owner, serializing concurrent activation retries without duplicate scouts. */
   async lockOwner(ownerId: string): Promise<void> {

@@ -7,7 +7,7 @@ import {
   type ExceptionFilter,
 } from '@nestjs/common';
 import { IdentityError } from '@repo/core/identity';
-import { ActivationError } from '@repo/core/onboarding';
+import { ActivationError, BetaAccessError } from '@repo/core/onboarding';
 import type { Response } from 'express';
 
 /** Presents safe application failures and suppresses private provider/database payloads in error output. */
@@ -34,6 +34,11 @@ export class ApplicationErrorFilter implements ExceptionFilter {
         .status(status)
         .json({ code: error.code, retryAfter: error.retryAfter });
 
+      return;
+    }
+
+    if (error instanceof BetaAccessError) {
+      response.status(409).json({ code: error.code });
       return;
     }
 

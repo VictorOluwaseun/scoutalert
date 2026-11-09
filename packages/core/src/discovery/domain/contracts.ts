@@ -120,7 +120,7 @@ export interface DiscoveryPlan {
   maximumDocuments: number;
   deadlineSeconds: number;
   continuation: "explore_on_next_run";
-  blockedReason: "public_intent_required" | null;
+  blockedReason: "public_intent_required" | "account_refresh_scheduled" | null;
   /** Frozen public intent and finite exploration bounds; absent on historical fixed plans. */
   exploration?: {
     /** Frozen routing version; plans without this field retain their historical keyword shortlist. */
@@ -183,6 +183,10 @@ export type DiscoveryClaim =
 
 /** Owns all durable admission, shared reuse, fencing, provenance and owner-scoped publication. */
 export abstract class WebDiscoveryRepository {
+  /** Claims the account refresh window before model planning; retries of the admitted run reuse it. */
+  async admitSearch(_request: ScoutRunRequest): Promise<boolean> {
+    return true;
+  }
   /** Returns a current active brief only for the requested owner and revision. */
   abstract context(request: ScoutRunRequest): Promise<SearchDraft | null>;
   /** Returns the frozen plan for this owned revision, avoiding repeated planning after completion. */

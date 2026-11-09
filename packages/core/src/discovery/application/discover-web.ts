@@ -49,6 +49,19 @@ export class DiscoverWeb {
         true,
         this.limits.exploration,
       );
+    if (
+      !frozen &&
+      this.provider &&
+      !baseline.blockedReason &&
+      !(await this.records.admitSearch(request))
+    ) {
+      await this.records.open(
+        request,
+        { ...baseline, blockedReason: "account_refresh_scheduled" },
+        this.provider.capability,
+      );
+      return "done";
+    }
     const plan =
       !frozen && this.provider && this.planner
         ? await this.planner.prepare(request, baseline)

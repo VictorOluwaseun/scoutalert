@@ -1,8 +1,6 @@
+import { configuredTokenPolicies } from "../apps/worker/dist/composition/token-budget-policy.js";
 import { createPostgresClient } from "../packages/adapters/dist/database/public.js";
-import {
-  PostgresModelTokenBudgetRepository,
-  modelTokenBudgetPolicies,
-} from "../packages/adapters/dist/scouting/public.js";
+import { PostgresModelTokenBudgetRepository } from "../packages/adapters/dist/scouting/public.js";
 import { readWorkerConfiguration } from "../apps/worker/dist/config.js";
 
 // Read-only composition: no provider calls, migrations, resets or prompt/credential output.
@@ -12,11 +10,7 @@ try {
   const repository = new PostgresModelTokenBudgetRepository(
     db,
     config.SCOUT_AI_DAILY_TOKENS,
-    modelTokenBudgetPolicies(
-      config.SCOUT_AI_GPT54_DAILY_TOKENS,
-      config.SCOUT_AI_GPT54_MINI_DAILY_TOKENS,
-      config.SCOUT_AI_AUDIT_DAILY_TOKENS,
-    ),
+    configuredTokenPolicies(config),
   );
   console.log(
     JSON.stringify(
@@ -30,7 +24,7 @@ try {
         fitModel: config.SCOUT_AI_FIT_MODEL,
         resetTimezone: "UTC",
         scope:
-          "This deployment's guarded worker and shared-budget evaluation calls; counting begins when the guard is activated.",
+          "Base token totals exclude paid calls, which appear under each model's paid section. Worker and shared-budget evaluations use the same ledger.",
       },
       null,
       2,
@@ -38,7 +32,7 @@ try {
   );
 } catch {
   console.error(
-    "Unable to read token usage. Check database access, rebuild the worker/adapters, and apply migrations through 20261029-selective-model-review.",
+    "Unable to read token usage. Check database access, rebuild the worker/adapters, and apply migrations through 20261109-beta-budget.",
   );
   process.exitCode = 1;
 } finally {

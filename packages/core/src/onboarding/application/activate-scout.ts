@@ -1,3 +1,7 @@
+import {
+  admitBetaScout,
+  type BetaAccessPolicy,
+} from "../domain/beta-access.js";
 import { validateScoutAlerts } from "../domain/validate-scout-alerts.js";
 import { ReviewSearchDraft } from "./review-search-draft.js";
 import {
@@ -18,6 +22,7 @@ export class ActivateScout {
     private readonly transactions: ScoutActivationUnitOfWork,
     private readonly identity: ScoutActivationIdentity,
     private readonly now: () => Date,
+    private readonly betaPolicy?: BetaAccessPolicy,
   ) {}
 
   /** Retries return the original receipt; changed inputs under the same key are rejected. */
@@ -48,6 +53,10 @@ export class ActivateScout {
 
       if (existing) {
         return existing.receipt;
+      }
+
+      if (this.betaPolicy) {
+        await admitBetaScout(records.beta, this.betaPolicy, ownerId);
       }
 
       const at = this.now();

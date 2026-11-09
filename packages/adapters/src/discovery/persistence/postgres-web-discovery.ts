@@ -46,8 +46,33 @@ type OperationRow = {
 /** Durable public-work coordinator uses short PostgreSQL transactions, fenced leases and non-refundable attempt reservations. */
 export class PostgresWebDiscoveryRepository extends WebDiscoveryRepository {
   /** Receives the native typed pool at composition; external calls never run inside its transactions. */
-  constructor(private readonly db: Kysely<ScoutAlertDatabase>) {
+  constructor(
+    private readonly db: Kysely<ScoutAlertDatabase>,
+    private readonly refreshMinutes?: number,
+  ) {
     super();
+  }
+
+  /** Serializes all full-search triggers by owner; editing or replacing a scout cannot mint another refresh. */
+  async admitSearch(request: ScoutRunRequest): Promise<boolean> {
+    if (this.refreshMinutes === undefined) {
+      return true;
+    }
+    return this.db.transaction().execute(async (tx) => {
+      await sql`SELECT id FROM users WHERE id=${request.ownerId}::uuid FOR UPDATE`.execute(
+        tx,
+      );
+      if (!(await this.current(tx, request))) {
+        return false;
+      }
+      const admitted =
+        await sql`INSERT INTO beta_discovery_windows(owner_id,run_id) VALUES(${request.ownerId}::uuid,${request.runId}::uuid)
+        ON CONFLICT(owner_id) DO UPDATE SET run_id=excluded.run_id,started_at=CASE WHEN beta_discovery_windows.run_id=excluded.run_id THEN beta_discovery_windows.started_at ELSE now() END
+        WHERE beta_discovery_windows.run_id=excluded.run_id OR beta_discovery_windows.started_at<=now()-make_interval(mins=>${this.refreshMinutes}) RETURNING owner_id`.execute(
+          tx,
+        );
+      return admitted.rows.length > 0;
+    });
   }
 
   /** Reads only a currently owned active revision; subsequent writes repeat the check under a lock. */
@@ -87,11 +112,17 @@ export class PostgresWebDiscoveryRepository extends WebDiscoveryRepository {
 
       const reason =
         plan.blockedReason ?? (capability ? null : "provider_not_configured");
+      const status =
+        reason === "account_refresh_scheduled"
+          ? "deferred"
+          : reason
+            ? "unavailable"
+            : "searching";
       const inserted = await sql<{
         id: string;
         epoch: number;
       }>`INSERT INTO web_discovery_cases(id,scout_id,owner_id,scout_version,plan,capability,provider,status,reason,deadline,finished_at)
-        VALUES(${request.runId}::uuid,${request.scoutId}::uuid,${request.ownerId}::uuid,${request.version},${JSON.stringify(plan)}::jsonb,${capability ? JSON.stringify(capability) : null}::jsonb,${capability?.id ?? null},${reason ? "unavailable" : "searching"},${reason},now()+make_interval(secs=>${plan.deadlineSeconds}),CASE WHEN ${reason}::text IS NULL THEN NULL ELSE now() END)
+        VALUES(${request.runId}::uuid,${request.scoutId}::uuid,${request.ownerId}::uuid,${request.version},${JSON.stringify(plan)}::jsonb,${capability ? JSON.stringify(capability) : null}::jsonb,${capability?.id ?? null},${status},${reason},now()+make_interval(secs=>${plan.deadlineSeconds}),CASE WHEN ${reason}::text IS NULL THEN NULL ELSE now() END)
         ON CONFLICT(id) DO NOTHING RETURNING id,floor(extract(epoch FROM started_at)/1800)::integer AS epoch`.execute(
         tx,
       );

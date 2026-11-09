@@ -1,3 +1,4 @@
+import { readBetaConfiguration } from "@repo/adapters/onboarding";
 import { z } from "zod";
 
 /** Daily request counters are persisted as PostgreSQL integers. */
@@ -138,12 +139,63 @@ export function readWorkerConfiguration(environment = process.env) {
         .min(0)
         .max(maximumDailyRequests)
         .default(2_400_000),
+      SCOUT_AI_MINI_PACING_WINDOW_MINUTES: z.coerce
+        .number()
+        .int()
+        .min(60)
+        .max(120)
+        .default(60),
+      SCOUT_AI_MINI_MAINTENANCE_PERCENT: z.coerce
+        .number()
+        .int()
+        .min(10)
+        .max(50)
+        .default(30),
+      SCOUT_AI_MINI_CARRYOVER_MINUTES: z.coerce
+        .number()
+        .int()
+        .min(0)
+        .max(240)
+        .default(60),
+      SCOUT_AI_GPT54_PACING_WINDOW_MINUTES: z.coerce
+        .number()
+        .int()
+        .min(60)
+        .max(120)
+        .default(60),
+      SCOUT_AI_GPT54_CARRYOVER_MINUTES: z.coerce
+        .number()
+        .int()
+        .min(0)
+        .max(240)
+        .default(120),
+      SCOUT_AI_PACING_DEMAND_MINUTES: z.coerce
+        .number()
+        .int()
+        .min(1)
+        .max(30)
+        .default(5),
       SCOUT_AI_MAX_OUTPUT_TOKENS: z.coerce
         .number()
         .int()
         .min(16)
         .max(4_000)
         .default(4_000),
+      SCOUT_AI_PAID_MONTHLY_USD: z.coerce.number().min(0).max(10000).default(0),
+      SCOUT_AI_PAID_MINI_MONTHLY_USD: z.coerce
+        .number()
+        .min(0)
+        .max(10000)
+        .default(30),
+      SCOUT_AI_PAID_GPT54_MONTHLY_USD: z.coerce
+        .number()
+        .min(0)
+        .max(10000)
+        .default(10),
+      SCOUT_AI_PAID_PERIOD_ANCHOR: z
+        .string()
+        .regex(/^\d{4}-\d{2}-\d{2}$/)
+        .optional(),
       SCOUT_AI_DAILY_USD: z.coerce
         .number()
         .min(0.075)
@@ -239,7 +291,26 @@ export function readWorkerConfiguration(environment = process.env) {
     );
   }
 
+  const paid = result.data.SCOUT_AI_PAID_MONTHLY_USD;
+  const split =
+    result.data.SCOUT_AI_PAID_MINI_MONTHLY_USD +
+    result.data.SCOUT_AI_PAID_GPT54_MONTHLY_USD;
+  const anchor = result.data.SCOUT_AI_PAID_PERIOD_ANCHOR;
+  const validAnchor =
+    anchor &&
+    Number.isFinite(Date.parse(`${anchor}T00:00:00Z`)) &&
+    new Date(`${anchor}T00:00:00Z`).toISOString().slice(0, 10) === anchor;
+  if (
+    paid > 0 &&
+    (!validAnchor ||
+      Math.round(split * 1_000_000) > Math.floor(paid * 1_000_000))
+  ) {
+    throw new Error(
+      "Configure SCOUT_AI_PAID_PERIOD_ANCHOR and model allocations within SCOUT_AI_PAID_MONTHLY_USD.",
+    );
+  }
   return {
+    beta: readBetaConfiguration(environment),
     ...result.data,
     SCOUT_AI_DAILY_TOKENS:
       result.data.SCOUT_AI_DAILY_TOKENS ?? fullTokens + miniTokens,

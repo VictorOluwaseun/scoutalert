@@ -1,3 +1,4 @@
+import type { BetaAdmissionRecords } from "../../domain/beta-access.js";
 import type {
   ActivatedScout,
   ScoutActivation,
@@ -5,6 +6,8 @@ import type {
 
 /** Scoped repositories sharing a transaction and owner lock for one activation. */
 export interface ScoutActivationTransaction {
+  /** Transaction-bound beta admission, used when cohort limits are enabled. */
+  beta: BetaAdmissionRecords;
   /** Locks a verified owner before reading idempotency state or creating an owned scout. */
   lockOwner(ownerId: string): Promise<void>;
   /** Returns only this owner's prior receipt and immutable request fingerprint. */

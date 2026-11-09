@@ -1,3 +1,4 @@
+import { readBetaConfiguration } from '@repo/adapters/onboarding';
 import { Module } from '@nestjs/common';
 import {
   PostgresActivatedScoutRepository,
@@ -50,7 +51,16 @@ import { ScoutActivationController } from './scout-activation.controller.js';
         review: ReviewSearchDraft,
         uow: ScoutActivationUnitOfWork,
         identity: ScoutActivationIdentity,
-      ) => new ActivateScout(review, uow, identity, () => new Date()),
+      ) => {
+        const beta = readBetaConfiguration();
+        return new ActivateScout(
+          review,
+          uow,
+          identity,
+          () => new Date(),
+          beta.enabled ? beta.policy : undefined,
+        );
+      },
     },
   ],
 })

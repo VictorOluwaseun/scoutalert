@@ -1,3 +1,6 @@
+import { assertBetaReady } from "@repo/core/onboarding";
+import { PostgresBetaReadinessRepository } from "@repo/adapters/onboarding";
+import { configuredTokenPolicies } from "./token-budget-policy.js";
 import { ImportPrivateMail } from "@repo/core/connections";
 import {
   createGmailClient,
@@ -53,7 +56,6 @@ import {
   createIntelligenceClient,
   PostgresIntelligenceRepository,
   PostgresModelTokenBudgetRepository,
-  modelTokenBudgetPolicies,
   OpenAIFitReviewProvider,
   PostgresSourceRepository,
   PostgresScoutingRepository,
@@ -90,6 +92,16 @@ export const WORKER_RESOURCES = Symbol("WORKER_RESOURCES");
       useFactory: async () => {
         const config = readWorkerConfiguration();
         const gmail = readGmailConfiguration(process.env);
+        const db = createPostgresClient(
+          config.DATABASE_URL,
+          "scoutalert-worker",
+        );
+        try {
+          await checkBetaReadiness(db, config);
+        } catch (error) {
+          await db.destroy();
+          throw error;
+        }
         const connection = await Connection.connect({
           address: config.TEMPORAL_ADDRESS,
         });
@@ -97,10 +109,6 @@ export const WORKER_RESOURCES = Symbol("WORKER_RESOURCES");
           connection,
           namespace: config.TEMPORAL_NAMESPACE,
         });
-        const db = createPostgresClient(
-          config.DATABASE_URL,
-          "scoutalert-worker",
-        );
         const smtp = createSmtpClient({
           host: config.MAILPIT_HOST,
           port: config.MAILPIT_SMTP_PORT,
@@ -108,7 +116,10 @@ export const WORKER_RESOURCES = Symbol("WORKER_RESOURCES");
         });
         const records = new PostgresScoutingRepository(
           db,
-          config.SCOUT_DISCOVERY_REFRESH_MINUTES,
+          config.beta.enabled
+            ? config.beta.refreshMinutes
+            : config.SCOUT_DISCOVERY_REFRESH_MINUTES,
+          config.beta.enabled ? config.beta.dispatchBatch : 500,
         );
         const intelligenceClient =
           config.SCOUT_AI_ENABLED === "true"
@@ -116,11 +127,7 @@ export const WORKER_RESOURCES = Symbol("WORKER_RESOURCES");
                 repository: new PostgresModelTokenBudgetRepository(
                   db,
                   config.SCOUT_AI_DAILY_TOKENS,
-                  modelTokenBudgetPolicies(
-                    config.SCOUT_AI_GPT54_DAILY_TOKENS,
-                    config.SCOUT_AI_GPT54_MINI_DAILY_TOKENS,
-                    config.SCOUT_AI_AUDIT_DAILY_TOKENS,
-                  ),
+                  configuredTokenPolicies(config),
                 ),
                 maximumOutputTokens: config.SCOUT_AI_MAX_OUTPUT_TOKENS,
               })
@@ -141,7 +148,10 @@ export const WORKER_RESOURCES = Symbol("WORKER_RESOURCES");
             freelancer: new FreelancerSourceConnector(),
           }),
         );
-        const webRecords = new PostgresWebDiscoveryRepository(db);
+        const webRecords = new PostgresWebDiscoveryRepository(
+          db,
+          config.beta.enabled ? config.beta.refreshMinutes : undefined,
+        );
         const redis = config.REDIS_URL
           ? createRedisClient(config.REDIS_URL)
           : null;
@@ -340,7 +350,16 @@ export const WORKER_RESOURCES = Symbol("WORKER_RESOURCES");
               )
             : null,
           relay: new DiscoveryOutboxRelay(
-            new PostgresDiscoveryIntentRepository(db),
+            new PostgresDiscoveryIntentRepository(
+              db,
+              config.beta.enabled
+                ? {
+                    refreshMinutes: config.beta.refreshMinutes,
+                    dispatchIntervalMinutes:
+                      config.beta.dispatchIntervalMinutes,
+                  }
+                : undefined,
+            ),
             temporal,
           ),
         };
@@ -361,3 +380,17 @@ export type WorkerResources = {
   relay: DiscoveryOutboxRelay;
   privateMail: ImportPrivateMail | null;
 };
+
+/** Checks existing selections before starting execution; migration and account changes remain explicit operator actions. */
+async function checkBetaReadiness(
+  db: ReturnType<typeof createPostgresClient>,
+  config: ReturnType<typeof readWorkerConfiguration>,
+): Promise<void> {
+  if (!config.beta.enabled) {
+    return;
+  }
+  assertBetaReady(
+    config.beta.policy,
+    await new PostgresBetaReadinessRepository(db).read(config.beta.policy),
+  );
+}

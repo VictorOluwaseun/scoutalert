@@ -1,3 +1,4 @@
+import { readBetaConfiguration } from '@repo/adapters/onboarding';
 import {
   PostgresScoutManagementRepository,
   PostgresOpportunityFeedbackRepository,
@@ -41,8 +42,15 @@ import { ScoutsController } from './scouts.controller.js';
     {
       provide: ManageScout,
       inject: [ScoutManagementRepository],
-      useFactory: (records: ScoutManagementRepository) =>
-        new ManageScout(records, new ReviewSearchDraft(), () => new Date()),
+      useFactory: (records: ScoutManagementRepository) => {
+        const beta = readBetaConfiguration();
+        return new ManageScout(
+          records,
+          new ReviewSearchDraft(),
+          () => new Date(),
+          beta.enabled ? beta.policy : undefined,
+        );
+      },
     },
     {
       provide: OpportunityFeedbackRepository,

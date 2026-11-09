@@ -14,6 +14,10 @@ export interface AccountContext {
   csrfToken: string;
 }
 const messages: Record<string, string> = {
+  beta_full:
+    "The beta is currently full. You can keep your draft and try again when more places open.",
+  active_scout_limit:
+    "Your account has reached its active scout limit. Pause an active scout before starting another.",
   connection_unavailable:
     "The Gmail connection is unavailable. Please try again later.",
   connection_changed:

@@ -19,3 +19,5 @@ export type {
 } from "./domain/search-draft.js";
 
 export { validateScoutAlerts } from "./domain/validate-scout-alerts.js";
+
+export * from "./domain/beta-access.js";

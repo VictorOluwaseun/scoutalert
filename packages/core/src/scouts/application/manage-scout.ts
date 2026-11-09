@@ -1,3 +1,8 @@
+import {
+  admitBetaScout,
+  type BetaAccessPolicy,
+  type BetaAdmissionRecords,
+} from "../../onboarding/domain/beta-access.js";
 import { ReviewSearchDraft } from "../../onboarding/application/review-search-draft.js";
 import { validateScoutAlerts } from "../../onboarding/domain/validate-scout-alerts.js";
 import type {
@@ -38,6 +43,8 @@ export class ScoutManagementError extends Error {
 
 /** Transaction-scoped records serialize owner effects and commit revised state with discovery intent. */
 export interface ScoutManagementRecords {
+  /** Admission shares the lifecycle transaction and owner lock. */
+  beta: BetaAdmissionRecords;
   /** Serializes lifecycle, feedback and delivery reservations for this owner. */
   lockOwner(ownerId: string): Promise<void>;
   /** Reads a prior command receipt after acquiring the owner lock. */
@@ -86,6 +93,7 @@ export class ManageScout {
     private readonly records: ScoutManagementRepository,
     private readonly review: ReviewSearchDraft,
     private readonly now: () => Date,
+    private readonly betaPolicy?: BetaAccessPolicy,
   ) {}
 
   /** Rejects stale edits and queues reassessment only for active revisions; retries return the original receipt. */
@@ -134,6 +142,10 @@ export class ManageScout {
         version: current.version + 1,
         discovery: "pending",
       };
+      if (this.betaPolicy && scout.status === "active") {
+        await admitBetaScout(records.beta, this.betaPolicy, ownerId, scoutId);
+      }
+
       const at = this.now();
       await records.save(ownerId, scout, at);
 

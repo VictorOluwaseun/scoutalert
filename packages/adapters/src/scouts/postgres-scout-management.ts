@@ -1,3 +1,4 @@
+import { PostgresBetaAdmissionRecords } from "../onboarding/persistence/postgres-beta-admission.js";
 import { createHash, randomUUID } from "node:crypto";
 import { sql, type Kysely } from "kysely";
 import {
@@ -63,7 +64,11 @@ export class PostgresScoutManagementRepository extends ScoutManagementRepository
 /** Owns query details for one lifecycle transaction with owner-before-scout lock ordering. */
 class PostgresScoutManagementRecords implements ScoutManagementRecords {
   /** Receives the native transaction client; never escapes to a shared pool. */
-  constructor(private readonly db: Kysely<ScoutAlertDatabase>) {}
+  constructor(private readonly db: Kysely<ScoutAlertDatabase>) {
+    this.beta = new PostgresBetaAdmissionRecords(db);
+  }
+
+  readonly beta: PostgresBetaAdmissionRecords;
 
   /** Serializes with alert reservation and feedback for the same recipient. */
   async lockOwner(ownerId: string): Promise<void> {

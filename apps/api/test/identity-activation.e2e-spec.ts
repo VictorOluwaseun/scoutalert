@@ -82,6 +82,7 @@ class FailingOutboxUnitOfWork extends ScoutActivationUnitOfWork {
   ): Promise<T> {
     return this.actual.run((records) =>
       operation({
+        beta: records.beta,
         lockOwner: (owner) => records.lockOwner(owner),
         findRequest: (owner, key) => records.findRequest(owner, key),
         claimDraft: (...args) => records.claimDraft(...args),
@@ -252,8 +253,14 @@ describe.skipIf(!enabled)(
       expect(web.body.account).toEqual(other.account);
       expect(web.body.leads).toEqual([]);
       expect(web.headers['cache-control']).toBe('no-store, private');
-      await request(app.getHttpServer()).get('/v1/discovery').set(signed.context).expect(401);
-      await request(app.getHttpServer()).get('/v1/discovery').set({ ...signed.authorized, 'x-scout-web-key': 'forged' }).expect(401);
+      await request(app.getHttpServer())
+        .get('/v1/discovery')
+        .set(signed.context)
+        .expect(401);
+      await request(app.getHttpServer())
+        .get('/v1/discovery')
+        .set({ ...signed.authorized, 'x-scout-web-key': 'forged' })
+        .expect(401);
       await request(app.getHttpServer())
         .get('/v1/scouts')
         .set(signed.context)

@@ -28,6 +28,12 @@ describe("configured daily budget limits", () => {
 
   it("defaults the shared token cap and permits explicitly blocking generation", () => {
     const config = readWorkerConfiguration(environment);
+    expect(config.SCOUT_AI_MINI_PACING_WINDOW_MINUTES).toBe(60);
+    expect(config.SCOUT_AI_MINI_MAINTENANCE_PERCENT).toBe(30);
+    expect(config.SCOUT_AI_MINI_CARRYOVER_MINUTES).toBe(60);
+    expect(config.SCOUT_AI_GPT54_PACING_WINDOW_MINUTES).toBe(60);
+    expect(config.SCOUT_AI_GPT54_CARRYOVER_MINUTES).toBe(120);
+    expect(config.SCOUT_AI_PACING_DEMAND_MINUTES).toBe(5);
     expect(config.SCOUT_AI_DAILY_TOKENS).toBe(2_650_000);
     expect(config.SCOUT_AI_GPT54_DAILY_TOKENS).toBe(250_000);
     expect(config.SCOUT_AI_GPT54_MINI_DAILY_TOKENS).toBe(2_400_000);
@@ -50,6 +56,16 @@ describe("configured daily budget limits", () => {
 
   it.each([
     ["SCOUT_AI_AUDIT_PERCENT", "11"],
+    ["SCOUT_AI_MINI_PACING_WINDOW_MINUTES", "59"],
+    ["SCOUT_AI_MINI_PACING_WINDOW_MINUTES", "121"],
+    ["SCOUT_AI_MINI_PACING_WINDOW_MINUTES", "60.5"],
+    ["SCOUT_AI_MINI_MAINTENANCE_PERCENT", "9"],
+    ["SCOUT_AI_MINI_MAINTENANCE_PERCENT", "51"],
+    ["SCOUT_AI_MINI_CARRYOVER_MINUTES", "-1"],
+    ["SCOUT_AI_GPT54_CARRYOVER_MINUTES", "241"],
+    ["SCOUT_AI_GPT54_PACING_WINDOW_MINUTES", "59"],
+    ["SCOUT_AI_PACING_DEMAND_MINUTES", "0"],
+    ["SCOUT_AI_PACING_DEMAND_MINUTES", "31"],
     ["SCOUT_AI_AUDIT_DAILY_TOKENS", "-1"],
     ["SCOUT_AI_GPT54_DAILY_TOKENS", "-1"],
     ["SCOUT_AI_GPT54_MINI_DAILY_TOKENS", "1.5"],
