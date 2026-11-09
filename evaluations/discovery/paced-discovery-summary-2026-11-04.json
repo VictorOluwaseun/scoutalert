@@ -1,0 +1,360 @@
+{
+  "checkedAt": "2026-11-04T21:36:07.990Z",
+  "status": "fresh_flows_completed_under_pacing",
+  "configurationChanges": {
+    "dailyCaps": "unchanged",
+    "mini": 2400000,
+    "full": 250000,
+    "auditInsideFull": 40000,
+    "combined": 2650000,
+    "evaluationCeilingPerScenario": 80000
+  },
+  "testRunnerFix": "Forward production work priority and internal attribution through diagnostic providers; apply a configurable extra token ceiling to each live scenario. Synthetic scouts still use the single shared evaluation lane.",
+  "browserRepair": {
+    "initialOptionalFailures": 4,
+    "cause": "Playwright 1.61.1 Chromium headless shell v1228 was missing from the browser cache.",
+    "action": "Installed matching headless shell and FFmpeg using the installed Playwright CLI.",
+    "retested": "All 20 deeper-discovery and PDF checks passed, including six actual Chromium checks."
+  },
+  "checks": {
+    "tokenPacingAndConfiguration": 98,
+    "sharedEvaluationLedger": 2,
+    "chromiumAndPdf": 20,
+    "qualitySummary": 3,
+    "totalAutomated": 123,
+    "builds": [
+      "core",
+      "adapters",
+      "worker"
+    ],
+    "architecture": "passed",
+    "whitespace": "passed"
+  },
+  "providerPreflight": {
+    "receipt": "paced-model-preflight-2026-11-04.json",
+    "successfulModels": 2,
+    "tokens": 28
+  },
+  "scenarios": [
+    {
+      "scenario": "projects",
+      "receipt": "paced-projects-live-2026-11-04.json",
+      "stages": {
+        "scenario": "projects",
+        "executionStatus": "measured",
+        "successfulSearches": 5,
+        "failedSearches": 0,
+        "renderingEnabled": true,
+        "durationSeconds": 103.355,
+        "uniqueLeads": 39,
+        "recordedLeads": 39,
+        "completeLeadSet": true,
+        "searchRequests": 5,
+        "documentRequests": 6,
+        "capturedDocuments": 4,
+        "completeCaptures": 4,
+        "inaccessibleDocuments": 2,
+        "repeatedDestinations": 0,
+        "sourceReviewLabels": {
+          "client_request": 2,
+          "closed": 2
+        },
+        "sourceReviewCountsAreComplete": true,
+        "promotedPostings": 2,
+        "matching": "completed",
+        "completedFitAssessments": 2,
+        "dashboardRecommendations": 2,
+        "acceptedEmails": 1,
+        "aiEstimatedUsd": 0.08365,
+        "attemptsWithoutCostEstimate": 0,
+        "searchReservedUsd": 0.05,
+        "aiReservedUsd": 1.325,
+        "estimatedAiPlusSearchReservationPerRecommendationUsd": 0.066825,
+        "independentlyUsefulResults": null,
+        "costPerIndependentlyUsefulResultUsd": null,
+        "precision": null,
+        "recall": null,
+        "limitations": "AI estimates exclude unpriced/failed attempts, infrastructure and billing adjustments. Search reservations are configured upper allowances, not invoices. Source labels and dashboard acceptance are not independent usefulness judgments. Distinct URLs may still describe the same opportunity; repeatedDestinations detects only observed redirect identity. Initial reports recorded a dashboard sample, not every source review."
+      },
+      "testTokens": 50150,
+      "invocationCeiling": 80000,
+      "models": {
+        "gpt-5.4-mini-2026-03-17": {
+          "calls": 13,
+          "tokens": 46445
+        },
+        "gpt-5.4-2026-03-05": {
+          "calls": 1,
+          "tokens": 3705
+        }
+      },
+      "sourceAccessGaps": [
+        {
+          "url": "https://www.jobleads.com/us/job/remote-freelance-react-frontend-engineer--united-states--ef388d54e20a6dc016a2ba6d221e26a37",
+          "reason": "source_access_denied"
+        },
+        {
+          "url": "https://www.indeed.com/q-junior-react-developer-remote-jobs.html",
+          "reason": "source_access_denied"
+        }
+      ],
+      "recommendations": [
+        {
+          "title": "Freelance Node.js & React.js Developer",
+          "url": "https://www.freelancer.com/projects/react-js/enhance-node-react-app",
+          "availability": {
+            "status": "available",
+            "checkedAt": "2026-11-04T21:33:01.654Z",
+            "sourceUrl": "https://www.freelancer.com/projects/react-js/enhance-node-react-app",
+            "validUntil": "2026-11-04T21:48:01.654Z",
+            "fingerprint": "37b487c1aad5423011edf847fc14a142739f1f44c1dfa8ccb4908f1c0eebfe67"
+          },
+          "uncertainties": [
+            "The posting names Bengaluru as the project location, but it also states remote/freelance and does not give an explicit applicant-location restriction. That is not enough to determine location eligibility.",
+            "No explicit work authorization or sponsorship requirement is stated for this posting, so authorization cannot be determined from the provided text.",
+            "The posting gives hourly and monthly budget figures, but the brief does not set a minimum pay floor. Without a stated minimum, this cannot be judged as a conflict or a confirmed match."
+          ]
+        },
+        {
+          "title": "FULL-STACK DEVELOPER",
+          "url": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/full-stack-developer-to-stabilise-football-web-app-react-4529669",
+          "availability": {
+            "status": "available",
+            "checkedAt": "2026-11-04T21:32:51.064Z",
+            "sourceUrl": "https://www.peopleperhour.com/freelance-jobs/technology-programming/website-development/full-stack-developer-to-stabilise-football-web-app-react-4529669",
+            "validUntil": "2026-11-04T21:47:51.064Z",
+            "fingerprint": "d4b919bd89b0431d81e0ad3853744cea5d05040cc7dca45f7d855e609aa6ef1d"
+          },
+          "uncertainties": [
+            "The listing says remote but does not state any applicant-location eligibility or contractor-location restriction. Remote alone does not confirm whether a US-based applicant is eligible.",
+            "The listing asks for an expert, experienced full-stack developer. The brief confirms five years of React/TypeScript client work, but it does not fully confirm the listing\u2019s expert full-stack level or all adjacent stack requirements.",
+            "The brief says sponsorship is not needed and US authorization is confirmed, but the listing does not state any work-authorization or jurisdiction requirement to compare against that."
+          ]
+        }
+      ],
+      "serviceOutcome": null
+    },
+    {
+      "scenario": "services",
+      "receipt": "paced-services-live-2026-11-04.json",
+      "stages": {
+        "scenario": "services",
+        "executionStatus": "measured",
+        "successfulSearches": 4,
+        "failedSearches": 0,
+        "renderingEnabled": true,
+        "durationSeconds": 113.583,
+        "uniqueLeads": 40,
+        "recordedLeads": 40,
+        "completeLeadSet": true,
+        "searchRequests": 4,
+        "documentRequests": 6,
+        "capturedDocuments": 5,
+        "completeCaptures": 5,
+        "inaccessibleDocuments": 1,
+        "repeatedDestinations": 0,
+        "sourceReviewLabels": {
+          "client_request": 2,
+          "directory": 1,
+          "closed": 2
+        },
+        "sourceReviewCountsAreComplete": true,
+        "promotedPostings": 2,
+        "matching": "completed",
+        "completedFitAssessments": 2,
+        "dashboardRecommendations": 0,
+        "acceptedEmails": 0,
+        "aiEstimatedUsd": 0.079201,
+        "attemptsWithoutCostEstimate": 2,
+        "searchReservedUsd": 0.04,
+        "aiReservedUsd": 1.325,
+        "estimatedAiPlusSearchReservationPerRecommendationUsd": null,
+        "independentlyUsefulResults": null,
+        "costPerIndependentlyUsefulResultUsd": null,
+        "precision": null,
+        "recall": null,
+        "limitations": "AI estimates exclude unpriced/failed attempts, infrastructure and billing adjustments. Search reservations are configured upper allowances, not invoices. Source labels and dashboard acceptance are not independent usefulness judgments. Distinct URLs may still describe the same opportunity; repeatedDestinations detects only observed redirect identity. Initial reports recorded a dashboard sample, not every source review."
+      },
+      "testTokens": 61848,
+      "invocationCeiling": 80000,
+      "models": {
+        "gpt-5.4-mini-2026-03-17": {
+          "calls": 13,
+          "tokens": 56895
+        },
+        "gpt-5.4-2026-03-05": {
+          "calls": 1,
+          "tokens": 4953
+        }
+      },
+      "sourceAccessGaps": [
+        {
+          "url": "https://www.upwork.com/freelance-jobs/apply/Website-Redesign-Needed_~022116276480864604463/",
+          "reason": "upwork_api_access_required"
+        }
+      ],
+      "recommendations": [],
+      "serviceOutcome": "Both buyer requests withheld because required remote work was unconfirmed; no email sent."
+    }
+  ],
+  "testTokens": 112026,
+  "unknownTestReservations": 0,
+  "finalTestLedger": {
+    "day": "2026-11-04",
+    "inputTokens": 99876,
+    "outputTokens": 12150,
+    "cachedInputTokens": 0,
+    "reservedTokens": 0,
+    "usedTokens": 112026,
+    "dailyLimit": 2650000,
+    "remainingTokens": 2537974,
+    "unknownReservations": 0,
+    "models": [
+      {
+        "day": "2026-11-04",
+        "model": "gpt-5.4",
+        "dailyLimit": 250000,
+        "inputTokens": 6591,
+        "outputTokens": 2081,
+        "cachedInputTokens": 0,
+        "usedTokens": 8672,
+        "reservedTokens": 0,
+        "remainingTokens": 241328,
+        "unknownReservations": 0,
+        "allocations": [
+          {
+            "purpose": "standard",
+            "dailyLimit": 210000,
+            "usedTokens": 8672,
+            "reservedTokens": 0,
+            "remainingTokens": 201328
+          },
+          {
+            "purpose": "audit",
+            "dailyLimit": 40000,
+            "usedTokens": 0,
+            "reservedTokens": 0,
+            "remainingTokens": 40000
+          }
+        ],
+        "pacing": {
+          "windowMinutes": 60,
+          "limit": 32000,
+          "maintenanceLimit": 10416,
+          "committedTokens": 8672,
+          "maintenanceCommittedTokens": 0,
+          "availableTokens": 24093,
+          "maintenanceAvailableTokens": 24093,
+          "maintenanceBorrowing": true,
+          "waitingScouts": 0,
+          "fairTurn": true,
+          "retryAt": "2026-11-04T21:38:12.154Z",
+          "refillTokensPerHour": 10416.666666666666,
+          "allocations": [
+            {
+              "purpose": "standard",
+              "capacity": 32000,
+              "availableTokens": 23973,
+              "refillTokensPerHour": 8750
+            },
+            {
+              "purpose": "audit",
+              "capacity": 32000,
+              "availableTokens": 24093,
+              "refillTokensPerHour": 1666.6666666666667
+            }
+          ]
+        }
+      },
+      {
+        "day": "2026-11-04",
+        "model": "gpt-5.4-mini",
+        "dailyLimit": 2400000,
+        "inputTokens": 93285,
+        "outputTokens": 10069,
+        "cachedInputTokens": 0,
+        "usedTokens": 103354,
+        "reservedTokens": 0,
+        "remainingTokens": 2296646,
+        "unknownReservations": 0,
+        "allocations": [
+          {
+            "purpose": "standard",
+            "dailyLimit": 2400000,
+            "usedTokens": 103354,
+            "reservedTokens": 0,
+            "remainingTokens": 2296646
+          },
+          {
+            "purpose": "audit",
+            "dailyLimit": 0,
+            "usedTokens": 0,
+            "reservedTokens": 0,
+            "remainingTokens": 0
+          }
+        ],
+        "pacing": {
+          "windowMinutes": 60,
+          "limit": 200000,
+          "maintenanceLimit": 30000,
+          "committedTokens": 103354,
+          "maintenanceCommittedTokens": 0,
+          "availableTokens": 105804,
+          "maintenanceAvailableTokens": 105804,
+          "maintenanceBorrowing": true,
+          "waitingScouts": 0,
+          "fairTurn": true,
+          "retryAt": "2026-11-04T21:38:12.157Z",
+          "refillTokensPerHour": 100000,
+          "allocations": [
+            {
+              "purpose": "standard",
+              "capacity": 200000,
+              "availableTokens": 105802,
+              "refillTokensPerHour": 100000
+            },
+            {
+              "purpose": "audit",
+              "capacity": 0,
+              "availableTokens": 0,
+              "refillTokensPerHour": 0
+            }
+          ]
+        }
+      }
+    ],
+    "maximumOutputTokens": 4000,
+    "planningModel": "gpt-5.4-mini-2026-03-17",
+    "expertModel": "gpt-5.4-2026-03-05",
+    "auditPercent": 5,
+    "extractionModel": "gpt-5.4-mini-2026-03-17",
+    "fitModel": "gpt-5.4-mini-2026-03-17",
+    "resetTimezone": "UTC",
+    "scope": "This deployment's guarded worker and shared-budget evaluation calls; counting begins when the guard is activated."
+  },
+  "productionObservation": "fair-token-pacing-observation-2026-11-04.json",
+  "limitations": [
+    "The service flow correctly produced zero recommendations; this run did not exercise a positive service digest. Earlier positive service delivery and controlled persistence checks remain separate evidence.",
+    "JobLeads and Indeed denied source reads. Upwork still requires approved API access. No controls were bypassed.",
+    "The browser/PDF fixture checks use authored public-source responses and real Chromium; they do not establish unrestricted access to arbitrary websites.",
+    "Independent human usefulness, precision/recall and equal waiting time are not established by these tests.",
+    "3 November has 20 unknown full-model outcomes retaining 119,615 tokens and 11 unknown mini outcomes retaining 66,048 tokens. These remain charged; their past causes were not diagnosed by this run."
+  ],
+  "worker": {
+    "pid": 5270,
+    "log": "/tmp/scoutalert-worker-verified-2026-11-04.log",
+    "runningQueues": [
+      "scout-workflows-v1",
+      "scout-sources-v1",
+      "scout-web-discovery-v1",
+      "scout-source-monitoring-v1",
+      "scout-social-discovery-v1",
+      "scout-matching-v1",
+      "scout-research-v1",
+      "scout-delivery-v1",
+      "scout-private-mail-v1"
+    ],
+    "startupErrorLines": 0,
+    "caps": "unchanged"
+  }
+}

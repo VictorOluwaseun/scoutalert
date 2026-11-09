@@ -1,0 +1,236 @@
+{
+  "checkedAt": "2026-11-02T00:53:05.211Z",
+  "migration": "20261102-mini-token-pacing",
+  "caps": {
+    "combined": 2650000,
+    "mini": 2400000,
+    "full": 250000,
+    "audit": 40000
+  },
+  "tokenCapsUnchanged": true,
+  "ledgerUnchangedByMigration": true,
+  "ledgerIdentity": {
+    "days": "bee426453fde1946a5f3486a5b6d30cc",
+    "reservations": "2c658fa39da084193252041a7371c7fc",
+    "reservation_count": 2491
+  },
+  "pacing": {
+    "windowMinutes": 60,
+    "maintenancePercent": 30
+  },
+  "beforeRestart": {
+    "day": "2026-11-02",
+    "inputTokens": 2268276,
+    "outputTokens": 311967,
+    "cachedInputTokens": 685824,
+    "reservedTokens": 24316,
+    "usedTokens": 2580243,
+    "dailyLimit": 2650000,
+    "remainingTokens": 45441,
+    "unknownReservations": 4,
+    "models": [
+      {
+        "day": "2026-11-02",
+        "model": "gpt-5.4",
+        "dailyLimit": 250000,
+        "inputTokens": 100893,
+        "outputTokens": 82040,
+        "cachedInputTokens": 0,
+        "usedTokens": 182933,
+        "reservedTokens": 24316,
+        "remainingTokens": 42751,
+        "unknownReservations": 4,
+        "allocations": [
+          {
+            "purpose": "standard",
+            "dailyLimit": 210000,
+            "usedTokens": 182933,
+            "reservedTokens": 24316,
+            "remainingTokens": 2751
+          },
+          {
+            "purpose": "audit",
+            "dailyLimit": 40000,
+            "usedTokens": 0,
+            "reservedTokens": 0,
+            "remainingTokens": 40000
+          }
+        ]
+      },
+      {
+        "day": "2026-11-02",
+        "model": "gpt-5.4-mini",
+        "dailyLimit": 2400000,
+        "inputTokens": 2167383,
+        "outputTokens": 229927,
+        "cachedInputTokens": 685824,
+        "usedTokens": 2397310,
+        "reservedTokens": 0,
+        "remainingTokens": 2690,
+        "unknownReservations": 0,
+        "allocations": [
+          {
+            "purpose": "standard",
+            "dailyLimit": 2400000,
+            "usedTokens": 2397310,
+            "reservedTokens": 0,
+            "remainingTokens": 2690
+          },
+          {
+            "purpose": "audit",
+            "dailyLimit": 0,
+            "usedTokens": 0,
+            "reservedTokens": 0,
+            "remainingTokens": 0
+          }
+        ],
+        "pacing": {
+          "windowMinutes": 60,
+          "limit": 100000,
+          "maintenanceLimit": 30000,
+          "committedTokens": 2397310,
+          "maintenanceCommittedTokens": 2397310,
+          "availableTokens": 0,
+          "maintenanceAvailableTokens": 0,
+          "retryAt": "2026-11-02T01:00:05.264Z"
+        }
+      }
+    ]
+  },
+  "verification": {
+    "unitChecks": 412,
+    "databaseChecks": 80,
+    "sharedEvaluationBudgetChecks": 2,
+    "simulatedDayHours": 24,
+    "modelCallsByTests": 0,
+    "builds": [
+      "core",
+      "adapters",
+      "worker"
+    ],
+    "webTypes": "passed",
+    "architecture": "passed",
+    "whitespace": "passed"
+  },
+  "limitations": [
+    "Rolling pacing cannot recover tokens spent by the previous worker before activation.",
+    "Tests use real PostgreSQL with authored provider responses; they do not establish new recommendation quality or measured day-long production savings.",
+    "Existing source freshness and run deadlines still apply to deferred work."
+  ],
+  "worker": {
+    "pid": 69693,
+    "log": "/tmp/scoutalert-worker-mini-pacing-2026-11-02.log",
+    "runningQueues": [
+      "scout-workflows-v1",
+      "scout-sources-v1",
+      "scout-web-discovery-v1",
+      "scout-source-monitoring-v1",
+      "scout-social-discovery-v1",
+      "scout-matching-v1",
+      "scout-research-v1",
+      "scout-delivery-v1",
+      "scout-private-mail-v1"
+    ],
+    "startupErrorLines": 0
+  },
+  "afterRestart": {
+    "day": "2026-11-02",
+    "inputTokens": 2268276,
+    "outputTokens": 311967,
+    "cachedInputTokens": 685824,
+    "reservedTokens": 24316,
+    "usedTokens": 2580243,
+    "dailyLimit": 2650000,
+    "remainingTokens": 45441,
+    "unknownReservations": 4,
+    "models": [
+      {
+        "day": "2026-11-02",
+        "model": "gpt-5.4",
+        "dailyLimit": 250000,
+        "inputTokens": 100893,
+        "outputTokens": 82040,
+        "cachedInputTokens": 0,
+        "usedTokens": 182933,
+        "reservedTokens": 24316,
+        "remainingTokens": 42751,
+        "unknownReservations": 4,
+        "allocations": [
+          {
+            "purpose": "standard",
+            "dailyLimit": 210000,
+            "usedTokens": 182933,
+            "reservedTokens": 24316,
+            "remainingTokens": 2751
+          },
+          {
+            "purpose": "audit",
+            "dailyLimit": 40000,
+            "usedTokens": 0,
+            "reservedTokens": 0,
+            "remainingTokens": 40000
+          }
+        ]
+      },
+      {
+        "day": "2026-11-02",
+        "model": "gpt-5.4-mini",
+        "dailyLimit": 2400000,
+        "inputTokens": 2167383,
+        "outputTokens": 229927,
+        "cachedInputTokens": 685824,
+        "usedTokens": 2397310,
+        "reservedTokens": 0,
+        "remainingTokens": 2690,
+        "unknownReservations": 0,
+        "allocations": [
+          {
+            "purpose": "standard",
+            "dailyLimit": 2400000,
+            "usedTokens": 2397310,
+            "reservedTokens": 0,
+            "remainingTokens": 2690
+          },
+          {
+            "purpose": "audit",
+            "dailyLimit": 0,
+            "usedTokens": 0,
+            "reservedTokens": 0,
+            "remainingTokens": 0
+          }
+        ],
+        "pacing": {
+          "windowMinutes": 60,
+          "limit": 100000,
+          "maintenanceLimit": 30000,
+          "committedTokens": 2397310,
+          "maintenanceCommittedTokens": 2397310,
+          "availableTokens": 0,
+          "maintenanceAvailableTokens": 0,
+          "retryAt": "2026-11-02T01:00:05.264Z"
+        }
+      }
+    ]
+  },
+  "liveGuard": {
+    "checkedAt": "2026-11-02T00:54:32.644Z",
+    "deferred": true,
+    "retryAt": "2026-11-03T00:00:00.000Z",
+    "networkRequests": 0,
+    "modelGenerations": 0,
+    "workerDeferredRecords": [
+      {
+        "stage": "intelligence",
+        "deferred": 27
+      },
+      {
+        "stage": "source_review",
+        "deferred": 0
+      },
+      {
+        "stage": "planning",
+        "deferred": 0
+      }
+    ]
+  }
+}

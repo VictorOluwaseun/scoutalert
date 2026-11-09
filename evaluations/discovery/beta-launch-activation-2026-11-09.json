@@ -1,0 +1,211 @@
+{
+  "verifiedAt": "2026-11-09T00:30:08.633Z",
+  "selection": {
+    "kept": "newest active scout per account",
+    "pausedScouts": 8,
+    "deletedScouts": 0
+  },
+  "beta": {
+    "enabled": true,
+    "maximumAccounts": 50,
+    "activeScoutsPerAccount": 1,
+    "accounts": 15,
+    "activeScouts": 12,
+    "accountsOverScoutLimit": 0,
+    "availableAccountSeats": 35,
+    "refreshMinutes": 1440,
+    "dispatchIntervalMinutes": 25,
+    "miniAccountDailyCeiling": 80000,
+    "fullAccountDailyCeiling": 20000
+  },
+  "extraPaidBudget": {
+    "enabled": true,
+    "totalUsd": 40,
+    "miniUsd": 30,
+    "fullUsd": 10,
+    "periodDays": 30,
+    "anchor": "2026-11-09"
+  },
+  "runtime": {
+    "apiHttpStatus": 200,
+    "workerQueuesRunning": 9,
+    "processes": [
+      {
+        "name": "api",
+        "pid": 22656,
+        "log": "/private/tmp/scoutalert-api-beta-2026-11-09.log"
+      },
+      {
+        "name": "worker",
+        "pid": 22657,
+        "log": "/private/tmp/scoutalert-worker-beta-2026-11-09.log"
+      }
+    ],
+    "startupMonitorRetry": {
+      "reason": "database lock timeout",
+      "outcome": "workflow completed",
+      "closedAt": "2026-11-09T00:28:51.126Z"
+    }
+  },
+  "budgetAtVerification": {
+    "day": "2026-11-09",
+    "inputTokens": 80453,
+    "outputTokens": 16835,
+    "cachedInputTokens": 20992,
+    "reservedTokens": 0,
+    "usedTokens": 97288,
+    "dailyLimit": 2650000,
+    "remainingTokens": 2552712,
+    "unknownReservations": 0,
+    "models": [
+      {
+        "paid": {
+          "periodStart": "2026-11-09",
+          "periodEndsAt": "2026-12-09T00:00:00.000Z",
+          "periodLimitMicrousd": 10000000,
+          "periodCommittedMicrousd": 0,
+          "dailyLimitMicrousd": 333333,
+          "dailyCommittedMicrousd": 0,
+          "availableMicrousd": 100000,
+          "burstMicrousd": 100000,
+          "retryAt": "2026-11-09T00:31:08.619Z",
+          "usedTokens": 0,
+          "reservedTokens": 0,
+          "unknownReservations": 0,
+          "inputRate": 2.5,
+          "cachedRate": 0.25,
+          "outputRate": 15
+        },
+        "day": "2026-11-09",
+        "model": "gpt-5.4",
+        "dailyLimit": 250000,
+        "inputTokens": 1977,
+        "outputTokens": 1216,
+        "cachedInputTokens": 0,
+        "usedTokens": 3193,
+        "reservedTokens": 0,
+        "remainingTokens": 246807,
+        "unknownReservations": 0,
+        "allocations": [
+          {
+            "purpose": "standard",
+            "dailyLimit": 210000,
+            "usedTokens": 3193,
+            "reservedTokens": 0,
+            "remainingTokens": 206807
+          },
+          {
+            "purpose": "audit",
+            "dailyLimit": 40000,
+            "usedTokens": 0,
+            "reservedTokens": 0,
+            "remainingTokens": 40000
+          }
+        ],
+        "pacing": {
+          "windowMinutes": 60,
+          "limit": 32000,
+          "maintenanceLimit": 10416,
+          "committedTokens": 3193,
+          "maintenanceCommittedTokens": 0,
+          "availableTokens": 29044,
+          "maintenanceAvailableTokens": 29044,
+          "maintenanceBorrowing": true,
+          "waitingScouts": 0,
+          "fairTurn": true,
+          "retryAt": "2026-11-09T00:30:38.626Z",
+          "refillTokensPerHour": 10416.666666666666,
+          "allocations": [
+            {
+              "purpose": "standard",
+              "capacity": 32000,
+              "availableTokens": 29006,
+              "refillTokensPerHour": 8750
+            },
+            {
+              "purpose": "audit",
+              "capacity": 32000,
+              "availableTokens": 29044,
+              "refillTokensPerHour": 1666.6666666666667
+            }
+          ]
+        }
+      },
+      {
+        "paid": {
+          "periodStart": "2026-11-09",
+          "periodEndsAt": "2026-12-09T00:00:00.000Z",
+          "periodLimitMicrousd": 30000000,
+          "periodCommittedMicrousd": 0,
+          "dailyLimitMicrousd": 1000000,
+          "dailyCommittedMicrousd": 0,
+          "availableMicrousd": 84000,
+          "burstMicrousd": 84000,
+          "retryAt": "2026-11-09T00:31:08.626Z",
+          "usedTokens": 0,
+          "reservedTokens": 0,
+          "unknownReservations": 0,
+          "inputRate": 0.75,
+          "cachedRate": 0.075,
+          "outputRate": 4.5
+        },
+        "day": "2026-11-09",
+        "model": "gpt-5.4-mini",
+        "dailyLimit": 2400000,
+        "inputTokens": 78476,
+        "outputTokens": 15619,
+        "cachedInputTokens": 20992,
+        "usedTokens": 94095,
+        "reservedTokens": 0,
+        "remainingTokens": 2305905,
+        "unknownReservations": 0,
+        "allocations": [
+          {
+            "purpose": "standard",
+            "dailyLimit": 2400000,
+            "usedTokens": 94095,
+            "reservedTokens": 0,
+            "remainingTokens": 2305905
+          },
+          {
+            "purpose": "audit",
+            "dailyLimit": 0,
+            "usedTokens": 0,
+            "reservedTokens": 0,
+            "remainingTokens": 0
+          }
+        ],
+        "pacing": {
+          "windowMinutes": 60,
+          "limit": 200000,
+          "maintenanceLimit": 30000,
+          "committedTokens": 94095,
+          "maintenanceCommittedTokens": 6698,
+          "availableTokens": 109928,
+          "maintenanceAvailableTokens": 23302,
+          "maintenanceBorrowing": false,
+          "waitingScouts": 7,
+          "fairTurn": true,
+          "retryAt": "2026-11-09T00:30:38.629Z",
+          "refillTokensPerHour": 100000,
+          "allocations": [
+            {
+              "purpose": "standard",
+              "capacity": 200000,
+              "availableTokens": 109927,
+              "refillTokensPerHour": 100000
+            },
+            {
+              "purpose": "audit",
+              "capacity": 0,
+              "availableTokens": 0,
+              "refillTokensPerHour": 0
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "withinLimits": true,
+  "scope": "Local beta activation. Background discovery is running; this is startup and budget verification, not a new recommendation-quality evaluation."
+}

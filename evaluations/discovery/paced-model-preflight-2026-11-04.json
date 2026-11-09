@@ -1,0 +1,318 @@
+{
+  "checkedAt": "2026-11-04T21:31:34.999Z",
+  "checks": [
+    {
+      "model": "gpt-5.4-mini-2026-03-17",
+      "accessible": true,
+      "status": "completed",
+      "usage": {
+        "input_tokens": 9,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "output_tokens": 5,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 14
+      }
+    },
+    {
+      "model": "gpt-5.4-2026-03-05",
+      "accessible": true,
+      "status": "completed",
+      "usage": {
+        "input_tokens": 9,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "output_tokens": 5,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 14
+      }
+    }
+  ],
+  "sharedTokenBudget": {
+    "before": {
+      "day": "2026-11-04",
+      "inputTokens": 0,
+      "outputTokens": 0,
+      "cachedInputTokens": 0,
+      "reservedTokens": 0,
+      "usedTokens": 0,
+      "dailyLimit": 2650000,
+      "remainingTokens": 2650000,
+      "unknownReservations": 0,
+      "models": [
+        {
+          "day": "2026-11-04",
+          "model": "gpt-5.4",
+          "dailyLimit": 250000,
+          "inputTokens": 0,
+          "outputTokens": 0,
+          "cachedInputTokens": 0,
+          "usedTokens": 0,
+          "reservedTokens": 0,
+          "remainingTokens": 250000,
+          "unknownReservations": 0,
+          "allocations": [
+            {
+              "purpose": "standard",
+              "dailyLimit": 210000,
+              "usedTokens": 0,
+              "reservedTokens": 0,
+              "remainingTokens": 210000
+            },
+            {
+              "purpose": "audit",
+              "dailyLimit": 40000,
+              "usedTokens": 0,
+              "reservedTokens": 0,
+              "remainingTokens": 40000
+            }
+          ],
+          "pacing": {
+            "windowMinutes": 60,
+            "limit": 32000,
+            "maintenanceLimit": 10416,
+            "committedTokens": 0,
+            "maintenanceCommittedTokens": 0,
+            "availableTokens": 32000,
+            "maintenanceAvailableTokens": 32000,
+            "maintenanceBorrowing": true,
+            "waitingScouts": 0,
+            "fairTurn": true,
+            "retryAt": "2026-11-04T21:32:00.901Z",
+            "refillTokensPerHour": 10416.666666666666,
+            "allocations": [
+              {
+                "purpose": "standard",
+                "capacity": 32000,
+                "availableTokens": 32000,
+                "refillTokensPerHour": 8750
+              },
+              {
+                "purpose": "audit",
+                "capacity": 32000,
+                "availableTokens": 32000,
+                "refillTokensPerHour": 1666.6666666666667
+              }
+            ]
+          }
+        },
+        {
+          "day": "2026-11-04",
+          "model": "gpt-5.4-mini",
+          "dailyLimit": 2400000,
+          "inputTokens": 0,
+          "outputTokens": 0,
+          "cachedInputTokens": 0,
+          "usedTokens": 0,
+          "reservedTokens": 0,
+          "remainingTokens": 2400000,
+          "unknownReservations": 0,
+          "allocations": [
+            {
+              "purpose": "standard",
+              "dailyLimit": 2400000,
+              "usedTokens": 0,
+              "reservedTokens": 0,
+              "remainingTokens": 2400000
+            },
+            {
+              "purpose": "audit",
+              "dailyLimit": 0,
+              "usedTokens": 0,
+              "reservedTokens": 0,
+              "remainingTokens": 0
+            }
+          ],
+          "pacing": {
+            "windowMinutes": 60,
+            "limit": 200000,
+            "maintenanceLimit": 30000,
+            "committedTokens": 0,
+            "maintenanceCommittedTokens": 0,
+            "availableTokens": 200000,
+            "maintenanceAvailableTokens": 200000,
+            "maintenanceBorrowing": true,
+            "waitingScouts": 0,
+            "fairTurn": true,
+            "retryAt": "2026-11-04T21:32:00.905Z",
+            "refillTokensPerHour": 100000,
+            "allocations": [
+              {
+                "purpose": "standard",
+                "capacity": 200000,
+                "availableTokens": 200000,
+                "refillTokensPerHour": 100000
+              },
+              {
+                "purpose": "audit",
+                "capacity": 0,
+                "availableTokens": 0,
+                "refillTokensPerHour": 0
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "after": {
+      "day": "2026-11-04",
+      "inputTokens": 18,
+      "outputTokens": 10,
+      "cachedInputTokens": 0,
+      "reservedTokens": 0,
+      "usedTokens": 28,
+      "dailyLimit": 2650000,
+      "remainingTokens": 2649972,
+      "unknownReservations": 0,
+      "models": [
+        {
+          "day": "2026-11-04",
+          "model": "gpt-5.4",
+          "dailyLimit": 250000,
+          "inputTokens": 9,
+          "outputTokens": 5,
+          "cachedInputTokens": 0,
+          "usedTokens": 14,
+          "reservedTokens": 0,
+          "remainingTokens": 249986,
+          "unknownReservations": 0,
+          "allocations": [
+            {
+              "purpose": "standard",
+              "dailyLimit": 210000,
+              "usedTokens": 14,
+              "reservedTokens": 0,
+              "remainingTokens": 209986
+            },
+            {
+              "purpose": "audit",
+              "dailyLimit": 40000,
+              "usedTokens": 0,
+              "reservedTokens": 0,
+              "remainingTokens": 40000
+            }
+          ],
+          "pacing": {
+            "windowMinutes": 60,
+            "limit": 32000,
+            "maintenanceLimit": 10416,
+            "committedTokens": 14,
+            "maintenanceCommittedTokens": 0,
+            "availableTokens": 31990,
+            "maintenanceAvailableTokens": 31990,
+            "maintenanceBorrowing": true,
+            "waitingScouts": 0,
+            "fairTurn": true,
+            "retryAt": "2026-11-04T21:32:05.002Z",
+            "refillTokensPerHour": 10416.666666666666,
+            "allocations": [
+              {
+                "purpose": "standard",
+                "capacity": 32000,
+                "availableTokens": 31989,
+                "refillTokensPerHour": 8750
+              },
+              {
+                "purpose": "audit",
+                "capacity": 32000,
+                "availableTokens": 31990,
+                "refillTokensPerHour": 1666.6666666666667
+              }
+            ]
+          }
+        },
+        {
+          "day": "2026-11-04",
+          "model": "gpt-5.4-mini",
+          "dailyLimit": 2400000,
+          "inputTokens": 9,
+          "outputTokens": 5,
+          "cachedInputTokens": 0,
+          "usedTokens": 14,
+          "reservedTokens": 0,
+          "remainingTokens": 2399986,
+          "unknownReservations": 0,
+          "allocations": [
+            {
+              "purpose": "standard",
+              "dailyLimit": 2400000,
+              "usedTokens": 14,
+              "reservedTokens": 0,
+              "remainingTokens": 2399986
+            },
+            {
+              "purpose": "audit",
+              "dailyLimit": 0,
+              "usedTokens": 0,
+              "reservedTokens": 0,
+              "remainingTokens": 0
+            }
+          ],
+          "pacing": {
+            "windowMinutes": 60,
+            "limit": 200000,
+            "maintenanceLimit": 30000,
+            "committedTokens": 14,
+            "maintenanceCommittedTokens": 0,
+            "availableTokens": 200000,
+            "maintenanceAvailableTokens": 200000,
+            "maintenanceBorrowing": true,
+            "waitingScouts": 0,
+            "fairTurn": true,
+            "retryAt": "2026-11-04T21:32:05.005Z",
+            "refillTokensPerHour": 100000,
+            "allocations": [
+              {
+                "purpose": "standard",
+                "capacity": 200000,
+                "availableTokens": 200000,
+                "refillTokensPerHour": 100000
+              },
+              {
+                "purpose": "audit",
+                "capacity": 0,
+                "availableTokens": 0,
+                "refillTokensPerHour": 0
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "attempts": [
+      {
+        "model": "gpt-5.4-mini-2026-03-17",
+        "purpose": "standard",
+        "reservedTokens": 137,
+        "state": "completed",
+        "usage": {
+          "inputTokens": 9,
+          "outputTokens": 5,
+          "cachedInputTokens": 0
+        }
+      },
+      {
+        "model": "gpt-5.4-2026-03-05",
+        "purpose": "standard",
+        "reservedTokens": 137,
+        "state": "completed",
+        "usage": {
+          "inputTokens": 9,
+          "outputTokens": 5,
+          "cachedInputTokens": 0
+        }
+      }
+    ],
+    "evaluationTokenCeiling": 2000,
+    "evaluationAccountedTokens": 28,
+    "scope": "Evaluation generations share the configured worker database's daily allowance. Before/after snapshots include background worker activity; attempts contain this evaluation only. Counting failures before reservation do not appear as generation attempts."
+  }
+}

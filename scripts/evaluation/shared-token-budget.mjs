@@ -1,8 +1,6 @@
+import { configuredTokenPolicies } from "../../apps/worker/dist/composition/token-budget-policy.js";
 import { createPostgresClient } from "../../packages/adapters/dist/database/public.js";
-import {
-  PostgresModelTokenBudgetRepository,
-  modelTokenBudgetPolicies,
-} from "../../packages/adapters/dist/scouting/public.js";
+import { PostgresModelTokenBudgetRepository } from "../../packages/adapters/dist/scouting/public.js";
 import { ModelTokenBudgetRepository } from "../../packages/core/dist/scouting/public.js";
 import { readWorkerConfiguration } from "../../apps/worker/dist/config.js";
 
@@ -19,7 +17,13 @@ class EvaluationTokenBudget extends ModelTokenBudgetRepository {
   }
 
   /** Counts a test attempt only after the shared atomic reservation succeeds. */
-  async reserve(model, inputTokens, maximumOutputTokens, purpose = "standard") {
+  async reserve(
+    model,
+    inputTokens,
+    maximumOutputTokens,
+    purpose = "standard",
+    work = "maintenance",
+  ) {
     const reservedTokens = inputTokens + maximumOutputTokens;
     if (this.accountedTokens + reservedTokens > this.maximumTokens) {
       return null;
@@ -33,6 +37,7 @@ class EvaluationTokenBudget extends ModelTokenBudgetRepository {
         inputTokens,
         maximumOutputTokens,
         purpose,
+        work,
       );
     } catch (error) {
       this.accountedTokens -= reservedTokens;
@@ -64,9 +69,14 @@ class EvaluationTokenBudget extends ModelTokenBudgetRepository {
     }
   }
 
+  /** Synthetic evaluation scouts use the one shared lane; they cannot impersonate production scouts or mint fair turns. */
+  prepare(model, minimumTokens, purpose, work) {
+    return this.shared.prepare(model, minimumTokens, purpose, work);
+  }
+
   /** Returns the deployment budget, including concurrent worker activity. */
-  snapshot(model, purpose) {
-    return this.shared.snapshot(model, purpose);
+  snapshot(model, purpose, work) {
+    return this.shared.snapshot(model, purpose, work);
   }
 }
 
@@ -95,11 +105,7 @@ export function withSharedModelTokenBudget(
       new PostgresModelTokenBudgetRepository(
         db,
         config.SCOUT_AI_DAILY_TOKENS,
-        modelTokenBudgetPolicies(
-          config.SCOUT_AI_GPT54_DAILY_TOKENS,
-          config.SCOUT_AI_GPT54_MINI_DAILY_TOKENS,
-          config.SCOUT_AI_AUDIT_DAILY_TOKENS,
-        ),
+        configuredTokenPolicies(config),
       ),
       maximumTokens,
     );

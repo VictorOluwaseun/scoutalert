@@ -1,0 +1,566 @@
+{
+  "checkedAt": "2026-11-04T21:30:52.122Z",
+  "scope": "Read-only persisted runtime evidence before new live evaluations. No paid calls or ledger updates.",
+  "workerFoundRunning": false,
+  "days": [
+    {
+      "day": "2026-11-02",
+      "family": "gpt-5.4",
+      "calls": 53,
+      "first_admission": "2026-11-02T00:00:15.250Z",
+      "last_admission": "2026-11-02T00:15:50.840Z",
+      "actual_tokens": "182933",
+      "held_tokens": "24316",
+      "paced_calls": 0,
+      "attributed_scouts": 0
+    },
+    {
+      "day": "2026-11-02",
+      "family": "gpt-5.4-mini",
+      "calls": 400,
+      "first_admission": "2026-11-02T00:00:05.264Z",
+      "last_admission": "2026-11-02T01:59:02.529Z",
+      "actual_tokens": "2397874",
+      "held_tokens": "0",
+      "paced_calls": 1,
+      "attributed_scouts": 1
+    },
+    {
+      "day": "2026-11-03",
+      "family": "gpt-5.4",
+      "calls": 48,
+      "first_admission": "2026-11-03T00:13:42.778Z",
+      "last_admission": "2026-11-03T22:11:08.828Z",
+      "actual_tokens": "103884",
+      "held_tokens": "119615",
+      "paced_calls": 48,
+      "attributed_scouts": 18
+    },
+    {
+      "day": "2026-11-03",
+      "family": "gpt-5.4-mini",
+      "calls": 800,
+      "first_admission": "2026-11-03T00:12:38.427Z",
+      "last_admission": "2026-11-03T22:38:35.366Z",
+      "actual_tokens": "2330297",
+      "held_tokens": "66048",
+      "paced_calls": 800,
+      "attributed_scouts": 20
+    }
+  ],
+  "hours": [
+    {
+      "hour": "2026-11-02T01:00:00.000Z",
+      "family": "gpt-5.4-mini",
+      "work_class": "discovery",
+      "calls": 1,
+      "accounted_tokens": "564"
+    },
+    {
+      "hour": "2026-11-03T00:00:00.000Z",
+      "family": "gpt-5.4",
+      "work_class": "discovery",
+      "calls": 1,
+      "accounted_tokens": "5528"
+    },
+    {
+      "hour": "2026-11-03T00:00:00.000Z",
+      "family": "gpt-5.4-mini",
+      "work_class": "discovery",
+      "calls": 25,
+      "accounted_tokens": "73341"
+    },
+    {
+      "hour": "2026-11-03T00:00:00.000Z",
+      "family": "gpt-5.4-mini",
+      "work_class": "maintenance",
+      "calls": 2,
+      "accounted_tokens": "9613"
+    },
+    {
+      "hour": "2026-11-03T01:00:00.000Z",
+      "family": "gpt-5.4-mini",
+      "work_class": "discovery",
+      "calls": 22,
+      "accounted_tokens": "58377"
+    },
+    {
+      "hour": "2026-11-03T02:00:00.000Z",
+      "family": "gpt-5.4",
+      "work_class": "discovery",
+      "calls": 5,
+      "accounted_tokens": "25691"
+    },
+    {
+      "hour": "2026-11-03T02:00:00.000Z",
+      "family": "gpt-5.4-mini",
+      "work_class": "discovery",
+      "calls": 48,
+      "accounted_tokens": "154212"
+    },
+    {
+      "hour": "2026-11-03T02:00:00.000Z",
+      "family": "gpt-5.4-mini",
+      "work_class": "maintenance",
+      "calls": 4,
+      "accounted_tokens": "22244"
+    },
+    {
+      "hour": "2026-11-03T03:00:00.000Z",
+      "family": "gpt-5.4",
+      "work_class": "discovery",
+      "calls": 3,
+      "accounted_tokens": "16406"
+    },
+    {
+      "hour": "2026-11-03T03:00:00.000Z",
+      "family": "gpt-5.4-mini",
+      "work_class": "discovery",
+      "calls": 27,
+      "accounted_tokens": "95693"
+    },
+    {
+      "hour": "2026-11-03T03:00:00.000Z",
+      "family": "gpt-5.4-mini",
+      "work_class": "maintenance",
+      "calls": 2,
+      "accounted_tokens": "13557"
+    },
+    {
+      "hour": "2026-11-03T04:00:00.000Z",
+      "family": "gpt-5.4",
+      "work_class": "discovery",
+      "calls": 2,
+      "accounted_tokens": "12490"
+    },
+    {
+      "hour": "2026-11-03T04:00:00.000Z",
+      "family": "gpt-5.4-mini",
+      "work_class": "discovery",
+      "calls": 45,
+      "accounted_tokens": "156487"
+    },
+    {
+      "hour": "2026-11-03T04:00:00.000Z",
+      "family": "gpt-5.4-mini",
+      "work_class": "maintenance",
+      "calls": 1,
+      "accounted_tokens": "6413"
+    },
+    {
+      "hour": "2026-11-03T05:00:00.000Z",
+      "family": "gpt-5.4",
+      "work_class": "discovery",
+      "calls": 2,
+      "accounted_tokens": "9786"
+    },
+    {
+      "hour": "2026-11-03T05:00:00.000Z",
+      "family": "gpt-5.4-mini",
+      "work_class": "discovery",
+      "calls": 39,
+      "accounted_tokens": "137235"
+    },
+    {
+      "hour": "2026-11-03T06:00:00.000Z",
+      "family": "gpt-5.4-mini",
+      "work_class": "discovery",
+      "calls": 32,
+      "accounted_tokens": "86010"
+    },
+    {
+      "hour": "2026-11-03T06:00:00.000Z",
+      "family": "gpt-5.4-mini",
+      "work_class": "maintenance",
+      "calls": 2,
+      "accounted_tokens": "9780"
+    },
+    {
+      "hour": "2026-11-03T07:00:00.000Z",
+      "family": "gpt-5.4",
+      "work_class": "discovery",
+      "calls": 1,
+      "accounted_tokens": "3402"
+    },
+    {
+      "hour": "2026-11-03T07:00:00.000Z",
+      "family": "gpt-5.4-mini",
+      "work_class": "discovery",
+      "calls": 34,
+      "accounted_tokens": "91550"
+    },
+    {
+      "hour": "2026-11-03T07:00:00.000Z",
+      "family": "gpt-5.4-mini",
+      "work_class": "maintenance",
+      "calls": 2,
+      "accounted_tokens": "14505"
+    },
+    {
+      "hour": "2026-11-03T08:00:00.000Z",
+      "family": "gpt-5.4",
+      "work_class": "discovery",
+      "calls": 2,
+      "accounted_tokens": "11426"
+    },
+    {
+      "hour": "2026-11-03T08:00:00.000Z",
+      "family": "gpt-5.4-mini",
+      "work_class": "discovery",
+      "calls": 38,
+      "accounted_tokens": "96693"
+    },
+    {
+      "hour": "2026-11-03T08:00:00.000Z",
+      "family": "gpt-5.4-mini",
+      "work_class": "maintenance",
+      "calls": 1,
+      "accounted_tokens": "6204"
+    },
+    {
+      "hour": "2026-11-03T09:00:00.000Z",
+      "family": "gpt-5.4-mini",
+      "work_class": "discovery",
+      "calls": 41,
+      "accounted_tokens": "97402"
+    },
+    {
+      "hour": "2026-11-03T10:00:00.000Z",
+      "family": "gpt-5.4",
+      "work_class": "discovery",
+      "calls": 1,
+      "accounted_tokens": "3651"
+    },
+    {
+      "hour": "2026-11-03T10:00:00.000Z",
+      "family": "gpt-5.4-mini",
+      "work_class": "discovery",
+      "calls": 43,
+      "accounted_tokens": "94195"
+    },
+    {
+      "hour": "2026-11-03T10:00:00.000Z",
+      "family": "gpt-5.4-mini",
+      "work_class": "maintenance",
+      "calls": 1,
+      "accounted_tokens": "6468"
+    },
+    {
+      "hour": "2026-11-03T11:00:00.000Z",
+      "family": "gpt-5.4",
+      "work_class": "discovery",
+      "calls": 1,
+      "accounted_tokens": "6626"
+    },
+    {
+      "hour": "2026-11-03T11:00:00.000Z",
+      "family": "gpt-5.4-mini",
+      "work_class": "discovery",
+      "calls": 32,
+      "accounted_tokens": "81220"
+    },
+    {
+      "hour": "2026-11-03T11:00:00.000Z",
+      "family": "gpt-5.4-mini",
+      "work_class": "maintenance",
+      "calls": 3,
+      "accounted_tokens": "16705"
+    },
+    {
+      "hour": "2026-11-03T12:00:00.000Z",
+      "family": "gpt-5.4",
+      "work_class": "discovery",
+      "calls": 3,
+      "accounted_tokens": "14942"
+    },
+    {
+      "hour": "2026-11-03T12:00:00.000Z",
+      "family": "gpt-5.4-mini",
+      "work_class": "discovery",
+      "calls": 35,
+      "accounted_tokens": "91331"
+    },
+    {
+      "hour": "2026-11-03T12:00:00.000Z",
+      "family": "gpt-5.4-mini",
+      "work_class": "maintenance",
+      "calls": 1,
+      "accounted_tokens": "6853"
+    },
+    {
+      "hour": "2026-11-03T13:00:00.000Z",
+      "family": "gpt-5.4",
+      "work_class": "discovery",
+      "calls": 3,
+      "accounted_tokens": "14002"
+    },
+    {
+      "hour": "2026-11-03T13:00:00.000Z",
+      "family": "gpt-5.4-mini",
+      "work_class": "discovery",
+      "calls": 37,
+      "accounted_tokens": "97403"
+    },
+    {
+      "hour": "2026-11-03T13:00:00.000Z",
+      "family": "gpt-5.4-mini",
+      "work_class": "maintenance",
+      "calls": 1,
+      "accounted_tokens": "6821"
+    },
+    {
+      "hour": "2026-11-03T14:00:00.000Z",
+      "family": "gpt-5.4",
+      "work_class": "discovery",
+      "calls": 5,
+      "accounted_tokens": "22028"
+    },
+    {
+      "hour": "2026-11-03T14:00:00.000Z",
+      "family": "gpt-5.4-mini",
+      "work_class": "discovery",
+      "calls": 37,
+      "accounted_tokens": "86869"
+    },
+    {
+      "hour": "2026-11-03T14:00:00.000Z",
+      "family": "gpt-5.4-mini",
+      "work_class": "maintenance",
+      "calls": 2,
+      "accounted_tokens": "9488"
+    },
+    {
+      "hour": "2026-11-03T15:00:00.000Z",
+      "family": "gpt-5.4",
+      "work_class": "discovery",
+      "calls": 2,
+      "accounted_tokens": "10253"
+    },
+    {
+      "hour": "2026-11-03T15:00:00.000Z",
+      "family": "gpt-5.4-mini",
+      "work_class": "discovery",
+      "calls": 28,
+      "accounted_tokens": "79125"
+    },
+    {
+      "hour": "2026-11-03T15:00:00.000Z",
+      "family": "gpt-5.4-mini",
+      "work_class": "maintenance",
+      "calls": 3,
+      "accounted_tokens": "20375"
+    },
+    {
+      "hour": "2026-11-03T16:00:00.000Z",
+      "family": "gpt-5.4",
+      "work_class": "discovery",
+      "calls": 3,
+      "accounted_tokens": "12567"
+    },
+    {
+      "hour": "2026-11-03T16:00:00.000Z",
+      "family": "gpt-5.4-mini",
+      "work_class": "discovery",
+      "calls": 28,
+      "accounted_tokens": "88005"
+    },
+    {
+      "hour": "2026-11-03T16:00:00.000Z",
+      "family": "gpt-5.4-mini",
+      "work_class": "maintenance",
+      "calls": 2,
+      "accounted_tokens": "13012"
+    },
+    {
+      "hour": "2026-11-03T17:00:00.000Z",
+      "family": "gpt-5.4",
+      "work_class": "discovery",
+      "calls": 2,
+      "accounted_tokens": "6454"
+    },
+    {
+      "hour": "2026-11-03T17:00:00.000Z",
+      "family": "gpt-5.4-mini",
+      "work_class": "discovery",
+      "calls": 29,
+      "accounted_tokens": "92147"
+    },
+    {
+      "hour": "2026-11-03T17:00:00.000Z",
+      "family": "gpt-5.4-mini",
+      "work_class": "maintenance",
+      "calls": 1,
+      "accounted_tokens": "6504"
+    },
+    {
+      "hour": "2026-11-03T18:00:00.000Z",
+      "family": "gpt-5.4",
+      "work_class": "discovery",
+      "calls": 3,
+      "accounted_tokens": "10098"
+    },
+    {
+      "hour": "2026-11-03T18:00:00.000Z",
+      "family": "gpt-5.4-mini",
+      "work_class": "discovery",
+      "calls": 30,
+      "accounted_tokens": "84316"
+    },
+    {
+      "hour": "2026-11-03T18:00:00.000Z",
+      "family": "gpt-5.4-mini",
+      "work_class": "maintenance",
+      "calls": 2,
+      "accounted_tokens": "13883"
+    },
+    {
+      "hour": "2026-11-03T19:00:00.000Z",
+      "family": "gpt-5.4",
+      "work_class": "discovery",
+      "calls": 4,
+      "accounted_tokens": "14369"
+    },
+    {
+      "hour": "2026-11-03T19:00:00.000Z",
+      "family": "gpt-5.4-mini",
+      "work_class": "discovery",
+      "calls": 35,
+      "accounted_tokens": "93599"
+    },
+    {
+      "hour": "2026-11-03T19:00:00.000Z",
+      "family": "gpt-5.4-mini",
+      "work_class": "maintenance",
+      "calls": 2,
+      "accounted_tokens": "13488"
+    },
+    {
+      "hour": "2026-11-03T20:00:00.000Z",
+      "family": "gpt-5.4",
+      "work_class": "discovery",
+      "calls": 1,
+      "accounted_tokens": "6392"
+    },
+    {
+      "hour": "2026-11-03T20:00:00.000Z",
+      "family": "gpt-5.4-mini",
+      "work_class": "discovery",
+      "calls": 29,
+      "accounted_tokens": "89096"
+    },
+    {
+      "hour": "2026-11-03T20:00:00.000Z",
+      "family": "gpt-5.4-mini",
+      "work_class": "maintenance",
+      "calls": 1,
+      "accounted_tokens": "7028"
+    },
+    {
+      "hour": "2026-11-03T21:00:00.000Z",
+      "family": "gpt-5.4",
+      "work_class": "discovery",
+      "calls": 3,
+      "accounted_tokens": "12902"
+    },
+    {
+      "hour": "2026-11-03T21:00:00.000Z",
+      "family": "gpt-5.4-mini",
+      "work_class": "discovery",
+      "calls": 26,
+      "accounted_tokens": "94413"
+    },
+    {
+      "hour": "2026-11-03T21:00:00.000Z",
+      "family": "gpt-5.4-mini",
+      "work_class": "maintenance",
+      "calls": 1,
+      "accounted_tokens": "6935"
+    },
+    {
+      "hour": "2026-11-03T22:00:00.000Z",
+      "family": "gpt-5.4",
+      "work_class": "discovery",
+      "calls": 1,
+      "accounted_tokens": "4486"
+    },
+    {
+      "hour": "2026-11-03T22:00:00.000Z",
+      "family": "gpt-5.4-mini",
+      "work_class": "discovery",
+      "calls": 26,
+      "accounted_tokens": "67750"
+    }
+  ],
+  "scouts": [
+    {
+      "status": "paused",
+      "scouts": 3
+    },
+    {
+      "status": "active",
+      "scouts": 20
+    }
+  ],
+  "limitations": [
+    "Retrospective thresholds use final actual-or-held charges ordered by admission; they do not reconstruct transient in-flight balances.",
+    "Usage distribution alone does not prove fair service because scout eligibility and pending demand vary over time.",
+    "Uncertain outcomes remain charged; this audit neither assumes those calls cost zero nor releases reservations.",
+    "Services were stopped when checked on 4 November; no 4 November background activity existed before this test run."
+  ],
+  "retrospectiveMiniThresholds": [
+    {
+      "day": "2026-11-01",
+      "first_admission": "2026-11-01T00:00:04.257Z",
+      "half_cap_at": "2026-11-01T00:22:49.597Z",
+      "ninety_nine_percent_at": "2026-11-01T00:33:41.511Z",
+      "last_admission": "2026-11-01T01:26:02.965Z",
+      "accounted_tokens": "2398140"
+    },
+    {
+      "day": "2026-11-03",
+      "first_admission": "2026-11-03T00:12:38.427Z",
+      "half_cap_at": "2026-11-03T10:45:03.494Z",
+      "ninety_nine_percent_at": "2026-11-03T22:27:03.195Z",
+      "last_admission": "2026-11-03T22:38:35.366Z",
+      "accounted_tokens": "2396345"
+    }
+  ],
+  "attributedService": [
+    {
+      "family": "gpt-5.4",
+      "scouts": 18,
+      "minimum_calls": 1,
+      "maximum_calls": 7,
+      "minimum_accounted_tokens": "3031",
+      "maximum_accounted_tokens": "34903"
+    },
+    {
+      "family": "gpt-5.4-mini",
+      "scouts": 20,
+      "minimum_calls": 32,
+      "maximum_calls": 54,
+      "minimum_accounted_tokens": "114065",
+      "maximum_accounted_tokens": "122019"
+    }
+  ],
+  "uncertainOutcomes": [
+    {
+      "family": "gpt-5.4",
+      "state": "unknown",
+      "calls": 20,
+      "retained_tokens": "119615"
+    },
+    {
+      "family": "gpt-5.4-mini",
+      "state": "unknown",
+      "calls": 11,
+      "retained_tokens": "66048"
+    }
+  ],
+  "capsRespected": true,
+  "findings": [
+    "The complete 3 November UTC ledger day contains 800 paced mini calls across 20 scouts, spread from 00:12 to 22:38 UTC.",
+    "Full-model work was also spread across the day, across 18 scouts. Both family caps were respected, including retained uncertain reservations.",
+    "This supports day-long pacing and distribution of service, not a controlled reduction in total usage or proof of equal waiting time."
+  ]
+}

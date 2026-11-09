@@ -77,6 +77,16 @@ assert.ok(
   withoutAi || process.env.OPENAI_API_KEY,
   "Configure a local AI key first",
 );
+const maximumTokens = Number(
+  process.argv.find((value) => value.startsWith("--max-tokens="))?.slice(13) ??
+    80_000,
+);
+assert.ok(
+  Number.isSafeInteger(maximumTokens) &&
+    maximumTokens > 0 &&
+    maximumTokens <= 250_000,
+  "Evaluation token ceiling must be an integer from 1 to 250000",
+);
 const started = performance.now();
 const search = {
   goal: "Find remote product designer or UX designer jobs",
@@ -229,15 +239,17 @@ const runScenario = async (db, tokenBudget) => {
     {
       configuration: reviewProvider.configuration,
       /** Saves invalid synthetic source evidence for diagnosis without changing production validation or retry admission. */
-      async review(inputs) {
-        const result = await reviewProvider.review(inputs).catch((error) => {
-          reviewFailures.push({
-            urls: inputs.map((input) => input.url),
-            name: error.name,
-            message: String(error.message).slice(0, 2000),
+      async review(inputs, work, scope) {
+        const result = await reviewProvider
+          .review(inputs, work, scope)
+          .catch((error) => {
+            reviewFailures.push({
+              urls: inputs.map((input) => input.url),
+              name: error.name,
+              message: String(error.message).slice(0, 2000),
+            });
+            throw error;
           });
-          throw error;
-        });
         for (const input of inputs) {
           const output = result.reviews.find((item) => item.id === input.id);
           if (
@@ -334,13 +346,16 @@ const runScenario = async (db, tokenBudget) => {
       {
         configuration: intelligenceProvider.configuration,
         /** Uses the production extractor unchanged; diagnostic capture must not affect admission. */
-        extract: (posting) => intelligenceProvider.extract(posting),
+        extract: (posting, work, scope) =>
+          intelligenceProvider.extract(posting, work, scope),
         /** Retains rejected output only for this synthetic receipt so evidence failures can be investigated without accepting them. */
-        async assess(posting, brief, analysis) {
+        async assess(posting, brief, analysis, work, scope) {
           const result = await intelligenceProvider.assess(
             posting,
             brief,
             analysis,
+            work,
+            scope,
           );
           if (!validFit(posting, brief, result.fit, analysis)) {
             rejectedFits.push({ posting, analysis, result });
@@ -614,7 +629,7 @@ const runScenario = async (db, tokenBudget) => {
   };
 };
 const report = await withEvaluationDatabase(
-  withSharedModelTokenBudget(runScenario, !withoutAi),
+  withSharedModelTokenBudget(runScenario, !withoutAi, maximumTokens),
 );
 const stages = summarizeLiveQuality(report);
 await writeFile(output, JSON.stringify({ ...report, stages }, null, 2) + "\n", {

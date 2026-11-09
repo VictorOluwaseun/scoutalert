@@ -1,0 +1,317 @@
+{
+  "checkedAt": "2026-11-01T23:49:32.403919+00:00",
+  "timezone": "Africa/Lagos",
+  "worker": {
+    "pid": 44392,
+    "startedAt": "2026-10-31T23:57:44.831Z",
+    "running": true,
+    "latestDiscoveryCase": "2026-11-01T23:47:00.297Z",
+    "automaticRefreshMinutes": 60
+  },
+  "method": {
+    "readOnlyDatabaseTransactions": true,
+    "providerCalls": 0,
+    "configurationChanges": false,
+    "workerRestarted": false,
+    "snapshotLedgerDay": "2026-11-01",
+    "ledgerWindowLagos": "2026-11-01 01:00 to 2026-11-02 01:00",
+    "stageScope": "Production attempt telemetry; current-day mini totals reconcile exactly to the durable token ledger. Cached input is already included in input tokens."
+  },
+  "capsUnchanged": true,
+  "snapshot": {
+    "day": "2026-11-01",
+    "inputTokens": 2230311,
+    "outputTokens": 395972,
+    "cachedInputTokens": 458624,
+    "reservedTokens": 17677,
+    "usedTokens": 2626283,
+    "dailyLimit": 2650000,
+    "remainingTokens": 6040,
+    "unknownReservations": 3,
+    "models": [
+      {
+        "day": "2026-11-01",
+        "model": "gpt-5.4",
+        "dailyLimit": 250000,
+        "inputTokens": 122463,
+        "outputTokens": 105680,
+        "cachedInputTokens": 0,
+        "usedTokens": 228143,
+        "reservedTokens": 17677,
+        "remainingTokens": 4180,
+        "unknownReservations": 3,
+        "allocations": [
+          {
+            "purpose": "standard",
+            "dailyLimit": 210000,
+            "usedTokens": 202035,
+            "reservedTokens": 6484,
+            "remainingTokens": 1481
+          },
+          {
+            "purpose": "audit",
+            "dailyLimit": 40000,
+            "usedTokens": 26108,
+            "reservedTokens": 11193,
+            "remainingTokens": 2699
+          }
+        ]
+      },
+      {
+        "day": "2026-11-01",
+        "model": "gpt-5.4-mini",
+        "dailyLimit": 2400000,
+        "inputTokens": 2107848,
+        "outputTokens": 290292,
+        "cachedInputTokens": 458624,
+        "usedTokens": 2398140,
+        "reservedTokens": 0,
+        "remainingTokens": 1860,
+        "unknownReservations": 0,
+        "allocations": [
+          {
+            "purpose": "standard",
+            "dailyLimit": 2400000,
+            "usedTokens": 2398140,
+            "reservedTokens": 0,
+            "remainingTokens": 1860
+          },
+          {
+            "purpose": "audit",
+            "dailyLimit": 0,
+            "usedTokens": 0,
+            "reservedTokens": 0,
+            "remainingTokens": 0
+          }
+        ]
+      }
+    ]
+  },
+  "modelConfiguration": {
+    "refreshMinutes": 60,
+    "maximumOutputTokens": 4000,
+    "planningModel": "gpt-5.4-mini-2026-03-17",
+    "expertModel": "gpt-5.4-2026-03-05",
+    "auditPercent": 5,
+    "extractionModel": "gpt-5.4-mini-2026-03-17",
+    "fitModel": "gpt-5.4-mini-2026-03-17"
+  },
+  "sinceActivation": [
+    {
+      "model": "gpt-5.4-2026-03-05",
+      "state": "completed",
+      "calls": 64,
+      "input": "132746",
+      "output": "114543",
+      "held": null
+    },
+    {
+      "model": "gpt-5.4-2026-03-05",
+      "state": "unknown",
+      "calls": 3,
+      "input": null,
+      "output": null,
+      "held": "17677"
+    },
+    {
+      "model": "gpt-5.4-mini-2026-03-17",
+      "state": "completed",
+      "calls": 558,
+      "input": "2242710",
+      "output": "309577",
+      "held": null
+    }
+  ],
+  "currentDayMiniStages": [
+    {
+      "stage": "fit",
+      "calls": 296,
+      "inputTokens": 1336174,
+      "outputTokens": 198069,
+      "totalTokens": 1534243,
+      "sharePercent": 63.98
+    },
+    {
+      "stage": "lead_review",
+      "calls": 107,
+      "inputTokens": 389507,
+      "outputTokens": 44004,
+      "totalTokens": 433511,
+      "sharePercent": 18.08
+    },
+    {
+      "stage": "research",
+      "calls": 27,
+      "inputTokens": 159254,
+      "outputTokens": 19603,
+      "totalTokens": 178857,
+      "sharePercent": 7.46
+    },
+    {
+      "stage": "choice",
+      "calls": 33,
+      "inputTokens": 122334,
+      "outputTokens": 5603,
+      "totalTokens": 127937,
+      "sharePercent": 5.33
+    },
+    {
+      "stage": "extraction",
+      "calls": 53,
+      "inputTokens": 98887,
+      "outputTokens": 22312,
+      "totalTokens": 121199,
+      "sharePercent": 5.05
+    },
+    {
+      "stage": "strategy",
+      "calls": 5,
+      "inputTokens": 1692,
+      "outputTokens": 701,
+      "totalTokens": 2393,
+      "sharePercent": 0.1
+    }
+  ],
+  "timeToBudgetThresholds": [
+    {
+      "day": "2026-10-29",
+      "first_call": "2026-10-29T10:31:31.242Z",
+      "half_budget_at": "2026-10-29T10:40:20.646Z",
+      "ninety_percent_at": "2026-10-29T10:48:42.533Z",
+      "ninety_nine_percent_at": "2026-10-29T10:49:56.812Z",
+      "last_call": "2026-10-29T11:46:12.573Z",
+      "tokens": "2398042"
+    },
+    {
+      "day": "2026-10-30",
+      "first_call": "2026-10-30T00:00:05.808Z",
+      "half_budget_at": "2026-10-30T04:10:18.204Z",
+      "ninety_percent_at": "2026-10-30T07:36:11.749Z",
+      "ninety_nine_percent_at": "2026-10-30T08:18:16.771Z",
+      "last_call": "2026-10-30T12:02:02.281Z",
+      "tokens": "2254593"
+    },
+    {
+      "day": "2026-10-31",
+      "first_call": "2026-10-31T00:01:01.922Z",
+      "half_budget_at": "2026-10-31T23:44:36.529Z",
+      "ninety_percent_at": null,
+      "ninety_nine_percent_at": null,
+      "last_call": "2026-10-31T23:59:56.965Z",
+      "tokens": "1379868"
+    },
+    {
+      "day": "2026-11-01",
+      "first_call": "2026-11-01T00:00:04.257Z",
+      "half_budget_at": "2026-11-01T00:22:49.597Z",
+      "ninety_percent_at": "2026-11-01T00:31:54.710Z",
+      "ninety_nine_percent_at": "2026-11-01T00:33:41.511Z",
+      "last_call": "2026-11-01T01:26:02.965Z",
+      "tokens": "2398140"
+    }
+  ],
+  "fitCostComparison": {
+    "beforeWindow": {
+      "start": "2026-10-31T23:28:45.491Z",
+      "end": "2026-10-31T23:44:44.965Z"
+    },
+    "afterWindow": {
+      "start": "2026-10-31T23:57:44.831Z",
+      "end": "2026-11-01T23:47:48.964Z"
+    },
+    "beforeCalls": 55,
+    "afterCalls": 307,
+    "beforeAverageTokens": 8753.27,
+    "afterAverageTokens": 5141.64,
+    "observedAverageReductionPercent": 41.26,
+    "caveat": "Different evidence and task mix: this is an observed average change, not a controlled estimate of payload savings."
+  },
+  "discoveryCadenceComparison": {
+    "daysUtc": [
+      "2026-10-30",
+      "2026-11-01"
+    ],
+    "cutoffUtc": "23:47:00",
+    "counts": [
+      {
+        "day": "2026-10-30",
+        "origin": "native_social",
+        "cases": 6799,
+        "scouts": 18
+      },
+      {
+        "day": "2026-10-30",
+        "origin": "search",
+        "cases": 767,
+        "scouts": 20
+      },
+      {
+        "day": "2026-10-30",
+        "origin": "source_monitor",
+        "cases": 566,
+        "scouts": 20
+      },
+      {
+        "day": "2026-11-01",
+        "origin": "native_social",
+        "cases": 6761,
+        "scouts": 18
+      },
+      {
+        "day": "2026-11-01",
+        "origin": "search",
+        "cases": 267,
+        "scouts": 20
+      },
+      {
+        "day": "2026-11-01",
+        "origin": "source_monitor",
+        "cases": 955,
+        "scouts": 20
+      }
+    ],
+    "searchCaseReductionPercent": 65.19,
+    "caveat": "Equal elapsed calendar windows, not a controlled traffic comparison. Source monitoring and native-social schedules were unchanged."
+  },
+  "fitWorkload": {
+    "calls": 296,
+    "postings": 120,
+    "scouts": 20,
+    "tokens": "1534243"
+  },
+  "fitHistory": [
+    {
+      "reason": "changed_policy_and_posting_version",
+      "calls": 44,
+      "tokens": "354323"
+    },
+    {
+      "reason": "changed_policy_same_posting_version",
+      "calls": 117,
+      "tokens": "791596"
+    },
+    {
+      "reason": "no_prior_ready_fit",
+      "calls": 134,
+      "tokens": "383178"
+    },
+    {
+      "reason": "same_policy_changed_posting_version",
+      "calls": 1,
+      "tokens": "5146"
+    }
+  ],
+  "duplicateCheck": {
+    "currentDayRepeatedMeasuredCallsForSameFitTask": 0,
+    "currentDayRepeatedMeasuredCallsForSameScoutRevisionPostingPolicy": 0,
+    "readyFitRowsCreatedWithoutPaidAttempts": 0,
+    "caveat": "Cache hits against existing rows are not individually logged; zero new cache-seeded rows does not establish zero reuse. Distinct posting versions or policies require fresh assessment."
+  },
+  "conclusion": "Per-call efficiency and full-search frequency improved, but sustained daily mini spending has not fallen: 2,398,140 of 2,400,000 tokens were used and 99% was committed by 01:33:41 Lagos. Policy/version backfill confounds steady-state evaluation. The daily guard is a ceiling, not a mechanism that spreads usage through the day.",
+  "limitations": [
+    "Previous UTC day included downtime and evaluations, so its smaller raw total is not a comparable full working day.",
+    "161 fit calls (1,145,919 tokens) had prior assessments under an older policy; 44 also used an older posting version. The earlier semantic policy changes preceded the efficiency patch.",
+    "No output-quality assessment or new discovery/model calls were run for this audit.",
+    "The worker continues recording generic provider-unavailable attempts after the allowance becomes too small; these records alone do not identify a paid generation or the exact provider failure."
+  ]
+}

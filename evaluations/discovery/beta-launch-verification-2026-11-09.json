@@ -1,0 +1,61 @@
+{
+  "date": "2026-11-09",
+  "scope": "Implementation verification for the 50-account beta; no paid provider calls.",
+  "checks": {
+    "workerUnitTestsPassed": 431,
+    "apiUnitTestsPassed": 7,
+    "databaseIntegrationTestsPassed": 69,
+    "sharedEvaluationBudgetTestsPassed": 2,
+    "totalTestsPassed": 509,
+    "typeChecks": [
+      "core",
+      "adapters",
+      "worker",
+      "api",
+      "web"
+    ],
+    "architecture": "passed",
+    "diffWhitespace": "passed"
+  },
+  "migration": {
+    "name": "20261109-beta-budget",
+    "isolatedTestSchemas": "passed",
+    "localApplicationDatabase": "applied",
+    "usageReset": false,
+    "scoutsPaused": 0
+  },
+  "baseCaps": {
+    "miniDailyTokens": 2400000,
+    "fullDailyTokens": 250000,
+    "fullAuditTokensIncluded": 40000,
+    "combinedBaseTokens": 2650000
+  },
+  "proposedBeta": {
+    "accounts": 50,
+    "activeScoutsPerAccount": 1,
+    "deepSearchWindowMinutes": 1440,
+    "freshWorkflowIntervalMinutes": 25,
+    "miniAccountDailyCeiling": 80000,
+    "fullAccountDailyCeiling": 20000,
+    "paidCycleDays": 30,
+    "paidMiniUsd": 30,
+    "paidFullUsd": 10,
+    "paidTotalUsd": 40
+  },
+  "localRollout": {
+    "betaEnabled": false,
+    "paidBudgetEnabled": false,
+    "admittedLegacyAccounts": 15,
+    "activeAccounts": 12,
+    "activeScouts": 20,
+    "accountsOverScoutLimit": 4,
+    "extraActiveScouts": 8,
+    "decisionNeeded": "Choose which existing scout stays active for each of the four accounts before enabling beta execution."
+  },
+  "limitations": [
+    "Capacity and recommendation usefulness at 50 users require a staged live beta.",
+    "Pricing guards assume the configured provider honors reviewed pricing, native input counts and maximum output.",
+    "Production email-provider configuration remains required."
+  ],
+  "activationFollowup": "beta-launch-activation-2026-11-09.json"
+}

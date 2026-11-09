@@ -1,0 +1,331 @@
+{
+  "checkedAt": "2026-11-02T01:23:17.477Z",
+  "migration": "20261102-token-pacing-fairness",
+  "caps": {
+    "combined": 2650000,
+    "mini": 2400000,
+    "full": 250000,
+    "audit": 40000
+  },
+  "tokenCapsUnchanged": true,
+  "ledgerUnchangedByMigration": true,
+  "ledgerIdentity": {
+    "days": "ef7950423ab6fa9ed0561101ef4a29d9",
+    "reservations": "729f58f5cd3ed8d726e089af1c2f4f1b",
+    "reservation_count": 2491
+  },
+  "verification": {
+    "unitChecks": 424,
+    "databaseChecks": 85,
+    "sharedEvaluationBudgetChecks": 2,
+    "simulatedDayHours": 24,
+    "modelCallsByTests": 0,
+    "builds": [
+      "core",
+      "adapters",
+      "worker"
+    ],
+    "webTypes": "passed",
+    "architecture": "passed",
+    "whitespace": "passed"
+  },
+  "beforeRestart": {
+    "day": "2026-11-02",
+    "inputTokens": 2268276,
+    "outputTokens": 311967,
+    "cachedInputTokens": 685824,
+    "reservedTokens": 24316,
+    "usedTokens": 2580243,
+    "dailyLimit": 2650000,
+    "remainingTokens": 45441,
+    "unknownReservations": 4,
+    "models": [
+      {
+        "day": "2026-11-02",
+        "model": "gpt-5.4",
+        "dailyLimit": 250000,
+        "inputTokens": 100893,
+        "outputTokens": 82040,
+        "cachedInputTokens": 0,
+        "usedTokens": 182933,
+        "reservedTokens": 24316,
+        "remainingTokens": 42751,
+        "unknownReservations": 4,
+        "allocations": [
+          {
+            "purpose": "standard",
+            "dailyLimit": 210000,
+            "usedTokens": 182933,
+            "reservedTokens": 24316,
+            "remainingTokens": 2751
+          },
+          {
+            "purpose": "audit",
+            "dailyLimit": 40000,
+            "usedTokens": 0,
+            "reservedTokens": 0,
+            "remainingTokens": 40000
+          }
+        ],
+        "pacing": {
+          "windowMinutes": 60,
+          "limit": 32000,
+          "maintenanceLimit": 10416,
+          "committedTokens": 0,
+          "maintenanceCommittedTokens": 0,
+          "availableTokens": 0,
+          "maintenanceAvailableTokens": 0,
+          "maintenanceBorrowing": true,
+          "waitingScouts": 0,
+          "fairTurn": true,
+          "retryAt": "2026-11-02T01:23:47.479Z",
+          "refillTokensPerHour": 10416.666666666666,
+          "allocations": [
+            {
+              "purpose": "standard",
+              "capacity": 32000,
+              "availableTokens": 0,
+              "refillTokensPerHour": 8750
+            },
+            {
+              "purpose": "audit",
+              "capacity": 32000,
+              "availableTokens": 0,
+              "refillTokensPerHour": 1666.6666666666667
+            }
+          ]
+        }
+      },
+      {
+        "day": "2026-11-02",
+        "model": "gpt-5.4-mini",
+        "dailyLimit": 2400000,
+        "inputTokens": 2167383,
+        "outputTokens": 229927,
+        "cachedInputTokens": 685824,
+        "usedTokens": 2397310,
+        "reservedTokens": 0,
+        "remainingTokens": 2690,
+        "unknownReservations": 0,
+        "allocations": [
+          {
+            "purpose": "standard",
+            "dailyLimit": 2400000,
+            "usedTokens": 2397310,
+            "reservedTokens": 0,
+            "remainingTokens": 2690
+          },
+          {
+            "purpose": "audit",
+            "dailyLimit": 0,
+            "usedTokens": 0,
+            "reservedTokens": 0,
+            "remainingTokens": 0
+          }
+        ],
+        "pacing": {
+          "windowMinutes": 60,
+          "limit": 200000,
+          "maintenanceLimit": 30000,
+          "committedTokens": 508620,
+          "maintenanceCommittedTokens": 508620,
+          "availableTokens": 0,
+          "maintenanceAvailableTokens": 0,
+          "maintenanceBorrowing": true,
+          "waitingScouts": 0,
+          "fairTurn": true,
+          "retryAt": "2026-11-02T01:23:47.483Z",
+          "refillTokensPerHour": 100000,
+          "allocations": [
+            {
+              "purpose": "standard",
+              "capacity": 200000,
+              "availableTokens": 0,
+              "refillTokensPerHour": 100000
+            },
+            {
+              "purpose": "audit",
+              "capacity": 0,
+              "availableTokens": 0,
+              "refillTokensPerHour": 0
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "limitations": [
+    "Fairness applies to affordable currently waiting requests, not a guaranteed future per-scout quota.",
+    "Idle credit accumulates only to bounded burst capacity and never enlarges a daily allowance.",
+    "Large expert calls can wait hours for protected audit refill; oversized requests fail closed.",
+    "Today’s mini allowance was mostly spent before pacing activation; these tests do not establish a full day of production savings.",
+    "Tests use native SDK authored responses and real isolated PostgreSQL; they do not establish fresh recommendation quality."
+  ],
+  "worker": {
+    "pid": 78285,
+    "log": "/tmp/scoutalert-worker-fair-pacing-2026-11-02.log",
+    "runningQueues": [
+      "scout-workflows-v1",
+      "scout-sources-v1",
+      "scout-web-discovery-v1",
+      "scout-source-monitoring-v1",
+      "scout-social-discovery-v1",
+      "scout-matching-v1",
+      "scout-research-v1",
+      "scout-delivery-v1",
+      "scout-private-mail-v1"
+    ],
+    "startupErrorLines": 0
+  },
+  "afterRestart": {
+    "day": "2026-11-02",
+    "inputTokens": 2268276,
+    "outputTokens": 311967,
+    "cachedInputTokens": 685824,
+    "reservedTokens": 24316,
+    "usedTokens": 2580243,
+    "dailyLimit": 2650000,
+    "remainingTokens": 45441,
+    "unknownReservations": 4,
+    "models": [
+      {
+        "day": "2026-11-02",
+        "model": "gpt-5.4",
+        "dailyLimit": 250000,
+        "inputTokens": 100893,
+        "outputTokens": 82040,
+        "cachedInputTokens": 0,
+        "usedTokens": 182933,
+        "reservedTokens": 24316,
+        "remainingTokens": 42751,
+        "unknownReservations": 4,
+        "allocations": [
+          {
+            "purpose": "standard",
+            "dailyLimit": 210000,
+            "usedTokens": 182933,
+            "reservedTokens": 24316,
+            "remainingTokens": 2751
+          },
+          {
+            "purpose": "audit",
+            "dailyLimit": 40000,
+            "usedTokens": 0,
+            "reservedTokens": 0,
+            "remainingTokens": 40000
+          }
+        ],
+        "pacing": {
+          "windowMinutes": 60,
+          "limit": 32000,
+          "maintenanceLimit": 10416,
+          "committedTokens": 0,
+          "maintenanceCommittedTokens": 0,
+          "availableTokens": 0,
+          "maintenanceAvailableTokens": 0,
+          "maintenanceBorrowing": true,
+          "waitingScouts": 0,
+          "fairTurn": true,
+          "retryAt": "2026-11-02T01:25:03.623Z",
+          "refillTokensPerHour": 10416.666666666666,
+          "allocations": [
+            {
+              "purpose": "standard",
+              "capacity": 32000,
+              "availableTokens": 0,
+              "refillTokensPerHour": 8750
+            },
+            {
+              "purpose": "audit",
+              "capacity": 32000,
+              "availableTokens": 0,
+              "refillTokensPerHour": 1666.6666666666667
+            }
+          ]
+        }
+      },
+      {
+        "day": "2026-11-02",
+        "model": "gpt-5.4-mini",
+        "dailyLimit": 2400000,
+        "inputTokens": 2167383,
+        "outputTokens": 229927,
+        "cachedInputTokens": 685824,
+        "usedTokens": 2397310,
+        "reservedTokens": 0,
+        "remainingTokens": 2690,
+        "unknownReservations": 0,
+        "allocations": [
+          {
+            "purpose": "standard",
+            "dailyLimit": 2400000,
+            "usedTokens": 2397310,
+            "reservedTokens": 0,
+            "remainingTokens": 2690
+          },
+          {
+            "purpose": "audit",
+            "dailyLimit": 0,
+            "usedTokens": 0,
+            "reservedTokens": 0,
+            "remainingTokens": 0
+          }
+        ],
+        "pacing": {
+          "windowMinutes": 60,
+          "limit": 200000,
+          "maintenanceLimit": 30000,
+          "committedTokens": 377334,
+          "maintenanceCommittedTokens": 377334,
+          "availableTokens": 794,
+          "maintenanceAvailableTokens": 794,
+          "maintenanceBorrowing": true,
+          "waitingScouts": 0,
+          "fairTurn": true,
+          "retryAt": "2026-11-02T01:25:03.623Z",
+          "refillTokensPerHour": 100000,
+          "allocations": [
+            {
+              "purpose": "standard",
+              "capacity": 200000,
+              "availableTokens": 794,
+              "refillTokensPerHour": 100000
+            },
+            {
+              "purpose": "audit",
+              "capacity": 0,
+              "availableTokens": 0,
+              "refillTokensPerHour": 0
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "liveGuard": {
+    "checkedAt": "2026-11-02T01:24:33.626Z",
+    "networkRequests": 0,
+    "modelGenerations": 0,
+    "ledgerUsageUnchanged": true,
+    "results": [
+      {
+        "model": "gpt-5.4-mini",
+        "purpose": "standard",
+        "status": "deferred_before_counting",
+        "retryAt": "2026-11-03T00:00:00.000Z"
+      },
+      {
+        "model": "gpt-5.4",
+        "purpose": "standard",
+        "status": "deferred_before_counting",
+        "retryAt": "2026-11-03T00:00:00.000Z"
+      },
+      {
+        "model": "gpt-5.4",
+        "purpose": "audit",
+        "status": "deferred_before_counting",
+        "retryAt": "2026-11-02T01:47:35.984Z"
+      }
+    ]
+  }
+}
