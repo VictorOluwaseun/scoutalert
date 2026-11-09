@@ -41,6 +41,7 @@ import {
   PostgresOpportunityDeliveryRepository,
   createSmtpClient,
   SmtpEmailProvider,
+  ScoutEmailTemplates,
 } from "../../packages/adapters/dist/notifications/public.js";
 
 const [output] = process.argv.slice(2);
@@ -297,6 +298,7 @@ async function scenario(kind, target, title, requirements) {
           address: "scout@scoutalert.test",
           name: "ScoutAlert fixture",
         }),
+        new ScoutEmailTemplates("http://localhost:3030"),
       );
       sent = await delivery.execute(new Date());
       repeated = await delivery.execute(new Date());

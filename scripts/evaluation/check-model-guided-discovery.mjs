@@ -47,6 +47,7 @@ import { DeliverOpportunityDigests } from "../../packages/core/dist/notification
 import {
   createSmtpClient,
   SmtpEmailProvider,
+  ScoutEmailTemplates,
   PostgresOpportunityDeliveryRepository,
 } from "../../packages/adapters/dist/notifications/public.js";
 
@@ -221,6 +222,7 @@ const report = await withEvaluationDatabase(async (db) => {
         address: "scout@scoutalert.test",
         name: "ScoutAlert local planner check",
       }),
+      new ScoutEmailTemplates("http://localhost:3030"),
     );
     submitted = await delivery.execute(new Date());
     assert.equal(

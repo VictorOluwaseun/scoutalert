@@ -1,7 +1,7 @@
 import { randomUUID } from 'node:crypto';
 import { INestApplicationContext } from '@nestjs/common';
 import { Test } from '@nestjs/testing';
-import { EmailProvider } from '@repo/core/notifications';
+import { EmailProvider, EmailTemplates } from '@repo/core/notifications';
 import { EmailModule } from '../src/composition/email.module.js';
 
 interface CapturedMessage {
@@ -79,5 +79,60 @@ describe.skipIf(process.env.MAILPIT_INTEGRATION !== '1')(
       expect(details.Text.trim()).toBe(text);
       expect(details.HTML.trim()).toBe(`<p>${text}</p>`);
     });
+
+    it.each(['sign-in', 'digest', 'prompt', 'connection'] as const)(
+      'captures the complete %s template as alternative MIME bodies',
+      async (kind) => {
+        const templates = app.get(EmailTemplates);
+        const opportunity = {
+          id: 'template-check',
+          title: 'Remote design project',
+          company: 'Example Studio',
+          location: 'Remote',
+          checkedAt: '2026-11-09T09:30:00Z',
+          url: 'https://example.com/project',
+          scouts: ['Design projects'],
+          reasons: ['Remote delivery is explicitly supported.'],
+          uncertainties: ['Confirm the project budget.'],
+        };
+        const content = {
+          'sign-in': () =>
+            templates.signInCode({ code: '123456', expiresInMinutes: 10 }),
+          digest: () =>
+            templates.opportunities({
+              kind: 'digest',
+              opportunities: [opportunity],
+            }),
+          prompt: () =>
+            templates.opportunities({
+              kind: 'prompt',
+              opportunities: [opportunity],
+            }),
+          connection: () => templates.connectionCheck(),
+        }[kind]();
+        const submission = await app.get(EmailProvider).send({
+          id: randomUUID(),
+          recipient: 'template-check@scoutalert.test',
+          ...content,
+        });
+        const captured = await findCapturedMessage(
+          submission.providerMessageId,
+        );
+        const origin = process.env.MAILPIT_HTTP_URL ?? 'http://127.0.0.1:8025';
+        const response = await fetch(
+          new URL(`/api/v1/message/${captured.ID}`, origin),
+          { signal: AbortSignal.timeout(5_000) },
+        );
+        expect(response.ok).toBe(true);
+        const message = (await response.json()) as {
+          Text: string;
+          HTML: string;
+          Subject: string;
+        };
+        expect(message.Subject).toBe(content.subject);
+        expect(message.Text.trim().replaceAll('\r\n', '\n')).toBe(content.text);
+        expect(message.HTML.trim().replaceAll('\r\n', '\n')).toBe(content.html);
+      },
+    );
   },
 );

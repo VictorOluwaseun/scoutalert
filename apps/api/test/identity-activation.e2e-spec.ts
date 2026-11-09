@@ -62,9 +62,12 @@ async function capturedCode(id: string): Promise<string> {
     new URL(`/api/v1/message/${result.messages[0]!.ID}`, origin),
     { signal: AbortSignal.timeout(5000) },
   );
-  const body = (await message.json()) as { Text: string };
+  const body = (await message.json()) as { Text: string; HTML: string };
   const code = body.Text.match(/code is (\d{6})/u)?.[1];
   expect(code).toMatch(/^\d{6}$/);
+  expect(body.HTML).toContain(`>${code}</p>`);
+  expect(body.HTML).toContain('Your sign-in code.');
+  expect(body.HTML).toContain('Expires in 10 minutes');
 
   return code!;
 }

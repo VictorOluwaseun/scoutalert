@@ -7,6 +7,7 @@ import type { SearchDraft } from "../../onboarding/domain/search-draft.js";
 import type { ScoutAlerts } from "../../onboarding/domain/scout-activation.js";
 import type { OpportunityView } from "../../scouting/domain/discovery.js";
 import { EmailProvider, EmailSubmissionError } from "./ports/email-provider.js";
+import { EmailTemplates } from "./ports/email-templates.js";
 
 /** Versioned contribution captured for consent and evidence rechecks immediately before dispatch. */
 export interface DigestCandidate {
@@ -87,6 +88,7 @@ export class DeliverOpportunityDigests {
   constructor(
     private readonly records: OpportunityDeliveryRepository,
     private readonly email: EmailProvider,
+    private readonly templates: EmailTemplates,
     private readonly now: () => Date = () => new Date(),
   ) {}
 
@@ -145,21 +147,14 @@ export class DeliverOpportunityDigests {
         continue;
       }
 
-      const entries = delivery.opportunities
-        .map(
-          (opportunity) =>
-            `${opportunity.title} — ${opportunity.company ?? "Organization not stated"}\n${opportunity.location ?? "Location not stated"}\nScouts: ${opportunity.scouts.join(", ")}\n${opportunity.reasons.join("\n")}\nNeeds review:\n${opportunity.uncertainties.map((value) => `- ${value}`).join("\n")}\n${opportunity.url}${employerEvidenceSummary(opportunity)}`,
-        )
-        .join("\n\n");
-
       try {
         const submission = await this.email.send({
           id: delivery.id,
           recipient: delivery.recipient,
-          subject: group.window.startsWith("prompt:")
-            ? "ScoutAlert: a strong match with supported details"
-            : `ScoutAlert: ${delivery.opportunities.length} opportunities to review`,
-          text: `Here are new postings related to your confirmed scout briefs. Read the reasons and unresolved questions for each posting. AI assessments interpret source evidence and your brief; they do not independently verify employer claims.\n\n${entries}\n\nThese emails follow your scout's alert choices. View your scouts to review those choices.`,
+          ...this.templates.opportunities({
+            kind: group.window.startsWith("prompt:") ? "prompt" : "digest",
+            opportunities: delivery.opportunities,
+          }),
         });
         await this.records.finish(
           delivery.id,
@@ -179,15 +174,4 @@ export class DeliverOpportunityDigests {
 
     return accepted;
   }
-}
-
-/** Includes dated public research links without exposing private briefs or claiming immigration verification. */
-function employerEvidenceSummary(opportunity: OpportunityView): string {
-  const research = opportunity.detail?.employerResearch;
-
-  if (!research) {
-    return "";
-  }
-
-  return `\nEmployer evidence checked: ${research.checkedAt}\n${research.findings.map((item) => `${item.fact}: ${item.explanation}${item.sourceUrl ? ` (${item.sourceUrl})` : ""}`).join("\n")}\nAuthorization comparisons use your declared details.`;
 }

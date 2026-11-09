@@ -1,6 +1,7 @@
 import {
   EmailProvider,
   EmailSubmissionError,
+  EmailTemplates,
 } from "../../notifications/public.js";
 import {
   IdentityError,
@@ -42,6 +43,7 @@ export class RequestEmailCode {
     private readonly limits: IdentityRateLimits,
     private readonly credentials: IdentityCredentials,
     private readonly email: EmailProvider,
+    private readonly templates: EmailTemplates,
     private readonly now: () => Date,
   ) {}
 
@@ -131,8 +133,11 @@ export class RequestEmailCode {
       await this.email.send({
         id,
         recipient: address,
-        subject: "Your ScoutAlert sign-in code",
-        text: `Your ScoutAlert code is ${code}.\n\nIt expires in 10 minutes and can only be used in the browser that requested it. Use the latest code if you requested another.\n\nThis verifies your account. It does not subscribe you to opportunity alerts. If you did not request it, ignore this email.`,
+        ...this.templates.signInCode({
+          code,
+          expiresInMinutes:
+            (result.challenge.expiresAt.getTime() - at.getTime()) / 60_000,
+        }),
       });
     } catch (error) {
       const delivery =

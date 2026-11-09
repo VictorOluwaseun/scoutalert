@@ -64,6 +64,7 @@ import {
 import {
   createSmtpClient,
   SmtpEmailProvider,
+  ScoutEmailTemplates,
   PostgresOpportunityDeliveryRepository,
 } from "@repo/adapters/notifications";
 import { DeliverOpportunityDigests } from "@repo/core/notifications";
@@ -242,6 +243,7 @@ export const WORKER_RESOURCES = Symbol("WORKER_RESOURCES");
         const delivery = new DeliverOpportunityDigests(
           new PostgresOpportunityDeliveryRepository(db),
           new SmtpEmailProvider(smtp, config.email.sender),
+          new ScoutEmailTemplates(config.email.publicOrigin),
         );
 
         return {

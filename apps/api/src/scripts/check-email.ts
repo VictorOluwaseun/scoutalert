@@ -6,7 +6,7 @@ import type {
   EmailConfiguration,
   SmtpClient,
 } from '@repo/adapters/notifications';
-import { EmailProvider } from '@repo/core/notifications';
+import { EmailProvider, EmailTemplates } from '@repo/core/notifications';
 import {
   EmailModule,
   EMAIL_CONFIGURATION,
@@ -41,9 +41,7 @@ async function checkEmail(): Promise<void> {
     const result = await app.get(EmailProvider).send({
       id: randomUUID(),
       recipient: values.to,
-      subject: 'ScoutAlert email connection check',
-      text: 'ScoutAlert email delivery is connected. This diagnostic message is not a sign-in code or an opportunity alert.',
-      html: '<p>ScoutAlert email delivery is connected.</p><p>This diagnostic message is not a sign-in code or an opportunity alert.</p>',
+      ...app.get(EmailTemplates).connectionCheck(),
     });
     console.log(
       `SMTP accepted the test email: ${result.providerMessageId}. Check the recipient inbox; acceptance does not prove delivery.`,

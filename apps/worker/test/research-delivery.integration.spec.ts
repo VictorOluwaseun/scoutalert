@@ -16,6 +16,7 @@ import {
   PostgresOpportunityDeliveryRepository,
   createSmtpClient,
   SmtpEmailProvider,
+  ScoutEmailTemplates,
 } from "@repo/adapters/notifications";
 import {
   ActivateScout,
@@ -309,6 +310,7 @@ describe.skipIf(!enabled)(
           address: "no-reply@scoutalert.test",
           name: "ScoutAlert",
         }),
+        new ScoutEmailTemplates("http://localhost:3030"),
         () => now,
       );
 
@@ -331,9 +333,20 @@ describe.skipIf(!enabled)(
         );
         const captured = (await fetch(query).then((response) =>
           response.json(),
-        )) as { messages: { Subject: string }[] };
+        )) as { messages: { ID: string; Subject: string }[] };
         expect(captured.messages).toHaveLength(1);
         expect(captured.messages[0]!.Subject).toContain("strong match");
+        const contents = (await fetch(
+          `http://127.0.0.1:8025/api/v1/message/${captured.messages[0]!.ID}`,
+        ).then((response) => response.json())) as {
+          HTML: string;
+          Text: string;
+        };
+        expect(contents.HTML).toContain("A closer match to your brief.");
+        expect(contents.HTML).toContain("Manage alerts");
+        expect(contents.Text).toContain(
+          "Manage alerts: http://localhost:3030/dashboard/scouts",
+        );
       } finally {
         smtp.close();
       }

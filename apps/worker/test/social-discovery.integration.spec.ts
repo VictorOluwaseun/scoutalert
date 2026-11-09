@@ -43,6 +43,7 @@ import {
   PostgresOpportunityDeliveryRepository,
   createSmtpClient,
   SmtpEmailProvider,
+  ScoutEmailTemplates,
 } from "@repo/adapters/notifications";
 import {
   FixtureLeadProvider,
@@ -510,6 +511,7 @@ describe.skipIf(!enabled)("native X durable discovery", () => {
           return receipt;
         },
       },
+      new ScoutEmailTemplates("http://localhost:3030"),
     );
     try {
       expect(await delivery.execute(new Date())).toBe(2);

@@ -6,6 +6,12 @@ export {
 } from "./application/ports/email-provider.js";
 
 export {
+  EmailTemplates,
+  type EmailContent,
+  type OpportunityEmailInput,
+} from "./application/ports/email-templates.js";
+
+export {
   OpportunityDeliveryRepository,
   DeliverOpportunityDigests,
   digestWindow,

@@ -12,3 +12,4 @@ export {
   readEmailConfiguration,
   type EmailConfiguration,
 } from "./email-configuration.js";
+export { ScoutEmailTemplates } from "./templates/scout-email-templates.js";

@@ -14,7 +14,7 @@ import {
   RequestEmailCode,
   VerifyEmailCode,
 } from '@repo/core/identity';
-import { EmailProvider } from '@repo/core/notifications';
+import { EmailProvider, EmailTemplates } from '@repo/core/notifications';
 import { EmailModule } from '../../composition/email.module.js';
 import { SecurityModule } from '../../composition/security.module.js';
 import {
@@ -65,6 +65,7 @@ import { IdentityController } from './identity.controller.js';
         IdentityRateLimits,
         IdentityCredentials,
         EmailProvider,
+        EmailTemplates,
       ],
       useFactory: (
         uow: IdentityUnitOfWork,
@@ -72,6 +73,7 @@ import { IdentityController } from './identity.controller.js';
         limits: IdentityRateLimits,
         credentials: IdentityCredentials,
         email: EmailProvider,
+        templates: EmailTemplates,
       ) =>
         new RequestEmailCode(
           uow,
@@ -79,6 +81,7 @@ import { IdentityController } from './identity.controller.js';
           limits,
           credentials,
           email,
+          templates,
           () => new Date(),
         ),
     },

@@ -7,11 +7,12 @@ import {
 import {
   createSmtpClient,
   SmtpEmailProvider,
+  ScoutEmailTemplates,
   readEmailConfiguration,
   type EmailConfiguration,
   type SmtpClient,
 } from '@repo/adapters/notifications';
-import { EmailProvider } from '@repo/core/notifications';
+import { EmailProvider, EmailTemplates } from '@repo/core/notifications';
 
 export const EMAIL_CONFIGURATION = Symbol('Email configuration');
 export const SMTP_CLIENT = Symbol('SMTP client');
@@ -33,6 +34,12 @@ class EmailTransportLifecycle implements OnApplicationShutdown {
   providers: [
     { provide: EMAIL_CONFIGURATION, useFactory: readEmailConfiguration },
     {
+      provide: EmailTemplates,
+      inject: [EMAIL_CONFIGURATION],
+      useFactory: (configuration: EmailConfiguration): EmailTemplates =>
+        new ScoutEmailTemplates(configuration.publicOrigin),
+    },
+    {
       provide: SMTP_CLIENT,
       inject: [EMAIL_CONFIGURATION],
       useFactory: (configuration: EmailConfiguration): SmtpClient =>
@@ -48,6 +55,6 @@ class EmailTransportLifecycle implements OnApplicationShutdown {
     },
     EmailTransportLifecycle,
   ],
-  exports: [EmailProvider, SMTP_CLIENT, EMAIL_CONFIGURATION],
+  exports: [EmailProvider, EmailTemplates, SMTP_CLIENT, EMAIL_CONFIGURATION],
 })
 export class EmailModule {}
