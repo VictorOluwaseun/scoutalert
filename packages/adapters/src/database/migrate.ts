@@ -1,3 +1,6 @@
+import * as betaBudget from "./migrations/20261109-beta-budget.js";
+import * as fairTokenPacing from "./migrations/20261102-token-pacing-fairness.js";
+import * as miniTokenPacing from "./migrations/20261102-mini-token-pacing.js";
 import * as privateMail from "./migrations/20261005-private-mail.js";
 import * as tokenBudget from "./migrations/20261029-intelligence-token-budget.js";
 import * as selectiveReview from "./migrations/20261029-selective-model-review.js";
@@ -35,6 +38,9 @@ export async function migrateDatabase(
     migrationTableSchema,
     provider: {
       getMigrations: async () => ({
+        "20261109-beta-budget": betaBudget,
+        "20261102-token-pacing-fairness": fairTokenPacing,
+        "20261102-mini-token-pacing": miniTokenPacing,
         "20261029-intelligence-token-budget": tokenBudget,
         "20261029-selective-model-review": selectiveReview,
         "20261005-private-mail": privateMail,

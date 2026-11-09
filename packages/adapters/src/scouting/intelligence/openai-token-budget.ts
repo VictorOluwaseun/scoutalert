@@ -1,9 +1,47 @@
 import OpenAI from "openai";
 import type { InputTokenCountParams } from "openai/resources/responses/input-tokens";
-import type {
-  ModelTokenBudgetRepository,
-  ModelTokenUsage,
+import {
+  ModelTokenBudgetDeferred,
+  paidTokenCost,
+  type ModelTokenBudgetSnapshot,
+  type ModelTokenWork,
+  type ModelTokenScope,
+  type ModelTokenBudgetRepository,
+  type ModelTokenUsage,
 } from "@repo/core/scouting";
+
+/** Internal routing metadata is removed by the guarded fetch hook before either provider endpoint sees it. */
+export function tokenBudgetMetadata(
+  work: ModelTokenWork,
+  scope?: ModelTokenScope,
+): Record<string, string> {
+  return {
+    scout_token_work: work,
+    ...(scope
+      ? {
+          scout_budget_scout_id: scope.scoutId,
+          scout_budget_scout_version: String(scope.version),
+        }
+      : {}),
+  };
+}
+
+/** Removes internal scout attribution even for explicitly unbudgeted evaluation clients. */
+export async function sendWithoutTokenScope(
+  url: RequestInfo | URL,
+  init?: RequestInit,
+): Promise<Response> {
+  if (typeof init?.body !== "string") {
+    return fetch(url, init);
+  }
+  const body = JSON.parse(init.body);
+  const {
+    scout_budget_scout_id: _scout,
+    scout_budget_scout_version: _version,
+    ...metadata
+  } = body.metadata ?? {};
+  return fetch(url, { ...init, body: JSON.stringify({ ...body, metadata }) });
+}
 
 /** Token enforcement supplied by the host; the native SDK continues handling requests and structured output. */
 export interface OpenAITokenBudget {
@@ -62,10 +100,38 @@ export class OpenAITokenBudgetTransport {
     if (purpose !== "standard" && purpose !== "audit") {
       throw new Error("unsupported_model_budget_purpose");
     }
-    const snapshot = await this.budget.repository.snapshot(body.model, purpose);
-    if (snapshot.remainingTokens < maximumOutputTokens) {
-      throw new Error("daily_token_budget_exhausted");
+    const work = body.metadata?.scout_token_work ?? "maintenance";
+    if (work !== "discovery" && work !== "maintenance") {
+      throw new Error("unsupported_model_token_work");
     }
+    const {
+      scout_budget_scout_id: scoutId,
+      scout_budget_scout_version: version,
+      ...metadata
+    } = body.metadata ?? {};
+    const scope =
+      scoutId === undefined && version === undefined
+        ? undefined
+        : { scoutId, version: Number(version) };
+    if (
+      scope &&
+      (typeof scoutId !== "string" ||
+        !/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i.test(
+          scoutId,
+        ) ||
+        !Number.isSafeInteger(scope.version) ||
+        scope.version < 1)
+    ) {
+      throw new Error("invalid_model_token_scope");
+    }
+    const snapshot = await this.budget.repository.prepare(
+      body.model,
+      maximumOutputTokens,
+      purpose,
+      work,
+      scope,
+    );
+    this.assertAvailable(snapshot, maximumOutputTokens, work, purpose);
     const countInput: InputTokenCountParams = {
       model: body.model,
       input: body.input,
@@ -83,9 +149,27 @@ export class OpenAITokenBudgetTransport {
       counted.input_tokens,
       maximumOutputTokens,
       purpose,
+      work,
+      scope,
     );
     if (!id) {
-      throw new Error("daily_token_budget_exhausted");
+      const current = await this.budget.repository.snapshot(
+        body.model,
+        purpose,
+        work,
+        scope,
+      );
+      this.assertAvailable(
+        current,
+        counted.input_tokens + maximumOutputTokens,
+        work,
+        purpose,
+        counted.input_tokens,
+        maximumOutputTokens,
+      );
+      throw new ModelTokenBudgetDeferred(
+        new Date(Date.now() + 60_000).toISOString(),
+      );
     }
     let response: Response;
     try {
@@ -94,6 +178,7 @@ export class OpenAITokenBudgetTransport {
         ...init,
         body: JSON.stringify({
           ...body,
+          metadata,
           max_output_tokens: maximumOutputTokens,
         }),
       });
@@ -104,6 +189,73 @@ export class OpenAITokenBudgetTransport {
     const usage = await this.readUsage(response);
     await this.budget.repository.settle(id, usage);
     return response;
+  }
+
+  /** Distinguishes a known unsent admission denial from an ambiguous provider failure; no SDK count is needed while pacing credit is unavailable. */
+  private assertAvailable(
+    snapshot: ModelTokenBudgetSnapshot,
+    tokens: number,
+    work: ModelTokenWork,
+    purpose: "standard" | "audit",
+    inputTokens = 0,
+    outputTokens = tokens,
+  ): void {
+    const nextDay = new Date(
+      new Date(`${snapshot.day}T00:00:00Z`).getTime() + 86_400_000,
+    ).toISOString();
+    if (snapshot.account && snapshot.account.remainingTokens < tokens) {
+      throw new ModelTokenBudgetDeferred(nextDay);
+    }
+    const paid = snapshot.paid;
+    const paidAvailable =
+      paid &&
+      purpose === "standard" &&
+      snapshot.pacing?.fairTurn !== false &&
+      (work === "discovery" ||
+        !snapshot.pacing ||
+        snapshot.pacing.maintenanceBorrowing) &&
+      paidTokenCost(paid, inputTokens, outputTokens) <= paid.availableMicrousd;
+    if (paidAvailable) {
+      return;
+    }
+    const capacity =
+      snapshot.pacing?.allocations?.find((item) => item.purpose === purpose)
+        ?.capacity ?? snapshot.pacing?.limit;
+    if (
+      capacity !== undefined &&
+      capacity > 0 &&
+      tokens > capacity &&
+      paid &&
+      paidTokenCost(paid, inputTokens, outputTokens) <= paid.burstMicrousd
+    ) {
+      throw new ModelTokenBudgetDeferred(paid.retryAt);
+    }
+    if (capacity !== undefined && capacity > 0 && tokens > capacity) {
+      throw new Error("model_request_exceeds_pacing_capacity");
+    }
+    if (snapshot.remainingTokens < tokens) {
+      const retryAt = paid
+        ? new Date(
+            Math.min(Date.parse(nextDay), Date.parse(paid.retryAt)),
+          ).toISOString()
+        : nextDay;
+      throw new ModelTokenBudgetDeferred(retryAt);
+    }
+    const paced =
+      work === "discovery"
+        ? snapshot.pacing?.availableTokens
+        : snapshot.pacing?.maintenanceAvailableTokens;
+    if (paced !== undefined && paced < tokens) {
+      const retryAt = paid
+        ? new Date(
+            Math.min(
+              Date.parse(snapshot.pacing!.retryAt),
+              Date.parse(paid.retryAt),
+            ),
+          ).toISOString()
+        : snapshot.pacing!.retryAt;
+      throw new ModelTokenBudgetDeferred(retryAt);
+    }
   }
 
   /** Reads only counters from the response envelope; missing/malformed usage retains the reservation instead of assuming zero. */

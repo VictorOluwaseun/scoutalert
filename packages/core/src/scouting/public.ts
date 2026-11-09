@@ -24,6 +24,8 @@ export { ReadOpportunityFeed } from "./application/read-opportunity-feed.js";
 
 export * from "./intelligence/contracts.js";
 export * from "./intelligence/token-budget.js";
+export * from "./intelligence/token-pacing.js";
+export * from "./intelligence/token-deferral.js";
 export * from "./intelligence/fit-review.js";
 export {
   validAnalysis,
@@ -48,3 +50,5 @@ export * from "./research/employer-evidence.js";
 
 export * from "./ranking/relevance-feedback.js";
 export { normalizeArrangement } from "./intelligence/arrangement-policy.js";
+
+export * from "./intelligence/paid-budget.js";

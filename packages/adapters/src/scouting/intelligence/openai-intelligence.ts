@@ -4,6 +4,8 @@ import {
   IntelligenceProvider,
   normalizeCompensation,
   postingEvidence,
+  type ModelTokenWork,
+  type ModelTokenScope,
   type Posting,
   type PostingAnalysis,
   type IntelligenceResult,
@@ -14,6 +16,8 @@ import { fitPacket } from "./fit-packet.js";
 import { postingAnalysisSchema, personalFitSchema } from "./schemas.js";
 import {
   OpenAITokenBudgetTransport,
+  tokenBudgetMetadata,
+  sendWithoutTokenScope,
   type OpenAITokenBudget,
 } from "./openai-token-budget.js";
 
@@ -36,6 +40,8 @@ export class OpenAIIntelligenceProvider extends IntelligenceProvider {
   /** Extracts the complete bounded posting once per version; oversized input is rejected rather than silently truncated. */
   async extract(
     posting: Posting,
+    work: ModelTokenWork = "maintenance",
+    scope?: ModelTokenScope,
   ): Promise<IntelligenceResult & { kind: "extraction" }> {
     const passages = evidencePassages(postingEvidence(posting), "p", 3);
     const input = JSON.stringify({ passages, kind: posting.kind ?? "job" });
@@ -45,6 +51,7 @@ export class OpenAIIntelligenceProvider extends IntelligenceProvider {
       {
         model: this.extractionModel,
         store: false,
+        metadata: tokenBudgetMetadata(work, scope),
         service_tier: "default",
         max_output_tokens: 4000,
         reasoning: { effort: "low" },
@@ -100,6 +107,8 @@ export class OpenAIIntelligenceProvider extends IntelligenceProvider {
     posting: Posting,
     search: SearchDraft,
     analysis: PostingAnalysis,
+    work: ModelTokenWork = "maintenance",
+    scope?: ModelTokenScope,
   ): Promise<IntelligenceResult & { kind: "fit" }> {
     const { input, passages, briefPassages } = fitPacket(
       posting,
@@ -112,6 +121,7 @@ export class OpenAIIntelligenceProvider extends IntelligenceProvider {
       {
         model: this.fitModel,
         store: false,
+        metadata: tokenBudgetMetadata(work, scope),
         service_tier: "default",
         max_output_tokens: 4000,
         reasoning: { effort: "low" },
@@ -162,7 +172,12 @@ export function createIntelligenceClient(
 ): OpenAI {
   const client = new OpenAI({ apiKey, timeout: 25_000, maxRetries: 0 });
   if (!budget) {
-    return client;
+    return new OpenAI({
+      apiKey,
+      timeout: 25_000,
+      maxRetries: 0,
+      fetch: sendWithoutTokenScope,
+    });
   }
   const transport = new OpenAITokenBudgetTransport(client, budget);
   return new OpenAI({
