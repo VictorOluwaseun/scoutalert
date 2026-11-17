@@ -1,0 +1,7 @@
+# Publish the introduction and fictional workspace before SMTP and worker handoff.
+# Remove this override when the full beta has passed its launch checks.
+services:
+  web:
+    environment:
+      SCOUTALERT_WEBSITE_ONLY: "true"
+    depends_on: !reset {}

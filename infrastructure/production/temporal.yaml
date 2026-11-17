@@ -1,0 +1,71 @@
+# enable-template
+# Private single-node Temporal service. Never expose its ports publicly.
+log:
+  stdout: true
+  level: warn
+persistence:
+  # Immutable after database initialization.
+  numHistoryShards: 4
+  defaultStore: default
+  visibilityStore: visibility
+  datastores:
+    default:
+      sql:
+        pluginName: postgres12_pgx
+        databaseName: temporal
+        connectAddr: postgres:5432
+        connectProtocol: tcp
+        user: temporal
+        password: {{ env "SQL_PASSWORD" | quote }}
+        maxConns: 5
+        maxIdleConns: 2
+        maxConnLifetime: 1h
+    visibility:
+      sql:
+        pluginName: postgres12_pgx
+        databaseName: temporal_visibility
+        connectAddr: postgres:5432
+        connectProtocol: tcp
+        user: temporal
+        password: {{ env "SQL_PASSWORD" | quote }}
+        maxConns: 3
+        maxIdleConns: 1
+        maxConnLifetime: 1h
+global:
+  membership:
+    maxJoinDuration: 30s
+    broadcastAddress: {{ env "TEMPORAL_BROADCAST_ADDRESS" | quote }}
+services:
+  frontend:
+    rpc:
+      grpcPort: 7233
+      membershipPort: 6933
+      bindOnIP: 0.0.0.0
+  matching:
+    rpc:
+      grpcPort: 7235
+      membershipPort: 6935
+      bindOnIP: 0.0.0.0
+  history:
+    rpc:
+      grpcPort: 7234
+      membershipPort: 6934
+      bindOnIP: 0.0.0.0
+  worker:
+    rpc:
+      grpcPort: 7239
+      membershipPort: 6939
+      bindOnIP: 0.0.0.0
+clusterMetadata:
+  enableGlobalNamespace: false
+  failoverVersionIncrement: 10
+  masterClusterName: active
+  currentClusterName: active
+  clusterInformation:
+    active:
+      enabled: true
+      initialFailoverVersion: 1
+      rpcName: frontend
+      rpcAddress: 127.0.0.1:7233
+dcRedirectionPolicy:
+  policy: noop

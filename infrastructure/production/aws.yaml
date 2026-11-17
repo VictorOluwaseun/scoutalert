@@ -1,0 +1,187 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: ScoutAlert single-server beta, private data services, SSM access and encrypted backups.
+Parameters:
+  VpcId:
+    Type: AWS::EC2::VPC::Id
+  SubnetId:
+    Type: AWS::EC2::Subnet::Id
+  ImageId:
+    Type: AWS::EC2::Image::Id
+  InstanceType:
+    Type: String
+    Default: t4g.small
+    AllowedValues: [t4g.small]
+  RootVolumeGiB:
+    Type: Number
+    Default: 32
+    MinValue: 24
+    MaxValue: 64
+Resources:
+  Artifacts:
+    Type: AWS::S3::Bucket
+    DeletionPolicy: Retain
+    UpdateReplacePolicy: Retain
+    Properties:
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault: {SSEAlgorithm: AES256}
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      VersioningConfiguration: {Status: Enabled}
+      LifecycleConfiguration:
+        Rules:
+          - Id: BackupRetention
+            Prefix: backups/
+            Status: Enabled
+            ExpirationInDays: 30
+            NoncurrentVersionExpiration: {NoncurrentDays: 7}
+          - Id: ReleaseRetention
+            Prefix: releases/
+            Status: Enabled
+            NoncurrentVersionExpiration: {NoncurrentDays: 7}
+            AbortIncompleteMultipartUpload: {DaysAfterInitiation: 1}
+  ArtifactsPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref Artifacts
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Deny
+            Principal: '*'
+            Action: s3:*
+            Resource: [!GetAtt Artifacts.Arn, !Sub '${Artifacts.Arn}/*']
+            Condition: {Bool: {'aws:SecureTransport': 'false'}}
+  RuntimeSecret:
+    Type: AWS::SecretsManager::Secret
+    DeletionPolicy: Retain
+    UpdateReplacePolicy: Retain
+    Properties:
+      Description: ScoutAlert runtime environment files; populated separately from the stack.
+  ApiRepository:
+    Type: AWS::ECR::Repository
+    Properties:
+      RepositoryName: scoutalert/api
+      ImageTagMutability: IMMUTABLE
+      ImageScanningConfiguration: {ScanOnPush: true}
+      EncryptionConfiguration: {EncryptionType: AES256}
+  WebRepository:
+    Type: AWS::ECR::Repository
+    Properties:
+      RepositoryName: scoutalert/web
+      ImageTagMutability: IMMUTABLE
+      ImageScanningConfiguration: {ScanOnPush: true}
+      EncryptionConfiguration: {EncryptionType: AES256}
+  WorkerRepository:
+    Type: AWS::ECR::Repository
+    Properties:
+      RepositoryName: scoutalert/worker
+      ImageTagMutability: IMMUTABLE
+      ImageScanningConfiguration: {ScanOnPush: true}
+      EncryptionConfiguration: {EncryptionType: AES256}
+  InstanceRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal: {Service: ec2.amazonaws.com}
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - !Sub 'arn:${AWS::Partition}:iam::aws:policy/AmazonSSMManagedInstanceCore'
+      Policies:
+        - PolicyName: ScoutAlertReleaseAndBackup
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action: ecr:GetAuthorizationToken
+                Resource: '*'
+              - Effect: Allow
+                Action: [ecr:BatchCheckLayerAvailability, ecr:GetDownloadUrlForLayer, ecr:BatchGetImage]
+                Resource: [!GetAtt ApiRepository.Arn, !GetAtt WebRepository.Arn, !GetAtt WorkerRepository.Arn]
+              - Effect: Allow
+                Action: s3:GetObject
+                Resource: !Sub '${Artifacts.Arn}/releases/*'
+              - Effect: Allow
+                Action: s3:PutObject
+                Resource: !Sub '${Artifacts.Arn}/backups/*'
+              - Effect: Allow
+                Action: secretsmanager:GetSecretValue
+                Resource: !Ref RuntimeSecret
+  InstanceProfile:
+    Type: AWS::IAM::InstanceProfile
+    Properties:
+      Roles: [!Ref InstanceRole]
+  Firewall:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: ScoutAlert HTTPS and certificate validation; administration uses SSM.
+      VpcId: !Ref VpcId
+      SecurityGroupIngress:
+        - {IpProtocol: tcp, FromPort: 80, ToPort: 80, CidrIp: 0.0.0.0/0}
+        - {IpProtocol: tcp, FromPort: 443, ToPort: 443, CidrIp: 0.0.0.0/0}
+      Tags: [{Key: Name, Value: scoutalert-beta}]
+  Server:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: !Ref ImageId
+      InstanceType: !Ref InstanceType
+      IamInstanceProfile: !Ref InstanceProfile
+      DisableApiTermination: true
+      CreditSpecification: {CPUCredits: standard}
+      MetadataOptions:
+        HttpTokens: required
+        HttpPutResponseHopLimit: 1
+      NetworkInterfaces:
+        - DeviceIndex: '0'
+          AssociatePublicIpAddress: true
+          SubnetId: !Ref SubnetId
+          GroupSet: [!Ref Firewall]
+      BlockDeviceMappings:
+        - DeviceName: /dev/xvda
+          Ebs:
+            VolumeType: gp3
+            VolumeSize: !Ref RootVolumeGiB
+            Encrypted: true
+            DeleteOnTermination: false
+      Tags:
+        - {Key: Name, Value: scoutalert-beta}
+        - {Key: Application, Value: ScoutAlert}
+      UserData:
+        Fn::Base64: !Sub |
+          #!/bin/bash
+          set -euo pipefail
+          dnf install -y docker jq
+          systemctl enable --now docker amazon-ssm-agent
+          install -d -m 0755 /usr/local/lib/docker/cli-plugins
+          cd /usr/local/lib/docker/cli-plugins
+          curl --fail --silent --show-error --location https://github.com/docker/compose/releases/download/v5.6.1/docker-compose-linux-aarch64 -o docker-compose-linux-aarch64
+          curl --fail --silent --show-error --location https://github.com/docker/compose/releases/download/v5.6.1/docker-compose-linux-aarch64.sha256 -o compose.sha256
+          sha256sum --check compose.sha256
+          mv docker-compose-linux-aarch64 docker-compose
+          chmod 0755 docker-compose
+          rm compose.sha256
+          install -d -m 0700 /opt/scoutalert /opt/scoutalert/secrets
+          fallocate -l 2G /swapfile
+          chmod 0600 /swapfile
+          mkswap /swapfile
+          swapon /swapfile
+          printf '/swapfile swap swap defaults 0 0\n' >> /etc/fstab
+          printf 'vm.swappiness=10\n' > /etc/sysctl.d/90-scoutalert.conf
+          sysctl --system
+          printf 'AWS_REGION=${AWS::Region}\nSCOUTALERT_BACKUP_BUCKET=${Artifacts}\nSCOUTALERT_RUNTIME_SECRET=${RuntimeSecret}\n' > /opt/scoutalert/host.env
+          chmod 0600 /opt/scoutalert/host.env
+          touch /opt/scoutalert/bootstrap-complete
+Outputs:
+  InstanceId: {Value: !Ref Server}
+  PublicIp: {Value: !GetAtt Server.PublicIp}
+  ArtifactBucket: {Value: !Ref Artifacts}
+  RuntimeSecret: {Value: !Ref RuntimeSecret}
+  ApiRepository: {Value: !GetAtt ApiRepository.RepositoryUri}
+  WebRepository: {Value: !GetAtt WebRepository.RepositoryUri}
+  WorkerRepository: {Value: !GetAtt WorkerRepository.RepositoryUri}

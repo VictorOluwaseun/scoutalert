@@ -1,0 +1,172 @@
+# Run migrations explicitly before the app profile. Worker activation is separate.
+name: scoutalert
+x-runtime: &runtime
+  restart: unless-stopped
+  logging:
+    driver: local
+    options:
+      max-size: 10m
+      max-file: "3"
+  security_opt:
+    - no-new-privileges:true
+
+services:
+  postgres:
+    <<: *runtime
+    image: postgres:18-alpine@sha256:d3e1620b530c944afa6e887d22eb899824da68e19c52024bf98f5220c88a65b2
+    env_file: [{path: '${SCOUTALERT_ENV_DIR:-./secrets}/postgres.env', format: raw}]
+    command: [postgres, -c, shared_buffers=64MB, -c, max_connections=80, -c, work_mem=2MB]
+    mem_limit: 256m
+    volumes:
+      - postgres-data:/var/lib/postgresql
+      - ./postgres-init.sql:/docker-entrypoint-initdb.d/01-scoutalert.sql:ro
+    networks: [data]
+    healthcheck:
+      test: [CMD-SHELL, 'pg_isready -U "$${POSTGRES_USER}" -d postgres']
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  redis:
+    <<: *runtime
+    image: redis:8-alpine@sha256:becdda6c7f4b3fb42e42fd7f120bbf5c54c4caaaf16f26da24e4563d2c1f0576
+    entrypoint: [/bin/sh, -ec]
+    command: ['exec redis-server --appendonly yes --maxmemory 32mb --maxmemory-policy noeviction --requirepass "$$(cat /run/secrets/redis_password)"']
+    mem_limit: 64m
+    secrets: [redis_password]
+    volumes: [redis-data:/data]
+    networks: [data]
+    healthcheck:
+      test: [CMD-SHELL, 'REDISCLI_AUTH="$$(cat /run/secrets/redis_password)" redis-cli ping | grep -q PONG']
+      interval: 10s
+      timeout: 3s
+      retries: 10
+
+  temporal-schema:
+    image: temporalio/admin-tools:1.32.2@sha256:4a95866efba29d7e17ab012df5232795e8b0ad0f7d5f9d1ec4df321f7792a754
+    profiles: [setup]
+    env_file: [{path: '${SCOUTALERT_ENV_DIR:-./secrets}/temporal.env', format: raw}]
+    entrypoint: [/bin/sh, /opt/scoutalert/temporal-schema.sh]
+    volumes: [./temporal-schema.sh:/opt/scoutalert/temporal-schema.sh:ro]
+    networks: [data]
+    depends_on:
+      postgres: {condition: service_healthy}
+
+  temporal:
+    <<: *runtime
+    image: temporalio/server:1.32.2@sha256:7bf69188a6232fea14869b9cef3d94aa82a1601d99517f7e86c71f22da4e0670
+    profiles: [app, worker]
+    env_file: [{path: '${SCOUTALERT_ENV_DIR:-./secrets}/temporal.env', format: raw}]
+    environment:
+      TEMPORAL_SERVER_CONFIG_FILE_PATH: /etc/temporal/scoutalert.yaml
+      TEMPORAL_ALLOW_NO_AUTH: "true"
+      BIND_ON_IP: 0.0.0.0
+      GOMEMLIMIT: 300MiB
+      GOMAXPROCS: "2"
+    mem_limit: 384m
+    volumes: [./temporal.yaml:/etc/temporal/scoutalert.yaml:ro]
+    networks: [data]
+    depends_on:
+      postgres: {condition: service_healthy}
+
+  temporal-admin:
+    image: temporalio/admin-tools:1.32.2@sha256:4a95866efba29d7e17ab012df5232795e8b0ad0f7d5f9d1ec4df321f7792a754
+    profiles: [tools]
+    entrypoint: [temporal, --address, temporal:7233]
+    networks: [data]
+
+  migrate:
+    image: ${SCOUTALERT_API_IMAGE:-scoutalert-api:deployment}
+    profiles: [setup]
+    env_file: [{path: '${SCOUTALERT_ENV_DIR:-./secrets}/api.env', format: raw}]
+    command: [node, dist/scripts/migrate.js]
+    networks: [data]
+    depends_on:
+      postgres: {condition: service_healthy}
+
+  api:
+    <<: *runtime
+    image: ${SCOUTALERT_API_IMAGE:-scoutalert-api:deployment}
+    profiles: [app]
+    env_file: [{path: '${SCOUTALERT_ENV_DIR:-./secrets}/api.env', format: raw}]
+    environment:
+      NODE_ENV: production
+      NODE_OPTIONS: --max-old-space-size=128
+    mem_limit: 192m
+    cap_drop: [ALL]
+    networks: [data, outbound]
+    depends_on:
+      postgres: {condition: service_healthy}
+      redis: {condition: service_healthy}
+    healthcheck:
+      test: [CMD, node, -e, "fetch('http://127.0.0.1:4040/').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 20s
+      timeout: 5s
+      retries: 5
+
+  web:
+    <<: *runtime
+    image: ${SCOUTALERT_WEB_IMAGE:-scoutalert-web:deployment}
+    profiles: [app]
+    env_file: [{path: '${SCOUTALERT_ENV_DIR:-./secrets}/web.env', format: raw}]
+    environment:
+      NODE_ENV: production
+      NODE_OPTIONS: --max-old-space-size=128
+    mem_limit: 192m
+    cap_drop: [ALL]
+    networks: [data, outbound]
+    depends_on:
+      api: {condition: service_healthy}
+    healthcheck:
+      test: [CMD, node, -e, "fetch('http://127.0.0.1:3030/').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 20s
+      timeout: 5s
+      retries: 5
+
+  worker:
+    <<: *runtime
+    image: ${SCOUTALERT_WORKER_IMAGE:-scoutalert-worker:deployment}
+    profiles: [worker]
+    env_file: [{path: '${SCOUTALERT_ENV_DIR:-./secrets}/worker.env', format: raw}]
+    environment:
+      NODE_ENV: production
+      NODE_OPTIONS: --max-old-space-size=384
+    mem_limit: 768m
+    shm_size: 128m
+    cap_drop: [ALL]
+    stop_grace_period: 60s
+    init: true
+    networks: [data, outbound]
+    depends_on:
+      postgres: {condition: service_healthy}
+      redis: {condition: service_healthy}
+      temporal: {condition: service_started}
+
+  caddy:
+    <<: *runtime
+    image: caddy:2-alpine@sha256:78bd35025c7ba85961dd149ae670315129954e77abe2383ac47c89106b35ade9
+    profiles: [app]
+    environment:
+      SCOUTALERT_HOST: ${SCOUTALERT_HOST:-scoutalert.app}
+    mem_limit: 64m
+    ports: ["80:80", "443:443", "443:443/udp"]
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+      - caddy-config:/config
+    networks: [outbound]
+    depends_on:
+      web: {condition: service_healthy}
+
+networks:
+  data:
+    internal: true
+  outbound: {}
+volumes:
+  postgres-data: {}
+  redis-data: {}
+  caddy-data: {}
+  caddy-config: {}
+secrets:
+  redis_password:
+    file: ${SCOUTALERT_ENV_DIR:-./secrets}/redis-password

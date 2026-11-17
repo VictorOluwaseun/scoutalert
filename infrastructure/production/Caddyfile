@@ -1,0 +1,22 @@
+{
+	email info@scoutalert.app
+	admin off
+}
+
+www.{$SCOUTALERT_HOST:scoutalert.app} {
+	redir https://{$SCOUTALERT_HOST:scoutalert.app}{uri} permanent
+}
+
+{$SCOUTALERT_HOST:scoutalert.app} {
+	encode zstd gzip
+	header {
+		Strict-Transport-Security "max-age=31536000"
+		X-Content-Type-Options nosniff
+		Referrer-Policy strict-origin-when-cross-origin
+		-Server
+	}
+	reverse_proxy web:3030 {
+		# Direct DNS mode: discard client-supplied forwarding headers.
+		header_up X-Forwarded-For {remote_host}
+	}
+}
