@@ -6,6 +6,7 @@
   "private": true,
   "license": "UNLICENSED",
   "type": "module",
+  "files": ["dist"],
   "scripts": {
     "build": "nest build",
     "deploy": "nest deploy",

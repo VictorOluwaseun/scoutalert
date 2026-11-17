@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
+  "files": ["dist"],
   "description": "Framework-independent domain rules, application use cases, and inward contracts for ScoutAlert.",
   "scripts": {
     "build": "tsc -p tsconfig.json",
