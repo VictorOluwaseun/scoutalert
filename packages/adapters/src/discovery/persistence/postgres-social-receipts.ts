@@ -169,6 +169,8 @@ export class PostgresSocialReceiptRepository {
     );
     if (
       error.reason === "rate_limited" ||
+      error.reason === "authentication_failed" ||
+      error.reason === "billing_unavailable" ||
       error.reason === "access_unavailable"
     ) {
       await sql`UPDATE x_access_state SET next_allowed_at=greatest(next_allowed_at,now()+make_interval(secs=>${error.retryAfterSeconds})),reason=${error.reason} WHERE id=1`.execute(

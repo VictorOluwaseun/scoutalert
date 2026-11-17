@@ -39,9 +39,11 @@ export interface SocialResult {
 
 /** Safe provider failure details exclude credentials, URLs containing tokens and raw response bodies. */
 export class SocialProviderError extends Error {
-  /** Distinguishes access, quota and transient failures while retaining admission reservations. */
+  /** Distinguishes authentication, billing, permissions, quota and transient failures without provider response text. */
   constructor(
     readonly reason:
+      | "authentication_failed"
+      | "billing_unavailable"
       | "access_unavailable"
       | "rate_limited"
       | "invalid_cursor"

@@ -148,27 +148,30 @@ describe("native X public contract", () => {
       (await new XSocialProvider("test", request).read(page)).partial,
     ).toBe(true);
   });
-  it.each([401, 402, 403, 429, 500])(
-    "redacts errors and does not retry HTTP %s implicitly",
-    async (status) => {
-      const request = vi
-        .fn()
-        .mockResolvedValue(
-          new Response("secret provider response", {
-            status,
-            headers: { "retry-after": "600" },
-          }),
-        );
-      await expect(
-        new XSocialProvider("test-secret", request).read(page),
-      ).rejects.toMatchObject({
-        reason:
-          status === 429
-            ? "rate_limited"
-            : [401, 402, 403].includes(status)
-              ? "access_unavailable"
-              : "provider_unavailable",
+  it.each([
+    { status: 401, reason: "authentication_failed" },
+    { status: 402, reason: "billing_unavailable" },
+    { status: 403, reason: "access_unavailable" },
+    { status: 429, reason: "rate_limited" },
+    { status: 500, reason: "provider_unavailable" },
+  ])(
+    "redacts errors and does not retry HTTP $status implicitly",
+    async ({ status, reason }) => {
+      const request = vi.fn().mockResolvedValue(
+        new Response("secret provider response", {
+          status,
+          headers: { "retry-after": "600" },
+        }),
+      );
+      const failure = await new XSocialProvider("test-secret", request)
+        .read(page)
+        .catch((error: unknown) => error);
+      expect(failure).toMatchObject({
+        reason,
+        message: reason,
+        retryAfterSeconds: [401, 402, 403].includes(status) ? 3600 : 600,
       });
+      expect(JSON.stringify(failure)).not.toMatch(/secret|provider response/);
       expect(request).toHaveBeenCalledTimes(1);
     },
   );

@@ -1174,6 +1174,43 @@ describe.skipIf(!enabled)("native X durable discovery", () => {
     ).toBe("rate_limited");
   });
 
+  it.each([
+    "authentication_failed",
+    "billing_unavailable",
+    "access_unavailable",
+  ] as const)(
+    "preserves spending and pauses all X queries after %s",
+    async (reason) => {
+      await scout();
+      await scout("Website developer");
+      const attempt = await claim();
+      await records.fail(attempt, new SocialProviderError(reason, 3600));
+
+      expect((await records.claim(limits)).status).toBe("done");
+      const access = await sql<{
+        reason: string;
+        paused: boolean;
+      }>`SELECT reason,next_allowed_at>now()+interval '59 minutes' AS paused FROM x_access_state`.execute(
+        db,
+      );
+      expect(access.rows[0]).toEqual({ reason, paused: true });
+      const usage = await sql<{
+        requests: number;
+        reserved_micros: string;
+      }>`SELECT requests,reserved_micros FROM web_discovery_usage WHERE provider='x-api'`.execute(
+        db,
+      );
+      expect(usage.rows[0]).toEqual({ requests: 1, reserved_micros: "50000" });
+
+      await due();
+      await records.complete(await claim(), response(null));
+      const recovered = await sql<{
+        reason: string | null;
+      }>`SELECT reason FROM x_access_state`.execute(db);
+      expect(recovered.rows[0]!.reason).toBeNull();
+    },
+  );
+
   it("withdraws an inaccessible native post without fabricating absence from search results", async () => {
     await scout();
     const first = await claim();

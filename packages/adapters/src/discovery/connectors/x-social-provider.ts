@@ -90,19 +90,10 @@ export class XSocialProvider extends SocialProvider {
     const retryAfterSeconds = providerDelay(response);
     if (!response.ok) {
       await response.body?.cancel();
-      const reason =
-        response.status === 429
-          ? "rate_limited"
-          : [401, 402, 403].includes(response.status)
-            ? "access_unavailable"
-            : response.status === 400 &&
-                operation.kind === "search" &&
-                operation.nextToken
-              ? "invalid_cursor"
-              : "provider_unavailable";
+      const reason = failureReason(response.status, operation);
       throw new SocialProviderError(
         reason,
-        reason === "access_unavailable"
+        [401, 402, 403].includes(response.status)
           ? Math.max(3600, retryAfterSeconds)
           : Math.max(60, retryAfterSeconds),
       );
@@ -198,6 +189,30 @@ export class XSocialProvider extends SocialProvider {
       retryAfterSeconds,
     };
   }
+}
+
+/** Keeps actionable HTTP failure categories while discarding all credential-bearing or account-specific response text. */
+function failureReason(
+  status: number,
+  operation: SocialOperation,
+): SocialProviderError["reason"] {
+  const reasons: Partial<Record<number, SocialProviderError["reason"]>> = {
+    401: "authentication_failed",
+    402: "billing_unavailable",
+    403: "access_unavailable",
+    429: "rate_limited",
+  };
+  const known = reasons[status];
+
+  if (known) {
+    return known;
+  }
+
+  if (status === 400 && operation.kind === "search" && operation.nextToken) {
+    return "invalid_cursor";
+  }
+
+  return "provider_unavailable";
 }
 
 /** Honors native reset and Retry-After headers without leaking provider responses or depending on local timezone. */
