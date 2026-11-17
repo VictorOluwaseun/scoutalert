@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { publicSite } from "@/features/seo/site";
 import "./globals.css";
 
 const manrope = localFont({
@@ -14,9 +15,24 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "ScoutAlert — Your next move, worth finding",
-  description:
-    "Brief your personal opportunity scout. Explore jobs, contracts, and client projects on your terms.",
+  metadataBase: new URL(publicSite.url),
+  title: publicSite.title,
+  description: publicSite.description,
+  applicationName: publicSite.name,
+  // Public content opts into indexing explicitly; account and preview routes inherit this default.
+  robots: { index: false, follow: false },
+  openGraph: {
+    type: "website",
+    siteName: publicSite.name,
+    title: publicSite.title,
+    description: publicSite.description,
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: publicSite.title,
+    description: publicSite.description,
+  },
   icons: { icon: "/icon.svg" },
 };
 

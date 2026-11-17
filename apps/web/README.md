@@ -1,6 +1,6 @@
 # ScoutAlert web
 
-The product interface uses Next.js, React, Tailwind CSS, and the shared UI package. The first implemented experience is an onboarding experience with connected review, identity and scout saving at `/` and `/onboarding`.
+The product interface uses Next.js, React, Tailwind CSS, and the shared UI package. The public introduction lives at `/`; connected review, identity and scout saving start at `/onboarding`.
 
 ## Development
 
@@ -10,7 +10,7 @@ From the repository root:
 pnpm --filter web dev
 ```
 
-Open [localhost:3030/onboarding](http://localhost:3030/onboarding). This starts only the web app. The root URL redirects to onboarding, and step URLs preserve browser Back and Forward navigation.
+Open [localhost:3030](http://localhost:3030). This starts only the web app. The homepage links to onboarding, and onboarding step URLs preserve browser Back and Forward navigation.
 
 For connected onboarding, start the web and API hosts together with `pnpm dev:start`. The API dev command builds core and adapters before starting. Run `pnpm --filter api db:migrate` first. Match the private `WEB_API_SECRET` between `apps/api/.env` and `apps/web/.env.local`. The web route uses `http://127.0.0.1:4040` in development; set `SCOUTALERT_API_URL` for another API origin or in production.
 
@@ -19,6 +19,31 @@ pnpm --filter web lint
 pnpm --filter web check-types
 pnpm --filter web build
 ```
+
+## Search and sharing
+
+`features/seo/site.ts` is the public identity for `https://scoutalert.app`. It is
+independent of the API origin and local session origin. The homepage returns
+server-rendered product content, a canonical URL, Open Graph and Twitter metadata,
+and Organization/WebSite JSON-LD. `/opengraph-image` serves a generated sharing
+card. Launch mode still controls the beta notice and whether the primary action
+opens the fictional workspace or onboarding.
+
+The root layout defaults to `noindex, nofollow`; only the homepage opts into
+indexing. This covers onboarding query steps, sign-in, account pages, and design
+previews. New public content pages must explicitly opt in, set their own canonical
+URL, and be added to `app/sitemap.ts`. Do not add fictional opportunities as
+JobPosting structured data or sitemap entries.
+
+`/robots.txt` advertises `/sitemap.xml` and blocks API crawling. Page routes remain
+crawlable so search engines can read their `noindex` directives; those directives
+do not replace authentication. The sitemap includes only `/`, without invented
+modification dates.
+
+After deploying, verify the homepage, sitemap, robots file, and sharing image on
+the public domain. Submit `https://scoutalert.app/sitemap.xml` in the domain's
+verified Google Search Console property and inspect the homepage URL. Search
+Console ownership and submission are separate from the repository changes.
 
 ## Onboarding
 
@@ -39,6 +64,7 @@ Future screens must explain actual search progress, provisional versus verified 
 Provider or agent additions require transport/read-model work before the UI can present them as live. Web code continues to call server/API contracts rather than importing core repositories, adapters or workflow clients.
 
 The interactive [discovery design preview](http://localhost:3030/preview/discovery) now covers discoveries, scout detail and opportunity detail in the light Ink + citron style. It uses fictional examples and temporary interactions; the account dashboard remains connected to real data. Read [the preview notes](features/discovery-preview/README.md) for routes, search states and the integration boundary.
+
 ## Connected web discovery
 
 `/dashboard/discovery` reads authenticated activity and provisional web leads through the API. It shows provenance, search excerpts, captured text and explicit access/budget states. It never imports the fictional `/preview/discovery` fixtures. Live provider access remains gated on local worker configuration; see the [implementation notes](../../docs/engineering/scoutalert-web-discovery.md).
