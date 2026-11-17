@@ -11,7 +11,10 @@
     "check:architecture": "node scripts/check-architecture.mjs",
     "test:architecture": "node --test scripts/architecture-rules.test.mjs",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "check-types": "turbo run check-types"
+    "check-types": "turbo run check-types",
+    "services:up": "python3 ../local-infrastructure/manage.py up scoutalert",
+    "services:down": "python3 ../local-infrastructure/manage.py release scoutalert",
+    "services:status": "python3 ../local-infrastructure/manage.py status"
   },
   "devDependencies": {
     "@babel/parser": "8.0.4",

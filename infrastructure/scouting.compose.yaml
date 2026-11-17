@@ -1,5 +1,6 @@
 services:
   temporal-state:
+    profiles: [isolated]
     image: temporalio/temporal:1.9.1
     user: "0:0"
     entrypoint: ["/bin/sh", "-c"]
@@ -7,6 +8,7 @@ services:
     volumes:
       - temporal-development:/var/lib/temporal
   temporal:
+    profiles: [isolated]
     image: temporalio/temporal:1.9.1
     command:
       [
