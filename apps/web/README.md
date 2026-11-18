@@ -1,6 +1,6 @@
 # ScoutAlert web
 
-The product interface uses Next.js, React, Tailwind CSS, and the shared UI package. The public introduction lives at `/`; connected review, identity and scout saving start at `/onboarding`.
+The product interface uses Next.js, React, Tailwind CSS, and the shared UI package. Visiting `/` redirects directly to `/onboarding`, where connected review, identity and scout saving begin. There is no separate introduction step before onboarding.
 
 ## Development
 
@@ -10,7 +10,7 @@ From the repository root:
 pnpm --filter web dev
 ```
 
-Open [localhost:3030](http://localhost:3030). This starts only the web app. The homepage links to onboarding, and onboarding step URLs preserve browser Back and Forward navigation.
+Open [localhost:3030](http://localhost:3030). This starts only the web app. The root URL redirects directly to onboarding, and onboarding step URLs preserve browser Back and Forward navigation.
 
 For connected onboarding, start the web and API hosts together with `pnpm dev:start`. The API dev command builds core and adapters before starting. Run `pnpm --filter api db:migrate` first. Match the private `WEB_API_SECRET` between `apps/api/.env` and `apps/web/.env.local`. The web route uses `http://127.0.0.1:4040` in development; set `SCOUTALERT_API_URL` for another API origin or in production.
 
@@ -23,26 +23,36 @@ pnpm --filter web build
 ## Search and sharing
 
 `features/seo/site.ts` is the public identity for `https://scoutalert.app`. It is
-independent of the API origin and local session origin. The homepage returns
-server-rendered product content, a canonical URL, Open Graph and Twitter metadata,
-and Organization/WebSite JSON-LD. `/opengraph-image` serves a generated sharing
-card. Launch mode still controls the beta notice and whether the primary action
-opens the fictional workspace or onboarding.
+independent of the API origin and local session origin. The onboarding entry has
+a canonical URL, Open Graph and Twitter metadata, and Organization/WebSite JSON-LD.
+`/opengraph-image` serves a generated sharing card. SEO must preserve the direct
+entry into the existing goal form. The original website-only launch mode still
+shows the beta preview when explicitly enabled.
 
-The root layout defaults to `noindex, nofollow`; only the homepage opts into
-indexing. This covers onboarding query steps, sign-in, account pages, and design
-previews. New public content pages must explicitly opt in, set their own canonical
+The root layout defaults to `noindex, nofollow`; `/onboarding` opts into indexing
+with `/onboarding` as its canonical URL. Query URLs with `step`, `new`, or `scout`
+remain excluded, as do sign-in, account pages, and design previews. New public
+content pages must explicitly opt in, set their own canonical
 URL, and be added to `app/sitemap.ts`. Do not add fictional opportunities as
 JobPosting structured data or sitemap entries.
 
 `/robots.txt` advertises `/sitemap.xml` and blocks API crawling. Page routes remain
 crawlable so search engines can read their `noindex` directives; those directives
-do not replace authentication. The sitemap includes only `/`, without invented
+do not replace authentication. The sitemap includes only `/onboarding`, without invented
 modification dates.
+
+Against a running web release, check the root redirect and SEO route policy with:
+
+```sh
+SCOUTALERT_WEB_ORIGIN=http://localhost:3030 node scripts/check-web-entry.mjs
+```
+
+Also verify in a fresh browser session that `/` opens the goal form directly and
+that advancing and browser Back preserve the original onboarding behavior.
 
 After deploying, verify the homepage, sitemap, robots file, and sharing image on
 the public domain. Submit `https://scoutalert.app/sitemap.xml` in the domain's
-verified Google Search Console property and inspect the homepage URL. Search
+verified Google Search Console property and inspect `/onboarding`. Search
 Console ownership and submission are separate from the repository changes.
 
 ## Onboarding
