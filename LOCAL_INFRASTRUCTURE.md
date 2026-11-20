@@ -7,8 +7,8 @@ Application stop/down commands leave shared dependencies running for other proje
 Explicit whole-stack shutdown: `python3 ../local-infrastructure/manage.py stop-all`.
 
 Private Redis credentials are set in local environment files and the protected
-shared state directory. Existing data was copied and checked; the original volumes
-and backups remain available. Remote database and provider settings remain as configured.
+shared state directory. The Docker reset created fresh development databases. The previous
+backup archives are in the shared infrastructure directory. Remote database and provider settings remain as configured.
 
 Destructive tests must use disposable containers. Existing Testcontainers and
 Immureg's per-run E2E containers remain isolated. Data-I's `test:mongodb` command
