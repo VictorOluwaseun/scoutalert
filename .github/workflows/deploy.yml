@@ -1,0 +1,113 @@
+name: Deploy production
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Never interrupt a migration or overlap production releases.
+concurrency:
+  group: scoutalert-production
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+env:
+  AWS_REGION: eu-north-1
+  AWS_DEFAULT_REGION: eu-north-1
+  AWS_PAGER: ""
+  PRODUCTION_STACK: scoutalert-beta
+
+jobs:
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04-arm
+    timeout-minutes: 90
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+
+      - name: Validate deployment scripts
+        run: |
+          test -n "$DEPLOY_ROLE" || { echo 'Configure AWS_DEPLOY_ROLE_ARN first; see infrastructure/production/auto-deployment.md'; exit 1; }
+          bash -n infrastructure/production/deploy.sh
+          python3 -m unittest discover -s infrastructure/production -p 'test_*.py'
+          node scripts/check-architecture.mjs
+        env:
+          DEPLOY_ROLE: ${{ vars.AWS_DEPLOY_ROLE_ARN }}
+
+      - name: Authenticate to AWS
+        uses: aws-actions/configure-aws-credentials@e1253824e5c10ff9df46874f81ed3ec929e19cfd # v6.3.0
+        with:
+          role-to-assume: ${{ vars.AWS_DEPLOY_ROLE_ARN }}
+          aws-region: ${{ env.AWS_REGION }}
+          role-session-name: github-${{ github.run_id }}
+          role-duration-seconds: 7200
+          allowed-account-ids: '109837541388'
+
+      - name: Resolve production resources and log in to ECR
+        id: production
+        shell: bash
+        run: |
+          aws cloudformation describe-stacks --stack-name "$PRODUCTION_STACK" > "$RUNNER_TEMP/stack.json"
+          python3 infrastructure/production/publish-release.py outputs "$RUNNER_TEMP/stack.json" >> "$GITHUB_OUTPUT"
+          registry=$(jq -r '.Stacks[0].Outputs[] | select(.OutputKey == "ApiRepository") | .OutputValue | split("/")[0]' "$RUNNER_TEMP/stack.json")
+          aws ecr get-login-password | docker login --username AWS --password-stdin "$registry"
+
+      - uses: docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069 # v4
+
+      - name: Build and push API
+        id: api
+        uses: docker/build-push-action@c3c9e263c25d99ce0380d002d59b67737d91b0dc # v7
+        with:
+          context: .
+          file: infrastructure/production/Dockerfile
+          target: api
+          platforms: linux/arm64
+          push: true
+          tags: ${{ steps.production.outputs.ApiRepository }}:git-${{ github.sha }}-${{ github.run_id }}-${{ github.run_attempt }}
+          cache-from: type=gha,scope=production-api
+          cache-to: type=gha,scope=production-api,mode=max
+
+      - name: Build and push web
+        id: web
+        uses: docker/build-push-action@c3c9e263c25d99ce0380d002d59b67737d91b0dc # v7
+        with:
+          context: .
+          file: infrastructure/production/Dockerfile
+          target: web
+          platforms: linux/arm64
+          push: true
+          tags: ${{ steps.production.outputs.WebRepository }}:git-${{ github.sha }}-${{ github.run_id }}-${{ github.run_attempt }}
+          cache-from: type=gha,scope=production-web
+          cache-to: type=gha,scope=production-web,mode=max
+
+      - name: Build and push worker
+        id: worker
+        uses: docker/build-push-action@c3c9e263c25d99ce0380d002d59b67737d91b0dc # v7
+        with:
+          context: .
+          file: infrastructure/production/Dockerfile
+          target: worker
+          platforms: linux/arm64
+          push: true
+          tags: ${{ steps.production.outputs.WorkerRepository }}:git-${{ github.sha }}-${{ github.run_id }}-${{ github.run_attempt }}
+          cache-from: type=gha,scope=production-worker
+          cache-to: type=gha,scope=production-worker,mode=max
+
+      - name: Deploy and wait for production health
+        env:
+          GH_TOKEN: ${{ github.token }}
+          API_IMAGE: ${{ steps.production.outputs.ApiRepository }}@${{ steps.api.outputs.digest }}
+          WEB_IMAGE: ${{ steps.production.outputs.WebRepository }}@${{ steps.web.outputs.digest }}
+          WORKER_IMAGE: ${{ steps.production.outputs.WorkerRepository }}@${{ steps.worker.outputs.digest }}
+        run: |
+          # Superseded runs and reruns of old commits must not roll production back.
+          current_main=$(gh api "repos/$GITHUB_REPOSITORY/git/ref/heads/main" --jq '.object.sha')
+          test "$current_main" = "$GITHUB_SHA" || { echo 'A newer main commit exists; skipping this release.'; exit 0; }
+          python3 infrastructure/production/publish-release.py deploy "$RUNNER_TEMP/stack.json"

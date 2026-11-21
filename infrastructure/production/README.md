@@ -29,6 +29,10 @@ the remaining X access limitation and measured token usage.
 
 ## Build and infrastructure
 
+Push-to-`main` application deployment is defined in
+[the automatic deployment guide](auto-deployment.md), including the one-time
+GitHub OIDC role setup, release health checks and recovery behavior.
+
 Build from the repository root using `infrastructure/production/Dockerfile` and
 targets `api`, `web`, and `worker`. Images run compiled packages as a non-root
 user. The build context excludes environment files and secret directories.

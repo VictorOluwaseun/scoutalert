@@ -1,3 +1,4 @@
 secrets/
 *.local.yaml
 *.log
+__pycache__/
