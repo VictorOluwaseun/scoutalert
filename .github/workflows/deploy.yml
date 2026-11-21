@@ -37,7 +37,6 @@ jobs:
           test -n "$DEPLOY_ROLE" || { echo 'Configure AWS_DEPLOY_ROLE_ARN first; see infrastructure/production/auto-deployment.md'; exit 1; }
           bash -n infrastructure/production/deploy.sh
           python3 -m unittest discover -s infrastructure/production -p 'test_*.py'
-          node scripts/check-architecture.mjs
         env:
           DEPLOY_ROLE: ${{ vars.AWS_DEPLOY_ROLE_ARN }}
 

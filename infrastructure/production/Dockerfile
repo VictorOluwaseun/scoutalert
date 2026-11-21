@@ -23,6 +23,7 @@ RUN --mount=type=cache,id=scoutalert-pnpm,target=/pnpm/store \
 
 FROM dependencies AS application-build
 COPY . .
+RUN node scripts/check-architecture.mjs
 RUN pnpm --filter api... --filter worker... -r build
 RUN --mount=type=cache,id=scoutalert-pnpm,target=/pnpm/store \
     pnpm --filter api deploy --legacy --prod /release/api --store-dir=/pnpm/store
