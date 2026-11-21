@@ -17,13 +17,17 @@ export interface EmailSubmission {
 
 /** Normalizes submission failures without exposing a provider SDK to application use cases. */
 export class EmailSubmissionError extends Error {
+  readonly fallbackAllowed: boolean;
+
   /** Marks explicit rejection or an uncertain submission; uncertain outcomes require reconciliation before retry. */
   constructor(
     readonly outcome: "rejected" | "unknown",
-    options?: { cause: unknown },
+    options?: { cause?: unknown; fallbackAllowed?: boolean },
   ) {
     super("The email submission was not confirmed.", options);
     this.name = "EmailSubmissionError";
+    this.fallbackAllowed =
+      outcome === "rejected" && options?.fallbackAllowed === true;
   }
 }
 

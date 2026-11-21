@@ -5,6 +5,7 @@ import {
   type EmailSubmission,
 } from "@repo/core/notifications";
 import type { SmtpClient } from "../../clients/email/smtp-client.js";
+import { smtpSubmissionError } from "./smtp-submission-error.js";
 
 /** Sender identity supplied by validated composition configuration. */
 export interface EmailSender {
@@ -50,7 +51,7 @@ export class SmtpEmailProvider extends EmailProvider {
         html: message.html,
       })
       .catch((cause: unknown) => {
-        throw new EmailSubmissionError("unknown", { cause });
+        throw smtpSubmissionError(cause);
       });
 
     if (result.rejected.length > 0) {

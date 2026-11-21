@@ -5,6 +5,8 @@ export {
   type EmailSubmission,
 } from "./application/ports/email-provider.js";
 
+export { FallbackEmailProvider } from "./application/fallback-email-provider.js";
+
 export {
   EmailTemplates,
   type EmailContent,
