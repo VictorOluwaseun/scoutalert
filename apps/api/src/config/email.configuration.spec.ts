@@ -165,4 +165,73 @@ describe('shared email configuration', () => {
     );
     expect(message).not.toContain('secret-canary');
   });
+
+  it('keeps fallback disabled by default and validates both providers independently when enabled', () => {
+    expect(
+      readEmailConfiguration(production).fallbackTransport,
+    ).toBeUndefined();
+    const config = readEmailConfiguration({
+      ...production,
+      EMAIL_FALLBACK_ENABLED: 'true',
+      SMTP_FALLBACK_HOST: 'smtp.backup.example',
+      SMTP_FALLBACK_PORT: '465',
+      SMTP_FALLBACK_USER: 'backup-user',
+      SMTP_FALLBACK_PASSWORD: ' backup password ',
+    });
+    expect(config.transport.auth).toEqual({
+      user: 'fixture-user',
+      pass: 'fixture-password',
+    });
+    expect(config.fallbackTransport).toEqual({
+      host: 'smtp.backup.example',
+      port: 465,
+      secure: true,
+      requireTLS: true,
+      auth: { user: 'backup-user', pass: ' backup password ' },
+      tls: { minVersion: 'TLSv1.2', rejectUnauthorized: true },
+    });
+    expect(config.sender.address).toBe(production.EMAIL_FROM_ADDRESS);
+  });
+
+  it.each([
+    ['SMTP_FALLBACK_HOST', undefined],
+    ['SMTP_FALLBACK_USER', ''],
+    ['SMTP_FALLBACK_PASSWORD', 'secret-canary\r\n'],
+    ['SMTP_FALLBACK_PORT', '0'],
+    ['SMTP_FALLBACK_SECURE', 'yes'],
+  ])(
+    'rejects invalid fallback %s without revealing credentials',
+    (field, value) => {
+      expect(() =>
+        readEmailConfiguration({
+          ...production,
+          EMAIL_FALLBACK_ENABLED: 'true',
+          SMTP_FALLBACK_HOST: 'smtp.backup.example',
+          SMTP_FALLBACK_USER: 'backup-user',
+          SMTP_FALLBACK_PASSWORD: 'backup-password',
+          [field]: value,
+        }),
+      ).toThrow(`Configure valid email settings. Invalid fields: ${field}.`);
+    },
+  );
+
+  it('refuses unintended real fallback from local capture and rejects conflicting backup TLS settings', () => {
+    expect(() =>
+      readEmailConfiguration({ EMAIL_FALLBACK_ENABLED: 'true' }),
+    ).toThrow('requires EMAIL_PROVIDER=smtp');
+    expect(() =>
+      readEmailConfiguration({ ...production, EMAIL_FALLBACK_ENABLED: 'yes' }),
+    ).toThrow('EMAIL_FALLBACK_ENABLED');
+    expect(() =>
+      readEmailConfiguration({
+        ...production,
+        EMAIL_FALLBACK_ENABLED: 'true',
+        SMTP_FALLBACK_HOST: 'smtp.backup.example',
+        SMTP_FALLBACK_PORT: '587',
+        SMTP_FALLBACK_SECURE: 'true',
+        SMTP_FALLBACK_USER: 'backup-user',
+        SMTP_FALLBACK_PASSWORD: 'backup-password',
+      }),
+    ).toThrow('SMTP_FALLBACK_SECURE');
+  });
 });

@@ -67,7 +67,10 @@ import {
   ScoutEmailTemplates,
   PostgresOpportunityDeliveryRepository,
 } from "@repo/adapters/notifications";
-import { DeliverOpportunityDigests } from "@repo/core/notifications";
+import {
+  DeliverOpportunityDigests,
+  FallbackEmailProvider,
+} from "@repo/core/notifications";
 import {
   RefreshSource,
   ResearchAvailability,
@@ -111,6 +114,9 @@ export const WORKER_RESOURCES = Symbol("WORKER_RESOURCES");
           namespace: config.TEMPORAL_NAMESPACE,
         });
         const smtp = createSmtpClient(config.email.transport);
+        const fallbackSmtp = config.email.fallbackTransport
+          ? createSmtpClient(config.email.fallbackTransport)
+          : null;
         const records = new PostgresScoutingRepository(
           db,
           config.beta.enabled
@@ -240,9 +246,16 @@ export const WORKER_RESOURCES = Symbol("WORKER_RESOURCES");
           evaluator,
           new PostgresRelevanceFeedbackRepository(db),
         );
+        const primaryEmail = new SmtpEmailProvider(smtp, config.email.sender);
+        const email = fallbackSmtp
+          ? new FallbackEmailProvider(
+              primaryEmail,
+              new SmtpEmailProvider(fallbackSmtp, config.email.sender),
+            )
+          : primaryEmail;
         const delivery = new DeliverOpportunityDigests(
           new PostgresOpportunityDeliveryRepository(db),
-          new SmtpEmailProvider(smtp, config.email.sender),
+          email,
           new ScoutEmailTemplates(config.email.publicOrigin),
         );
 
@@ -251,6 +264,7 @@ export const WORKER_RESOURCES = Symbol("WORKER_RESOURCES");
           redis,
           db,
           smtp,
+          fallbackSmtp,
           connection,
           temporal,
           activities: new ScoutingActivityHost(
@@ -369,6 +383,7 @@ export type WorkerResources = {
   config: ReturnType<typeof readWorkerConfiguration>;
   db: ReturnType<typeof createPostgresClient>;
   smtp: ReturnType<typeof createSmtpClient>;
+  fallbackSmtp: ReturnType<typeof createSmtpClient> | null;
   connection: Connection;
   temporal: Client;
   activities: ScoutingActivityHost;

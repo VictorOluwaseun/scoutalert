@@ -25,6 +25,8 @@ export class SmtpFixture {
     private readonly mode: 'starttls' | 'implicit' | 'plaintext',
     private readonly certificate: { key: string; cert: string },
     private readonly rejectAuthentication = false,
+    private readonly failure:
+      'none' | 'temporary' | 'recipient' | 'disconnect-after-data' = 'none',
   ) {
     this.server =
       mode === 'implicit'
@@ -51,6 +53,9 @@ export class SmtpFixture {
   async close(): Promise<void> {
     for (const socket of this.sockets) {
       socket.destroy();
+    }
+    if (!this.server.listening) {
+      return;
     }
     await new Promise<void>((resolve, reject) =>
       this.server.close((error) => (error ? reject(error) : resolve())),
@@ -93,10 +98,7 @@ export class SmtpFixture {
       return;
     }
     if (session.receiving) {
-      session.receiving = false;
-      this.messages.push(session.lines.join('\r\n'));
-      session.lines = [];
-      socket.write('250 queued\r\n');
+      this.finishMessage(socket, session);
       return;
     }
     const command = line.split(' ')[0]!.toUpperCase();
@@ -142,7 +144,15 @@ export class SmtpFixture {
       return;
     }
     if (command === 'MAIL' || command === 'RCPT') {
-      socket.write('250 accepted\r\n');
+      socket.write(
+        command === 'RCPT' && this.failure === 'recipient'
+          ? '550 5.1.1 Unknown recipient\r\n'
+          : '250 accepted\r\n',
+      );
+      return;
+    }
+    if (command === 'DATA' && this.failure === 'temporary') {
+      socket.write('452 4.3.1 Provider quota reached\r\n');
       return;
     }
     if (command === 'DATA') {
@@ -155,5 +165,17 @@ export class SmtpFixture {
       return;
     }
     socket.write('502 command unavailable\r\n');
+  }
+
+  /** Simulates a server that received a full message but loses its acknowledgement, exposing duplicate-send risks. */
+  private finishMessage(socket: Socket, session: Session): void {
+    session.receiving = false;
+    this.messages.push(session.lines.join('\r\n'));
+    session.lines = [];
+    if (this.failure === 'disconnect-after-data') {
+      socket.destroy();
+      return;
+    }
+    socket.write('250 queued\r\n');
   }
 }

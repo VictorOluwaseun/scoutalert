@@ -11,6 +11,7 @@ import {
   EmailModule,
   EMAIL_CONFIGURATION,
   SMTP_CLIENT,
+  FALLBACK_SMTP_CLIENT,
 } from '../composition/email.module.js';
 import { loadLocalEnvironment } from '../config/environment.js';
 
@@ -32,6 +33,11 @@ async function checkEmail(): Promise<void> {
     console.log(
       `${configuration.provider === 'smtp' ? 'Authenticated TLS SMTP' : 'Mailpit'} connection verified.`,
     );
+    const fallback = app.get<SmtpClient | null>(FALLBACK_SMTP_CLIENT);
+    if (fallback) {
+      await fallback.verify();
+      console.log('Fallback authenticated TLS SMTP connection verified.');
+    }
     if (!values.to) {
       console.log(
         'No message sent. Use --to=your-address to test sender acceptance and inbox arrival.',

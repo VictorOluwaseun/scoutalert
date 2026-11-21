@@ -6,6 +6,7 @@ import type { EmailSender } from "./delivery/smtp-email-provider.js";
 export interface EmailConfiguration {
   provider: "mailpit" | "smtp";
   transport: SMTPPoolOptions;
+  fallbackTransport?: SMTPPoolOptions;
   sender: EmailSender;
   publicOrigin: string;
 }
@@ -56,6 +57,76 @@ const smtpSchema = z.object({
     .max(4096)
     .regex(/^[^\r\n]+$/),
 });
+
+const fallbackEnabledSchema = z.object({
+  EMAIL_FALLBACK_ENABLED: z.enum(["true", "false"]).default("false"),
+});
+
+const fallbackSchema = z.object({
+  SMTP_FALLBACK_HOST: smtpSchema.shape.SMTP_HOST,
+  SMTP_FALLBACK_PORT: smtpSchema.shape.SMTP_PORT,
+  SMTP_FALLBACK_SECURE: smtpSchema.shape.SMTP_SECURE,
+  SMTP_FALLBACK_USER: smtpSchema.shape.SMTP_USER,
+  SMTP_FALLBACK_PASSWORD: smtpSchema.shape.SMTP_PASSWORD,
+});
+
+/** Applies identical certificate and STARTTLS requirements to each independently authenticated provider. */
+function smtpTransport(
+  settings: Pick<
+    z.infer<typeof smtpSchema>,
+    "SMTP_HOST" | "SMTP_PORT" | "SMTP_SECURE" | "SMTP_USER" | "SMTP_PASSWORD"
+  >,
+  prefix: "SMTP" | "SMTP_FALLBACK",
+): SMTPPoolOptions {
+  const secure =
+    settings.SMTP_SECURE === undefined
+      ? settings.SMTP_PORT === 465
+      : settings.SMTP_SECURE === "true";
+  if (
+    (settings.SMTP_PORT === 465 && !secure) ||
+    (settings.SMTP_PORT === 587 && secure)
+  ) {
+    throw new Error(
+      `Configure ${prefix}_SECURE=true for port 465 or false for STARTTLS on port 587.`,
+    );
+  }
+
+  return {
+    host: settings.SMTP_HOST,
+    port: settings.SMTP_PORT,
+    secure,
+    requireTLS: true,
+    auth: { user: settings.SMTP_USER, pass: settings.SMTP_PASSWORD },
+    tls: { minVersion: "TLSv1.2", rejectUnauthorized: true },
+  };
+}
+
+/** An explicit switch enables the backup; incomplete credentials fail startup instead of silently disabling it. */
+function fallbackTransport(
+  environment: Record<string, string | undefined>,
+  provider: "mailpit" | "smtp",
+): SMTPPoolOptions | undefined {
+  const enabled = parseSettings(fallbackEnabledSchema, environment);
+  if (enabled.EMAIL_FALLBACK_ENABLED === "false") {
+    return undefined;
+  }
+
+  if (provider !== "smtp") {
+    throw new Error("EMAIL_FALLBACK_ENABLED requires EMAIL_PROVIDER=smtp.");
+  }
+
+  const settings = parseSettings(fallbackSchema, environment);
+  return smtpTransport(
+    {
+      SMTP_HOST: settings.SMTP_FALLBACK_HOST,
+      SMTP_PORT: settings.SMTP_FALLBACK_PORT,
+      SMTP_SECURE: settings.SMTP_FALLBACK_SECURE,
+      SMTP_USER: settings.SMTP_FALLBACK_USER,
+      SMTP_PASSWORD: settings.SMTP_FALLBACK_PASSWORD,
+    },
+    "SMTP_FALLBACK",
+  );
+}
 
 /** Validates configuration without echoing supplied values, credentials, or provider errors. */
 function parseSettings<T>(
@@ -143,6 +214,7 @@ export function readEmailConfiguration(
       "Configure EMAIL_PROVIDER=smtp and production sender credentials; Mailpit is a local email provider.",
     );
   }
+  const fallback = fallbackTransport(environment, provider);
   if (provider === "mailpit") {
     const settings = parseSettings(mailpitSchema, environment);
     return {
@@ -158,33 +230,15 @@ export function readEmailConfiguration(
   }
 
   const settings = parseSettings(smtpSchema, environment);
-  const secure =
-    settings.SMTP_SECURE === undefined
-      ? settings.SMTP_PORT === 465
-      : settings.SMTP_SECURE === "true";
   if (isTestDomain(settings.EMAIL_FROM_ADDRESS.split("@")[1]!)) {
     throw new Error(
       "Configure EMAIL_FROM_ADDRESS on your provider-verified sending domain; test domains cannot send production email.",
     );
   }
-  if (
-    (settings.SMTP_PORT === 465 && !secure) ||
-    (settings.SMTP_PORT === 587 && secure)
-  ) {
-    throw new Error(
-      "Configure SMTP_SECURE=true for port 465 or false for STARTTLS on port 587.",
-    );
-  }
   return {
     provider,
-    transport: {
-      host: settings.SMTP_HOST,
-      port: settings.SMTP_PORT,
-      secure,
-      requireTLS: true,
-      auth: { user: settings.SMTP_USER, pass: settings.SMTP_PASSWORD },
-      tls: { minVersion: "TLSv1.2", rejectUnauthorized: true },
-    },
+    transport: smtpTransport(settings, "SMTP"),
+    ...(fallback ? { fallbackTransport: fallback } : {}),
     sender: sender(settings),
     publicOrigin: publicOrigin(environment, provider),
   };

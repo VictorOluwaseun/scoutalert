@@ -17,11 +17,20 @@ describe("configured daily budget limits", () => {
       SMTP_PASSWORD: "fixture-password",
       EMAIL_FROM_ADDRESS: "alerts@scoutalert.dev",
       SCOUTALERT_WEB_ORIGIN: "https://app.scoutalert.dev",
+      EMAIL_FALLBACK_ENABLED: "true",
+      SMTP_FALLBACK_HOST: "smtp.backup.example",
+      SMTP_FALLBACK_USER: "backup-user",
+      SMTP_FALLBACK_PASSWORD: "backup-password",
     });
     expect(production.email).toMatchObject({
       provider: "smtp",
       transport: { secure: false, requireTLS: true },
       sender: { address: "alerts@scoutalert.dev" },
+      fallbackTransport: {
+        host: "smtp.backup.example",
+        secure: false,
+        requireTLS: true,
+      },
     });
     expect(production.SCOUT_AI_DAILY_TOKENS).toBe(local.SCOUT_AI_DAILY_TOKENS);
     expect(production.SCOUT_AI_GPT54_DAILY_TOKENS).toBe(250_000);

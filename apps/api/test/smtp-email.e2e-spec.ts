@@ -22,6 +22,7 @@ describe.skipIf(process.env.SMTP_INTEGRATION !== '1')(
     let directory: string;
     let certificate: { key: string; cert: string };
     let fixture: SmtpFixture;
+    let backup: SmtpFixture | undefined;
     let app: INestApplicationContext | undefined;
 
     beforeAll(() => {
@@ -59,6 +60,8 @@ describe.skipIf(process.env.SMTP_INTEGRATION !== '1')(
       await app?.close();
       app = undefined;
       await fixture?.close();
+      await backup?.close();
+      backup = undefined;
     });
 
     afterAll(() => {
@@ -70,8 +73,16 @@ describe.skipIf(process.env.SMTP_INTEGRATION !== '1')(
       mode: 'starttls' | 'implicit' | 'plaintext',
       trustCertificate = true,
       rejectAuthentication = false,
+      failure:
+        'none' | 'temporary' | 'recipient' | 'disconnect-after-data' = 'none',
+      fallback: 'none' | 'enabled' | 'disconnect-after-data' = 'none',
     ): Promise<SmtpClient> {
-      fixture = new SmtpFixture(mode, certificate, rejectAuthentication);
+      fixture = new SmtpFixture(
+        mode,
+        certificate,
+        rejectAuthentication,
+        failure,
+      );
       const port = await fixture.listen();
       const config = readEmailConfiguration({
         NODE_ENV: 'production',
@@ -90,6 +101,20 @@ describe.skipIf(process.env.SMTP_INTEGRATION !== '1')(
         servername: 'localhost',
         ...(trustCertificate ? { ca: certificate.cert } : {}),
       };
+      if (fallback !== 'none') {
+        backup = new SmtpFixture(
+          'starttls',
+          certificate,
+          false,
+          fallback === 'disconnect-after-data' ? fallback : 'none',
+        );
+        config.fallbackTransport = {
+          ...config.transport,
+          port: await backup.listen(),
+          secure: false,
+          tls: { ...config.transport.tls, ca: certificate.cert },
+        };
+      }
       app = await Test.createTestingModule({ imports: [EmailModule] })
         .overrideProvider(EMAIL_CONFIGURATION)
         .useValue(config)
@@ -161,6 +186,90 @@ describe.skipIf(process.env.SMTP_INTEGRATION !== '1')(
       await expect(smtp.verify()).rejects.toMatchObject({ code: 'EAUTH' });
       expect(fixture.authenticationEncrypted).toEqual([true]);
       expect(fixture.messages).toEqual([]);
+    });
+
+    const message = {
+      id: 'fallback-signin',
+      recipient: 'recipient@scoutalert.test',
+      subject: 'Your ScoutAlert sign-in code',
+      text: 'Your ScoutAlert code is 123456.',
+    };
+
+    it('uses only the primary when both authenticated providers are available', async () => {
+      await compose('starttls', true, false, 'none', 'enabled');
+      await expect(
+        app!.get(EmailProvider).send(message),
+      ).resolves.toMatchObject({ status: 'accepted' });
+      expect(fixture.messages).toHaveLength(1);
+      expect(backup!.messages).toHaveLength(0);
+      expect(backup!.authenticationEncrypted).toHaveLength(0);
+    });
+
+    it.each(['authentication', 'quota', 'connection'] as const)(
+      'uses backup once after primary %s failure and preserves the code and message ID',
+      async (reason) => {
+        await compose(
+          'starttls',
+          true,
+          reason === 'authentication',
+          reason === 'quota' ? 'temporary' : 'none',
+          'enabled',
+        );
+        if (reason === 'connection') {
+          await fixture.close();
+        }
+        await expect(
+          app!.get(EmailProvider).send(message),
+        ).resolves.toMatchObject({ status: 'accepted' });
+        expect(fixture.messages).toHaveLength(0);
+        expect(backup!.messages).toHaveLength(1);
+        expect(backup!.messages[0]).toContain(
+          'Your ScoutAlert code is 123456.',
+        );
+        expect(backup!.messages[0]).toContain(
+          '<fallback-signin@scoutalert.dev>',
+        );
+        expect(backup!.authenticationEncrypted.every(Boolean)).toBe(true);
+      },
+    );
+
+    it('does not try a second provider for an invalid recipient', async () => {
+      await compose('starttls', true, false, 'recipient', 'enabled');
+      await expect(app!.get(EmailProvider).send(message)).rejects.toMatchObject(
+        { outcome: 'rejected', fallbackAllowed: false },
+      );
+      expect(fixture.messages).toHaveLength(0);
+      expect(backup!.messages).toHaveLength(0);
+    });
+
+    it('holds a lost primary DATA acknowledgement and never duplicates the accepted message on backup', async () => {
+      await compose(
+        'starttls',
+        true,
+        false,
+        'disconnect-after-data',
+        'enabled',
+      );
+      await expect(app!.get(EmailProvider).send(message)).rejects.toMatchObject(
+        { outcome: 'unknown', fallbackAllowed: false },
+      );
+      expect(fixture.messages).toHaveLength(1);
+      expect(backup!.messages).toHaveLength(0);
+    });
+
+    it('preserves an uncertain backup outcome without a third attempt', async () => {
+      await compose(
+        'starttls',
+        true,
+        false,
+        'temporary',
+        'disconnect-after-data',
+      );
+      await expect(app!.get(EmailProvider).send(message)).rejects.toMatchObject(
+        { outcome: 'unknown', fallbackAllowed: false },
+      );
+      expect(fixture.messages).toHaveLength(0);
+      expect(backup!.messages).toHaveLength(1);
     });
   },
 );
